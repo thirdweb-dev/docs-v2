@@ -2,26 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+	box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+html {
+	scroll-behavior: smooth;
+	font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer base {
+	:root {
+		/* 100 - lightest, 900 - darkest */
+
+		/* neutral background colors */
+		--b-900: hsl(240 10% 4%);
+		--b-800: hsl(240 10% 6%);
+		--b-700: hsl(240 10% 12%);
+
+		/* neutral foreground colors */
+		--f-100: hsl(0 0% 98%);
+		--f-200: hsl(0 0% 60%);
+
+		/* others */
+		--accent-500: hsl(217deg 91% 60%);
+		--accent-600: hsl(221deg 83% 53%);
+
+		--danger-500: hsl(0deg 84% 60%);
+		--danger-600: hsl(0deg 72% 50%);
+
+		--radius: 0.5rem;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-b-900 text-f-100;
+	}
+}
+
+.styled-scrollbar {
+	scrollbar-gutter: stable;
+}
+
+.styled-scrollbar::-webkit-scrollbar {
+	width: 0.5rem;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+	border-radius: 0.5rem;
+	background: var(--b-700);
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+	background-color: transparent;
 }
