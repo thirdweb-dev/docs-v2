@@ -25,7 +25,7 @@ export type GoReference = {
 
 export async function fetchGoReference() {
 	const res = await fetch(
-		"https://ipfs.io/ipfs/QmbHv4kipbGqt2LV7knv17s8syFqhh4HdXeN4cEU1V6AVA/go-output.json",
+		"https://cf-ipfs.com/ipfs/QmbHv4kipbGqt2LV7knv17s8syFqhh4HdXeN4cEU1V6AVA/go-output.json",
 	);
 
 	if (!res.ok) {

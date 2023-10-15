@@ -23,7 +23,7 @@ export type PythonReference = {
 
 export async function fetchPythonReference() {
 	const res = await fetch(
-		"https://ipfs.io/ipfs/QmYXoK9hbdvEK11ymHnXaYFXRxAfseFcQHcXW16d4PT82T/python_output.json",
+		"https://cf-ipfs.com/ipfs/QmYXoK9hbdvEK11ymHnXaYFXRxAfseFcQHcXW16d4PT82T/python_output.json",
 	);
 
 	if (!res.ok) {
