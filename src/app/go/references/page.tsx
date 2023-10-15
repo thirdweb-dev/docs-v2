@@ -22,6 +22,12 @@ export default async function Page() {
 							href: `/go/references/${type.typeName}`,
 						};
 					}),
+					functions: goReference.functions.map((func) => {
+						return {
+							name: func.functionName,
+							href: `/go/references/${func.functionName}`,
+						};
+					}),
 				},
 			}}
 			crumbs={[
