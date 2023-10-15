@@ -1,10 +1,7 @@
-import { Button } from "@/components/ui/button";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
-import Image from "next/image";
-import { Nav } from "./Nav";
-import clsx from "clsx";
+import { Header } from "./Header";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -36,36 +33,5 @@ export default function RootLayout({
 				</div>
 			</body>
 		</html>
-	);
-}
-
-function Header() {
-	return (
-		<header
-			className={clsx(
-				"sticky top-0 z-50 w-full",
-				"flex flex-col gap-6",
-				"border-b bg-b-800",
-				"p-6 md:pb-3",
-			)}
-		>
-			{/* Logo */}
-			<div className="flex items-center gap-2">
-				<Image src="/icons/thirdweb-logo.svg" alt="" width={150} height={25} />
-				<span className="mt-1 text-lg leading-none tracking-wider text-f-200">
-					DOCS
-				</span>
-			</div>
-
-			{/* Desktop Nav */}
-			<div
-				className="hidden sm:block"
-				style={{
-					marginLeft: "-0.25rem",
-				}}
-			>
-				<Nav />
-			</div>
-		</header>
 	);
 }

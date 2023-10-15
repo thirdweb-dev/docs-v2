@@ -7,7 +7,7 @@ export function FunctionSignatureCode(props: {
 	lang: LangType;
 }) {
 	return (
-		<code className="flex flex-col rounded-md border bg-b-800 p-4 font-mono leading-relaxed text-f-100">
+		<code className="styled-scrollbar flex max-w-full flex-col overflow-x-auto rounded-md border bg-b-800 p-3 font-mono text-sm leading-relaxed text-f-100">
 			<span className="text-f-200"> {props.name}( </span>
 			<div className="pl-5">
 				{props.args.map((arg) => {
