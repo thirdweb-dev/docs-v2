@@ -1,5 +1,3 @@
-"use client";
-
 import { LangType, MethodType } from "./types";
 import { Anchor } from "../ui/Anchor";
 import { FunctionSignatureCode } from "./SignatureCode";

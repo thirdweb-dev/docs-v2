@@ -40,6 +40,7 @@ export type ReferenceLayoutProps = {
 		name: string;
 		href: string;
 	}>;
+	customContent?: React.ReactNode;
 	selected?:
 		| {
 				type: "class";

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ChevronDown, Menu } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu } from "lucide-react";
 import clsx from "clsx";
 
 import {
@@ -111,15 +111,15 @@ export function Header() {
 									<Button
 										variant="ghost"
 										size="sm"
-										className="inline-flex gap-1 text-f-300"
+										className="inline-flex gap-1 text-f-300 hover:text-f-100"
 									>
 										References
-										<ChevronDown className="w-4 text-f-300" />
+										<ChevronRight className="w-4 text-f-300" />
 									</Button>
 								</DropdownMenuTrigger>
 
 								<DropdownMenuContent
-									className="flex flex-col gap-1 bg-b-900 p-3"
+									className="flex flex-col gap-1 bg-b-800 p-3"
 									style={{
 										width: "150px",
 									}}
@@ -131,8 +131,8 @@ export function Header() {
 													href={info.href}
 													prefetch={false}
 													className={clsx(
-														"flex cursor-pointer !p-2 text-f-200",
-														"hover:bg-b-800 hover:text-f-100",
+														"flex cursor-pointer text-f-200",
+														"hover:bg-b-700 hover:text-f-100",
 													)}
 												>
 													{info.name}
@@ -146,10 +146,22 @@ export function Header() {
 
 						{/* References Link for mobile */}
 						<div className="md:hidden">
-							<NavLink name="References" href="/references" />
+							<NavLink
+								name="References"
+								href="/references"
+								onClick={() => {
+									setShowBurgerMenu(false);
+								}}
+							/>
 						</div>
 
-						<NavLink name="Changelog" href="/changelog" />
+						<NavLink
+							name="Changelog"
+							href="/changelog"
+							onClick={() => {
+								setShowBurgerMenu(false);
+							}}
+						/>
 					</div>
 				</nav>
 			</div>
@@ -157,11 +169,12 @@ export function Header() {
 	);
 }
 
-function NavLink(props: { href: string; name: string }) {
+function NavLink(props: { href: string; name: string; onClick?: () => void }) {
 	const pathname = usePathname();
 	return (
 		<Link
 			href={props.href}
+			onClick={props.onClick}
 			className={clsx(
 				"text-sm transition-colors hover:text-f-200",
 				pathname === props.href ? "text-f-200" : "text-f-300 ",

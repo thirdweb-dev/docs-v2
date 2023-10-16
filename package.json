@@ -20,6 +20,7 @@
 		"next": "13.5.4",
 		"react": "^18",
 		"react-dom": "^18",
+		"shiki": "^0.14.5",
 		"tailwind-merge": "^1.14.0",
 		"tailwindcss-animate": "^1.0.7"
 	},

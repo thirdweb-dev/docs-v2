@@ -41,7 +41,11 @@ module.exports = {
 			},
 			danger: {
 				500: "var(--danger-500)",
-				600: "var(--danger-600)",
+				900: "var(--danger-900)",
+			},
+			warning: {
+				500: "var(--warning-500)",
+				900: "var(--warning-900)",
 			},
 		},
 		borderRadius: {
@@ -61,12 +65,12 @@ module.exports = {
 			},
 			keyframes: {
 				"accordion-down": {
-					from: { height: 0 },
-					to: { height: "var(--radix-accordion-content-height)" },
+					from: { height: 0, opacity: 0 },
+					to: { height: "var(--radix-accordion-content-height)", opacity: 1 },
 				},
 				"accordion-up": {
-					from: { height: "var(--radix-accordion-content-height)" },
-					to: { height: 0 },
+					from: { height: "var(--radix-accordion-content-height)", opacity: 1 },
+					to: { height: 0, opacity: 0 },
 				},
 			},
 			animation: {

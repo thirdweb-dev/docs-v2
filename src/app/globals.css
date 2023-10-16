@@ -32,7 +32,10 @@ html {
 		--accent-900: rgba(82, 186, 255, 0.05);
 
 		--danger-500: hsl(0deg 84% 60%);
-		--danger-600: hsl(0deg 72% 50%);
+		--danger-900: #331515;
+
+		--warning-500: #fdba74;
+		--warning-900: #3d2914;
 
 		--radius: 0.5rem;
 		--header-height: 70px;
@@ -74,4 +77,8 @@ html {
 
 button {
 	-webkit-tap-highlight-color: transparent;
+}
+
+.codeBlockContainer pre {
+	@apply rounded-md p-4 !bg-b-800 border overflow-x-auto selection:bg-b-700;
 }

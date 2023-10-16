@@ -1,6 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import type { SideBarLink } from "./types";
 import clsx from "clsx";
+
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 import {
 	Accordion,
@@ -8,25 +17,25 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useState } from "react";
+import { Button } from "../ui/button";
+import { ChevronDown, ChevronRight, X } from "lucide-react";
 
-export function ReferenceSideBar(props: {
+type ReferenceSideBarProps = {
 	links: {
 		classes?: SideBarLink[];
 		functions?: SideBarLink[];
 	};
+	onLinkClick?: () => void;
 	activeLink?: string;
 	name: string;
-}) {
+};
+
+export function ReferenceSideBar(props: ReferenceSideBarProps) {
 	const { classes, functions } = props.links;
 
 	return (
-		<aside
-			className={clsx(
-				"fixed top-0 h-full w-[280px] shrink-0 flex-col overflow-y-hidden bg-b-900",
-				"md:sticky md:top-header-height md:h-sidebar-height",
-				"hidden md:flex md:translate-x-0",
-			)}
-		>
+		<aside className="flex h-full flex-col">
 			{/* Side bar Name */}
 			<p className="py-5 text-f-100">{props.name}</p>
 
@@ -35,6 +44,7 @@ export function ReferenceSideBar(props: {
 					<div className="flex flex-col gap-1">
 						{classes && (
 							<ReferenceSideBarCategory
+								onLinkClick={props.onLinkClick}
 								links={classes}
 								activeLink={props.activeLink}
 								category="Classes"
@@ -44,6 +54,7 @@ export function ReferenceSideBar(props: {
 
 						{functions && (
 							<ReferenceSideBarCategory
+								onLinkClick={props.onLinkClick}
 								links={functions}
 								activeLink={props.activeLink}
 								category="Functions"
@@ -62,6 +73,7 @@ function ReferenceSideBarCategory(props: {
 	activeLink?: string;
 	category: string;
 	id: string;
+	onLinkClick?: () => void;
 }) {
 	return (
 		<AccordionItem value={props.id} className="border-none">
@@ -83,9 +95,11 @@ function ReferenceSideBarCategory(props: {
 							>
 								<Link
 									href={link.href}
+									onClick={props.onLinkClick}
+									scroll={false}
 									className={clsx(
 										"flex rounded-md p-2 text-sm transition-colors duration-300",
-										isActive ? "!bg-b-700 !text-f-100" : "text-f-300",
+										isActive ? "bg-b-800 !text-f-100" : "text-f-300",
 										"hover:bg-b-800 hover:text-f-100",
 									)}
 								>
@@ -97,5 +111,48 @@ function ReferenceSideBarCategory(props: {
 				</ul>
 			</AccordionContent>
 		</AccordionItem>
+	);
+}
+
+export function ReferenceMenuMobile(props: ReferenceSideBarProps) {
+	const [open, _setOpen] = useState(false);
+
+	const setOpen = (value: boolean) => {
+		if (value) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "auto";
+		}
+		_setOpen(value);
+	};
+
+	return (
+		<DropdownMenu open={open} onOpenChange={setOpen}>
+			<DropdownMenuTrigger asChild>
+				<Button className="mt-5 w-full justify-between border bg-b-800 py-6 text-left text-f-100 md:hidden">
+					{props.activeLink || "References"}
+					<ChevronDown
+						className={clsx(
+							"h-5 w-5 text-f-300 transition-transform",
+							open && "rotate-180",
+						)}
+					/>
+				</Button>
+			</DropdownMenuTrigger>
+
+			<DropdownMenuContent asChild sideOffset={10} align="center" side="bottom">
+				<div className="max-h-[70vh] w-[calc(100vw-32px)] overflow-y-auto rounded-lg border bg-b-800 px-4">
+					<ReferenceSideBar
+						{...props}
+						onLinkClick={() => {
+							setOpen(false);
+							if (props.onLinkClick) {
+								props.onLinkClick();
+							}
+						}}
+					/>
+				</div>
+			</DropdownMenuContent>
+		</DropdownMenu>
 	);
 }

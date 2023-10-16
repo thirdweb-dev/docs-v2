@@ -2,27 +2,38 @@ import type { ReferenceLayoutProps } from "./types";
 import { Methods } from "./Methods";
 import { Properties } from "./Properties";
 import { FunctionSignatureCode } from "./SignatureCode";
-import { ReferenceSideBar } from "./Sidebar";
+import { ReferenceMenuMobile, ReferenceSideBar } from "./Sidebar";
 import { Breadcrumb } from "../ui/Breadcrumb";
+import { Button } from "../ui/button";
+import clsx from "clsx";
 
 export function ReferenceLayout(props: ReferenceLayoutProps) {
-	const { selected } = props;
+	const { selected, sideBar, customContent } = props;
 
 	return (
 		<main className="container relative grow">
 			<div className="flex gap-8">
 				{/* Left */}
-				<ReferenceSideBar {...props.sideBar} />
+				<div
+					className={clsx(
+						"sticky top-header-height h-sidebar-height w-[280px] shrink-0 flex-col overflow-y-hidden",
+						"hidden md:flex",
+					)}
+				>
+					<ReferenceSideBar {...sideBar} />
+				</div>
 
-				<div className="w-full max-w-6xl pb-20 pt-6">
+				<div className="w-full max-w-6xl overflow-hidden pb-20 pt-6">
 					<Breadcrumb crumbs={props.crumbs} />
 
-					<div className="h-7" />
+					<ReferenceMenuMobile {...sideBar} />
+
+					<div className="h-8" />
 
 					{selected && (
-						<div className="flex flex-col gap-14">
+						<div className="flex flex-col gap-12 duration-300 animate-in fade-in-0">
 							{/* Name & Description */}
-							<div className="flex flex-col gap-6">
+							<div className="flex flex-col gap-4">
 								<h1 className="break-all text-2xl font-semibold tracking-tight text-f-100 md:text-3xl">
 									{selected.name}
 								</h1>
@@ -67,11 +78,11 @@ export function ReferenceLayout(props: ReferenceLayoutProps) {
 						</div>
 					)}
 
-					{!selected && <div className=""> TODO TABLE </div>}
+					{!selected && customContent}
 				</div>
 
-				{/* Right */}
-				<div className="hidden w-64 shrink-0 md:block"></div>
+				{/* Right - only for xl */}
+				<div className="hidden w-64 shrink-0 xl:block"></div>
 			</div>
 		</main>
 	);
