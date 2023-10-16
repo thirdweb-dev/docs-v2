@@ -20,3 +20,43 @@ export type ArgType = {
 };
 
 export type LangType = "python" | "go" | "ts";
+
+export type SideBarLink = {
+	name: string;
+	href: string;
+};
+
+export type ReferenceLayoutProps = {
+	lang: LangType;
+	sideBar: {
+		name: string;
+		links: {
+			classes?: SideBarLink[];
+			functions?: SideBarLink[];
+		};
+		activeLink?: string;
+	};
+	crumbs: Array<{
+		name: string;
+		href: string;
+	}>;
+	customContent?: React.ReactNode;
+	selected?:
+		| {
+				type: "class";
+				name: string;
+				description?: string;
+				methods?: MethodType[];
+				properties?: PropertyType[];
+		  }
+		| {
+				type: "function";
+				name: string;
+				description?: string;
+				return?: {
+					type: string;
+					description?: string;
+				};
+				args?: ArgType[];
+		  };
+};

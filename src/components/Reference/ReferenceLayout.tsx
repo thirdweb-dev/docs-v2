@@ -1,201 +1,89 @@
-import Link from "next/link";
-import { headerHeight } from "@/constants";
-import type { ArgType, LangType, MethodType, PropertyType } from "./types";
+import type { ReferenceLayoutProps } from "./types";
 import { Methods } from "./Methods";
 import { Properties } from "./Properties";
-import clsx from "clsx";
-import { Anchor } from "../ui/Anchor";
 import { FunctionSignatureCode } from "./SignatureCode";
+import { ReferenceMenuMobile, ReferenceSideBar } from "./Sidebar";
+import { Breadcrumb } from "../ui/Breadcrumb";
+import { Button } from "../ui/button";
+import clsx from "clsx";
 
-export function ReferenceLayout(props: {
-	lang: LangType;
-	sideBar: {
-		name: string;
-		links: {
-			classes?: SideBarLink[];
-			functions?: SideBarLink[];
-		};
-		activeLink: string;
-	};
-	selected:
-		| {
-				type: "class";
-				name: string;
-				description?: string;
-				methods?: MethodType[];
-				properties?: PropertyType[];
-		  }
-		| {
-				type: "function";
-				name: string;
-				description?: string;
-				return?: {
-					type: string;
-					description?: string;
-				};
-				args?: ArgType[];
-		  };
-}) {
-	const { selected } = props;
+export function ReferenceLayout(props: ReferenceLayoutProps) {
+	const { selected, sideBar, customContent } = props;
 
 	return (
-		<main className="relative grow">
-			<div
-				className="grid md:grid-cols-[minmax(250px,min-content)_1fr_350px]"
-				style={{
-					display: "grid",
-					gridGap: "1rem",
-				}}
-			>
+		<main className="container relative grow">
+			<div className="flex gap-8">
 				{/* Left */}
-				<div className="hidden md:block">
-					<SideBar {...props.sideBar} />
+				<div
+					className={clsx(
+						"sticky top-header-height h-sidebar-height w-[280px] shrink-0 flex-col overflow-y-hidden",
+						"hidden md:flex",
+					)}
+				>
+					<ReferenceSideBar {...sideBar} />
 				</div>
 
-				{/* Center */}
-				<div className="flex flex-col gap-14 p-6 pt-10">
-					{/* Name & Description */}
-					<div className="flex flex-col gap-6">
-						<h1 className="break-all font-mono text-xl md:text-4xl md:font-medium">
-							{selected.name}
-						</h1>
+				<div className="w-full max-w-6xl overflow-hidden pb-20 pt-6">
+					<Breadcrumb crumbs={props.crumbs} />
 
-						{selected.description && (
-							<p className="text-lg text-f-200">{selected.description}</p>
-						)}
-					</div>
+					<ReferenceMenuMobile {...sideBar} />
 
-					{selected.type === "class" && (
-						<>
-							{/* Methods */}
-							{selected.methods && selected.methods.length > 0 && (
-								<Methods methods={selected.methods} lang={props.lang} />
+					<div className="h-8" />
+
+					{selected && (
+						<div className="flex flex-col gap-12 duration-300 animate-in fade-in-0">
+							{/* Name & Description */}
+							<div className="flex flex-col gap-4">
+								<h1 className="break-all text-2xl font-semibold tracking-tight text-f-100 md:text-3xl">
+									{selected.name}
+								</h1>
+
+								{selected.description && (
+									<p className="break-all text-base leading-7 text-f-200">
+										{selected.description}
+									</p>
+								)}
+							</div>
+
+							{selected.type === "class" && (
+								<>
+									{/* Methods */}
+									{selected.methods && selected.methods.length > 0 && (
+										<Methods methods={selected.methods} lang={props.lang} />
+									)}
+
+									{/* Properties */}
+									{selected.properties && selected.properties.length > 0 && (
+										<Properties properties={selected.properties} />
+									)}
+								</>
 							)}
 
-							{/* Properties */}
-							{selected.properties && selected.properties.length > 0 && (
-								<Properties properties={selected.properties} />
+							{selected.type === "function" && (
+								<>
+									{selected.args && selected.args.length > 0 && (
+										<div>
+											<h2 className="text-lg text-f-300"> Signature </h2>
+											<div className="h-3"></div>
+											<FunctionSignatureCode
+												name={selected.name}
+												args={selected.args}
+												returnType={selected.return?.type}
+												lang={props.lang}
+											/>
+										</div>
+									)}
+								</>
 							)}
-						</>
+						</div>
 					)}
 
-					{selected.type === "function" && (
-						<>
-							{selected.args && selected.args.length > 0 && (
-								<div>
-									<h2 className="text-3xl text-accent-500"> Signature </h2>
-									<div className="h-4"></div>
-									<FunctionSignatureCode
-										name={selected.name}
-										args={selected.args}
-										returnType={selected.return?.type}
-										lang={props.lang}
-									/>
-								</div>
-							)}
-						</>
-					)}
+					{!selected && customContent}
 				</div>
 
-				{/* Right */}
-				<div className="p-6"></div>
+				{/* Right - only for xl */}
+				<div className="hidden w-64 shrink-0 xl:block"></div>
 			</div>
 		</main>
-	);
-}
-
-type SideBarLink = {
-	name: string;
-	href: string;
-};
-
-function SideBar(props: {
-	links: {
-		classes?: SideBarLink[];
-		functions?: SideBarLink[];
-	};
-	activeLink: string;
-	name: string;
-}) {
-	const { classes, functions } = props.links;
-
-	return (
-		<div
-			className={clsx(
-				"styled-scrollbar sticky overflow-y-scroll",
-				"p-8 pb-10 pr-2",
-			)}
-			style={{
-				height: `calc(100vh - ${headerHeight}px)`,
-				top: headerHeight + "px",
-			}}
-		>
-			<p className="mb-5 text-xl">{props.name}</p>
-
-			<div className="flex flex-col gap-10">
-				{classes && (
-					<SideBarLinkItemList
-						links={classes}
-						activeLink={props.activeLink}
-						category="Classes"
-						id="classes"
-					/>
-				)}
-
-				{functions && (
-					<SideBarLinkItemList
-						links={functions}
-						activeLink={props.activeLink}
-						category="Functions"
-						id="functions"
-					/>
-				)}
-			</div>
-		</div>
-	);
-}
-
-function SideBarLinkItemList(props: {
-	links: SideBarLink[];
-	activeLink: string;
-	category: string;
-	id: string;
-}) {
-	return (
-		<div>
-			<Anchor id={props.id}>
-				<h2 className="text-lg text-accent-500"> {props.category} </h2>
-			</Anchor>
-
-			<ul className="mt-5 flex flex-col gap-4 pr-3">
-				{props.links.map((link) => {
-					return (
-						<SideBarLinkItem
-							key={link.name}
-							link={link}
-							activeLink={props.activeLink}
-						/>
-					);
-				})}
-			</ul>
-		</div>
-	);
-}
-
-function SideBarLinkItem(props: { link: SideBarLink; activeLink: string }) {
-	return (
-		<li>
-			<Link
-				scroll={true}
-				href={props.link.href}
-				className={
-					props.activeLink === props.link.name
-						? "font-mono text-f-100"
-						: "font-mono text-f-200"
-				}
-			>
-				{props.link.name}
-			</Link>
-		</li>
 	);
 }

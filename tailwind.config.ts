@@ -11,7 +11,7 @@ module.exports = {
 	theme: {
 		container: {
 			center: true,
-			padding: "2rem",
+			padding: "1rem",
 			screens: {
 				"2xl": "1400px",
 			},
@@ -32,14 +32,20 @@ module.exports = {
 			f: {
 				100: "var(--f-100)",
 				200: "var(--f-200)",
+				300: "var(--f-300)",
 			},
 			accent: {
 				500: "var(--accent-500)",
 				600: "var(--accent-600)",
+				900: "var(--accent-900)",
 			},
 			danger: {
 				500: "var(--danger-500)",
-				600: "var(--danger-600)",
+				900: "var(--danger-900)",
+			},
+			warning: {
+				500: "var(--warning-500)",
+				900: "var(--warning-900)",
 			},
 		},
 		borderRadius: {
@@ -52,19 +58,24 @@ module.exports = {
 			mono: ["var(--font-mono)", "monospace"],
 		},
 		extend: {
+			spacing: {
+				"header-height": "var(--header-height)",
+				"sidebar-height": "calc(100vh - var(--header-height))",
+				"offset-top": "calc(var(--header-height) + 18px)",
+			},
 			keyframes: {
 				"accordion-down": {
-					from: { height: 0 },
-					to: { height: "var(--radix-accordion-content-height)" },
+					from: { height: 0, opacity: 0 },
+					to: { height: "var(--radix-accordion-content-height)", opacity: 1 },
 				},
 				"accordion-up": {
-					from: { height: "var(--radix-accordion-content-height)" },
-					to: { height: 0 },
+					from: { height: "var(--radix-accordion-content-height)", opacity: 1 },
+					to: { height: 0, opacity: 0 },
 				},
 			},
 			animation: {
-				"accordion-down": "accordion-down 0.2s ease-out",
-				"accordion-up": "accordion-up 0.2s ease-out",
+				"accordion-down": "accordion-down 0.3s ease-out",
+				"accordion-up": "accordion-up 0.3s ease-out",
 			},
 		},
 	},

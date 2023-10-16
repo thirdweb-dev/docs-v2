@@ -20,3 +20,15 @@ export type PythonReference = {
 		comments: string | null;
 	}[];
 };
+
+export async function fetchPythonReference() {
+	const res = await fetch(
+		"https://cf-ipfs.com/ipfs/QmYXoK9hbdvEK11ymHnXaYFXRxAfseFcQHcXW16d4PT82T/python_output.json",
+	);
+
+	if (!res.ok) {
+		throw new Error("Failed to fetch python references");
+	}
+
+	return (await res.json()) as PythonReference;
+}
