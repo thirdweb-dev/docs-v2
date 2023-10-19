@@ -35,7 +35,7 @@ export function ReferenceSideBar(props: ReferenceSideBarProps) {
 	const { classes, functions } = props.links;
 
 	return (
-		<aside className="flex h-full flex-col">
+		<div className="flex h-full flex-col">
 			{/* Side bar Name */}
 			<p className="py-5 text-f-100">{props.name}</p>
 
@@ -64,7 +64,7 @@ export function ReferenceSideBar(props: ReferenceSideBarProps) {
 					</div>
 				</Accordion>
 			</div>
-		</aside>
+		</div>
 	);
 }
 
