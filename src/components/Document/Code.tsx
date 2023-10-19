@@ -17,7 +17,7 @@ export async function CodeBlock(props: {
 
 	return (
 		<div
-			className={`codeBlockContainer mb-5 block font-mono text-sm leading-6`}
+			className={`codeBlockContainer my-3 block font-mono text-sm leading-6`}
 			dangerouslySetInnerHTML={{
 				__html: html,
 			}}

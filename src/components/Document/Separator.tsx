@@ -1,0 +1,3 @@
+export function Separator() {
+	return <hr className="my-10 border-b-2 border-b-700" />;
+}
