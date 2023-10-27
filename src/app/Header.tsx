@@ -55,6 +55,14 @@ const references = [
 		name: "React",
 		href: "/react/references",
 	},
+	{
+		name: "React Native",
+		href: "/react-native/references",
+	},
+	{
+		name: "Storage",
+		href: "/storage/references",
+	},
 ];
 
 export function Header() {

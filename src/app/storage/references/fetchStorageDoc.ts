@@ -1,7 +1,7 @@
 import type { TransformedDoc } from "typedoc-better-json";
-import doc from "../test/doc.json";
+import doc from "./test/storage-doc.json";
 
-export async function fetchTSDoc(): Promise<TransformedDoc> {
+export async function fetchStorageDoc(): Promise<TransformedDoc> {
 	// const res = await fetch(
 	// 	"https://cf-ipfs.com/ipfs/QmZuGsqdSGUogkQiz4WzxcbpVA2DaWXC2NGbxruLriAMmi/documentation.json",
 	// );

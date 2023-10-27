@@ -6,14 +6,14 @@ import {
 	getSlugToDocMap,
 } from "../../../../components/RenderDoc/slugs";
 import Content from "./content.mdx";
-import { fetchReactDoc } from "../fetchReactDoc";
+import { fetchStorageDoc } from "../fetchStorageDoc";
 
 export const dynamicParams = false;
 
 type PageProps = { params: { slug?: [docName: string] } };
 
 export default async function Page(props: PageProps) {
-	const doc = await fetchReactDoc();
+	const doc = await fetchStorageDoc();
 	const slugToDoc = getSlugToDocMap(doc);
 	const docName = props.params.slug ? props.params.slug[0] : undefined;
 
@@ -31,7 +31,7 @@ export default async function Page(props: PageProps) {
 }
 
 export async function generateStaticParams() {
-	const doc = await fetchReactDoc();
+	const doc = await fetchStorageDoc();
 	const slugs = fetchAllSlugs(doc);
 
 	return [
@@ -45,13 +45,13 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
-	const doc = await fetchReactDoc();
+	const doc = await fetchStorageDoc();
 	const docName = props.params.slug ? props.params.slug[0] : undefined;
 	const slugToDoc = getSlugToDocMap(doc);
 
 	if (!docName) {
 		return {
-			title: `React SDK | thirdweb docs`,
+			title: `Storage SDK | thirdweb docs`,
 		};
 	}
 
@@ -62,6 +62,6 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 	}
 
 	return {
-		title: `${selectedDoc.name} - React SDK`,
+		title: `${selectedDoc.name} - Storage SDK`,
 	};
 }

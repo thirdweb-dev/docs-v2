@@ -1,11 +1,8 @@
 import { notFound } from "next/navigation";
-import { fetchTSDoc } from "./utils/fetchTSDoc";
+import { fetchTSDoc } from "../fetchTSDoc";
 import { RenderDoc } from "@/components/RenderDoc/RenderDoc";
 import { Metadata } from "next";
-import {
-	fetchAllSlugs,
-	getSlugToDocMap,
-} from "../../../../components/RenderDoc/slugs";
+import { fetchAllSlugs, getSlugToDocMap } from "@/components/RenderDoc/slugs";
 import Content from "./content.mdx";
 
 export const dynamicParams = false;

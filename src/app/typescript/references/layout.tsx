@@ -1,5 +1,5 @@
 import { ReferenceLayout } from "@/components/Reference/ReferenceLayout";
-import { fetchTSDoc } from "./[[...slug]]/utils/fetchTSDoc";
+import { fetchTSDoc } from "./fetchTSDoc";
 import { getSidebarLinkGroups } from "../../../components/RenderDoc/getSidebarLinkgroups";
 
 type PageProps = {

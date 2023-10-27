@@ -1,0 +1,1341 @@
+{
+	"functions": [
+		{
+			"kind": "function",
+			"name": "isFileOrBuffer",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "data",
+							"type": "any"
+						}
+					],
+					"returns": {
+						"type": "data is ((File) | (Buffer) | (BufferOrStringWithName))"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/common/utils.ts#L40"
+		}
+	],
+	"types": [
+		{
+			"kind": "type",
+			"name": "IStorageDownloader",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/download.ts#L4"
+		},
+		{
+			"kind": "type",
+			"name": "IStorageUploader",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/upload.ts#L11"
+		},
+		{
+			"kind": "type",
+			"name": "IThirdwebStorage",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/index.ts#L17"
+		},
+		{
+			"kind": "type",
+			"name": "GatewayUrls",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/download.ts#L54",
+			"type": "{}"
+		},
+		{
+			"kind": "type",
+			"name": "IpfsDownloaderOptions",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/download.ts#L22",
+			"type": "{ clientId: string, secretKey: string, timeoutInSeconds: number }",
+			"typeDeclaration": [
+				{
+					"name": "clientId",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional clientId to associate with the IpfsDownloader - when used from the frontend.\nYou can get a clientId here: https://thirdweb.com/create-api-key"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "secretKey",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional secretKey to associate with the IpfsDownloader - when used from the backend.\nYou can get an secretKey here: https://thirdweb.com/create-api-key"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "timeoutInSeconds",
+					"type": "number",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional timeout in seconds for the download request, overrides the default timeout"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "IpfsUploadBatchOptions",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/upload.ts#L68",
+			"type": "{ alwaysUpload: boolean, metadata: Record<string, string>, onProgress: ((event : UploadProgressEvent) => void), rewriteFileNames: { fileStartNumber: number }, uploadWithGatewayUrl: boolean, uploadWithoutDirectory: boolean }",
+			"typeDeclaration": [
+				{
+					"name": "alwaysUpload",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optionally, always reupload even if the file already exists"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "metadata",
+					"type": "Record<string, string>",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional metadata to associate with this upload"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "onProgress",
+					"type": "((event : UploadProgressEvent) => void)"
+				},
+				{
+					"name": "rewriteFileNames",
+					"type": "{ fileStartNumber: number }",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If specified, will rewrite file names to numbers for use on-chain.\nUseful to use with NFT contracts that map token IDs to files."
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "uploadWithGatewayUrl",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If specified, any URLs with schemes will be replaced with resolved URLs before upload"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "uploadWithoutDirectory",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If specified, will upload a single file without wrapping it in a directory"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "IpfsUploaderOptions",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/upload.ts#L44",
+			"type": "{ clientId: string, secretKey: string, uploadServerUrl: string, uploadWithGatewayUrl: boolean }",
+			"typeDeclaration": [
+				{
+					"name": "clientId",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional clientId to associate with the IpfsUploader.\nYou can get an clientId here: https://thirdweb.com/create-api-key"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "secretKey",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional secretKey to associate with the IpfsUploader - when used from the backend.\nYou can get an secretKey here: https://thirdweb.com/create-api-key"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "uploadServerUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional upload server url to use instead of the default. (Advanced Usage)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "uploadWithGatewayUrl",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Whether or not to replace any URLs with schemes with resolved URLs before upload"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "SingleDownloadOptions",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/download.ts#L40",
+			"type": "{ maxRetries: number, timeoutInSeconds: number }",
+			"typeDeclaration": [
+				{
+					"name": "maxRetries",
+					"type": "number",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Number of different gateways to attempt on failure"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "timeoutInSeconds",
+					"type": "number",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Optional timeout in seconds for the download request, overrides the default timeout"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "ThirdwebStorageOptions",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/index.ts#L8",
+			"type": "{ clientId: string, downloader: IStorageDownloader, gatewayUrls: (GatewayUrls) | (string[]), secretKey: string, uploadServerUrl: string, uploader: IStorageUploader<T> }",
+			"typeDeclaration": [
+				{
+					"name": "clientId",
+					"type": "string"
+				},
+				{
+					"name": "downloader",
+					"type": "IStorageDownloader"
+				},
+				{
+					"name": "gatewayUrls",
+					"type": "(GatewayUrls) | (string[])"
+				},
+				{
+					"name": "secretKey",
+					"type": "string"
+				},
+				{
+					"name": "uploadServerUrl",
+					"type": "string"
+				},
+				{
+					"name": "uploader",
+					"type": "IStorageUploader<T>"
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "UploadOptions",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/upload.ts#L6",
+			"type": "{}"
+		},
+		{
+			"kind": "type",
+			"name": "UploadProgressEvent",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/types/upload.ts#L29",
+			"type": "{ progress: number, total: number }",
+			"typeDeclaration": [
+				{
+					"name": "progress",
+					"type": "number",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The number of bytes uploaded."
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "total",
+					"type": "number",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The total number of bytes to be uploaded."
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"classes": [
+		{
+			"kind": "class",
+			"name": "IpfsUploader",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L44",
+			"summary": [
+				{
+					"type": "paragraph",
+					"children": [
+						{
+							"type": "text",
+							"value": "Default uploader used - handles uploading arbitrary data to IPFS"
+						}
+					]
+				}
+			],
+			"blockTags": [
+				{
+					"tag": "@example",
+					"summary": [
+						{
+							"type": "code",
+							"lang": "jsx",
+							"meta": null,
+							"value": "// Can instantiate the uploader with default configuration and your client ID when used in client-side applications\nconst uploader = new StorageUploader();\nconst clientId = \"your-client-id\";\nconst storage = new ThirdwebStorage({ clientId, uploader });\n\n// Can instantiate the uploader with default configuration and your secret key when used in server-side applications\nconst uploader = new StorageUploader();\nconst secretKey = \"your-secret-key\";\nconst storage = new ThirdwebStorage({ secretKey, uploader });\n\n// Or optionally, can pass configuration\nconst options = {\n  // Upload objects with resolvable URLs\n  uploadWithGatewayUrl: true,\n}\nconst uploader = new StorageUploader(options);\nconst clientId = \"your-client-id\";\nconst storage = new ThirdwebStorage({ clientId, uploader });"
+						}
+					]
+				}
+			],
+			"constructor": {
+				"kind": "function",
+				"name": "constructor",
+				"signatures": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "IpfsUploaderOptions",
+								"flags": {
+									"isOptional": true
+								}
+							}
+						],
+						"returns": {
+							"type": "IpfsUploader"
+						}
+					}
+				],
+				"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L50"
+			},
+			"methods": [
+				{
+					"kind": "function",
+					"name": "buildFormData",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "form",
+									"type": "FormData"
+								},
+								{
+									"name": "files",
+									"type": "FileOrBufferOrString[]"
+								},
+								{
+									"name": "options",
+									"type": "IpfsUploadBatchOptions",
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"returns": {
+								"type": "{ fileNames: string[], form: FormData }"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L77"
+				},
+				{
+					"kind": "function",
+					"name": "uploadBatch",
+					"signatures": [
+						{
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Upload an array of arbitrary file data or JSON strings"
+										}
+									]
+								}
+							],
+							"parameters": [
+								{
+									"name": "data",
+									"type": "FileOrBufferOrString[]",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "Array of arbitrary file data or JSON strings to upload"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "options",
+									"type": "IpfsUploadBatchOptions",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "Options to pass through to the uploader"
+												}
+											]
+										}
+									],
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"blockTags": [],
+							"returns": {
+								"type": "Promise<string[]>",
+								"summary": [
+									{
+										"type": "paragraph",
+										"children": [
+											{
+												"type": "text",
+												"value": "Array of uploaded file URIs"
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L57"
+				},
+				{
+					"kind": "function",
+					"name": "uploadBatchBrowser",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "form",
+									"type": "FormData"
+								},
+								{
+									"name": "fileNames",
+									"type": "string[]"
+								},
+								{
+									"name": "options",
+									"type": "IpfsUploadBatchOptions",
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"returns": {
+								"type": "Promise<string[]>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L173"
+				},
+				{
+					"kind": "function",
+					"name": "uploadBatchNode",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "form",
+									"type": "FormData"
+								},
+								{
+									"name": "fileNames",
+									"type": "string[]"
+								},
+								{
+									"name": "options",
+									"type": "IpfsUploadBatchOptions",
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"returns": {
+								"type": "Promise<string[]>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L327"
+				}
+			],
+			"properties": [
+				{
+					"kind": "variable",
+					"name": "clientId",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L47",
+					"type": "string",
+					"flags": {
+						"isPrivate": true,
+						"isOptional": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "secretKey",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L48",
+					"type": "string",
+					"flags": {
+						"isPrivate": true,
+						"isOptional": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "uploadServerUrl",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L46",
+					"type": "string",
+					"flags": {
+						"isPrivate": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "uploadWithGatewayUrl",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If specified, will upload objects with gateway URLs instead of schemes"
+								}
+							]
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/uploaders/ipfs-uploader.ts#L45",
+					"type": "boolean",
+					"flags": {
+						"isPublic": true
+					}
+				}
+			],
+			"implements": ["IStorageUploader<IpfsUploadBatchOptions>"]
+		},
+		{
+			"kind": "class",
+			"name": "StorageDownloader",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L30",
+			"summary": [
+				{
+					"type": "paragraph",
+					"children": [
+						{
+							"type": "text",
+							"value": "Default downloader used - handles downloading from all schemes specified in the gateway URLs configuration."
+						}
+					]
+				}
+			],
+			"blockTags": [
+				{
+					"tag": "@example",
+					"summary": [
+						{
+							"type": "code",
+							"lang": "jsx",
+							"meta": null,
+							"value": "// Can instantiate the downloader with the default gateway URLs\nconst downloader = new StorageDownloader();\n\n// client id if used in client-side applications\nconst clientId = \"your-client-id\";\nconst storage = new ThirdwebStorage({ clientId, downloader });\n\n// secret key if used in server-side applications\nconst secretKey = \"your-secret-key\";\nconst storage = new ThirdwebStorage({ secretKey, downloader });"
+						}
+					]
+				}
+			],
+			"constructor": {
+				"kind": "function",
+				"name": "constructor",
+				"signatures": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "IpfsDownloaderOptions"
+							}
+						],
+						"returns": {
+							"type": "StorageDownloader"
+						}
+					}
+				],
+				"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L38"
+			},
+			"methods": [
+				{
+					"kind": "function",
+					"name": "download",
+					"signatures": [
+						{
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Download arbitrary data from any URL scheme"
+										}
+									]
+								}
+							],
+							"parameters": [
+								{
+									"name": "uri",
+									"type": "string",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "The URL to download data from"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "gatewayUrls",
+									"type": "GatewayUrls",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "The gateway URLs to use for this download"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "options",
+									"type": "SingleDownloadOptions",
+									"flags": {
+										"isOptional": true
+									}
+								},
+								{
+									"name": "attempts",
+									"type": "number"
+								}
+							],
+							"blockTags": [],
+							"returns": {
+								"type": "Promise<Response>",
+								"summary": [
+									{
+										"type": "paragraph",
+										"children": [
+											{
+												"type": "text",
+												"value": "The response object of the fetch"
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L45"
+				}
+			],
+			"properties": [
+				{
+					"kind": "variable",
+					"name": "DEFAULT_MAX_RETRIES",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L32",
+					"type": "number"
+				},
+				{
+					"kind": "variable",
+					"name": "DEFAULT_TIMEOUT_IN_SECONDS",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L31",
+					"type": "number"
+				},
+				{
+					"kind": "variable",
+					"name": "clientId",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L35",
+					"type": "string",
+					"flags": {
+						"isPrivate": true,
+						"isOptional": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "defaultTimeout",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L36",
+					"type": "number",
+					"flags": {
+						"isPrivate": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "secretKey",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/downloaders/storage-downloader.ts#L34",
+					"type": "string",
+					"flags": {
+						"isPrivate": true,
+						"isOptional": true
+					}
+				}
+			],
+			"implements": ["IStorageDownloader"]
+		},
+		{
+			"kind": "class",
+			"name": "ThirdwebStorage",
+			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L58",
+			"summary": [
+				{
+					"type": "paragraph",
+					"children": [
+						{
+							"type": "text",
+							"value": "Upload and download files from decentralized storage systems."
+						}
+					]
+				}
+			],
+			"blockTags": [
+				{
+					"tag": "@example",
+					"summary": [
+						{
+							"type": "code",
+							"lang": "jsx",
+							"meta": null,
+							"value": "// Create a default storage class with a client ID when used in client-side applications\nconst storage = new ThirdwebStorage({ clientId: \"your-client-id\" });\n\n// Create a default storage class with a secret key when used in server-side applications\nconst storage = new ThirdwebStorage({ secretKey: \"your-secret-key\" });\n\nYou can get a clientId and secretKey from https://thirdweb.com/create-api-key\n\n// Upload any file or JSON object\nconst uri = await storage.upload(data);\nconst result = await storage.download(uri);\n\n// Or configure a custom uploader, downloader, and gateway URLs\nconst gatewayUrls = {\n  // We define a mapping of schemes to gateway URLs\n  \"ipfs://\": [\n    \"https://ipfs.thirdwebcdn.com/ipfs/\",\n    \"https://cloudflare-ipfs.com/ipfs/\",\n    \"https://ipfs.io/ipfs/\",\n  ],\n};\nconst downloader = new StorageDownloader();\nconst uploader = new IpfsUploader();\nconst clientId = \"your-client-id\";\nconst storage = new ThirdwebStorage({ clientId, uploader, downloader, gatewayUrls });"
+						}
+					]
+				}
+			],
+			"constructor": {
+				"kind": "function",
+				"name": "constructor",
+				"signatures": [
+					{
+						"parameters": [
+							{
+								"name": "options",
+								"type": "ThirdwebStorageOptions<T>",
+								"flags": {
+									"isOptional": true
+								}
+							}
+						],
+						"typeParameters": [
+							{
+								"name": "T",
+								"extendsType": "UploadOptions"
+							}
+						],
+						"returns": {
+							"type": "ThirdwebStorage<T>"
+						}
+					}
+				],
+				"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L66"
+			},
+			"methods": [
+				{
+					"kind": "function",
+					"name": "download",
+					"signatures": [
+						{
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Downloads arbitrary data from any URL scheme."
+										}
+									]
+								}
+							],
+							"parameters": [
+								{
+									"name": "url",
+									"type": "string",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "The URL of the data to download"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "options",
+									"type": "SingleDownloadOptions",
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "const uri = \"ipfs://example\";\nconst data = await storage.download(uri);"
+										}
+									]
+								}
+							],
+							"returns": {
+								"type": "Promise<Response>",
+								"summary": [
+									{
+										"type": "paragraph",
+										"children": [
+											{
+												"type": "text",
+												"value": "The response object fetched from the resolved URL"
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L122"
+				},
+				{
+					"kind": "function",
+					"name": "downloadJSON",
+					"signatures": [
+						{
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Downloads JSON data from any URL scheme.\nResolves any URLs with schemes to retrievable gateway URLs."
+										}
+									]
+								}
+							],
+							"parameters": [
+								{
+									"name": "url",
+									"type": "string",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "The URL of the JSON data to download"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "options",
+									"type": "SingleDownloadOptions",
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"typeParameters": [
+								{
+									"name": "TJSON"
+								}
+							],
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "const uri = \"ipfs://example\";\nconst json = await storage.downloadJSON(uri);"
+										}
+									]
+								}
+							],
+							"returns": {
+								"type": "Promise<TJSON>",
+								"summary": [
+									{
+										"type": "paragraph",
+										"children": [
+											{
+												"type": "text",
+												"value": "The JSON data fetched from the resolved URL"
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L142"
+				},
+				{
+					"kind": "function",
+					"name": "getGatewayUrls",
+					"signatures": [
+						{
+							"returns": {
+								"type": "GatewayUrls"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L246"
+				},
+				{
+					"kind": "function",
+					"name": "resolveScheme",
+					"signatures": [
+						{
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Resolve any scheme on a URL to get a retrievable URL for the data"
+										}
+									]
+								}
+							],
+							"parameters": [
+								{
+									"name": "url",
+									"type": "string",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "The URL to resolve the scheme of"
+												}
+											]
+										}
+									]
+								}
+							],
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "const uri = \"ipfs://example\";\nconst url = storage.resolveScheme(uri);\nconsole.log(url);"
+										}
+									]
+								}
+							],
+							"returns": {
+								"type": "string",
+								"summary": [
+									{
+										"type": "paragraph",
+										"children": [
+											{
+												"type": "text",
+												"value": "The URL with its scheme resolved"
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L101"
+				},
+				{
+					"kind": "function",
+					"name": "upload",
+					"signatures": [
+						{
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Upload arbitrary file or JSON data using the configured decentralized storage system.\nAutomatically uploads any file data within JSON objects and replaces them with hashes."
+										}
+									]
+								}
+							],
+							"parameters": [
+								{
+									"name": "data",
+									"type": "unknown",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "Arbitrary file or JSON data to upload"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "options",
+									"type": "T",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "Options to pass through to the storage uploader class"
+												}
+											]
+										}
+									],
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "// Upload file data\nconst file = readFileSync(\"../file.jpg\");\nconst fileUri = await storage.upload(file);\n\n// Or upload a JSON object\nconst json = { name: \"JSON\", image: file };\nconst jsonUri = await storage.upload(json);"
+										}
+									]
+								}
+							],
+							"returns": {
+								"type": "Promise<string>",
+								"summary": [
+									{
+										"type": "list",
+										"ordered": false,
+										"start": null,
+										"spread": false,
+										"children": [
+											{
+												"type": "listItem",
+												"spread": false,
+												"checked": null,
+												"children": [
+													{
+														"type": "paragraph",
+														"children": [
+															{
+																"type": "text",
+																"value": "The URI of the uploaded data"
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L176"
+				},
+				{
+					"kind": "function",
+					"name": "uploadAndReplaceFilesWithHashes",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "data",
+									"type": "unknown[]"
+								},
+								{
+									"name": "options",
+									"type": "T",
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"returns": {
+								"type": "Promise<unknown[]>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L250"
+				},
+				{
+					"kind": "function",
+					"name": "uploadBatch",
+					"signatures": [
+						{
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Batch upload arbitrary file or JSON data using the configured decentralized storage system.\nAutomatically uploads any file data within JSON objects and replaces them with hashes."
+										}
+									]
+								}
+							],
+							"parameters": [
+								{
+									"name": "data",
+									"type": "unknown[]",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "Array of arbitrary file or JSON data to upload"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "options",
+									"type": "T",
+									"summary": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "Options to pass through to the storage uploader class"
+												}
+											]
+										}
+									],
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "// Upload an array of file data\nconst files = [\n readFileSync(\"../file1.jpg\"),\n readFileSync(\"../file2.jpg\"),\n];\nconst fileUris = await storage.uploadBatch(files);\n\n// Upload an array of JSON objects\nconst objects = [\n { name: \"JSON 1\", image: files[0] },\n { name: \"JSON 2\", image: files[1] },\n];\nconst jsonUris = await storage.uploadBatch(objects);"
+										}
+									]
+								}
+							],
+							"returns": {
+								"type": "Promise<string[]>",
+								"summary": [
+									{
+										"type": "list",
+										"ordered": false,
+										"start": null,
+										"spread": false,
+										"children": [
+											{
+												"type": "listItem",
+												"spread": false,
+												"checked": null,
+												"children": [
+													{
+														"type": "paragraph",
+														"children": [
+															{
+																"type": "text",
+																"value": "The URIs of the uploaded data"
+															}
+														]
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L206"
+				}
+			],
+			"properties": [
+				{
+					"kind": "variable",
+					"name": "clientId",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L64",
+					"type": "string",
+					"flags": {
+						"isPrivate": true,
+						"isOptional": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "downloader",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L62",
+					"type": "IStorageDownloader",
+					"flags": {
+						"isPrivate": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "gatewayUrls",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L63",
+					"type": "GatewayUrls",
+					"flags": {
+						"isPrivate": true
+					}
+				},
+				{
+					"kind": "variable",
+					"name": "uploader",
+					"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/storage/src/core/storage.ts#L61",
+					"type": "IStorageUploader<T>",
+					"flags": {
+						"isPrivate": true
+					}
+				}
+			],
+			"implements": ["IThirdwebStorage"]
+		}
+	]
+}
