@@ -21,7 +21,7 @@
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
 		"lucide-react": "^0.286.0",
-		"next": "13.4",
+		"next": "~13.4",
 		"nextjs-toploader": "^1.5.3",
 		"prettier": "^3.0.3",
 		"react": "^18",
