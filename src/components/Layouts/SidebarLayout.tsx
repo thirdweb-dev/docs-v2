@@ -10,7 +10,7 @@ export function SidebarLayout(props: {
 			{/* Left */}
 			<aside
 				className={clsx(
-					"sticky top-header-height h-sidebar-height w-[280px] shrink-0 flex-col overflow-y-hidden",
+					"sticky top-header-height h-sidebar-height w-[300px] shrink-0 flex-col overflow-y-hidden",
 					"hidden md:flex",
 				)}
 			>

@@ -46,6 +46,7 @@ module.exports = {
 				500: "var(--warning-500)",
 				600: "var(--warning-600)",
 				900: "var(--warning-900)",
+				800: "var(--warning-800)",
 			},
 		},
 		borderRadius: {

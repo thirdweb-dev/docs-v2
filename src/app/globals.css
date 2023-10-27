@@ -17,8 +17,8 @@ html {
 		/* 100 - lightest, 900 - darkest */
 
 		/* neutral background colors */
-		--b-900: hsl(240deg 6.67% 4%);
-		--b-800: hsl(240deg 5% 6%);
+		--b-900: hsl(240deg 6.67% 0%);
+		--b-800: hsl(240deg 5% 4%);
 		--b-700: hsl(240deg 5% 10%);
 
 		/* neutral foreground colors */
@@ -34,9 +34,10 @@ html {
 		--danger-500: hsl(0deg 84% 60%);
 		--danger-900: #331515;
 
-		--warning-500: #fdba74;
+		--warning-500: hsl(30.66deg 97.16% 40%);
 		--warning-600: #f9a03f;
-		--warning-900: #3d2914;
+		--warning-800: hsl(30.73deg 50.62% 15%);
+		--warning-900: hsl(30.73deg 50.62% 10%);
 
 		--radius: 0.5rem;
 		--header-height: 70px;
@@ -58,6 +59,7 @@ html {
 
 .styled-scrollbar::-webkit-scrollbar {
 	width: 0.5rem;
+	height: 0.5rem;
 }
 
 @media (max-width: 640px) {
@@ -69,7 +71,12 @@ html {
 
 .styled-scrollbar::-webkit-scrollbar-thumb {
 	border-radius: 0.5rem;
+	transition: color 200ms ease;
 	background: var(--b-700);
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: var(--f-200);
 }
 
 .styled-scrollbar::-webkit-scrollbar-track {
