@@ -15,14 +15,14 @@ import { Lang } from "shiki";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	function getHeading(
-		as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+		depth: number,
 		props: {
 			children?: React.ReactNode;
 			id?: string;
 		},
 	) {
 		return (
-			<Heading as={as} id={props.id || nameToLink(props.children) || ""}>
+			<Heading level={depth} id={props.id || nameToLink(props.children) || ""}>
 				{props.children}
 			</Heading>
 		);
@@ -35,22 +35,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			return <DocLink href={href || ""}>{children}</DocLink>;
 		},
 		h1(props) {
-			return getHeading("h1", props);
+			return getHeading(1, props);
 		},
 		h2(props) {
-			return getHeading("h2", props);
+			return getHeading(2, props);
 		},
 		h3(props) {
-			return getHeading("h3", props);
+			return getHeading(3, props);
 		},
 		h4(props) {
-			return getHeading("h4", props);
+			return getHeading(4, props);
 		},
 		h5(props) {
-			return getHeading("h5", props);
+			return getHeading(5, props);
 		},
 		h6(props) {
-			return getHeading("h6", props);
+			return getHeading(6, props);
 		},
 		code(props) {
 			const code = props.children;

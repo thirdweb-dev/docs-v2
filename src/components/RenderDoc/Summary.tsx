@@ -6,7 +6,7 @@ import { Lang } from "shiki";
 import { UnorderedList } from "../Document/List";
 import { Heading } from "../Document/Heading";
 
-export function Summary(props: {
+export function RenderSummary(props: {
 	summary: NonNullable<FunctionSignature["summary"]>;
 }) {
 	return (
@@ -28,7 +28,7 @@ export function Summary(props: {
 						// TODO - link to doc
 						return (
 							<DocLink href={isUrlNum ? "" : s.url}>
-								<Summary summary={s.children} />
+								<RenderSummary summary={s.children} />
 							</DocLink>
 						);
 					}
@@ -36,7 +36,7 @@ export function Summary(props: {
 					case "paragraph": {
 						return (
 							<Paragraph>
-								<Summary summary={s.children} />
+								<RenderSummary summary={s.children} />
 							</Paragraph>
 						);
 					}
@@ -48,7 +48,7 @@ export function Summary(props: {
 					case "list": {
 						return (
 							<UnorderedList>
-								<Summary summary={s.children} />
+								<RenderSummary summary={s.children} />
 							</UnorderedList>
 						);
 					}
@@ -56,16 +56,15 @@ export function Summary(props: {
 					case "listItem": {
 						return (
 							<li>
-								<Summary summary={s.children} />
+								<RenderSummary summary={s.children} />
 							</li>
 						);
 					}
 
 					case "heading": {
-						const level = `h${s.depth}` as "h1" | "h2" | "h3" | "h4" | "h5";
 						return (
-							<Heading as={level} id="">
-								<Summary summary={s.children} />
+							<Heading level={s.depth} id="">
+								<RenderSummary summary={s.children} />
 							</Heading>
 						);
 					}
@@ -74,15 +73,21 @@ export function Summary(props: {
 					case "emphasis": {
 						return (
 							<em>
-								<Summary summary={s.children} />
+								<RenderSummary summary={s.children} />
 							</em>
 						);
+					}
+
+					case "thematicBreak": {
+						return <hr />;
 					}
 
 					default: {
 						// when this happens, we need to add a new case to the switch
 						console.log(props.summary);
-						throw new Error(`Unknown summary type: ${s.type}`);
+						console.warn(`Unknown summary type: ${s.type}`);
+
+						// throw new Error(`Unknown summary type: ${s.type}`);
 					}
 				}
 			})}

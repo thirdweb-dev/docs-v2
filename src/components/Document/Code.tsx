@@ -6,6 +6,20 @@ import * as parserBabel from "prettier/plugins/babel";
 import * as estree from "prettier/plugins/estree";
 import { cn } from "@/lib/utils";
 
+const bash = highlight.getLanguage("bash");
+
+if (bash) {
+	(bash.keywords as any).built_in = [
+		...(bash.keywords as any).built_in,
+		"yarn",
+		"npm",
+		"npx",
+		"pnpm",
+		"install",
+		"add",
+	];
+}
+
 export async function CodeBlock(props: { code: string; lang: string }) {
 	let code = props.code;
 
@@ -35,7 +49,7 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 	return (
 		<code className="my-3 block font-mono text-sm leading-6" lang={props.lang}>
 			<pre
-				className="max-h-[500px] overflow-auto rounded-md border bg-b-800 p-4 selection:bg-b-700"
+				className="styled-scrollbar max-h-[500px] overflow-auto rounded-md border bg-b-800 p-4 selection:bg-b-700"
 				dangerouslySetInnerHTML={{
 					__html: highlightedCode,
 				}}

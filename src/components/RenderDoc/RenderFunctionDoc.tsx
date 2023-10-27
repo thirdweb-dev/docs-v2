@@ -1,39 +1,42 @@
 import { FunctionDoc, FunctionSignature } from "typedoc-better-json";
 import { CodeBlock, InlineCode } from "../Document/Code";
-import { Summary } from "./Summary";
+import { RenderSummary } from "./Summary";
 import { Heading } from "../Document/Heading";
-import { DocLink } from "../Document/DocLink";
 import { Callout } from "../Document/Callout";
+import { SourceLink } from "./SourceLink";
+import { Details } from "../Document/Details";
+import { Deprecated } from "./Deprecated";
 
-export function RenderFunctionDoc(props: { doc: FunctionDoc }) {
+export function RenderFunctionDoc(props: {
+	doc: FunctionDoc;
+	level: number;
+	hideTitle?: boolean;
+}) {
 	const { doc } = props;
 	const multipleSignatures = doc.signatures
 		? doc.signatures?.length > 1
 		: false;
 
 	return (
-		<div>
-			<Heading as="h1" id={doc.name}>
-				{doc.name}
-			</Heading>
-
-			{doc.source && (
-				<DocLink href={doc.source} className="mb-8 block text-sm">
-					<span className="text-sm text-f-300"> Defined in </span>
-					{doc.source.split("/packages/")[1]}
-				</DocLink>
+		<>
+			{!props.hideTitle && (
+				<Heading level={props.level} id={doc.name}>
+					{doc.name}
+				</Heading>
 			)}
 
+			{doc.source && <SourceLink href={doc.source} />}
 			{doc.signatures &&
 				doc.signatures.map((signature, i) => (
 					<RenderFunctionSignature
 						signatureId={multipleSignatures ? i + 1 : undefined}
 						signature={signature}
 						name={doc.name}
+						level={props.level + 1}
 						key={i}
 					/>
 				))}
-		</div>
+		</>
 	);
 }
 
@@ -41,6 +44,7 @@ function RenderFunctionSignature(props: {
 	signature: FunctionSignature;
 	signatureId?: number;
 	name: string;
+	level: number;
 }) {
 	const { signature, name } = props;
 
@@ -53,29 +57,17 @@ function RenderFunctionSignature(props: {
 	const exampleTag = signature.blockTags?.find((t) => t.tag === "@example");
 
 	return (
-		<div>
+		<>
 			{props.signatureId && (
-				<Heading as="h2" id={`signature-${props.signatureId}`}>
+				<Heading level={props.level} id={`signature-${props.signatureId}`}>
 					Signature
 					<span className="font-normal text-f-300">#{props.signatureId}</span>
 				</Heading>
 			)}
 
-			{deprecatedTag && (
-				<Callout variant="warning" disableIcon>
-					<div className="flex w-full flex-col gap-2">
-						<div className="text-lg font-semibold"> Deprecated </div>
-						<div>
-							{deprecatedTag.summary && (
-								<Summary summary={deprecatedTag.summary} />
-							)}
-						</div>
-					</div>
-				</Callout>
-			)}
-
-			{signature.summary && <Summary summary={signature.summary} />}
-			{remarksTag?.summary && <Summary summary={remarksTag.summary} />}
+			{deprecatedTag && <Deprecated tag={deprecatedTag} />}
+			{signature.summary && <RenderSummary summary={signature.summary} />}
+			{remarksTag?.summary && <RenderSummary summary={remarksTag.summary} />}
 
 			<CodeBlock code={getFunctionSignatureCode(name, signature)} lang="ts" />
 
@@ -83,7 +75,7 @@ function RenderFunctionSignature(props: {
 				if (seeTag.summary) {
 					return (
 						<Callout variant="info" key={i}>
-							<Summary summary={seeTag.summary} />
+							<RenderSummary summary={seeTag.summary} />
 						</Callout>
 					);
 				}
@@ -91,60 +83,51 @@ function RenderFunctionSignature(props: {
 
 			{exampleTag && (
 				<div>
-					<Heading as="h3" id="example">
+					<Heading level={props.level} id="example">
 						Example
 					</Heading>
-					{exampleTag.summary && <Summary summary={exampleTag.summary} />}
+					{exampleTag.summary && <RenderSummary summary={exampleTag.summary} />}
 				</div>
 			)}
 
 			{signature.parameters && (
 				<div>
-					<Heading as="h3" id="params">
-						Parameters
-					</Heading>
-
-					<div className="flex flex-col ">
-						{props.signature.parameters?.map((param) => {
-							return (
-								<div key={param.name}>
-									<div>
-										<Heading
-											as="h4"
-											id={param.name}
-											anchorClassName="mt-4 "
-											className="flex gap-2 text-f-200"
-										>
-											{param.name}
-											{param.flags?.isOptional && (
-												<InlineCode
-													code="optional"
-													className="text-sm text-accent-500"
-												/>
-											)}
-										</Heading>
-										{param.type && (
-											<CodeBlock
-												code={`let ${param.name}: ${param.type}`}
-												lang="ts"
+					{props.signature.parameters?.map((param) => {
+						return (
+							<Details
+								key={param.name}
+								level={props.level + 1}
+								summary={
+									<span>
+										<span className="font-mono">{param.name}</span>
+										{param.flags?.isOptional && (
+											<InlineCode
+												code="optional"
+												className="ml-2 text-sm text-accent-500"
 											/>
 										)}
-									</div>
-								</div>
-							);
-						})}
-					</div>
+									</span>
+								}
+							>
+								{param.type && (
+									<CodeBlock
+										code={`let ${param.name}: ${param.type}`}
+										lang="ts"
+									/>
+								)}
+							</Details>
+						);
+					})}
 				</div>
 			)}
 
 			{signature.returns && (
-				<div>
-					<Heading as="h3" id="params">
-						Returns
-					</Heading>
-
+				<Details
+					summary={<span className="font-mono">Returns</span>}
+					level={props.level + 1}
+				>
 					{signature.returns.summary && (
-						<Summary summary={signature.returns.summary} />
+						<RenderSummary summary={signature.returns.summary} />
 					)}
 
 					{signature.returns.type && (
@@ -153,13 +136,16 @@ function RenderFunctionSignature(props: {
 							lang="ts"
 						/>
 					)}
-				</div>
+				</Details>
 			)}
-		</div>
+		</>
 	);
 }
 
-function getFunctionSignatureCode(name: string, signature: FunctionSignature) {
+export function getFunctionSignatureCode(
+	name: string,
+	signature: FunctionSignature,
+) {
 	const paramList = signature.parameters
 		? signature.parameters
 				.map((param) => {
