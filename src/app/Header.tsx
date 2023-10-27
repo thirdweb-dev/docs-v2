@@ -63,6 +63,10 @@ const references = [
 		name: "Storage",
 		href: "/storage/references",
 	},
+	{
+		name: "Wallets",
+		href: "/wallets/references",
+	},
 ];
 
 export function Header() {

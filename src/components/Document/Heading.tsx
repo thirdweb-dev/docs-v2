@@ -14,7 +14,7 @@ export function Heading(props: {
 				<Anchor id={props.id} className={cn("mb-5", props.anchorClassName)}>
 					<h1
 						className={cn(
-							"text-4xl font-bold tracking-tight text-f-100",
+							"text-4xl font-bold tracking-tight text-f-100 break-all",
 							props.className,
 						)}
 					>

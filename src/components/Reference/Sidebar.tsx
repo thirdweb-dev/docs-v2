@@ -87,9 +87,8 @@ function ReferenceSideBarCategory(props: {
 								<Link
 									href={link.href}
 									onClick={props.onLinkClick}
-									scroll={false}
 									className={clsx(
-										"flex rounded-md p-2 text-sm transition-colors duration-300",
+										"block text-ellipsis break-all rounded-md p-2 text-sm transition-colors duration-300",
 										isActive ? "!bg-b-700 !text-f-100" : "text-f-300",
 										"hover:bg-b-800 hover:text-f-100",
 									)}
