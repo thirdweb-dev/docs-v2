@@ -79,7 +79,3 @@ html {
 button {
 	-webkit-tap-highlight-color: transparent;
 }
-
-.codeBlockContainer pre {
-	@apply rounded-md p-4 !bg-b-800 border overflow-x-auto selection:bg-b-700 max-h-[500px] overflow-y-auto;
-}

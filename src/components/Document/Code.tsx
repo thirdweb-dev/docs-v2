@@ -1,46 +1,46 @@
-import shiki, { Lang } from "shiki";
-// import { format } from "prettier/standalone";
-// import * as parserBabel from "prettier/plugins/babel";
-// import * as estree from "prettier/plugins/estree";
+import highlight from "highlight.js";
+import "highlight.js/styles/github-dark.css";
+
+import { format } from "prettier/standalone";
+import * as parserBabel from "prettier/plugins/babel";
+import * as estree from "prettier/plugins/estree";
 import { cn } from "@/lib/utils";
 
-export async function CodeBlock(props: { code: string; lang: Lang }) {
-	const highlighter = await shiki.getHighlighter({
-		theme: "material-theme-darker",
-	});
-
+export async function CodeBlock(props: { code: string; lang: string }) {
 	let code = props.code;
 
-	// if (
-	// 	props.lang === "ts" ||
-	// 	props.lang === "js" ||
-	// 	props.lang === "jsx" ||
-	// 	props.lang === "tsx" ||
-	// 	props.lang === "javascript" ||
-	// 	props.lang === "typescript"
-	// ) {
-	// 	try {
-	// 		code = await format(code, {
-	// 			parser: "babel-ts",
-	// 			plugins: [parserBabel, estree],
-	// 			printWidth: 80,
-	// 		});
-	// 	} catch (e) {
-	// 		// ignore
-	// 	}
-	// }
+	if (
+		props.lang === "ts" ||
+		props.lang === "js" ||
+		props.lang === "jsx" ||
+		props.lang === "tsx" ||
+		props.lang === "javascript" ||
+		props.lang === "typescript"
+	) {
+		try {
+			code = await format(code, {
+				parser: "babel-ts",
+				plugins: [parserBabel, estree],
+				printWidth: 80,
+			});
+		} catch (e) {
+			// ignore
+		}
+	}
 
-	const codeHtml = highlighter.codeToHtml(code, {
-		lang: props.lang,
-	});
+	const highlightedCode = highlight.highlight(code, {
+		language: props.lang,
+	}).value;
 
 	return (
-		<div
-			className={`codeBlockContainer my-3 block font-mono text-sm leading-6`}
-			dangerouslySetInnerHTML={{
-				__html: codeHtml,
-			}}
-		></div>
+		<code className="my-3 block font-mono text-sm leading-6" lang={props.lang}>
+			<pre
+				className="max-h-[500px] overflow-auto rounded-md border bg-b-800 p-4 selection:bg-b-700"
+				dangerouslySetInnerHTML={{
+					__html: highlightedCode,
+				}}
+			></pre>
+		</code>
 	);
 }
 
