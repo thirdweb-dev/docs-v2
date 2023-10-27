@@ -1,7 +1,7 @@
 import shiki, { Lang } from "shiki";
-import { format } from "prettier/standalone";
-import * as parserBabel from "prettier/plugins/babel";
-import * as estree from "prettier/plugins/estree";
+// import { format } from "prettier/standalone";
+// import * as parserBabel from "prettier/plugins/babel";
+// import * as estree from "prettier/plugins/estree";
 import { cn } from "@/lib/utils";
 
 export async function CodeBlock(props: { code: string; lang: Lang }) {
@@ -11,24 +11,24 @@ export async function CodeBlock(props: { code: string; lang: Lang }) {
 
 	let code = props.code;
 
-	if (
-		props.lang === "ts" ||
-		props.lang === "js" ||
-		props.lang === "jsx" ||
-		props.lang === "tsx" ||
-		props.lang === "javascript" ||
-		props.lang === "typescript"
-	) {
-		try {
-			code = await format(code, {
-				parser: "babel-ts",
-				plugins: [parserBabel, estree],
-				printWidth: 80,
-			});
-		} catch (e) {
-			// ignore
-		}
-	}
+	// if (
+	// 	props.lang === "ts" ||
+	// 	props.lang === "js" ||
+	// 	props.lang === "jsx" ||
+	// 	props.lang === "tsx" ||
+	// 	props.lang === "javascript" ||
+	// 	props.lang === "typescript"
+	// ) {
+	// 	try {
+	// 		code = await format(code, {
+	// 			parser: "babel-ts",
+	// 			plugins: [parserBabel, estree],
+	// 			printWidth: 80,
+	// 		});
+	// 	} catch (e) {
+	// 		// ignore
+	// 	}
+	// }
 
 	const codeHtml = highlighter.codeToHtml(code, {
 		lang: props.lang,
