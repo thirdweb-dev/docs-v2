@@ -4,6 +4,12 @@ import { Heading } from "@/components/Document/Heading";
 import { UnorderedList, OrderedList } from "@/components/Document/List";
 import { Paragraph } from "@/components/Document/Paragraph";
 import { Separator } from "@/components/Document/Separator";
+import {
+	Table,
+	TableDataCell,
+	TableHeadingCell,
+	TableRow,
+} from "@/components/Document/Table";
 import type { MDXComponents } from "mdx/types";
 import { Lang } from "shiki";
 
@@ -74,6 +80,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		hr() {
 			return <Separator />;
 		},
+		table(props) {
+			return <Table>{props.children}</Table>;
+		},
+		th(props) {
+			return <TableHeadingCell>{props.children}</TableHeadingCell>;
+		},
+		td(props) {
+			return <TableDataCell>{props.children}</TableDataCell>;
+		},
+		tr(props) {
+			return <TableRow>{props.children}</TableRow>;
+		},
 	};
 }
 
@@ -82,5 +100,12 @@ function nameToLink(name: React.ReactNode) {
 		return undefined;
 	}
 
-	return `${name.toLowerCase().replace(/\s/g, "-")}`;
+	return `${name
+		.toLowerCase()
+		// replaces dashes with spaces
+		.replace(/\s/g, "-")
+		// removes special characters
+		.replace(/[^a-z0-9-]/g, "")
+		// remove numbers or dashes from the start of the string
+		.replace(/^[0-9-]+/, "")}`;
 }

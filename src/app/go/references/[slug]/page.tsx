@@ -2,6 +2,7 @@ import { ReferenceLayout } from "@/components/Reference/ReferenceLayout";
 import { fetchGoReference } from "../fetchGoReference";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
+import { getSidebarLinkGroups } from "../getSidebarLinkGroups";
 
 export const dynamicParams = false;
 
@@ -24,7 +25,7 @@ export default async function Page(props: PageProps) {
 
 	return (
 		<ReferenceLayout
-			crumbs={[
+			breadcrumb={[
 				{
 					name: "Go",
 					href: "/go",
@@ -40,53 +41,10 @@ export default async function Page(props: PageProps) {
 					}`,
 				},
 			]}
-			lang="go"
 			sideBar={{
 				name: "Go SDK",
-				activeLink: apiName,
-				links: {
-					classes: goReference.types.map((type) => {
-						return {
-							name: type.typeName,
-							href: `/go/references/${type.typeName}`,
-						};
-					}),
-					functions: goReference.functions.map((type) => {
-						return {
-							name: type.functionName,
-							href: `/go/references/${type.functionName}`,
-						};
-					}),
-				},
+				linkGroups: getSidebarLinkGroups(goReference),
 			}}
-			selected={
-				"functionName" in apiInfo
-					? {
-							type: "function",
-							name: apiInfo.functionName,
-							description: apiInfo.comments || undefined,
-							args: apiInfo.functionParams.map((parameter) => {
-								return {
-									name: parameter.paramName,
-									type: parameter.paramType,
-								};
-							}),
-							return: {
-								type: apiInfo.returnType,
-							},
-					  }
-					: {
-							type: "class",
-							name: apiInfo.typeName,
-							description: apiInfo.comments || undefined,
-							properties: apiInfo.fields.map((field) => {
-								return {
-									name: field.fieldName,
-									type: field.fieldType,
-								};
-							}),
-					  }
-			}
 		/>
 	);
 }
@@ -123,3 +81,32 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 		description: apiInfo.comments || genericDescription,
 	};
 }
+
+// selected={
+// 	"functionName" in apiInfo
+// 		? {
+// 				type: "function",
+// 				name: apiInfo.functionName,
+// 				description: apiInfo.comments || undefined,
+// 				args: apiInfo.functionParams.map((parameter) => {
+// 					return {
+// 						name: parameter.paramName,
+// 						type: parameter.paramType,
+// 					};
+// 				}),
+// 				return: {
+// 					type: apiInfo.returnType,
+// 				},
+// 			}
+// 		: {
+// 				type: "class",
+// 				name: apiInfo.typeName,
+// 				description: apiInfo.comments || undefined,
+// 				properties: apiInfo.fields.map((field) => {
+// 					return {
+// 						name: field.fieldName,
+// 						type: field.fieldType,
+// 					};
+// 				}),
+// 			}
+// }

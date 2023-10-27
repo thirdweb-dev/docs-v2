@@ -1,13 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import type { SideBarLink } from "./types";
+import type { LinkMeta } from "./types";
 import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
 import {
 	DropdownMenu,
 	DropdownMenuContent,
-	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -22,18 +22,15 @@ import { Button } from "../ui/button";
 import { ChevronDown, ChevronRight, X } from "lucide-react";
 
 type ReferenceSideBarProps = {
-	links: {
-		classes?: SideBarLink[];
-		functions?: SideBarLink[];
-	};
+	linkGroups: Array<{
+		group: string;
+		links: LinkMeta[];
+	}>;
 	onLinkClick?: () => void;
-	activeLink?: string;
 	name: string;
 };
 
 export function ReferenceSideBar(props: ReferenceSideBarProps) {
-	const { classes, functions } = props.links;
-
 	return (
 		<div className="flex h-full flex-col">
 			{/* Side bar Name */}
@@ -42,25 +39,17 @@ export function ReferenceSideBar(props: ReferenceSideBarProps) {
 			<div className="styled-scrollbar transform-gpu overflow-y-scroll pb-10">
 				<Accordion type="multiple" defaultValue={["classes", "functions"]}>
 					<div className="flex flex-col gap-1">
-						{classes && (
-							<ReferenceSideBarCategory
-								onLinkClick={props.onLinkClick}
-								links={classes}
-								activeLink={props.activeLink}
-								category="Classes"
-								id="classes"
-							/>
-						)}
-
-						{functions && (
-							<ReferenceSideBarCategory
-								onLinkClick={props.onLinkClick}
-								links={functions}
-								activeLink={props.activeLink}
-								category="Functions"
-								id="functions"
-							/>
-						)}
+						{props.linkGroups.map((linkGroup) => {
+							return (
+								<ReferenceSideBarCategory
+									key={linkGroup.group}
+									onLinkClick={props.onLinkClick}
+									links={linkGroup.links}
+									category={linkGroup.group}
+									id={linkGroup.group}
+								/>
+							);
+						})}
 					</div>
 				</Accordion>
 			</div>
@@ -69,14 +58,16 @@ export function ReferenceSideBar(props: ReferenceSideBarProps) {
 }
 
 function ReferenceSideBarCategory(props: {
-	links: SideBarLink[];
-	activeLink?: string;
+	links: LinkMeta[];
 	category: string;
 	id: string;
 	onLinkClick?: () => void;
 }) {
+	const pathname = usePathname();
+	const activeLink = pathname.split("/").slice(-1)[0];
+
 	return (
-		<AccordionItem value={props.id} className="border-none">
+		<AccordionItem value={props.id} className="py-1">
 			<AccordionTrigger className="py-2 pr-3">
 				<h2 className="text-f-200"> {props.category} </h2>
 			</AccordionTrigger>
@@ -84,7 +75,7 @@ function ReferenceSideBarCategory(props: {
 			<AccordionContent>
 				<ul className="flex flex-col gap-1 border-l pr-3 ">
 					{props.links.map((link) => {
-						const isActive = props.activeLink === link.name;
+						const isActive = activeLink === link.name;
 						return (
 							<li
 								key={link.href}
@@ -99,7 +90,7 @@ function ReferenceSideBarCategory(props: {
 									scroll={false}
 									className={clsx(
 										"flex rounded-md p-2 text-sm transition-colors duration-300",
-										isActive ? "bg-b-800 !text-f-100" : "text-f-300",
+										isActive ? "!bg-b-700 !text-f-100" : "text-f-300",
 										"hover:bg-b-800 hover:text-f-100",
 									)}
 								>
@@ -130,7 +121,7 @@ export function ReferenceMenuMobile(props: ReferenceSideBarProps) {
 		<DropdownMenu open={open} onOpenChange={setOpen}>
 			<DropdownMenuTrigger asChild>
 				<Button className="mt-5 w-full justify-between border bg-b-800 py-6 text-left text-f-100 md:hidden">
-					{props.activeLink || "References"}
+					References
 					<ChevronDown
 						className={clsx(
 							"h-5 w-5 text-f-300 transition-transform",

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ChevronDown, ChevronRight, Menu } from "lucide-react";
+import { ChevronRight, Menu } from "lucide-react";
 import clsx from "clsx";
 
 import {
@@ -39,13 +39,21 @@ const links = [
 ];
 
 const references = [
+	// {
+	// 	name: "Python",
+	// 	href: "/python/references",
+	// },
+	// {
+	// 	name: "Go",
+	// 	href: "/go/references",
+	// },
 	{
-		name: "Python",
-		href: "/python/references",
+		name: "TypeScript",
+		href: "/typescript/references",
 	},
 	{
-		name: "Go",
-		href: "/go/references",
+		name: "React",
+		href: "/react/references",
 	},
 ];
 

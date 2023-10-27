@@ -22,11 +22,14 @@
 		"clsx": "^2.0.0",
 		"lucide-react": "^0.286.0",
 		"next": "13.4",
+		"nextjs-toploader": "^1.5.3",
+		"prettier": "^3.0.3",
 		"react": "^18",
 		"react-dom": "^18",
 		"shiki": "^0.14.5",
 		"tailwind-merge": "^1.14.0",
-		"tailwindcss-animate": "^1.0.7"
+		"tailwindcss-animate": "^1.0.7",
+		"typedoc-better-json": "^0.3.1"
 	},
 	"devDependencies": {
 		"@types/node": "^20",
@@ -38,7 +41,6 @@
 		"eslint-plugin-mdx": "^2.2.0",
 		"eslint-plugin-tailwindcss": "^3.13.0",
 		"postcss": "^8",
-		"prettier": "^3.0.3",
 		"react-icons": "^4.11.0",
 		"tailwindcss": "^3",
 		"typescript": "^5"

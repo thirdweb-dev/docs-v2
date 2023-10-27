@@ -1,3 +1,5 @@
+import references from "./test/doc.json";
+
 export type PythonReference = {
 	// TODO: change to classes
 	types: {
@@ -22,13 +24,15 @@ export type PythonReference = {
 };
 
 export async function fetchPythonReference() {
-	const res = await fetch(
-		"https://cf-ipfs.com/ipfs/QmYXoK9hbdvEK11ymHnXaYFXRxAfseFcQHcXW16d4PT82T/python_output.json",
-	);
+	// const res = await fetch(
+	// 	"https://cf-ipfs.com/ipfs/QmYXoK9hbdvEK11ymHnXaYFXRxAfseFcQHcXW16d4PT82T/python_output.json",
+	// );
 
-	if (!res.ok) {
-		throw new Error("Failed to fetch python references");
-	}
+	// if (!res.ok) {
+	// 	throw new Error("Failed to fetch python references");
+	// }
 
-	return (await res.json()) as PythonReference;
+	// return (await res.json()) as PythonReference;
+
+	return references as PythonReference;
 }

@@ -17,9 +17,9 @@ html {
 		/* 100 - lightest, 900 - darkest */
 
 		/* neutral background colors */
-		--b-900: #0e0e10;
-		--b-800: #131315;
-		--b-700: #212126;
+		--b-900: hsl(240deg 6.67% 4%);
+		--b-800: hsl(240deg 5% 6%);
+		--b-700: hsl(240deg 5% 10%);
 
 		/* neutral foreground colors */
 		--f-100: rgba(241, 245, 249);
@@ -35,6 +35,7 @@ html {
 		--danger-900: #331515;
 
 		--warning-500: #fdba74;
+		--warning-600: #f9a03f;
 		--warning-900: #3d2914;
 
 		--radius: 0.5rem;
@@ -80,5 +81,5 @@ button {
 }
 
 .codeBlockContainer pre {
-	@apply rounded-md p-4 !bg-b-800 border overflow-x-auto selection:bg-b-700;
+	@apply rounded-md p-4 !bg-b-800 border overflow-x-auto selection:bg-b-700 max-h-[500px] overflow-y-auto;
 }
