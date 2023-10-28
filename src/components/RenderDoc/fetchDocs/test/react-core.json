@@ -1,4 +1,7 @@
 {
+	"meta": {
+		"typedocBetterJsonVersion": "0.3.2-next"
+	},
 	"functions": [
 		{
 			"kind": "function",
@@ -1173,6 +1176,9 @@
 			"name": "useAddress",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -2647,6 +2653,9 @@
 			"name": "useChain",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -2719,6 +2728,9 @@
 			"name": "useChainId",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -3852,6 +3864,9 @@
 					]
 				},
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -3930,6 +3945,9 @@
 					]
 				},
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -4029,6 +4047,9 @@
 					]
 				},
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -5596,6 +5617,9 @@
 			"name": "useEdition",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -5692,6 +5716,9 @@
 			"name": "useEditionDrop",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -7422,6 +7449,9 @@
 			"name": "useMarketplace",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -8053,6 +8083,9 @@
 			"name": "useMultiwrap",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -8423,6 +8456,9 @@
 			"name": "useNFTCollection",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -8519,6 +8555,9 @@
 			"name": "useNFTDrop",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -8749,6 +8788,9 @@
 			"name": "useNetwork",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -8832,6 +8874,9 @@
 			"name": "useNetworkMismatch",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -9208,6 +9253,9 @@
 			"name": "usePack",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -10579,6 +10627,9 @@
 			"name": "useSetSharedMetadata",
 			"signatures": [
 				{
+					"flags": {
+						"isPrivate": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -10724,6 +10775,9 @@
 			"name": "useSignatureDrop",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -10823,6 +10877,9 @@
 			"name": "useSplit",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -11254,6 +11311,9 @@
 			"name": "useToken",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -11574,6 +11634,9 @@
 			"name": "useTokenDrop",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -13297,6 +13360,9 @@
 			"name": "useVote",
 			"signatures": [
 				{
+					"flags": {
+						"isPublic": true
+					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -13827,7 +13893,68 @@
 		{
 			"kind": "type",
 			"name": "ISecureStorage",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L3"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L3",
+			"type": "{getItem : ((key : string) => Promise<(null) | (string)>),removeItem : ((key : string) => Promise<void>),setItem : ((key : string, value : string) => Promise<void>)}",
+			"typeDeclaration": [
+				{
+					"kind": "function",
+					"name": "getItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<(null) | (string)>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L4"
+				},
+				{
+					"kind": "function",
+					"name": "removeItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L6"
+				},
+				{
+					"kind": "function",
+					"name": "setItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								},
+								{
+									"name": "value",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L5"
+				}
+			]
 		},
 		{
 			"kind": "type",
@@ -13858,7 +13985,100 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L14"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L14",
+			"type": "{authUrl : string,domain : string,secureStorage : ISecureStorage}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "authUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The backend URL of the authentication endoints. For example, if your endpoints are\nat "
+								},
+								{
+									"type": "inlineCode",
+									"value": "/api/auth/login"
+								},
+								{
+									"type": "text",
+									"value": ", "
+								},
+								{
+									"type": "inlineCode",
+									"value": "/api/auth/logout"
+								},
+								{
+									"type": "text",
+									"value": ", etc. then this should be set to "
+								},
+								{
+									"type": "inlineCode",
+									"value": "/api/auth"
+								},
+								{
+									"type": "text",
+									"value": "."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "domain",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The frontend domain used to generate the login payload.\nThis domain should match the domain used on your auth backend."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "secureStorage",
+					"type": "ISecureStorage",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Secure storage to use for storing the auth token when using JWT tokens."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Do not use a storage option that stores values accessible outside\nyour aplication (like localStorage on web environments) since you may\nbe exposing your auth token to malicious actors."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "** By default auth uses cookies so no need to set this unless you want to specifically use JWT tokens **"
+								}
+							]
+						}
+					]
+				}
+			]
 		},
 		{
 			"kind": "type",
@@ -13874,17 +14094,383 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/core/providers/thirdweb-provider.tsx#L23"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/core/providers/thirdweb-provider.tsx#L23",
+			"typeParameters": [
+				{
+					"name": "TChains",
+					"extendsType": "Chain[]"
+				}
+			],
+			"type": "{activeChain : (Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,autoConnect : boolean,autoConnectTimeout : number,autoSwitch : boolean,clientId : string,createWalletStorage : CreateAsyncStorage,dAppMeta : DAppMetaData,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({}), \"chains\">,secretKey : string,signerWallet : WalletConfig<SignerWallet>,storageInterface : IThirdwebStorage,supportedChains : TChains,supportedWallets : WalletConfig[],theme : (\"light\") | (\"dark\")}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "activeChain",
+					"type": "(Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"])",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The network to use for the SDK."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "authConfig",
+					"type": "ThirdwebAuthConfig",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The configuration used for thirdweb auth usage. Enables users to login\nto backends with their wallet."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "autoConnect",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Whether or not to attempt auto-connect to a wallet."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "autoConnectTimeout",
+					"type": "number",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Timeout for auto-connecting wallet in milliseconds"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If wallet fails to connect in this time, it will stop trying to connect and user will have to manually connect"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "autoSwitch",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Whether or not to automatically switch to wallet's network to active chain"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "clientId",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "createWalletStorage",
+					"type": "CreateAsyncStorage"
+				},
+				{
+					"kind": "subtype",
+					"name": "dAppMeta",
+					"type": "DAppMetaData",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Metadata to pass to wallet connect and walletlink wallet connect. (Used to show "
+								},
+								{
+									"type": "emphasis",
+									"children": [
+										{
+											"type": "text",
+											"value": "which"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": " dApp is being connected to in mobile wallets that support it)\nDefaults to just the name being passed as "
+								},
+								{
+									"type": "inlineCode",
+									"value": "thirdweb powered dApp"
+								},
+								{
+									"type": "text",
+									"value": "."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "queryClient",
+					"type": "QueryClient"
+				},
+				{
+					"kind": "subtype",
+					"name": "sdkOptions",
+					"type": "Omit<(undefined) | ({}), \"chains\">",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The [SDKOptions | Thirdweb SDK Options]([object Object]) to pass to the thirdweb SDK\ncomes with sensible defaults"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "secretKey",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "signerWallet",
+					"type": "WalletConfig<SignerWallet>"
+				},
+				{
+					"kind": "subtype",
+					"name": "storageInterface",
+					"type": "IThirdwebStorage",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The storage interface to use with the sdk."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "supportedChains",
+					"type": "TChains",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Chains to support. If not provided, will default to the chains supported by the SDK."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "supportedWallets",
+					"type": "WalletConfig[]",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "An array of wallets that the dApp supports\nIf not provided, will default to Metamask (injected), Coinbase wallet and Device wallet"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "theme",
+					"type": "(\"light\") | (\"dark\")"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "ThirdwebSDKProviderProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/providers/types.ts#L8"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/providers/types.ts#L8",
+			"typeParameters": [
+				{
+					"name": "TChains",
+					"extendsType": "Chain[]"
+				}
+			],
+			"type": "{activeChain : (Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,clientId : string,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({}), \"chains\">,secretKey : string,signer : Signer,storageInterface : IThirdwebStorage,supportedChains : TChains}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "activeChain",
+					"type": "(Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"])",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The network to use for the SDK."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "authConfig",
+					"type": "ThirdwebAuthConfig",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The configuration used for thirdweb auth usage. Enables users to login\nto backends with their wallet."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "clientId",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "queryClient",
+					"type": "QueryClient"
+				},
+				{
+					"kind": "subtype",
+					"name": "sdkOptions",
+					"type": "Omit<(undefined) | ({}), \"chains\">",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The [SDKOptions | Thirdweb SDK Options]([object Object]) to pass to the thirdweb SDK\ncomes with sensible defaults"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "secretKey",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "signer",
+					"type": "Signer"
+				},
+				{
+					"kind": "subtype",
+					"name": "storageInterface",
+					"type": "IThirdwebStorage",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The storage interface to use with the sdk."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "supportedChains",
+					"type": "TChains",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Chains to support. If not provided, will default to the chains supported by the SDK."
+								}
+							]
+						}
+					]
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "UserWithData",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/hooks/auth/useUser.ts#L8"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/hooks/auth/useUser.ts#L8",
+			"typeParameters": [
+				{
+					"name": "TData",
+					"extendsType": "Json"
+				},
+				{
+					"name": "TContext",
+					"extendsType": "Json"
+				}
+			],
+			"type": "{address : string,data : TData,session : TContext}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "address",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "data",
+					"type": "TData"
+				},
+				{
+					"kind": "subtype",
+					"name": "session",
+					"type": "TContext"
+				}
+			]
 		},
 		{
 			"kind": "type",
@@ -13893,10 +14479,12 @@
 			"type": "{ addressOfOfferor: string, listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "addressOfOfferor",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "listingId",
 					"type": "BigNumberish"
 				}
@@ -13928,10 +14516,12 @@
 			"type": "{ addresses: AirdropInput, tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "addresses",
 					"type": "AirdropInput"
 				},
 				{
+					"kind": "subtype",
 					"name": "tokenId",
 					"type": "BigNumberish"
 				}
@@ -13970,10 +14560,12 @@
 			"type": "{ amount: Amount, tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "amount",
 					"type": "Amount"
 				},
 				{
+					"kind": "subtype",
 					"name": "tokenId",
 					"type": "BigNumberish"
 				}
@@ -13983,6 +14575,11 @@
 			"kind": "type",
 			"name": "BuyNowParams",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/types.ts#L258",
+			"typeParameters": [
+				{
+					"name": "TListingType"
+				}
+			],
 			"type": "TListingType extends ListingType.Direct ? { buyAmount: BigNumberish, buyForWallet: WalletAddress, id: BigNumberish, type: ListingType.Direct } : { id: BigNumberish, type: ListingType.Auction }"
 		},
 		{
@@ -13992,26 +14589,32 @@
 			"type": "{ blockExplorers: { name: string, url: string }[], id: number, name: AddEthereumChainParameter[\"chainName\"], nativeCurrency: AddEthereumChainParameter[\"nativeCurrency\"], rpcUrls: AddEthereumChainParameter[\"rpcUrls\"], testnet: boolean }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "blockExplorers",
 					"type": "{ name: string, url: string }[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "id",
 					"type": "number"
 				},
 				{
+					"kind": "subtype",
 					"name": "name",
 					"type": "AddEthereumChainParameter[\"chainName\"]"
 				},
 				{
+					"kind": "subtype",
 					"name": "nativeCurrency",
 					"type": "AddEthereumChainParameter[\"nativeCurrency\"]"
 				},
 				{
+					"kind": "subtype",
 					"name": "rpcUrls",
 					"type": "AddEthereumChainParameter[\"rpcUrls\"]"
 				},
 				{
+					"kind": "subtype",
 					"name": "testnet",
 					"type": "boolean"
 				}
@@ -14050,10 +14653,12 @@
 			"type": "{ quantity: (string) | (number), walletAddress: WalletAddress }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "quantity",
 					"type": "(string) | (number)"
 				},
 				{
+					"kind": "subtype",
 					"name": "walletAddress",
 					"type": "WalletAddress"
 				}
@@ -14092,18 +14697,22 @@
 			"type": "{ options: ClaimOptions, quantity: BigNumberish, to: WalletAddress, tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "options",
 					"type": "ClaimOptions"
 				},
 				{
+					"kind": "subtype",
 					"name": "quantity",
 					"type": "BigNumberish"
 				},
 				{
+					"kind": "subtype",
 					"name": "to",
 					"type": "WalletAddress"
 				},
 				{
+					"kind": "subtype",
 					"name": "tokenId",
 					"type": "BigNumberish",
 					"summary": [
@@ -14159,14 +14768,17 @@
 			"type": "{ amount: Amount, checkERC20Allowance: boolean, to: WalletAddress }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "amount",
 					"type": "Amount"
 				},
 				{
+					"kind": "subtype",
 					"name": "checkERC20Allowance",
 					"type": "boolean"
 				},
 				{
+					"kind": "subtype",
 					"name": "to",
 					"type": "WalletAddress"
 				}
@@ -14176,21 +14788,31 @@
 			"kind": "type",
 			"name": "ConnectUIProps",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/core/types/wallet.ts#L57",
+			"typeParameters": [
+				{
+					"name": "I",
+					"extendsType": "WalletInstance"
+				}
+			],
 			"type": "{ connected: (() => void), goBack: (() => void), hide: (() => void), isOpen: boolean, modalSize: (\"compact\") | (\"wide\"), onLocallyConnected: ((walleInstance : WalletInstance) => void), selectionData: any, setSelectionData: ((data : any) => void), show: (() => void), supportedWallets: WalletConfig[], theme: (\"dark\") | (\"light\"), walletConfig: WalletConfig<I> }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "connected",
 					"type": "(() => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "goBack",
 					"type": "(() => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "hide",
 					"type": "(() => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "isOpen",
 					"type": "boolean",
 					"summary": [
@@ -14206,6 +14828,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "modalSize",
 					"type": "(\"compact\") | (\"wide\")",
 					"summary": [
@@ -14238,10 +14861,12 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "onLocallyConnected",
 					"type": "((walleInstance : WalletInstance) => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "selectionData",
 					"type": "any",
 					"summary": [
@@ -14273,14 +14898,17 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "setSelectionData",
 					"type": "((data : any) => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "show",
 					"type": "(() => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "supportedWallets",
 					"type": "WalletConfig[]",
 					"summary": [
@@ -14296,6 +14924,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "theme",
 					"type": "(\"dark\") | (\"light\")",
 					"summary": [
@@ -14311,6 +14940,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "walletConfig",
 					"type": "WalletConfig<I>",
 					"summary": [
@@ -14422,14 +15052,17 @@
 			"type": "{ metadatas: NFTMetadataInput[], password: string, placeholder: NFTMetadataInput }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "metadatas",
 					"type": "NFTMetadataInput[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "password",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "placeholder",
 					"type": "NFTMetadataInput"
 				}
@@ -14476,6 +15109,7 @@
 			"type": "{ listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "listingId",
 					"type": "BigNumberish"
 				}
@@ -14488,6 +15122,7 @@
 			"type": "{ chain: Chain }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "chain",
 					"type": "Chain"
 				}
@@ -14500,10 +15135,12 @@
 			"type": "{ bid: Price, listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "bid",
 					"type": "Price"
 				},
 				{
+					"kind": "subtype",
 					"name": "listingId",
 					"type": "BigNumberish"
 				}
@@ -14516,14 +15153,17 @@
 			"type": "{ listingId: BigNumberish, pricePerToken: Price, quantity: Amount }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "listingId",
 					"type": "BigNumberish"
 				},
 				{
+					"kind": "subtype",
 					"name": "pricePerToken",
 					"type": "Price"
 				},
 				{
+					"kind": "subtype",
 					"name": "quantity",
 					"type": "Amount"
 				}
@@ -14562,14 +15202,17 @@
 			"type": "{ metadata: NFTMetadataOrUri, supply: Amount, to: WalletAddress }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "metadata",
 					"type": "NFTMetadataOrUri"
 				},
 				{
+					"kind": "subtype",
 					"name": "supply",
 					"type": "Amount"
 				},
 				{
+					"kind": "subtype",
 					"name": "to",
 					"type": "WalletAddress"
 				}
@@ -14605,6 +15248,11 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/types.ts#L164",
+			"typeParameters": [
+				{
+					"name": "TContract"
+				}
+			],
 			"type": "TContract extends Erc721 ? Awaited<ReturnType<Erc721Mintable[\"to\"]>> : TContract extends Erc1155 ? Awaited<ReturnType<Erc1155Mintable[\"to\"]>> : never"
 		},
 		{
@@ -14633,14 +15281,17 @@
 			"type": "{ additionalSupply: Amount, to: WalletAddress, tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "additionalSupply",
 					"type": "Amount"
 				},
 				{
+					"kind": "subtype",
 					"name": "to",
 					"type": "WalletAddress"
 				},
 				{
+					"kind": "subtype",
 					"name": "tokenId",
 					"type": "BigNumberish"
 				}
@@ -14696,10 +15347,12 @@
 			"type": "{ batchId: BigNumberish, password: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "batchId",
 					"type": "BigNumberish"
 				},
 				{
+					"kind": "subtype",
 					"name": "password",
 					"type": "string"
 				}
@@ -14726,9 +15379,16 @@
 			"kind": "type",
 			"name": "SelectUIProps",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/core/types/wallet.ts#L162",
+			"typeParameters": [
+				{
+					"name": "I",
+					"extendsType": "WalletInstance"
+				}
+			],
 			"type": "{ modalSize: (\"compact\") | (\"wide\"), onSelect: ((selectionData : any) => void), supportedWallets: WalletConfig[], theme: (\"dark\") | (\"light\"), walletConfig: WalletConfig<I> }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "modalSize",
 					"type": "(\"compact\") | (\"wide\")",
 					"summary": [
@@ -14761,10 +15421,12 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "onSelect",
 					"type": "((selectionData : any) => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "supportedWallets",
 					"type": "WalletConfig[]",
 					"summary": [
@@ -14789,6 +15451,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "theme",
 					"type": "(\"dark\") | (\"light\")",
 					"summary": [
@@ -14804,6 +15467,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "walletConfig",
 					"type": "WalletConfig<I>",
 					"summary": [
@@ -14870,10 +15534,12 @@
 			"type": "{ phases: ClaimConditionInput[], reset: boolean }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "phases",
 					"type": "ClaimConditionInput[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "reset",
 					"type": "boolean"
 				}
@@ -14897,6 +15563,7 @@
 			"type": "{ amount: Amount }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "amount",
 					"type": "Amount"
 				}
@@ -14937,10 +15604,12 @@
 			"type": "{ amount: Amount, to: WalletAddress }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "amount",
 					"type": "Amount"
 				},
 				{
+					"kind": "subtype",
 					"name": "to",
 					"type": "WalletAddress"
 				}
@@ -14972,14 +15641,17 @@
 			"type": "{ amount: Amount, to: WalletAddress, tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "amount",
 					"type": "Amount"
 				},
 				{
+					"kind": "subtype",
 					"name": "to",
 					"type": "WalletAddress"
 				},
 				{
+					"kind": "subtype",
 					"name": "tokenId",
 					"type": "BigNumberish"
 				}
@@ -14989,6 +15661,12 @@
 			"kind": "type",
 			"name": "UseContractResult",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/evm/hooks/async/contracts.ts#L141",
+			"typeParameters": [
+				{
+					"name": "TContract",
+					"extendsType": "ValidContractInstance"
+				}
+			],
 			"type": "UseQueryResult<(TContract) | (undefined)> & { contract: (TContract) | (undefined) }"
 		},
 		{
@@ -15018,13 +15696,21 @@
 			"kind": "type",
 			"name": "WalletClass",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/core/types/wallet.ts#L13",
+			"typeParameters": [
+				{
+					"name": "I",
+					"extendsType": "WalletInstance"
+				}
+			],
 			"type": "{ id: string, meta: typeof AbstractClientWallet[\"meta\"] }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "id",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "meta",
 					"type": "typeof AbstractClientWallet[\"meta\"]"
 				}
@@ -15034,13 +15720,21 @@
 			"kind": "type",
 			"name": "WalletConfig",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-core/src/core/types/wallet.ts#L19",
+			"typeParameters": [
+				{
+					"name": "I",
+					"extendsType": "WalletInstance"
+				}
+			],
 			"type": "{ category: (\"socialLogin\") | (\"walletLogin\"), connectUI: React.FC<ConnectUIProps<I>>, create: ((options : WalletOptions) => I), id: string, isHeadless: boolean, isInstalled: (() => boolean), meta: typeof AbstractClientWallet[\"meta\"], personalWallets: WalletConfig[], recommended: boolean, selectUI: React.FC<SelectUIProps<I>> }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "category",
 					"type": "(\"socialLogin\") | (\"walletLogin\")"
 				},
 				{
+					"kind": "subtype",
 					"name": "connectUI",
 					"type": "React.FC<ConnectUIProps<I>>",
 					"summary": [
@@ -15056,14 +15750,17 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "create",
 					"type": "((options : WalletOptions) => I)"
 				},
 				{
+					"kind": "subtype",
 					"name": "id",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "isHeadless",
 					"type": "boolean",
 					"summary": [
@@ -15079,14 +15776,17 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "isInstalled",
 					"type": "(() => boolean)"
 				},
 				{
+					"kind": "subtype",
 					"name": "meta",
 					"type": "typeof AbstractClientWallet[\"meta\"]"
 				},
 				{
+					"kind": "subtype",
 					"name": "personalWallets",
 					"type": "WalletConfig[]",
 					"summary": [
@@ -15176,6 +15876,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "recommended",
 					"type": "boolean",
 					"summary": [
@@ -15191,6 +15892,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "selectUI",
 					"type": "React.FC<SelectUIProps<I>>",
 					"summary": [

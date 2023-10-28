@@ -1,4 +1,7 @@
 {
+	"meta": {
+		"typedocBetterJsonVersion": "0.3.2-next"
+	},
 	"functions": [
 		{
 			"kind": "function",
@@ -72,7 +75,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "AsyncLocalStorage",
 						"summary": [
@@ -86,7 +88,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/AsyncStorage.ts#L79"
@@ -124,7 +127,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "LocalStorage",
 						"summary": [
@@ -138,7 +140,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/AsyncStorage.ts#L89"
@@ -176,7 +179,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "SecureStorage",
 						"summary": [
@@ -190,7 +192,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/SecureStorage.ts#L37"
@@ -303,7 +306,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "string",
 						"summary": [
@@ -317,7 +319,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/utils/uri.ts#L11"
@@ -446,6 +449,9 @@
 							"type": "MagicLinkOptions & { recommended: boolean }"
 						}
 					],
+					"returns": {
+						"type": "WalletConfig<MagicLink>"
+					},
 					"blockTags": [
 						{
 							"tag": "@deprecated",
@@ -478,10 +484,7 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "WalletConfig<MagicLink>"
-					}
+					]
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/wallets/wallets/magic-link.tsx#L182"
@@ -600,19 +603,6 @@
 							}
 						}
 					],
-					"blockTags": [
-						{
-							"tag": "@example",
-							"summary": [
-								{
-									"type": "code",
-									"lang": "ts",
-									"meta": null,
-									"value": "const address = shortenIfAddress(\"0x1234567890123456789012345678901234567890\", true); // result will be \"0x1234...890\""
-								}
-							]
-						}
-					],
 					"returns": {
 						"type": "string",
 						"summary": [
@@ -626,7 +616,20 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "const address = shortenIfAddress(\"0x1234567890123456789012345678901234567890\", true); // result will be \"0x1234...890\""
+								}
+							]
+						}
+					]
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/utils/addresses.ts#L31"
@@ -682,7 +685,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "(undefined) | (string)",
 						"summary": [
@@ -696,7 +698,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/utils/addresses.ts#L10"
@@ -821,7 +824,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "((connectOptions : { chainId: number }) => Promise<CoinbaseWallet>)",
 						"summary": [
@@ -835,7 +837,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/wallets/hooks/useCoinbaseWallet.ts#L14"
@@ -856,7 +859,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "((connectOptions : { chainId: number }) => Promise<MetaMaskWallet>)",
 						"summary": [
@@ -870,7 +872,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/wallets/hooks/useMetaMaskWallet.ts#L10"
@@ -891,7 +894,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "((connectOptions : { chainId: number }) => Promise<RainbowWallet>)",
 						"summary": [
@@ -905,7 +907,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/wallets/hooks/useRainbowWallet.ts#L10"
@@ -926,7 +929,6 @@
 							]
 						}
 					],
-					"blockTags": [],
 					"returns": {
 						"type": "((connectOptions : { chainId: number }) => Promise<TrustWallet>)",
 						"summary": [
@@ -940,7 +942,8 @@
 								]
 							}
 						]
-					}
+					},
+					"blockTags": []
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/wallets/hooks/useTrustWallet.ts#L10"
@@ -1037,14 +1040,17 @@
 			"type": "{ buttonBackgroundColor: string, buttonBorderColor: string, buttonTextColor: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "buttonBackgroundColor",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "buttonBorderColor",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "buttonTextColor",
 					"type": "string"
 				}
@@ -1075,14 +1081,17 @@
 			"type": "{ iconURL: string, links: { native: string, universal: string }, name: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "iconURL",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "links",
 					"type": "{ native: string, universal: string }"
 				},
 				{
+					"kind": "subtype",
 					"name": "name",
 					"type": "string"
 				}
@@ -1483,6 +1492,9 @@
 							"type": "PropsWithChildren<ThirdwebProviderProps<TChains>>"
 						}
 					],
+					"returns": {
+						"type": "Element"
+					},
 					"typeParameters": [
 						{
 							"name": "TChains",
@@ -1501,10 +1513,7 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "Element"
-					}
+					]
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/providers/thirdweb-provider.tsx#L100"
@@ -1602,6 +1611,9 @@
 							"type": "PropsWithChildren<Web3ButtonProps<TAction>>"
 						}
 					],
+					"returns": {
+						"type": "Element"
+					},
 					"typeParameters": [
 						{
 							"name": "TAction",
@@ -1620,10 +1632,7 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "Element"
-					}
+					]
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/evm/components/Web3Button.tsx#L65"
@@ -1658,6 +1667,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -1682,15 +1694,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "CoinbaseWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "CoinbaseWallet"
-							}
+							]
 						}
 					]
 				},
@@ -1699,6 +1711,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -1727,15 +1742,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -1744,6 +1759,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -1778,6 +1796,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -1809,6 +1830,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -1829,15 +1853,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -1846,6 +1870,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -1879,15 +1906,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "CoinbaseWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "CoinbaseWallet"
-							}
+							]
 						}
 					]
 				},
@@ -1896,6 +1923,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -1931,15 +1961,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "CoinbaseWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "CoinbaseWallet"
-							}
+							]
 						}
 					]
 				},
@@ -1948,6 +1978,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -1983,15 +2016,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "CoinbaseWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "CoinbaseWallet"
-							}
+							]
 						}
 					]
 				},
@@ -2000,6 +2033,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2032,6 +2068,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2076,15 +2115,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "CoinbaseWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "CoinbaseWallet"
-							}
+							]
 						}
 					]
 				}
@@ -2139,10 +2178,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -2203,6 +2244,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -2227,15 +2271,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "EmbeddedWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "EmbeddedWallet"
-							}
+							]
 						}
 					]
 				},
@@ -2244,6 +2288,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2272,15 +2319,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -2289,6 +2336,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2347,6 +2397,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2378,6 +2431,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2398,15 +2454,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -2415,6 +2471,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -2448,15 +2507,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "EmbeddedWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "EmbeddedWallet"
-							}
+							]
 						}
 					]
 				},
@@ -2465,6 +2524,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2500,15 +2562,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "EmbeddedWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "EmbeddedWallet"
-							}
+							]
 						}
 					]
 				},
@@ -2577,6 +2639,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2612,15 +2677,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "EmbeddedWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "EmbeddedWallet"
-							}
+							]
 						}
 					]
 				},
@@ -2629,6 +2694,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2661,6 +2729,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2705,15 +2776,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "EmbeddedWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "EmbeddedWallet"
-							}
+							]
 						}
 					]
 				},
@@ -2828,10 +2899,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -2881,6 +2954,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -2905,15 +2981,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "LocalWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "LocalWallet"
-							}
+							]
 						}
 					]
 				},
@@ -2922,6 +2998,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2950,15 +3029,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -2967,6 +3046,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3025,6 +3107,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3056,6 +3141,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3076,15 +3164,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -3093,6 +3181,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -3126,15 +3217,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "LocalWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "LocalWallet"
-							}
+							]
 						}
 					]
 				},
@@ -3143,6 +3234,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3178,15 +3272,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "LocalWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "LocalWallet"
-							}
+							]
 						}
 					]
 				},
@@ -3195,6 +3289,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3230,15 +3327,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "LocalWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "LocalWallet"
-							}
+							]
 						}
 					]
 				},
@@ -3247,6 +3344,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3279,6 +3379,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3323,15 +3426,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "LocalWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "LocalWallet"
-							}
+							]
 						}
 					]
 				}
@@ -3344,10 +3447,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -3395,6 +3500,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -3419,15 +3527,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicLink"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicLink"
-							}
+							]
 						}
 					]
 				},
@@ -3469,6 +3577,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3497,15 +3608,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -3514,6 +3625,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3572,6 +3686,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3603,6 +3720,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3623,15 +3743,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -3640,6 +3760,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -3673,15 +3796,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicLink"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicLink"
-							}
+							]
 						}
 					]
 				},
@@ -3690,6 +3813,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3725,15 +3851,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicLink"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicLink"
-							}
+							]
 						}
 					]
 				},
@@ -3742,6 +3868,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3777,15 +3906,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicLink"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicLink"
-							}
+							]
 						}
 					]
 				},
@@ -3794,6 +3923,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3826,6 +3958,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3870,15 +4005,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicLink"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicLink"
-							}
+							]
 						}
 					]
 				}
@@ -3915,10 +4050,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -4000,6 +4137,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -4024,15 +4164,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4074,6 +4214,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4102,15 +4245,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -4119,6 +4262,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4177,6 +4323,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4208,6 +4357,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4228,15 +4380,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -4245,6 +4397,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -4278,15 +4433,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4295,6 +4450,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4330,15 +4488,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4347,6 +4505,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4382,15 +4543,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4399,6 +4560,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4431,6 +4595,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4475,15 +4642,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MagicWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MagicWallet"
-							}
+							]
 						}
 					]
 				}
@@ -4520,10 +4687,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -4592,6 +4761,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -4616,15 +4788,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MetaMaskWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MetaMaskWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4645,6 +4817,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4673,15 +4848,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -4690,6 +4865,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4724,6 +4902,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4755,6 +4936,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4775,15 +4959,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -4792,6 +4976,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -4825,15 +5012,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MetaMaskWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MetaMaskWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4842,6 +5029,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4877,15 +5067,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MetaMaskWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MetaMaskWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4894,6 +5084,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4929,15 +5122,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MetaMaskWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MetaMaskWallet"
-							}
+							]
 						}
 					]
 				},
@@ -4946,6 +5139,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4978,6 +5174,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5022,15 +5221,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "MetaMaskWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "MetaMaskWallet"
-							}
+							]
 						}
 					]
 				}
@@ -5052,14 +5251,17 @@
 					"type": "{ iconURL: string, links: { native: string, universal: string }, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "links",
 							"type": "{ native: string, universal: string }"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -5128,6 +5330,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -5152,15 +5357,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "RainbowWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "RainbowWallet"
-							}
+							]
 						}
 					]
 				},
@@ -5181,6 +5386,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5209,15 +5417,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -5226,6 +5434,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5260,6 +5471,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5291,6 +5505,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5311,15 +5528,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -5328,6 +5545,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -5361,15 +5581,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "RainbowWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "RainbowWallet"
-							}
+							]
 						}
 					]
 				},
@@ -5378,6 +5598,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5413,15 +5636,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "RainbowWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "RainbowWallet"
-							}
+							]
 						}
 					]
 				},
@@ -5430,6 +5653,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5465,15 +5691,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "RainbowWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "RainbowWallet"
-							}
+							]
 						}
 					]
 				},
@@ -5482,6 +5708,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5514,6 +5743,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5558,15 +5790,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "RainbowWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "RainbowWallet"
-							}
+							]
 						}
 					]
 				}
@@ -5588,14 +5820,17 @@
 					"type": "{ iconURL: string, links: { native: string, universal: string }, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "links",
 							"type": "{ native: string, universal: string }"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -5654,6 +5889,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -5678,15 +5916,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "ThirdwebSDK"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "(string) | (symbol)"
 								}
-							],
-							"returns": {
-								"type": "ThirdwebSDK"
-							}
+							]
 						}
 					]
 				},
@@ -5695,6 +5933,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5723,15 +5964,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "(string) | (symbol)"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -5740,6 +5981,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5762,6 +6006,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5793,6 +6040,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5813,15 +6063,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "((args : any[]) => void)[]"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "(string) | (symbol)"
 								}
-							],
-							"returns": {
-								"type": "((args : any[]) => void)[]"
-							}
+							]
 						}
 					]
 				},
@@ -5830,6 +6080,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -5863,15 +6116,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "ThirdwebSDK"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "(string) | (symbol)"
 								}
-							],
-							"returns": {
-								"type": "ThirdwebSDK"
-							}
+							]
 						}
 					]
 				},
@@ -5880,6 +6133,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5915,15 +6171,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "ThirdwebSDK"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "(string) | (symbol)"
 								}
-							],
-							"returns": {
-								"type": "ThirdwebSDK"
-							}
+							]
 						}
 					]
 				},
@@ -5932,6 +6188,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5967,15 +6226,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "ThirdwebSDK"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "(string) | (symbol)"
 								}
-							],
-							"returns": {
-								"type": "ThirdwebSDK"
-							}
+							]
 						}
 					]
 				},
@@ -5984,6 +6243,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6016,6 +6278,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6060,15 +6325,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "ThirdwebSDK"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "(string) | (symbol)"
 								}
-							],
-							"returns": {
-								"type": "ThirdwebSDK"
-							}
+							]
 						}
 					]
 				}
@@ -6103,15 +6368,15 @@
 								}
 							}
 						],
+						"returns": {
+							"type": "ThirdwebStorage<T>"
+						},
 						"typeParameters": [
 							{
 								"name": "T",
 								"extendsType": "UploadOptions"
 							}
-						],
-						"returns": {
-							"type": "ThirdwebStorage<T>"
-						}
+						]
 					}
 				],
 				"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/storage/storage.ts#L28"
@@ -6157,19 +6422,6 @@
 									}
 								}
 							],
-							"blockTags": [
-								{
-									"tag": "@example",
-									"summary": [
-										{
-											"type": "code",
-											"lang": "jsx",
-											"meta": null,
-											"value": "const uri = \"ipfs://example\";\nconst data = await storage.download(uri);"
-										}
-									]
-								}
-							],
 							"returns": {
 								"type": "Promise<Response>",
 								"summary": [
@@ -6183,7 +6435,20 @@
 										]
 									}
 								]
-							}
+							},
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "const uri = \"ipfs://example\";\nconst data = await storage.download(uri);"
+										}
+									]
+								}
+							]
 						}
 					],
 					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/storage/storage.ts#L80"
@@ -6228,6 +6493,20 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Promise<TJSON>",
+								"summary": [
+									{
+										"type": "paragraph",
+										"children": [
+											{
+												"type": "text",
+												"value": "The JSON data fetched from the resolved URL"
+											}
+										]
+									}
+								]
+							},
 							"typeParameters": [
 								{
 									"name": "TJSON"
@@ -6245,21 +6524,7 @@
 										}
 									]
 								}
-							],
-							"returns": {
-								"type": "Promise<TJSON>",
-								"summary": [
-									{
-										"type": "paragraph",
-										"children": [
-											{
-												"type": "text",
-												"value": "The JSON data fetched from the resolved URL"
-											}
-										]
-									}
-								]
-							}
+							]
 						}
 					],
 					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/storage/storage.ts#L100"
@@ -6309,19 +6574,6 @@
 									]
 								}
 							],
-							"blockTags": [
-								{
-									"tag": "@example",
-									"summary": [
-										{
-											"type": "code",
-											"lang": "jsx",
-											"meta": null,
-											"value": "const uri = \"ipfs://example\";\nconst url = storage.resolveScheme(uri);\nconsole.log(url);"
-										}
-									]
-								}
-							],
 							"returns": {
 								"type": "string",
 								"summary": [
@@ -6335,7 +6587,20 @@
 										]
 									}
 								]
-							}
+							},
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "const uri = \"ipfs://example\";\nconst url = storage.resolveScheme(uri);\nconsole.log(url);"
+										}
+									]
+								}
+							]
 						}
 					],
 					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/storage/storage.ts#L59"
@@ -6391,19 +6656,6 @@
 									}
 								}
 							],
-							"blockTags": [
-								{
-									"tag": "@example",
-									"summary": [
-										{
-											"type": "code",
-											"lang": "jsx",
-											"meta": null,
-											"value": "// Upload an image\nlaunchImageLibrary({mediaType: 'photo'}, async response => {\n  if (response.assets?.[0]) {\n     const {fileName, type, uri} = response.assets[0];\n     if (!uri) {\n       throw new Error('No uri');\n     }\n     const resp = await storage.upload({\n       uri,\n       type,\n       name: fileName,\n     });\n   }\n });\nconst jsonUri = await storage.upload(json);"
-										}
-									]
-								}
-							],
 							"returns": {
 								"type": "Promise<string>",
 								"summary": [
@@ -6432,7 +6684,20 @@
 										]
 									}
 								]
-							}
+							},
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "// Upload an image\nlaunchImageLibrary({mediaType: 'photo'}, async response => {\n  if (response.assets?.[0]) {\n     const {fileName, type, uri} = response.assets[0];\n     if (!uri) {\n       throw new Error('No uri');\n     }\n     const resp = await storage.upload({\n       uri,\n       type,\n       name: fileName,\n     });\n   }\n });\nconst jsonUri = await storage.upload(json);"
+										}
+									]
+								}
+							]
 						}
 					],
 					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/storage/storage.ts#L142"
@@ -6488,19 +6753,6 @@
 									}
 								}
 							],
-							"blockTags": [
-								{
-									"tag": "@example",
-									"summary": [
-										{
-											"type": "code",
-											"lang": "jsx",
-											"meta": null,
-											"value": "// Upload an image\nlaunchImageLibrary({mediaType: 'photo'}, async response => {\n  if (response.assets?.[0]) {\n     const {fileName, type, uri} = response.assets[0];\n     if (!uri) {\n       throw new Error('No uri');\n     }\n     const resp = await storage.upload({\n       uri,\n       type,\n       name: fileName,\n     });\n   }\n });\n\n// Upload an array of JSON objects\nconst objects = [\n { name: \"JSON 1\", text: \"Hello World\" },\n { name: \"JSON 2\", trait: \"Awesome\" },\n];\nconst jsonUris = await storage.uploadBatch(objects);"
-										}
-									]
-								}
-							],
 							"returns": {
 								"type": "Promise<string[]>",
 								"summary": [
@@ -6529,7 +6781,20 @@
 										]
 									}
 								]
-							}
+							},
+							"blockTags": [
+								{
+									"tag": "@example",
+									"summary": [
+										{
+											"type": "code",
+											"lang": "jsx",
+											"meta": null,
+											"value": "// Upload an image\nlaunchImageLibrary({mediaType: 'photo'}, async response => {\n  if (response.assets?.[0]) {\n     const {fileName, type, uri} = response.assets[0];\n     if (!uri) {\n       throw new Error('No uri');\n     }\n     const resp = await storage.upload({\n       uri,\n       type,\n       name: fileName,\n     });\n   }\n });\n\n// Upload an array of JSON objects\nconst objects = [\n { name: \"JSON 1\", text: \"Hello World\" },\n { name: \"JSON 2\", trait: \"Awesome\" },\n];\nconst jsonUris = await storage.uploadBatch(objects);"
+										}
+									]
+								}
+							]
 						}
 					],
 					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react-native/src/core/storage/storage.ts#L180"
@@ -6572,6 +6837,12 @@
 					"flags": {
 						"isPrivate": true
 					}
+				}
+			],
+			"typeParameters": [
+				{
+					"name": "T",
+					"extendsType": "UploadOptions"
 				}
 			],
 			"implements": ["IThirdwebStorage"]
@@ -6625,6 +6896,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -6649,15 +6923,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "TrustWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "TrustWallet"
-							}
+							]
 						}
 					]
 				},
@@ -6678,6 +6952,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6706,15 +6983,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -6723,6 +7000,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6757,6 +7037,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6788,6 +7071,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6808,15 +7094,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -6825,6 +7111,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -6858,15 +7147,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "TrustWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "TrustWallet"
-							}
+							]
 						}
 					]
 				},
@@ -6875,6 +7164,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6910,15 +7202,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "TrustWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "TrustWallet"
-							}
+							]
 						}
 					]
 				},
@@ -6927,6 +7219,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6962,15 +7257,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "TrustWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "TrustWallet"
-							}
+							]
 						}
 					]
 				},
@@ -6979,6 +7274,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7011,6 +7309,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7055,15 +7356,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "TrustWallet"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "TrustWallet"
-							}
+							]
 						}
 					]
 				}
@@ -7085,14 +7386,17 @@
 					"type": "{ iconURL: string, links: { native: string, universal: string }, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "links",
 							"type": "{ native: string, universal: string }"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -7161,6 +7465,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -7185,15 +7492,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnect"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnect"
-							}
+							]
 						}
 					]
 				},
@@ -7214,6 +7521,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7242,15 +7552,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -7259,6 +7569,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7293,6 +7606,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7324,6 +7640,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7344,15 +7663,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -7361,6 +7680,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -7394,15 +7716,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnect"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnect"
-							}
+							]
 						}
 					]
 				},
@@ -7411,6 +7733,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7446,15 +7771,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnect"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnect"
-							}
+							]
 						}
 					]
 				},
@@ -7463,6 +7788,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7498,15 +7826,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnect"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnect"
-							}
+							]
 						}
 					]
 				},
@@ -7515,6 +7843,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7547,6 +7878,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7591,15 +7925,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnect"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnect"
-							}
+							]
 						}
 					]
 				},
@@ -7630,10 +7964,12 @@
 					"type": "{ native: string, universal: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "native",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "universal",
 							"type": "string"
 						}
@@ -7661,14 +7997,17 @@
 					"type": "{ iconURL: string, links: { native: string, universal: string }, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "links",
 							"type": "{ native: string, universal: string }"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -7737,6 +8076,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -7761,15 +8103,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectBase"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectBase"
-							}
+							]
 						}
 					]
 				},
@@ -7790,6 +8132,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7818,15 +8163,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -7835,6 +8180,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7869,6 +8217,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7900,6 +8251,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7920,15 +8274,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -7937,6 +8291,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -7970,15 +8327,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectBase"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectBase"
-							}
+							]
 						}
 					]
 				},
@@ -7987,6 +8344,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8022,15 +8382,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectBase"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectBase"
-							}
+							]
 						}
 					]
 				},
@@ -8039,6 +8399,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8074,15 +8437,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectBase"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectBase"
-							}
+							]
 						}
 					]
 				},
@@ -8091,6 +8454,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8123,6 +8489,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8167,15 +8536,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectBase"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectBase"
-							}
+							]
 						}
 					]
 				}
@@ -8267,6 +8636,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -8291,15 +8663,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectV2"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectV2"
-							}
+							]
 						}
 					]
 				},
@@ -8320,6 +8692,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8348,15 +8723,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "boolean"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "boolean"
-							}
+							]
 						}
 					]
 				},
@@ -8365,6 +8740,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8399,6 +8777,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8430,6 +8811,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8450,15 +8834,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
-							}
+							]
 						}
 					]
 				},
@@ -8467,6 +8851,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -8500,15 +8887,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectV2"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectV2"
-							}
+							]
 						}
 					]
 				},
@@ -8517,6 +8904,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8552,15 +8942,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectV2"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectV2"
-							}
+							]
 						}
 					]
 				},
@@ -8569,6 +8959,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8604,15 +8997,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectV2"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectV2"
-							}
+							]
 						}
 					]
 				},
@@ -8621,6 +9014,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8653,6 +9049,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8697,15 +9096,15 @@
 									}
 								}
 							],
+							"returns": {
+								"type": "WalletConnectV2"
+							},
 							"typeParameters": [
 								{
 									"name": "T",
 									"extendsType": "keyof WalletEvents"
 								}
-							],
-							"returns": {
-								"type": "WalletConnectV2"
-							}
+							]
 						}
 					]
 				}

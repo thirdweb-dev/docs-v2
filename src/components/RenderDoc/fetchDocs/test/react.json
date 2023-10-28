@@ -1,4 +1,7 @@
 {
+	"meta": {
+		"typedocBetterJsonVersion": "0.3.2-next"
+	},
 	"functions": [
 		{
 			"kind": "function",
@@ -19,7 +22,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/blocto/bloctoWallet.tsx#L19"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/blocto/bloctoWallet.tsx#L19"
 		},
 		{
 			"kind": "function",
@@ -40,7 +43,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/coinbase/coinbaseWallet.tsx#L28"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/coinbase/coinbaseWallet.tsx#L28"
 		},
 		{
 			"kind": "function",
@@ -58,7 +61,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/design-system/index.ts#L149"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L149"
 		},
 		{
 			"kind": "function",
@@ -79,7 +82,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx#L22"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx#L22"
 		},
 		{
 			"kind": "function",
@@ -100,7 +103,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/frame/frameWallet.tsx#L12"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/frame/frameWallet.tsx#L12"
 		},
 		{
 			"kind": "function",
@@ -118,7 +121,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/design-system/index.ts#L145"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L145"
 		},
 		{
 			"kind": "function",
@@ -139,7 +142,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/localWallet/localWallet.tsx#L11"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/localWallet/localWallet.tsx#L11"
 		},
 		{
 			"kind": "function",
@@ -157,7 +160,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/magic/magicLink.tsx#L30"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/magic/magicLink.tsx#L30"
 		},
 		{
 			"kind": "function",
@@ -178,7 +181,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/metamask/metamaskWallet.tsx#L23"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/metamask/metamaskWallet.tsx#L23"
 		},
 		{
 			"kind": "function",
@@ -199,7 +202,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/okx/okxWallet.tsx#L20"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/okx/okxWallet.tsx#L20"
 		},
 		{
 			"kind": "function",
@@ -220,7 +223,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/paper/paperWallet.tsx#L18"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/paper/paperWallet.tsx#L18"
 		},
 		{
 			"kind": "function",
@@ -241,7 +244,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/phantom/phantomWallet.tsx#L15"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/phantom/phantomWallet.tsx#L15"
 		},
 		{
 			"kind": "function",
@@ -262,7 +265,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/rainbow/RainbowWallet.tsx#L25"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/rainbow/RainbowWallet.tsx#L25"
 		},
 		{
 			"kind": "function",
@@ -283,7 +286,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/safe/safeWallet.tsx#L16"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/safe/safeWallet.tsx#L16"
 		},
 		{
 			"kind": "function",
@@ -305,7 +308,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx#L12"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx#L12"
 		},
 		{
 			"kind": "function",
@@ -326,7 +329,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/trustWallet/TrustWallet.tsx#L22"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/trustWallet/TrustWallet.tsx#L22"
 		},
 		{
 			"kind": "function",
@@ -347,7 +350,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/walletConnect/walletConnect.tsx#L32"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/walletConnect/walletConnect.tsx#L32"
 		},
 		{
 			"kind": "function",
@@ -364,6 +367,9 @@
 							}
 						}
 					],
+					"returns": {
+						"type": "WalletConfig<WalletConnect>"
+					},
 					"blockTags": [
 						{
 							"tag": "@deprecated",
@@ -412,13 +418,10 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "WalletConfig<WalletConnect>"
-					}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/walletConnectV1.tsx#L9"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/walletConnectV1.tsx#L9"
 		},
 		{
 			"kind": "function",
@@ -439,7 +442,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/zerion/zerionWallet.tsx#L22"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/zerion/zerionWallet.tsx#L22"
 		}
 	],
 	"hooks": [
@@ -453,7 +456,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useBloctoWallet.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useBloctoWallet.ts#L5"
 		},
 		{
 			"kind": "function",
@@ -465,7 +468,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useCoinbaseWallet.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useCoinbaseWallet.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -477,7 +480,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useFrame.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useFrame.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -489,7 +492,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/hooks/useInstalledWallets.ts#L7"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/hooks/useInstalledWallets.ts#L7"
 		},
 		{
 			"kind": "function",
@@ -501,7 +504,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L79"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L79"
 		},
 		{
 			"kind": "function",
@@ -513,7 +516,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/connectors/magic/useMagic.ts#L6"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/connectors/magic/useMagic.ts#L6"
 		},
 		{
 			"kind": "function",
@@ -525,7 +528,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useMetamask.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useMetamask.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -537,7 +540,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/usePaper.ts#L16"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/usePaper.ts#L16"
 		},
 		{
 			"kind": "function",
@@ -549,7 +552,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/usePaper.ts#L32"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/usePaper.ts#L32"
 		},
 		{
 			"kind": "function",
@@ -561,7 +564,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useRainbowWallet.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useRainbowWallet.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -603,6 +606,20 @@
 							}
 						}
 					],
+					"returns": {
+						"type": "{ mimeType: (undefined) | (string), url: string }",
+						"summary": [
+							{
+								"type": "paragraph",
+								"children": [
+									{
+										"type": "text",
+										"value": "the fully resolved url + mime type of the media"
+									}
+								]
+							}
+						]
+					},
 					"blockTags": [
 						{
 							"tag": "@example",
@@ -639,24 +656,10 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "{ mimeType: (undefined) | (string), url: string }",
-						"summary": [
-							{
-								"type": "paragraph",
-								"children": [
-									{
-										"type": "text",
-										"value": "the fully resolved url + mime type of the media"
-									}
-								]
-							}
-						]
-					}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/components/MediaRenderer.tsx#L528"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/MediaRenderer.tsx#L528"
 		},
 		{
 			"kind": "function",
@@ -668,7 +671,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/connectors/gnosis/useSafe.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/connectors/gnosis/useSafe.ts#L5"
 		},
 		{
 			"kind": "function",
@@ -680,7 +683,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L83"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L83"
 		},
 		{
 			"kind": "function",
@@ -692,7 +695,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useSmartWallet.ts#L7"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useSmartWallet.ts#L7"
 		},
 		{
 			"kind": "function",
@@ -704,7 +707,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useTrustWallet.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useTrustWallet.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -716,7 +719,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L18"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L18"
 		},
 		{
 			"kind": "function",
@@ -728,14 +731,14 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L5"
 		}
 	],
 	"variables": [
 		{
 			"kind": "variable",
 			"name": "defaultTokens",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L34",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L34",
 			"type": "SupportedTokens",
 			"flags": {
 				"isConst": true
@@ -744,7 +747,7 @@
 		{
 			"kind": "variable",
 			"name": "defaultWallets",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/wallets/defaultWallets.ts#L10",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/defaultWallets.ts#L10",
 			"type": "WalletConfig<any>[]",
 			"flags": {
 				"isConst": true
@@ -781,12 +784,154 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/components/types.ts#L27"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/types.ts#L27",
+			"type": "{alt : string,children : ReactNode,className : string,controls : boolean,gatewayUrl : string,height : string,mimeType : string,poster : (null) | (string),requireInteraction : boolean,src : (null) | (string),style : CSSProperties,width : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "alt",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The alt text for the media."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "children",
+					"type": "ReactNode"
+				},
+				{
+					"kind": "subtype",
+					"name": "className",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "controls",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Show the media controls (where applicable) (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "gatewayUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The IPFS gateway URL to use"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "height",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "mimeType",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "poster",
+					"type": "(null) | (string)",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The media poster image uri. (if applicable)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "requireInteraction",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Require user interaction to play the media. (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "src",
+					"type": "(null) | (string)",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The media source uri."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "style",
+					"type": "CSSProperties"
+				},
+				{
+					"kind": "subtype",
+					"name": "width",
+					"type": "string"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "MediaType",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/components/MediaRenderer.tsx#L498"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/MediaRenderer.tsx#L498",
+			"type": "{mimeType : string,url : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "mimeType",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "url",
+					"type": "string"
+				}
+			]
 		},
 		{
 			"kind": "type",
@@ -817,31 +962,117 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/components/NftMedia.tsx#L9"
-		},
-		{
-			"kind": "type",
-			"name": "ConnectWalletProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L37",
-			"type": "{ auth: { loginOptional: boolean, onLogin: ((token : string) => void), onLogout: (() => void) }, btnTitle: string, className: string, detailsBtn: (() => JSX.Element), displayBalanceToken: Record<number, string>, dropdownPosition: DropDownPosition, hideTestnetFaucet: boolean, modalSize: (\"compact\") | (\"wide\"), modalTitle: string, modalTitleIconUrl: string, networkSelector: Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>, privacyPolicyUrl: string, style: React.CSSProperties, supportedTokens: SupportedTokens, switchToActiveChain: boolean, termsOfServiceUrl: string, theme: (\"dark\") | (\"light\") | (Theme), welcomeScreen: WelcomeScreen }",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/NftMedia.tsx#L9",
+			"type": "{children : ReactNode,className : string,controls : boolean,height : string,metadata : objectOutputType<{}, ZodUnion<[ZodEffects<ZodUnion<[ZodBigInt, ZodType<BigNumber, ZodTypeDef, BigNumber>, ZodType<BN, ZodTypeDef, BN>]>, string, (bigint) | (BigNumber) | (BN)>, ZodUnknown]>, \"strip\">,mimeType : string,requireInteraction : boolean,style : CSSProperties,width : string}",
 			"typeDeclaration": [
 				{
-					"name": "auth",
-					"type": "{ loginOptional: boolean, onLogin: ((token : string) => void), onLogout: (() => void) }"
+					"kind": "subtype",
+					"name": "children",
+					"type": "ReactNode"
 				},
 				{
-					"name": "btnTitle",
-					"type": "string"
-				},
-				{
+					"kind": "subtype",
 					"name": "className",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
+					"name": "controls",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Show the media controls (where applicable) (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "height",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "metadata",
+					"type": "objectOutputType<{}, ZodUnion<[ZodEffects<ZodUnion<[ZodBigInt, ZodType<BigNumber, ZodTypeDef, BigNumber>, ZodType<BN, ZodTypeDef, BN>]>, string, (bigint) | (BigNumber) | (BN)>, ZodUnknown]>, \"strip\">",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The NFT metadata of the NFT returned by the thirdweb sdk."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "mimeType",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "requireInteraction",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Require user interaction to play the media. (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "style",
+					"type": "CSSProperties"
+				},
+				{
+					"kind": "subtype",
+					"name": "width",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "ConnectWalletProps",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L37",
+			"type": "{ auth: { loginOptional: boolean, onLogin: ((token : string) => void), onLogout: (() => void) }, btnTitle: string, className: string, detailsBtn: (() => JSX.Element), displayBalanceToken: Record<number, string>, dropdownPosition: DropDownPosition, hideTestnetFaucet: boolean, modalSize: (\"compact\") | (\"wide\"), modalTitle: string, modalTitleIconUrl: string, networkSelector: Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>, privacyPolicyUrl: string, style: React.CSSProperties, supportedTokens: SupportedTokens, switchToActiveChain: boolean, termsOfServiceUrl: string, theme: (\"dark\") | (\"light\") | (Theme), welcomeScreen: WelcomeScreen }",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "auth",
+					"type": "{ loginOptional: boolean, onLogin: ((token : string) => void), onLogout: (() => void) }"
+				},
+				{
+					"kind": "subtype",
+					"name": "btnTitle",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "className",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
 					"name": "detailsBtn",
 					"type": "(() => JSX.Element)"
 				},
 				{
+					"kind": "subtype",
 					"name": "displayBalanceToken",
 					"type": "Record<number, string>",
 					"summary": [
@@ -857,10 +1088,12 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "dropdownPosition",
 					"type": "DropDownPosition"
 				},
 				{
+					"kind": "subtype",
 					"name": "hideTestnetFaucet",
 					"type": "boolean",
 					"summary": [
@@ -876,6 +1109,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "modalSize",
 					"type": "(\"compact\") | (\"wide\")",
 					"summary": [
@@ -924,6 +1158,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "modalTitle",
 					"type": "string",
 					"summary": [
@@ -939,6 +1174,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "modalTitleIconUrl",
 					"type": "string",
 					"summary": [
@@ -963,10 +1199,12 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "networkSelector",
 					"type": "Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>"
 				},
 				{
+					"kind": "subtype",
 					"name": "privacyPolicyUrl",
 					"type": "string",
 					"summary": [
@@ -982,10 +1220,12 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "style",
 					"type": "React.CSSProperties"
 				},
 				{
+					"kind": "subtype",
 					"name": "supportedTokens",
 					"type": "SupportedTokens",
 					"summary": [
@@ -1010,6 +1250,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "switchToActiveChain",
 					"type": "boolean",
 					"summary": [
@@ -1054,6 +1295,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "termsOfServiceUrl",
 					"type": "string",
 					"summary": [
@@ -1069,10 +1311,12 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "theme",
 					"type": "(\"dark\") | (\"light\") | (Theme)"
 				},
 				{
+					"kind": "subtype",
 					"name": "welcomeScreen",
 					"type": "WelcomeScreen",
 					"summary": [
@@ -1110,42 +1354,51 @@
 		{
 			"kind": "type",
 			"name": "NetworkSelectorProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L42",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L42",
 			"type": "{ chains: Chain[], onClose: (() => void), onCustomClick: (() => void), onSwitch: ((chain : Chain) => void), open: boolean, popularChains: Chain[], recentChains: Chain[], renderChain: RenderChain, theme: (\"dark\") | (\"light\") | (Theme) }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "chains",
 					"type": "Chain[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "onClose",
 					"type": "(() => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "onCustomClick",
 					"type": "(() => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "onSwitch",
 					"type": "((chain : Chain) => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "open",
 					"type": "boolean"
 				},
 				{
+					"kind": "subtype",
 					"name": "popularChains",
 					"type": "Chain[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "recentChains",
 					"type": "Chain[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "renderChain",
 					"type": "RenderChain"
 				},
 				{
+					"kind": "subtype",
 					"name": "theme",
 					"type": "(\"dark\") | (\"light\") | (Theme)"
 				}
@@ -1154,19 +1407,19 @@
 		{
 			"kind": "type",
 			"name": "SupportedTokens",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L32",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L32",
 			"type": "Record<number, TokenInfo[]>"
 		},
 		{
 			"kind": "type",
 			"name": "Theme",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/design-system/index.ts#L88",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L88",
 			"type": "typeof darkThemeObj"
 		},
 		{
 			"kind": "type",
 			"name": "ThemeOverrides",
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/design-system/index.ts#L92",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L92",
 			"type": "{[key in Exclude<keyof Theme, \"type\">] : Partial<Theme[key]>}"
 		}
 	],
@@ -1187,7 +1440,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/ConnectWallet/Modal/ConnectModalInline.tsx#L27"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/Modal/ConnectModalInline.tsx#L27"
 		},
 		{
 			"kind": "function",
@@ -1203,29 +1456,31 @@
 									"value": "A component that allows the user to connect their wallet."
 								}
 							]
-						},
-						{
-							"type": "paragraph",
-							"children": [
-								{
-									"type": "text",
-									"value": "The button must be descendant of "
-								},
-								{
-									"type": "inlineCode",
-									"value": "ThirdwebProvider"
-								},
-								{
-									"type": "text",
-									"value": " in order to function."
-								}
-							]
 						}
 					],
 					"parameters": [
 						{
 							"name": "props",
-							"type": "ConnectWalletProps"
+							"type": "ConnectWalletProps",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "The button must be descendant of "
+										},
+										{
+											"type": "inlineCode",
+											"value": "ThirdwebProvider"
+										},
+										{
+											"type": "text",
+											"value": " in order to function."
+										}
+									]
+								}
+							]
 						},
 						{
 							"name": "context",
@@ -1240,7 +1495,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L146"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L147"
 		},
 		{
 			"kind": "function",
@@ -1300,6 +1555,9 @@
 							"type": "MediaRendererProps & RefAttributes<HTMLMediaElement>"
 						}
 					],
+					"returns": {
+						"type": "ReactNode"
+					},
 					"blockTags": [
 						{
 							"tag": "@example",
@@ -1338,13 +1596,10 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "ReactNode"
-					}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/components/MediaRenderer.tsx#L378"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/MediaRenderer.tsx#L378"
 		},
 		{
 			"kind": "function",
@@ -1369,7 +1624,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L68"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L68"
 		},
 		{
 			"kind": "function",
@@ -1429,6 +1684,9 @@
 							"type": "ThirdwebNftMediaProps & RefAttributes<HTMLMediaElement>"
 						}
 					],
+					"returns": {
+						"type": "ReactNode"
+					},
 					"blockTags": [
 						{
 							"tag": "@example",
@@ -1441,13 +1699,10 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "ReactNode"
-					}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/components/NftMedia.tsx#L44"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/NftMedia.tsx#L44"
 		},
 		{
 			"kind": "function",
@@ -1490,10 +1745,50 @@
 					],
 					"parameters": [
 						{
-							"name": "__namedParameters",
-							"type": "PropsWithChildren<ThirdwebProviderProps<TChains>>"
+							"name": "props",
+							"type": "PropsWithChildren<ThirdwebProviderProps<TChains>>",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "The props for the provider."
+										}
+									]
+								}
+							]
 						}
 					],
+					"returns": {
+						"type": "Element",
+						"summary": [
+							{
+								"type": "list",
+								"ordered": false,
+								"start": null,
+								"spread": false,
+								"children": [
+									{
+										"type": "listItem",
+										"spread": false,
+										"checked": null,
+										"children": [
+											{
+												"type": "paragraph",
+												"children": [
+													{
+														"type": "text",
+														"value": "React component."
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
 					"typeParameters": [
 						{
 							"name": "TChains",
@@ -1521,13 +1816,10 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "Element"
-					}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/providers/thirdweb-provider.tsx#L66"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/providers/thirdweb-provider.tsx#L65"
 		},
 		{
 			"kind": "function",
@@ -1568,6 +1860,9 @@
 							"type": "PropsWithChildren<Web3ButtonProps<TAction>>"
 						}
 					],
+					"returns": {
+						"type": "Element"
+					},
 					"typeParameters": [
 						{
 							"name": "TAction",
@@ -1586,13 +1881,10 @@
 								}
 							]
 						}
-					],
-					"returns": {
-						"type": "Element"
-					}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/91093bad2/packages/react/src/evm/components/Web3Button/index.tsx#L76"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/Web3Button/index.tsx#L76"
 		}
 	]
 }

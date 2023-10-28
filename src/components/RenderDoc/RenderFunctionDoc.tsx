@@ -7,11 +7,7 @@ import { SourceLink } from "./SourceLink";
 import { Details } from "../Document/Details";
 import { Deprecated } from "./Deprecated";
 
-export function RenderFunctionDoc(props: {
-	doc: FunctionDoc;
-	level: number;
-	hideTitle?: boolean;
-}) {
+export function RenderFunctionDoc(props: { doc: FunctionDoc; level: number }) {
 	const { doc } = props;
 	const multipleSignatures = doc.signatures
 		? doc.signatures?.length > 1
@@ -19,11 +15,9 @@ export function RenderFunctionDoc(props: {
 
 	return (
 		<>
-			{!props.hideTitle && (
-				<Heading level={props.level} id={doc.name}>
-					{doc.name}
-				</Heading>
-			)}
+			<Heading level={props.level} id={doc.name}>
+				{doc.name}
+			</Heading>
 
 			{doc.source && <SourceLink href={doc.source} />}
 			{doc.signatures &&

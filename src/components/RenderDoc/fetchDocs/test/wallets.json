@@ -1,4 +1,7 @@
 {
+	"meta": {
+		"typedocBetterJsonVersion": "0.3.2-next"
+	},
 	"functions": [
 		{
 			"kind": "function",
@@ -459,34 +462,42 @@
 			"type": "{ ETH_SEND_TRANSACTION: string, ETH_SIGN: string, ETH_SIGN_TRANSACTION: string, ETH_SIGN_TYPED_DATA: string, ETH_SIGN_TYPED_DATA_V3: string, ETH_SIGN_TYPED_DATA_V4: string, PERSONAL_SIGN: string, SWITCH_CHAIN: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "ETH_SEND_TRANSACTION",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "ETH_SIGN",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "ETH_SIGN_TRANSACTION",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "ETH_SIGN_TYPED_DATA",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "ETH_SIGN_TYPED_DATA_V3",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "ETH_SIGN_TYPED_DATA_V4",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "PERSONAL_SIGN",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "SWITCH_CHAIN",
 					"type": "string"
 				}
@@ -521,70 +532,87 @@
 			"type": "{ blocto: \"blocto\", coinbase: \"coinbase\", embeddedWallet: \"embeddedWallet\", frame: \"frame\", localWallet: \"localWallet\", magicLink: \"magicLink\", metamask: \"metamask\", okx: \"okx\", paper: \"paper\", phantom: \"phantom\", rainbow: \"rainbowWallet\", safe: \"safe\", smartWallet: \"smartWallet\", tokenBoundSmartWallet: \"tokenBoundSmartWallet\", trust: \"trust\", walletConnect: \"walletConnect\", walletConnectV1: \"walletConnectV1\" }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "blocto",
 					"type": "\"blocto\""
 				},
 				{
+					"kind": "subtype",
 					"name": "coinbase",
 					"type": "\"coinbase\""
 				},
 				{
+					"kind": "subtype",
 					"name": "embeddedWallet",
 					"type": "\"embeddedWallet\""
 				},
 				{
+					"kind": "subtype",
 					"name": "frame",
 					"type": "\"frame\""
 				},
 				{
+					"kind": "subtype",
 					"name": "localWallet",
 					"type": "\"localWallet\""
 				},
 				{
+					"kind": "subtype",
 					"name": "magicLink",
 					"type": "\"magicLink\""
 				},
 				{
+					"kind": "subtype",
 					"name": "metamask",
 					"type": "\"metamask\""
 				},
 				{
+					"kind": "subtype",
 					"name": "okx",
 					"type": "\"okx\""
 				},
 				{
+					"kind": "subtype",
 					"name": "paper",
 					"type": "\"paper\""
 				},
 				{
+					"kind": "subtype",
 					"name": "phantom",
 					"type": "\"phantom\""
 				},
 				{
+					"kind": "subtype",
 					"name": "rainbow",
 					"type": "\"rainbowWallet\""
 				},
 				{
+					"kind": "subtype",
 					"name": "safe",
 					"type": "\"safe\""
 				},
 				{
+					"kind": "subtype",
 					"name": "smartWallet",
 					"type": "\"smartWallet\""
 				},
 				{
+					"kind": "subtype",
 					"name": "tokenBoundSmartWallet",
 					"type": "\"tokenBoundSmartWallet\""
 				},
 				{
+					"kind": "subtype",
 					"name": "trust",
 					"type": "\"trust\""
 				},
 				{
+					"kind": "subtype",
 					"name": "walletConnect",
 					"type": "\"walletConnect\""
 				},
 				{
+					"kind": "subtype",
 					"name": "walletConnectV1",
 					"type": "\"walletConnectV1\""
 				}
@@ -598,12 +626,131 @@
 		{
 			"kind": "type",
 			"name": "AccountApiParams",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L37"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L37",
+			"type": "{accountAddress : string,accountInfo : AccountContractInfo,chain : ChainOrRpcUrl,clientId : string,entryPointAddress : string,factoryAddress : string,factoryInfo : FactoryContractInfo,localSigner : Signer,overheads : Partial<GasOverheads>,paymasterAPI : PaymasterAPI,secretKey : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "accountAddress",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "accountInfo",
+					"type": "AccountContractInfo"
+				},
+				{
+					"kind": "subtype",
+					"name": "chain",
+					"type": "ChainOrRpcUrl"
+				},
+				{
+					"kind": "subtype",
+					"name": "clientId",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "entryPointAddress",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "factoryAddress",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "factoryInfo",
+					"type": "FactoryContractInfo"
+				},
+				{
+					"kind": "subtype",
+					"name": "localSigner",
+					"type": "Signer"
+				},
+				{
+					"kind": "subtype",
+					"name": "overheads",
+					"type": "Partial<GasOverheads>"
+				},
+				{
+					"kind": "subtype",
+					"name": "paymasterAPI",
+					"type": "PaymasterAPI"
+				},
+				{
+					"kind": "subtype",
+					"name": "secretKey",
+					"type": "string"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "AsyncStorage",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/AsyncStorage.ts#L1"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/AsyncStorage.ts#L1",
+			"type": "{getItem : ((key : string) => Promise<(null) | (string)>),removeItem : ((key : string) => Promise<void>),setItem : ((key : string, value : string) => Promise<void>)}",
+			"typeDeclaration": [
+				{
+					"kind": "function",
+					"name": "getItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<(null) | (string)>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/AsyncStorage.ts#L2"
+				},
+				{
+					"kind": "function",
+					"name": "removeItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/AsyncStorage.ts#L4"
+				},
+				{
+					"kind": "function",
+					"name": "setItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								},
+								{
+									"name": "value",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/AsyncStorage.ts#L3"
+				}
+			]
 		},
 		{
 			"kind": "type",
@@ -619,42 +766,594 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/dAppMeta.ts#L6"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/dAppMeta.ts#L6",
+			"type": "{description : string,isDarkMode : boolean,logoUrl : string,name : string,url : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "description",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "optional - a description of your app"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "isDarkMode",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "optional - whether to show the connect dialog in darkmode or not"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "logoUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "optional - a url that points to a logo (or favicon) of your app"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "name",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "the name of your app"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "url",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "the url where your app is hosted"
+								}
+							]
+						}
+					]
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "EVMWallet",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/interfaces/index.ts#L3"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/interfaces/index.ts#L3",
+			"type": "{getSigner : (() => Promise<Signer>)}",
+			"typeDeclaration": [
+				{
+					"kind": "function",
+					"name": "getSigner",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<Signer>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/interfaces/index.ts#L4"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "GenericAuthWallet",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/interfaces/auth.ts#L2"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/interfaces/auth.ts#L2",
+			"type": "{type : \"evm\",getAddress : (() => Promise<string>),getChainId : (() => Promise<number>),signMessage : ((message : string) => Promise<string>),verifySignature : ((message : string, signature : string, address : string, chainId : number) => Promise<boolean>)}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "type",
+					"type": "\"evm\""
+				},
+				{
+					"kind": "function",
+					"name": "getAddress",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<string>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/interfaces/auth.ts#L4"
+				},
+				{
+					"kind": "function",
+					"name": "getChainId",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<number>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/interfaces/auth.ts#L5"
+				},
+				{
+					"kind": "function",
+					"name": "signMessage",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "message",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<string>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/interfaces/auth.ts#L6"
+				},
+				{
+					"kind": "function",
+					"name": "verifySignature",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "message",
+									"type": "string"
+								},
+								{
+									"name": "signature",
+									"type": "string"
+								},
+								{
+									"name": "address",
+									"type": "string"
+								},
+								{
+									"name": "chainId",
+									"type": "number",
+									"flags": {
+										"isOptional": true
+									}
+								}
+							],
+							"returns": {
+								"type": "Promise<boolean>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/interfaces/auth.ts#L7"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "IWalletConnectReceiver",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L69"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L69",
+			"type": "{approveRequest : (() => Promise<void>),approveSession : (() => Promise<void>),connectApp : ((uri : string) => Promise<void>),disconnectSession : (() => Promise<void>),getActiveSessions : (() => WCSession[]),isWCReceiverEnabled : (() => boolean),rejectRequest : (() => Promise<void>),rejectSession : (() => Promise<void>)}",
+			"typeDeclaration": [
+				{
+					"kind": "function",
+					"name": "approveRequest",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L73"
+				},
+				{
+					"kind": "function",
+					"name": "approveSession",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L71"
+				},
+				{
+					"kind": "function",
+					"name": "connectApp",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "uri",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L70"
+				},
+				{
+					"kind": "function",
+					"name": "disconnectSession",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L76"
+				},
+				{
+					"kind": "function",
+					"name": "getActiveSessions",
+					"signatures": [
+						{
+							"returns": {
+								"type": "WCSession[]"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L75"
+				},
+				{
+					"kind": "function",
+					"name": "isWCReceiverEnabled",
+					"signatures": [
+						{
+							"returns": {
+								"type": "boolean"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L77"
+				},
+				{
+					"kind": "function",
+					"name": "rejectRequest",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L74"
+				},
+				{
+					"kind": "function",
+					"name": "rejectSession",
+					"signatures": [
+						{
+							"returns": {
+								"type": "Promise<void>"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/types/walletConnect.ts#L72"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "ProviderConfig",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L48"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L48",
+			"type": "{accountAddress : string,accountInfo : AccountContractInfo,bundlerUrl : string,chain : ChainOrRpcUrl,clientId : string,entryPointAddress : string,factoryAddress : string,factoryInfo : FactoryContractInfo,localSigner : Signer,paymasterAPI : PaymasterAPI,secretKey : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "accountAddress",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "accountInfo",
+					"type": "AccountContractInfo"
+				},
+				{
+					"kind": "subtype",
+					"name": "bundlerUrl",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "chain",
+					"type": "ChainOrRpcUrl"
+				},
+				{
+					"kind": "subtype",
+					"name": "clientId",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "entryPointAddress",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "factoryAddress",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "factoryInfo",
+					"type": "FactoryContractInfo"
+				},
+				{
+					"kind": "subtype",
+					"name": "localSigner",
+					"type": "Signer"
+				},
+				{
+					"kind": "subtype",
+					"name": "paymasterAPI",
+					"type": "PaymasterAPI"
+				},
+				{
+					"kind": "subtype",
+					"name": "secretKey",
+					"type": "string"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "SafeConnectionArgs",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/connectors/safe/types.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/connectors/safe/types.ts#L4",
+			"type": "{chain : Pick<Chain, (\"chainId\") | (\"rpc\")>,personalWallet : EVMWallet,safeAddress : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "chain",
+					"type": "Pick<Chain, (\"chainId\") | (\"rpc\")>"
+				},
+				{
+					"kind": "subtype",
+					"name": "personalWallet",
+					"type": "EVMWallet"
+				},
+				{
+					"kind": "subtype",
+					"name": "safeAddress",
+					"type": "string"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "SyncStorage",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/SyncStorage.ts#L1"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/SyncStorage.ts#L1",
+			"type": "{getItem : ((key : string) => (null) | (string)),removeItem : ((key : string) => void),setItem : ((key : string, value : string) => void)}",
+			"typeDeclaration": [
+				{
+					"kind": "function",
+					"name": "getItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "(null) | (string)"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/SyncStorage.ts#L2"
+				},
+				{
+					"kind": "function",
+					"name": "removeItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/SyncStorage.ts#L4"
+				},
+				{
+					"kind": "function",
+					"name": "setItem",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "key",
+									"type": "string"
+								},
+								{
+									"name": "value",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/core/SyncStorage.ts#L3"
+				}
+			]
 		},
 		{
 			"kind": "type",
 			"name": "WalletEvents",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L30"
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L30",
+			"type": "{change : ((data : WalletData) => void),connect : ((data : WalletData) => void),disconnect : (() => void),display_uri : ((uri : string) => void),error : ((error : Error) => void),message : ((__namedParameters : { data: unknown, type: string }) => void),request : (() => void),wc_session_request_sent : (() => void)}",
+			"typeDeclaration": [
+				{
+					"kind": "function",
+					"name": "change",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "data",
+									"type": "WalletData"
+								}
+							],
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L32"
+				},
+				{
+					"kind": "function",
+					"name": "connect",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "data",
+									"type": "WalletData"
+								}
+							],
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L31"
+				},
+				{
+					"kind": "function",
+					"name": "disconnect",
+					"signatures": [
+						{
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L34"
+				},
+				{
+					"kind": "function",
+					"name": "display_uri",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "uri",
+									"type": "string"
+								}
+							],
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L36"
+				},
+				{
+					"kind": "function",
+					"name": "error",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "error",
+									"type": "Error"
+								}
+							],
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L35"
+				},
+				{
+					"kind": "function",
+					"name": "message",
+					"signatures": [
+						{
+							"parameters": [
+								{
+									"name": "__namedParameters",
+									"type": "{ data: unknown, type: string }"
+								}
+							],
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L33"
+				},
+				{
+					"kind": "function",
+					"name": "request",
+					"signatures": [
+						{
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L38"
+				},
+				{
+					"kind": "function",
+					"name": "wc_session_request_sent",
+					"signatures": [
+						{
+							"returns": {
+								"type": "void"
+							}
+						}
+					],
+					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/abstract.ts#L37"
+				}
+			]
 		},
 		{
 			"kind": "type",
@@ -663,10 +1362,12 @@
 			"type": "{ hasSignerRole: string[], owned: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "hasSignerRole",
 					"type": "string[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "owned",
 					"type": "string"
 				}
@@ -679,14 +1380,17 @@
 			"type": "{ abi: ContractInterface, execute: ((account : SmartContract, target : string, value : BigNumberish, data : string) => Promise<Transaction>), getNonce: ((account : SmartContract) => Promise<BigNumber>) }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "abi",
 					"type": "ContractInterface"
 				},
 				{
+					"kind": "subtype",
 					"name": "execute",
 					"type": "((account : SmartContract, target : string, value : BigNumberish, data : string) => Promise<Transaction>)"
 				},
 				{
+					"kind": "subtype",
 					"name": "getNonce",
 					"type": "((account : SmartContract) => Promise<BigNumber>)"
 				}
@@ -705,14 +1409,17 @@
 			"type": "{ email: string, recoveryCode: string, userWalletId: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "email",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "recoveryCode",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "userWalletId",
 					"type": "string"
 				}
@@ -725,6 +1432,7 @@
 			"type": "{ user: InitializedUser }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "user",
 					"type": "InitializedUser"
 				}
@@ -737,6 +1445,7 @@
 			"type": "{ storedToken: StoredTokenType & { cookieString: string, isNewUser: boolean, shouldStoreCookieString: boolean } }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "storedToken",
 					"type": "StoredTokenType & { cookieString: string, isNewUser: boolean, shouldStoreCookieString: boolean }"
 				}
@@ -748,82 +1457,102 @@
 			"type": "{ chain: string, chainId: number, ens: { registry: string }, explorers: Readonly<ChainExplorer[]>, faucets: readonly string[], features: Readonly<{ name: string }[]>, icon: Icon, infoURL: string, name: string, nativeCurrency: { decimals: number, name: string, symbol: string }, networkId: number, parent: { bridges: Readonly<{ url: string }[]>, chain: string, type: string }, redFlags: readonly string[], rpc: readonly string[], shortName: string, slip44: number, slug: string, status: string, testnet: boolean, title: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "chain",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "chainId",
 					"type": "number"
 				},
 				{
+					"kind": "subtype",
 					"name": "ens",
 					"type": "{ registry: string }"
 				},
 				{
+					"kind": "subtype",
 					"name": "explorers",
 					"type": "Readonly<ChainExplorer[]>"
 				},
 				{
+					"kind": "subtype",
 					"name": "faucets",
 					"type": "readonly string[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "features",
 					"type": "Readonly<{ name: string }[]>"
 				},
 				{
+					"kind": "subtype",
 					"name": "icon",
 					"type": "Icon"
 				},
 				{
+					"kind": "subtype",
 					"name": "infoURL",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "name",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "nativeCurrency",
 					"type": "{ decimals: number, name: string, symbol: string }"
 				},
 				{
+					"kind": "subtype",
 					"name": "networkId",
 					"type": "number"
 				},
 				{
+					"kind": "subtype",
 					"name": "parent",
 					"type": "{ bridges: Readonly<{ url: string }[]>, chain: string, type: string }"
 				},
 				{
+					"kind": "subtype",
 					"name": "redFlags",
 					"type": "readonly string[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "rpc",
 					"type": "readonly string[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "shortName",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "slip44",
 					"type": "number"
 				},
 				{
+					"kind": "subtype",
 					"name": "slug",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "status",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "testnet",
 					"type": "boolean"
 				},
 				{
+					"kind": "subtype",
 					"name": "title",
 					"type": "string"
 				}
@@ -839,6 +1568,12 @@
 			"kind": "type",
 			"name": "ConnectParams",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/interfaces/connector.ts#L22",
+			"typeParameters": [
+				{
+					"name": "TOpts",
+					"extendsType": "Record<string, any>"
+				}
+			],
 			"type": "{ chainId: number } & TOpts"
 		},
 		{
@@ -848,10 +1583,12 @@
 			"type": "{ accountInfo: AccountContractInfo, factoryInfo: FactoryContractInfo }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "accountInfo",
 					"type": "AccountContractInfo"
 				},
 				{
+					"kind": "subtype",
 					"name": "factoryInfo",
 					"type": "FactoryContractInfo"
 				}
@@ -864,10 +1601,12 @@
 			"type": "{ accountInfo: AccountContractInfo, factoryInfo: FactoryContractInfo }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "accountInfo",
 					"type": "AccountContractInfo"
 				},
 				{
+					"kind": "subtype",
 					"name": "factoryInfo",
 					"type": "FactoryContractInfo"
 				}
@@ -892,14 +1631,17 @@
 			"type": "{ chain: Pick<Chain, (\"chainId\") | (\"rpc\")>, clientId: string, styles: EmbeddedWalletConstructorType[\"styles\"] }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "chain",
 					"type": "Pick<Chain, (\"chainId\") | (\"rpc\")>"
 				},
 				{
+					"kind": "subtype",
 					"name": "clientId",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "styles",
 					"type": "EmbeddedWalletConstructorType[\"styles\"]"
 				}
@@ -924,14 +1666,17 @@
 			"type": "{ abi: ContractInterface, createAccount: ((factory : SmartContract, owner : string) => Promise<Transaction>), getAccountAddress: ((factory : SmartContract, owner : string) => Promise<string>) }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "abi",
 					"type": "ContractInterface"
 				},
 				{
+					"kind": "subtype",
 					"name": "createAccount",
 					"type": "((factory : SmartContract, owner : string) => Promise<Transaction>)"
 				},
 				{
+					"kind": "subtype",
 					"name": "getAccountAddress",
 					"type": "((factory : SmartContract, owner : string) => Promise<string>)"
 				}
@@ -944,6 +1689,7 @@
 			"type": "{ address: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "address",
 					"type": "string"
 				}
@@ -956,6 +1702,7 @@
 			"type": "{ authDetails: AuthDetails }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "authDetails",
 					"type": "AuthDetails"
 				}
@@ -980,18 +1727,22 @@
 			"type": "{ authDetails: AuthDetails, status: UserStatus.LOGGED_IN_WALLET_INITIALIZED, wallet: EmbeddedWallet, walletAddress: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "authDetails",
 					"type": "AuthDetails"
 				},
 				{
+					"kind": "subtype",
 					"name": "status",
 					"type": "UserStatus.LOGGED_IN_WALLET_INITIALIZED"
 				},
 				{
+					"kind": "subtype",
 					"name": "wallet",
 					"type": "EmbeddedWallet"
 				},
 				{
+					"kind": "subtype",
 					"name": "walletAddress",
 					"type": "string"
 				}
@@ -1010,14 +1761,17 @@
 			"type": "{ chain: Chain, secretKey: string, storage: AsyncStorage }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "chain",
 					"type": "Chain"
 				},
 				{
+					"kind": "subtype",
 					"name": "secretKey",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "storage",
 					"type": "AsyncStorage"
 				}
@@ -1030,6 +1784,7 @@
 			"type": "{ success: boolean }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "success",
 					"type": "boolean"
 				}
@@ -1078,26 +1833,32 @@
 			"type": "{ advancedOptions: PaperAdvanceOptions, chain: Pick<Chain, (\"chainId\") | (\"rpc\")>, clientId: string, onAuthSuccess: ((authResult : AuthAndWalletRpcReturnType) => void), paperClientId: string, styles: PaperConstructorType<RecoveryShareManagement>[\"styles\"] }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "advancedOptions",
 					"type": "PaperAdvanceOptions"
 				},
 				{
+					"kind": "subtype",
 					"name": "chain",
 					"type": "Pick<Chain, (\"chainId\") | (\"rpc\")>"
 				},
 				{
+					"kind": "subtype",
 					"name": "clientId",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "onAuthSuccess",
 					"type": "((authResult : AuthAndWalletRpcReturnType) => void)"
 				},
 				{
+					"kind": "subtype",
 					"name": "paperClientId",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "styles",
 					"type": "PaperConstructorType<RecoveryShareManagement>[\"styles\"]"
 				}
@@ -1128,14 +1889,17 @@
 			"type": "{ isNewDevice: boolean, isNewUser: boolean, recoveryShareManagement: RecoveryShareManagement }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "isNewDevice",
 					"type": "boolean"
 				},
 				{
+					"kind": "subtype",
 					"name": "isNewUser",
 					"type": "boolean"
 				},
 				{
+					"kind": "subtype",
 					"name": "recoveryShareManagement",
 					"type": "RecoveryShareManagement"
 				}
@@ -1154,6 +1918,7 @@
 			"type": "{ signedMessage: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "signedMessage",
 					"type": "string"
 				}
@@ -1166,6 +1931,7 @@
 			"type": "{ signedTransaction: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "signedTransaction",
 					"type": "string"
 				}
@@ -1178,6 +1944,7 @@
 			"type": "{ signedTypedData: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "signedTypedData",
 					"type": "string"
 				}
@@ -1190,18 +1957,22 @@
 			"type": "{ chain: Chain, secretKey: string, signer: Signer, storage: AsyncStorage }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "chain",
 					"type": "Chain"
 				},
 				{
+					"kind": "subtype",
 					"name": "secretKey",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "signer",
 					"type": "Signer"
 				},
 				{
+					"kind": "subtype",
 					"name": "storage",
 					"type": "AsyncStorage"
 				}
@@ -1226,10 +1997,12 @@
 			"type": "{ accountAddress: string, personalWallet: EVMWallet }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "accountAddress",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "personalWallet",
 					"type": "EVMWallet"
 				}
@@ -1248,18 +2021,22 @@
 			"type": "{ authDetails: AuthDetails, authProvider: AuthProvider, developerClientId: string, jwtToken: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "authDetails",
 					"type": "AuthDetails"
 				},
 				{
+					"kind": "subtype",
 					"name": "authProvider",
 					"type": "AuthProvider"
 				},
 				{
+					"kind": "subtype",
 					"name": "developerClientId",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "jwtToken",
 					"type": "string"
 				}
@@ -1284,14 +2061,17 @@
 			"type": "{ code: number, data: string, message: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "code",
 					"type": "number"
 				},
 				{
+					"kind": "subtype",
 					"name": "data",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "message",
 					"type": "string"
 				}
@@ -1310,14 +2090,17 @@
 			"type": "{ error: WCErrorResponse, id: number, jsonrpc: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "error",
 					"type": "WCErrorResponse"
 				},
 				{
+					"kind": "subtype",
 					"name": "id",
 					"type": "number"
 				},
 				{
+					"kind": "subtype",
 					"name": "jsonrpc",
 					"type": "string"
 				}
@@ -1330,14 +2113,17 @@
 			"type": "{ id: number, jsonrpc: string, result: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "id",
 					"type": "number"
 				},
 				{
+					"kind": "subtype",
 					"name": "jsonrpc",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "result",
 					"type": "string"
 				}
@@ -1350,22 +2136,27 @@
 			"type": "{ description: string, icons: string[], name: string, redirect: { native: string, universal: string }, url: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "description",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "icons",
 					"type": "string[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "name",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "redirect",
 					"type": "{ native: string, universal: string }"
 				},
 				{
+					"kind": "subtype",
 					"name": "url",
 					"type": "string"
 				}
@@ -1378,6 +2169,7 @@
 			"type": "{ metadata: WCProposerMetadata }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "metadata",
 					"type": "WCProposerMetadata"
 				}
@@ -1390,6 +2182,7 @@
 			"type": "{ proposer: { metadata: WCProposerMetadata } }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "proposer",
 					"type": "{ metadata: WCProposerMetadata }"
 				}
@@ -1402,18 +2195,22 @@
 			"type": "{ description: string, icons: string[], name: string, url: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "description",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "icons",
 					"type": "string[]"
 				},
 				{
+					"kind": "subtype",
 					"name": "name",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "url",
 					"type": "string"
 				}
@@ -1426,18 +2223,22 @@
 			"type": "{ method: string, params: any, peer: WCPeer, topic: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "method",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "params",
 					"type": "any"
 				},
 				{
+					"kind": "subtype",
 					"name": "peer",
 					"type": "WCPeer"
 				},
 				{
+					"kind": "subtype",
 					"name": "topic",
 					"type": "string"
 				}
@@ -1450,10 +2251,12 @@
 			"type": "{ peer: WCPeer, topic: string }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "peer",
 					"type": "WCPeer"
 				},
 				{
+					"kind": "subtype",
 					"name": "topic",
 					"type": "string"
 				}
@@ -1472,6 +2275,7 @@
 			"type": "{ projectId: string, qrModalOptions: WC2_QRModalOptions, qrcode: boolean }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "projectId",
 					"type": "string",
 					"summary": [
@@ -1496,6 +2300,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "qrModalOptions",
 					"type": "WC2_QRModalOptions",
 					"summary": [
@@ -1520,6 +2325,7 @@
 					]
 				},
 				{
+					"kind": "subtype",
 					"name": "qrcode",
 					"type": "boolean",
 					"summary": [
@@ -1560,22 +2366,27 @@
 			"type": "{ enableConnectApp: boolean, walletConnectV2ProjectId: string, walletConnectV2RelayUrl: string, walletConnectWalletMetadata: WCMetadata, wcStorage: SyncStorage }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "enableConnectApp",
 					"type": "boolean"
 				},
 				{
+					"kind": "subtype",
 					"name": "walletConnectV2ProjectId",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "walletConnectV2RelayUrl",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "walletConnectWalletMetadata",
 					"type": "WCMetadata"
 				},
 				{
+					"kind": "subtype",
 					"name": "wcStorage",
 					"type": "SyncStorage"
 				}
@@ -1588,10 +2399,12 @@
 			"type": "{ address: string, chainId: number }",
 			"typeDeclaration": [
 				{
+					"kind": "subtype",
 					"name": "address",
 					"type": "string"
 				},
 				{
+					"kind": "subtype",
 					"name": "chainId",
 					"type": "number"
 				}
@@ -1601,6 +2414,12 @@
 			"kind": "type",
 			"name": "WalletOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/wallets/src/evm/wallets/base.ts#L11",
+			"typeParameters": [
+				{
+					"name": "TOpts",
+					"extendsType": "Record<string, any>"
+				}
+			],
 			"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage } & TOpts"
 		}
 	],
@@ -1754,6 +2573,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -1871,6 +2693,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -1916,6 +2741,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2090,6 +2918,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2121,6 +2952,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2158,6 +2992,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -2208,6 +3045,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2260,6 +3100,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2312,6 +3155,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2344,6 +3190,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2675,6 +3524,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -2716,6 +3568,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2761,6 +3616,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2876,6 +3734,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2907,6 +3768,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -2944,6 +3808,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -2994,6 +3861,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3046,6 +3916,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3098,6 +3971,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3130,6 +4006,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3343,6 +4222,9 @@
 				"name": "constructor",
 				"signatures": [
 					{
+						"flags": {
+							"isExternal": true
+						},
 						"parameters": [
 							{
 								"name": "message",
@@ -3365,6 +4247,9 @@
 					"name": "captureStackTrace",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3627,6 +4512,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -3744,6 +4632,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3789,6 +4680,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3975,6 +4869,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4006,6 +4903,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4043,6 +4943,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -4093,6 +4996,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4145,6 +5051,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4197,6 +5106,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4229,6 +5141,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4581,6 +5496,9 @@
 					"name": "captureStackTrace",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4753,6 +5671,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -4870,6 +5791,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4915,6 +5839,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5101,6 +6028,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5132,6 +6062,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5169,6 +6102,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -5219,6 +6155,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5271,6 +6210,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5323,6 +6265,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5355,6 +6300,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5632,26 +6580,32 @@
 					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "analytics",
 							"type": "(\"enabled\") | (\"disabled\")"
 						},
 						{
+							"kind": "subtype",
 							"name": "chains",
 							"type": "Chain[]"
 						},
 						{
+							"kind": "subtype",
 							"name": "clientId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "dappMetadata",
 							"type": "DAppMetaData"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletStorage",
 							"type": "AsyncStorage"
 						}
@@ -5707,14 +6661,17 @@
 					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "urls",
 							"type": "{ android: string, chrome: string, ios: string }"
 						}
@@ -5774,6 +6731,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -5848,6 +6808,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5893,6 +6856,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5963,6 +6929,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5994,6 +6963,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6031,6 +7003,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -6081,6 +7056,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6133,6 +7111,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6185,6 +7166,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6217,6 +7201,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6494,6 +7481,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -6611,6 +7601,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6656,6 +7649,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6854,6 +7850,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6885,6 +7884,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -6922,6 +7924,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -6972,6 +7977,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7024,6 +8032,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7076,6 +8087,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7108,6 +8122,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7419,10 +8436,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -7633,6 +8652,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -7674,6 +8696,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7719,6 +8744,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7834,6 +8862,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7865,6 +8896,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7902,6 +8936,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -7952,6 +8989,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8004,6 +9044,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8056,6 +9099,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8088,6 +9134,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8392,6 +9441,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -8509,6 +9561,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8554,6 +9609,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8728,6 +9786,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8759,6 +9820,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8796,6 +9860,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -8846,6 +9913,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8898,6 +9968,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8950,6 +10023,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -8982,6 +10058,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9244,26 +10323,32 @@
 					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "analytics",
 							"type": "(\"enabled\") | (\"disabled\")"
 						},
 						{
+							"kind": "subtype",
 							"name": "chains",
 							"type": "Chain[]"
 						},
 						{
+							"kind": "subtype",
 							"name": "clientId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "dappMetadata",
 							"type": "DAppMetaData"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletStorage",
 							"type": "AsyncStorage"
 						}
@@ -9431,6 +10516,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -9548,6 +10636,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9593,6 +10684,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9767,6 +10861,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9798,6 +10895,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9835,6 +10935,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -9885,6 +10988,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9937,6 +11043,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9989,6 +11098,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -10021,6 +11133,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -10283,26 +11398,32 @@
 					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "analytics",
 							"type": "(\"enabled\") | (\"disabled\")"
 						},
 						{
+							"kind": "subtype",
 							"name": "chains",
 							"type": "Chain[]"
 						},
 						{
+							"kind": "subtype",
 							"name": "clientId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "dappMetadata",
 							"type": "DAppMetaData"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletStorage",
 							"type": "AsyncStorage"
 						}
@@ -10598,6 +11719,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -10738,6 +11862,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -10783,6 +11910,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -11109,6 +12239,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -11140,6 +12273,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -11235,6 +12371,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -11285,6 +12424,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -11337,6 +12479,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -11389,6 +12534,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -11421,6 +12569,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -11769,10 +12920,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -11894,6 +13047,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -12008,6 +13164,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12053,6 +13212,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12251,6 +13413,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12282,6 +13447,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12319,6 +13487,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -12369,6 +13540,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12421,6 +13595,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12473,6 +13650,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12505,6 +13685,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12824,10 +14007,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -12949,6 +14134,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -13108,6 +14296,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13153,6 +14344,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13327,6 +14521,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13358,6 +14555,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13395,6 +14595,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -13445,6 +14648,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13497,6 +14703,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13549,6 +14758,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13581,6 +14793,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -13922,14 +15137,17 @@
 					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "urls",
 							"type": "{ android: string, chrome: string, ios: string }"
 						}
@@ -14051,6 +15269,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -14210,6 +15431,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -14255,6 +15479,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -14429,6 +15656,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -14460,6 +15690,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -14497,6 +15730,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -14547,6 +15783,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -14599,6 +15838,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -14651,6 +15893,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -14683,6 +15928,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15139,6 +16387,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -15256,6 +16507,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15301,6 +16555,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15517,6 +16774,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15548,6 +16808,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15585,6 +16848,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -15635,6 +16901,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15687,6 +16956,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15739,6 +17011,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -15771,6 +17046,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16094,10 +17372,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -16149,6 +17429,9 @@
 				"name": "constructor",
 				"signatures": [
 					{
+						"flags": {
+							"isExternal": true
+						},
 						"returns": {
 							"type": "PaymasterAPI"
 						}
@@ -16161,6 +17444,9 @@
 					"name": "getPaymasterAndData",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [],
 							"parameters": [
 								{
@@ -16291,6 +17577,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -16408,6 +17697,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16453,6 +17745,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16627,6 +17922,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16658,6 +17956,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16695,6 +17996,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -16745,6 +18049,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16797,6 +18104,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16849,6 +18159,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -16881,6 +18194,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17149,26 +18465,32 @@
 					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "analytics",
 							"type": "(\"enabled\") | (\"disabled\")"
 						},
 						{
+							"kind": "subtype",
 							"name": "chains",
 							"type": "Chain[]"
 						},
 						{
+							"kind": "subtype",
 							"name": "clientId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "dappMetadata",
 							"type": "DAppMetaData"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletId",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "walletStorage",
 							"type": "AsyncStorage"
 						}
@@ -17236,14 +18558,17 @@
 					"type": "{ iconURL: string, name: string, urls: { chrome: string } }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "urls",
 							"type": "{ chrome: string }"
 						}
@@ -17318,6 +18643,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -17359,6 +18687,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17404,6 +18735,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17519,6 +18853,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17550,6 +18887,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17587,6 +18927,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -17637,6 +18980,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17689,6 +19035,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17741,6 +19090,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -17773,6 +19125,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18079,6 +19434,9 @@
 					"name": "captureStackTrace",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18283,6 +19641,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -18442,6 +19803,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18487,6 +19851,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18661,6 +20028,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18692,6 +20062,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18729,6 +20102,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -18779,6 +20155,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18831,6 +20210,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18883,6 +20265,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -18915,6 +20300,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19244,14 +20632,17 @@
 					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "urls",
 							"type": "{ android: string, chrome: string, ios: string }"
 						}
@@ -19376,6 +20767,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -19490,6 +20884,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19535,6 +20932,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19709,6 +21109,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19740,6 +21143,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19777,6 +21183,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -19827,6 +21236,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19879,6 +21291,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19931,6 +21346,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -19963,6 +21381,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20268,10 +21689,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -20393,6 +21816,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -20510,6 +21936,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20555,6 +21984,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20729,6 +22161,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20760,6 +22195,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20797,6 +22235,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -20847,6 +22288,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20899,6 +22343,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20951,6 +22398,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -20983,6 +22433,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -21435,6 +22888,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -21728,6 +23184,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -21773,6 +23232,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -22315,6 +23777,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -22346,6 +23811,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -22383,6 +23851,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -22433,6 +23904,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -22485,6 +23959,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -22601,6 +24078,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -22633,6 +24113,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -23172,10 +24655,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -23264,6 +24749,9 @@
 					"name": "captureStackTrace",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -23512,6 +25000,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -23805,6 +25296,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -23850,6 +25344,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -24392,6 +25889,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -24423,6 +25923,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -24460,6 +25963,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -24510,6 +26016,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -24562,6 +26071,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -24678,6 +26190,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -24710,6 +26225,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -25264,10 +26782,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -25389,6 +26909,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -25548,6 +27071,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -25593,6 +27119,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -25767,6 +27296,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -25798,6 +27330,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -25835,6 +27370,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -25885,6 +27423,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -25937,6 +27478,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -25989,6 +27533,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26021,6 +27568,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26350,14 +27900,17 @@
 					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "urls",
 							"type": "{ android: string, chrome: string, ios: string }"
 						}
@@ -26445,6 +27998,9 @@
 					"name": "captureStackTrace",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26587,6 +28143,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -26661,6 +28220,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26706,6 +28268,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26776,6 +28341,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26807,6 +28375,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26844,6 +28415,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -26894,6 +28468,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26946,6 +28523,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -26998,6 +28578,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27030,6 +28613,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27210,6 +28796,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -27284,6 +28873,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27329,6 +28921,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27465,6 +29060,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27496,6 +29094,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27533,6 +29134,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -27583,6 +29187,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27689,6 +29296,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27741,6 +29351,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -27773,6 +29386,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28213,6 +29829,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -28348,6 +29967,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28393,6 +30015,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28567,6 +30192,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28598,6 +30226,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28635,6 +30266,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -28685,6 +30319,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28737,6 +30374,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28789,6 +30429,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -28821,6 +30464,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29158,10 +30804,12 @@
 					"type": "{ iconURL: string, name: string }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						}
@@ -29215,6 +30863,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -29322,6 +30973,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29367,6 +31021,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29413,6 +31070,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29444,6 +31104,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29481,6 +31144,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -29531,6 +31197,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29583,6 +31252,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29659,6 +31331,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29691,6 +31366,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29829,6 +31507,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -29936,6 +31617,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -29981,6 +31665,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30027,6 +31714,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30058,6 +31748,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30095,6 +31788,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -30145,6 +31841,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30197,6 +31896,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30273,6 +31975,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30305,6 +32010,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30520,6 +32228,9 @@
 					"name": "addListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -30655,6 +32366,9 @@
 					"name": "emit",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30700,6 +32414,9 @@
 					"name": "eventNames",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30874,6 +32591,9 @@
 					"name": "listenerCount",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30905,6 +32625,9 @@
 					"name": "listeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -30942,6 +32665,9 @@
 					"name": "off",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"parameters": [
 								{
 									"name": "event",
@@ -30992,6 +32718,9 @@
 					"name": "on",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -31044,6 +32773,9 @@
 					"name": "once",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -31096,6 +32828,9 @@
 					"name": "removeAllListeners",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -31128,6 +32863,9 @@
 					"name": "removeListener",
 					"signatures": [
 						{
+							"flags": {
+								"isExternal": true
+							},
 							"summary": [
 								{
 									"type": "paragraph",
@@ -31457,14 +33195,17 @@
 					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
 					"typeDeclaration": [
 						{
+							"kind": "subtype",
 							"name": "iconURL",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "name",
 							"type": "string"
 						},
 						{
+							"kind": "subtype",
 							"name": "urls",
 							"type": "{ android: string, chrome: string, ios: string }"
 						}
