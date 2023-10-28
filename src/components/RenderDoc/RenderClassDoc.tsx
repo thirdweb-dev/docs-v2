@@ -6,6 +6,7 @@ import {
 	getFunctionSignatureCode,
 } from "./RenderFunctionDoc";
 import { CodeBlock } from "../Document/Code";
+import { RenderVariableDoc } from "./RenderVariableDoc";
 
 export function RenderClassDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
@@ -26,7 +27,7 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 			{/* Methods */}
 			{doc.methods && (
 				<div>
-					<Heading level={2} id="methods">
+					<Heading level={2} id="methods" className="text-5xl">
 						Methods
 					</Heading>
 					<div>
@@ -34,6 +35,28 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 							return (
 								<div key={i} className="mb-14">
 									<RenderFunctionDoc doc={method} key={method.name} level={3} />
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			)}
+
+			{/* Properties */}
+			{doc.properties && (
+				<div>
+					<Heading level={2} id="properties" className="text-5xl">
+						Properties
+					</Heading>
+					<div>
+						{doc.properties.map((property, i) => {
+							return (
+								<div key={i} className="mb-14">
+									<RenderVariableDoc
+										doc={property}
+										key={property.name}
+										level={3}
+									/>
 								</div>
 							);
 						})}
