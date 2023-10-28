@@ -2,6 +2,7 @@ import type { TransformedDoc } from "typedoc-better-json";
 
 export function mergeDocs(doc1: TransformedDoc, doc2: TransformedDoc) {
 	const mergedDoc: TransformedDoc = {
+		meta: doc1.meta,
 		functions: mergeArrays(doc1.functions, doc2.functions),
 		classes: mergeArrays(doc1.classes, doc2.classes),
 		components: mergeArrays(doc1.components, doc2.components),

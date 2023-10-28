@@ -7,6 +7,7 @@ import {
 } from "./RenderFunctionDoc";
 import { CodeBlock } from "../Document/Code";
 import { RenderVariableDoc } from "./RenderVariableDoc";
+import { RenderAccessorDoc } from "./RenderAccessorDoc";
 
 export function RenderClassDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
@@ -55,6 +56,28 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 									<RenderVariableDoc
 										doc={property}
 										key={property.name}
+										level={3}
+									/>
+								</div>
+							);
+						})}
+					</div>
+				</div>
+			)}
+
+			{/* Accessor */}
+			{doc.accessors && (
+				<div>
+					<Heading level={2} id="properties" className="text-5xl">
+						Accessors
+					</Heading>
+					<div>
+						{doc.accessors.map((accessor, i) => {
+							return (
+								<div key={i} className="mb-14">
+									<RenderAccessorDoc
+										doc={accessor}
+										key={accessor.name}
 										level={3}
 									/>
 								</div>

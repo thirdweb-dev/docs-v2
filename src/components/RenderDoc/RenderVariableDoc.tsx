@@ -2,10 +2,7 @@ import { TypeDeclarationDoc, VariableDoc } from "typedoc-better-json";
 import { CodeBlock, InlineCode } from "../Document/Code";
 import { RenderSummary } from "./Summary";
 import { Heading } from "../Document/Heading";
-import { Callout } from "../Document/Callout";
 import { SourceLink } from "./SourceLink";
-import { Accordion } from "../ui/accordion";
-import { Details } from "../Document/Details";
 import { RenderTypeDeclaration } from "./RenderTypeDeclaration";
 import { RenderFunctionDoc } from "./RenderFunctionDoc";
 
