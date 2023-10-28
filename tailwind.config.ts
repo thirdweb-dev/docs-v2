@@ -17,7 +17,7 @@ module.exports = {
 		},
 		colors: {
 			current: "currentColor",
-			border: "var(--b-700)",
+			border: "var(--border)",
 			input: "var(--b-700)",
 			ring: "var(--b-700)",
 			transparent: "transparent",

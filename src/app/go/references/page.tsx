@@ -1,4 +1,4 @@
-import { ReferenceLayout } from "@/components/Reference/ReferenceLayout";
+import { ReferenceLayout } from "@/components/Layouts/ReferenceLayout";
 import { Metadata } from "next";
 import { fetchGoReference } from "./fetchGoReference";
 import Content from "./content.mdx";

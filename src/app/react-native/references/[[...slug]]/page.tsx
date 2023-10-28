@@ -1,64 +1,15 @@
-import { notFound } from "next/navigation";
-import { RenderDoc } from "@/components/RenderDoc/RenderDoc";
-import { Metadata } from "next";
-import { fetchAllSlugs, getSlugToDocMap } from "@/components/RenderDoc/slugs";
+import { getTypedocPage } from "@/components/RenderDoc/SlugPage";
 import Content from "./content.mdx";
-import { fetchReactNativeDoc } from "../fetchReactNativeDoc";
+import { fetchReactNativeDoc } from "@/components/RenderDoc/fetchDocs/fetchReactNativeDoc";
 
-export const dynamicParams = false;
+const config = getTypedocPage({
+	sdkTitle: "React Native SDK",
+	getDoc: fetchReactNativeDoc,
+	indexContent: <Content />,
+	path: "/react-native/references",
+});
 
-type PageProps = { params: { slug?: [docName: string] } };
-
-export default async function Page(props: PageProps) {
-	const doc = await fetchReactNativeDoc();
-	const slugToDoc = getSlugToDocMap(doc);
-	const docName = props.params.slug ? props.params.slug[0] : undefined;
-
-	if (docName) {
-		const selectedDoc = docName && slugToDoc[docName];
-
-		if (!selectedDoc) {
-			notFound();
-		}
-
-		return <RenderDoc doc={selectedDoc} />;
-	}
-
-	return <Content />;
-}
-
-export async function generateStaticParams() {
-	const doc = await fetchReactNativeDoc();
-	const slugs = fetchAllSlugs(doc);
-
-	return [
-		...slugs.map((slug) => ({
-			slug: [slug],
-		})),
-		{
-			slug: undefined,
-		},
-	];
-}
-
-export async function generateMetadata(props: PageProps): Promise<Metadata> {
-	const doc = await fetchReactNativeDoc();
-	const docName = props.params.slug ? props.params.slug[0] : undefined;
-	const slugToDoc = getSlugToDocMap(doc);
-
-	if (!docName) {
-		return {
-			title: `React SDK | thirdweb docs`,
-		};
-	}
-
-	const selectedDoc = docName && slugToDoc[docName];
-
-	if (!selectedDoc) {
-		notFound();
-	}
-
-	return {
-		title: `${selectedDoc.name} - React SDK`,
-	};
-}
+export default config.default;
+export const generateStaticParams = config.generateStaticParams;
+export const generateMetadata = config.generateMetadata;
+export const dynamicParams = config.dynamicParams;

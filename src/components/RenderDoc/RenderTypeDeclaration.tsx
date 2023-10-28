@@ -18,7 +18,7 @@ export function RenderTypeDeclaration(props: {
 				</Heading>
 			)}
 			{doc.summary && <RenderSummary summary={doc.summary} />}
-			<CodeBlock lang="ts" code={doc.type} />
+			<CodeBlock lang="ts" code={`type ${doc.name} = ${doc.type}`} />
 		</>
 	);
 }

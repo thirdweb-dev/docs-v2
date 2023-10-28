@@ -1,4 +1,4 @@
-import { ReferenceLayout } from "@/components/Reference/ReferenceLayout";
+import { ReferenceLayout } from "@/components/Layouts/ReferenceLayout";
 import { fetchGoReference } from "../fetchGoReference";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";

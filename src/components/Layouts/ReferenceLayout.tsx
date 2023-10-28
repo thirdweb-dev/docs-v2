@@ -1,9 +1,14 @@
-import type { LinkMeta } from "./types";
-import { ReferenceMenuMobile, ReferenceSideBar } from "./Sidebar";
+import type { LinkMeta } from "../Reference/types";
+import { ReferenceMenuMobile, ReferenceSideBar } from "../Reference/Sidebar";
 import { Breadcrumb } from "../ui/Breadcrumb";
-import { SidebarLayout } from "../Layouts/SidebarLayout";
+import { SidebarLayout } from "./SidebarLayout";
 
-type ReferenceLayoutProps = {
+export type Breadcrumb = {
+	name: string;
+	href: string;
+};
+
+export type ReferenceLayoutProps = {
 	sideBar: {
 		name: string;
 		linkGroups: Array<{
@@ -11,10 +16,7 @@ type ReferenceLayoutProps = {
 			links: LinkMeta[];
 		}>;
 	};
-	breadcrumb: Array<{
-		name: string;
-		href: string;
-	}>;
+	breadcrumb: Breadcrumb[];
 	children?: React.ReactNode;
 };
 

@@ -21,6 +21,8 @@ html {
 		--b-800: hsl(240deg 5% 4%);
 		--b-700: hsl(240deg 5% 10%);
 
+		--border: hsl(240deg 5% 14%);
+
 		/* neutral foreground colors */
 		--f-100: rgba(241, 245, 249);
 		--f-200: rgb(226, 232, 240);
@@ -85,4 +87,9 @@ html {
 
 button {
 	-webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+	background: var(--accent-600);
+	color: var(--f-100);
 }

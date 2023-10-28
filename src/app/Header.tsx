@@ -86,7 +86,7 @@ export function Header() {
 						width={150}
 						height={25}
 					/>
-					<span className="mt-1 leading-none tracking-wider text-f-300">
+					<span className="mt-1 font-semibold leading-none text-f-300">
 						DOCS
 					</span>
 				</Link>

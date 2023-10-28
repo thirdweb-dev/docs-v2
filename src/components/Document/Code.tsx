@@ -1,64 +1,132 @@
+import "server-only";
+
+// highlight.js
 import highlight from "highlight.js";
 import "highlight.js/styles/github-dark.css";
-
+// prettier
 import { format } from "prettier/standalone";
 import * as parserBabel from "prettier/plugins/babel";
 import * as estree from "prettier/plugins/estree";
+// html-to-react
+import { Parser, ProcessNodeDefinitions } from "html-to-react";
+import { ChildNode } from "domhandler";
+// others
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { linkMapContext } from "@/contexts/linkMap";
 
-const bash = highlight.getLanguage("bash");
+const htmlToReactParser = Parser();
+const processNodeDefinitions = ProcessNodeDefinitions();
 
-if (bash) {
-	(bash.keywords as any).built_in = [
-		...(bash.keywords as any).built_in,
-		"yarn",
-		"npm",
-		"npx",
-		"pnpm",
-		"install",
-		"add",
-	];
-}
+fixBashHighlight();
+
+const jsOrTsLangs = new Set([
+	"js",
+	"jsx",
+	"ts",
+	"tsx",
+	"javascript",
+	"typescript",
+]);
 
 export async function CodeBlock(props: { code: string; lang: string }) {
 	let code = props.code;
 
-	if (
-		props.lang === "ts" ||
-		props.lang === "js" ||
-		props.lang === "jsx" ||
-		props.lang === "tsx" ||
-		props.lang === "javascript" ||
-		props.lang === "typescript"
-	) {
+	// format code
+	if (jsOrTsLangs.has(props.lang)) {
 		try {
 			code = await format(code, {
 				parser: "babel-ts",
 				plugins: [parserBabel, estree],
-				printWidth: 80,
+				printWidth: 70,
 			});
 		} catch (e) {
 			// ignore
 		}
 	}
 
+	// highlight code
 	const highlightedCode = highlight.highlight(code, {
 		language: props.lang,
 	}).value;
 
+	//
+	let ReactElement: any;
+
+	// wrap with links
+	const linkMap = linkMapContext.get();
+
+	if (linkMap) {
+		const processingInstructions = [
+			{
+				shouldProcessNode: function (node: ChildNode) {
+					if (node.type === "text") return true;
+				},
+				processNode: function (node: Text) {
+					const tokens = alphaSplit(node.data);
+					const result = tokens.map((token, i) => {
+						if (linkMap.has(token)) {
+							const href = linkMap.get(token);
+
+							return (
+								<Link
+									key={i}
+									data-x={token}
+									href={href || "#"}
+									className="group relative py-0.5"
+								>
+									<span className="relative z-10 transition-colors duration-200 group-hover:text-b-900">
+										{token}
+									</span>
+									<span
+										className={cn(
+											"absolute bottom-0 left-0 right-0 z-0 inline-block h-[3px] scale-105 translate-y-[2px]",
+											"rounded-sm bg-current opacity-20",
+											"transition-all duration-200 group-hover:opacity-100 group-hover:h-full group-hover:translate-y-0",
+										)}
+									/>
+								</Link>
+							);
+						}
+						return token;
+					});
+
+					return result;
+				},
+			},
+			{
+				// Anything else
+				shouldProcessNode: function (node: ChildNode) {
+					return true;
+				},
+				processNode: processNodeDefinitions.processDefaultNode,
+			},
+		];
+
+		ReactElement = htmlToReactParser.parseWithInstructions(
+			highlightedCode,
+			() => true,
+			processingInstructions,
+		);
+	}
+
 	return (
-		<code className="my-3 block font-mono text-sm leading-6" lang={props.lang}>
+		<code className="my-3 block font-mono text-sm leading-7" lang={props.lang}>
 			<pre
-				className="styled-scrollbar max-h-[500px] overflow-auto rounded-md border bg-b-800 p-4 selection:bg-b-700"
-				dangerouslySetInnerHTML={{
-					__html: highlightedCode,
-				}}
-			></pre>
+				className="styled-scrollbar max-h-[500px] overflow-auto rounded-md border bg-b-800 p-4"
+				dangerouslySetInnerHTML={
+					ReactElement ? undefined : { __html: highlightedCode }
+				}
+			>
+				{ReactElement}
+			</pre>
 		</code>
 	);
 }
 
 export function InlineCode(props: { code: string; className?: string }) {
+	const linkMap = linkMapContext.get();
+	const href = linkMap?.get(props.code);
 	return (
 		<code
 			className={cn(
@@ -66,7 +134,59 @@ export function InlineCode(props: { code: string; className?: string }) {
 				props.className,
 			)}
 		>
-			{props.code}
+			{href ? (
+				<Link href={href || "#"} className="text-accent-500">
+					{props.code}
+				</Link>
+			) : (
+				props.code
+			)}
 		</code>
 	);
+}
+
+/**
+ * Given a string with some alpha characters and some non-alpha characters mixed together,
+ * split the string into an array of tokens
+ * where each token is either a consecutive string of alpha characters or a string of non-alpha characters.
+ *
+ * @param str - The string to split
+ * @returns An array of alpha and non-alpha tokens
+ */
+function alphaSplit(str: string) {
+	const output: string[] = [];
+	let currentWord = "";
+	let isCollectingAlpha = true;
+
+	for (const char of str) {
+		const isAlpha = /[a-zA-Z]/.test(char);
+
+		// if mismatch between current char and current word type
+		if ((!isAlpha && isCollectingAlpha) || (isAlpha && !isCollectingAlpha)) {
+			output.push(currentWord); // save currently collected word
+			currentWord = char; // start collecting new word
+			isCollectingAlpha = !isCollectingAlpha; // toggle flag
+			continue;
+		} else {
+			currentWord += char; // keep collecting current word
+		}
+	}
+	if (currentWord) output.push(currentWord);
+	return output;
+}
+
+function fixBashHighlight() {
+	const bash = highlight.getLanguage("bash");
+
+	if (bash) {
+		(bash.keywords as any).built_in = [
+			...(bash.keywords as any).built_in,
+			"yarn",
+			"npm",
+			"npx",
+			"pnpm",
+			"install",
+			"add",
+		];
+	}
 }

@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { ReferenceLayout } from "@/components/Reference/ReferenceLayout";
+import { ReferenceLayout } from "@/components/Layouts/ReferenceLayout";
 import { Metadata } from "next";
 import { fetchPythonReference } from "../fetchPythonReference";
 import { getSidebarLinkGroups } from "../getSidebarLinkGroups";

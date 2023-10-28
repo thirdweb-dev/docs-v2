@@ -1,28 +1,8 @@
-import { ReferenceLayout } from "@/components/Reference/ReferenceLayout";
-import { fetchTSDoc } from "./fetchTSDoc";
-import { getSidebarLinkGroups } from "../../../components/RenderDoc/getSidebarLinkgroups";
+import { getTypedocLayout } from "@/components/RenderDoc/SlugPage";
+import { fetchTypeScriptDoc } from "@/components/RenderDoc/fetchDocs/fetchTypeScriptDoc";
 
-type PageProps = {
-	children: React.ReactNode;
-};
-
-export default async function Layout(props: PageProps) {
-	const doc = await fetchTSDoc();
-
-	const breadcrumb = [
-		{ name: "TypeScript SDK", href: "/typescript" },
-		{ name: "References", href: "/typescript/references" },
-	];
-
-	return (
-		<ReferenceLayout
-			sideBar={{
-				name: "TypeScript SDK",
-				linkGroups: getSidebarLinkGroups(doc, "/typescript/references"),
-			}}
-			breadcrumb={breadcrumb}
-		>
-			{props.children}
-		</ReferenceLayout>
-	);
-}
+export default getTypedocLayout({
+	getDoc: fetchTypeScriptDoc,
+	packageSlug: "typescript",
+	sdkTitle: "TypeScript SDK",
+});
