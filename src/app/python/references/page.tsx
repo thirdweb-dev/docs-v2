@@ -18,10 +18,6 @@ export default async function Page() {
 				name: "Python SDK",
 				linkGroups: getSidebarLinkGroups(ref),
 			}}
-			breadcrumb={[
-				{ name: "Python", href: "/python" },
-				{ name: "References", href: "/python/references" },
-			]}
 		>
 			<Content />
 		</ReferenceLayout>

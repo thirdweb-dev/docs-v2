@@ -6,7 +6,7 @@ const config = getTypedocPage({
 	sdkTitle: "TypeScript SDK",
 	getDoc: fetchTypeScriptDoc,
 	indexContent: <Content />,
-	path: "/typescript/references",
+	packageSlug: "typescript",
 });
 
 export default config.default;

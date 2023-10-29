@@ -18,10 +18,6 @@ export default async function Page() {
 				name: "Go SDK",
 				linkGroups: getSidebarLinkGroups(goReference),
 			}}
-			breadcrumb={[
-				{ name: "Go", href: "/go" },
-				{ name: "References", href: "/go/references" },
-			]}
 		>
 			<Content />
 		</ReferenceLayout>

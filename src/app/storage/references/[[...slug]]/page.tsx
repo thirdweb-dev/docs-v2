@@ -6,7 +6,7 @@ const config = getTypedocPage({
 	sdkTitle: "Storage SDK",
 	getDoc: fetchStorageDoc,
 	indexContent: <Content />,
-	path: "/storage/references",
+	packageSlug: "storage",
 });
 
 export default config.default;

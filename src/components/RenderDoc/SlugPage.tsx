@@ -6,16 +6,19 @@ import { getSlugToDocMap, getLinkMap, fetchAllSlugs } from "./slugs";
 import type { Metadata } from "next";
 import { ReferenceLayout } from "../Layouts/ReferenceLayout";
 import { getSidebarLinkGroups } from "./getSidebarLinkgroups";
+import { getTableOfContent } from "./getTableOfContent";
+import { TableOfContentsSideBar } from "../Layouts/TableContentLayout";
+import { Breadcrumb } from "../ui/Breadcrumb";
 
 type PageProps = { params: { slug?: [docName: string] } };
 
 export function getTypedocPage(options: {
 	getDoc: () => Promise<TransformedDoc>;
-	path: string;
 	indexContent: React.ReactNode;
 	sdkTitle: string;
+	packageSlug: string;
 }) {
-	const { getDoc, path, indexContent, sdkTitle } = options;
+	const { getDoc, indexContent, sdkTitle, packageSlug } = options;
 
 	async function Page(props: PageProps) {
 		const doc = await getDoc();
@@ -29,14 +32,37 @@ export function getTypedocPage(options: {
 				notFound();
 			}
 
-			const linkMap = getLinkMap(doc, path);
+			const linkMap = getLinkMap(doc, `/${packageSlug}/references`);
 			linkMap.delete(docSlug); // remove current doc's link
 			linkMapContext.set(linkMap);
 
-			return <RenderDoc doc={selectedDoc} />;
+			return (
+				<>
+					<main className="relative w-full overflow-hidden pt-6">
+						<Breadcrumb
+							crumbs={[
+								{ name: sdkTitle, href: `/${packageSlug}` },
+								{ name: "References", href: `/${packageSlug}/references` },
+								{
+									name: selectedDoc.name,
+									href: `/${packageSlug}/references/${selectedDoc.name}`,
+								},
+							]}
+						/>
+						<div className="h-6"></div>
+						<RenderDoc doc={selectedDoc} />
+					</main>
+					<TableOfContentsSideBar nodes={getTableOfContent(selectedDoc)} />
+				</>
+			);
 		}
 
-		return <>{indexContent}</>;
+		return (
+			<>
+				<div className="w-full overflow-hidden pt-6">{indexContent}</div>
+				<TableOfContentsSideBar nodes={[]} />
+			</>
+		);
 	}
 
 	async function generateStaticParams() {
@@ -103,10 +129,6 @@ export function getTypedocLayout(options: {
 					name: sdkTitle,
 					linkGroups: getSidebarLinkGroups(doc, `/${packageSlug}/references`),
 				}}
-				breadcrumb={[
-					{ name: sdkTitle, href: `/${packageSlug}` },
-					{ name: "References", href: `/${packageSlug}/references` },
-				]}
 			>
 				{props.children}
 			</ReferenceLayout>

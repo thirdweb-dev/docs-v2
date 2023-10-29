@@ -2,6 +2,7 @@ import type { LinkMeta } from "../Reference/types";
 import { ReferenceMenuMobile, ReferenceSideBar } from "../Reference/Sidebar";
 import { Breadcrumb } from "../ui/Breadcrumb";
 import { SidebarLayout } from "./SidebarLayout";
+import { TableOfContentNode, TableOfContents } from "./TableContentLayout";
 
 export type Breadcrumb = {
 	name: string;
@@ -16,19 +17,14 @@ export type ReferenceLayoutProps = {
 			links: LinkMeta[];
 		}>;
 	};
-	breadcrumb: Breadcrumb[];
 	children?: React.ReactNode;
 };
 
 export function ReferenceLayout(props: ReferenceLayoutProps) {
 	return (
 		<SidebarLayout sideBar={<ReferenceSideBar {...props.sideBar} />}>
-			<div className="pb-20">
-				<Breadcrumb crumbs={props.breadcrumb} />
-				<ReferenceMenuMobile {...props.sideBar} />
-				<div className="h-8" />
-				{props.children}
-			</div>
+			<ReferenceMenuMobile {...props.sideBar} />
+			{props.children}
 		</SidebarLayout>
 	);
 }

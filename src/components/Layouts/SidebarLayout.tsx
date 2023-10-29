@@ -1,28 +1,27 @@
 import clsx from "clsx";
 import React from "react";
+import { TableOfContentNode } from "./TableContentLayout";
 
 export function SidebarLayout(props: {
 	sideBar: React.ReactNode;
 	children: React.ReactNode;
+	tableOfContents?: TableOfContentNode[];
 }) {
 	return (
-		<div className={"container relative flex grow gap-6"}>
-			{/* Left */}
-			<aside
-				className={clsx(
-					"sticky top-header-height h-sidebar-height w-[300px] shrink-0 flex-col overflow-y-hidden",
-					"hidden md:flex",
-				)}
+		<>
+			<div
+				className={"container relative flex grow flex-col gap-6 lg:flex-row"}
 			>
-				{props.sideBar}
-			</aside>
-
-			<main className="relative w-full max-w-6xl overflow-hidden pt-6">
+				<aside
+					className={clsx(
+						"sticky top-header-height h-sidebar-height w-72 shrink-0 flex-col overflow-y-hidden",
+						"hidden lg:flex",
+					)}
+				>
+					{props.sideBar}
+				</aside>
 				{props.children}
-			</main>
-
-			{/* Right - only for xl */}
-			<div className="hidden w-64 shrink-0 xl:block"></div>
-		</div>
+			</div>
+		</>
 	);
 }

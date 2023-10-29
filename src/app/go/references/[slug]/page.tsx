@@ -25,22 +25,6 @@ export default async function Page(props: PageProps) {
 
 	return (
 		<ReferenceLayout
-			breadcrumb={[
-				{
-					name: "Go",
-					href: "/go",
-				},
-				{
-					name: "References",
-					href: "/go/references",
-				},
-				{
-					name: apiName,
-					href: `/go/references/${
-						"functionName" in apiInfo ? apiInfo.functionName : apiInfo.typeName
-					}`,
-				},
-			]}
 			sideBar={{
 				name: "Go SDK",
 				linkGroups: getSidebarLinkGroups(goReference),

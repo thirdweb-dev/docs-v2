@@ -6,7 +6,7 @@ const config = getTypedocPage({
 	sdkTitle: "Wallets SDK",
 	getDoc: fetchWalletsDoc,
 	indexContent: <Content />,
-	path: "/wallets/references",
+	packageSlug: "wallets",
 });
 
 export default config.default;

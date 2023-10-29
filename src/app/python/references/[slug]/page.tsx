@@ -23,14 +23,6 @@ export default async function Page(props: PageProps) {
 				name: "Python SDK",
 				linkGroups: getSidebarLinkGroups(doc),
 			}}
-			breadcrumb={[
-				{ name: "Python", href: "/python" },
-				{ name: "References", href: "/python/references" },
-				{
-					name: apiName,
-					href: `/python/references/${apiName}`,
-				},
-			]}
 		/>
 	);
 }

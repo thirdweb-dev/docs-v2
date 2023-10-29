@@ -6,7 +6,7 @@ const config = getTypedocPage({
 	sdkTitle: "React Native SDK",
 	getDoc: fetchReactNativeDoc,
 	indexContent: <Content />,
-	path: "/react-native/references",
+	packageSlug: "react-native",
 });
 
 export default config.default;

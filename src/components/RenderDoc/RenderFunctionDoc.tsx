@@ -55,7 +55,7 @@ function RenderFunctionSignature(props: {
 			{props.signatureId && (
 				<Heading level={props.level} id={`signature-${props.signatureId}`}>
 					Signature
-					<span className="font-normal text-f-300">#{props.signatureId}</span>
+					<span className="font-normal text-f-300"> #{props.signatureId}</span>
 				</Heading>
 			)}
 
@@ -77,7 +77,10 @@ function RenderFunctionSignature(props: {
 
 			{exampleTag && (
 				<div>
-					<Heading level={props.level} id="example">
+					<Heading
+						level={props.signatureId ? props.level + 1 : props.level}
+						id={`example${props.signatureId ? `-${props.signatureId}` : ""}`}
+					>
 						Example
 					</Heading>
 					{exampleTag.summary && <RenderSummary summary={exampleTag.summary} />}
@@ -89,6 +92,10 @@ function RenderFunctionSignature(props: {
 					{props.signature.parameters?.map((param) => {
 						return (
 							<Details
+								id={
+									param.name +
+									(props.signatureId ? `-${props.signatureId}` : "")
+								}
 								key={param.name}
 								level={props.level + 1}
 								summary={
@@ -117,6 +124,7 @@ function RenderFunctionSignature(props: {
 
 			{signature.returns && (
 				<Details
+					id={"returns" + (props.signatureId ? `-${props.signatureId}` : "")}
 					summary={<span className="font-mono">Returns</span>}
 					level={props.level + 1}
 				>

@@ -6,7 +6,7 @@ const config = getTypedocPage({
 	sdkTitle: "React SDK",
 	getDoc: fetchReactDoc,
 	indexContent: <Content />,
-	path: "/react/references",
+	packageSlug: "react",
 });
 
 export default config.default;

@@ -119,7 +119,7 @@ export function ReferenceMenuMobile(props: ReferenceSideBarProps) {
 	return (
 		<DropdownMenu open={open} onOpenChange={setOpen}>
 			<DropdownMenuTrigger asChild>
-				<Button className="mt-5 w-full justify-between border bg-b-800 py-6 text-left text-f-100 md:hidden">
+				<Button className="mt-5 w-full justify-between border bg-b-800 py-4 text-left text-f-100 lg:hidden">
 					References
 					<ChevronDown
 						className={clsx(
