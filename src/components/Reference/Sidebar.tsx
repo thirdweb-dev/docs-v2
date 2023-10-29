@@ -31,13 +31,19 @@ type ReferenceSideBarProps = {
 };
 
 export function ReferenceSideBar(props: ReferenceSideBarProps) {
+	// open the last accordion by default
+	const lastGroup = props.linkGroups[props.linkGroups.length - 1]?.group;
+
 	return (
 		<div className="flex h-full flex-col">
 			{/* Side bar Name */}
 			<p className="py-5 text-f-100">{props.name}</p>
 
 			<div className="styled-scrollbar transform-gpu overflow-y-scroll pb-10">
-				<Accordion type="multiple" defaultValue={["classes", "functions"]}>
+				<Accordion
+					type="multiple"
+					defaultValue={lastGroup ? [lastGroup] : undefined}
+				>
 					<div className="flex flex-col gap-1">
 						{props.linkGroups.map((linkGroup) => {
 							return (
