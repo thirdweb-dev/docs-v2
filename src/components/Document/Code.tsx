@@ -79,16 +79,16 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 									key={i}
 									data-x={token}
 									href={href || "#"}
-									className="group relative py-0.5"
+									className="group/codelink relative py-0.5"
 								>
-									<span className="relative z-10 transition-colors duration-200 group-hover:text-b-900">
+									<span className="relative z-10 transition-colors duration-200 group-hover/codelink:text-b-900">
 										{token}
 									</span>
 									<span
 										className={cn(
 											"absolute bottom-0 left-0 right-0 z-0 inline-block h-[3px] scale-105 translate-y-[2px]",
 											"rounded-sm bg-current opacity-20",
-											"transition-all duration-200 group-hover:opacity-100 group-hover:h-full group-hover:translate-y-0",
+											"transition-all duration-200 group-hover/codelink:opacity-100 group-hover/codelink:h-full group-hover/codelink:translate-y-0",
 										)}
 									/>
 								</Link>
@@ -118,7 +118,7 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 
 	return (
 		<code
-			className="styled-scrollbar my-3 block max-h-[65vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
+			className="styled-scrollbar mb-3 block max-h-[65vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
 			lang={lang}
 		>
 			<pre

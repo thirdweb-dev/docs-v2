@@ -32,7 +32,6 @@
 				{
 					"functionName": "get_nft_collection",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.nft_collection.NFTCollection'>",
@@ -41,7 +40,6 @@
 				{
 					"functionName": "get_edition",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.edition.Edition'>",
@@ -50,7 +48,6 @@
 				{
 					"functionName": "get_token",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.token.Token'>",
@@ -59,7 +56,6 @@
 				{
 					"functionName": "get_marketplace",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.marketplace.Marketplace'>",
@@ -68,7 +64,6 @@
 				{
 					"functionName": "get_nft_drop",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.nft_drop.NFTDrop'>",
@@ -77,7 +72,6 @@
 				{
 					"functionName": "get_edition_drop",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.edition_drop.EditionDrop'>",
@@ -86,7 +80,6 @@
 				{
 					"functionName": "get_multiwrap",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.multiwrap.Multiwrap'>",
@@ -95,7 +88,6 @@
 				{
 					"functionName": "get_contract",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" }
 					],
 					"returnType": "<class 'thirdweb.contracts.custom.CustomContract'>",
@@ -104,7 +96,6 @@
 				{
 					"functionName": "get_contract_from_abi",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" },
 						{ "paramName": "abi", "paramType": "abi: str" }
 					],
@@ -114,7 +105,6 @@
 				{
 					"functionName": "update_provider",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "provider", "paramType": "provider: web3.main.Web3" }
 					],
 					"returnType": "<class 'inspect._empty'>",
@@ -123,7 +113,6 @@
 				{
 					"functionName": "update_signer",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{
 							"paramName": "signer",
 							"paramType": "signer: Optional[eth_account.signers.local.LocalAccount] = None"
@@ -135,7 +124,6 @@
 				{
 					"functionName": "_get_contract",
 					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
 						{ "paramName": "address", "paramType": "address: str" },
 						{
 							"paramName": "contract_type",
@@ -230,7 +218,7 @@
 			"methods": [
 				{
 					"functionName": "to_json",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
+					"functionParams": [],
 					"returnType": "typing.Dict[str, typing.Any]",
 					"comments": null
 				}
@@ -578,7 +566,7 @@
 			"methods": [
 				{
 					"functionName": "to_json",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
+					"functionParams": [],
 					"returnType": "typing.Dict[str, typing.Any]",
 					"comments": null
 				}
@@ -608,107 +596,6 @@
 			"fields": [],
 			"methods": [],
 			"comments": "Offer(listing_id: int, buyer_address: str, quantity_desired: int, price_per_token: int, currency_value: thirdweb.types.currency.CurrencyValue, currency_contract_address: str)"
-		},
-		{
-			"typeName": "float",
-			"fields": [
-				{ "fieldName": "real", "fieldType": "<class 'getset_descriptor'>" },
-				{ "fieldName": "imag", "fieldType": "<class 'getset_descriptor'>" }
-			],
-			"methods": [
-				{
-					"functionName": "conjugate",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Return self, the complex conjugate of any float."
-				},
-				{
-					"functionName": "as_integer_ratio",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Return integer ratio.\n\nReturn a pair of integers, whose ratio is exactly equal to the original float\nand with a positive denominator.\n\nRaise OverflowError on infinities and a ValueError on NaNs.\n\n>>> (10.0).as_integer_ratio()\n(10, 1)\n>>> (0.0).as_integer_ratio()\n(0, 1)\n>>> (-.25).as_integer_ratio()\n(-1, 4)"
-				},
-				{
-					"functionName": "fromhex",
-					"functionParams": [
-						{ "paramName": "type", "paramType": "type" },
-						{ "paramName": "string", "paramType": "string" }
-					],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Create a floating-point number from a hexadecimal string.\n\n>>> float.fromhex('0x1.ffffp10')\n2047.984375\n>>> float.fromhex('-0x1p-1074')\n-5e-324"
-				},
-				{
-					"functionName": "hex",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Return a hexadecimal representation of a floating-point number.\n\n>>> (-0.1).hex()\n'-0x1.999999999999ap-4'\n>>> 3.14159.hex()\n'0x1.921f9f01b866ep+1'"
-				},
-				{
-					"functionName": "is_integer",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Return True if the float is an integer."
-				}
-			],
-			"comments": "Convert a string or number to a floating point number, if possible."
-		},
-		{
-			"typeName": "int",
-			"fields": [
-				{ "fieldName": "real", "fieldType": "<class 'getset_descriptor'>" },
-				{ "fieldName": "imag", "fieldType": "<class 'getset_descriptor'>" },
-				{
-					"fieldName": "numerator",
-					"fieldType": "<class 'getset_descriptor'>"
-				},
-				{
-					"fieldName": "denominator",
-					"fieldType": "<class 'getset_descriptor'>"
-				}
-			],
-			"methods": [
-				{
-					"functionName": "conjugate",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Returns self, the complex conjugate of any int."
-				},
-				{
-					"functionName": "bit_length",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Number of bits necessary to represent self in binary.\n\n>>> bin(37)\n'0b100101'\n>>> (37).bit_length()\n6"
-				},
-				{
-					"functionName": "to_bytes",
-					"functionParams": [
-						{ "paramName": "self", "paramType": "self" },
-						{ "paramName": "length", "paramType": "length" },
-						{ "paramName": "byteorder", "paramType": "byteorder" },
-						{ "paramName": "signed", "paramType": "signed=False" }
-					],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Return an array of bytes representing an integer.\n\nlength\n  Length of bytes object to use.  An OverflowError is raised if the\n  integer is not representable with the given number of bytes.\nbyteorder\n  The byte order used to represent the integer.  If byteorder is 'big',\n  the most significant byte is at the beginning of the byte array.  If\n  byteorder is 'little', the most significant byte is at the end of the\n  byte array.  To request the native byte order of the host system, use\n  `sys.byteorder' as the byte order value.\nsigned\n  Determines whether two's complement is used to represent the integer.\n  If signed is False and a negative integer is given, an OverflowError\n  is raised."
-				},
-				{
-					"functionName": "from_bytes",
-					"functionParams": [
-						{ "paramName": "type", "paramType": "type" },
-						{ "paramName": "bytes", "paramType": "bytes" },
-						{ "paramName": "byteorder", "paramType": "byteorder" },
-						{ "paramName": "signed", "paramType": "signed=False" }
-					],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Return the integer represented by the given array of bytes.\n\nbytes\n  Holds the array of bytes to convert.  The argument must either\n  support the buffer protocol or be an iterable object producing bytes.\n  Bytes and bytearray are examples of built-in objects that support the\n  buffer protocol.\nbyteorder\n  The byte order used to represent the integer.  If byteorder is 'big',\n  the most significant byte is at the beginning of the byte array.  If\n  byteorder is 'little', the most significant byte is at the end of the\n  byte array.  To request the native byte order of the host system, use\n  `sys.byteorder' as the byte order value.\nsigned\n  Indicates whether two's complement is used to represent the integer."
-				},
-				{
-					"functionName": "as_integer_ratio",
-					"functionParams": [{ "paramName": "self", "paramType": "self" }],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Return integer ratio.\n\nReturn a pair of integers, whose ratio is exactly equal to the original int\nand with a positive denominator.\n\n>>> (10).as_integer_ratio()\n(10, 1)\n>>> (-10).as_integer_ratio()\n(-10, 1)\n>>> (0).as_integer_ratio()\n(0, 1)"
-				}
-			],
-			"comments": "int([x]) -> integer\nint(x, base=10) -> integer\n\nConvert a number or string to an integer, or return 0 if no arguments\nare given.  If x is a number, return x.__int__().  For floating point\nnumbers, this truncates towards zero.\n\nIf x is not a number or if base is given, then x must be a string,\nbytes, or bytearray instance representing an integer literal in the\ngiven base.  The literal can be preceded by '+' or '-' and be surrounded\nby whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.\nBase 0 means to interpret the base from the string as an integer literal.\n>>> int('0b100', base=0)\n4"
 		},
 		{
 			"typeName": "QueryAllParams",
@@ -783,152 +670,6 @@
 			"fields": [],
 			"methods": [],
 			"comments": "WrappedTokens(erc20_tokens: List[thirdweb.types.multiwrap.ERC20Wrappable] = <factory>, erc721_tokens: List[thirdweb.types.multiwrap.ERC721Wrappable] = <factory>, erc1155_tokens: List[thirdweb.types.multiwrap.ERC1155Wrappable] = <factory>)"
-		},
-		{
-			"typeName": "datetime",
-			"fields": [
-				{ "fieldName": "hour", "fieldType": "<class 'getset_descriptor'>" },
-				{ "fieldName": "minute", "fieldType": "<class 'getset_descriptor'>" },
-				{ "fieldName": "second", "fieldType": "<class 'getset_descriptor'>" },
-				{
-					"fieldName": "microsecond",
-					"fieldType": "<class 'getset_descriptor'>"
-				},
-				{ "fieldName": "tzinfo", "fieldType": "<class 'getset_descriptor'>" },
-				{ "fieldName": "fold", "fieldType": "<class 'getset_descriptor'>" },
-				{ "fieldName": "min", "fieldType": "<class 'datetime.datetime'>" },
-				{ "fieldName": "max", "fieldType": "<class 'datetime.datetime'>" },
-				{
-					"fieldName": "resolution",
-					"fieldType": "<class 'datetime.timedelta'>"
-				}
-			],
-			"methods": [
-				{
-					"functionName": "now",
-					"functionParams": [
-						{ "paramName": "type", "paramType": "type" },
-						{ "paramName": "tz", "paramType": "tz=None" }
-					],
-					"returnType": "<class 'inspect._empty'>",
-					"comments": "Returns new datetime object representing current time local to tz.\n\n  tz\n    Timezone object.\n\nIf no tz is specified, uses local timezone."
-				},
-				{
-					"functionName": "utcnow",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return a new datetime representing UTC day and time."
-				},
-				{
-					"functionName": "fromtimestamp",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "timestamp[, tz] -> tz's local time from POSIX timestamp."
-				},
-				{
-					"functionName": "utcfromtimestamp",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Construct a naive UTC datetime from a POSIX timestamp."
-				},
-				{
-					"functionName": "strptime",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "string, format -> new datetime parsed from a string (like time.strptime())."
-				},
-				{
-					"functionName": "combine",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "date, time -> datetime with same date and time fields"
-				},
-				{
-					"functionName": "fromisoformat",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "string -> datetime from datetime.isoformat() output"
-				},
-				{
-					"functionName": "date",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return date object with same year, month and day."
-				},
-				{
-					"functionName": "time",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return time object with same time but with tzinfo=None."
-				},
-				{
-					"functionName": "timetz",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return time object with same time and tzinfo."
-				},
-				{
-					"functionName": "ctime",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return ctime() style string."
-				},
-				{
-					"functionName": "timetuple",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return time tuple, compatible with time.localtime()."
-				},
-				{
-					"functionName": "timestamp",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return POSIX timestamp as float."
-				},
-				{
-					"functionName": "utctimetuple",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return UTC time tuple, compatible with time.localtime()."
-				},
-				{
-					"functionName": "isoformat",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "[sep] -> string in ISO 8601 format, YYYY-MM-DDT[HH[:MM[:SS[.mmm[uuu]]]]][+HH:MM].\nsep is used to separate the year from the time, and defaults to 'T'.\nThe optional argument timespec specifies the number of additional terms\nof the time to include. Valid options are 'auto', 'hours', 'minutes',\n'seconds', 'milliseconds' and 'microseconds'."
-				},
-				{
-					"functionName": "utcoffset",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return self.tzinfo.utcoffset(self)."
-				},
-				{
-					"functionName": "tzname",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return self.tzinfo.tzname(self)."
-				},
-				{
-					"functionName": "dst",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return self.tzinfo.dst(self)."
-				},
-				{
-					"functionName": "replace",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "Return datetime with new specified fields."
-				},
-				{
-					"functionName": "astimezone",
-					"functionParams": [],
-					"returnType": null,
-					"comments": "tz -> convert to local time in new timezone tz"
-				}
-			],
-			"comments": "datetime(year, month, day[, hour[, minute[, second[, microsecond[,tzinfo]]]]])\n\nThe year, month and day arguments are required. tzinfo may be None, or an\ninstance of a tzinfo subclass. The remaining arguments may be ints."
 		}
 	]
 }

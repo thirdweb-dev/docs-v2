@@ -19,7 +19,8 @@ html {
 		/* neutral background colors */
 		--b-900: hsl(240deg 6.67% 0%);
 		--b-800: hsl(240deg 5% 4%);
-		--b-700: hsl(240deg 5% 10%);
+		--b-700: hsl(240deg 5% 6%);
+		--b-600: hsl(240deg 5% 10%);
 
 		--border: hsl(240deg 5% 14%);
 
@@ -31,7 +32,9 @@ html {
 		/* others */
 		--accent-500: hsl(217deg 91% 60%);
 		--accent-600: hsl(221deg 83% 53%);
-		--accent-900: rgba(82, 186, 255, 0.05);
+		--accent-900: hsl(221 53% 8%);
+		--accent-800: hsl(221 53% 12%);
+		--accent-700: hsl(221 53% 20%);
 
 		--danger-500: hsl(0deg 84% 60%);
 		--danger-900: #331515;
@@ -74,7 +77,7 @@ html {
 .styled-scrollbar::-webkit-scrollbar-thumb {
 	border-radius: 0.5rem;
 	transition: color 200ms ease;
-	background: var(--b-700);
+	background: var(--border);
 }
 
 .styled-scrollbar::-webkit-scrollbar-thumb:hover {

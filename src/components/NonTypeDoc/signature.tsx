@@ -2,7 +2,7 @@ import { cleanPythonParameterType, cleanPythonType } from "./temp";
 import { NParameterDoc, NFunctionDoc } from "./types";
 
 export function pythonSignatureCode(doc: NFunctionDoc) {
-	const params = doc.parameters?.filter((p) => p.name !== "self");
+	const params = doc.parameters;
 	const paramsCode =
 		params && params.length > 0
 			? "\n" +

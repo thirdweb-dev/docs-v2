@@ -152,7 +152,7 @@ export function Header() {
 													prefetch={false}
 													className={clsx(
 														"flex cursor-pointer text-f-200",
-														"hover:bg-b-700 hover:text-f-100",
+														"hover:bg-b-600 hover:text-f-100",
 													)}
 												>
 													{info.name}

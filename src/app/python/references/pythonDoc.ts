@@ -53,17 +53,15 @@ function transformToNDoc(pythonJSON: PythonJSON): NRootDoc {
 					kind: "function",
 					description: docStringInfo?.description,
 					name: method.functionName,
-					parameters: method.functionParams
-						.filter((w) => w.paramName !== "self")
-						.map((fParam, i) => {
-							return {
-								name: fParam.paramName,
-								type: cleanPythonType(fParam.paramType),
-								description: docStringInfo?.params
-									? docStringInfo.params[i]?.description
-									: undefined,
-							};
-						}),
+					parameters: method.functionParams.map((fParam, i) => {
+						return {
+							name: fParam.paramName,
+							type: cleanPythonType(fParam.paramType),
+							description: docStringInfo?.params
+								? docStringInfo.params[i]?.description
+								: undefined,
+						};
+					}),
 					returns: {
 						description: docStringInfo?.returns?.description,
 						type: method.returnType,

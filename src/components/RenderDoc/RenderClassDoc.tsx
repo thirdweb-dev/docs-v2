@@ -1,13 +1,11 @@
 import { ClassDoc } from "typedoc-better-json";
 import { Heading } from "../Document/Heading";
 import { SourceLink } from "./SourceLink";
-import {
-	RenderFunctionDoc,
-	getFunctionSignatureCode,
-} from "./RenderFunctionDoc";
-import { CodeBlock } from "../Document/Code";
+import { RenderFunctionDoc } from "./RenderFunctionDoc";
+import { CodeBlock, InlineCode } from "../Document/Code";
 import { RenderVariableDoc } from "./RenderVariableDoc";
 import { RenderAccessorDoc } from "./RenderAccessorDoc";
+import { Details } from "../Document/Details";
 
 export function RenderClassDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
@@ -23,20 +21,50 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 			<CodeBlock lang="ts" code={getClassSignatureDoc(doc)} />
 
 			{/* Constructor */}
-			{doc.constructor && <RenderFunctionDoc doc={doc.constructor} level={2} />}
+			{doc.constructor && (
+				<Details
+					id="constructor"
+					level={2}
+					summary="Constructor"
+					headingClassName="font-mono"
+				>
+					<RenderFunctionDoc
+						doc={doc.constructor}
+						level={2}
+						showHeading={false}
+					/>
+				</Details>
+			)}
 
 			{/* Methods */}
 			{doc.methods && (
 				<div>
-					<Heading level={2} id="methods" className="text-4xl">
+					<Heading level={2} id="methods">
 						Methods
 					</Heading>
 					<div>
 						{doc.methods.map((method, i) => {
+							const flags = method.signatures && method.signatures[0]?.flags;
 							return (
-								<div key={i} className="mb-14">
-									<RenderFunctionDoc doc={method} key={method.name} level={3} />
-								</div>
+								<Details
+									key={i}
+									summary={method.name}
+									id={method.name}
+									headingClassName="font-mono"
+									flags={[
+										flags?.isOptional ? "optional" : "",
+										flags?.isPrivate ? "private" : "",
+										flags?.isProtected ? "protected" : "",
+										flags?.isStatic ? "static" : "",
+									].filter((w) => w)}
+								>
+									<RenderFunctionDoc
+										doc={method}
+										key={method.name}
+										level={3}
+										showHeading={false}
+									/>
+								</Details>
 							);
 						})}
 					</div>
@@ -46,19 +74,26 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 			{/* Properties */}
 			{doc.properties && (
 				<div>
-					<Heading level={2} id="properties" className="text-4xl">
+					<Heading level={2} id="properties">
 						Properties
 					</Heading>
 					<div>
 						{doc.properties.map((property, i) => {
+							const isPrivate = property.flags?.isPrivate;
 							return (
-								<div key={i} className="mb-14">
+								<Details
+									key={i}
+									summary={property.name}
+									id={property.name}
+									headingClassName="font-mono"
+								>
 									<RenderVariableDoc
 										doc={property}
 										key={property.name}
 										level={3}
+										showHeading={false}
 									/>
-								</div>
+								</Details>
 							);
 						})}
 					</div>
@@ -74,13 +109,13 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 					<div>
 						{doc.accessors.map((accessor, i) => {
 							return (
-								<div key={i} className="mb-14">
+								<Details key={i} id={accessor.name} summary={accessor.name}>
 									<RenderAccessorDoc
 										doc={accessor}
 										key={accessor.name}
 										level={3}
 									/>
-								</div>
+								</Details>
 							);
 						})}
 					</div>

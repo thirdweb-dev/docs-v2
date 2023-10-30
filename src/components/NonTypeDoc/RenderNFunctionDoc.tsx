@@ -14,19 +14,23 @@ export function RenderNFunctionDoc(props: {
 	lang: NLang;
 	level: number;
 	slugPrefix: string;
+	showHeading?: boolean;
 }) {
 	const { doc, level } = props;
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
+	const subLevel = props.showHeading === false ? level : level + 1;
 
 	return (
 		<div>
-			<Heading
-				level={level}
-				id={slugger.slug(`${props.slugPrefix}--${doc.name}`)}
-			>
-				{doc.name}
-			</Heading>
+			{props.showHeading !== false && (
+				<Heading
+					level={level}
+					id={slugger.slug(`${props.slugPrefix}--${doc.name}`)}
+				>
+					{doc.name}
+				</Heading>
+			)}
 
 			{doc.description && <Paragraph> {doc.description}</Paragraph>}
 
@@ -41,6 +45,12 @@ export function RenderNFunctionDoc(props: {
 
 			{doc.parameters && doc.parameters.length > 0 && (
 				<div>
+					<Heading
+						level={subLevel}
+						id={slugger.slug(`${props.slugPrefix}--${doc.name}--params`)}
+					>
+						Parameters
+					</Heading>
 					{doc.parameters.map((param) => {
 						return (
 							<Details
@@ -53,7 +63,7 @@ export function RenderNFunctionDoc(props: {
 								<RenderNParameterDoc
 									slugPrefix={`${props.slugPrefix}--${doc.name}`}
 									doc={param}
-									level={level + 1}
+									level={subLevel + 1}
 									lang={props.lang}
 									showHeading={false}
 								/>
@@ -66,10 +76,14 @@ export function RenderNFunctionDoc(props: {
 			{doc.returns && (
 				<div>
 					{doc.returns.type && (
-						<Details
-							summary="Returns"
-							id={slugger.slug(`${doc.name}--returns`)}
-						>
+						<div>
+							<Heading
+								id={slugger.slug(`${doc.name}--returns`)}
+								level={subLevel}
+							>
+								Returns
+							</Heading>
+
 							{doc.returns.description && (
 								<Paragraph>{doc.returns.description}</Paragraph>
 							)}
@@ -82,7 +96,7 @@ export function RenderNFunctionDoc(props: {
 										: doc.returns.type
 								}
 							/>
-						</Details>
+						</div>
 					)}
 				</div>
 			)}

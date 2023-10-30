@@ -4,6 +4,7 @@ import { RenderSummary } from "./Summary";
 import { Heading } from "../Document/Heading";
 import { SourceLink } from "./SourceLink";
 import { RenderTypeDeclaration } from "./RenderTypeDeclaration";
+import { Details } from "../Document/Details";
 
 export function RenderInterfaceDoc(props: {
 	doc: InterfaceDoc;
@@ -24,11 +25,14 @@ export function RenderInterfaceDoc(props: {
 
 			{doc.typeDeclaration?.map((declaration, i) => {
 				return (
-					<RenderTypeDeclaration
-						doc={declaration}
-						level={props.level + 1}
-						key={i}
-					/>
+					<Details key={i} summary={declaration.name} id={declaration.name}>
+						<RenderTypeDeclaration
+							showHeading={false}
+							doc={declaration}
+							level={props.level + 1}
+							key={i}
+						/>
+					</Details>
 				);
 			})}
 		</>

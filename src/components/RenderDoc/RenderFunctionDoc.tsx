@@ -9,7 +9,11 @@ import { Deprecated } from "./Deprecated";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 
-export function RenderFunctionDoc(props: { doc: FunctionDoc; level: number }) {
+export function RenderFunctionDoc(props: {
+	doc: FunctionDoc;
+	level: number;
+	showHeading?: boolean;
+}) {
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
 
@@ -20,9 +24,11 @@ export function RenderFunctionDoc(props: { doc: FunctionDoc; level: number }) {
 
 	return (
 		<>
-			<Heading level={props.level} id={slugger.slug(doc.name)}>
-				{doc.name}
-			</Heading>
+			{props.showHeading !== false && (
+				<Heading level={props.level} id={slugger.slug(doc.name)}>
+					{doc.name}
+				</Heading>
+			)}
 
 			{doc.source && <SourceLink href={doc.source} />}
 			{doc.signatures &&
@@ -57,6 +63,8 @@ function RenderFunctionSignature(props: {
 	const seeTags = signature.blockTags?.filter((t) => t.tag === "@see");
 	const exampleTag = signature.blockTags?.find((t) => t.tag === "@example");
 
+	const subLevel = props.signatureId ? props.level + 1 : props.level;
+
 	return (
 		<>
 			{props.signatureId && (
@@ -66,6 +74,7 @@ function RenderFunctionSignature(props: {
 						props.name + "-signature-" + props.signatureId,
 						false,
 					)}
+					className="text-accent-500"
 				>
 					Signature
 					<span className="font-normal text-f-300"> #{props.signatureId}</span>
@@ -89,30 +98,35 @@ function RenderFunctionSignature(props: {
 			})}
 
 			{signature.parameters && (
-				<div>
+				<div className="mt-10">
+					<Heading
+						level={subLevel}
+						id={slugger.slug(props.name + "--param--" + props.name, false)}
+					>
+						Parameters
+					</Heading>
 					{props.signature.parameters?.map((param) => {
 						return (
 							<Details
 								id={slugger.slug(param.name)}
 								key={param.name}
 								level={props.level + 1}
-								summary={
-									<span>
-										<span className="font-mono">{param.name}</span>
-										{param.flags?.isOptional && (
-											<InlineCode
-												code="optional"
-												className="ml-2 text-sm text-accent-500"
-											/>
-										)}
-									</span>
-								}
+								headingClassName="font-mono"
+								summary={param.name}
+								flags={[
+									param.flags?.isOptional ? "optional" : "",
+									param.flags?.isPrivate ? "private" : "",
+									param.flags?.isProtected ? "protected" : "",
+									param.flags?.isStatic ? "static" : "",
+								].filter((w) => w)}
 							>
 								{param.type && (
-									<CodeBlock
-										code={`let ${param.name}: ${param.type}`}
-										lang="ts"
-									/>
+									<div>
+										<CodeBlock
+											code={`let ${param.name}: ${param.type}`}
+											lang="ts"
+										/>
+									</div>
 								)}
 							</Details>
 						);
@@ -121,32 +135,35 @@ function RenderFunctionSignature(props: {
 			)}
 
 			{signature.returns && (
-				<Details
-					id={slugger.slug(props.name + "-returns")}
-					summary={<span className="font-mono">Returns</span>}
-					level={props.level + 1}
-				>
-					{signature.returns.summary && (
-						<RenderSummary summary={signature.returns.summary} />
-					)}
+				<div className="mt-10">
+					<Heading level={subLevel} id={slugger.slug(props.name + "-returns")}>
+						Returns
+					</Heading>
+					<div>
+						{signature.returns.summary && (
+							<RenderSummary summary={signature.returns.summary} />
+						)}
 
-					{signature.returns.type && (
-						<CodeBlock
-							code={`type ReturnType = ${signature.returns.type}`}
-							lang="ts"
-						/>
-					)}
-				</Details>
+						{signature.returns.type && (
+							<CodeBlock
+								code={`type ReturnType = ${signature.returns.type}`}
+								lang="ts"
+							/>
+						)}
+					</div>
+				</div>
 			)}
 
 			{exampleTag && (
-				<div>
-					<Heading level={props.level + 1} id={slugger.slug("example")}>
+				<div className="mt-10">
+					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>
 					{exampleTag.summary && <RenderSummary summary={exampleTag.summary} />}
 				</div>
 			)}
+
+			{props.signatureId && <div className="h-10" />}
 		</>
 	);
 }

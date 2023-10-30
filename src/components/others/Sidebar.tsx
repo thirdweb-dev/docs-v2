@@ -98,8 +98,8 @@ function DocSidebarCategory(props: {
 									href={link.href}
 									onClick={props.onLinkClick}
 									className={clsx(
-										"block text-ellipsis break-all rounded-md p-2 text-sm transition-colors duration-300",
-										isActive ? "!bg-b-700 !text-f-100" : "text-f-300",
+										"block overflow-hidden text-ellipsis rounded-md p-2 text-sm transition-colors duration-300",
+										isActive ? "!bg-b-600 !text-f-100" : "text-f-300",
 										"hover:bg-b-800 hover:text-f-100",
 									)}
 								>

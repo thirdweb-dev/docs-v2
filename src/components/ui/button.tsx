@@ -15,7 +15,7 @@ const buttonVariants = cva(
 			variant: {
 				default: "bg-f-100 text-b-900",
 				outline: "border border-b-800 bg-b-900",
-				ghost: "text-f-100 hover:bg-b-700",
+				ghost: "text-f-100 hover:bg-b-600",
 				link: "text-f-100 underline-offset-4 hover:underline",
 			},
 			size: {

@@ -89,7 +89,7 @@ export function TableOfContentsSideBar() {
 	return (
 		<nav
 			className={cn(
-				"hidden w-64 shrink-0 pt-6 xl:block text-base",
+				"hidden w-64 shrink-0 pt-6 xl:block text-sm",
 				"sticky top-header-height h-sidebar-height flex-col overflow-y-auto styled-scrollbar",
 			)}
 		>
@@ -135,7 +135,7 @@ export function TableOfContents(props: { nodes: TableOfContentNode[] }) {
 function TOCLink(props: { name: string; href: string }) {
 	return (
 		<Link
-			className="block text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500"
+			className="block overflow-hidden text-ellipsis text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500"
 			href={props.href}
 		>
 			{props.name}

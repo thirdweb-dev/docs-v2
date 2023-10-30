@@ -1,6 +1,4 @@
 import { sluggerContext } from "@/contexts/slugger";
-import { CodeBlock } from "../Document/Code";
-import { Details } from "../Document/Details";
 import { Heading } from "../Document/Heading";
 import { Paragraph } from "../Document/Paragraph";
 import { RenderNFunctionDoc } from "./RenderNFunctionDoc";
@@ -8,6 +6,7 @@ import { RenderNParameterDoc } from "./RenderNParameterDoc";
 import { RenderNPropertyDoc } from "./RenderNPropertyDoc";
 import { NClassDoc, NFunctionDoc, NLang } from "./types";
 import invariant from "tiny-invariant";
+import { Details } from "../Document/Details";
 
 export function RenderNClassDoc(props: {
 	doc: NClassDoc;
@@ -51,13 +50,20 @@ export function RenderNClassDoc(props: {
 					</Heading>
 					{doc.methods.map((method) => {
 						return (
-							<RenderNFunctionDoc
-								slugPrefix={doc.name}
+							<Details
+								id={slugger.slug(`${doc.name}--${method.name}`)}
 								key={method.name}
-								doc={method}
-								lang={props.lang}
-								level={level + 2}
-							/>
+								summary={method.name}
+							>
+								<RenderNFunctionDoc
+									slugPrefix={doc.name}
+									key={method.name}
+									doc={method}
+									lang={props.lang}
+									level={level + 2}
+									showHeading={false}
+								/>
+							</Details>
 						);
 					})}
 				</div>
@@ -74,13 +80,20 @@ export function RenderNClassDoc(props: {
 					</Heading>
 					{doc.properties.map((param) => {
 						return (
-							<RenderNPropertyDoc
-								slugPrefix={doc.name}
+							<Details
+								id={slugger.slug(`${doc.name}--${param.name}`)}
 								key={param.name}
-								doc={param}
-								lang={props.lang}
-								level={level + 2}
-							/>
+								summary={param.name}
+							>
+								<RenderNPropertyDoc
+									slugPrefix={doc.name}
+									key={param.name}
+									doc={param}
+									lang={props.lang}
+									level={level + 2}
+									showHeading={false}
+								/>
+							</Details>
 						);
 					})}
 				</div>

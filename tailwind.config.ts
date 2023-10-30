@@ -26,6 +26,7 @@ module.exports = {
 				900: "var(--b-900)",
 				800: "var(--b-800)",
 				700: "var(--b-700)",
+				600: "var(--b-600)",
 			},
 			// foregrounds
 			f: {
@@ -37,6 +38,8 @@ module.exports = {
 				500: "var(--accent-500)",
 				600: "var(--accent-600)",
 				900: "var(--accent-900)",
+				800: "var(--accent-800)",
+				700: "var(--accent-700)",
 			},
 			danger: {
 				500: "var(--danger-500)",
