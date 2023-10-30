@@ -4,7 +4,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ChevronDown, ChevronRight, Menu } from "lucide-react";
+import { ChevronRight, Menu } from "lucide-react";
 import clsx from "clsx";
 
 import {
@@ -40,6 +40,26 @@ const links = [
 
 const references = [
 	{
+		name: "TypeScript",
+		href: "/typescript/references",
+	},
+	{
+		name: "React",
+		href: "/react/references",
+	},
+	{
+		name: "React Native",
+		href: "/react-native/references",
+	},
+	{
+		name: "Storage",
+		href: "/storage/references",
+	},
+	{
+		name: "Wallets",
+		href: "/wallets/references",
+	},
+	{
 		name: "Python",
 		href: "/python/references",
 	},
@@ -66,7 +86,7 @@ export function Header() {
 						width={150}
 						height={25}
 					/>
-					<span className="mt-1 leading-none tracking-wider text-f-300">
+					<span className="mt-1 font-semibold leading-none text-f-300">
 						DOCS
 					</span>
 				</Link>
@@ -132,7 +152,7 @@ export function Header() {
 													prefetch={false}
 													className={clsx(
 														"flex cursor-pointer text-f-200",
-														"hover:bg-b-700 hover:text-f-100",
+														"hover:bg-b-600 hover:text-f-100",
 													)}
 												>
 													{info.name}

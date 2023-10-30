@@ -1,4 +1,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import Image from "next/image";
+import thirdwebLogo from "@public/icons/thirdweb-logo.svg";
 
 export const metadata = {
 	robots: "noindex, nofollow",
@@ -139,5 +141,7 @@ const Msg: React.FC<{ text: string }> = ({text }) => {
 	<TabsContent value="account">Make changes to your account here.</TabsContent>
 	<TabsContent value="password">Change your password here.</TabsContent>
 </Tabs>
+
+<Image src={thirdwebLogo} alt="" className="my-10" />
 
 <div className="h-20" />

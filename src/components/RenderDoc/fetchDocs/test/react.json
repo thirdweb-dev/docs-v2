@@ -1,0 +1,1890 @@
+{
+	"meta": {
+		"typedocBetterJsonVersion": "0.3.2-next"
+	},
+	"functions": [
+		{
+			"kind": "function",
+			"name": "bloctoWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "BloctoAdditionalOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<BloctoWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/blocto/bloctoWallet.tsx#L19"
+		},
+		{
+			"kind": "function",
+			"name": "coinbaseWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "CoinbaseWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<CoinbaseWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/coinbase/coinbaseWallet.tsx#L28"
+		},
+		{
+			"kind": "function",
+			"name": "darkTheme",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "overrides",
+							"type": "ThemeOverrides"
+						}
+					],
+					"returns": {
+						"type": "Theme"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L149"
+		},
+		{
+			"kind": "function",
+			"name": "embeddedWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "EmbeddedWalletConfig",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<EmbeddedWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx#L22"
+		},
+		{
+			"kind": "function",
+			"name": "frameWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "FrameConfig",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<FrameWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/frame/frameWallet.tsx#L12"
+		},
+		{
+			"kind": "function",
+			"name": "lightTheme",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "overrides",
+							"type": "ThemeOverrides"
+						}
+					],
+					"returns": {
+						"type": "Theme"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L145"
+		},
+		{
+			"kind": "function",
+			"name": "localWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "LocalWalletConfigOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "LocalWalletConfig"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/localWallet/localWallet.tsx#L11"
+		},
+		{
+			"kind": "function",
+			"name": "magicLink",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "MagicAuthOptions & { recommended: boolean }"
+						}
+					],
+					"returns": {
+						"type": "ConfiguredMagicLinkWallet"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/magic/magicLink.tsx#L30"
+		},
+		{
+			"kind": "function",
+			"name": "metamaskWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "MetamaskWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<MetaMaskWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/metamask/metamaskWallet.tsx#L23"
+		},
+		{
+			"kind": "function",
+			"name": "okxWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "OKXWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<OKXWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/okx/okxWallet.tsx#L20"
+		},
+		{
+			"kind": "function",
+			"name": "paperWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "PaperConfig",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<PaperWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/paper/paperWallet.tsx#L18"
+		},
+		{
+			"kind": "function",
+			"name": "phantomWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "PhantomWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<PhantomWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/phantom/phantomWallet.tsx#L15"
+		},
+		{
+			"kind": "function",
+			"name": "rainbowWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "RainbowWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<RainbowWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/rainbow/RainbowWallet.tsx#L25"
+		},
+		{
+			"kind": "function",
+			"name": "safeWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "SafeWalletConfigOptions & { recommended: boolean }",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "SafeWalletConfig"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/safe/safeWallet.tsx#L16"
+		},
+		{
+			"kind": "function",
+			"name": "smartWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "wallet",
+							"type": "WalletConfig<any>"
+						},
+						{
+							"name": "config",
+							"type": "SmartWalletConfigOptions"
+						}
+					],
+					"returns": {
+						"type": "SmartWalletConfig"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx#L12"
+		},
+		{
+			"kind": "function",
+			"name": "trustWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "TrustWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<TrustWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/trustWallet/TrustWallet.tsx#L22"
+		},
+		{
+			"kind": "function",
+			"name": "walletConnect",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "config",
+							"type": "walletConnectConfig",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<WalletConnect>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/walletConnect/walletConnect.tsx#L32"
+		},
+		{
+			"kind": "function",
+			"name": "walletConnectV1",
+			"signatures": [
+				{
+					"summary": [],
+					"parameters": [
+						{
+							"name": "config",
+							"type": "walletConnectConfig",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<WalletConnect>"
+					},
+					"blockTags": [
+						{
+							"tag": "@deprecated",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Use "
+										},
+										{
+											"type": "inlineCode",
+											"value": "walletConnect"
+										},
+										{
+											"type": "text",
+											"value": " instead"
+										}
+									]
+								},
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "The WalletConnect v1.0 protocol has been shut down and no longer works.\nTo avoid breaking change, "
+										},
+										{
+											"type": "inlineCode",
+											"value": "walletConnectV1"
+										},
+										{
+											"type": "text",
+											"value": " is still available but is an alias of "
+										},
+										{
+											"type": "inlineCode",
+											"value": "walletConnect"
+										},
+										{
+											"type": "text",
+											"value": "."
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/walletConnectV1.tsx#L9"
+		},
+		{
+			"kind": "function",
+			"name": "zerionWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "ZerionkWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<ZerionWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/zerion/zerionWallet.tsx#L22"
+		}
+	],
+	"hooks": [
+		{
+			"kind": "function",
+			"name": "useBloctoWallet",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((options : { chainId: number } & BloctoAdditionalOptions) => Promise<BloctoWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useBloctoWallet.ts#L5"
+		},
+		{
+			"kind": "function",
+			"name": "useCoinbaseWallet",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((connectOptions : { chainId: number }) => Promise<CoinbaseWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useCoinbaseWallet.ts#L4"
+		},
+		{
+			"kind": "function",
+			"name": "useFrameWallet",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((connectOptions : { chainId: number }) => Promise<FrameWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useFrame.ts#L4"
+		},
+		{
+			"kind": "function",
+			"name": "useInstalledWallets",
+			"signatures": [
+				{
+					"returns": {
+						"type": "{ coinbaseWallet: boolean, metamask: boolean, trustWallet: boolean, zerionWallet: boolean }"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/hooks/useInstalledWallets.ts#L7"
+		},
+		{
+			"kind": "function",
+			"name": "useIsWalletModalOpen",
+			"signatures": [
+				{
+					"returns": {
+						"type": "boolean"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L79"
+		},
+		{
+			"kind": "function",
+			"name": "useMagic",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((options : Object) => Promise<MagicLink>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/connectors/magic/useMagic.ts#L6"
+		},
+		{
+			"kind": "function",
+			"name": "useMetamask",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((connectOptions : { chainId: number }) => Promise<MetaMaskWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useMetamask.ts#L4"
+		},
+		{
+			"kind": "function",
+			"name": "usePaperWallet",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((options : { chainId: number, email: string } & PaperConfig) => Promise<PaperWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/usePaper.ts#L16"
+		},
+		{
+			"kind": "function",
+			"name": "usePaperWalletUserEmail",
+			"signatures": [
+				{
+					"returns": {
+						"type": "UseQueryResult<(string) | (undefined), string>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/usePaper.ts#L32"
+		},
+		{
+			"kind": "function",
+			"name": "useRainbowWallet",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((connectOptions : { chainId: number }) => Promise<RainbowWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useRainbowWallet.ts#L4"
+		},
+		{
+			"kind": "function",
+			"name": "useResolvedMediaType",
+			"signatures": [
+				{
+					"summary": [],
+					"parameters": [
+						{
+							"name": "uri",
+							"type": "string",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "the uri to resolve (can be a url or a ipfs://<cid>)"
+										}
+									]
+								}
+							],
+							"flags": {
+								"isOptional": true
+							}
+						},
+						{
+							"name": "mimeType",
+							"type": "string",
+							"flags": {
+								"isOptional": true
+							}
+						},
+						{
+							"name": "gatewayUrl",
+							"type": "string",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "{ mimeType: (undefined) | (string), url: string }",
+						"summary": [
+							{
+								"type": "paragraph",
+								"children": [
+									{
+										"type": "text",
+										"value": "the fully resolved url + mime type of the media"
+									}
+								]
+							}
+						]
+					},
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Usage with fully formed url:"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "jsx",
+									"meta": null,
+									"value": "const Component = () => {\n  const resolved = useResolvedMediaType(\"https://example.com/video.mp4\");\n  console.log(\"mime type\", resolved.data.mimeType);\n  console.log(\"url\", resolved.data.url);\n  return null;\n}"
+								},
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "Usage with ipfs cid:"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "jsx",
+									"meta": null,
+									"value": "const Component = () => {\n  const resolved = useResolvedMediaType(\"ipfs://QmWATWQ7fVPP2EFGu71UkfnqhYXDYH566qy47CnJDgvsd\");\n  console.log(\"mime type\", resolved.data.mimeType);\n  console.log(\"url\", resolved.data.url);\n  return null;\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/MediaRenderer.tsx#L528"
+		},
+		{
+			"kind": "function",
+			"name": "useSafe",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((connectProps : SafeConnectionArgs) => Promise<SafeWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/connectors/gnosis/useSafe.ts#L5"
+		},
+		{
+			"kind": "function",
+			"name": "useSetIsWalletModalOpen",
+			"signatures": [
+				{
+					"returns": {
+						"type": "BoolSetter"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L83"
+		},
+		{
+			"kind": "function",
+			"name": "useSmartWallet",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((wallet : WalletConfig<any>, options : SmartWalletConnectionArgs & SmartWalletConfigOptions) => Promise<SmartWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useSmartWallet.ts#L7"
+		},
+		{
+			"kind": "function",
+			"name": "useTrustWallet",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((connectOptions : { chainId: number }) => Promise<TrustWallet>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useTrustWallet.ts#L4"
+		},
+		{
+			"kind": "function",
+			"name": "useWalletConnect",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((options : { chainId: number, projectId: string, qrModalOptions: QRModalOptions }) => Promise<WalletConnect>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L18"
+		},
+		{
+			"kind": "function",
+			"name": "useWalletConnectV1",
+			"signatures": [
+				{
+					"returns": {
+						"type": "((options : { chainId: number }) => Promise<WalletConnect>)"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L5"
+		}
+	],
+	"variables": [
+		{
+			"kind": "variable",
+			"name": "defaultTokens",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L34",
+			"type": "SupportedTokens",
+			"flags": {
+				"isConst": true
+			}
+		},
+		{
+			"kind": "variable",
+			"name": "defaultWallets",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/wallets/defaultWallets.ts#L10",
+			"type": "WalletConfig<any>[]",
+			"flags": {
+				"isConst": true
+			}
+		}
+	],
+	"types": [
+		{
+			"kind": "type",
+			"name": "MediaRendererProps",
+			"summary": [
+				{
+					"type": "paragraph",
+					"children": [
+						{
+							"type": "text",
+							"value": "The props for the "
+						},
+						{
+							"type": "link",
+							"title": null,
+							"url": "269",
+							"children": [
+								{
+									"type": "text",
+									"value": "MediaRenderer"
+								}
+							]
+						},
+						{
+							"type": "text",
+							"value": " component."
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/types.ts#L27",
+			"type": "{alt : string,children : ReactNode,className : string,controls : boolean,gatewayUrl : string,height : string,mimeType : string,poster : (null) | (string),requireInteraction : boolean,src : (null) | (string),style : CSSProperties,width : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "alt",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The alt text for the media."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "children",
+					"type": "ReactNode"
+				},
+				{
+					"kind": "subtype",
+					"name": "className",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "controls",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Show the media controls (where applicable) (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "gatewayUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The IPFS gateway URL to use"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "height",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "mimeType",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "poster",
+					"type": "(null) | (string)",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The media poster image uri. (if applicable)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "requireInteraction",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Require user interaction to play the media. (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "src",
+					"type": "(null) | (string)",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The media source uri."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "style",
+					"type": "CSSProperties"
+				},
+				{
+					"kind": "subtype",
+					"name": "width",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "MediaType",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/MediaRenderer.tsx#L498",
+			"type": "{mimeType : string,url : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "mimeType",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "url",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "ThirdwebNftMediaProps",
+			"summary": [
+				{
+					"type": "paragraph",
+					"children": [
+						{
+							"type": "text",
+							"value": "The props for the "
+						},
+						{
+							"type": "link",
+							"title": null,
+							"url": "286",
+							"children": [
+								{
+									"type": "text",
+									"value": "ThirdwebNftMedia"
+								}
+							]
+						},
+						{
+							"type": "text",
+							"value": " component."
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/NftMedia.tsx#L9",
+			"type": "{children : ReactNode,className : string,controls : boolean,height : string,metadata : objectOutputType<{}, ZodUnion<[ZodEffects<ZodUnion<[ZodBigInt, ZodType<BigNumber, ZodTypeDef, BigNumber>, ZodType<BN, ZodTypeDef, BN>]>, string, (bigint) | (BigNumber) | (BN)>, ZodUnknown]>, \"strip\">,mimeType : string,requireInteraction : boolean,style : CSSProperties,width : string}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "children",
+					"type": "ReactNode"
+				},
+				{
+					"kind": "subtype",
+					"name": "className",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "controls",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Show the media controls (where applicable) (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "height",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "metadata",
+					"type": "objectOutputType<{}, ZodUnion<[ZodEffects<ZodUnion<[ZodBigInt, ZodType<BigNumber, ZodTypeDef, BigNumber>, ZodType<BN, ZodTypeDef, BN>]>, string, (bigint) | (BigNumber) | (BN)>, ZodUnknown]>, \"strip\">",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The NFT metadata of the NFT returned by the thirdweb sdk."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "mimeType",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "requireInteraction",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Require user interaction to play the media. (default false)"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "style",
+					"type": "CSSProperties"
+				},
+				{
+					"kind": "subtype",
+					"name": "width",
+					"type": "string"
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "ConnectWalletProps",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L37",
+			"type": "{ auth: { loginOptional: boolean, onLogin: ((token : string) => void), onLogout: (() => void) }, btnTitle: string, className: string, detailsBtn: (() => JSX.Element), displayBalanceToken: Record<number, string>, dropdownPosition: DropDownPosition, hideTestnetFaucet: boolean, modalSize: (\"compact\") | (\"wide\"), modalTitle: string, modalTitleIconUrl: string, networkSelector: Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>, privacyPolicyUrl: string, style: React.CSSProperties, supportedTokens: SupportedTokens, switchToActiveChain: boolean, termsOfServiceUrl: string, theme: (\"dark\") | (\"light\") | (Theme), welcomeScreen: WelcomeScreen }",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "auth",
+					"type": "{ loginOptional: boolean, onLogin: ((token : string) => void), onLogout: (() => void) }"
+				},
+				{
+					"kind": "subtype",
+					"name": "btnTitle",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "className",
+					"type": "string"
+				},
+				{
+					"kind": "subtype",
+					"name": "detailsBtn",
+					"type": "(() => JSX.Element)"
+				},
+				{
+					"kind": "subtype",
+					"name": "displayBalanceToken",
+					"type": "Record<number, string>",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Show balance of ERC20 token instead of the native token  in the \"Connected\" button when connected to certain network"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "dropdownPosition",
+					"type": "DropDownPosition"
+				},
+				{
+					"kind": "subtype",
+					"name": "hideTestnetFaucet",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Hide option to request testnet funds for testnets in dropdown"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "modalSize",
+					"type": "(\"compact\") | (\"wide\")",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Set the size of the modal - "
+								},
+								{
+									"type": "inlineCode",
+									"value": "compact"
+								},
+								{
+									"type": "text",
+									"value": " or "
+								},
+								{
+									"type": "inlineCode",
+									"value": "wide"
+								},
+								{
+									"type": "text",
+									"value": " on desktop"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Modal size is always "
+								},
+								{
+									"type": "inlineCode",
+									"value": "compact"
+								},
+								{
+									"type": "text",
+									"value": " on mobile"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "modalTitle",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Set a custom title for the modal"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "modalTitleIconUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Replace the thirdweb icon next to modalTitle and set your own iconUrl"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Set to empty string to hide the icon"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "networkSelector",
+					"type": "Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>"
+				},
+				{
+					"kind": "subtype",
+					"name": "privacyPolicyUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If provided, Modal will show a Privacy Policy message at the bottom with below link"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "style",
+					"type": "React.CSSProperties"
+				},
+				{
+					"kind": "subtype",
+					"name": "supportedTokens",
+					"type": "SupportedTokens",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Override the default supported tokens for each network"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "These tokens will be displayed in \"Send Funds\" Modal"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "switchToActiveChain",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Whether to show \"Switch Network\" button if the wallet is connected,\nbut it is not connected to the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "activeChain"
+								},
+								{
+									"type": "text",
+									"value": " provided in "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebProvider"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Please, note that if you support multiple networks in your app this prop should\nbe set to "
+								},
+								{
+									"type": "inlineCode",
+									"value": "false"
+								},
+								{
+									"type": "text",
+									"value": " to allow users to switch between networks."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "termsOfServiceUrl",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If provided, Modal will show a Terms of Service message at the bottom with below link"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "theme",
+					"type": "(\"dark\") | (\"light\") | (Theme)"
+				},
+				{
+					"kind": "subtype",
+					"name": "welcomeScreen",
+					"type": "WelcomeScreen",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Customize the welcome screen"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Either provide a component to replace the default screen entirely"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "or an object with title, subtitle and imgSrc to change the content of the default screen"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "NetworkSelectorProps",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L42",
+			"type": "{ chains: Chain[], onClose: (() => void), onCustomClick: (() => void), onSwitch: ((chain : Chain) => void), open: boolean, popularChains: Chain[], recentChains: Chain[], renderChain: RenderChain, theme: (\"dark\") | (\"light\") | (Theme) }",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "chains",
+					"type": "Chain[]"
+				},
+				{
+					"kind": "subtype",
+					"name": "onClose",
+					"type": "(() => void)"
+				},
+				{
+					"kind": "subtype",
+					"name": "onCustomClick",
+					"type": "(() => void)"
+				},
+				{
+					"kind": "subtype",
+					"name": "onSwitch",
+					"type": "((chain : Chain) => void)"
+				},
+				{
+					"kind": "subtype",
+					"name": "open",
+					"type": "boolean"
+				},
+				{
+					"kind": "subtype",
+					"name": "popularChains",
+					"type": "Chain[]"
+				},
+				{
+					"kind": "subtype",
+					"name": "recentChains",
+					"type": "Chain[]"
+				},
+				{
+					"kind": "subtype",
+					"name": "renderChain",
+					"type": "RenderChain"
+				},
+				{
+					"kind": "subtype",
+					"name": "theme",
+					"type": "(\"dark\") | (\"light\") | (Theme)"
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "SupportedTokens",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L32",
+			"type": "Record<number, TokenInfo[]>"
+		},
+		{
+			"kind": "type",
+			"name": "Theme",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L88",
+			"type": "typeof darkThemeObj"
+		},
+		{
+			"kind": "type",
+			"name": "ThemeOverrides",
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/design-system/index.ts#L92",
+			"type": "{[key in Exclude<keyof Theme, \"type\">] : Partial<Theme[key]>}"
+		}
+	],
+	"components": [
+		{
+			"kind": "function",
+			"name": "ConnectModalInline",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "props",
+							"type": "Omit<ConnectWalletProps, (\"auth\") | (\"supportedTokens\") | (\"dropdownPosition\") | (\"networkSelector\") | (\"detailsBtn\") | (\"hideTestnetFaucet\") | (\"switchToActiveChain\")> & { onModalHide: (() => void) }"
+						}
+					],
+					"returns": {
+						"type": "Element"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/Modal/ConnectModalInline.tsx#L27"
+		},
+		{
+			"kind": "function",
+			"name": "ConnectWallet",
+			"signatures": [
+				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "A component that allows the user to connect their wallet."
+								}
+							]
+						}
+					],
+					"parameters": [
+						{
+							"name": "props",
+							"type": "ConnectWalletProps",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "The button must be descendant of "
+										},
+										{
+											"type": "inlineCode",
+											"value": "ThirdwebProvider"
+										},
+										{
+											"type": "text",
+											"value": " in order to function."
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "context",
+							"type": "any",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "ReactNode"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L147"
+		},
+		{
+			"kind": "function",
+			"name": "MediaRenderer",
+			"signatures": [
+				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "This component can be used to render any media type, including image, audio, video, and html files.\nIts convenient for rendering NFT media files, as these can be a variety of different types.\nThe component falls back to a external link if the media type is not supported.\nThe default size is 300px by 300px, but this can be changed using the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "width"
+								},
+								{
+									"type": "text",
+									"value": " and "
+								},
+								{
+									"type": "inlineCode",
+									"value": "height"
+								},
+								{
+									"type": "text",
+									"value": " props."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Props: "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "172",
+									"children": [
+										{
+											"type": "text",
+											"value": "MediaRendererProps"
+										}
+									]
+								}
+							]
+						}
+					],
+					"parameters": [
+						{
+							"name": "props",
+							"type": "MediaRendererProps & RefAttributes<HTMLMediaElement>"
+						}
+					],
+					"returns": {
+						"type": "ReactNode"
+					},
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "We can take a video file hosted on IPFS and render it using this component as follows"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "jsx",
+									"meta": null,
+									"value": "const Component = () => {\n  return <MediaRenderer\n    src=\"ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi\"\n    alt=\"A mp4 video\"\n  />\n}"
+								},
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "You can try switching out the "
+										},
+										{
+											"type": "inlineCode",
+											"value": "src"
+										},
+										{
+											"type": "text",
+											"value": " prop to different types of URLs and media types to explore the possibilities."
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/MediaRenderer.tsx#L378"
+		},
+		{
+			"kind": "function",
+			"name": "NetworkSelector",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "props",
+							"type": "NetworkSelectorProps"
+						},
+						{
+							"name": "context",
+							"type": "any",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "ReactNode"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L68"
+		},
+		{
+			"kind": "function",
+			"name": "ThirdwebNftMedia",
+			"signatures": [
+				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "This component can be used to render NFTs from the thirdweb SDK.\nIt will render the animation_url if it exists, otherwise it will render the image.\nThe default size is 300px by 300px, but this can be changed using the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "width"
+								},
+								{
+									"type": "text",
+									"value": " and "
+								},
+								{
+									"type": "inlineCode",
+									"value": "height"
+								},
+								{
+									"type": "text",
+									"value": " props."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Props: "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "275",
+									"children": [
+										{
+											"type": "text",
+											"value": "ThirdwebNftMediaProps"
+										}
+									]
+								}
+							]
+						}
+					],
+					"parameters": [
+						{
+							"name": "props",
+							"type": "ThirdwebNftMediaProps & RefAttributes<HTMLMediaElement>"
+						}
+					],
+					"returns": {
+						"type": "ReactNode"
+					},
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "jsx",
+									"meta": null,
+									"value": "import { ThirdwebNftMedia, useContract, useNFT } from \"@thirdweb-dev/react\";\nexport default function NFTCollectionRender() {\n  const { contract } = useContract(<your-contract-address>);\n  const { data: nft, isLoading } = useNFT(contract, 0);\n\n  return (\n    <div>\n      {!isLoading && nft ? (\n        <ThirdwebNftMedia metadata={nft.metadata} />\n      ) : (\n        <p>Loading...</p>\n      )}\n    </div>\n  );\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/NftMedia.tsx#L44"
+		},
+		{
+			"kind": "function",
+			"name": "ThirdwebProvider",
+			"signatures": [
+				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The "
+								},
+								{
+									"type": "inlineCode",
+									"value": "<ThirdwebProvider />"
+								},
+								{
+									"type": "text",
+									"value": " component lets you control what networks you want users to connect to,\nwhat types of wallets can connect to your app, and the settings for the "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://docs.thirdweb.com/typescript",
+									"children": [
+										{
+											"type": "text",
+											"value": "Thirdweb SDK"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": "."
+								}
+							]
+						}
+					],
+					"parameters": [
+						{
+							"name": "props",
+							"type": "PropsWithChildren<ThirdwebProviderProps<TChains>>",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "The props for the provider."
+										}
+									]
+								}
+							]
+						}
+					],
+					"returns": {
+						"type": "Element",
+						"summary": [
+							{
+								"type": "list",
+								"ordered": false,
+								"start": null,
+								"spread": false,
+								"children": [
+									{
+										"type": "listItem",
+										"spread": false,
+										"checked": null,
+										"children": [
+											{
+												"type": "paragraph",
+												"children": [
+													{
+														"type": "text",
+														"value": "React component."
+													}
+												]
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					"typeParameters": [
+						{
+							"name": "TChains",
+							"extendsType": "Chain[]"
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "You can wrap your application with the provider as follows:"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "jsx",
+									"meta": "title=\"App.jsx\"",
+									"value": "import { ThirdwebProvider } from \"@thirdweb-dev/react\";\n\nconst App = () => {\n  return (\n    <ThirdwebProvider>\n      <YourApp />\n    </ThirdwebProvider>\n  );\n};"
+								}
+							]
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/providers/thirdweb-provider.tsx#L65"
+		},
+		{
+			"kind": "function",
+			"name": "Web3Button",
+			"signatures": [
+				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "A component that allows the user to call an on-chain function on a contract."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The button has to be wrapped in a "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebProvider"
+								},
+								{
+									"type": "text",
+									"value": " in order to function."
+								}
+							]
+						}
+					],
+					"parameters": [
+						{
+							"name": "props",
+							"type": "PropsWithChildren<Web3ButtonProps<TAction>>"
+						}
+					],
+					"returns": {
+						"type": "Element"
+					},
+					"typeParameters": [
+						{
+							"name": "TAction",
+							"extendsType": "ActionFn"
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "javascript",
+									"meta": null,
+									"value": "import { Web3Button } from \"@thirdweb-dev/react\";\n\nconst App = () => {\n return (\n  <div>\n    <Web3Button contractAddress=\"0x...\" action={(contract) => contract.erc721.transfer(\"0x...\", 1)} />\n  </div>\n)\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/react/src/evm/components/Web3Button/index.tsx#L76"
+		}
+	]
+}

@@ -17,9 +17,12 @@ html {
 		/* 100 - lightest, 900 - darkest */
 
 		/* neutral background colors */
-		--b-900: #0e0e10;
-		--b-800: #131315;
-		--b-700: #212126;
+		--b-900: hsl(240deg 6.67% 0%);
+		--b-800: hsl(240deg 5% 4%);
+		--b-700: hsl(240deg 5% 6%);
+		--b-600: hsl(240deg 5% 10%);
+
+		--border: hsl(240deg 5% 14%);
 
 		/* neutral foreground colors */
 		--f-100: rgba(241, 245, 249);
@@ -29,13 +32,17 @@ html {
 		/* others */
 		--accent-500: hsl(217deg 91% 60%);
 		--accent-600: hsl(221deg 83% 53%);
-		--accent-900: rgba(82, 186, 255, 0.05);
+		--accent-900: hsl(221 53% 8%);
+		--accent-800: hsl(221 53% 12%);
+		--accent-700: hsl(221 53% 20%);
 
 		--danger-500: hsl(0deg 84% 60%);
 		--danger-900: #331515;
 
-		--warning-500: #fdba74;
-		--warning-900: #3d2914;
+		--warning-500: hsl(30.66deg 97.16% 40%);
+		--warning-600: #f9a03f;
+		--warning-800: hsl(30.73deg 50.62% 15%);
+		--warning-900: hsl(30.73deg 50.62% 10%);
 
 		--radius: 0.5rem;
 		--header-height: 70px;
@@ -57,6 +64,7 @@ html {
 
 .styled-scrollbar::-webkit-scrollbar {
 	width: 0.5rem;
+	height: 0.5rem;
 }
 
 @media (max-width: 640px) {
@@ -68,7 +76,12 @@ html {
 
 .styled-scrollbar::-webkit-scrollbar-thumb {
 	border-radius: 0.5rem;
-	background: var(--b-700);
+	transition: color 200ms ease;
+	background: var(--border);
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+	background: var(--f-200);
 }
 
 .styled-scrollbar::-webkit-scrollbar-track {
@@ -79,6 +92,7 @@ button {
 	-webkit-tap-highlight-color: transparent;
 }
 
-.codeBlockContainer pre {
-	@apply rounded-md p-4 !bg-b-800 border overflow-x-auto selection:bg-b-700;
+::selection {
+	background: var(--accent-600);
+	color: var(--f-100);
 }

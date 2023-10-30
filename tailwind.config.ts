@@ -17,7 +17,7 @@ module.exports = {
 		},
 		colors: {
 			current: "currentColor",
-			border: "var(--b-700)",
+			border: "var(--border)",
 			input: "var(--b-700)",
 			ring: "var(--b-700)",
 			transparent: "transparent",
@@ -26,6 +26,7 @@ module.exports = {
 				900: "var(--b-900)",
 				800: "var(--b-800)",
 				700: "var(--b-700)",
+				600: "var(--b-600)",
 			},
 			// foregrounds
 			f: {
@@ -37,6 +38,8 @@ module.exports = {
 				500: "var(--accent-500)",
 				600: "var(--accent-600)",
 				900: "var(--accent-900)",
+				800: "var(--accent-800)",
+				700: "var(--accent-700)",
 			},
 			danger: {
 				500: "var(--danger-500)",
@@ -44,7 +47,9 @@ module.exports = {
 			},
 			warning: {
 				500: "var(--warning-500)",
+				600: "var(--warning-600)",
 				900: "var(--warning-900)",
+				800: "var(--warning-800)",
 			},
 		},
 		borderRadius: {
@@ -73,8 +78,8 @@ module.exports = {
 				},
 			},
 			animation: {
-				"accordion-down": "accordion-down 0.3s ease-out",
-				"accordion-up": "accordion-up 0.3s ease-out",
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
 			},
 		},
 	},

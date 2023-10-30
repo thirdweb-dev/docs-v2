@@ -1,12 +1,12 @@
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
 
-export function Breadcrumb(props: {
-	crumbs: {
-		name: string;
-		href: string;
-	}[];
-}) {
+export type Crumb = {
+	name: string;
+	href: string;
+};
+
+export function Breadcrumb(props: { crumbs: Crumb[] }) {
 	return (
 		<div className="flex items-center gap-1 text-sm">
 			{props.crumbs.map((crumb, i) => {

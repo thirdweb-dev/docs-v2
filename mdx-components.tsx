@@ -4,19 +4,31 @@ import { Heading } from "@/components/Document/Heading";
 import { UnorderedList, OrderedList } from "@/components/Document/List";
 import { Paragraph } from "@/components/Document/Paragraph";
 import { Separator } from "@/components/Document/Separator";
+import { Table, Td, Th, Tr } from "@/components/Document/Table";
 import type { MDXComponents } from "mdx/types";
 import { Lang } from "shiki";
+import GithubSlugger from "github-slugger";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
+	const slugger = new GithubSlugger();
+
+	function nameToLink(name: React.ReactNode) {
+		if (typeof name !== "string") {
+			return undefined;
+		}
+
+		return slugger.slug(name);
+	}
+
 	function getHeading(
-		as: "h1" | "h2" | "h3" | "h4" | "h5" | "h6",
+		depth: number,
 		props: {
 			children?: React.ReactNode;
 			id?: string;
 		},
 	) {
 		return (
-			<Heading as={as} id={props.id || nameToLink(props.children) || ""}>
+			<Heading level={depth} id={props.id || nameToLink(props.children) || ""}>
 				{props.children}
 			</Heading>
 		);
@@ -29,22 +41,22 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			return <DocLink href={href || ""}>{children}</DocLink>;
 		},
 		h1(props) {
-			return getHeading("h1", props);
+			return getHeading(1, props);
 		},
 		h2(props) {
-			return getHeading("h2", props);
+			return getHeading(2, props);
 		},
 		h3(props) {
-			return getHeading("h3", props);
+			return getHeading(3, props);
 		},
 		h4(props) {
-			return getHeading("h4", props);
+			return getHeading(4, props);
 		},
 		h5(props) {
-			return getHeading("h5", props);
+			return getHeading(5, props);
 		},
 		h6(props) {
-			return getHeading("h6", props);
+			return getHeading(6, props);
 		},
 		code(props) {
 			const code = props.children;
@@ -74,13 +86,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		hr() {
 			return <Separator />;
 		},
+		table(props) {
+			return <Table>{props.children}</Table>;
+		},
+		th(props) {
+			return <Th>{props.children}</Th>;
+		},
+		td(props) {
+			return <Td>{props.children}</Td>;
+		},
+		tr(props) {
+			return <Tr>{props.children}</Tr>;
+		},
 	};
-}
-
-function nameToLink(name: React.ReactNode) {
-	if (typeof name !== "string") {
-		return undefined;
-	}
-
-	return `${name.toLowerCase().replace(/\s/g, "-")}`;
 }

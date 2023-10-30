@@ -20,6 +20,7 @@ export const AccordionItem: React.FC<
 
 type AccordionTriggerProps = React.ComponentPropsWithoutRef<typeof Trigger> & {
 	id?: string;
+	chevronPosition?: "left" | "right";
 };
 
 export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
@@ -27,22 +28,26 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 	children,
 	style,
 	...props
-}) => (
-	<Header className="flex">
-		<Trigger
-			className={cn(
-				"flex flex-1 items-center justify-between py-4 transition-all [&[data-state=open]>svg]:rotate-180",
-				className,
-			)}
-			style={style}
-			{...props}
-		>
-			{props.id ? <Anchor id={props.id}> {children} </Anchor> : children}
+}) => {
+	const chvronPosition = props.chevronPosition || "right";
 
-			<ChevronDown className="ease h-4 w-4 shrink-0 transition-transform duration-300" />
-		</Trigger>
-	</Header>
-);
+	return (
+		<Header className="flex">
+			<Trigger
+				className={cn(
+					"flex flex-1 items-center gap-4 py-4 transition-all [&[data-state=open]>svg]:rotate-180",
+					className,
+					chvronPosition == "right" && "justify-between flex-row-reverse",
+				)}
+				style={style}
+				{...props}
+			>
+				<ChevronDown className="ease h-4 w-4 shrink-0 transition-transform duration-300" />
+				{props.id ? <Anchor id={props.id}> {children} </Anchor> : children}
+			</Trigger>
+		</Header>
+	);
+};
 
 type AccordionContentProps = React.ComponentPropsWithoutRef<typeof Content>;
 
