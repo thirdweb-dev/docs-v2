@@ -29,7 +29,7 @@ export function Details(props: {
 						level={props.level || 5}
 						anchorClassName="m-0 py-2"
 						className={cn(
-							"text-base font-normal text-f-200 hover:text-f-100",
+							"text-base md:text-base font-normal text-f-200 hover:text-f-100",
 							props.headingClassName,
 						)}
 					>
