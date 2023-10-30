@@ -39,14 +39,6 @@ const links = [
 ];
 
 const references = [
-	// {
-	// 	name: "Python",
-	// 	href: "/python/references",
-	// },
-	// {
-	// 	name: "Go",
-	// 	href: "/go/references",
-	// },
 	{
 		name: "TypeScript",
 		href: "/typescript/references",
@@ -66,6 +58,14 @@ const references = [
 	{
 		name: "Wallets",
 		href: "/wallets/references",
+	},
+	{
+		name: "Python",
+		href: "/python/references",
+	},
+	{
+		name: "Go",
+		href: "/go/references",
 	},
 ];
 

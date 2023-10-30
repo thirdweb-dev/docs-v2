@@ -7,6 +7,7 @@ import "highlight.js/styles/github-dark.css";
 import { format } from "prettier/standalone";
 import * as parserBabel from "prettier/plugins/babel";
 import * as estree from "prettier/plugins/estree";
+// python format
 // html-to-react
 import { Parser, ProcessNodeDefinitions } from "html-to-react";
 import { ChildNode } from "domhandler";
@@ -50,7 +51,6 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 		language: props.lang,
 	}).value;
 
-	//
 	let ReactElement: any;
 
 	// wrap with links
@@ -113,7 +113,7 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 	return (
 		<code className="my-3 block font-mono text-sm leading-7" lang={props.lang}>
 			<pre
-				className="styled-scrollbar max-h-[500px] overflow-auto rounded-md border bg-b-800 p-4"
+				className="styled-scrollbar max-h-[85vh] overflow-auto rounded-md border bg-b-800 p-4"
 				dangerouslySetInnerHTML={
 					ReactElement ? undefined : { __html: highlightedCode }
 				}
@@ -155,23 +155,23 @@ export function InlineCode(props: { code: string; className?: string }) {
  */
 function alphaSplit(str: string) {
 	const output: string[] = [];
-	let currentWord = "";
-	let isCollectingAlpha = true;
+	let collecting = "";
+	let isCollectingVar = true;
 
 	for (const char of str) {
-		const isAlpha = /[a-zA-Z]/.test(char);
+		const isValidVar = /[a-zA-Z_]/.test(char);
 
 		// if mismatch between current char and current word type
-		if ((!isAlpha && isCollectingAlpha) || (isAlpha && !isCollectingAlpha)) {
-			output.push(currentWord); // save currently collected word
-			currentWord = char; // start collecting new word
-			isCollectingAlpha = !isCollectingAlpha; // toggle flag
+		if ((!isValidVar && isCollectingVar) || (isValidVar && !isCollectingVar)) {
+			output.push(collecting); // save currently collected word
+			collecting = char; // start collecting new word
+			isCollectingVar = !isCollectingVar; // toggle flag
 			continue;
 		} else {
-			currentWord += char; // keep collecting current word
+			collecting += char; // keep collecting current word
 		}
 	}
-	if (currentWord) output.push(currentWord);
+	if (collecting) output.push(collecting);
 	return output;
 }
 

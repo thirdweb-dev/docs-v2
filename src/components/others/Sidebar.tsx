@@ -1,16 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import type { LinkMeta } from "./types";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-
 import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
 import {
 	Accordion,
 	AccordionContent,
@@ -19,18 +16,25 @@ import {
 } from "@/components/ui/accordion";
 import { useState } from "react";
 import { Button } from "../ui/button";
-import { ChevronDown, ChevronRight, X } from "lucide-react";
+import { ChevronDown } from "lucide-react";
+
+export type LinkMeta = {
+	name: string;
+	href: string;
+};
+
+export type LinkGroup = {
+	group: string;
+	links: LinkMeta[];
+};
 
 type ReferenceSideBarProps = {
-	linkGroups: Array<{
-		group: string;
-		links: LinkMeta[];
-	}>;
+	linkGroups: LinkGroup[];
 	onLinkClick?: () => void;
 	name: string;
 };
 
-export function ReferenceSideBar(props: ReferenceSideBarProps) {
+export function DocSidebar(props: ReferenceSideBarProps) {
 	// open the last accordion by default
 	const lastGroup = props.linkGroups[props.linkGroups.length - 1]?.group;
 
@@ -47,7 +51,7 @@ export function ReferenceSideBar(props: ReferenceSideBarProps) {
 					<div className="flex flex-col gap-1">
 						{props.linkGroups.map((linkGroup) => {
 							return (
-								<ReferenceSideBarCategory
+								<DocSidebarCategory
 									key={linkGroup.group}
 									onLinkClick={props.onLinkClick}
 									links={linkGroup.links}
@@ -63,7 +67,7 @@ export function ReferenceSideBar(props: ReferenceSideBarProps) {
 	);
 }
 
-function ReferenceSideBarCategory(props: {
+function DocSidebarCategory(props: {
 	links: LinkMeta[];
 	category: string;
 	id: string;
@@ -110,7 +114,7 @@ function ReferenceSideBarCategory(props: {
 	);
 }
 
-export function ReferenceMenuMobile(props: ReferenceSideBarProps) {
+export function DocSidebarMobile(props: ReferenceSideBarProps) {
 	const [open, _setOpen] = useState(false);
 
 	const setOpen = (value: boolean) => {
@@ -138,7 +142,7 @@ export function ReferenceMenuMobile(props: ReferenceSideBarProps) {
 
 			<DropdownMenuContent asChild sideOffset={10} align="center" side="bottom">
 				<div className="max-h-[70vh] w-[calc(100vw-32px)] overflow-y-auto rounded-lg border bg-b-800 px-4">
-					<ReferenceSideBar
+					<DocSidebar
 						{...props}
 						onLinkClick={() => {
 							setOpen(false);

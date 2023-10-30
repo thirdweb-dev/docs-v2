@@ -1,4 +1,4 @@
-import { getTypedocLayout } from "@/components/RenderDoc/SlugPage";
+import { getTypedocLayout } from "@/components/RenderDoc/TypedocPage";
 import { fetchWalletsDoc } from "@/components/RenderDoc/fetchDocs/fetchWalletsDoc";
 
 export default getTypedocLayout({

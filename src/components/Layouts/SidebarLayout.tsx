@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { TableOfContentNode } from "./TableContentLayout";
+import { TableOfContentNode } from "../others/TableOfContents";
 
 export function SidebarLayout(props: {
 	sideBar: React.ReactNode;

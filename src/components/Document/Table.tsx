@@ -6,7 +6,7 @@ export function Table(props: { children: React.ReactNode }) {
 	);
 }
 
-export function TableRow(props: { children: React.ReactNode }) {
+export function Tr(props: { children: React.ReactNode }) {
 	return (
 		<tr className="border-b p-4 pb-3 pl-8 pt-0 text-left font-medium text-f-200 dark:border-b-700">
 			{props.children}
@@ -14,7 +14,7 @@ export function TableRow(props: { children: React.ReactNode }) {
 	);
 }
 
-export function TableHeadingCell(props: { children: React.ReactNode }) {
+export function Th(props: { children: React.ReactNode }) {
 	return (
 		<th className="border-b p-4 pb-3 pl-8 pt-0 text-left font-medium text-f-200 [&>p]:m-0">
 			{props.children}
@@ -22,7 +22,7 @@ export function TableHeadingCell(props: { children: React.ReactNode }) {
 	);
 }
 
-export function TableDataCell(props: { children: React.ReactNode }) {
+export function Td(props: { children: React.ReactNode }) {
 	return (
 		<td className="border-b p-4 pl-8 text-f-200 [&>p]:m-0">{props.children}</td>
 	);

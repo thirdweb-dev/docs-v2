@@ -1,6 +1,6 @@
-import { LinkGroup } from "@/components/Reference/types";
 import { SomeDoc } from "@/components/RenderDoc/types";
 import { TransformedDoc } from "typedoc-better-json";
+import { LinkGroup } from "../others/Sidebar";
 
 export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 	const linkGroups: LinkGroup[] = [];

@@ -6,8 +6,13 @@ import { Callout } from "../Document/Callout";
 import { SourceLink } from "./SourceLink";
 import { Details } from "../Document/Details";
 import { Deprecated } from "./Deprecated";
+import { sluggerContext } from "@/contexts/slugger";
+import invariant from "tiny-invariant";
 
 export function RenderFunctionDoc(props: { doc: FunctionDoc; level: number }) {
+	const slugger = sluggerContext.get();
+	invariant(slugger, "slugger context not set");
+
 	const { doc } = props;
 	const multipleSignatures = doc.signatures
 		? doc.signatures?.length > 1
@@ -15,7 +20,7 @@ export function RenderFunctionDoc(props: { doc: FunctionDoc; level: number }) {
 
 	return (
 		<>
-			<Heading level={props.level} id={doc.name}>
+			<Heading level={props.level} id={slugger.slug(doc.name)}>
 				{doc.name}
 			</Heading>
 
@@ -41,6 +46,8 @@ function RenderFunctionSignature(props: {
 	level: number;
 }) {
 	const { signature, name } = props;
+	const slugger = sluggerContext.get();
+	invariant(slugger, "slugger context not set");
 
 	const deprecatedTag = signature.blockTags?.find(
 		(t) => t.tag === "@deprecated",
@@ -53,7 +60,13 @@ function RenderFunctionSignature(props: {
 	return (
 		<>
 			{props.signatureId && (
-				<Heading level={props.level} id={`signature-${props.signatureId}`}>
+				<Heading
+					level={props.level}
+					id={slugger.slug(
+						props.name + "-signature-" + props.signatureId,
+						false,
+					)}
+				>
 					Signature
 					<span className="font-normal text-f-300"> #{props.signatureId}</span>
 				</Heading>
@@ -75,27 +88,12 @@ function RenderFunctionSignature(props: {
 				}
 			})}
 
-			{exampleTag && (
-				<div>
-					<Heading
-						level={props.signatureId ? props.level + 1 : props.level}
-						id={`example${props.signatureId ? `-${props.signatureId}` : ""}`}
-					>
-						Example
-					</Heading>
-					{exampleTag.summary && <RenderSummary summary={exampleTag.summary} />}
-				</div>
-			)}
-
 			{signature.parameters && (
 				<div>
 					{props.signature.parameters?.map((param) => {
 						return (
 							<Details
-								id={
-									param.name +
-									(props.signatureId ? `-${props.signatureId}` : "")
-								}
+								id={slugger.slug(param.name)}
 								key={param.name}
 								level={props.level + 1}
 								summary={
@@ -124,7 +122,7 @@ function RenderFunctionSignature(props: {
 
 			{signature.returns && (
 				<Details
-					id={"returns" + (props.signatureId ? `-${props.signatureId}` : "")}
+					id={slugger.slug(props.name + "-returns")}
 					summary={<span className="font-mono">Returns</span>}
 					level={props.level + 1}
 				>
@@ -139,6 +137,15 @@ function RenderFunctionSignature(props: {
 						/>
 					)}
 				</Details>
+			)}
+
+			{exampleTag && (
+				<div>
+					<Heading level={props.level + 1} id={slugger.slug("example")}>
+						Example
+					</Heading>
+					{exampleTag.summary && <RenderSummary summary={exampleTag.summary} />}
+				</div>
 			)}
 		</>
 	);

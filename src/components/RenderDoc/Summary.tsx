@@ -84,10 +84,7 @@ export function RenderSummary(props: {
 
 					default: {
 						// when this happens, we need to add a new case to the switch
-						console.log(props.summary);
 						console.warn(`Unknown summary type: ${s.type}`);
-
-						// throw new Error(`Unknown summary type: ${s.type}`);
 					}
 				}
 			})}

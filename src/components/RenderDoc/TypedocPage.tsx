@@ -4,10 +4,9 @@ import type { TransformedDoc } from "typedoc-better-json";
 import { RenderDoc } from "./RenderDoc";
 import { getSlugToDocMap, getLinkMap, fetchAllSlugs } from "./slugs";
 import type { Metadata } from "next";
-import { ReferenceLayout } from "../Layouts/ReferenceLayout";
+import { DocLayout } from "../Layouts/DocLayout";
 import { getSidebarLinkGroups } from "./getSidebarLinkgroups";
-import { getTableOfContent } from "./getTableOfContent";
-import { TableOfContentsSideBar } from "../Layouts/TableContentLayout";
+import { TableOfContentsSideBar } from "../others/TableOfContents";
 import { Breadcrumb } from "../ui/Breadcrumb";
 
 type PageProps = { params: { slug?: [docName: string] } };
@@ -52,15 +51,24 @@ export function getTypedocPage(options: {
 						<div className="h-6"></div>
 						<RenderDoc doc={selectedDoc} />
 					</main>
-					<TableOfContentsSideBar nodes={getTableOfContent(selectedDoc)} />
+					<TableOfContentsSideBar />
 				</>
 			);
 		}
 
 		return (
 			<>
-				<div className="w-full overflow-hidden pt-6">{indexContent}</div>
-				<TableOfContentsSideBar nodes={[]} />
+				<main className="w-full overflow-hidden pt-6">
+					<Breadcrumb
+						crumbs={[
+							{ name: sdkTitle, href: `/${packageSlug}` },
+							{ name: "References", href: `/${packageSlug}/references` },
+						]}
+					/>
+					<div className="h-6"></div>
+					{indexContent}
+				</main>
+				<TableOfContentsSideBar />
 			</>
 		);
 	}
@@ -119,19 +127,19 @@ export function getTypedocLayout(options: {
 		const doc = await getDoc();
 
 		if (!linkMapContext.get()) {
-			const linkMap = getLinkMap(doc, "/typescript/references");
+			const linkMap = getLinkMap(doc, `/${packageSlug}/references`);
 			linkMapContext.set(linkMap);
 		}
 
 		return (
-			<ReferenceLayout
+			<DocLayout
 				sideBar={{
 					name: sdkTitle,
 					linkGroups: getSidebarLinkGroups(doc, `/${packageSlug}/references`),
 				}}
 			>
 				{props.children}
-			</ReferenceLayout>
+			</DocLayout>
 		);
 	};
 }

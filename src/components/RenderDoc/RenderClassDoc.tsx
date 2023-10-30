@@ -34,7 +34,7 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 					<div>
 						{doc.methods.map((method, i) => {
 							return (
-								<div key={i} className="mb-14">
+								<div key={i} className="mb-14 lg:border-l-2 lg:pl-5">
 									<RenderFunctionDoc doc={method} key={method.name} level={3} />
 								</div>
 							);
@@ -52,7 +52,7 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 					<div>
 						{doc.properties.map((property, i) => {
 							return (
-								<div key={i} className="mb-14">
+								<div key={i} className="mb-14 lg:border-l-2 lg:pl-5">
 									<RenderVariableDoc
 										doc={property}
 										key={property.name}
@@ -74,7 +74,7 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 					<div>
 						{doc.accessors.map((accessor, i) => {
 							return (
-								<div key={i} className="mb-14">
+								<div key={i} className="mb-14 lg:border-l-2 lg:pl-5">
 									<RenderAccessorDoc
 										doc={accessor}
 										key={accessor.name}

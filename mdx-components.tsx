@@ -4,16 +4,22 @@ import { Heading } from "@/components/Document/Heading";
 import { UnorderedList, OrderedList } from "@/components/Document/List";
 import { Paragraph } from "@/components/Document/Paragraph";
 import { Separator } from "@/components/Document/Separator";
-import {
-	Table,
-	TableDataCell,
-	TableHeadingCell,
-	TableRow,
-} from "@/components/Document/Table";
+import { Table, Td, Th, Tr } from "@/components/Document/Table";
 import type { MDXComponents } from "mdx/types";
 import { Lang } from "shiki";
+import GithubSlugger from "github-slugger";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
+	const slugger = new GithubSlugger();
+
+	function nameToLink(name: React.ReactNode) {
+		if (typeof name !== "string") {
+			return undefined;
+		}
+
+		return slugger.slug(name);
+	}
+
 	function getHeading(
 		depth: number,
 		props: {
@@ -84,28 +90,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			return <Table>{props.children}</Table>;
 		},
 		th(props) {
-			return <TableHeadingCell>{props.children}</TableHeadingCell>;
+			return <Th>{props.children}</Th>;
 		},
 		td(props) {
-			return <TableDataCell>{props.children}</TableDataCell>;
+			return <Td>{props.children}</Td>;
 		},
 		tr(props) {
-			return <TableRow>{props.children}</TableRow>;
+			return <Tr>{props.children}</Tr>;
 		},
 	};
-}
-
-function nameToLink(name: React.ReactNode) {
-	if (typeof name !== "string") {
-		return undefined;
-	}
-
-	return `${name
-		.toLowerCase()
-		// replaces dashes with spaces
-		.replace(/\s/g, "-")
-		// removes special characters
-		.replace(/[^a-z0-9-]/g, "")
-		// remove numbers or dashes from the start of the string
-		.replace(/^[0-9-]+/, "")}`;
 }

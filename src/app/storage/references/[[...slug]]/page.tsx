@@ -1,4 +1,4 @@
-import { getTypedocPage } from "@/components/RenderDoc/SlugPage";
+import { getTypedocPage } from "@/components/RenderDoc/TypedocPage";
 import Content from "./content.mdx";
 import { fetchStorageDoc } from "@/components/RenderDoc/fetchDocs/fetchStorageDoc";
 
