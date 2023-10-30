@@ -98,7 +98,7 @@ function RenderFunctionSignature(props: {
 			})}
 
 			{signature.parameters && (
-				<div className="mt-10">
+				<div className="mt-5">
 					<Heading
 						level={subLevel}
 						id={slugger.slug(props.name + "--param--" + props.name, false)}
@@ -135,7 +135,7 @@ function RenderFunctionSignature(props: {
 			)}
 
 			{signature.returns && (
-				<div className="mt-10">
+				<div className="mt-5">
 					<Heading level={subLevel} id={slugger.slug(props.name + "-returns")}>
 						Returns
 					</Heading>
@@ -155,7 +155,7 @@ function RenderFunctionSignature(props: {
 			)}
 
 			{exampleTag && (
-				<div className="mt-10">
+				<div className="mt-5">
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>
