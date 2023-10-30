@@ -9,7 +9,10 @@ export function DocLink(props: {
 	return (
 		<Link
 			href={props.href}
-			className={cn("text-accent-500 hover:text-f-100 ", props.className)}
+			className={cn(
+				"text-accent-500 hover:text-f-100 transition-colors",
+				props.className,
+			)}
 			target={props.href.startsWith("http") ? "_blank" : undefined}
 		>
 			{props.children}

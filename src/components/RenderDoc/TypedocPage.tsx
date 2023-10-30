@@ -37,7 +37,7 @@ export function getTypedocPage(options: {
 
 			return (
 				<>
-					<main className="relative w-full overflow-hidden pt-6">
+					<main className="relative w-full overflow-hidden pb-10 pt-6">
 						<Breadcrumb
 							crumbs={[
 								{ name: sdkTitle, href: `/${packageSlug}` },

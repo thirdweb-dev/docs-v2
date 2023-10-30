@@ -15,6 +15,7 @@ import { ChildNode } from "domhandler";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { linkMapContext } from "@/contexts/linkMap";
+import { DocLink } from "./DocLink";
 
 const htmlToReactParser = Parser();
 const processNodeDefinitions = ProcessNodeDefinitions();
@@ -32,9 +33,14 @@ const jsOrTsLangs = new Set([
 
 export async function CodeBlock(props: { code: string; lang: string }) {
 	let code = props.code;
+	let lang = props.lang;
+
+	if (lang === "shell" || lang === "sh") {
+		lang = "bash";
+	}
 
 	// format code
-	if (jsOrTsLangs.has(props.lang)) {
+	if (jsOrTsLangs.has(lang)) {
 		try {
 			code = await format(code, {
 				parser: "babel-ts",
@@ -48,7 +54,7 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 
 	// highlight code
 	const highlightedCode = highlight.highlight(code, {
-		language: props.lang,
+		language: lang,
 	}).value;
 
 	let ReactElement: any;
@@ -111,9 +117,12 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 	}
 
 	return (
-		<code className="my-3 block font-mono text-sm leading-7" lang={props.lang}>
+		<code
+			className="styled-scrollbar my-3 block max-h-[65vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
+			lang={lang}
+		>
 			<pre
-				className="styled-scrollbar max-h-[85vh] overflow-auto rounded-md border bg-b-800 p-4"
+				className=""
 				dangerouslySetInnerHTML={
 					ReactElement ? undefined : { __html: highlightedCode }
 				}
@@ -134,13 +143,7 @@ export function InlineCode(props: { code: string; className?: string }) {
 				props.className,
 			)}
 		>
-			{href ? (
-				<Link href={href || "#"} className="text-accent-500">
-					{props.code}
-				</Link>
-			) : (
-				props.code
-			)}
+			{href ? <DocLink href={href || "#"}>{props.code}</DocLink> : props.code}
 		</code>
 	);
 }

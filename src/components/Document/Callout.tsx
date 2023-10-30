@@ -13,7 +13,7 @@ export function Callout(props: {
 				"my-5 flex gap-4 items-center rounded-md border p-4 [&_p]:!m-0",
 				props.variant === "danger" && "bg-danger-900 border-danger-500",
 				props.variant === "warning" &&
-					"bg-warning-900 border-warning-500 [&_code_pre]:border-none [&_code_pre]:bg-warning-800",
+					"bg-warning-900 border-warning-500 [&_code]:border-none [&_code]:bg-warning-800",
 				props.variant === "info" && "bg-b-900 border",
 			)}
 		>

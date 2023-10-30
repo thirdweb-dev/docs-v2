@@ -28,13 +28,13 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 			{/* Methods */}
 			{doc.methods && (
 				<div>
-					<Heading level={2} id="methods" className="text-5xl">
+					<Heading level={2} id="methods" className="text-4xl">
 						Methods
 					</Heading>
 					<div>
 						{doc.methods.map((method, i) => {
 							return (
-								<div key={i} className="mb-14 lg:border-l-2 lg:pl-5">
+								<div key={i} className="mb-14">
 									<RenderFunctionDoc doc={method} key={method.name} level={3} />
 								</div>
 							);
@@ -46,13 +46,13 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 			{/* Properties */}
 			{doc.properties && (
 				<div>
-					<Heading level={2} id="properties" className="text-5xl">
+					<Heading level={2} id="properties" className="text-4xl">
 						Properties
 					</Heading>
 					<div>
 						{doc.properties.map((property, i) => {
 							return (
-								<div key={i} className="mb-14 lg:border-l-2 lg:pl-5">
+								<div key={i} className="mb-14">
 									<RenderVariableDoc
 										doc={property}
 										key={property.name}
@@ -74,7 +74,7 @@ export function RenderClassDoc(props: { doc: ClassDoc }) {
 					<div>
 						{doc.accessors.map((accessor, i) => {
 							return (
-								<div key={i} className="mb-14 lg:border-l-2 lg:pl-5">
+								<div key={i} className="mb-14">
 									<RenderAccessorDoc
 										doc={accessor}
 										key={accessor.name}
