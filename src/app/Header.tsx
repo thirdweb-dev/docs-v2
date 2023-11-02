@@ -14,6 +14,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
+import { DocSeach } from "@/components/DocSearch";
 
 const links = [
 	{
@@ -124,6 +125,8 @@ export function Header() {
 					</ul>
 
 					<div className="flex flex-col justify-start gap-5 md:flex-row md:items-center">
+						<DocSeach />
+
 						{/* References Dropdown for desktop */}
 						<div className="hidden md:block">
 							<DropdownMenu>

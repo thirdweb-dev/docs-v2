@@ -4,9 +4,10 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"build": "next lint && next build",
+		"build": "next lint && next build && yarn extract-search-data",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"extract-search-data": "ts-node src/search/extraction/index.ts"
 	},
 	"dependencies": {
 		"@mdx-js/loader": "^2.3.0",
@@ -17,9 +18,12 @@
 		"@radix-ui/react-navigation-menu": "^1.1.4",
 		"@radix-ui/react-slot": "^1.0.2",
 		"@radix-ui/react-tabs": "^1.0.4",
+		"@tanstack/react-query": "^5.4.3",
+		"@types/flexsearch": "^0.7.5",
 		"@types/mdx": "^2.0.8",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.0.0",
+		"flexsearch": "^0.7.31",
 		"github-slugger": "^2.0.0",
 		"highlight.js": "^11.9.0",
 		"html-to-react": "^1.7.0",
@@ -47,9 +51,11 @@
 		"eslint-config-next": "13.5.4",
 		"eslint-plugin-mdx": "^2.2.0",
 		"eslint-plugin-tailwindcss": "^3.13.0",
+		"node-html-parser": "^6.1.11",
 		"postcss": "^8",
 		"react-icons": "^4.11.0",
 		"tailwindcss": "^3",
-		"typescript": "^5"
+		"ts-node": "^10.9.1",
+		"typescript": "^5.2.2"
 	}
 }
