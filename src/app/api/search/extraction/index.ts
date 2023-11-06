@@ -8,10 +8,12 @@ import {
 	TextNode as X_TextNode,
 	CommentNode as X_CommentNode,
 } from "node-html-parser";
-import { NEXT_OUTPUT_FOLDER, SERACH_CONTENT_JSON } from "./consts";
+import { get_NEXT_OUTPUT_FOLDER, get_SERACH_CONTENT_JSON } from "./consts";
 import { PageData, PageSectionData } from "../types";
 
 export async function extractSearchData() {
+	const NEXT_OUTPUT_FOLDER = get_NEXT_OUTPUT_FOLDER();
+	const SERACH_CONTENT_JSON = get_SERACH_CONTENT_JSON();
 	const htmlFiles = getFilesRecursive(NEXT_OUTPUT_FOLDER, "html");
 
 	const pages: PageData[] = [];

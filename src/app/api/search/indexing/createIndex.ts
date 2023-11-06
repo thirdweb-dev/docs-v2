@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import FlexSearch from "flexsearch";
 import { PageData, PageTitleIndex, SectionIndex } from "../types";
-import { SERACH_CONTENT_JSON } from "../extraction/consts";
+import { get_SERACH_CONTENT_JSON } from "../extraction/consts";
 
 export type Indexes = {
 	sectionIndex: SectionIndex;
@@ -11,6 +11,7 @@ export type Indexes = {
 
 async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
+	const SERACH_CONTENT_JSON = get_SERACH_CONTENT_JSON();
 
 	console.log("READING FROM", SERACH_CONTENT_JSON);
 	const content = await readFile(SERACH_CONTENT_JSON, "utf8");
