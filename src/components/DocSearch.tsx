@@ -224,10 +224,7 @@ export function DocSearch() {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Dialog open={open} onOpenChange={setOpen}>
-				<DialogTrigger
-					asChild
-					className="hidden w-56 justify-start outline md:flex"
-				>
+				<DialogTrigger asChild className="hidden w-56 justify-start md:flex">
 					<Button variant="outline">Search Docs</Button>
 				</DialogTrigger>
 
