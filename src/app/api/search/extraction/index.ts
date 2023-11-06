@@ -1,5 +1,5 @@
-import { readFile } from "fs/promises";
-import { outputFile } from "fs-extra";
+import { readFile, writeFile } from "fs/promises";
+import fs from "fs";
 import { getFilesRecursive } from "./getFilesRecursive";
 import {
 	parse,
@@ -43,7 +43,18 @@ export async function extractSearchData() {
 	);
 
 	console.log("Writing search output data to", SERACH_CONTENT_JSON);
-	await outputFile(SERACH_CONTENT_JSON, JSON.stringify(pages, null, 2));
+
+	SERACH_CONTENT_JSON.split("/")
+		.slice(0, -1)
+		.reduce((prev, curr) => {
+			const path = prev + "/" + curr;
+			if (!fs.existsSync(path)) {
+				fs.mkdirSync(path);
+			}
+			return path;
+		});
+
+	await writeFile(SERACH_CONTENT_JSON, JSON.stringify(pages, null, 2));
 }
 
 function getPageSections(main: X_HTMLElement): PageSectionData[] {
