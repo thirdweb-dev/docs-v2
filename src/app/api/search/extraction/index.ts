@@ -8,10 +8,10 @@ import {
 	TextNode as X_TextNode,
 	CommentNode as X_CommentNode,
 } from "node-html-parser";
-import { NEXT_OUTPUT_FOLDER, SERACH_CONTENT_JSON } from "./consts";
+import { NEXT_OUTPUT_FOLDER } from "./consts";
 import { PageData, PageSectionData } from "../types";
 
-export async function extractSearchData() {
+export async function extractSearchData(): Promise<PageData[]> {
 	const htmlFiles = getFilesRecursive(NEXT_OUTPUT_FOLDER, "html");
 
 	const pages: PageData[] = [];
@@ -42,20 +42,7 @@ export async function extractSearchData() {
 		}),
 	);
 
-	console.log("Writing search output data to", SERACH_CONTENT_JSON);
-
-	SERACH_CONTENT_JSON.split("/")
-		.slice(0, -1)
-		.reduce((prev, curr) => {
-			const path = prev + "/" + curr;
-			if (!fs.existsSync(path)) {
-				fs.mkdirSync(path);
-			}
-			return path;
-		});
-
-	console.log("saved to", SERACH_CONTENT_JSON);
-	await writeFile(SERACH_CONTENT_JSON, JSON.stringify(pages, null, 2));
+	return pages;
 }
 
 function getPageSections(main: X_HTMLElement): PageSectionData[] {
