@@ -74,7 +74,7 @@ function DocSidebarCategory(props: {
 	onLinkClick?: () => void;
 }) {
 	const pathname = usePathname();
-	const activeLink = pathname.split("/").slice(-1)[0];
+	const activeLink = pathname ? pathname.split("/").slice(-1)[0] : undefined;
 
 	return (
 		<AccordionItem value={props.id} className="py-1">
