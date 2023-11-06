@@ -12,7 +12,10 @@ export type Indexes = {
 async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 
-	const content = await readFile(SERACH_CONTENT_JSON, "utf8");
+	const content = await readFile(
+		process.cwd() + "/" + SERACH_CONTENT_JSON,
+		"utf8",
+	);
 	const websiteData = JSON.parse(content) as PageData[];
 
 	// create indexes
