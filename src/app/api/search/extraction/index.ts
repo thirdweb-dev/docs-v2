@@ -54,6 +54,7 @@ export async function extractSearchData() {
 			return path;
 		});
 
+	console.log("saved to", SERACH_CONTENT_JSON);
 	await writeFile(SERACH_CONTENT_JSON, JSON.stringify(pages, null, 2));
 }
 

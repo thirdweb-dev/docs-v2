@@ -14,10 +14,13 @@ export type Indexes = {
 async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 
+	console.log("EXTRACTING....");
 	// if search content does not exist - create it
 	if (!existsSync(SERACH_CONTENT_JSON)) {
 		await extractSearchData();
 	}
+
+	console.log("EXTRACTED");
 
 	const content = await readFile(SERACH_CONTENT_JSON, "utf8");
 	const websiteData = JSON.parse(content) as PageData[];
