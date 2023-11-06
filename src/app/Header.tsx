@@ -14,7 +14,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
-import { DocSeach } from "@/components/DocSearch";
+import { DocSearch } from "@/components/DocSearch";
 
 const links = [
 	{
@@ -124,8 +124,8 @@ export function Header() {
 						})}
 					</ul>
 
-					<div className="flex flex-col justify-start gap-5 md:flex-row md:items-center">
-						<DocSeach />
+					<div className="flex flex-col justify-start gap-3 md:flex-row md:items-center">
+						<DocSearch />
 
 						{/* References Dropdown for desktop */}
 						<div className="hidden md:block">
@@ -199,8 +199,8 @@ function NavLink(props: { href: string; name: string; onClick?: () => void }) {
 			href={props.href}
 			onClick={props.onClick}
 			className={clsx(
-				"text-sm transition-colors hover:text-f-200",
-				pathname === props.href ? "text-f-200" : "text-f-300 ",
+				"text-sm transition-colors hover:text-f-100",
+				pathname === props.href ? "text-f-100" : "text-f-300 ",
 			)}
 		>
 			{props.name}

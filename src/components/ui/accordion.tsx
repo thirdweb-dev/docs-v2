@@ -27,9 +27,10 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 	className,
 	children,
 	style,
+	chevronPosition: _chevronPosition,
 	...props
 }) => {
-	const chvronPosition = props.chevronPosition || "right";
+	const chvronPosition = _chevronPosition || "right";
 
 	return (
 		<Header className="flex">
@@ -37,7 +38,7 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 				className={cn(
 					"flex flex-1 items-center gap-4 py-4 transition-all [&[data-state=open]>svg]:rotate-180",
 					className,
-					chvronPosition == "right" && "justify-between flex-row-reverse",
+					chvronPosition === "right" ? "justify-between flex-row-reverse" : "",
 				)}
 				style={style}
 				{...props}
