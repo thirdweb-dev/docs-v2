@@ -10,7 +10,6 @@ import {
 } from "node-html-parser";
 import { NEXT_OUTPUT_FOLDER, SERACH_CONTENT_JSON } from "./consts";
 import { PageData, PageSectionData } from "../types";
-import path from "path";
 
 export async function extractSearchData() {
 	const htmlFiles = getFilesRecursive(NEXT_OUTPUT_FOLDER, "html");
@@ -43,9 +42,8 @@ export async function extractSearchData() {
 		}),
 	);
 
-	const outputFilePath = path.resolve(SERACH_CONTENT_JSON);
-	console.log("Writing search output data to", outputFilePath);
-	outputFile(outputFilePath, JSON.stringify(pages, null, 2));
+	console.log("Writing search output data to", SERACH_CONTENT_JSON);
+	outputFile(SERACH_CONTENT_JSON, JSON.stringify(pages, null, 2));
 }
 
 function getPageSections(main: X_HTMLElement): PageSectionData[] {
