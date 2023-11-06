@@ -1,10 +1,11 @@
-import invariant from "tiny-invariant";
 import { getSearchIndexes } from "../indexing/createIndex";
 import { SearchResult, SearchResultSection } from "../types";
 
 const maxResults = 50;
 
 export async function search(query: string): Promise<SearchResult[]> {
+	console.log("search api cwd", process.cwd());
+
 	const { pageTitleIndex, sectionIndex, websiteData } =
 		await getSearchIndexes();
 
