@@ -5,7 +5,6 @@ import {
 	QueryClientProvider,
 	keepPreviousData,
 	useQuery,
-	useQueryClient,
 } from "@tanstack/react-query";
 
 import { memo, useEffect, useState } from "react";
@@ -225,12 +224,20 @@ export function DocSearch() {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Dialog open={open} onOpenChange={setOpen}>
-				<DialogTrigger asChild>
-					<Button variant="outline" className="w-56 justify-start">
-						Search Docs
+				<DialogTrigger
+					asChild
+					className="hidden w-56 justify-start outline md:flex"
+				>
+					<Button variant="outline">Search Docs</Button>
+				</DialogTrigger>
+
+				<DialogTrigger asChild className="md:hidden">
+					<Button variant="ghost">
+						<SearchIcon className="h-5 w-5 text-f-300" />
 					</Button>
 				</DialogTrigger>
-				<DialogContent className="w-[calc(100vh-20px)] bg-b-900 sm:max-w-[550px]">
+
+				<DialogContent className="bg-b-900 sm:max-w-[550px]">
 					<SearchModalContent
 						closeModal={() => {
 							setOpen(false);
@@ -281,7 +288,7 @@ function SearchResultItem(props: {
 			)}
 
 			<div className="flex w-full flex-col gap-1">
-				<div className="flex justify-between gap-2 break-all text-base text-f-100">
+				<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
 					<div className="flex items-center gap-2">
 						{props.type === "page" && (
 							<FileTextIcon className="h-5 w-5 text-f-300" />
@@ -291,16 +298,14 @@ function SearchResultItem(props: {
 					</div>
 
 					{props.tag && (
-						<div>
-							<span
-								key={props.tag}
-								className={cn(
-									"rounded-lg border px-2 py-1 text-xs bg-b-800 text-f-300",
-								)}
-							>
-								{props.tag}
-							</span>
-						</div>
+						<span
+							key={props.tag}
+							className={cn(
+								"rounded-lg border px-2 py-1 text-xs bg-b-800 text-f-300 shrink-0",
+							)}
+						>
+							{props.tag}
+						</span>
 					)}
 				</div>
 				{props.content && (

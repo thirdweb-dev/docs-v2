@@ -92,14 +92,18 @@ export function Header() {
 					</span>
 				</Link>
 
-				{/* Mobile burger menu */}
-				<Button
-					variant="ghost"
-					className="p-2 md:hidden"
-					onClick={() => setShowBurgerMenu(!showBurgerMenu)}
-				>
-					<Menu className="h-7 w-7" />
-				</Button>
+				<div className="flex gap-1 md:hidden">
+					<DocSearch />
+
+					{/* Mobile burger menu */}
+					<Button
+						variant="ghost"
+						className="p-2"
+						onClick={() => setShowBurgerMenu(!showBurgerMenu)}
+					>
+						<Menu className="h-7 w-7" />
+					</Button>
+				</div>
 
 				<nav
 					className={clsx(
@@ -124,8 +128,10 @@ export function Header() {
 						})}
 					</ul>
 
-					<div className="flex flex-col justify-start gap-3 md:flex-row md:items-center">
-						<DocSearch />
+					<div className="flex flex-col justify-start gap-5 md:flex-row   md:items-center md:gap-3">
+						<div className="hidden md:block">
+							<DocSearch />
+						</div>
 
 						{/* References Dropdown for desktop */}
 						<div className="hidden md:block">
