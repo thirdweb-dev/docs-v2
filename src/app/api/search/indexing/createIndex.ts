@@ -13,7 +13,6 @@ async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 	const SERACH_CONTENT_JSON = get_SERACH_CONTENT_JSON();
 
-	console.log("READING FROM", SERACH_CONTENT_JSON);
 	const content = await readFile(SERACH_CONTENT_JSON, "utf8");
 	const websiteData = JSON.parse(content) as PageData[];
 
