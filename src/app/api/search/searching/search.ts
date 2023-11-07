@@ -1,12 +1,14 @@
-import { NEXT_OUTPUT_FOLDER } from "../extraction/consts";
 import { getSearchIndexes } from "../indexing/createIndex";
 import { SearchResult, SearchResultItem, SearchResultSection } from "../types";
 
 const maxResults = 50;
 
-export async function search(query: string): Promise<SearchResult> {
+export async function search(
+	query: string,
+	rootDir: string,
+): Promise<SearchResult> {
 	const { pageTitleIndex, sectionIndex, websiteData } =
-		await getSearchIndexes();
+		await getSearchIndexes(rootDir);
 
 	const titleMatches = pageTitleIndex.search(query, maxResults, {
 		index: "title",
@@ -28,11 +30,6 @@ export async function search(query: string): Promise<SearchResult> {
 
 	if (results.length >= maxResults) {
 		return {
-			meta: {
-				cwd: process.cwd(),
-				nextDotRoot: NEXT_OUTPUT_FOLDER,
-				websiteData,
-			},
 			results: results,
 		};
 	}
@@ -128,11 +125,6 @@ export async function search(query: string): Promise<SearchResult> {
 	});
 
 	return {
-		meta: {
-			cwd: process.cwd(),
-			nextDotRoot: NEXT_OUTPUT_FOLDER,
-			websiteData: websiteData,
-		},
 		results: sortedResults,
 	};
 }

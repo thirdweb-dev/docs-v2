@@ -1,7 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { SearchResult } from "@/app/api/search/types";
 import { search } from "./searching/search";
-import { NEXT_OUTPUT_FOLDER } from "./extraction/consts";
 
 export async function GET(
 	request: NextRequest,
@@ -11,14 +10,10 @@ export async function GET(
 
 	if (!query)
 		return NextResponse.json({
-			meta: {
-				cwd: process.cwd(),
-				nextDotRoot: NEXT_OUTPUT_FOLDER,
-				websiteData: [1, 2, 3],
-			},
 			results: [],
 		});
 
-	const results = await search(query);
+	console.log("cwd is", process.cwd());
+	const results = await search(query, process.cwd());
 	return NextResponse.json(results);
 }

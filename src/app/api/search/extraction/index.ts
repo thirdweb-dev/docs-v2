@@ -7,11 +7,11 @@ import {
 	TextNode as X_TextNode,
 	CommentNode as X_CommentNode,
 } from "node-html-parser";
-import { NEXT_OUTPUT_FOLDER } from "./consts";
 import { PageData, PageSectionData } from "../types";
 
-export async function extractSearchData(): Promise<PageData[]> {
-	const htmlFiles = getFilesRecursive(NEXT_OUTPUT_FOLDER, "html");
+export async function extractSearchData(rootDir: string): Promise<PageData[]> {
+	const nextOutputDir = `${rootDir}/.next/server/app`;
+	const htmlFiles = getFilesRecursive(nextOutputDir, "html");
 
 	const pages: PageData[] = [];
 
@@ -34,7 +34,7 @@ export async function extractSearchData(): Promise<PageData[]> {
 			}
 
 			pages.push({
-				href: filePath.replace(NEXT_OUTPUT_FOLDER, "").replace(".html", ""),
+				href: filePath.replace(nextOutputDir, "").replace(".html", ""),
 				title: mainEl.querySelector("h1")?.text || "",
 				sections: getPageSections(mainEl),
 			});
