@@ -1,23 +1,24 @@
+import { NEXT_OUTPUT_FOLDER } from "../extraction/consts";
 import { getSearchIndexes } from "../indexing/createIndex";
-import { SearchResult, SearchResultSection } from "../types";
+import { SearchResult, SearchResultItem, SearchResultSection } from "../types";
 
 const maxResults = 50;
 
-export async function search(query: string): Promise<SearchResult[]> {
+export async function search(query: string): Promise<SearchResult> {
 	const { pageTitleIndex, sectionIndex, websiteData } =
 		await getSearchIndexes();
 
 	const titleMatches = pageTitleIndex.search(query, maxResults, {
 		index: "title",
 	});
-	const results: SearchResult[] = [];
+	const results: SearchResultItem[] = [];
 
-	const pageIdToResultMap = new Map<number, SearchResult>();
+	const pageIdToResultMap = new Map<number, SearchResultItem>();
 	const sectionIdsAddedInResult = new Set<number>();
 
 	// search query in page titles - high bias, so added first in results array
 	(titleMatches[0]?.result as number[] | undefined)?.forEach((id) => {
-		const result: SearchResult = {
+		const result: SearchResultItem = {
 			pageHref: websiteData[id]!.href,
 			pageTitle: websiteData[id]!.title,
 		};
@@ -26,7 +27,13 @@ export async function search(query: string): Promise<SearchResult[]> {
 	});
 
 	if (results.length >= maxResults) {
-		return results;
+		return {
+			meta: {
+				cwd: process.cwd(),
+				nextDotRoot: NEXT_OUTPUT_FOLDER,
+			},
+			results: results,
+		};
 	}
 
 	function addSectionResult(doc: {
@@ -62,7 +69,7 @@ export async function search(query: string): Promise<SearchResult[]> {
 			}
 		} else {
 			const pageData = websiteData[doc.pageId]!;
-			const pageResult: SearchResult = {
+			const pageResult: SearchResultItem = {
 				pageHref: pageData.href,
 				pageTitle: pageData.title,
 				sections: [sectionResult],
@@ -98,7 +105,7 @@ export async function search(query: string): Promise<SearchResult[]> {
 	});
 
 	// sort
-	return results.sort((a, b) => {
+	const sortedResults = results.sort((a, b) => {
 		// if it's pageTitle is exact match, it should be first
 		if (a.pageTitle === query) {
 			return -1;
@@ -118,4 +125,12 @@ export async function search(query: string): Promise<SearchResult[]> {
 
 		return bSections - aSections;
 	});
+
+	return {
+		meta: {
+			cwd: process.cwd(),
+			nextDotRoot: NEXT_OUTPUT_FOLDER,
+		},
+		results: sortedResults,
+	};
 }

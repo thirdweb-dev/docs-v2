@@ -52,7 +52,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 		queryKey: ["search-index", debouncedQuery],
 		queryFn: async () => {
 			const res = await fetch(`/api/search?q=${encodeURI(debouncedQuery)}`);
-			const results = (await res.json()) as SearchResult[];
+			const { results } = (await res.json()) as SearchResult;
 
 			const _selectedTags: typeof selectedTags = {
 				React: false,

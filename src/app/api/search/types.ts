@@ -37,8 +37,16 @@ export type SearchResultSection = {
 	content: string;
 };
 
-export type SearchResult = {
+export type SearchResultItem = {
 	pageTitle: string;
 	pageHref: string;
 	sections?: Array<SearchResultSection>;
+};
+
+export type SearchResult = {
+	meta: {
+		cwd: string;
+		nextDotRoot: string;
+	};
+	results: Array<SearchResultItem>;
 };
