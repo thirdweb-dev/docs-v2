@@ -1,16 +1,17 @@
-import { NextResponse, NextRequest } from "next/server";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { SearchResult } from "@/app/api/search/types";
-import { search } from "./searching/search";
 import path from "path";
+import { search } from "@/app/api/search/searching/search";
 
-export async function GET(
-	request: NextRequest,
-): Promise<NextResponse<SearchResult>> {
-	const searchParams = request.nextUrl.searchParams;
-	const query = searchParams.get("q") || "";
+export default async function handler(
+	request: NextApiRequest,
+	res: NextApiResponse,
+) {
+	const searchParams = request.query;
+	const query = (searchParams.q || "") as string;
 
 	if (!query)
-		return NextResponse.json({
+		return res.json({
 			results: [],
 		});
 
@@ -26,5 +27,5 @@ export async function GET(
 	);
 	console.log({ searchContentPath });
 	const results = await search(query, searchContentPath);
-	return NextResponse.json(results);
+	return res.json(results);
 }
