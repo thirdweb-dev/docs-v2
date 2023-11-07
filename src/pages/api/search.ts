@@ -1,6 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { SearchResult } from "@/app/api/search/types";
-import path from "path";
 import { search } from "@/app/api/search/searching/search";
 
 export default async function handler(

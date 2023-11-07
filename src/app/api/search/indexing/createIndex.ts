@@ -1,6 +1,5 @@
 import FlexSearch from "flexsearch";
 import { PageData, PageTitleIndex, SectionIndex } from "../types";
-import searchIndexJson from "@root/searchIndex.json";
 
 export type Indexes = {
 	sectionIndex: SectionIndex;
@@ -11,7 +10,10 @@ export type Indexes = {
 async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 
-	const websiteData = searchIndexJson as PageData[];
+	const websiteData = (await import("@root/searchIndex.json"))
+		.default as PageData[];
+
+	console.log("website data length", websiteData.length);
 
 	// create indexes
 	const pageTitleIndex: PageTitleIndex = new FlexSearch.Document({
