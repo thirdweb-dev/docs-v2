@@ -14,6 +14,7 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
+import { DocSearch } from "@/components/DocSearch";
 
 const links = [
 	{
@@ -91,14 +92,18 @@ export function Header() {
 					</span>
 				</Link>
 
-				{/* Mobile burger menu */}
-				<Button
-					variant="ghost"
-					className="p-2 md:hidden"
-					onClick={() => setShowBurgerMenu(!showBurgerMenu)}
-				>
-					<Menu className="h-7 w-7" />
-				</Button>
+				<div className="flex gap-1 md:hidden">
+					<DocSearch />
+
+					{/* Mobile burger menu */}
+					<Button
+						variant="ghost"
+						className="p-2"
+						onClick={() => setShowBurgerMenu(!showBurgerMenu)}
+					>
+						<Menu className="h-7 w-7" />
+					</Button>
+				</div>
 
 				<nav
 					className={clsx(
@@ -123,7 +128,11 @@ export function Header() {
 						})}
 					</ul>
 
-					<div className="flex flex-col justify-start gap-5 md:flex-row md:items-center">
+					<div className="flex flex-col justify-start gap-5 md:flex-row   md:items-center md:gap-3">
+						<div className="hidden md:block">
+							<DocSearch />
+						</div>
+
 						{/* References Dropdown for desktop */}
 						<div className="hidden md:block">
 							<DropdownMenu>
@@ -196,8 +205,8 @@ function NavLink(props: { href: string; name: string; onClick?: () => void }) {
 			href={props.href}
 			onClick={props.onClick}
 			className={clsx(
-				"text-sm transition-colors hover:text-f-200",
-				pathname === props.href ? "text-f-200" : "text-f-300 ",
+				"text-sm transition-colors hover:text-f-100",
+				pathname === props.href ? "text-f-100" : "text-f-300 ",
 			)}
 		>
 			{props.name}

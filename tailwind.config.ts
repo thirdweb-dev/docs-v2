@@ -21,6 +21,7 @@ module.exports = {
 			input: "var(--b-700)",
 			ring: "var(--b-700)",
 			transparent: "transparent",
+			overlay: "var(--overlay)",
 			// backgrounds
 			b: {
 				900: "var(--b-900)",
@@ -80,6 +81,7 @@ module.exports = {
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
+				"animate-in-slow": "animate-in 0.4s ease",
 			},
 		},
 	},

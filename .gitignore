@@ -36,3 +36,6 @@ next-env.d.ts
 
 # editors
 .vscode
+
+# generated files
+searchIndex.json
