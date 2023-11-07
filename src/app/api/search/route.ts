@@ -14,6 +14,7 @@ export async function GET(
 			meta: {
 				cwd: process.cwd(),
 				nextDotRoot: NEXT_OUTPUT_FOLDER,
+				websiteData: [1, 2, 3],
 			},
 			results: [],
 		});

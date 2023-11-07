@@ -47,6 +47,7 @@ export type SearchResult = {
 	meta: {
 		cwd: string;
 		nextDotRoot: string;
+		websiteData: any[];
 	};
 	results: Array<SearchResultItem>;
 };

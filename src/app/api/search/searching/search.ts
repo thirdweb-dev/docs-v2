@@ -31,6 +31,7 @@ export async function search(query: string): Promise<SearchResult> {
 			meta: {
 				cwd: process.cwd(),
 				nextDotRoot: NEXT_OUTPUT_FOLDER,
+				websiteData,
 			},
 			results: results,
 		};
@@ -130,6 +131,7 @@ export async function search(query: string): Promise<SearchResult> {
 		meta: {
 			cwd: process.cwd(),
 			nextDotRoot: NEXT_OUTPUT_FOLDER,
+			websiteData: websiteData,
 		},
 		results: sortedResults,
 	};
