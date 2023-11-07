@@ -1,1 +1,0 @@
-export const searchIndexPath = "/Users/manantank/Development/thirdweb/docs-v2/.data/search-content.json";
