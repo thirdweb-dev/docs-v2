@@ -1,6 +1,6 @@
 import FlexSearch from "flexsearch";
 import { PageData, PageTitleIndex, SectionIndex } from "../types";
-import { extractSearchData } from "../extraction";
+import { readFile } from "fs/promises";
 
 export type Indexes = {
 	sectionIndex: SectionIndex;
@@ -11,7 +11,12 @@ export type Indexes = {
 async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 
-	const websiteData = await extractSearchData();
+	const searchContentPath = `/${process.cwd()}/.data/search-content.json`;
+	console.log("reading...", searchContentPath);
+
+	const websiteDataContent = await readFile(searchContentPath, "utf-8");
+
+	const websiteData: PageData[] = JSON.parse(websiteDataContent);
 
 	// create indexes
 	const pageTitleIndex: PageTitleIndex = new FlexSearch.Document({

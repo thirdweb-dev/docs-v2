@@ -8,6 +8,7 @@
 		"build": "next lint && next build",
 		"start": "next start",
 		"lint": "next lint",
+		"postbuild": "yarn extract-search-data",
 		"extract-search-data": "ts-node scripts/extractSearchData.ts"
 	},
 	"dependencies": {

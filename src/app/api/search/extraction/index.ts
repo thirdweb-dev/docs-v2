@@ -1,5 +1,4 @@
-import { readFile, writeFile } from "fs/promises";
-import fs from "fs";
+import { readFile } from "fs/promises";
 import { getFilesRecursive } from "./getFilesRecursive";
 import {
 	parse,
@@ -14,8 +13,6 @@ import { PageData, PageSectionData } from "../types";
 export async function extractSearchData(): Promise<PageData[]> {
 	const htmlFiles = getFilesRecursive(NEXT_OUTPUT_FOLDER, "html");
 
-	console.log("extracting data...");
-	console.log("files", htmlFiles);
 	const pages: PageData[] = [];
 
 	await Promise.all(
@@ -44,7 +41,6 @@ export async function extractSearchData(): Promise<PageData[]> {
 		}),
 	);
 
-	console.log("extraction complete with page count:", pages.length);
 	return pages;
 }
 
