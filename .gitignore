@@ -38,5 +38,4 @@ next-env.d.ts
 .vscode
 
 # generated files
-.data
-searchIndexPath.ts
+searchIndex.json

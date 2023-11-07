@@ -3,12 +3,9 @@ import { SearchResult, SearchResultItem, SearchResultSection } from "../types";
 
 const maxResults = 50;
 
-export async function search(
-	query: string,
-	searchContentPath: string,
-): Promise<SearchResult> {
+export async function search(query: string): Promise<SearchResult> {
 	const { pageTitleIndex, sectionIndex, websiteData } =
-		await getSearchIndexes(searchContentPath);
+		await getSearchIndexes();
 
 	const titleMatches = pageTitleIndex.search(query, maxResults, {
 		index: "title",

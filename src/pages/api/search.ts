@@ -15,17 +15,6 @@ export default async function handler(
 			results: [],
 		});
 
-	console.log("cwd is", process.cwd());
-
-	const nextRootDir = __dirname.split(".next")[0];
-
-	console.log({ nextRootDir });
-
-	const searchContentPath = path.resolve(
-		process.cwd(),
-		".data/search-content.json",
-	);
-	console.log({ searchContentPath });
-	const results = await search(query, searchContentPath);
+	const results = await search(query);
 	return res.json(results);
 }

@@ -1,6 +1,6 @@
 import FlexSearch from "flexsearch";
 import { PageData, PageTitleIndex, SectionIndex } from "../types";
-import { readFile } from "fs/promises";
+import searchIndexJson from "@root/searchIndex.json";
 
 export type Indexes = {
 	sectionIndex: SectionIndex;
@@ -8,20 +8,10 @@ export type Indexes = {
 	pageTitleIndex: PageTitleIndex;
 };
 
-async function createSearchIndexes(
-	searchContentPath: string,
-): Promise<Indexes> {
+async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 
-	console.log({ __dirname });
-
-	const { searchIndexPath } = await import("@root/searchIndexPath");
-
-	console.log({ searchIndexPath });
-
-	const websiteDataContent = await readFile(searchIndexPath, "utf-8");
-
-	const websiteData: PageData[] = JSON.parse(websiteDataContent);
+	const websiteData = searchIndexJson as PageData[];
 
 	// create indexes
 	const pageTitleIndex: PageTitleIndex = new FlexSearch.Document({
@@ -77,7 +67,7 @@ async function createSearchIndexes(
 let indexes: Indexes;
 let indexesPromise: Promise<Indexes>;
 
-export async function getSearchIndexes(searchContentPath: string) {
+export async function getSearchIndexes() {
 	// if index is not yet created
 	if (!indexes) {
 		// if index is being created
@@ -87,7 +77,7 @@ export async function getSearchIndexes(searchContentPath: string) {
 		}
 
 		// create index, and save the promise so that other requests can wait for the same
-		indexesPromise = createSearchIndexes(searchContentPath);
+		indexesPromise = createSearchIndexes();
 		indexes = await indexesPromise;
 		return indexes;
 	}
