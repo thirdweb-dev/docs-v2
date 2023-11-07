@@ -4,7 +4,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
-		"prebuild": "rimraf .data",
+		"predev": "ts-node scripts/createSearchIndexPath.ts",
+		"prebuild": "rimraf .data && ts-node scripts/createSearchIndexPath.ts",
 		"build": "next lint && next build",
 		"start": "next start",
 		"lint": "next lint",

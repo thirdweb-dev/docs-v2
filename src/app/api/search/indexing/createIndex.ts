@@ -17,7 +17,7 @@ async function createSearchIndexes(
 
 	const { searchIndexPath } = await import("@root/searchIndexPath");
 
-	console.log("reading...", searchIndexPath);
+	console.log({ searchIndexPath });
 
 	const websiteDataContent = await readFile(searchIndexPath, "utf-8");
 
