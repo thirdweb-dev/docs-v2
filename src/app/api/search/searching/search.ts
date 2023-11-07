@@ -5,10 +5,10 @@ const maxResults = 50;
 
 export async function search(
 	query: string,
-	rootDir: string,
+	searchContentPath: string,
 ): Promise<SearchResult> {
 	const { pageTitleIndex, sectionIndex, websiteData } =
-		await getSearchIndexes(rootDir);
+		await getSearchIndexes(searchContentPath);
 
 	const titleMatches = pageTitleIndex.search(query, maxResults, {
 		index: "title",

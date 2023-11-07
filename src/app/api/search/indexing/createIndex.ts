@@ -8,12 +8,13 @@ export type Indexes = {
 	pageTitleIndex: PageTitleIndex;
 };
 
-async function createSearchIndexes(rootDir: string): Promise<Indexes> {
+async function createSearchIndexes(
+	searchContentPath: string,
+): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 
 	console.log({ __dirname });
 
-	const searchContentPath = `${rootDir}/.data/search-content.json`;
 	console.log("reading...", searchContentPath);
 
 	const websiteDataContent = await readFile(searchContentPath, "utf-8");
@@ -74,7 +75,7 @@ async function createSearchIndexes(rootDir: string): Promise<Indexes> {
 let indexes: Indexes;
 let indexesPromise: Promise<Indexes>;
 
-export async function getSearchIndexes(rootDir: string) {
+export async function getSearchIndexes(searchContentPath: string) {
 	// if index is not yet created
 	if (!indexes) {
 		// if index is being created
@@ -84,7 +85,7 @@ export async function getSearchIndexes(rootDir: string) {
 		}
 
 		// create index, and save the promise so that other requests can wait for the same
-		indexesPromise = createSearchIndexes(rootDir);
+		indexesPromise = createSearchIndexes(searchContentPath);
 		indexes = await indexesPromise;
 		return indexes;
 	}
