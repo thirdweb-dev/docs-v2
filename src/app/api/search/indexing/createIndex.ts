@@ -15,9 +15,11 @@ async function createSearchIndexes(
 
 	console.log({ __dirname });
 
-	console.log("reading...", searchContentPath);
+	const { searchIndexPath } = await import("@root/searchIndexPath");
 
-	const websiteDataContent = await readFile(searchContentPath, "utf-8");
+	console.log("reading...", searchIndexPath);
+
+	const websiteDataContent = await readFile(searchIndexPath, "utf-8");
 
 	const websiteData: PageData[] = JSON.parse(websiteDataContent);
 
