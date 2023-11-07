@@ -11,6 +11,8 @@ export type Indexes = {
 async function createSearchIndexes(): Promise<Indexes> {
 	console.debug("CREATING SEARCH INDEX...");
 
+	console.log({ __dirname });
+
 	const searchContentPath = `${process.cwd()}/.data/search-content.json`;
 	console.log("reading...", searchContentPath);
 
