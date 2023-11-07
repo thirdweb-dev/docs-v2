@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { search } from "@/app/api/search/searching/search";
-import path from "path";
+// import path from "path";
 
 export default async function handler(
 	request: NextApiRequest,
@@ -14,8 +14,8 @@ export default async function handler(
 			results: [],
 		});
 
-	const rootDir = path.resolve(process.cwd());
-	console.log("rootDir on search api is", rootDir);
+	// const rootDir = path.resolve(process.cwd());
+	// console.log("rootDir on search api is", rootDir);
 	const results = await search(query);
 	return res.json(results);
 }
