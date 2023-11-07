@@ -4,6 +4,8 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
+		"predev": "ts-node scripts/createEmptySearchIndex.ts",
+		"prebuild": "ts-node scripts/createEmptySearchIndex.ts",
 		"build": "next lint && next build",
 		"start": "next start",
 		"lint": "next lint",
