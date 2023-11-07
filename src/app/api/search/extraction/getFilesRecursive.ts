@@ -9,7 +9,11 @@ import fs from "fs";
 export function getFilesRecursive(dir: string, fileFormat: string) {
 	const output: string[] = [];
 
+	console.log("dir path is", dir);
+
 	const fileOrDirList = fs.readdirSync(dir);
+
+	console.log("dir files:", fileOrDirList);
 
 	// Create the full path of the file/directory by concatenating the passed directory and file/directory name
 	for (const file of fileOrDirList) {
