@@ -1,8 +1,10 @@
 export function Table(props: { children: React.ReactNode }) {
 	return (
-		<table className="styled-scrollbar mb-10 block w-full border-collapse overflow-auto rounded-lg border text-sm [&_tr:last-of-type]:border-none">
-			{props.children}
-		</table>
+		<div className="mb-7 overflow-hidden rounded-lg border ">
+			<table className="styled-scrollbar w-full border-collapse overflow-auto text-sm [&_tr:last-of-type]:border-none">
+				{props.children}
+			</table>
+		</div>
 	);
 }
 

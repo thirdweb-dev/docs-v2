@@ -23,6 +23,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
 						name: "ThirdwebSDKProvider",
 						href: "/react/thirdweb-sdk-provider",
 					},
+					{
+						name: "Connecting Wallets",
+						href: "/react/connecting-wallets",
+					},
 				],
 			}}
 		>

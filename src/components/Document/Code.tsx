@@ -139,7 +139,7 @@ export function InlineCode(props: { code: string; className?: string }) {
 	return (
 		<code
 			className={cn(
-				"max-h-20 rounded-md border bg-b-700 px-2 py-0.5 text-f-200 text-[0.9em] mx-[0.2em]",
+				"max-h-20 rounded-md border bg-b-700 px-2 py-0.5 text-[0.9em] mx-[0.2em]",
 				props.className,
 			)}
 		>
