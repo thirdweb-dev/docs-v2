@@ -1,13 +1,10 @@
-import { LinkMeta, DocSidebarMobile, DocSidebar } from "../others/Sidebar";
+import { DocSidebarMobile, DocSidebar, SidebarLink } from "../others/Sidebar";
 import { SidebarLayout } from "./SidebarLayout";
 
 export type DocLayoutProps = {
 	sideBar: {
 		name: string;
-		linkGroups: Array<{
-			group: string;
-			links: LinkMeta[];
-		}>;
+		links: SidebarLink[];
 	};
 	children?: React.ReactNode;
 };

@@ -18,7 +18,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
 		<DocLayout
 			sideBar={{
 				name: "Python SDK",
-				linkGroups: getNLinkGroups(goDoc, `/references/go`),
+				links: getNLinkGroups(goDoc, `/references/go`),
 			}}
 		>
 			{props.children}

@@ -8,6 +8,7 @@ import {
 	CommentNode as X_CommentNode,
 } from "node-html-parser";
 import { PageData, PageSectionData } from "../types";
+import { trimExtraSpace } from "./trimExtraSpace";
 
 export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 	const nextOutputDir = `${rootDir}/.next/server/app`;
@@ -33,9 +34,11 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 				return;
 			}
 
+			const pageTitle = mainEl.querySelector("h1")?.text;
+
 			pages.push({
 				href: filePath.replace(nextOutputDir, "").replace(".html", ""),
-				title: mainEl.querySelector("h1")?.text || "",
+				title: pageTitle ? trimExtraSpace(pageTitle) : "",
 				sections: getPageSections(mainEl),
 			});
 		}),
@@ -71,13 +74,16 @@ function getPageSections(main: X_HTMLElement): PageSectionData[] {
 			}
 		} else if (node instanceof X_TextNode) {
 			const lastSection = sectionData[sectionData.length - 1];
-			if (lastSection) {
-				lastSection.content += node.text.trim() + " ";
-			} else {
-				sectionData.push({
-					content: node.text.trim() + " ",
-					href: "",
-				});
+			const text = node.text;
+			if (text) {
+				if (lastSection) {
+					lastSection.content += node.text + " ";
+				} else {
+					sectionData.push({
+						content: node.text + " ",
+						href: "",
+					});
+				}
 			}
 		}
 	}
@@ -85,8 +91,9 @@ function getPageSections(main: X_HTMLElement): PageSectionData[] {
 	collector(main);
 
 	sectionData.forEach((s) => {
-		s.content = s.content.trim();
+		s.title = s.title ? trimExtraSpace(s.title) : s.title;
+		s.content = trimExtraSpace(s.content);
 	});
 
-	return sectionData.filter((s) => s.content && s.title);
+	return sectionData.filter((s) => s.title || s.content);
 }

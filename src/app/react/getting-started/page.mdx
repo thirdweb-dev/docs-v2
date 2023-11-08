@@ -1,0 +1,141 @@
+import { Details, InstallTabs, Callout } from "@/components/Document";
+
+# Getting Started
+
+You can get started by creating a new project or adding thirdweb to an existing project.
+
+<br />
+
+## Existing Projects
+
+Install the thirdweb packages in your project
+
+<InstallTabs
+	npm="npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5"
+	yarn="yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5"
+	pnpm="pnpm add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5"
+/>
+
+And follow the framework specific instructions below.
+
+<Details summary="Create React App" id='create-react-app'>
+
+1. Add below packages as dependencies in your package.json
+
+   ```json
+   {
+     ...
+     "dependencies": {
+       ...
+       "url": "latest",
+       "http": "npm:http-browserify",
+       "https": "npm:https-browserify",
+       "zlib": "npm:browserify-zlib",
+       "http-browserify": "latest",
+       "https-browserify": "latest",
+       "browserify-zlib": "latest",
+       "assert": "^2.0.0",
+       "stream": "^0.0.2"
+     }
+   }
+   ```
+
+2. Install them from NPM using the following command
+
+   <InstallTabs npm="npm install" yarn="yarn" pnpm="pnpm install" />
+
+<br />
+
+To ignore the sourcemap warnings, create a `.env` file with the following in your root directory:
+
+```text
+GENERATE_SOURCEMAP=false
+```
+
+</Details>
+
+<Details summary="Vite" id='vite'>
+
+1. Install the vite plugins
+
+   <InstallTabs
+   	npm="npm i @vitejs/plugin-react vite-plugin-node-polyfills -D"
+   	yarn="yarn add @vitejs/plugin-react vite-plugin-node-polyfills -D"
+   	pnpm="pnpm add @vitejs/plugin-react vite-plugin-node-polyfills -D"
+   />
+
+2. In the `vite.config.js` file, add the following configuration:
+
+   ```js
+   import react from "@vitejs/plugin-react";
+   import { defineConfig } from "vite";
+   import { nodePolyfills } from "vite-plugin-node-polyfills";
+
+   export default defineConfig({
+   	plugins: [react(), nodePolyfills()],
+   	define: {
+   		"process.env": {},
+   	},
+   });
+   ```
+
+</Details>
+
+<br />
+
+## New Projects
+
+Create a new project using the thirdweb CLI
+
+```bash
+npx thirdweb create app
+```
+
+<br />
+
+<Callout variant="info">
+
+You will require an API key to use thirdweb's infrastructure services with the SDK. If you haven't created a key yet you can do so for **free** from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+</Callout>
+
+<br />
+
+<br />
+
+## Wrap your application in ThirdwebProvider
+
+Wrap your application in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component to start using the SDK.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+const App = () => {
+	return (
+		<ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
+			<YourApp />
+		</ThirdwebProvider>
+	);
+};
+```
+
+<br />
+
+With the provider set up, all of the SDK&rsquo;s hooks and components work out of the box!
+
+Now you can connect to the user&rsquo;s wallet and start calling functions on your smart contracts like so:
+
+```jsx
+import { Web3Button } from "@thirdweb-dev/react";
+
+const Home = () => {
+	return (
+		<Web3Button
+			contractAddress="{{contract_address}}"
+			action={async (contract) => contract.call("myFunctionName")}
+		>
+			Call myFunctionName from the connected wallet
+		</Web3Button>
+	);
+};
+```

@@ -28,15 +28,23 @@ export type LinkGroup = {
 	links: LinkMeta[];
 };
 
+export type SidebarLink = LinkMeta | LinkGroup;
+
 type ReferenceSideBarProps = {
-	linkGroups: LinkGroup[];
+	links: SidebarLink[];
 	onLinkClick?: () => void;
 	name: string;
 };
 
 export function DocSidebar(props: ReferenceSideBarProps) {
-	// open the last accordion by default
-	const lastGroup = props.linkGroups[props.linkGroups.length - 1]?.group;
+	let lastGroupName: string | undefined;
+	for (let i = props.links.length - 1; i >= 0; i--) {
+		const link = props.links[i]!;
+		if ("group" in link) {
+			lastGroupName = link.group;
+			break;
+		}
+	}
 
 	return (
 		<div className="flex h-full flex-col">
@@ -46,25 +54,57 @@ export function DocSidebar(props: ReferenceSideBarProps) {
 			<div className="styled-scrollbar transform-gpu overflow-y-scroll pb-10">
 				<Accordion
 					type="multiple"
-					defaultValue={lastGroup ? [lastGroup] : undefined}
+					defaultValue={lastGroupName ? [lastGroupName] : undefined}
 				>
 					<div className="flex flex-col gap-1">
-						{props.linkGroups.map((linkGroup) => {
-							return (
-								<DocSidebarCategory
-									key={linkGroup.group}
-									onLinkClick={props.onLinkClick}
-									links={linkGroup.links}
-									category={linkGroup.group}
-									id={linkGroup.group}
-								/>
-							);
-						})}
+						{props.links.map((link, i) => (
+							<LinkOrLinkGroup
+								link={link}
+								onLinkClick={props.onLinkClick}
+								key={i}
+							/>
+						))}
 					</div>
 				</Accordion>
 			</div>
 		</div>
 	);
+}
+
+function LinkOrLinkGroup(props: {
+	link: SidebarLink;
+	onLinkClick?: () => void;
+}) {
+	const pathname = usePathname();
+
+	const { link } = props;
+	if ("group" in link) {
+		return (
+			<DocSidebarCategory
+				key={link.group}
+				onLinkClick={props.onLinkClick}
+				links={link.links}
+				category={link.group}
+				id={link.group}
+			/>
+		);
+	} else {
+		const isActive = pathname === link.href;
+
+		return (
+			<Link
+				href={link.href}
+				onClick={props.onLinkClick}
+				className={clsx(
+					"block overflow-hidden text-ellipsis rounded-md p-2 text-sm transition-colors duration-300",
+					isActive ? "!bg-b-600 !text-f-100" : "text-f-300",
+					"hover:bg-b-800 hover:text-f-100",
+				)}
+			>
+				{link.name}
+			</Link>
+		);
+	}
 }
 
 function DocSidebarCategory(props: {
@@ -94,17 +134,7 @@ function DocSidebarCategory(props: {
 									isActive ? "border-l-f-100 " : "border-l-transparent",
 								)}
 							>
-								<Link
-									href={link.href}
-									onClick={props.onLinkClick}
-									className={clsx(
-										"block overflow-hidden text-ellipsis rounded-md p-2 text-sm transition-colors duration-300",
-										isActive ? "!bg-b-600 !text-f-100" : "text-f-300",
-										"hover:bg-b-800 hover:text-f-100",
-									)}
-								>
-									{link.name}
-								</Link>
+								<LinkOrLinkGroup link={link} onLinkClick={props.onLinkClick} />
 							</li>
 						);
 					})}

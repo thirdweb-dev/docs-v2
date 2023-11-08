@@ -8,6 +8,7 @@ import {
 	Accordion,
 } from "../ui/accordion";
 import { Heading } from "./Heading";
+import { useEffect, useState } from "react";
 
 export function Details(props: {
 	summary: React.ReactNode;
@@ -15,14 +16,30 @@ export function Details(props: {
 	level?: number;
 	headingClassName?: string;
 	id: string;
-	flags?: string[];
+	tags?: string[];
 }) {
+	const [isExpanded, setIsExpanded] = useState(false);
+
+	useEffect(() => {
+		const hash = window.location.hash;
+		if (hash && hash === "#" + props.id) {
+			setTimeout(() => {
+				setIsExpanded(true);
+			}, 500);
+		}
+	}, [props.id]);
+
 	return (
-		<Accordion type="multiple">
+		<Accordion type="multiple" value={isExpanded ? ["x"] : undefined}>
 			<AccordionItem value="x" className="group my-4 border-none">
 				<AccordionTrigger
 					chevronPosition="left"
 					className="flex border bg-b-700 px-4 py-1.5 pr-3 hover:border-f-300 group-data-[state='closed']:rounded-lg group-data-[state='open']:rounded-t-lg"
+					onClick={() => {
+						if (isExpanded) {
+							setIsExpanded(!isExpanded);
+						}
+					}}
 				>
 					<Heading
 						id={props.id}
@@ -36,9 +53,9 @@ export function Details(props: {
 						{props.summary}
 					</Heading>
 
-					{props.flags && (
-						<div className="ml-auto">
-							{props.flags?.map((flag) => {
+					{props.tags && (
+						<div className="ml-auto flex gap-2">
+							{props.tags?.map((flag) => {
 								return (
 									<span
 										className="rounded-lg border bg-b-900 px-2 py-1 text-sm text-f-300"
@@ -51,7 +68,7 @@ export function Details(props: {
 						</div>
 					)}
 				</AccordionTrigger>
-				<AccordionContent className="rounded-b-lg border-x border-b bg-b-900">
+				<AccordionContent className="rounded-b-lg border-x border-b bg-b-800 [&_code]:bg-b-900 [&_tbody]:bg-b-900">
 					<div className="px-4 pt-6">{props.children}</div>
 				</AccordionContent>
 			</AccordionItem>

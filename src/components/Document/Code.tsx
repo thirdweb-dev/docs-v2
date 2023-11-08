@@ -118,7 +118,7 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 
 	return (
 		<code
-			className="styled-scrollbar mb-3 block max-h-[65vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
+			className="styled-scrollbar mb-5 block max-h-[65vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
 			lang={lang}
 		>
 			<pre
@@ -139,7 +139,7 @@ export function InlineCode(props: { code: string; className?: string }) {
 	return (
 		<code
 			className={cn(
-				"max-h-20 rounded-md border bg-b-800 px-1.5 py-0.5 text-sm text-f-100",
+				"max-h-20 rounded-md border bg-b-700 px-2 py-0.5 text-f-200 text-[0.9em] mx-[0.2em]",
 				props.className,
 			)}
 		>

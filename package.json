@@ -40,6 +40,7 @@
 		"python-format": "^1.0.2",
 		"react": "^18",
 		"react-dom": "^18",
+		"remark-gfm": "3.0.1",
 		"remark-heading-id": "^1.0.1",
 		"server-only": "^0.0.1",
 		"tailwind-merge": "^1.14.0",

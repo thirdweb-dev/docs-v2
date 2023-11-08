@@ -8,12 +8,14 @@ Connect to user's wallets, interact with smart contracts, sign
 messages, and utilize common standards such as tokens, NFTs,
 marketplaces; all with built-in RPC URLs, IPFS gateways, and more.
 
+<br />
 ## Installation
 
 ```bash
 pip install thirdweb
 ```
 
+<br />
 ## Getting Started
 
 To start using this SDK, you just need to pass in a provider
@@ -22,6 +24,7 @@ API keys with the SDK in order to get the best infrastructure performance
 (across RPCs, IPFS, etc.) - you can learn more about creating and using
 API keys [here](https://portal.thirdweb.com/api-keys).
 
+<br />
 ### Instantiating the SDK
 
 Once you have all the necessary dependencies, you can follow the following setup steps to get started with the SDK read-only functions:
@@ -51,6 +54,7 @@ RPC_URL = "https://rpc-mainnet.matic.network"
 sdk = ThirdwebSDK(RPC_URL)
 ```
 
+<br />
 ### Working With Contracts
 
 Once you instantiate the SDK, you can use it to access your thirdweb contracts. You can use the SDK's contract getter functions like `get_token`, `get_edition`, `get_nft_collection`, and `get_marketplace` to get the respective SDK contract instances. To use an NFT Collection contract for example, you can do the following.
@@ -67,6 +71,7 @@ nfts = nft_collection.get_all()
 print(nfts)
 ```
 
+<br />
 ### Signing Transactions
 
 <Callout variant="danger">

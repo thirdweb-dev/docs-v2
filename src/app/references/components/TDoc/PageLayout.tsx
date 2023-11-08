@@ -135,7 +135,7 @@ export function getTDocLayout(options: {
 			<DocLayout
 				sideBar={{
 					name: sdkTitle,
-					linkGroups: getSidebarLinkGroups(doc, `/references/${packageSlug}`),
+					links: getSidebarLinkGroups(doc, `/references/${packageSlug}`),
 				}}
 			>
 				{props.children}

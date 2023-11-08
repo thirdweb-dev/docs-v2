@@ -1,9 +1,18 @@
 import createMDX from "@next/mdx";
-const withMDX = createMDX();
+import remarkGfm from "remark-gfm";
+import { redirects } from "./redirects.mjs";
+
+const withMDX = createMDX({
+	options: {
+		remarkPlugins: [remarkGfm],
+		rehypePlugins: [],
+	},
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
 	pageExtensions: ["mdx", "tsx", "ts"],
+	redirects,
 };
 
 export default withMDX(nextConfig);

@@ -15,13 +15,15 @@ export function Anchor(props: {
 			id={props.id}
 		>
 			{props.children}
-			<a
-				aria-hidden
-				href={`#${props.id}`}
-				className="text-accent-500 no-underline opacity-0 transition-opacity group-hover/anchor:opacity-100"
-			>
-				<LinkIcon className="h-4 w-4" />
-			</a>
+			{props.id && (
+				<a
+					aria-hidden
+					href={`#${props.id}`}
+					className="text-accent-500 no-underline opacity-0 transition-opacity group-hover/anchor:opacity-100"
+				>
+					<LinkIcon className="h-4 w-4" />
+				</a>
+			)}
 		</div>
 	);
 }
