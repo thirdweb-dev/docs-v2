@@ -10,5 +10,10 @@ export const redirects = async () => {
 			destination: "/react/thirdweb-provider",
 			permanent: true,
 		},
+		{
+			source: "/react/react.thirdwebsdkprovider",
+			destination: "/react/thirdweb-sdk-provider",
+			permanent: true,
+		},
 	];
 };

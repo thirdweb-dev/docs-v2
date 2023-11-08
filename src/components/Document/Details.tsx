@@ -68,7 +68,7 @@ export function Details(props: {
 						</div>
 					)}
 				</AccordionTrigger>
-				<AccordionContent className="rounded-b-lg border-x border-b bg-b-800 [&_code]:bg-b-900 [&_tbody]:bg-b-900">
+				<AccordionContent className="rounded-b-lg border-x border-b bg-b-800">
 					<div className="px-4 pt-6">{props.children}</div>
 				</AccordionContent>
 			</AccordionItem>

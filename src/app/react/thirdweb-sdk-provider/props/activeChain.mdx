@@ -6,14 +6,14 @@ The `activeChain` prop determines which chain you want your app to be operating 
 It defaults to `"ethereum"` if `activeChain` prop is not provided.
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
 import { Gnosis } from "@thirdweb-dev/chains";
 
 function Example() {
 	return (
-		<ThirdwebProvider activeChain={Gnosis} clientId="your-client-id">
+		<ThirdwebSDKProvider activeChain={Gnosis} clientId="your-client-id">
 			<App />
-		</ThirdwebProvider>
+		</ThirdwebSDKProvider>
 	);
 }
 ```
@@ -25,13 +25,13 @@ If you are using one of our <a href="#default-chains">default chains</a>, provid
 <DefaultChainsMDX />
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
 
 function App() {
 	return (
-		<ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
+		<ThirdwebSDKProvider activeChain="ethereum" clientId="your-client-id">
 			<YourApp />
-		</ThirdwebProvider>
+		</ThirdwebSDKProvider>
 	);
 }
 ```
@@ -43,14 +43,14 @@ function App() {
 If the chain you are looking for is not one of default supported chains, you can import a chain from the [@thirdweb-dev/chains](https://github.com/thirdweb-dev/js/tree/main/packages/chains) package which has 1000+ chains.
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
 import { Mumbai } from "@thirdweb-dev/chains";
 
 function App() {
 	return (
-		<ThirdwebProvider activeChain={Mumbai} clientId="your-client-id">
+		<ThirdwebSDKProvider activeChain={Mumbai} clientId="your-client-id">
 			<YourApp />
-		</ThirdwebProvider>
+		</ThirdwebSDKProvider>
 	);
 }
 ```
@@ -72,7 +72,7 @@ Using the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 you can override any properties of a chain, such as the `rpc` field.
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
 import { Mumbai } from "@thirdweb-dev/chains";
 
 const activeChain = {
@@ -83,9 +83,9 @@ const activeChain = {
 
 const App = () => {
 	return (
-		<ThirdwebProvider activeChain={activeChain}>
+		<ThirdwebSDKProvider activeChain={activeChain}>
 			<YourApp />
-		</ThirdwebProvider>
+		</ThirdwebSDKProvider>
 	);
 };
 ```
@@ -98,7 +98,7 @@ If your chain is not included in the `@thirdweb-dev/chains` package,
 you can provide the chain information yourself to the `activeChain` prop.
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
 
 const customChain = {
 	// Required information for connecting to the network
@@ -121,9 +121,9 @@ const customChain = {
 
 const App = () => {
 	return (
-		<ThirdwebProvider activeChain={customChain}>
+		<ThirdwebSDKProvider activeChain={customChain}>
 			<YourApp />
-		</ThirdwebProvider>
+		</ThirdwebSDKProvider>
 	);
 };
 ```
@@ -139,13 +139,13 @@ provide `"localhost"` as the `activeChain` prop, (or `Localhost` imported from `
 [Deploy](/deploy) or [import](https://thirdweb.com/dashboard/contracts) your contracts to the dashboard to interact with them.
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
 
 function MyApp() {
 	return (
-		<ThirdwebProvider activeChain="localhost">
+		<ThirdwebSDKProvider activeChain="localhost">
 			<YourApp />
-		</ThirdwebProvider>
+		</ThirdwebSDKProvider>
 	);
 }
 ```

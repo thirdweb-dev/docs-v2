@@ -19,6 +19,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
 						name: "ThirdwebProvider",
 						href: "/react/thirdweb-provider",
 					},
+					{
+						name: "ThirdwebSDKProvider",
+						href: "/react/thirdweb-sdk-provider",
+					},
 				],
 			}}
 		>
