@@ -102,7 +102,7 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 			},
 			{
 				// Anything else
-				shouldProcessNode: function (node: ChildNode) {
+				shouldProcessNode: function () {
 					return true;
 				},
 				processNode: processNodeDefinitions.processDefaultNode,

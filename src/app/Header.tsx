@@ -42,31 +42,31 @@ const links = [
 const references = [
 	{
 		name: "TypeScript",
-		href: "/typescript/references",
+		href: "/references/typescript",
 	},
 	{
 		name: "React",
-		href: "/react/references",
+		href: "/references/react",
 	},
 	{
 		name: "React Native",
-		href: "/react-native/references",
+		href: "/references/react-native",
 	},
 	{
 		name: "Storage",
-		href: "/storage/references",
+		href: "/references/storage",
 	},
 	{
 		name: "Wallets",
-		href: "/wallets/references",
+		href: "/references/wallets",
 	},
 	{
 		name: "Python",
-		href: "/python/references",
+		href: "/references/python",
 	},
 	{
 		name: "Go",
-		href: "/go/references",
+		href: "/references/go",
 	},
 ];
 
