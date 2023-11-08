@@ -1,7 +1,7 @@
 import { getSearchIndexes } from "../indexing/createIndex";
 import { SearchResult, SearchResultItem, SearchResultSection } from "../types";
 
-const maxResults = 50;
+const maxResults = 100;
 
 export async function search(query: string): Promise<SearchResult> {
 	const { pageTitleIndex, sectionIndex, websiteData } =
@@ -10,7 +10,10 @@ export async function search(query: string): Promise<SearchResult> {
 	const titleMatches = pageTitleIndex.search(query, maxResults, {
 		index: "title",
 	});
-	const results: SearchResultItem[] = [];
+
+	const pageTitleResults: SearchResultItem[] = [];
+	const sectionContentResults: SearchResultItem[] = [];
+	const sectionTitleResults: SearchResultItem[] = [];
 
 	const pageIdToResultMap = new Map<number, SearchResultItem>();
 	const sectionIdsAddedInResult = new Set<number>();
@@ -21,17 +24,17 @@ export async function search(query: string): Promise<SearchResult> {
 			pageHref: websiteData[id]!.href,
 			pageTitle: websiteData[id]!.title,
 		};
-		results.push(result);
+		pageTitleResults.push(result);
 		pageIdToResultMap.set(id, result);
 	});
 
-	if (results.length >= maxResults) {
+	if (pageTitleResults.length >= maxResults) {
 		return {
-			results: results,
+			results: pageTitleResults,
 		};
 	}
 
-	function addSectionResult(doc: {
+	function createSectionResult(doc: {
 		id: number;
 		title: string;
 		content: string;
@@ -70,15 +73,14 @@ export async function search(query: string): Promise<SearchResult> {
 				sections: [sectionResult],
 			};
 
-			results.push(pageResult);
 			pageIdToResultMap.set(doc.pageId, pageResult);
+			return pageResult;
 		}
 	}
 
-	// search query in section titles, second highest bias - added second in results array
 	const sectionTitleMatches = sectionIndex.search(
 		query,
-		maxResults - results.length,
+		maxResults - pageTitleResults.length,
 		{
 			index: "title",
 			enrich: true,
@@ -86,7 +88,10 @@ export async function search(query: string): Promise<SearchResult> {
 	);
 
 	sectionTitleMatches[0]?.result.forEach((result) => {
-		addSectionResult(result.doc);
+		const sectionTitleResult = createSectionResult(result.doc);
+		if (sectionTitleResult) {
+			sectionTitleResults.push(sectionTitleResult);
+		}
 	});
 
 	const sectionContentMatches = sectionIndex.search<true>(query, 100, {
@@ -96,20 +101,13 @@ export async function search(query: string): Promise<SearchResult> {
 	});
 
 	sectionContentMatches[0]?.result.forEach((result) => {
-		addSectionResult(result.doc);
+		const r = createSectionResult(result.doc);
+		if (r) {
+			sectionContentResults.push(r);
+		}
 	});
 
-	// sort
-	const sortedResults = results.sort((a, b) => {
-		// if it's pageTitle is exact match, it should be first
-		if (a.pageTitle === query) {
-			return -1;
-		}
-
-		if (b.pageTitle === query) {
-			return 1;
-		}
-
+	const sortedSectionContentResults = sectionContentResults.sort((a, b) => {
 		// page with more sections should be first
 		const aSections = a.sections?.length || 0;
 		const bSections = b.sections?.length || 0;
@@ -122,6 +120,13 @@ export async function search(query: string): Promise<SearchResult> {
 	});
 
 	return {
-		results: sortedResults,
+		results: [
+			// show matches in page titles first
+			...pageTitleResults,
+			// then show matches in section titles
+			...sectionTitleResults,
+			// then show matches in section content (with more sections first)
+			...sortedSectionContentResults,
+		],
 	};
 }

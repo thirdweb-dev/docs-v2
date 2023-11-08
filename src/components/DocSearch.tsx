@@ -7,7 +7,7 @@ import {
 	useQuery,
 } from "@tanstack/react-query";
 
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
