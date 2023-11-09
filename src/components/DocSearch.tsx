@@ -17,6 +17,7 @@ import {
 	FileText as FileTextIcon,
 	AlignLeft as SectionIcon,
 	FolderSearch as FolderSearchIcon,
+	Command as CommandIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -219,20 +220,71 @@ function useDebounce(value: string, delay: number) {
 
 const queryClient = new QueryClient();
 
-export function DocSearch() {
+export function DocSearch(props: { variant: "icon" | "search" }) {
 	const [open, setOpen] = useState(false);
+
+	const forDesktop = props.variant === "search";
+	useEffect(() => {
+		if (!forDesktop) {
+			return;
+		}
+		// when cmd+k on MacOS or ctrl+k on Windows is pressed, open the search modal
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+				e.preventDefault();
+				setOpen((v) => !v);
+			}
+		};
+
+		document.body.addEventListener("keydown", handleKeyDown);
+		return () => {
+			document.body.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [forDesktop]);
+
+	// when escape is pressed, close the search modal
+	useEffect(() => {
+		if (!forDesktop) {
+			return;
+		}
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") {
+				setOpen(false);
+			}
+		};
+
+		document.body.addEventListener("keydown", handleKeyDown);
+		return () => {
+			document.body.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [forDesktop]);
+
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Dialog open={open} onOpenChange={setOpen}>
-				<DialogTrigger asChild className="hidden w-56 justify-start md:flex">
-					<Button variant="outline">Search Docs</Button>
-				</DialogTrigger>
+				{/* Desktop */}
 
-				<DialogTrigger asChild className="md:hidden">
-					<Button variant="ghost">
-						<SearchIcon className="h-5 w-5 text-f-300" />
-					</Button>
-				</DialogTrigger>
+				{forDesktop && (
+					<DialogTrigger asChild>
+						<Button
+							variant="outline"
+							className="flex w-56 justify-between px-3"
+						>
+							Search Docs
+							<div className="flex items-center gap-1 rounded-sm border bg-b-900 px-2 py-1 text-xs text-f-300">
+								<CommandIcon className="h-3 w-3" />K
+							</div>
+						</Button>
+					</DialogTrigger>
+				)}
+
+				{!forDesktop && (
+					<DialogTrigger asChild>
+						<Button variant="ghost">
+							<SearchIcon className="h-5 w-5 text-f-300" />
+						</Button>
+					</DialogTrigger>
+				)}
 
 				<DialogContent className="bg-b-900 sm:max-w-[550px]">
 					<SearchModalContent

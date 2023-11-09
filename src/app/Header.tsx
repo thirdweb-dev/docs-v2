@@ -93,7 +93,7 @@ export function Header() {
 				</Link>
 
 				<div className="flex gap-1 md:hidden">
-					<DocSearch />
+					<DocSearch variant="icon" />
 
 					{/* Mobile burger menu */}
 					<Button
@@ -130,7 +130,7 @@ export function Header() {
 
 					<div className="flex flex-col justify-start gap-5 md:flex-row   md:items-center md:gap-3">
 						<div className="hidden md:block">
-							<DocSearch />
+							<DocSearch variant="search" />
 						</div>
 
 						{/* References Dropdown for desktop */}

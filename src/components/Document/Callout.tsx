@@ -10,7 +10,7 @@ export function Callout(props: {
 		<div
 			role="alert"
 			className={cn(
-				"my-5 flex gap-4 items-center rounded-md border p-4 [&_p:last-of-type]:!mb-0",
+				"my-5 flex gap-4 items-center rounded-md border p-4",
 				props.variant === "danger" && "bg-danger-900 border-danger-500",
 				props.variant === "warning" &&
 					"bg-warning-900 border-warning-500 [&_code]:border-none [&_code]:bg-warning-800",
