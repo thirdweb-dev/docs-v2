@@ -15,7 +15,9 @@ export type DocLayoutProps = {
 export function DocLayout(props: DocLayoutProps) {
 	return (
 		<div
-			className={"container relative grid gap-6  lg:grid-cols-[1fr_750px_1fr]"}
+			className={
+				"container relative grid gap-6  lg:grid-cols-[1.2fr_750px_1fr]"
+			}
 		>
 			<aside
 				className={clsx(

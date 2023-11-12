@@ -32,7 +32,7 @@ export function getNLinkGroups(rootDoc: NRootDocType, path: string) {
 		const v = rootDoc[key];
 		if (Array.isArray(v)) {
 			linkGroups.push({
-				group: groupKeyToName[key],
+				name: groupKeyToName[key],
 				links: v.map((child) => ({
 					name: child.name,
 					href: `${path}/${child.name}`,

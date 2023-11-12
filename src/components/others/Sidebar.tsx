@@ -25,9 +25,9 @@ export type LinkMeta = {
 };
 
 export type LinkGroup = {
-	group: string;
+	name: string;
 	href?: string;
-	links: LinkMeta[];
+	links: SidebarLink[];
 	expanded?: boolean;
 };
 
@@ -61,14 +61,14 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 	const isActive = pathname === props.link.href;
 
 	const { link } = props;
-	if ("group" in link) {
+	if ("links" in link) {
 		return (
 			<DocSidebarCategory
-				key={link.group}
+				key={link.name}
 				onLinkClick={props.onLinkClick}
 				links={link.links}
-				category={link.group}
-				id={link.group}
+				category={link.name}
+				id={link.name}
 				href={link.href}
 				isActive={isActive}
 				expanded={link.expanded}
@@ -91,7 +91,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 }
 
 function DocSidebarCategory(props: {
-	links: LinkMeta[];
+	links: SidebarLink[];
 	category: string;
 	id: string;
 	href?: string;
@@ -102,7 +102,7 @@ function DocSidebarCategory(props: {
 	const trigger = (
 		<AccordionTrigger
 			className={cn(
-				"py-2",
+				"py-2 text-base",
 				props.isActive && "!font-semibold !text-accent-500",
 				"text-f-300 hover:text-f-100",
 			)}
@@ -126,7 +126,7 @@ function DocSidebarCategory(props: {
 					trigger
 				)}
 
-				<AccordionContent className="pl-2">
+				<AccordionContent>
 					<ul className="flex flex-col border-l-2 pl-4">
 						{props.links.map((link) => {
 							return (

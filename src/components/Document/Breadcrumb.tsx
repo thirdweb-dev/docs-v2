@@ -9,7 +9,7 @@ export type Crumb = {
 export function Breadcrumb(props: { crumbs: Crumb[] }) {
 	return (
 		<nav id="bradcrumb">
-			<ul className="flex items-center gap-1 text-sm">
+			<ul className="flex flex-wrap items-center gap-1 text-sm">
 				{props.crumbs.map((crumb, i) => {
 					return (
 						<li key={crumb.name} className="flex items-center gap-1">
