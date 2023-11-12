@@ -1,39 +1,6 @@
 import { DocLayout } from "@/components/Layouts/DocLayout";
-import { TableOfContentsSideBar } from "@/components/others/TableOfContents";
+import { sidebar } from "./sidebar";
 
 export default async function Layout(props: { children: React.ReactNode }) {
-	return (
-		<DocLayout
-			sideBar={{
-				name: "React SDK",
-				links: [
-					{
-						name: "Overview",
-						href: "/react",
-					},
-					{
-						name: "Getting Started",
-						href: "/react/getting-started",
-					},
-					{
-						name: "ThirdwebProvider",
-						href: "/react/thirdweb-provider",
-					},
-					{
-						name: "ThirdwebSDKProvider",
-						href: "/react/thirdweb-sdk-provider",
-					},
-					{
-						name: "Connecting Wallets",
-						href: "/react/connecting-wallets",
-					},
-				],
-			}}
-		>
-			<main className="relative w-full overflow-hidden pb-10 pt-6">
-				{props.children}
-			</main>
-			<TableOfContentsSideBar />
-		</DocLayout>
-	);
+	return <DocLayout sideBar={sidebar}>{props.children}</DocLayout>;
 }

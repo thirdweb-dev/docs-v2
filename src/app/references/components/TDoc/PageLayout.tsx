@@ -4,10 +4,9 @@ import type { TransformedDoc } from "typedoc-better-json";
 import { RootTDoc } from "./Root";
 import { getSlugToDocMap, getLinkMap, fetchAllSlugs } from "./utils/slugs";
 import type { Metadata } from "next";
-import { DocLayout } from "../../../../components/Layouts/DocLayout";
+import { DocLayout } from "@/components/Layouts/DocLayout";
 import { getSidebarLinkGroups } from "./utils/getSidebarLinkgroups";
-import { TableOfContentsSideBar } from "../../../../components/others/TableOfContents";
-import { Breadcrumb } from "../../../../components/ui/Breadcrumb";
+import { Breadcrumb } from "@/components/Document/Breadcrumb";
 
 type PageProps = { params: { slug?: [docName: string] } };
 
@@ -36,40 +35,34 @@ export function getTDocPage(options: {
 			linkMapContext.set(linkMap);
 
 			return (
-				<>
-					<main className="relative w-full overflow-hidden pb-10 pt-6">
-						<Breadcrumb
-							crumbs={[
-								{ name: sdkTitle, href: `/${packageSlug}` },
-								{ name: "References", href: `/references/${packageSlug}` },
-								{
-									name: selectedDoc.name,
-									href: `/references/${packageSlug}/${selectedDoc.name}`,
-								},
-							]}
-						/>
-						<div className="h-6"></div>
-						<RootTDoc doc={selectedDoc} />
-					</main>
-					<TableOfContentsSideBar />
-				</>
-			);
-		}
-
-		return (
-			<>
-				<main className="w-full overflow-hidden pt-6">
+				<div>
 					<Breadcrumb
 						crumbs={[
 							{ name: sdkTitle, href: `/${packageSlug}` },
 							{ name: "References", href: `/references/${packageSlug}` },
+							{
+								name: selectedDoc.name,
+								href: `/references/${packageSlug}/${selectedDoc.name}`,
+							},
 						]}
 					/>
-					<div className="h-6"></div>
-					{indexContent}
-				</main>
-				<TableOfContentsSideBar />
-			</>
+					<br />
+					<RootTDoc doc={selectedDoc} />
+				</div>
+			);
+		}
+
+		return (
+			<div>
+				<Breadcrumb
+					crumbs={[
+						{ name: sdkTitle, href: `/${packageSlug}` },
+						{ name: "References", href: `/references/${packageSlug}` },
+					]}
+				/>
+				<br />
+				{indexContent}
+			</div>
 		);
 	}
 

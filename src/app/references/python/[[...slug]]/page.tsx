@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { fetchPythonNDoc } from "../pythonDoc";
 import Content from "../content.mdx";
 import { TableOfContentsSideBar } from "@/components/others/TableOfContents";
-import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Breadcrumb } from "@/components/Document";
 import { RootNDoc } from "@/app/references/components/NDoc/Root";
 import { sluggerContext } from "@/contexts/slugger";
 import GihubSlugger from "github-slugger";

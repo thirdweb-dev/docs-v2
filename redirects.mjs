@@ -15,5 +15,10 @@ export const redirects = async () => {
 			destination: "/react/thirdweb-sdk-provider",
 			permanent: true,
 		},
+		{
+			source: "/react/react.metamaskwallet",
+			destination: "/wallets/react/metamask",
+			permanent: true,
+		},
 	];
 };

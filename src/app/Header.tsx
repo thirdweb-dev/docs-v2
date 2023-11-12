@@ -14,13 +14,9 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
-import { DocSearch } from "@/components/DocSearch";
+import { DocSearch } from "@/components/others/DocSearch";
 
 const links = [
-	{
-		name: "Home",
-		href: "/",
-	},
 	{
 		name: "Wallets",
 		href: "/wallets",

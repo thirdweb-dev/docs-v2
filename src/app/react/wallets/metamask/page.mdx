@@ -1,0 +1,132 @@
+import { CustomizeWalletConfigurator } from "../components/CustomizeWalletConfigurator";
+import { Details, Breadcrumb } from "@/components/Document";
+
+<Breadcrumb
+	crumbs={[
+		{
+			name: "React",
+			href: "/react",
+		},
+		{
+			name: "Wallets",
+			href: "/react/wallets",
+		},
+		{
+			name: "MetaMask",
+			href: "/react/wallets/metamask",
+		},
+	]}
+/>
+
+<br />
+
+# metamaskWallet
+
+A wallet configurator for [MetaMask](/wallet/metamask) to integrate the wallet with React SDK
+
+```tsx
+import { metamaskWallet } from "@thirdweb-dev/react";
+
+const metamaskConfig = metamaskWallet(options);
+```
+
+<CustomizeWalletConfigurator
+	config="metamaskConfig"
+	configurator="metamaskWallet"
+	connectUI="MetamaskConnectUI"
+	selectUI="MetamaskSelectUI"
+	isInstalled="isMetamaskInstalled"
+/>
+
+<br />
+
+## options
+
+<Details summary="projectId" tags={['Recommended']}>
+
+This is only relevant if you want to use [WalletConnect](https://walletconnect.com/) for connecting to MetaMask mobile app when MetaMask is not injected.
+
+This `projectId` can be obtained at [cloud.walletconnect.com](https://cloud.walletconnect.com/). It is highly recommended to use your own project id and only use the default one for testing purposes.
+
+```ts
+metamaskWallet({
+	projectId: "your-wallet-connect-project-id",
+});
+```
+
+</Details>
+
+<Details summary="recommended" tags={['Optional']} >
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+metamaskWallet({
+	recommended: true,
+});
+```
+
+</Details>
+
+<br />
+## Usage with ConnectWallet
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+<ThirdwebProvider
+	supportedWallets={[metamaskWallet()]}
+	clientId="your-client-id"
+>
+	<YourApp />
+</ThirdwebProvider>
+```
+
+<br />
+## Usage with useConnect
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+```tsx
+const metamaskConfig = metamaskWallet();
+
+function App() {
+	const connect = useConnect();
+
+	const handleConnect = async () => {
+		await connect(metamaskConfig, connectOptions);
+	};
+
+	return <div> ... </div>;
+}
+```
+
+<br />
+### connectOptions
+
+```ts
+{ chainId?: number } | undefined
+```
+
+<Details summary="chainId" flags={['Optional']}>
+
+If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
+
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
+
+```tsx
+import { Polygon } from "@thirdweb-dev/chains";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export function YourApp() {
+	return (
+		<ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</Details>

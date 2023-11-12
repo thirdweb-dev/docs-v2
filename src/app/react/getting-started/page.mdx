@@ -18,6 +18,70 @@ Install the thirdweb packages in your project
 
 And follow the framework specific instructions below.
 
+<Details summary="Vite" id='vite'>
+
+1. Install the vite plugins
+
+   <InstallTabs
+   	npm="npm i @vitejs/plugin-react vite-plugin-node-polyfills -D"
+   	yarn="yarn add @vitejs/plugin-react vite-plugin-node-polyfills -D"
+   	pnpm="pnpm add @vitejs/plugin-react vite-plugin-node-polyfills -D"
+   />
+
+2. In the `vite.config.js` file, add the following configuration:
+
+   ```js
+   import react from "@vitejs/plugin-react";
+   import { defineConfig } from "vite";
+   import { nodePolyfills } from "vite-plugin-node-polyfills";
+
+   export default defineConfig({
+   	plugins: [react(), nodePolyfills()],
+   	define: {
+   		"process.env": {},
+   	},
+   });
+   ```
+
+</Details>
+
+<Details id='next' summary="Next.js">
+
+### Pages Router
+
+No additional configuration is required if you are using the [pages router](https://nextjs.org/docs/pages)
+
+<br />
+
+### App Router
+
+If you are using the new [app router](https://nextjs.org/docs/app), and If you import a component such as `ThirdwebProvider` in a server component, Next.js will throw an error saying that the component is not marked with `"use client"` directive.
+
+You will need to create an alias for that component in a separate file with `"use client"` directive on top (before all the imports) and import that instead of using the component directly from `@thirdweb-dev/react` in server components.
+
+<br />
+#### Example
+
+```tsx
+"use client";
+
+export { ThirdwebProvider } from "@thirdweb-dev/react";
+
+// app/components/ThirdwebProvider.tsx
+```
+
+```tsx
+import { ThirdwebProvider } from "./components/ThirdwebProvider";
+
+export default function Home() {
+	return <ThirdwebProvider> ... </ThirdwebProvider>;
+}
+
+// app/page.tsx
+```
+
+</Details>
+
 <Details summary="Create React App" id='create-react-app'>
 
 1. Add below packages as dependencies in your package.json
@@ -54,33 +118,6 @@ GENERATE_SOURCEMAP=false
 
 </Details>
 
-<Details summary="Vite" id='vite'>
-
-1. Install the vite plugins
-
-   <InstallTabs
-   	npm="npm i @vitejs/plugin-react vite-plugin-node-polyfills -D"
-   	yarn="yarn add @vitejs/plugin-react vite-plugin-node-polyfills -D"
-   	pnpm="pnpm add @vitejs/plugin-react vite-plugin-node-polyfills -D"
-   />
-
-2. In the `vite.config.js` file, add the following configuration:
-
-   ```js
-   import react from "@vitejs/plugin-react";
-   import { defineConfig } from "vite";
-   import { nodePolyfills } from "vite-plugin-node-polyfills";
-
-   export default defineConfig({
-   	plugins: [react(), nodePolyfills()],
-   	define: {
-   		"process.env": {},
-   	},
-   });
-   ```
-
-</Details>
-
 <br />
 
 ## New Projects
@@ -93,7 +130,7 @@ npx thirdweb create app
 
 <br />
 
-<Callout variant="info">
+<Callout variant="info" title='API Key'>
 
 You will require an API key to use thirdweb's infrastructure services with the SDK. If you haven't created a key yet you can do so for **free** from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 

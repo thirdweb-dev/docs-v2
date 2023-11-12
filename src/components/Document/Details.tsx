@@ -31,10 +31,13 @@ export function Details(props: {
 
 	return (
 		<Accordion type="multiple" value={isExpanded ? ["x"] : undefined}>
-			<AccordionItem value="x" className="group my-4 border-none">
+			<AccordionItem
+				value="x"
+				className="group/details my-4 border-b-0 border-l-2 transition-colors hover:border-accent-500"
+			>
 				<AccordionTrigger
 					chevronPosition="left"
-					className="flex border bg-b-700 px-4 py-1.5 pr-3 hover:border-f-300 group-data-[state='closed']:rounded-lg group-data-[state='open']:rounded-t-lg"
+					className="flex px-3 py-1 text-accent-500 hover:border-f-300 hover:bg-b-800"
 					onClick={() => {
 						if (isExpanded) {
 							setIsExpanded(!isExpanded);
@@ -44,32 +47,32 @@ export function Details(props: {
 					<Heading
 						id={props.id}
 						level={props.level || 5}
-						anchorClassName="m-0 py-2"
+						anchorClassName="m-0"
 						className={cn(
-							"text-base md:text-base font-normal text-f-200 hover:text-f-100",
+							"text-base md:text-base font-semibold text-accent-500 flex gap-3 text-left",
 							props.headingClassName,
 						)}
 					>
 						{props.summary}
-					</Heading>
 
-					{props.tags && (
-						<div className="ml-auto flex gap-2">
-							{props.tags?.map((flag) => {
-								return (
-									<span
-										className="rounded-lg border bg-b-900 px-2 py-1 text-sm text-f-300"
-										key={flag}
-									>
-										{flag}
-									</span>
-								);
-							})}
-						</div>
-					)}
+						{props.tags && (
+							<div className="flex items-center gap-2">
+								{props.tags?.map((flag) => {
+									return (
+										<span
+											className="rounded-lg border border-accent-700 bg-accent-900 px-2 py-1 text-xs text-accent-500"
+											key={flag}
+										>
+											{flag}
+										</span>
+									);
+								})}
+							</div>
+						)}
+					</Heading>
 				</AccordionTrigger>
-				<AccordionContent className="rounded-b-lg border-x border-b bg-b-800">
-					<div className="px-4 pt-6">{props.children}</div>
+				<AccordionContent>
+					<div className="pl-4 pt-4">{props.children}</div>
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>
