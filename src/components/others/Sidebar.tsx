@@ -45,7 +45,7 @@ export function DocSidebar(props: ReferenceSideBarProps) {
 			{/* Side bar Name */}
 			<p className="py-5 text-lg font-semibold text-f-100">{props.name}</p>
 
-			<ul className="styled-scrollbar transform-gpu overflow-y-scroll pb-10 pr-4">
+			<ul className="styled-scrollbar transform-gpu overflow-y-scroll pb-10 pr-3">
 				{props.links.map((link, i) => (
 					<li key={i}>
 						<SidebarItem link={link} onLinkClick={props.onLinkClick} />

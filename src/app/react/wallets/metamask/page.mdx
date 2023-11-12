@@ -1,22 +1,8 @@
-import { CustomizeWalletConfigurator } from "../components/CustomizeWalletConfigurator";
+import { CustomizeWalletConfigurator } from "../_components";
 import { Details, Breadcrumb } from "@/components/Document";
+import { WalletsBreadcrumb } from "../_components";
 
-<Breadcrumb
-	crumbs={[
-		{
-			name: "React",
-			href: "/react",
-		},
-		{
-			name: "Wallets",
-			href: "/react/wallets",
-		},
-		{
-			name: "MetaMask",
-			href: "/react/wallets/metamask",
-		},
-	]}
-/>
+<WalletsBreadcrumb name="MetaMask" slug="metamask" />
 
 <br />
 
