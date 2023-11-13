@@ -79,7 +79,7 @@ const components: SidebarLink = (() => {
 			},
 			{
 				name: "Web3Button",
-				href: `${parentSlug}/Web3Button2`,
+				href: `${parentSlug}/Web3Button`,
 			},
 			{
 				name: "ThirdwebNftMedia",
