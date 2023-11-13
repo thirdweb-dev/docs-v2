@@ -15,10 +15,12 @@ export function Details(props: {
 	children: React.ReactNode;
 	level?: number;
 	headingClassName?: string;
-	id: string;
+	id?: string;
 	tags?: string[];
 }) {
 	const [isExpanded, setIsExpanded] = useState(false);
+	const id =
+		props.id || (typeof props.summary === "string" ? props.summary : "");
 
 	useEffect(() => {
 		const hash = window.location.hash;
@@ -45,7 +47,7 @@ export function Details(props: {
 					}}
 				>
 					<Heading
-						id={props.id}
+						id={id || "#"}
 						level={props.level || 5}
 						anchorClassName="m-0"
 						className={cn(

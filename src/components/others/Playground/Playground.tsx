@@ -63,16 +63,19 @@ export function useEditor() {
 			hideExplorer: false,
 			theme: "dark",
 			view: "default",
+			clickToLoad: true,
+			hideDevTools: false,
 		});
 
-		await vm.getFsSnapshot();
-
-		vm.applyFsDiff({
-			create: {
-				"pages/index.tsx": code,
-			},
-			destroy: [],
-		});
+		setTimeout(async () => {
+			await vm.getFsSnapshot();
+			vm.applyFsDiff({
+				create: {
+					"pages/index.tsx": code,
+				},
+				destroy: [],
+			});
+		}, 300);
 
 		setStatus("ready");
 		setVm(vm);
