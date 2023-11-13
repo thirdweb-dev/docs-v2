@@ -70,7 +70,6 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 				category={link.name}
 				id={link.name}
 				href={link.href}
-				isActive={isActive}
 				expanded={link.expanded}
 			/>
 		);
@@ -96,14 +95,25 @@ function DocSidebarCategory(props: {
 	id: string;
 	href?: string;
 	onLinkClick?: () => void;
-	isActive?: boolean;
 	expanded?: boolean;
 }) {
+	const pathname = usePathname();
+	const isCategoryActive = props.href && props.href === pathname;
+
+	const hasActiveHref = containsActiveHref(
+		{
+			name: props.category,
+			links: props.links,
+			href: props.href,
+		},
+		pathname,
+	);
+
 	const trigger = (
 		<AccordionTrigger
 			className={cn(
 				"py-2 text-base",
-				props.isActive && "!font-semibold !text-accent-500",
+				isCategoryActive && "!font-semibold !text-accent-500",
 				"text-f-300 hover:text-f-100",
 			)}
 		>
@@ -115,7 +125,7 @@ function DocSidebarCategory(props: {
 		<Accordion
 			collapsible
 			type="single"
-			defaultValue={props.expanded ? "x" : undefined}
+			defaultValue={props.expanded || hasActiveHref ? "x" : undefined}
 		>
 			<AccordionItem value="x" className="border-none">
 				{props.href ? (
@@ -183,4 +193,19 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);
+}
+
+function containsActiveHref(
+	sidebarlink: SidebarLink,
+	activeLink: string,
+): boolean {
+	if (sidebarlink.href === activeLink) {
+		return true;
+	}
+	if ("links" in sidebarlink) {
+		return sidebarlink.links.some((link) =>
+			containsActiveHref(link, activeLink),
+		);
+	}
+	return false;
 }
