@@ -3,7 +3,7 @@
 import {
 	AccordionItem as Item,
 	AccordionTrigger as Trigger,
-	AccordionHeader as Header,
+	// AccordionHeader as Header,
 	AccordionContent as Content,
 	Accordion as Root,
 } from "@radix-ui/react-accordion";
@@ -33,20 +33,18 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 	const chvronPosition = _chevronPosition || "right";
 
 	return (
-		<Header className="flex">
-			<Trigger
-				className={cn(
-					"flex flex-1 items-center gap-3 py-4 transition-all [&[data-state=open]>svg]:rotate-180",
-					className,
-					chvronPosition === "right" ? "justify-between flex-row-reverse" : "",
-				)}
-				style={style}
-				{...props}
-			>
-				<ChevronDown className="ease h-4 w-4 shrink-0 transition-transform duration-300" />
-				{props.id ? <Anchor id={props.id}> {children} </Anchor> : children}
-			</Trigger>
-		</Header>
+		<Trigger
+			className={cn(
+				"flex flex-1 items-center gap-3 py-4 transition-all [&[data-state=open]>svg]:rotate-180 w-full",
+				className,
+				chvronPosition === "right" ? "justify-between flex-row-reverse" : "",
+			)}
+			style={style}
+			{...props}
+		>
+			<ChevronDown className="ease h-4 w-4 shrink-0 transition-transform duration-300" />
+			{props.id ? <Anchor id={props.id}> {children} </Anchor> : children}
+		</Trigger>
 	);
 };
 
