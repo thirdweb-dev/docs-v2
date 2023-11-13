@@ -6,11 +6,11 @@ const wallets: SidebarLink = {
 	href: "/react/wallets",
 	links: [
 		{
-			name: "MetaMask",
+			name: "MetaMask Wallet",
 			href: "/react/wallets/metamask",
 		},
 		{
-			name: "Coinbase",
+			name: "Coinbase Wallet",
 			href: "/react/wallets/coinbase",
 		},
 		{
@@ -34,7 +34,7 @@ const wallets: SidebarLink = {
 			href: "/react/wallets/trust",
 		},
 		{
-			name: "Zerion",
+			name: "Zerion Wallet",
 			href: "/react/wallets/zerion",
 		},
 		{
@@ -46,19 +46,19 @@ const wallets: SidebarLink = {
 			href: "/react/wallets/safe",
 		},
 		{
-			name: "Blocto",
+			name: "Blocto Wallet",
 			href: "/react/wallets/blocto",
 		},
 		{
-			name: "Frame",
+			name: "Frame Wallet",
 			href: "/react/wallets/frame",
 		},
 		{
-			name: "Phantom",
+			name: "Phantom Wallet",
 			href: "/react/wallets/phantom",
 		},
 		{
-			name: "Rainbow",
+			name: "Rainbow Wallet",
 			href: "/react/wallets/rainbow",
 		},
 		{
