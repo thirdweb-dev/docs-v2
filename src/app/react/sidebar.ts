@@ -62,10 +62,6 @@ const wallets: SidebarLink = {
 			href: "/react/wallets/rainbow",
 		},
 		{
-			name: "OKX Wallet",
-			href: "/react/wallets/okx",
-		},
-		{
 			name: "Paper Wallet",
 			href: "/react/wallets/paper",
 		},
