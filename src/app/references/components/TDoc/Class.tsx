@@ -35,6 +35,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Methods */}
 			{doc.methods && (
 				<div>
+					<br />
 					<Heading level={2} id="methods">
 						Methods
 					</Heading>
@@ -47,7 +48,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 									summary={method.name}
 									id={method.name}
 									headingClassName="font-mono"
-									flags={[
+									tags={[
 										flags?.isOptional ? "optional" : "",
 										flags?.isPrivate ? "private" : "",
 										flags?.isProtected ? "protected" : "",
@@ -70,6 +71,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Properties */}
 			{doc.properties && (
 				<div>
+					<br />
 					<Heading level={2} id="properties">
 						Properties
 					</Heading>
@@ -85,7 +87,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 									summary={property.name}
 									id={property.name}
 									headingClassName="font-mono"
-									flags={flags}
+									tags={flags}
 								>
 									<VariableTDoc
 										doc={property}
@@ -103,6 +105,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Accessor */}
 			{doc.accessors && (
 				<div>
+					<br />
 					<Heading level={2} id="properties" className="text-5xl">
 						Accessors
 					</Heading>

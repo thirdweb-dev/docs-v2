@@ -21,6 +21,7 @@ export function EnumTDoc(props: { doc: EnumDoc; level: number }) {
 			{doc.members?.map((member) => {
 				return (
 					<div key={member.name}>
+						<br />
 						<Heading level={props.level + 1} id={member.name}>
 							{member.name}
 						</Heading>

@@ -1,0 +1,150 @@
+import { Details, Callout } from "@/components/Document";
+import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
+import Image from "next/image";
+import ConnectWalletSafeImage from "./safe.png";
+
+<WalletsBreadcrumb name="Safe" slug="safe" />
+
+<br />
+
+# safeWallet
+
+A wallet configurator for [Safe Wallet](/wallet/safe) which allows integrating the wallet with React
+
+```tsx
+import { safeWallet } from "@thirdweb-dev/react";
+
+const safeWalletConfig = safeWallet();
+```
+
+<CustomizeWalletConfigurator
+	config="safeWalletConfig"
+	configurator="safeWallet"
+	connectUI="SafeWalletConnectUI"
+	selectUI="SafeWalletSelectUI"
+/>
+
+<br />
+
+## options
+
+<Details summary="personalWallets" >
+
+An array of personal wallets to show in ConnectWallet Modal for personal wallet selection
+
+This is only relevant when connecting safeWallet with [ConnectWallet](https://portal.thirdweb.com/react/react.connectwallet) component.
+
+```ts
+import {
+	safeWallet,
+	metamaskWallet,
+	coinbaseWallet,
+	walletConnect,
+} from "@thirdweb-dev/react";
+
+safeWallet({
+	// this is the default
+	personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
+});
+```
+
+</Details>
+
+<Details summary="recommended" tags={['Recommended']}>
+
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react/react.connectwallet).
+
+```ts
+paperWallet({
+	recommended: true,
+});
+```
+
+</Details>
+
+<br />
+
+## Usage with ConnectWallet
+
+To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
+
+```tsx
+import {
+	safeWallet,
+	metamaskWallet,
+	coinbaseWallet,
+	walletConnect,
+} from "@thirdweb-dev/react";
+
+<ThirdwebProvider
+	supportedWallets={[
+		safeWallet({
+			// this is the default
+			personalWallets: [metamaskWallet(), coinbaseWallet(), walletConnect()],
+		}),
+	]}
+	clientId="your-client-id"
+>
+	<YourApp />
+</ThirdwebProvider>;
+```
+
+<Image src={ConnectWalletSafeImage} className="border rounded-lg" />
+
+<br />
+<br />
+
+## Usage with useConnect
+
+you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
+
+You need to connect to a personal wallet first, You can use the [useConnect](/react/react.useconnect) hook to connect to a personal wallet first and then connect to the Safe Wallet. Make sure personal wallet is on the same network as the Safe Wallet.
+
+```tsx
+const safeWalletConfig = safeWallet();
+
+function App() {
+	const connect = useConnect();
+
+	const handleConnect = async () => {
+		await connect(safeWalletConfig, connectOptions);
+	};
+
+	return <div> ... </div>;
+}
+```
+
+<br />
+
+### connectOptions
+
+```ts
+import type { Chain } from "@thirdweb-dev/chains";
+import type { EVMWallet } from "@thirdweb-dev/wallets";
+
+type ConnectOptions = {
+	chain: Chain;
+	personalWallet: EVMWallet;
+	safeAddress: string;
+};
+```
+
+<Details summary="chain">
+
+`Chain` object corresponding to the network that Safe Wallet is deployed to
+
+</Details>
+
+<Details summary="personalWallet">
+
+The instance of a personal wallet that can sign transactions on the Safe.
+
+</Details>
+
+<Details summary="safeAddress">
+
+Smart contract address of the Safe wallet.
+
+</Details>

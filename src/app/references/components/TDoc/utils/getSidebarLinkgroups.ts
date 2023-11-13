@@ -7,7 +7,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 
 	function createLinkGroup(name: string, docs: SomeDoc[]) {
 		linkGroups.push({
-			group: name,
+			name: name,
 			links: docs.map((d) => ({
 				name: d.name,
 				href: `${path}/${d.name}`,

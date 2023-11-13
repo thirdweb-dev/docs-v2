@@ -20,12 +20,15 @@ export function ParameterNDoc(props: {
 	return (
 		<div>
 			{props.showHeading !== false && (
-				<Heading
-					level={level}
-					id={slugger.slug(`${props.slugPrefix}--${doc.name}`)}
-				>
-					{doc.name}
-				</Heading>
+				<>
+					<br />
+					<Heading
+						level={level}
+						id={slugger.slug(`${props.slugPrefix}--${doc.name}`)}
+					>
+						{doc.name}
+					</Heading>
+				</>
 			)}
 
 			{doc.description && <Paragraph> {doc.description}</Paragraph>}

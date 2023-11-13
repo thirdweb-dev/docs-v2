@@ -1,0 +1,50 @@
+import { Breadcrumb } from "@/components/Document";
+import { WalletCard } from "./_components/WalletCard";
+// icons
+import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
+import CoinbaseIcon from "@public/icons/wallets/coinbase.svg";
+import WalletConnectIcon from "@public/icons/wallets/walletconnect.svg";
+import SmartWalletIcon from "@public/icons/wallets/smartwallet.svg";
+import EmbeddedWalletIcon from "@public/icons/wallets/embeddedwallet.svg";
+import SafeIcon from "@public/icons/wallets/safe.svg";
+import LocalWalletIcon from "@public/icons/wallets/localwallet.svg";
+import MagicLinkIcon from "@public/icons/wallets/magiclink.svg";
+import RainbowIcon from "@public/icons/wallets/rainbow.svg";
+import ZerionIcon from "@public/icons/wallets/zerion.svg";
+import BloctoIcon from "@public/icons/wallets/blocto.svg";
+import FrameIcon from "@public/icons/wallets/frame.svg";
+import PhantomIcon from "@public/icons/wallets/phantom.svg";
+
+<Breadcrumb
+	crumbs={[
+		{
+			name: "React",
+			href: "/react",
+		},
+		{
+			name: "Wallets",
+			href: "/react/wallets",
+		},
+	]}
+/>
+
+<br />
+
+# Wallets
+
+<div className="grid-cols-1 md:grid-cols-3 grid gap-x-10 gap-y-16 mt-20">
+	<WalletCard label="MetaMask" href="/react/wallets/metamask" icon={MetaMaskIcon} />
+	<WalletCard label="Coinbase" href="/react/wallets/coinbase" icon={CoinbaseIcon} />
+	<WalletCard label="WalletConnect" href="/react/wallets/walletconnect" icon={WalletConnectIcon} />
+	<WalletCard label="Smart Wallet" href="/react/wallets/smart-wallet" icon={SmartWalletIcon} />
+  <WalletCard label="Safe" href="/react/wallets/safe" icon={SafeIcon} />
+  <WalletCard label="Embedded Wallet" href="/react/wallets/embedded-wallet" icon={EmbeddedWalletIcon} />
+  <WalletCard label="Local Wallet" href="/react/wallets/local-wallet" icon={LocalWalletIcon} />
+  <WalletCard label="Magic Link" href="/react/wallets/magiclink" icon={MagicLinkIcon} />
+  <WalletCard label="Rainbow" href="/react/wallets/rainbow" icon={RainbowIcon} />
+  <WalletCard label="Zerion" href="/react/wallets/zerion" icon={ZerionIcon} />
+  <WalletCard label="Blocto" href="/react/wallets/blocto" icon={BloctoIcon} />
+  <WalletCard label="Frame" href="/react/wallets/frame" icon={FrameIcon} />
+  <WalletCard label="Phantom" href="/react/wallets/phantom" icon={PhantomIcon} />
+
+</div>

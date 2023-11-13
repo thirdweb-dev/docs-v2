@@ -25,9 +25,12 @@ export function FunctionTDoc(props: {
 	return (
 		<>
 			{props.showHeading !== false && (
-				<Heading level={props.level} id={slugger.slug(doc.name)}>
-					{doc.name}
-				</Heading>
+				<>
+					<br />
+					<Heading level={props.level} id={slugger.slug(doc.name)}>
+						{doc.name}
+					</Heading>
+				</>
 			)}
 
 			{doc.source && <SourceLinkTypeDoc href={doc.source} />}
@@ -68,17 +71,23 @@ function RenderFunctionSignature(props: {
 	return (
 		<>
 			{props.signatureId && (
-				<Heading
-					level={props.level}
-					id={slugger.slug(
-						props.name + "-signature-" + props.signatureId,
-						false,
-					)}
-					className="text-accent-500"
-				>
-					Signature
-					<span className="font-normal text-f-300"> #{props.signatureId}</span>
-				</Heading>
+				<>
+					<br />
+					<Heading
+						level={props.level}
+						id={slugger.slug(
+							props.name + "-signature-" + props.signatureId,
+							false,
+						)}
+						className="text-accent-500"
+					>
+						Signature
+						<span className="font-normal text-f-300">
+							{" "}
+							#{props.signatureId}
+						</span>
+					</Heading>
+				</>
 			)}
 
 			{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
@@ -99,6 +108,7 @@ function RenderFunctionSignature(props: {
 
 			{signature.parameters && (
 				<div className="mt-5">
+					<br />
 					<Heading
 						level={subLevel}
 						id={slugger.slug(props.name + "--param--" + props.name, false)}
@@ -113,7 +123,7 @@ function RenderFunctionSignature(props: {
 								level={props.level + 1}
 								headingClassName="font-mono"
 								summary={param.name}
-								flags={[
+								tags={[
 									param.flags?.isOptional ? "optional" : "",
 									param.flags?.isPrivate ? "private" : "",
 									param.flags?.isProtected ? "protected" : "",
@@ -136,6 +146,7 @@ function RenderFunctionSignature(props: {
 
 			{signature.returns && (
 				<div className="mt-5">
+					<br />
 					<Heading level={subLevel} id={slugger.slug(props.name + "-returns")}>
 						Returns
 					</Heading>
@@ -156,6 +167,7 @@ function RenderFunctionSignature(props: {
 
 			{exampleTag && (
 				<div className="mt-5">
+					<br />
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>

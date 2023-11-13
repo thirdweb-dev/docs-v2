@@ -26,6 +26,7 @@ export function ClassNDoc(props: {
 
 			{doc.constructor && (
 				<div>
+					<br />
 					<Heading level={level + 1} id={slugger.slug("constructor")}>
 						constructor
 					</Heading>
@@ -40,6 +41,7 @@ export function ClassNDoc(props: {
 
 			{doc.methods && doc.methods.length > 0 && (
 				<div>
+					<br />
 					<Heading
 						level={level + 1}
 						id={slugger.slug(`${doc.name}--methods`)}
@@ -70,6 +72,7 @@ export function ClassNDoc(props: {
 
 			{doc.properties && doc.properties.length > 0 && (
 				<div>
+					<br />
 					<Heading
 						level={level + 1}
 						id={slugger.slug(`${doc.name}--properties`)}

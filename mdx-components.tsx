@@ -4,7 +4,7 @@ import { Heading } from "@/components/Document/Heading";
 import { UnorderedList, OrderedList } from "@/components/Document/List";
 import { Paragraph } from "@/components/Document/Paragraph";
 import { Separator } from "@/components/Document/Separator";
-import { Table, Td, Th, Tr } from "@/components/Document/Table";
+import { TBody, Table, Td, Th, Tr } from "@/components/Document/Table";
 import type { MDXComponents } from "mdx/types";
 import { Lang } from "shiki";
 import GithubSlugger from "github-slugger";
@@ -37,7 +37,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 	return {
 		...components,
 		a(props) {
-			const { href, children, ...restProps } = props;
+			const { href, children } = props;
 			return <DocLink href={href || ""}>{children}</DocLink>;
 		},
 		h1(props) {
@@ -61,7 +61,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		code(props) {
 			const code = props.children;
 			const lang = props.className?.replace("language-", "");
-			const isInline = props.className;
 
 			if (!props.className) {
 				return <InlineCode code={typeof code === "string" ? code : ""} />;
@@ -97,6 +96,9 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 		},
 		tr(props) {
 			return <Tr>{props.children}</Tr>;
+		},
+		tbody(props) {
+			return <TBody>{props.children}</TBody>;
 		},
 	};
 }

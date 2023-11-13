@@ -8,20 +8,22 @@ import {
 } from "@tanstack/react-query";
 
 import { useEffect, useState } from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 import {
 	Search as SearchIcon,
 	FileText as FileTextIcon,
 	AlignLeft as SectionIcon,
 	FolderSearch as FolderSearchIcon,
+	Command as CommandIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { DynamicHeight } from "./others/DynamicHeight";
+import { DynamicHeight } from "./DynamicHeight";
 import { SearchResult } from "@/app/api/search/types";
+import { Spinner } from "../ui/Spinner/Spinner";
 
 type Tag =
 	| "React"
@@ -34,8 +36,8 @@ type Tag =
 	| "Go";
 
 function SearchModalContent(props: { closeModal: () => void }) {
-	const [query, setQuery] = useState("");
-	const debouncedQuery = useDebounce(query, 500);
+	const [input, setInput] = useState("");
+	const debouncedInput = useDebounce(input, 500);
 
 	const [selectedTags, setSelectedTags] = useState<Record<Tag, boolean>>({
 		React: true,
@@ -49,9 +51,9 @@ function SearchModalContent(props: { closeModal: () => void }) {
 	});
 
 	const searchQuery = useQuery({
-		queryKey: ["search-index", debouncedQuery],
+		queryKey: ["search-index", debouncedInput],
 		queryFn: async () => {
-			const res = await fetch(`/api/search?q=${encodeURI(debouncedQuery)}`);
+			const res = await fetch(`/api/search?q=${encodeURI(debouncedInput)}`);
 			const { results } = (await res.json()) as SearchResult;
 
 			const _selectedTags: typeof selectedTags = {
@@ -76,7 +78,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 
 			return results;
 		},
-		enabled: debouncedQuery.length > 0,
+		enabled: debouncedInput.length > 0,
 		placeholderData: keepPreviousData,
 	});
 
@@ -91,7 +93,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 
 	const data = searchQuery.data;
 	const noResults =
-		debouncedQuery && searchQuery.isFetched && data && data.length === 0;
+		debouncedInput && searchQuery.isFetched && data && data.length === 0;
 
 	const tags = Array.from(tagsSet);
 
@@ -103,10 +105,15 @@ function SearchModalContent(props: { closeModal: () => void }) {
 		<div>
 			{/* Search  */}
 			<div className="flex items-center gap-4 border-b px-4">
-				<SearchIcon className="h-5 w-5 shrink-0 text-f-300" />
+				{searchQuery.isFetching ? (
+					<Spinner className="h-5 w-5" />
+				) : (
+					<SearchIcon className="h-5 w-5 shrink-0 text-f-300" />
+				)}
+
 				<Input
 					onChange={(e) => {
-						setQuery(e.target.value);
+						setInput(e.target.value);
 					}}
 					placeholder="Search documentation"
 					className={cn(
@@ -190,7 +197,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 						</div>
 					)}
 
-					{!debouncedQuery && (!data || data.length === 0) && (
+					{!debouncedInput && (!data || data.length === 0) && (
 						<div className="flex min-h-[200px] items-center justify-center">
 							<FolderSearchIcon className="h-12 w-12 text-f-300" />
 						</div>
@@ -219,20 +226,71 @@ function useDebounce(value: string, delay: number) {
 
 const queryClient = new QueryClient();
 
-export function DocSearch() {
+export function DocSearch(props: { variant: "icon" | "search" }) {
 	const [open, setOpen] = useState(false);
+
+	const forDesktop = props.variant === "search";
+	useEffect(() => {
+		if (!forDesktop) {
+			return;
+		}
+		// when cmd+k on MacOS or ctrl+k on Windows is pressed, open the search modal
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+				e.preventDefault();
+				setOpen((v) => !v);
+			}
+		};
+
+		document.body.addEventListener("keydown", handleKeyDown);
+		return () => {
+			document.body.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [forDesktop]);
+
+	// when escape is pressed, close the search modal
+	useEffect(() => {
+		if (!forDesktop) {
+			return;
+		}
+		const handleKeyDown = (e: KeyboardEvent) => {
+			if (e.key === "Escape") {
+				setOpen(false);
+			}
+		};
+
+		document.body.addEventListener("keydown", handleKeyDown);
+		return () => {
+			document.body.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [forDesktop]);
+
 	return (
 		<QueryClientProvider client={queryClient}>
 			<Dialog open={open} onOpenChange={setOpen}>
-				<DialogTrigger asChild className="hidden w-56 justify-start md:flex">
-					<Button variant="outline">Search Docs</Button>
-				</DialogTrigger>
+				{/* Desktop */}
 
-				<DialogTrigger asChild className="md:hidden">
-					<Button variant="ghost">
-						<SearchIcon className="h-5 w-5 text-f-300" />
-					</Button>
-				</DialogTrigger>
+				{forDesktop && (
+					<DialogTrigger asChild>
+						<Button
+							variant="outline"
+							className="flex w-56 justify-between px-3"
+						>
+							Search Docs
+							<div className="flex items-center gap-1 rounded-sm border bg-b-900 px-2 py-1 text-xs text-f-300">
+								<CommandIcon className="h-3 w-3" />K
+							</div>
+						</Button>
+					</DialogTrigger>
+				)}
+
+				{!forDesktop && (
+					<DialogTrigger asChild>
+						<Button variant="ghost">
+							<SearchIcon className="h-5 w-5 text-f-300" />
+						</Button>
+					</DialogTrigger>
+				)}
 
 				<DialogContent className="bg-b-900 sm:max-w-[550px]">
 					<SearchModalContent

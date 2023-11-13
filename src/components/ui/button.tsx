@@ -17,9 +17,10 @@ const buttonVariants = cva(
 				outline: "border bg-b-700 hover:border-f-200 hover:text-f-100",
 				ghost: "text-f-100 hover:bg-b-600",
 				link: "text-f-100 underline-offset-4 hover:underline",
+				accent: "bg-accent-600 text-f-100 hover:bg-f-100 hover:text-b-900",
 			},
 			size: {
-				default: "px-4 py-2",
+				default: "px-5 py-2",
 				sm: "px-3",
 				lg: "px-8",
 				icon: "w-10",

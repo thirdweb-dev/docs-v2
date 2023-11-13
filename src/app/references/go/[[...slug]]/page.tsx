@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Content from "../content.mdx";
 import { TableOfContentsSideBar } from "@/components/others/TableOfContents";
-import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Breadcrumb } from "@/components/Document";
 import { RootNDoc } from "@/app/references/components/NDoc/Root";
 import { sluggerContext } from "@/contexts/slugger";
 import GihubSlugger from "github-slugger";

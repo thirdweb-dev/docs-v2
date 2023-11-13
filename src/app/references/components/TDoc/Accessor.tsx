@@ -20,6 +20,7 @@ export function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 			{doc.returns?.summary && (
 				<>
+					<br />
 					<Heading id="returns" level={props.level + 1}>
 						Returns
 					</Heading>
