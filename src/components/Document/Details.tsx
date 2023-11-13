@@ -7,8 +7,8 @@ import {
 	AccordionTrigger,
 	Accordion,
 } from "../ui/accordion";
-import { Heading } from "./Heading";
 import { useEffect, useState } from "react";
+import { Anchor } from "../ui/Anchor";
 
 export function Details(props: {
 	summary: React.ReactNode;
@@ -46,19 +46,18 @@ export function Details(props: {
 						}
 					}}
 				>
-					<Heading
-						id={id || "#"}
-						level={props.level || 5}
-						anchorClassName="m-0"
-						className={cn(
-							"text-base md:text-base font-semibold text-accent-500 flex gap-3 text-left",
-							props.headingClassName,
-						)}
-					>
-						{props.summary}
-
+					<Anchor id={id || "#"} className={"m-0 flex gap-3"}>
+						<h4
+							className={cn(
+								"text-3xl md:text-4xl font-bold tracking-tight text-f-100 break-all ",
+								"text-base md:text-base font-semibold text-accent-500 flex gap-3 text-left w-full",
+								props.headingClassName,
+							)}
+						>
+							{props.summary}
+						</h4>
 						{props.tags && (
-							<div className="flex items-center gap-2">
+							<div className="ml-auto flex items-center gap-2">
 								{props.tags?.map((flag) => {
 									return (
 										<span
@@ -71,7 +70,7 @@ export function Details(props: {
 								})}
 							</div>
 						)}
-					</Heading>
+					</Anchor>
 				</AccordionTrigger>
 				<AccordionContent>
 					<div className="pl-4 pt-4">{props.children}</div>
