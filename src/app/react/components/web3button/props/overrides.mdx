@@ -14,7 +14,6 @@ function App() {
 		<Web3Button
 			contractAddress="0x..."
 			action={(contract) => contract.erc721.claim(1)}
-			// highlight-start
 			overrides={{
 				accessList: [], // The AccessList to include; only available for EIP-2930 and EIP-1559 transactions.
 				blockTag: "latest", // A BlockTag specifies a specific block location in the Blockchain.
@@ -29,7 +28,6 @@ function App() {
 				type: 0, // The EIP-2718 type of this transaction envelope, or undefined for to use the network default
 				value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
 			}}
-			// highlight-end
 		>
 			Execute Action
 		</Web3Button>

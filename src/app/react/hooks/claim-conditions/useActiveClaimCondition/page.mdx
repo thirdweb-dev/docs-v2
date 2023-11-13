@@ -90,11 +90,9 @@ function App() {
 	const { data, isLoading, error } = useActiveClaimCondition(
 		contract,
 		undefined, // Token ID required for ERC1155 contracts here.
-		// highlight-start
 		{
 			withAllowlist: true,
 		},
-		// highlight-end
 	);
 }
 ```
