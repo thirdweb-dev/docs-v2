@@ -7,12 +7,12 @@ export const redirects = async () => {
 	return [
 		{
 			source: "/react/react.thirdwebprovider",
-			destination: "/react/thirdweb-provider",
+			destination: "/react/ThirdwebProvider",
 			permanent: true,
 		},
 		{
 			source: "/react/react.thirdwebsdkprovider",
-			destination: "/react/thirdweb-sdk-provider",
+			destination: "/react/ThirdwebSDKProvider",
 			permanent: true,
 		},
 		{

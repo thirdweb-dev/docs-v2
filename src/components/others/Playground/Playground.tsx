@@ -68,6 +68,7 @@ export function useEditor() {
 		});
 
 		setTimeout(async () => {
+			await vm.editor.showSidebar();
 			await vm.getFsSnapshot();
 			vm.applyFsDiff({
 				create: {

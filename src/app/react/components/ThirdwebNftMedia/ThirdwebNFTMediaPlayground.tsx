@@ -1,7 +1,12 @@
 import { Playground } from "@/components/Document";
 
 const code = `\
-import { ThirdwebProvider, Web3Button } from '@thirdweb-dev/react';
+import {
+  ThirdwebProvider,
+  ThirdwebNftMedia,
+  useContract,
+  useNFT,
+} from '@thirdweb-dev/react';
 
 export default function Page() {
   return (
@@ -16,15 +21,16 @@ export default function Page() {
 
 function Example() {
   const { contract } = useContract(
-    "0xb413df01580659F671471956e9D2fAe989d1dcd3"
+    '0xb413df01580659F671471956e9D2fAe989d1dcd3'
   );
-  const { data: nft, isLoading, error } = useNFT(contract, "0");
+  const { data: nft, isLoading, error } = useNFT(contract, '0');
 
   if (isLoading) return <div>Loading...</div>;
   if (error || !nft) return <div>NFT not found</div>;
 
   return <ThirdwebNftMedia metadata={nft.metadata} />;
 }
+
 `;
 
 export function ThirdwebNFTMediaPlayground() {

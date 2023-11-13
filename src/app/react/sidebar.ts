@@ -79,19 +79,19 @@ const components: SidebarLink = (() => {
 		links: [
 			{
 				name: "ConnectWallet",
-				href: `${parentSlug}/connect`,
+				href: `${parentSlug}/ConnectWallet`,
 			},
 			{
 				name: "Web3Button",
-				href: `${parentSlug}/web3button`,
+				href: `${parentSlug}/Web3Button`,
 			},
 			{
 				name: "ThirdwebNftMedia",
-				href: `${parentSlug}/thirdweb-nft-media`,
+				href: `${parentSlug}/ThirdwebNftMedia`,
 			},
 			{
 				name: "MediaRenderer",
-				href: `${parentSlug}/media-renderer`,
+				href: `${parentSlug}/MediaRenderer`,
 			},
 		],
 	};
@@ -310,11 +310,11 @@ export const sidebar: SideBar = {
 		},
 		{
 			name: "ThirdwebProvider",
-			href: "/react/thirdweb-provider",
+			href: "/react/ThirdwebProvider",
 		},
 		{
 			name: "ThirdwebSDKProvider",
-			href: "/react/thirdweb-sdk-provider",
+			href: "/react/ThirdwebSDKProvider",
 		},
 		{
 			name: "Connecting Wallets",
