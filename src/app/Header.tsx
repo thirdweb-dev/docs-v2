@@ -73,7 +73,7 @@ export function Header() {
 		<header className="sticky top-0 z-50 flex h-header-height w-full items-center border-b bg-b-900">
 			<div
 				className={
-					"container flex items-center justify-between gap-10 p-4 lg:justify-start"
+					"container flex items-center justify-between gap-10 p-4 xl:justify-start"
 				}
 			>
 				<Link className="flex items-center gap-2" href="/">
@@ -88,7 +88,7 @@ export function Header() {
 					</span>
 				</Link>
 
-				<div className="flex gap-1 lg:hidden">
+				<div className="flex gap-1 xl:hidden">
 					<DocSearch variant="icon" />
 
 					{/* Mobile burger menu */}
@@ -104,12 +104,12 @@ export function Header() {
 				<nav
 					className={clsx(
 						"grow gap-5",
-						!showBurgerMenu ? "hidden lg:flex" : "flex",
+						!showBurgerMenu ? "hidden xl:flex" : "flex",
 						"fixed inset-0 top-header-height flex-col bg-b-800 p-6 animate-in fade-in-20 slide-in-from-top-3 ",
-						"lg:static lg:animate-none lg:flex-row lg:justify-between lg:bg-transparent lg:p-0",
+						"xl:static xl:animate-none xl:flex-row xl:justify-between xl:bg-transparent xl:p-0",
 					)}
 				>
-					<ul className="flex flex-col gap-5 lg:flex-row lg:items-center">
+					<ul className="flex flex-col gap-5 xl:flex-row xl:items-center">
 						{links.map((link) => {
 							return (
 								<li
@@ -124,13 +124,13 @@ export function Header() {
 						})}
 					</ul>
 
-					<div className="flex flex-col justify-start gap-5 lg:flex-row   lg:items-center lg:gap-3">
-						<div className="hidden lg:block">
+					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">
+						<div className="hidden xl:block">
 							<DocSearch variant="search" />
 						</div>
 
 						{/* References Dropdown for desktop */}
-						<div className="hidden lg:block">
+						<div className="hidden xl:block">
 							<DropdownMenu>
 								<DropdownMenuTrigger asChild>
 									<Button
@@ -170,7 +170,7 @@ export function Header() {
 						</div>
 
 						{/* References Link for mobile */}
-						<div className="lg:hidden">
+						<div className="xl:hidden">
 							<NavLink
 								name="References"
 								href="/references"

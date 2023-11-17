@@ -1,34 +1,59 @@
 import Image from "next/image";
-import DocsHero from "./_images/docs-hero.png";
+import DocsHero from "./_images/docs-hero.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { DocLink, Heading } from "@/components/Document";
+
+// icons
 import {
 	ChevronRight,
 	CircleDollarSign,
-	FileTextIcon,
 	Gamepad2,
 	LucideIcon,
 	MousePointerSquare,
 	ShoppingBag,
 	User,
 } from "lucide-react";
+import {
+	ReactIcon,
+	TypeScriptIcon,
+	PythonIcon,
+	GoIcon,
+	UnityIcon,
+	SolidityIcon,
+	ContractBuildIcon,
+	ContractExploreIcon,
+	ContractInteractIcon,
+	ContractDeployIcon,
+	ContractPublishIcon,
+	InfraEngineIcon,
+	InfraRPCIcon,
+	InfraStorageIcon,
+	WalletsAuthIcon,
+	WalletsConnectIcon,
+	WalletsEmbeddedIcon,
+	WalletsSmartIcon,
+	PaymentsNFTCheckoutIcon,
+	PaymentsSponsoredIcon,
+} from "@/icons";
 
 export default function Page() {
 	return (
-		<main className="container grow">
+		<main className="container grow pb-20">
 			<Hero />
 			<TutorialsSection />
 			<ContractsSection />
-			<ApplicationSection />
+			<WalletsSection />
 			<InfraSection />
+			<PaymentSection />
+			<SDKSection />
 		</main>
 	);
 }
 
 function Hero() {
 	return (
-		<section className="grid py-16 lg:grid-cols-2">
+		<section className="grid py-10 lg:grid-cols-2  xl:py-2 ">
 			{/* Left */}
 			<div className="flex flex-col justify-center">
 				<div>
@@ -60,7 +85,7 @@ function Hero() {
 
 			{/* right */}
 			<div className="hidden justify-center lg:flex">
-				<Image src={DocsHero} alt="" height={350} />
+				<Image src={DocsHero} alt="" className="w-full" />
 			</div>
 		</section>
 	);
@@ -219,75 +244,69 @@ function ContractsSection() {
 
 			<Grid>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					title="Deploy"
+					description="Contract deployment build for any use-case"
+					href="/contracts/deploy"
+					icon={ContractDeployIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					title="Build"
+					description="Write your own smart contracts"
+					href="/contracts/build"
+					icon={ContractBuildIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					title="Interact"
+					description="Integrate smart contract interactions directly into your app"
+					icon={ContractInteractIcon}
+					href="/contracts/interact"
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					title="Explore"
+					description="Ready-to-deploy contracts"
+					href="/contracts/example"
+					icon={ContractExploreIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
-				/>
-				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/contracts/publish"
+					title="Publish"
+					description="Publish your contracts on-chain"
+					icon={ContractPublishIcon}
 				/>
 			</Grid>
 		</section>
 	);
 }
 
-function ApplicationSection() {
+function WalletsSection() {
 	return (
 		<section className="py-10">
-			<SectionTitle id="application" title="Application" />
+			<SectionTitle id="wallets" title="Wallets" />
 
 			<Grid>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/wallets/connect"
+					title="Connect"
+					description="Fully customizable Connect Wallet component"
+					icon={WalletsConnectIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/wallets/smart"
+					title="Smart Wallet"
+					description="Complete toolkit for Account Abstraction"
+					icon={WalletsSmartIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					title="Embedded Wallets"
+					description="Email & social login wallets for your customers"
+					href="/wallets/embedded-wallet"
+					icon={WalletsEmbeddedIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
-				/>
-				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
-				/>
-				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/wallets/auth"
+					title="Auth"
+					description="Authenticate users with their wallets"
+					icon={WalletsAuthIcon}
 				/>
 			</Grid>
 		</section>
@@ -301,35 +320,64 @@ function InfraSection() {
 
 			<Grid>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/infra/storage"
+					title="Storage"
+					description="Secure, fast, decentralized storage"
+					icon={InfraStorageIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/infra/rpc"
+					title="RPC Edge"
+					description="Enterprise-grade RPCs, for free"
+					icon={InfraRPCIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/infra/engine"
+					title="Engine"
+					description="HTTP server with contract APIs and backend wallets"
+					icon={InfraEngineIcon}
+				/>
+			</Grid>
+		</section>
+	);
+}
+
+function PaymentSection() {
+	return (
+		<section className="py-10">
+			<SectionTitle id="payments" title="Payments" />
+
+			<Grid>
+				<ArticleCard
+					href="/payments/checkout"
+					title="NFT Checkout"
+					description="Credit card checkout for NFTs"
+					icon={PaymentsNFTCheckoutIcon}
 				/>
 				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
+					href="/payments/sponsored-tx"
+					title="Sponsored Transactions"
+					description="Remove all user friction with invisible transactions"
+					icon={PaymentsSponsoredIcon}
 				/>
-				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
-				/>
-				<ArticleCard
-					href="/"
-					title="Lorem Ipsum"
-					description="Some description lorem ipsum dolor"
-				/>
+			</Grid>
+		</section>
+	);
+}
+
+function SDKSection() {
+	return (
+		<section className="py-10">
+			<SectionTitle id="sdk" title="SDKs" />
+
+			<Grid>
+				<SDKCard href="/react" title="React" icon={ReactIcon} />
+				<SDKCard href="/react-native" title="React Native" icon={ReactIcon} />
+				<SDKCard href="/typescript" title="TypeScript" icon={TypeScriptIcon} />
+				<SDKCard href="/python" title="TypeScript" icon={PythonIcon} />
+				<SDKCard href="/go" title="Go" icon={GoIcon} />
+				<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
+				<SDKCard href="/solidity" title="Solidity" icon={SolidityIcon} />
 			</Grid>
 		</section>
 	);
@@ -339,28 +387,41 @@ function ArticleCard(props: {
 	title: string;
 	description: string;
 	href: string;
+	icon?: React.FC<{ className?: string }>;
 }) {
 	return (
 		<Link
 			href={props.href}
-			className="rounded-lg border p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex min-h-[120px] items-center gap-4 rounded-lg border bg-b-800 px-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
-			<article className="flex items-center gap-5">
-				<FileTextIcon className="h-7 w-6 text-f-300" />
-				<div>
-					<h3 className="mb-2 text-base font-semibold text-f-100">
-						{props.title}
-					</h3>
-					<p className="text-f-300">{props.description}</p>
-				</div>
-			</article>
+			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
+			<div className="flex flex-col gap-1">
+				<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
+				<p className="text-f-300">{props.description}</p>
+			</div>
+		</Link>
+	);
+}
+
+function SDKCard(props: {
+	title: string;
+	href: string;
+	icon?: React.FC<{ className?: string }>;
+}) {
+	return (
+		<Link
+			href={props.href}
+			className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+		>
+			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
+			<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
 		</Link>
 	);
 }
 
 function Grid(props: { children: React.ReactNode }) {
 	return (
-		<div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 			{props.children}
 		</div>
 	);

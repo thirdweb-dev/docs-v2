@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
-import { Footer } from "./Footer";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -38,7 +37,7 @@ export default function RootLayout({
 				<div className="relative flex min-h-screen flex-col">
 					<Header />
 					{children}
-					<Footer />
+					{/* <Footer /> */}
 				</div>
 			</body>
 		</html>

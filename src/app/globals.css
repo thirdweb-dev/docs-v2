@@ -23,7 +23,7 @@ html {
 		--b-600: hsl(240deg 5% 10%);
 
 		--overlay: hsl(240deg 5% 5% / 0.5);
-		--border: hsl(240deg 5% 14%);
+		--border: hsla(0, 0%, 12%, 1);
 
 		/* neutral foreground colors */
 		--f-100: rgba(241, 245, 249);
