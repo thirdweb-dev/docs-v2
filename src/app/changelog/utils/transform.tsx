@@ -37,7 +37,6 @@ const knownLangs = new Set([
 	"go",
 	"json",
 	"shell",
-	"solidity",
 	"sol",
 	"groovy",
 ]);
