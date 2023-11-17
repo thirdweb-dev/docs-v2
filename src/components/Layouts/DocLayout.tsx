@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { DocSidebarMobile, DocSidebar, SidebarLink } from "../others/Sidebar";
 import { TableOfContentsSideBar } from "../others/TableOfContents";
+import { PageFooter } from "../Document/PageFooter";
 
 export type SideBar = {
 	name: string;
@@ -28,8 +29,11 @@ export function DocLayout(props: DocLayoutProps) {
 				<DocSidebar {...props.sideBar} />
 			</aside>
 			<DocSidebarMobile {...props.sideBar} />
-			<main className="relative max-w-3xl overflow-hidden pb-10 pt-6">
+			<main className="relative max-w-3xl overflow-hidden pt-6">
 				{props.children}
+				<div className="pt-10">
+					<PageFooter />
+				</div>
 			</main>
 			<TableOfContentsSideBar />
 		</div>
