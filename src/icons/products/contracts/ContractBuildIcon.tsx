@@ -77,8 +77,8 @@ export function ContractBuildIcon(props: { className?: string }) {
 					y2="0.531421"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#F4009F" />
-					<stop offset="1" stop-color="#F856C8" />
+					<stop stopColor="#F4009F" />
+					<stop offset="1" stopColor="#F856C8" />
 				</linearGradient>
 			</defs>
 		</svg>

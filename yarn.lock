@@ -2267,6 +2267,11 @@ fault@^2.0.0:
   dependencies:
     format "^0.2.0"
 
+fflate@^0.4.1:
+  version "0.4.8"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.4.8.tgz#f90b82aefbd8ac174213abb338bd7ef848f0f5ae"
+  integrity sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==
+
 file-entry-cache@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/file-entry-cache/-/file-entry-cache-6.0.1.tgz#211b2dd9659cb0394b073e7323ac3c933d522027"
@@ -4521,6 +4526,13 @@ postcss@^8, postcss@^8.4.23, postcss@^8.4.4:
     nanoid "^3.3.6"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
+
+posthog-js@1.67.1:
+  version "1.67.1"
+  resolved "https://registry.yarnpkg.com/posthog-js/-/posthog-js-1.67.1.tgz#980d99021ab6e525b7aeb9db7383fcf5c171b51d"
+  integrity sha512-gvdCVrrxoRYbtNTCUt2/YdZ+tfSfzcl72ym/dtRVCYJpwlCUIKnNJ3E2g7Bbw1+Ki6CvGxdu9r7jHIWnvJAMuw==
+  dependencies:
+    fflate "^0.4.1"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
