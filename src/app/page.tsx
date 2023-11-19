@@ -70,7 +70,9 @@ function Hero() {
 							variant="accent"
 							className="text-lg lg:min-w-[150px] lg:px-10"
 						>
-							<Link href="/">Learn</Link>
+							<Link href="https://www.youtube.com/watch?v=jYEqoIeAoBg&t=2067s">
+								Learn
+							</Link>
 						</Button>
 						<Button
 							variant="outline"
