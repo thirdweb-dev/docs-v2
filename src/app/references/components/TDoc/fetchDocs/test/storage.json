@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.3.2-next"
+		"typedocBetterJsonVersion": "0.3.2"
 	},
 	"functions": [
 		{
@@ -19,14 +19,14 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/common/utils.ts#L40"
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/common/utils.ts#L40"
 		}
 	],
 	"types": [
 		{
 			"kind": "type",
 			"name": "IStorageDownloader",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/download.ts#L4",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L4",
 			"type": "{download : ((url : string, gatewayUrls : GatewayUrls, options : SingleDownloadOptions) => Promise<Response>)}",
 			"typeDeclaration": [
 				{
@@ -104,14 +104,14 @@
 							"blockTags": []
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/download.ts#L12"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L12"
 				}
 			]
 		},
 		{
 			"kind": "type",
 			"name": "IStorageUploader",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/upload.ts#L11",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L11",
 			"typeParameters": [
 				{
 					"name": "T",
@@ -204,14 +204,14 @@
 							"blockTags": []
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/upload.ts#L23"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L23"
 				}
 			]
 		},
 		{
 			"kind": "type",
 			"name": "IThirdwebStorage",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L17",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L17",
 			"type": "{download : ((url : string, options : SingleDownloadOptions) => Promise<Response>),downloadJSON : ((url : string) => Promise<TJSON>),getGatewayUrls : (() => GatewayUrls),resolveScheme : ((url : string) => string),upload : ((data : any, options : {}) => Promise<string>),uploadBatch : ((data : any[], options : {}) => Promise<string[]>)}",
 			"typeDeclaration": [
 				{
@@ -237,7 +237,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L19"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L19"
 				},
 				{
 					"kind": "function",
@@ -260,7 +260,7 @@
 							]
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L20"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L20"
 				},
 				{
 					"kind": "function",
@@ -272,7 +272,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L23"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L23"
 				},
 				{
 					"kind": "function",
@@ -290,7 +290,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L18"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L18"
 				},
 				{
 					"kind": "function",
@@ -315,7 +315,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L21"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L21"
 				},
 				{
 					"kind": "function",
@@ -340,20 +340,20 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L22"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L22"
 				}
 			]
 		},
 		{
 			"kind": "type",
 			"name": "GatewayUrls",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/download.ts#L54",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L54",
 			"type": "{}"
 		},
 		{
 			"kind": "type",
 			"name": "IpfsDownloaderOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/download.ts#L22",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L22",
 			"type": "{ clientId: string, secretKey: string, timeoutInSeconds: number }",
 			"typeDeclaration": [
 				{
@@ -409,7 +409,7 @@
 		{
 			"kind": "type",
 			"name": "IpfsUploadBatchOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/upload.ts#L68",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L68",
 			"type": "{ alwaysUpload: boolean, metadata: Record<string, string>, onProgress: ((event : UploadProgressEvent) => void), rewriteFileNames: { fileStartNumber: number }, uploadWithGatewayUrl: boolean, uploadWithoutDirectory: boolean }",
 			"typeDeclaration": [
 				{
@@ -502,7 +502,7 @@
 		{
 			"kind": "type",
 			"name": "IpfsUploaderOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/upload.ts#L44",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L44",
 			"type": "{ clientId: string, secretKey: string, uploadServerUrl: string, uploadWithGatewayUrl: boolean }",
 			"typeDeclaration": [
 				{
@@ -574,7 +574,7 @@
 		{
 			"kind": "type",
 			"name": "SingleDownloadOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/download.ts#L40",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L40",
 			"type": "{ maxRetries: number, timeoutInSeconds: number }",
 			"typeDeclaration": [
 				{
@@ -614,7 +614,7 @@
 		{
 			"kind": "type",
 			"name": "ThirdwebStorageOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/index.ts#L8",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L8",
 			"typeParameters": [
 				{
 					"name": "T",
@@ -658,13 +658,13 @@
 		{
 			"kind": "type",
 			"name": "UploadOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/upload.ts#L6",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L6",
 			"type": "{}"
 		},
 		{
 			"kind": "type",
 			"name": "UploadProgressEvent",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/types/upload.ts#L29",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L29",
 			"type": "{ progress: number, total: number }",
 			"typeDeclaration": [
 				{
@@ -706,7 +706,7 @@
 		{
 			"kind": "class",
 			"name": "IpfsUploader",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L44",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L44",
 			"summary": [
 				{
 					"type": "paragraph",
@@ -750,7 +750,7 @@
 						}
 					}
 				],
-				"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L50"
+				"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L50"
 			},
 			"methods": [
 				{
@@ -780,7 +780,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L77"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L77"
 				},
 				{
 					"kind": "function",
@@ -850,7 +850,7 @@
 							"blockTags": []
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L57"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L57"
 				},
 				{
 					"kind": "function",
@@ -879,7 +879,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L173"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L173"
 				},
 				{
 					"kind": "function",
@@ -908,14 +908,14 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L327"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L327"
 				}
 			],
 			"properties": [
 				{
 					"kind": "variable",
 					"name": "clientId",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L47",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L47",
 					"type": "string",
 					"flags": {
 						"isPrivate": true,
@@ -925,7 +925,7 @@
 				{
 					"kind": "variable",
 					"name": "secretKey",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L48",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L48",
 					"type": "string",
 					"flags": {
 						"isPrivate": true,
@@ -935,7 +935,7 @@
 				{
 					"kind": "variable",
 					"name": "uploadServerUrl",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L46",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L46",
 					"type": "string",
 					"flags": {
 						"isPrivate": true
@@ -955,7 +955,7 @@
 							]
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/uploaders/ipfs-uploader.ts#L45",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/uploaders/ipfs-uploader.ts#L45",
 					"type": "boolean",
 					"flags": {
 						"isPublic": true
@@ -967,7 +967,7 @@
 		{
 			"kind": "class",
 			"name": "StorageDownloader",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L30",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L30",
 			"summary": [
 				{
 					"type": "paragraph",
@@ -1008,7 +1008,7 @@
 						}
 					}
 				],
-				"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L38"
+				"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L38"
 			},
 			"methods": [
 				{
@@ -1087,26 +1087,26 @@
 							"blockTags": []
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L45"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L45"
 				}
 			],
 			"properties": [
 				{
 					"kind": "variable",
 					"name": "DEFAULT_MAX_RETRIES",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L32",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L32",
 					"type": "number"
 				},
 				{
 					"kind": "variable",
 					"name": "DEFAULT_TIMEOUT_IN_SECONDS",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L31",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L31",
 					"type": "number"
 				},
 				{
 					"kind": "variable",
 					"name": "clientId",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L35",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L35",
 					"type": "string",
 					"flags": {
 						"isPrivate": true,
@@ -1116,7 +1116,7 @@
 				{
 					"kind": "variable",
 					"name": "defaultTimeout",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L36",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L36",
 					"type": "number",
 					"flags": {
 						"isPrivate": true
@@ -1125,7 +1125,7 @@
 				{
 					"kind": "variable",
 					"name": "secretKey",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/downloaders/storage-downloader.ts#L34",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/downloaders/storage-downloader.ts#L34",
 					"type": "string",
 					"flags": {
 						"isPrivate": true,
@@ -1138,7 +1138,7 @@
 		{
 			"kind": "class",
 			"name": "ThirdwebStorage",
-			"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L58",
+			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L58",
 			"summary": [
 				{
 					"type": "paragraph",
@@ -1188,7 +1188,7 @@
 						]
 					}
 				],
-				"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L66"
+				"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L66"
 			},
 			"methods": [
 				{
@@ -1260,7 +1260,7 @@
 							]
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L122"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L122"
 				},
 				{
 					"kind": "function",
@@ -1336,7 +1336,7 @@
 							]
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L142"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L142"
 				},
 				{
 					"kind": "function",
@@ -1348,7 +1348,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L246"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L246"
 				},
 				{
 					"kind": "function",
@@ -1412,7 +1412,7 @@
 							]
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L101"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L101"
 				},
 				{
 					"kind": "function",
@@ -1509,7 +1509,7 @@
 							]
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L176"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L176"
 				},
 				{
 					"kind": "function",
@@ -1534,7 +1534,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L250"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L250"
 				},
 				{
 					"kind": "function",
@@ -1631,14 +1631,14 @@
 							]
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L206"
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L206"
 				}
 			],
 			"properties": [
 				{
 					"kind": "variable",
 					"name": "clientId",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L64",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L64",
 					"type": "string",
 					"flags": {
 						"isPrivate": true,
@@ -1648,7 +1648,7 @@
 				{
 					"kind": "variable",
 					"name": "downloader",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L62",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L62",
 					"type": "IStorageDownloader",
 					"flags": {
 						"isPrivate": true
@@ -1657,7 +1657,7 @@
 				{
 					"kind": "variable",
 					"name": "gatewayUrls",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L63",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L63",
 					"type": "GatewayUrls",
 					"flags": {
 						"isPrivate": true
@@ -1666,7 +1666,7 @@
 				{
 					"kind": "variable",
 					"name": "uploader",
-					"source": "https://github.com/thirdweb-dev/js/blob/8bd48f085/packages/storage/src/core/storage.ts#L61",
+					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/core/storage.ts#L61",
 					"type": "IStorageUploader<T>",
 					"flags": {
 						"isPrivate": true

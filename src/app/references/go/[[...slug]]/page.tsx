@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Content from "../content.mdx";
-import { TableOfContentsSideBar } from "@/components/others/TableOfContents";
 import { Breadcrumb } from "@/components/Document";
 import { RootNDoc } from "@/app/references/components/NDoc/Root";
 import { sluggerContext } from "@/contexts/slugger";
@@ -25,19 +24,16 @@ export default async function Page(props: PageProps) {
 
 	if (!docName) {
 		return (
-			<>
-				<main className="w-full overflow-hidden pt-6">
-					<Breadcrumb
-						crumbs={[
-							{ name: "Go SDK", href: `/go` },
-							{ name: "References", href: `/references/go` },
-						]}
-					/>
-					<div className="h-6"></div>
-					<Content />
-				</main>
-				<TableOfContentsSideBar />
-			</>
+			<div>
+				<Breadcrumb
+					crumbs={[
+						{ name: "Go SDK", href: `/go` },
+						{ name: "References", href: `/references/go` },
+					]}
+				/>
+				<div className="h-6"></div>
+				<Content />
+			</div>
 		);
 	} else {
 		const selectedDoc = slugToDocmap.get(docName);
@@ -47,23 +43,20 @@ export default async function Page(props: PageProps) {
 		}
 
 		return (
-			<>
-				<main className="w-full overflow-hidden pt-6">
-					<Breadcrumb
-						crumbs={[
-							{ name: "Go SDK", href: `/go` },
-							{ name: "References", href: `/references/go` },
-							{
-								name: selectedDoc.name,
-								href: `/references/go/${selectedDoc.name}`,
-							},
-						]}
-					/>
-					<div className="h-6"></div>
-					<RootNDoc lang="go" doc={selectedDoc} />
-				</main>
-				<TableOfContentsSideBar />
-			</>
+			<div>
+				<Breadcrumb
+					crumbs={[
+						{ name: "Go SDK", href: `/go` },
+						{ name: "References", href: `/references/go` },
+						{
+							name: selectedDoc.name,
+							href: `/references/go/${selectedDoc.name}`,
+						},
+					]}
+				/>
+				<div className="h-6"></div>
+				<RootNDoc lang="go" doc={selectedDoc} />
+			</div>
 		);
 	}
 }

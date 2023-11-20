@@ -167,7 +167,7 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 	return (
 		<DropdownMenu open={open} onOpenChange={setOpen}>
 			<DropdownMenuTrigger asChild>
-				<Button className="mt-5 w-full justify-between border bg-b-800 py-4 text-left text-f-100 lg:hidden">
+				<Button className="w-full justify-between border bg-b-800 py-4 text-left text-f-100 xl:hidden">
 					{props.name}
 					<ChevronDown
 						className={clsx(

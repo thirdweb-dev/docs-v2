@@ -16,22 +16,25 @@ export type DocLayoutProps = {
 export function DocLayout(props: DocLayoutProps) {
 	return (
 		<div
-			className={
-				"container relative grid gap-6  lg:grid-cols-[1.2fr_750px_1fr]"
-			}
+			className={"container relative grid gap-6 xl:grid-cols-[300px_750px_1fr]"}
+			style={{
+				minHeight: "calc(100vh - var(--header-height))",
+			}}
 		>
 			<aside
 				className={clsx(
 					"sticky top-header-height h-sidebar-height flex-col overflow-y-hidden",
-					"hidden lg:flex",
+					"hidden xl:flex",
 				)}
 			>
 				<DocSidebar {...props.sideBar} />
 			</aside>
-			<DocSidebarMobile {...props.sideBar} />
-			<main className="relative max-w-3xl overflow-hidden pt-6">
-				{props.children}
-				<div className="pt-10">
+			<main className="relative flex w-full flex-col overflow-hidden">
+				<div className="mb-6">
+					<DocSidebarMobile {...props.sideBar} />
+				</div>
+				<div className="grow">{props.children}</div>
+				<div className="mt-16 xl:mt-24">
 					<PageFooter />
 				</div>
 			</main>

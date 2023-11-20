@@ -10,7 +10,7 @@ import { Subscribe } from "../others/Subscribe";
 
 export function PageFooter() {
 	return (
-		<footer className="mb-20 flex flex-col gap-5">
+		<footer className="flex flex-col gap-5 pb-8">
 			<div className="flex md:justify-start">
 				<Feedback />
 			</div>
