@@ -26,7 +26,7 @@ import { DocSearch } from "@/components/others/DocSearch";
 const links = [
 	{
 		name: "SDKs",
-		href: "#sdk",
+		href: "/#sdk",
 	},
 	{
 		name: "Wallets",
