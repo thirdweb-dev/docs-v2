@@ -13,3 +13,6 @@ export { Paragraph } from "./Paragraph";
 export { Separator } from "./Separator";
 export { Table } from "./Table";
 export { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
+export { Carousel } from "../ui/Carousel/Carousel";
+export { Steps, Step } from "./Steps/Steps";
+export { ArticleCard } from "./Cards/ArticleCard";

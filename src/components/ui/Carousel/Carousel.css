@@ -1,0 +1,58 @@
+/* Prev and Next buttons */
+.blaze-slider.start .blaze-prev,
+.blaze-slider.end .blaze-next {
+	@apply opacity-30 cursor-not-allowed;
+}
+
+.blaze-slider .blaze-prev,
+.blaze-slider .blaze-next {
+	@apply transition-colors duration-300;
+}
+
+.blaze-pagination button {
+	@apply w-6 h-6 rounded-[50%] bg-b-600 text-sm font-semibold border;
+}
+
+.blaze-pagination button.active {
+	@apply bg-f-100 text-b-900 border-f-100;
+}
+
+/* layout shift fixes */
+
+.blaze-slider[data-variant="3-2-1"] {
+	--slides-to-show: 3;
+	--slide-gap: 20px;
+}
+
+/* 3-2-1 */
+@media (max-width: 900px) {
+	.blaze-slider[data-variant="3-2-1"] {
+		--slides-to-show: 2;
+	}
+}
+
+@media (max-width: 600px) {
+	.blaze-slider[data-variant="3-2-1"] {
+		--slides-to-show: 1;
+	}
+}
+
+/* 2-2-1 */
+
+.blaze-slider[data-variant="2-2-1"] {
+	--slides-to-show: 2;
+	--slide-gap: 20px;
+}
+
+@media (max-width: 600px) {
+	.blaze-slider[data-variant="2-2-1"] {
+		--slides-to-show: 1;
+	}
+}
+
+/* 1-1-1 */
+
+.blaze-slider[data-variant="1-1-1"] {
+	--slides-to-show: 1;
+	--slide-gap: 20px;
+}

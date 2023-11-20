@@ -59,10 +59,6 @@ html {
 	}
 }
 
-.styled-scrollbar {
-	/* scrollbar-gutter: stable; */
-}
-
 .styled-scrollbar::-webkit-scrollbar {
 	width: 0.5rem;
 	height: 0.5rem;

@@ -1,6 +1,9 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Image from "next/image";
 import thirdwebLogo from "@public/icons/thirdweb-logo.svg";
+import { Steps, Step, Carousel, ArticleCard } from "@/components/Document";
+import testImage from "./test.jpg";
+import test2Image from "./test2.jpg";
 
 export const metadata = {
 	robots: "noindex, nofollow",
@@ -157,7 +160,137 @@ const Msg: React.FC<{ text: string }> = ({text }) => {
 </Tabs>
 
 <br />
+<br />
 
-<Image src={thirdwebLogo} alt="" className="my-10" />
+<Image src={testImage} alt="" className="my-10" />
 
-<div className="h-20" />
+<br />
+<br />
+
+<Image
+	src={testImage}
+	alt=""
+	className="rounded-lg w-auto"
+	style={{
+		height: "300px",
+	}}
+/>
+
+<br />
+<br />
+
+<div className="flex justify-center border py-8 rounded-lg">
+	<Image
+		src={testImage}
+		alt=""
+		className="rounded-lg w-auto"
+		style={{
+			height: "300px",
+		}}
+	/>
+</div>
+
+<br />
+<br />
+
+<Steps>
+
+<Step title="Step 1" >
+
+Content for step 1.
+
+</Step>
+
+<Step title="Step 2" >
+
+content for step 2
+
+</Step>
+
+<Step title="Step 3" >
+
+content for step 3
+
+</Step>
+
+</Steps>
+
+<br />
+<br />
+<br />
+
+<Carousel slidesToShow={{
+	lg: 2,
+	md: 2,
+	sm: 1
+}}>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={test2Image}
+/>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={testImage}
+/>
+
+</Carousel>
+
+<br />
+<br />
+<br />
+
+<Carousel slidesToShow={{
+	lg: 3,
+	md: 2,
+	sm: 1
+}}>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+	image={testImage}
+/>
+
+</Carousel>
