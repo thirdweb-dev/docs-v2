@@ -26,7 +26,7 @@ export function FunctionTDoc(props: {
 		<>
 			{props.showHeading !== false && (
 				<>
-					<br />
+					{props.level !== 1 && <br />}
 					<Heading level={props.level} id={slugger.slug(doc.name)}>
 						{doc.name}
 					</Heading>
