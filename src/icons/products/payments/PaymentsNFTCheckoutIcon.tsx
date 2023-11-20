@@ -31,7 +31,7 @@ export function PaymentsNFTCheckoutIcon(props: { className?: string }) {
 					filterUnits="userSpaceOnUse"
 					colorInterpolationFilters="sRGB"
 				>
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
 					<feComposite
 						in2="SourceAlpha"

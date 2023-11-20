@@ -320,10 +320,6 @@ export const sidebar: SideBar = {
 		components,
 		hooks,
 		{
-			name: "Migration Guide",
-			href: "/react/migration-guide",
-		},
-		{
 			name: "Full Reference",
 			href: "/references/react",
 		},
