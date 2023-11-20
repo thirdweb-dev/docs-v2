@@ -25,6 +25,10 @@ import { DocSearch } from "@/components/others/DocSearch";
 
 const links = [
 	{
+		name: "SDKs",
+		href: "#sdk",
+	},
+	{
 		name: "Wallets",
 		href: "/wallets",
 	},
@@ -91,7 +95,7 @@ export function Header() {
 		<header className="sticky top-0 z-50 flex h-header-height w-full items-center border-b bg-b-900">
 			<div
 				className={
-					"container flex items-center justify-between gap-10 p-4 xl:justify-start"
+					"container flex items-center justify-between gap-6 p-4 xl:justify-start"
 				}
 			>
 				<Link className="flex items-center gap-2" href="/">
