@@ -4,8 +4,15 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ChevronRight, Menu } from "lucide-react";
+import { ChevronDownIcon, Menu } from "lucide-react";
 import clsx from "clsx";
+
+import {
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+	Accordion,
+} from "@/components/ui/accordion";
 
 import {
 	DropdownMenu,
@@ -35,7 +42,7 @@ const links = [
 	},
 ];
 
-const references = [
+const referenceLinks = [
 	{
 		name: "TypeScript",
 		href: "/references/typescript",
@@ -63,6 +70,17 @@ const references = [
 	{
 		name: "Go",
 		href: "/references/go",
+	},
+];
+
+const supportLinks = [
+	{
+		name: "Get Help",
+		href: "https://support.thirdweb.com/",
+	},
+	{
+		name: "Contact us",
+		href: "https://thirdweb.com/contact-us",
 	},
 ];
 
@@ -129,54 +147,17 @@ export function Header() {
 							<DocSearch variant="search" />
 						</div>
 
-						{/* References Dropdown for desktop */}
-						<div className="hidden xl:block">
-							<DropdownMenu>
-								<DropdownMenuTrigger asChild>
-									<Button
-										variant="ghost"
-										size="sm"
-										className="inline-flex gap-1 text-f-300 hover:text-f-100"
-									>
-										References
-										<ChevronRight className="w-4 text-f-300" />
-									</Button>
-								</DropdownMenuTrigger>
+						<div className="flex flex-col gap-5 xl:flex-row xl:gap-1">
+							<DropdownLinks
+								links={referenceLinks}
+								onLinkClick={() => setShowBurgerMenu(false)}
+								category="References"
+							/>
 
-								<DropdownMenuContent
-									className="flex flex-col gap-1 bg-b-800 p-3"
-									style={{
-										width: "150px",
-									}}
-								>
-									{references.map((info) => {
-										return (
-											<DropdownMenuItem asChild key={info.name}>
-												<Link
-													href={info.href}
-													prefetch={false}
-													className={clsx(
-														"flex cursor-pointer text-f-200",
-														"hover:bg-b-600 hover:text-f-100",
-													)}
-												>
-													{info.name}
-												</Link>
-											</DropdownMenuItem>
-										);
-									})}
-								</DropdownMenuContent>
-							</DropdownMenu>
-						</div>
-
-						{/* References Link for mobile */}
-						<div className="xl:hidden">
-							<NavLink
-								name="References"
-								href="/references"
-								onClick={() => {
-									setShowBurgerMenu(false);
-								}}
+							<DropdownLinks
+								links={supportLinks}
+								onLinkClick={() => setShowBurgerMenu(false)}
+								category="Support"
 							/>
 						</div>
 
@@ -194,14 +175,92 @@ export function Header() {
 	);
 }
 
+function DropdownLinks(props: {
+	onLinkClick?: () => void;
+	category: string;
+	links: Array<{ name: string; href: string }>;
+}) {
+	return (
+		<>
+			{/* desktop */}
+			<div className="hidden xl:block">
+				<DropdownMenu>
+					<DropdownMenuTrigger asChild>
+						<Button
+							variant="ghost"
+							className="inline-flex gap-1 pl-2 pr-1 text-f-300 hover:text-f-100"
+						>
+							{props.category}
+							<ChevronDownIcon className="w-4 text-f-300 opacity-70" />
+						</Button>
+					</DropdownMenuTrigger>
+
+					<DropdownMenuContent
+						className="flex flex-col gap-1 bg-b-800 p-3"
+						style={{
+							width: "150px",
+						}}
+					>
+						{props.links.map((info) => {
+							return (
+								<DropdownMenuItem asChild key={info.name}>
+									<Link
+										href={info.href}
+										target={info.href.startsWith("http") ? "_blank" : ""}
+										prefetch={false}
+										className={clsx(
+											"flex cursor-pointer text-f-200",
+											"hover:bg-b-600 hover:text-f-100",
+										)}
+									>
+										{info.name}
+									</Link>
+								</DropdownMenuItem>
+							);
+						})}
+					</DropdownMenuContent>
+				</DropdownMenu>
+			</div>
+
+			{/* mobile */}
+			<div className="xl:hidden">
+				<Accordion type="multiple">
+					<AccordionItem value="x" className="border-none">
+						<AccordionTrigger className="py-0 text-base text-f-300">
+							{props.category}
+						</AccordionTrigger>
+						<AccordionContent>
+							<div className="pt-2">
+								<div className="flex flex-col gap-4 border-l-2 pl-4 pt-3">
+									{props.links.map((info) => {
+										return (
+											<NavLink
+												key={info.name}
+												name={info.name}
+												href={info.href}
+												onClick={props.onLinkClick}
+											/>
+										);
+									})}
+								</div>
+							</div>
+						</AccordionContent>
+					</AccordionItem>
+				</Accordion>
+			</div>
+		</>
+	);
+}
+
 function NavLink(props: { href: string; name: string; onClick?: () => void }) {
 	const pathname = usePathname();
 	return (
 		<Link
 			href={props.href}
 			onClick={props.onClick}
+			target={props.href.startsWith("http") ? "_blank" : ""}
 			className={clsx(
-				"text-sm transition-colors hover:text-f-100",
+				"text-base transition-colors hover:text-f-100 xl:text-sm",
 				pathname === props.href ? "text-f-100" : "text-f-300 ",
 			)}
 		>
