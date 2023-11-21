@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.5.0"
+		"typedocBetterJsonVersion": "0.5.2"
 	},
 	"functions": [
 		{
@@ -2160,7 +2160,8 @@
 					"typeParameters": [
 						{
 							"name": "TChains",
-							"extendsType": "Chain[]"
+							"extendsType": "Chain[]",
+							"defaultType": "Array<({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  })>"
 						}
 					],
 					"blockTags": [

@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.5.0"
+		"typedocBetterJsonVersion": "0.5.2"
 	},
 	"functions": [
 		{
@@ -5800,7 +5800,8 @@
 			"typeParameters": [
 				{
 					"name": "TFunctions",
-					"extendsType": "{  }"
+					"extendsType": "{  }",
+					"defaultType": "{  }"
 				}
 			],
 			"type": "{_deployedPromise : Promise<Contract>,_runningEvents : {  },_wrappedEmits : {  },address : string,callStatic : {  },deployTransaction : TransactionResponse,estimateGas : {  },filters : {  },functions : TFunctions,interface : Interface,populateTransaction : {  },provider : Provider,resolvedAddress : Promise<string>,signer : Signer,_checkRunningEvents : (runningEvent: RunningEvent) => void,_deployed : (blockTag?: BlockTag) => Promise<Contract>,_wrapEvent : (runningEvent: RunningEvent, log: Log, listener: Listener) => Event,attach : (addressOrName: string) => Contract,connect : (signerOrProvider: (string) | (Signer) | (Provider)) => Contract,deployed : () => Promise<Contract>,emit : (eventName: (string) | (EventFilter), ...args: any[]) => boolean,fallback : (overrides?: TransactionRequest) => Promise<TransactionResponse>,listenerCount : (eventName?: (string) | (EventFilter)) => number,listeners : (eventName?: (string) | (EventFilter)) => Listener[],off : (eventName: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>,on : (event: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>,once : (event: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>,queryFilter : (event: (string) | (EventFilter), fromBlockOrBlockhash?: BlockTag, toBlock?: BlockTag) => Promise<Event[]>,removeAllListeners : (eventName?: (string) | (EventFilter)) => BaseContractInterface<TFunctions>,removeListener : (eventName: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>}",
@@ -7259,7 +7260,8 @@
 			"typeParameters": [
 				{
 					"name": "TFilter",
-					"extendsType": "Record<string, any>"
+					"extendsType": "Record<string, any>",
+					"defaultType": "Record<string, any>"
 				}
 			],
 			"type": "{filters : TFilter,fromBlock : (string) | (number),order : (\"asc\") | (\"desc\"),toBlock : (string) | (number)}",
@@ -10557,7 +10559,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/sdk/src/evm/types/events.ts#L16",
 			"typeParameters": [
 				{
-					"name": "TEvent"
+					"name": "TEvent",
+					"defaultType": "Record<string, any>"
 				}
 			],
 			"type": "{ data: TEvent; eventName: string; transaction: { address: string; blockHash: string; blockNumber: number; data: string; logIndex: number; removed: boolean; topics: string[]; transactionHash: string; transactionIndex: number } }",
@@ -11632,7 +11635,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/sdk/src/evm/types/transactions.ts#L17",
 			"typeParameters": [
 				{
-					"name": "TResult"
+					"name": "TResult",
+					"defaultType": "TransactionResult"
 				}
 			],
 			"type": "((receipt: providers.TransactionReceipt) => TResult) | ((receipt: providers.TransactionReceipt) => Promise<TResult>)"
@@ -12412,7 +12416,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/sdk/src/evm/types/transactions.ts#L48",
 			"typeParameters": [
 				{
-					"name": "TResult"
+					"name": "TResult",
+					"defaultType": "TransactionResult"
 				}
 			],
 			"type": "Omit<TransactionOptions<TResult>, \"contract\"> & { contract: Contract; provider: providers.Provider; signer: Signer }"
@@ -12423,7 +12428,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/sdk/src/evm/types/transactions.ts#L57",
 			"typeParameters": [
 				{
-					"name": "TResult"
+					"name": "TResult",
+					"defaultType": "TransactionResult"
 				}
 			],
 			"type": "Omit<TransactionOptionsWithContract<TResult>, \"contract\"> & { contractAbi: ContractInterface; contractAddress: string; provider: providers.Provider }"
@@ -12438,11 +12444,13 @@
 					"extendsType": "BaseContract"
 				},
 				{
-					"name": "TResult"
+					"name": "TResult",
+					"defaultType": "TransactionResult"
 				},
 				{
 					"name": "TMethod",
-					"extendsType": "keyof TContract[\"functions\"]"
+					"extendsType": "keyof TContract[\"functions\"]",
+					"defaultType": "keyof TContract[\"functions\"]"
 				}
 			],
 			"type": "Omit<TransactionOptions<TResult>, \"storage\"> & { args: Parameters<TContract[\"functions\"][TMethod]>; contractWrapper: ContractWrapper<TContract>; method: TMethod }"
@@ -12453,7 +12461,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/sdk/src/evm/core/types.ts#L54",
 			"typeParameters": [
 				{
-					"name": "T"
+					"name": "T",
+					"defaultType": "never"
 				}
 			],
 			"type": "If<Equals<T, never>, Omit<TransactionResultWithMetadata, \"data\">, TransactionResultWithMetadata<T>>"
@@ -12464,7 +12473,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/sdk/src/evm/core/types.ts#L50",
 			"typeParameters": [
 				{
-					"name": "T"
+					"name": "T",
+					"defaultType": "never"
 				}
 			],
 			"type": "TransactionResult<T> & { address: string }"
@@ -12475,7 +12485,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/sdk/src/evm/core/types.ts#L46",
 			"typeParameters": [
 				{
-					"name": "T"
+					"name": "T",
+					"defaultType": "never"
 				}
 			],
 			"type": "TransactionResult<T> & { id: BigNumber }"
@@ -17978,7 +17989,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["RPCConnectionHandler"]
 		},
 		{
 			"kind": "class",
@@ -18500,11 +18512,13 @@
 							"typeParameters": [
 								{
 									"name": "TEvent",
-									"extendsType": "Record<string, any>"
+									"extendsType": "Record<string, any>",
+									"defaultType": "Record<string, any>"
 								},
 								{
 									"name": "TFilter",
-									"extendsType": "Record<string, any>"
+									"extendsType": "Record<string, any>",
+									"defaultType": "Record<string, any>"
 								}
 							],
 							"blockTags": [
@@ -18641,7 +18655,8 @@
 							},
 							"typeParameters": [
 								{
-									"name": "TEvent"
+									"name": "TEvent",
+									"defaultType": "Record<string, any>"
 								}
 							]
 						}
@@ -22507,7 +22522,8 @@
 						"isPublic": true
 					}
 				}
-			]
+			],
+			"extends": ["TransactionContext"]
 		},
 		{
 			"kind": "class",
@@ -26036,7 +26052,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc1155<TokenERC1155>"]
 		},
 		{
 			"kind": "class",
@@ -27515,7 +27532,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc1155<PrebuiltEditionDrop>"]
 		},
 		{
 			"kind": "class",
@@ -27584,7 +27602,8 @@
 						"typeParameters": [
 							{
 								"name": "T",
-								"extendsType": "(BaseERC1155) | (DropERC1155) | (TokenERC1155)"
+								"extendsType": "(BaseERC1155) | (DropERC1155) | (TokenERC1155)",
+								"defaultType": "(BaseERC1155) | (BaseSignatureMintERC1155)"
 							}
 						]
 					}
@@ -30476,7 +30495,8 @@
 			"typeParameters": [
 				{
 					"name": "T",
-					"extendsType": "(DropERC1155) | (TokenERC1155) | (BaseERC1155)"
+					"extendsType": "(DropERC1155) | (TokenERC1155) | (BaseERC1155)",
+					"defaultType": "(BaseERC1155) | (BaseSignatureMintERC1155)"
 				}
 			],
 			"implements": ["UpdateableNetwork", "DetectableFeature"]
@@ -32831,7 +32851,8 @@
 						"typeParameters": [
 							{
 								"name": "T",
-								"extendsType": "(BaseERC20) | (DropERC20) | (TokenERC20)"
+								"extendsType": "(BaseERC20) | (DropERC20) | (TokenERC20)",
+								"defaultType": "(BaseERC20) | (BaseSignatureMintERC20)"
 							}
 						]
 					}
@@ -34751,7 +34772,8 @@
 			"typeParameters": [
 				{
 					"name": "T",
-					"extendsType": "(TokenERC20) | (DropERC20) | (BaseERC20)"
+					"extendsType": "(TokenERC20) | (DropERC20) | (BaseERC20)",
+					"defaultType": "(BaseERC20) | (BaseSignatureMintERC20)"
 				}
 			],
 			"implements": ["UpdateableNetwork", "DetectableFeature"]
@@ -36360,7 +36382,8 @@
 						"typeParameters": [
 							{
 								"name": "T",
-								"extendsType": "(BaseERC721) | (DropERC721) | (SignatureDrop) | (TokenERC721) | (Multiwrap)"
+								"extendsType": "(BaseERC721) | (DropERC721) | (SignatureDrop) | (TokenERC721) | (Multiwrap)",
+								"defaultType": "BaseERC721"
 							}
 						]
 					}
@@ -39299,7 +39322,8 @@
 			"typeParameters": [
 				{
 					"name": "T",
-					"extendsType": "(Multiwrap) | (SignatureDrop) | (DropERC721) | (TokenERC721) | (BaseERC721)"
+					"extendsType": "(Multiwrap) | (SignatureDrop) | (DropERC721) | (TokenERC721) | (BaseERC721)",
+					"defaultType": "BaseERC721"
 				}
 			],
 			"implements": ["UpdateableNetwork", "DetectableFeature"]
@@ -51021,7 +51045,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc721<MultiwrapContract>"]
 		},
 		{
 			"kind": "class",
@@ -52410,7 +52435,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc721<TokenERC721>"]
 		},
 		{
 			"kind": "class",
@@ -54158,7 +54184,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc721<PrebuiltNFTDrop>"]
 		},
 		{
 			"kind": "class",
@@ -55602,7 +55629,8 @@
 						"type": "PackVRF"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc1155<PackContract>"]
 		},
 		{
 			"kind": "class",
@@ -57362,7 +57390,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc721<SignatureDropContract>"]
 		},
 		{
 			"kind": "class",
@@ -57433,7 +57462,8 @@
 						"typeParameters": [
 							{
 								"name": "TContract",
-								"extendsType": "BaseContractInterface<{  }>"
+								"extendsType": "BaseContractInterface<{  }>",
+								"defaultType": "BaseContract"
 							}
 						]
 					}
@@ -57505,7 +57535,8 @@
 							"typeParameters": [
 								{
 									"name": "TMethod",
-									"extendsType": "(string) | (number) | (symbol)"
+									"extendsType": "(string) | (number) | (symbol)",
+									"defaultType": "keyof TContract[\"functions\"]"
 								}
 							],
 							"blockTags": [
@@ -57827,7 +57858,8 @@
 							"typeParameters": [
 								{
 									"name": "TMethod",
-									"extendsType": "(string) | (number) | (symbol)"
+									"extendsType": "(string) | (number) | (symbol)",
+									"defaultType": "keyof TContract[\"functions\"]"
 								}
 							]
 						}
@@ -58083,7 +58115,8 @@
 			"typeParameters": [
 				{
 					"name": "TContract",
-					"extendsType": "BaseContractInterface"
+					"extendsType": "BaseContractInterface",
+					"defaultType": "BaseContract"
 				}
 			],
 			"implements": ["UpdateableNetwork"]
@@ -59031,7 +59064,8 @@
 						"typeParameters": [
 							{
 								"name": "T",
-								"extendsType": "(BaseERC1155) | (DropERC1155) | (TokenERC1155)"
+								"extendsType": "(BaseERC1155) | (DropERC1155) | (TokenERC1155)",
+								"defaultType": "(BaseERC1155) | (BaseSignatureMintERC1155)"
 							}
 						]
 					}
@@ -59553,7 +59587,8 @@
 			"typeParameters": [
 				{
 					"name": "T",
-					"extendsType": "(DropERC1155) | (TokenERC1155) | (BaseERC1155)"
+					"extendsType": "(DropERC1155) | (TokenERC1155) | (BaseERC1155)",
+					"defaultType": "(BaseERC1155) | (BaseSignatureMintERC1155)"
 				}
 			],
 			"implements": ["UpdateableNetwork"]
@@ -59625,7 +59660,8 @@
 						"typeParameters": [
 							{
 								"name": "T",
-								"extendsType": "(BaseERC20) | (DropERC20) | (TokenERC20)"
+								"extendsType": "(BaseERC20) | (DropERC20) | (TokenERC20)",
+								"defaultType": "(BaseERC20) | (BaseSignatureMintERC20)"
 							}
 						]
 					}
@@ -60410,7 +60446,8 @@
 			"typeParameters": [
 				{
 					"name": "T",
-					"extendsType": "(TokenERC20) | (DropERC20) | (BaseERC20)"
+					"extendsType": "(TokenERC20) | (DropERC20) | (BaseERC20)",
+					"defaultType": "(BaseERC20) | (BaseSignatureMintERC20)"
 				}
 			],
 			"implements": ["UpdateableNetwork"]
@@ -60482,7 +60519,8 @@
 						"typeParameters": [
 							{
 								"name": "T",
-								"extendsType": "(BaseERC721) | (DropERC721) | (SignatureDrop) | (TokenERC721)"
+								"extendsType": "(BaseERC721) | (DropERC721) | (SignatureDrop) | (TokenERC721)",
+								"defaultType": "BaseERC721"
 							}
 						]
 					}
@@ -61152,7 +61190,8 @@
 			"typeParameters": [
 				{
 					"name": "T",
-					"extendsType": "(SignatureDrop) | (DropERC721) | (TokenERC721) | (BaseERC721)"
+					"extendsType": "(SignatureDrop) | (DropERC721) | (TokenERC721) | (BaseERC721)",
+					"defaultType": "BaseERC721"
 				}
 			],
 			"implements": ["UpdateableNetwork"]
@@ -63053,7 +63092,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["StaticJsonRpcProvider"]
 		},
 		{
 			"kind": "class",
@@ -65817,7 +65857,8 @@
 						"type": "void"
 					}
 				}
-			]
+			],
+			"extends": ["RPCConnectionHandler"]
 		},
 		{
 			"kind": "class",
@@ -67494,7 +67535,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc20<TokenERC20>"]
 		},
 		{
 			"kind": "class",
@@ -69032,7 +69074,8 @@
 						"type": "number"
 					}
 				}
-			]
+			],
+			"extends": ["StandardErc20<PrebuiltTokenDrop>"]
 		},
 		{
 			"kind": "class",
@@ -69190,7 +69233,8 @@
 						},
 						"typeParameters": [
 							{
-								"name": "TResult"
+								"name": "TResult",
+								"defaultType": "Omit<TransactionResultWithMetadata<unknown>, \"data\">"
 							}
 						]
 					}
@@ -69904,7 +69948,8 @@
 							},
 							"typeParameters": [
 								{
-									"name": "TResult"
+									"name": "TResult",
+									"defaultType": "Omit<TransactionResultWithMetadata<unknown>, \"data\">"
 								}
 							]
 						}
@@ -69931,7 +69976,8 @@
 									"extendsType": "BaseContract"
 								},
 								{
-									"name": "TResult"
+									"name": "TResult",
+									"defaultType": "Omit<TransactionResultWithMetadata<unknown>, \"data\">"
 								}
 							]
 						}
@@ -70071,9 +70117,11 @@
 			],
 			"typeParameters": [
 				{
-					"name": "TResult"
+					"name": "TResult",
+					"defaultType": "TransactionResult"
 				}
-			]
+			],
+			"extends": ["TransactionContext"]
 		},
 		{
 			"kind": "class",
@@ -70302,7 +70350,8 @@
 						"type": "string"
 					}
 				}
-			]
+			],
+			"extends": ["Error"]
 		},
 		{
 			"kind": "class",

@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.5.0"
+		"typedocBetterJsonVersion": "0.5.2"
 	},
 	"functions": [
 		{
@@ -1509,7 +1509,8 @@
 					"typeParameters": [
 						{
 							"name": "TChains",
-							"extendsType": "Chain[]"
+							"extendsType": "Chain[]",
+							"defaultType": "Array<({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  })>"
 						}
 					],
 					"blockTags": [
@@ -2234,7 +2235,8 @@
 						"isPublic": true
 					}
 				}
-			]
+			],
+			"extends": ["AbstractClientWallet<CoinbaseWalletConnectorOptions>"]
 		},
 		{
 			"kind": "class",
@@ -2954,6 +2956,9 @@
 						"isExternal": true
 					}
 				}
+			],
+			"extends": [
+				"AbstractClientWallet<EmbeddedWalletOptions, EmbeddedWalletConnectionArgs>"
 			]
 		},
 		{
@@ -3502,7 +3507,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["LocalWallet"]
 		},
 		{
 			"kind": "class",
@@ -4140,6 +4146,9 @@
 						"isExternal": true
 					}
 				}
+			],
+			"extends": [
+				"AbstractClientWallet<MagicLinkOptions, MagicConnectorOptions>"
 			]
 		},
 		{
@@ -4777,7 +4786,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["MagicLink"]
 		},
 		{
 			"kind": "class",
@@ -5346,7 +5356,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["WalletConnectBase"]
 		},
 		{
 			"kind": "class",
@@ -5915,7 +5926,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["WalletConnectBase"]
 		},
 		{
 			"kind": "class",
@@ -6415,7 +6427,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["ThirdwebSDK"]
 		},
 		{
 			"kind": "class",
@@ -6441,7 +6454,8 @@
 						"typeParameters": [
 							{
 								"name": "T",
-								"extendsType": "UploadOptions"
+								"extendsType": "UploadOptions",
+								"defaultType": "IpfsUploadBatchOptions"
 							}
 						]
 					}
@@ -6576,7 +6590,8 @@
 							},
 							"typeParameters": [
 								{
-									"name": "TJSON"
+									"name": "TJSON",
+									"defaultType": "any"
 								}
 							],
 							"blockTags": [
@@ -6909,7 +6924,8 @@
 			"typeParameters": [
 				{
 					"name": "T",
-					"extendsType": "UploadOptions"
+					"extendsType": "UploadOptions",
+					"defaultType": "IpfsUploadBatchOptions"
 				}
 			],
 			"implements": ["IThirdwebStorage"]
@@ -7481,7 +7497,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["WalletConnectBase"]
 		},
 		{
 			"kind": "class",
@@ -8092,7 +8109,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["WalletConnectBase"]
 		},
 		{
 			"kind": "class",
@@ -8626,7 +8644,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["WalletConnect"]
 		},
 		{
 			"kind": "class",
@@ -9186,7 +9205,8 @@
 						"isExternal": true
 					}
 				}
-			]
+			],
+			"extends": ["WalletConnectBase"]
 		}
 	]
 }

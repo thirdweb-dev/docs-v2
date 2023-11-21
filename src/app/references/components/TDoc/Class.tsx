@@ -35,12 +35,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 
 			{/* Constructor */}
 			{doc.constructor && (
-				<Details
-					id="constructor"
-					level={2}
-					summary="Constructor"
-					headingClassName="font-mono"
-				>
+				<Details id="constructor" level={2} summary="Constructor">
 					<FunctionTDoc doc={doc.constructor} level={2} showHeading={false} />
 				</Details>
 			)}
@@ -60,7 +55,6 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 									key={i}
 									summary={method.name}
 									id={method.name}
-									headingClassName="font-mono"
 									tags={[
 										flags?.isOptional ? "optional" : "",
 										flags?.isStatic ? "static" : "",
@@ -89,12 +83,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 					<div>
 						{properties.map((property, i) => {
 							return (
-								<Details
-									key={i}
-									summary={property.name}
-									id={property.name}
-									headingClassName="font-mono"
-								>
+								<Details key={i} summary={property.name} id={property.name}>
 									<VariableTDoc
 										doc={property}
 										key={property.name}
@@ -131,7 +120,27 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 }
 
 function getClassSignatureDoc(classDoc: ClassDoc) {
-	return `class ${classDoc.name} ${
-		classDoc.implements ? `implements ${classDoc.implements?.join(", ")}` : ""
-	} {}`;
+	const generic = classDoc.typeParameters
+		? `<${classDoc.typeParameters
+				.map((t) => {
+					const defaultVal = t.defaultType ? ` = ${t.defaultType}` : "";
+					return (
+						(t.extendsType ? `${t.name} extends ${t.extendsType}` : t.name) +
+						defaultVal
+					);
+				})
+				.join(", ")}>`
+		: "";
+
+	const implmentsStr = classDoc.implements
+		? `implements ${classDoc.implements?.join(", ")}`
+		: "";
+
+	const extendsStr = classDoc.extends
+		? `extends ${classDoc.extends?.join(", ")}`
+		: "";
+
+	return `class ${classDoc.name}${generic} ${[extendsStr, implmentsStr].join(
+		" ",
+	)} {}`;
 }
