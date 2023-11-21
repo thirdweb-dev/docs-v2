@@ -10,6 +10,19 @@ import { Details } from "../../../../components/Document/Details";
 export function ClassTDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
 
+	const methods = doc.methods?.filter((method) => {
+		const flags = method.signatures && method.signatures[0]?.flags;
+		return !flags?.isPrivate && !flags?.isProtected;
+	});
+
+	const properties = doc.properties?.filter((property) => {
+		return !property.flags?.isPrivate && !property.flags?.isProtected;
+	});
+
+	const accessors = doc.accessors?.filter((accessor) => {
+		return !accessor.flags?.isPrivate && !accessor.flags?.isProtected;
+	});
+
 	return (
 		<div>
 			<Heading level={1} id={doc.name}>
@@ -33,14 +46,14 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Methods */}
-			{doc.methods && (
+			{methods && methods.length > 1 && (
 				<div>
 					<br />
 					<Heading level={2} id="methods">
 						Methods
 					</Heading>
 					<div>
-						{doc.methods.map((method, i) => {
+						{methods.map((method, i) => {
 							const flags = method.signatures && method.signatures[0]?.flags;
 							return (
 								<Details
@@ -50,8 +63,6 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 									headingClassName="font-mono"
 									tags={[
 										flags?.isOptional ? "optional" : "",
-										flags?.isPrivate ? "private" : "",
-										flags?.isProtected ? "protected" : "",
 										flags?.isStatic ? "static" : "",
 									].filter((w) => w)}
 								>
@@ -69,25 +80,20 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Properties */}
-			{doc.properties && (
+			{properties && properties.length > 1 && (
 				<div>
 					<br />
 					<Heading level={2} id="properties">
 						Properties
 					</Heading>
 					<div>
-						{doc.properties.map((property, i) => {
-							const flags: string[] = [];
-							if (property.flags?.isPrivate) {
-								flags.push("private");
-							}
+						{properties.map((property, i) => {
 							return (
 								<Details
 									key={i}
 									summary={property.name}
 									id={property.name}
 									headingClassName="font-mono"
-									tags={flags}
 								>
 									<VariableTDoc
 										doc={property}
@@ -103,14 +109,14 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Accessor */}
-			{doc.accessors && (
+			{accessors && accessors.length > 1 && (
 				<div>
 					<br />
 					<Heading level={2} id="properties" className="text-5xl">
 						Accessors
 					</Heading>
 					<div>
-						{doc.accessors.map((accessor, i) => {
+						{accessors.map((accessor, i) => {
 							return (
 								<Details key={i} id={accessor.name} summary={accessor.name}>
 									<AccessorTDoc doc={accessor} key={accessor.name} level={3} />

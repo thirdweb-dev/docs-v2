@@ -6,6 +6,11 @@ import { SourceLinkTypeDoc } from "./SourceLink";
 import { TypeDeclarationTDoc } from "./TypeDeclaration";
 import { FunctionTDoc } from "./Function";
 import { Details } from "../../../../components/Document/Details";
+import { getTags } from "./utils/getTags";
+import { DeprecatedCalloutTDoc } from "./Deprecated";
+import { sluggerContext } from "@/contexts/slugger";
+import invariant from "tiny-invariant";
+import { Callout } from "@/components/Document";
 
 export function VariableTDoc(props: {
 	doc: VariableDoc;
@@ -13,6 +18,14 @@ export function VariableTDoc(props: {
 	showHeading?: boolean;
 }) {
 	const { doc } = props;
+	const { exampleTag, deprecatedTag, remarksTag, seeTag } = getTags(
+		doc.blockTags,
+	);
+
+	const subLevel = props.showHeading === false ? props.level : props.level + 1;
+
+	const slugger = sluggerContext.get();
+	invariant(slugger, "slugger context not set");
 
 	return (
 		<>
@@ -24,9 +37,27 @@ export function VariableTDoc(props: {
 
 			{doc.source && <SourceLinkTypeDoc href={doc.source} />}
 
+			{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
 			{doc.summary && <TypedocSummary summary={doc.summary} />}
+			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
+
+			{seeTag?.summary && (
+				<Callout variant="info">
+					<TypedocSummary summary={seeTag.summary} />
+				</Callout>
+			)}
 
 			<CodeBlock lang="ts" code={getVariableSignatureCode(doc)} />
+
+			{exampleTag?.summary && (
+				<>
+					<br />
+					<Heading level={subLevel} id={slugger.slug("example")}>
+						Example
+					</Heading>
+					<TypedocSummary summary={exampleTag.summary} />
+				</>
+			)}
 
 			{doc.typeDeclaration?.map((declaration, i) => {
 				return (

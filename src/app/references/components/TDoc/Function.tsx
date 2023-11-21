@@ -8,6 +8,7 @@ import { Details } from "../../../../components/Document/Details";
 import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
+import { getTags } from "./utils/getTags";
 
 export function FunctionTDoc(props: {
 	doc: FunctionDoc;
@@ -58,13 +59,9 @@ function RenderFunctionSignature(props: {
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
 
-	const deprecatedTag = signature.blockTags?.find(
-		(t) => t.tag === "@deprecated",
+	const { deprecatedTag, remarksTag, seeTag, exampleTag } = getTags(
+		signature.blockTags,
 	);
-
-	const remarksTag = signature.blockTags?.find((t) => t.tag === "@remarks");
-	const seeTags = signature.blockTags?.filter((t) => t.tag === "@see");
-	const exampleTag = signature.blockTags?.find((t) => t.tag === "@example");
 
 	const subLevel = props.signatureId ? props.level + 1 : props.level;
 
@@ -94,17 +91,23 @@ function RenderFunctionSignature(props: {
 			{signature.summary && <TypedocSummary summary={signature.summary} />}
 			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
 
+			{seeTag?.summary && (
+				<Callout variant="info">
+					<TypedocSummary summary={seeTag.summary} />
+				</Callout>
+			)}
+
 			<CodeBlock code={getFunctionSignatureCode(name, signature)} lang="ts" />
 
-			{seeTags?.map((seeTag, i) => {
-				if (seeTag.summary) {
-					return (
-						<Callout variant="info" key={i}>
-							<TypedocSummary summary={seeTag.summary} />
-						</Callout>
-					);
-				}
-			})}
+			{exampleTag?.summary && (
+				<>
+					<br />
+					<Heading level={subLevel} id={slugger.slug("example")}>
+						Example
+					</Heading>
+					<TypedocSummary summary={exampleTag.summary} />
+				</>
+			)}
 
 			{signature.parameters && (
 				<div className="mt-5">
@@ -162,18 +165,6 @@ function RenderFunctionSignature(props: {
 							/>
 						)}
 					</div>
-				</div>
-			)}
-
-			{exampleTag && (
-				<div className="mt-5">
-					<br />
-					<Heading level={subLevel} id={slugger.slug("example")}>
-						Example
-					</Heading>
-					{exampleTag.summary && (
-						<TypedocSummary summary={exampleTag.summary} />
-					)}
 				</div>
 			)}
 

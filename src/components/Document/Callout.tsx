@@ -19,25 +19,27 @@ export function Callout(props: {
 					"bg-accent-900 border border-accent-500 [&_code]:border-none [&_code]:bg-accent-700",
 			)}
 		>
-			<div className="flex items-center gap-3">
-				{!props.disableIcon && (
-					<>
-						{props.variant === "danger" && (
-							<AlertTriangle className="h-6 w-6 shrink-0 text-danger-500" />
-						)}
+			{props.title && (
+				<div className="flex items-center gap-3">
+					{!props.disableIcon && (
+						<>
+							{props.variant === "danger" && (
+								<AlertTriangle className="h-6 w-6 shrink-0 text-danger-500" />
+							)}
 
-						{props.variant === "warning" && (
-							<AlertCircle className="h-6 w-6 shrink-0 text-warning-500" />
-						)}
+							{props.variant === "warning" && (
+								<AlertCircle className="h-6 w-6 shrink-0 text-warning-500" />
+							)}
 
-						{props.variant === "info" && (
-							<Info className="h-6 w-6 shrink-0 text-accent-500" />
-						)}
-					</>
-				)}
+							{props.variant === "info" && (
+								<Info className="h-6 w-6 shrink-0 text-accent-500" />
+							)}
+						</>
+					)}
 
-				<h3 className="text-base font-semibold text-f-100">{props.title}</h3>
-			</div>
+					<h3 className="text-base font-semibold text-f-100">{props.title}</h3>
+				</div>
+			)}
 
 			<div className="flex flex-col gap-2">{props.children}</div>
 		</div>
