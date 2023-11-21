@@ -2,7 +2,7 @@ import { SideBar } from "@/components/Layouts/DocLayout";
 import { SidebarLink } from "@/components/others/Sidebar";
 
 const prebuilt: SidebarLink = (() => {
-	const parentSlug = "/pre-built-contracts";
+	const parentSlug = "/contracts/pre-built-contracts";
 	return {
 		name: "Pre-built Contracts",
 		links: [
@@ -98,5 +98,9 @@ export const sidebar: SideBar = {
 			href: "/contracts",
 		},
 		prebuilt,
+		{
+			name: "FAQs",
+			href: "/contracts/faqs",
+		},
 	],
 };
