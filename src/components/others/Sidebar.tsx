@@ -18,6 +18,8 @@ import { useState } from "react";
 import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import Image from "next/image";
 
 export type LinkMeta = {
 	name: string;
@@ -29,7 +31,22 @@ export type LinkGroup = {
 	href?: string;
 	links: SidebarLink[];
 	expanded?: boolean;
+	/**
+	 * If set to false, the the group will not be rendered as an accordion
+	 * @defaultValue true
+	 */
+	isCollapsible?: boolean;
+	icon?: StaticImport | React.ReactElement;
 };
+
+export function isStaticImport(value: any): value is StaticImport {
+	const isObj = typeof value === "object" && value !== null;
+	if (!isObj) {
+		return false;
+	}
+
+	return "default" in value || "src" in value;
+}
 
 export type SidebarLink = LinkMeta | LinkGroup;
 
@@ -65,12 +82,8 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 		return (
 			<DocSidebarCategory
 				key={link.name}
+				linkGroup={link}
 				onLinkClick={props.onLinkClick}
-				links={link.links}
-				category={link.name}
-				id={link.name}
-				href={link.href}
-				expanded={link.expanded}
 			/>
 		);
 	} else {
@@ -90,21 +103,51 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 }
 
 function DocSidebarCategory(props: {
-	links: SidebarLink[];
-	category: string;
-	id: string;
-	href?: string;
+	linkGroup: LinkGroup;
 	onLinkClick?: () => void;
-	expanded?: boolean;
 }) {
 	const pathname = usePathname();
-	const isCategoryActive = props.href && props.href === pathname;
+	const { href, isCollapsible, name, links, expanded, icon } = props.linkGroup;
+	const isCategoryActive = href && href === pathname;
+
+	if (isCollapsible === false) {
+		return (
+			<div className="my-6">
+				<div className="mb-2 flex items-center gap-2">
+					{icon && <SidebarIcon icon={icon} />}
+					{href ? (
+						<Link
+							className={cn(
+								"block text-base font-semibold text-f-100 hover:text-accent-500",
+								isCategoryActive && "!text-accent-500",
+							)}
+							href={href}
+						>
+							{name}
+						</Link>
+					) : (
+						<div className="text-base font-semibold">{name}</div>
+					)}
+				</div>
+
+				<ul className="flex flex-col">
+					{links.map((link) => {
+						return (
+							<li key={link.name + link.href}>
+								<SidebarItem link={link} onLinkClick={props.onLinkClick} />
+							</li>
+						);
+					})}
+				</ul>
+			</div>
+		);
+	}
 
 	const hasActiveHref = containsActiveHref(
 		{
-			name: props.category,
-			links: props.links,
-			href: props.href,
+			name: name,
+			links: links,
+			href: href,
 		},
 		pathname,
 	);
@@ -117,7 +160,10 @@ function DocSidebarCategory(props: {
 				"text-f-300 hover:text-f-100",
 			)}
 		>
-			{props.category}
+			<div className="flex gap-2">
+				{icon && <SidebarIcon icon={icon} />}
+				{name}
+			</div>
 		</AccordionTrigger>
 	);
 
@@ -125,11 +171,11 @@ function DocSidebarCategory(props: {
 		<Accordion
 			collapsible
 			type="single"
-			defaultValue={props.expanded || hasActiveHref ? "x" : undefined}
+			defaultValue={expanded || hasActiveHref ? "x" : undefined}
 		>
 			<AccordionItem value="x" className="border-none">
-				{props.href ? (
-					<Link href={props.href} className={cn("block w-full text-left")}>
+				{href ? (
+					<Link href={href} className={cn("block w-full text-left")}>
 						{trigger}
 					</Link>
 				) : (
@@ -138,7 +184,7 @@ function DocSidebarCategory(props: {
 
 				<AccordionContent>
 					<ul className="flex flex-col border-l-2 pl-4">
-						{props.links.map((link) => {
+						{links.map((link) => {
 							return (
 								<li key={link.name + link.href}>
 									<SidebarItem link={link} onLinkClick={props.onLinkClick} />
@@ -208,4 +254,11 @@ function containsActiveHref(
 		);
 	}
 	return false;
+}
+
+function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
+	if (isStaticImport(props.icon)) {
+		return <Image src={props.icon} alt="" className="h-5 w-5" />;
+	}
+	return <div className="[&>*]:h-5 [&>*]:w-5">{props.icon}</div>;
 }
