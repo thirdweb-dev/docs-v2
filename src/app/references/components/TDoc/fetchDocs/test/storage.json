@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.3.2"
+		"typedocBetterJsonVersion": "0.4.0"
 	},
 	"functions": [
 		{
@@ -27,7 +27,7 @@
 			"kind": "type",
 			"name": "IStorageDownloader",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L4",
-			"type": "{download : ((url : string, gatewayUrls : GatewayUrls, options : SingleDownloadOptions) => Promise<Response>)}",
+			"type": "{download : (url: string, gatewayUrls?: GatewayUrls, options?: SingleDownloadOptions) => Promise<Response>}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -118,7 +118,7 @@
 					"extendsType": "UploadOptions"
 				}
 			],
-			"type": "{uploadWithGatewayUrl : boolean,uploadBatch : ((data : FileOrBufferOrString[], options : T) => Promise<string[]>)}",
+			"type": "{uploadWithGatewayUrl : boolean,uploadBatch : (data: FileOrBufferOrString[], options?: T) => Promise<string[]>}",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -212,7 +212,7 @@
 			"kind": "type",
 			"name": "IThirdwebStorage",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/index.ts#L17",
-			"type": "{download : ((url : string, options : SingleDownloadOptions) => Promise<Response>),downloadJSON : ((url : string) => Promise<TJSON>),getGatewayUrls : (() => GatewayUrls),resolveScheme : ((url : string) => string),upload : ((data : any, options : {}) => Promise<string>),uploadBatch : ((data : any[], options : {}) => Promise<string[]>)}",
+			"type": "{download : (url: string, options?: SingleDownloadOptions) => Promise<Response>,downloadJSON : (url: string) => Promise<TJSON>,getGatewayUrls : () => GatewayUrls,resolveScheme : (url: string) => string,upload : (data: any, options?: {  }) => Promise<string>,uploadBatch : (data: any[], options?: {  }) => Promise<string[]>}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -304,7 +304,7 @@
 								},
 								{
 									"name": "options",
-									"type": "{}",
+									"type": "{  }",
 									"flags": {
 										"isOptional": true
 									}
@@ -329,7 +329,7 @@
 								},
 								{
 									"name": "options",
-									"type": "{}",
+									"type": "{  }",
 									"flags": {
 										"isOptional": true
 									}
@@ -348,13 +348,13 @@
 			"kind": "type",
 			"name": "GatewayUrls",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L54",
-			"type": "{}"
+			"type": "{  }"
 		},
 		{
 			"kind": "type",
 			"name": "IpfsDownloaderOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L22",
-			"type": "{ clientId: string, secretKey: string, timeoutInSeconds: number }",
+			"type": "{ clientId: string; secretKey: string; timeoutInSeconds: number }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -410,7 +410,7 @@
 			"kind": "type",
 			"name": "IpfsUploadBatchOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L68",
-			"type": "{ alwaysUpload: boolean, metadata: Record<string, string>, onProgress: ((event : UploadProgressEvent) => void), rewriteFileNames: { fileStartNumber: number }, uploadWithGatewayUrl: boolean, uploadWithoutDirectory: boolean }",
+			"type": "{ alwaysUpload: boolean; metadata: Record<string, string>; onProgress: (event: UploadProgressEvent) => void; rewriteFileNames: { fileStartNumber: number }; uploadWithGatewayUrl: boolean; uploadWithoutDirectory: boolean }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -447,7 +447,7 @@
 				{
 					"kind": "subtype",
 					"name": "onProgress",
-					"type": "((event : UploadProgressEvent) => void)"
+					"type": "(event: UploadProgressEvent) => void"
 				},
 				{
 					"kind": "subtype",
@@ -503,7 +503,7 @@
 			"kind": "type",
 			"name": "IpfsUploaderOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L44",
-			"type": "{ clientId: string, secretKey: string, uploadServerUrl: string, uploadWithGatewayUrl: boolean }",
+			"type": "{ clientId: string; secretKey: string; uploadServerUrl: string; uploadWithGatewayUrl: boolean }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -575,7 +575,7 @@
 			"kind": "type",
 			"name": "SingleDownloadOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/download.ts#L40",
-			"type": "{ maxRetries: number, timeoutInSeconds: number }",
+			"type": "{ maxRetries: number; timeoutInSeconds: number }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -621,7 +621,7 @@
 					"extendsType": "UploadOptions"
 				}
 			],
-			"type": "{ clientId: string, downloader: IStorageDownloader, gatewayUrls: (GatewayUrls) | (string[]), secretKey: string, uploadServerUrl: string, uploader: IStorageUploader<T> }",
+			"type": "{ clientId: string; downloader: IStorageDownloader; gatewayUrls: (GatewayUrls) | (string[]); secretKey: string; uploadServerUrl: string; uploader: IStorageUploader<T> }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -659,13 +659,13 @@
 			"kind": "type",
 			"name": "UploadOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L6",
-			"type": "{}"
+			"type": "{  }"
 		},
 		{
 			"kind": "type",
 			"name": "UploadProgressEvent",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/storage/src/types/upload.ts#L29",
-			"type": "{ progress: number, total: number }",
+			"type": "{ progress: number; total: number }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -776,7 +776,7 @@
 								}
 							],
 							"returns": {
-								"type": "{ fileNames: string[], form: FormData }"
+								"type": "{ fileNames: string[]; form: FormData }"
 							}
 						}
 					],

@@ -40,30 +40,33 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 						Methods
 					</Heading>
 					<div>
-						{doc.methods.map((method, i) => {
-							const flags = method.signatures && method.signatures[0]?.flags;
-							return (
-								<Details
-									key={i}
-									summary={method.name}
-									id={method.name}
-									headingClassName="font-mono"
-									tags={[
-										flags?.isOptional ? "optional" : "",
-										flags?.isPrivate ? "private" : "",
-										flags?.isProtected ? "protected" : "",
-										flags?.isStatic ? "static" : "",
-									].filter((w) => w)}
-								>
-									<FunctionTDoc
-										doc={method}
-										key={method.name}
-										level={3}
-										showHeading={false}
-									/>
-								</Details>
-							);
-						})}
+						{doc.methods
+							.filter((method) => {
+								const flags = method.signatures && method.signatures[0]?.flags;
+								return !flags?.isPrivate && !flags?.isProtected;
+							})
+							.map((method, i) => {
+								const flags = method.signatures && method.signatures[0]?.flags;
+								return (
+									<Details
+										key={i}
+										summary={method.name}
+										id={method.name}
+										headingClassName="font-mono"
+										tags={[
+											flags?.isOptional ? "optional" : "",
+											flags?.isStatic ? "static" : "",
+										].filter((w) => w)}
+									>
+										<FunctionTDoc
+											doc={method}
+											key={method.name}
+											level={3}
+											showHeading={false}
+										/>
+									</Details>
+								);
+							})}
 					</div>
 				</div>
 			)}
@@ -76,28 +79,29 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 						Properties
 					</Heading>
 					<div>
-						{doc.properties.map((property, i) => {
-							const flags: string[] = [];
-							if (property.flags?.isPrivate) {
-								flags.push("private");
-							}
-							return (
-								<Details
-									key={i}
-									summary={property.name}
-									id={property.name}
-									headingClassName="font-mono"
-									tags={flags}
-								>
-									<VariableTDoc
-										doc={property}
-										key={property.name}
-										level={3}
-										showHeading={false}
-									/>
-								</Details>
-							);
-						})}
+						{doc.properties
+							.filter((property) => {
+								return (
+									!property.flags?.isPrivate && !property.flags?.isProtected
+								);
+							})
+							.map((property, i) => {
+								return (
+									<Details
+										key={i}
+										summary={property.name}
+										id={property.name}
+										headingClassName="font-mono"
+									>
+										<VariableTDoc
+											doc={property}
+											key={property.name}
+											level={3}
+											showHeading={false}
+										/>
+									</Details>
+								);
+							})}
 					</div>
 				</div>
 			)}

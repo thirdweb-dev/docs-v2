@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.3.2"
+		"typedocBetterJsonVersion": "0.4.0"
 	},
 	"functions": [
 		{
@@ -69,7 +69,7 @@
 						}
 					],
 					"returns": {
-						"type": "{ erc1155: (undefined) | (Erc1155<(BaseERC1155) | (BaseSignatureMintERC1155)>), erc20: (undefined) | (Erc20<(BaseERC20) | (BaseSignatureMintERC20)>), erc721: (undefined) | (Erc721<BaseERC721>) }"
+						"type": "{ erc1155: (undefined) | (Erc1155<(BaseERC1155) | (BaseSignatureMintERC1155)>); erc20: (undefined) | (Erc20<(BaseERC20) | (BaseSignatureMintERC20)>); erc721: (undefined) | (Erc721<BaseERC721>) }"
 					}
 				}
 			],
@@ -330,7 +330,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, AcceptDirectOffer, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, AcceptDirectOffer, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -1495,7 +1495,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, AirdropNFTParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, AirdropNFTParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -1927,7 +1927,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseQueryResult<(undefined) | ({}), unknown>",
+						"type": "UseQueryResult<(undefined) | ({  }), unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -2212,7 +2212,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, BurnNFTParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, BurnNFTParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -2328,7 +2328,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, TokenBurnParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, TokenBurnParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -2427,7 +2427,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, BuyFromListingParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, BuyFromListingParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -2512,7 +2512,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, BuyNowParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, BuyNowParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -2597,7 +2597,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, BigNumberish, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, BigNumberish, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -2696,7 +2696,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, BigNumberish, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, BigNumberish, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -2795,7 +2795,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{ data: (() => Promise<unknown>), receipt: providers.TransactionReceipt }, \"data\">, unknown, Pick<(AuctionListing) | (DirectListing), (\"type\") | (\"id\")>, unknown>",
+						"type": "UseMutationResult<Omit<{ data: () => Promise<unknown>; receipt: providers.TransactionReceipt }, \"data\">, unknown, Pick<(AuctionListing) | (DirectListing), (\"type\") | (\"id\")>, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -3418,7 +3418,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, ClaimTokenParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, ClaimTokenParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -3605,7 +3605,7 @@
 						},
 						{
 							"name": "queryParams",
-							"type": "{}",
+							"type": "{  }",
 							"summary": [
 								{
 									"type": "paragraph",
@@ -3810,7 +3810,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseQueryResult<(null) | ({}), unknown>",
+						"type": "UseQueryResult<(null) | ({  }), unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -3900,7 +3900,7 @@
 				{
 					"summary": [],
 					"returns": {
-						"type": "((args : ConnectFnArgs<I>) => Promise<I>)",
+						"type": "(...args: ConnectFnArgs<I>) => Promise<I>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -4403,7 +4403,7 @@
 						},
 						{
 							"name": "options",
-							"type": "{ queryFilter: EventQueryOptions<Record<string, any>>, subscribe: boolean }",
+							"type": "{ queryFilter: EventQueryOptions<Record<string, any>>; subscribe: boolean }",
 							"summary": [
 								{
 									"type": "paragraph",
@@ -4602,7 +4602,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<{ data: (() => Promise<any>), receipt: providers.TransactionReceipt }, unknown, { app_uri: string, description: string, external_link: string, image: any, name: string }, unknown>",
+						"type": "UseMutationResult<{ data: () => Promise<any>; receipt: providers.TransactionReceipt }, unknown, { app_uri: string; description: string; external_link: string; image: any; name: string }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -4864,7 +4864,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<TransactionResultWithMetadata<unknown>, \"data\">, unknown, { args: TArgs, overrides: CallOverrides }, unknown>",
+						"type": "UseMutationResult<Omit<TransactionResultWithMetadata<unknown>, \"data\">, unknown, { args: TArgs; overrides: CallOverrides }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -5070,7 +5070,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<TransactionResultWithId, unknown, TMarketplace extends Marketplace ? NewAuctionListing : {}, unknown>",
+						"type": "UseMutationResult<TransactionResultWithId, unknown, TMarketplace extends Marketplace ? NewAuctionListing : {  }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -5175,7 +5175,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<TransactionResultWithId, unknown, TMarketplace extends Marketplace ? NewDirectListing : {}, unknown>",
+						"type": "UseMutationResult<TransactionResultWithId, unknown, TMarketplace extends Marketplace ? NewDirectListing : {  }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -5303,7 +5303,7 @@
 				{
 					"summary": [],
 					"returns": {
-						"type": "((Wallet : WalletConfig<I>) => I)",
+						"type": "(Wallet: WalletConfig<I>) => I",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -5366,7 +5366,7 @@
 						},
 						{
 							"name": "onProgress",
-							"type": "((progress : UploadProgressEvent) => void)",
+							"type": "(progress: UploadProgressEvent) => void",
 							"summary": [
 								{
 									"type": "paragraph",
@@ -5792,7 +5792,7 @@
 				{
 					"summary": [],
 					"returns": {
-						"type": "(() => Promise<void>)",
+						"type": "() => Promise<void>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -6501,7 +6501,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, ExecuteAuctionSale, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, ExecuteAuctionSale, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -6586,7 +6586,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<void, unknown, { address: string, role: RolesForContract<TContract> }, unknown>",
+						"type": "UseMutationResult<void, unknown, { address: string; role: RolesForContract<TContract> }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -6951,7 +6951,7 @@
 						},
 						{
 							"name": "onProgress",
-							"type": "((progress : UploadProgressEvent) => void)",
+							"type": "(progress: UploadProgressEvent) => void",
 							"summary": [
 								{
 									"type": "paragraph",
@@ -7345,7 +7345,7 @@
 						}
 					],
 					"returns": {
-						"type": "{ isLoading: boolean, login: (() => Promise<any>) }",
+						"type": "{ isLoading: boolean; login: () => Promise<any> }",
 						"summary": [
 							{
 								"type": "list",
@@ -7417,7 +7417,7 @@
 						}
 					],
 					"returns": {
-						"type": "{ isLoading: boolean, logout: UseMutateAsyncFunction<void, unknown, void, unknown> }",
+						"type": "{ isLoading: boolean; logout: UseMutateAsyncFunction<void, unknown, void, unknown> }",
 						"summary": [
 							{
 								"type": "list",
@@ -7506,7 +7506,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, MakeBidParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, MakeBidParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -7591,7 +7591,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, MakeOfferParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, MakeOfferParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -7886,7 +7886,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseQueryResult<{}, unknown>",
+						"type": "UseQueryResult<{  }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -8211,7 +8211,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{ data: (() => Promise<unknown>), receipt: providers.TransactionReceipt }, \"data\">, unknown, TokenParams, unknown>",
+						"type": "UseMutationResult<Omit<{ data: () => Promise<unknown>; receipt: providers.TransactionReceipt }, \"data\">, unknown, TokenParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -8892,7 +8892,7 @@
 						},
 						{
 							"name": "queryParams",
-							"type": "{}",
+							"type": "{  }",
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9243,7 +9243,7 @@
 						}
 					],
 					"returns": {
-						"type": "({ data: (undefined) | (Record<string, any>[]), dataUpdatedAt: number, error: unknown, errorUpdateCount: number, errorUpdatedAt: number, failureCount: number, failureReason: unknown, fetchStatus: FetchStatus, isError: true, isFetched: boolean, isFetchedAfterMount: boolean, isFetching: boolean, isInitialLoading: boolean, isLoading: false, isLoadingError: false, isPaused: boolean, isPlaceholderData: boolean, isPreviousData: boolean, isRefetchError: true, isRefetching: boolean, isStale: boolean, isSuccess: false, refetch: ((options : RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>), remove: (() => void), status: \"error\" }) | ({ data: (undefined) | (Record<string, any>[]), dataUpdatedAt: number, error: null, errorUpdateCount: number, errorUpdatedAt: number, failureCount: number, failureReason: unknown, fetchStatus: FetchStatus, isError: false, isFetched: boolean, isFetchedAfterMount: boolean, isFetching: boolean, isInitialLoading: boolean, isLoading: false, isLoadingError: false, isPaused: boolean, isPlaceholderData: boolean, isPreviousData: boolean, isRefetchError: false, isRefetching: boolean, isStale: boolean, isSuccess: true, refetch: ((options : RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>), remove: (() => void), status: \"success\" }) | ({ data: (undefined) | (Record<string, any>[]), dataUpdatedAt: number, error: unknown, errorUpdateCount: number, errorUpdatedAt: number, failureCount: number, failureReason: unknown, fetchStatus: FetchStatus, isError: true, isFetched: boolean, isFetchedAfterMount: boolean, isFetching: boolean, isInitialLoading: boolean, isLoading: false, isLoadingError: true, isPaused: boolean, isPlaceholderData: boolean, isPreviousData: boolean, isRefetchError: false, isRefetching: boolean, isStale: boolean, isSuccess: false, refetch: ((options : RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>), remove: (() => void), status: \"error\" }) | ({ data: (undefined) | (Record<string, any>[]), dataUpdatedAt: number, error: null, errorUpdateCount: number, errorUpdatedAt: number, failureCount: number, failureReason: unknown, fetchStatus: FetchStatus, isError: false, isFetched: boolean, isFetchedAfterMount: boolean, isFetching: boolean, isInitialLoading: boolean, isLoading: true, isLoadingError: false, isPaused: boolean, isPlaceholderData: boolean, isPreviousData: boolean, isRefetchError: false, isRefetching: boolean, isStale: boolean, isSuccess: false, refetch: ((options : RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>), remove: (() => void), status: \"loading\" })"
+						"type": "({ data: (undefined) | (Record<string, any>[]); dataUpdatedAt: number; error: unknown; errorUpdateCount: number; errorUpdatedAt: number; failureCount: number; failureReason: unknown; fetchStatus: FetchStatus; isError: true; isFetched: boolean; isFetchedAfterMount: boolean; isFetching: boolean; isInitialLoading: boolean; isLoading: false; isLoadingError: false; isPaused: boolean; isPlaceholderData: boolean; isPreviousData: boolean; isRefetchError: true; isRefetching: boolean; isStale: boolean; isSuccess: false; refetch: (options?: RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>; remove: () => void; status: \"error\" }) | ({ data: (undefined) | (Record<string, any>[]); dataUpdatedAt: number; error: null; errorUpdateCount: number; errorUpdatedAt: number; failureCount: number; failureReason: unknown; fetchStatus: FetchStatus; isError: false; isFetched: boolean; isFetchedAfterMount: boolean; isFetching: boolean; isInitialLoading: boolean; isLoading: false; isLoadingError: false; isPaused: boolean; isPlaceholderData: boolean; isPreviousData: boolean; isRefetchError: false; isRefetching: boolean; isStale: boolean; isSuccess: true; refetch: (options?: RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>; remove: () => void; status: \"success\" }) | ({ data: (undefined) | (Record<string, any>[]); dataUpdatedAt: number; error: unknown; errorUpdateCount: number; errorUpdatedAt: number; failureCount: number; failureReason: unknown; fetchStatus: FetchStatus; isError: true; isFetched: boolean; isFetchedAfterMount: boolean; isFetching: boolean; isInitialLoading: boolean; isLoading: false; isLoadingError: true; isPaused: boolean; isPlaceholderData: boolean; isPreviousData: boolean; isRefetchError: false; isRefetching: boolean; isStale: boolean; isSuccess: false; refetch: (options?: RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>; remove: () => void; status: \"error\" }) | ({ data: (undefined) | (Record<string, any>[]); dataUpdatedAt: number; error: null; errorUpdateCount: number; errorUpdatedAt: number; failureCount: number; failureReason: unknown; fetchStatus: FetchStatus; isError: false; isFetched: boolean; isFetchedAfterMount: boolean; isFetching: boolean; isInitialLoading: boolean; isLoading: true; isLoadingError: false; isPaused: boolean; isPlaceholderData: boolean; isPreviousData: boolean; isRefetchError: false; isRefetching: boolean; isStale: boolean; isSuccess: false; refetch: (options?: RefetchOptions & RefetchQueryFilters<TPageData>) => Promise<QueryObserverResult<ContractEvent<Record<string, any>>[], unknown>>; remove: () => void; status: \"loading\" })"
 					},
 					"blockTags": [
 						{
@@ -9357,7 +9357,7 @@
 						},
 						{
 							"name": "queryParams",
-							"type": "{}",
+							"type": "{  }",
 							"summary": [
 								{
 									"type": "paragraph",
@@ -9602,7 +9602,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseQueryResult<{}, unknown>",
+						"type": "UseQueryResult<{  }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -9899,7 +9899,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, void, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, void, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -9988,7 +9988,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{ data: (() => Promise<unknown>), receipt: providers.TransactionReceipt }, \"data\">, unknown, RevealLazyMintInput, unknown>",
+						"type": "UseMutationResult<Omit<{ data: () => Promise<unknown>; receipt: providers.TransactionReceipt }, \"data\">, unknown, RevealLazyMintInput, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -10093,7 +10093,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<void, unknown, { address: string, role: RolesForContract<TContract> }, unknown>",
+						"type": "UseMutationResult<void, unknown, { address: string; role: RolesForContract<TContract> }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -10379,7 +10379,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseQueryResult<{}, unknown>",
+						"type": "UseQueryResult<{  }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -10621,7 +10621,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{ data: (() => Promise<unknown>), receipt: providers.TransactionReceipt }, \"data\">, unknown, { uri: string }, unknown>",
+						"type": "UseMutationResult<Omit<{ data: () => Promise<unknown>; receipt: providers.TransactionReceipt }, \"data\">, unknown, { uri: string }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -10789,7 +10789,7 @@
 				{
 					"summary": [],
 					"returns": {
-						"type": "((wallet : WalletInstance, params : ConnectParams<Record<string, any>>) => Promise<void>)",
+						"type": "(wallet: WalletInstance, params?: ConnectParams<Record<string, any>>) => Promise<void>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -10814,7 +10814,7 @@
 				{
 					"summary": [],
 					"returns": {
-						"type": "((status : ConnectionStatus) => void)",
+						"type": "(status: ConnectionStatus) => void",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -11362,7 +11362,7 @@
 						}
 					],
 					"returns": {
-						"type": "{ isLoading: boolean, switchAccount: UseMutateAsyncFunction<void, unknown, string, unknown> }",
+						"type": "{ isLoading: boolean; switchAccount: UseMutateAsyncFunction<void, unknown, string, unknown> }",
 						"summary": [
 							{
 								"type": "list",
@@ -11424,7 +11424,7 @@
 				{
 					"summary": [],
 					"returns": {
-						"type": "((chain : number) => Promise<void>)",
+						"type": "(chain: number) => Promise<void>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -11626,7 +11626,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseQueryResult<{}, unknown>",
+						"type": "UseQueryResult<{  }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -11945,7 +11945,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseQueryResult<{}, unknown>",
+						"type": "UseQueryResult<{  }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -12299,7 +12299,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, TokenParams[], unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, TokenParams[], unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -12409,7 +12409,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{ data: (() => Promise<unknown>), receipt: providers.TransactionReceipt }, \"data\">, unknown, TransferNFTParams, unknown>",
+						"type": "UseMutationResult<Omit<{ data: () => Promise<unknown>; receipt: providers.TransactionReceipt }, \"data\">, unknown, TransferNFTParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -12525,7 +12525,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, TokenParams, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, TokenParams, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -12702,7 +12702,7 @@
 						},
 						{
 							"name": "queryParams",
-							"type": "{}",
+							"type": "{  }",
 							"summary": [
 								{
 									"type": "paragraph",
@@ -12926,7 +12926,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<Omit<{}, \"data\">, unknown, { fee_recipient: string, platform_fee_basis_points: number }, unknown>",
+						"type": "UseMutationResult<Omit<{  }, \"data\">, unknown, { fee_recipient: string; platform_fee_basis_points: number }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -13146,7 +13146,7 @@
 						}
 					],
 					"returns": {
-						"type": "UseMutationResult<{}, unknown, { fee_recipient: string, seller_fee_basis_points: number }, unknown>",
+						"type": "UseMutationResult<{  }, unknown, { fee_recipient: string; seller_fee_basis_points: number }, unknown>",
 						"summary": [
 							{
 								"type": "paragraph",
@@ -13228,7 +13228,7 @@
 						}
 					],
 					"returns": {
-						"type": "{ isLoading: boolean, isLoggedIn: boolean, user: (undefined) | (UserWithData<TData, TContext>) }",
+						"type": "{ isLoading: boolean; isLoggedIn: boolean; user: (undefined) | (UserWithData<TData, TContext>) }",
 						"summary": [
 							{
 								"type": "list",
@@ -13918,7 +13918,7 @@
 			"kind": "variable",
 			"name": "compilerMetadata",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/hooks/async/contracts.ts#L124",
-			"type": "{ cacheKey: ((contractAddress : RequiredParam<string>, chainId : RequiredParam<SUPPORTED_CHAIN_ID>) => QueryKey), fetchQuery: ((contractAddress : RequiredParam<string>, sdk : RequiredParam<ThirdwebSDK>) => (Promise<PublishedMetadata>) | (null)), useQuery: ((contractAddress : RequiredParam<string>) => UseQueryResult<(PublishedMetadata) | (null)>) }",
+			"type": "{ cacheKey: (contractAddress: RequiredParam<string>, chainId: RequiredParam<SUPPORTED_CHAIN_ID>) => QueryKey; fetchQuery: (contractAddress: RequiredParam<string>, sdk: RequiredParam<ThirdwebSDK>) => (Promise<PublishedMetadata>) | (null); useQuery: (contractAddress: RequiredParam<string>) => UseQueryResult<(PublishedMetadata) | (null)> }",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -13991,7 +13991,7 @@
 			"kind": "variable",
 			"name": "contractType",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/hooks/async/contracts.ts#L76",
-			"type": "{ cacheKey: ((contractAddress : RequiredParam<string>, chainId : RequiredParam<SUPPORTED_CHAIN_ID>) => QueryKey), fetchQuery: ((contractAddress : RequiredParam<string>, sdk : RequiredParam<ThirdwebSDK>) => Promise<(null) | (\"split\") | (\"edition-drop\") | (\"edition\") | (\"marketplace\") | (\"marketplace-v3\") | (\"multiwrap\") | (\"nft-collection\") | (\"nft-drop\") | (\"pack\") | (\"signature-drop\") | (\"token-drop\") | (\"token\") | (\"vote\") | (\"custom\")>), useQuery: ((contractAddress : RequiredParam<string>) => UseQueryResult<(null) | (\"split\") | (\"edition-drop\") | (\"edition\") | (\"marketplace\") | (\"marketplace-v3\") | (\"multiwrap\") | (\"nft-collection\") | (\"nft-drop\") | (\"pack\") | (\"signature-drop\") | (\"token-drop\") | (\"token\") | (\"vote\") | (\"custom\"), unknown>) }",
+			"type": "{ cacheKey: (contractAddress: RequiredParam<string>, chainId: RequiredParam<SUPPORTED_CHAIN_ID>) => QueryKey; fetchQuery: (contractAddress: RequiredParam<string>, sdk: RequiredParam<ThirdwebSDK>) => Promise<(null) | (\"split\") | (\"edition-drop\") | (\"edition\") | (\"marketplace\") | (\"marketplace-v3\") | (\"multiwrap\") | (\"nft-collection\") | (\"nft-drop\") | (\"pack\") | (\"signature-drop\") | (\"token-drop\") | (\"token\") | (\"vote\") | (\"custom\")>; useQuery: (contractAddress: RequiredParam<string>) => UseQueryResult<(null) | (\"split\") | (\"edition-drop\") | (\"edition\") | (\"marketplace\") | (\"marketplace-v3\") | (\"multiwrap\") | (\"nft-collection\") | (\"nft-drop\") | (\"pack\") | (\"signature-drop\") | (\"token-drop\") | (\"token\") | (\"vote\") | (\"custom\"), unknown> }",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -14066,7 +14066,7 @@
 			"kind": "type",
 			"name": "ISecureStorage",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L3",
-			"type": "{getItem : ((key : string) => Promise<(null) | (string)>),removeItem : ((key : string) => Promise<void>),setItem : ((key : string, value : string) => Promise<void>)}",
+			"type": "{getItem : (key: string) => Promise<(null) | (string)>,removeItem : (key: string) => Promise<void>,setItem : (key: string, value: string) => Promise<void>}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -14273,12 +14273,12 @@
 					"extendsType": "Chain[]"
 				}
 			],
-			"type": "{activeChain : (Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,autoConnect : boolean,autoConnectTimeout : number,autoSwitch : boolean,clientId : string,createWalletStorage : CreateAsyncStorage,dAppMeta : DAppMetaData,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({}), \"chains\">,secretKey : string,signerWallet : WalletConfig<SignerWallet>,storageInterface : IThirdwebStorage,supportedChains : TChains,supportedWallets : WalletConfig[],theme : (\"light\") | (\"dark\")}",
+			"type": "{activeChain : (Chain) | (number & {  }) | (string & {  }) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,autoConnect : boolean,autoConnectTimeout : number,autoSwitch : boolean,clientId : string,createWalletStorage : CreateAsyncStorage,dAppMeta : DAppMetaData,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({  }), \"chains\">,secretKey : string,signerWallet : WalletConfig<SignerWallet>,storageInterface : IThirdwebStorage,supportedChains : TChains,supportedWallets : WalletConfig[],theme : (\"light\") | (\"dark\")}",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "activeChain",
-					"type": "(Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"])",
+					"type": "(Chain) | (number & {  }) | (string & {  }) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"])",
 					"summary": [
 						{
 							"type": "paragraph",
@@ -14419,7 +14419,7 @@
 				{
 					"kind": "subtype",
 					"name": "sdkOptions",
-					"type": "Omit<(undefined) | ({}), \"chains\">",
+					"type": "Omit<(undefined) | ({  }), \"chains\">",
 					"summary": [
 						{
 							"type": "paragraph",
@@ -14507,12 +14507,12 @@
 					"extendsType": "Chain[]"
 				}
 			],
-			"type": "{activeChain : (Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,clientId : string,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({}), \"chains\">,secretKey : string,signer : Signer,storageInterface : IThirdwebStorage,supportedChains : TChains}",
+			"type": "{activeChain : (Chain) | (number & {  }) | (string & {  }) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,clientId : string,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({  }), \"chains\">,secretKey : string,signer : Signer,storageInterface : IThirdwebStorage,supportedChains : TChains}",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "activeChain",
-					"type": "(Chain) | (number & {}) | (string & {}) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"])",
+					"type": "(Chain) | (number & {  }) | (string & {  }) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"])",
 					"summary": [
 						{
 							"type": "paragraph",
@@ -14554,7 +14554,7 @@
 				{
 					"kind": "subtype",
 					"name": "sdkOptions",
-					"type": "Omit<(undefined) | ({}), \"chains\">",
+					"type": "Omit<(undefined) | ({  }), \"chains\">",
 					"summary": [
 						{
 							"type": "paragraph",
@@ -14648,7 +14648,7 @@
 			"kind": "type",
 			"name": "AcceptDirectOffer",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L250",
-			"type": "{ addressOfOfferor: string, listingId: BigNumberish }",
+			"type": "{ addressOfOfferor: string; listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -14685,7 +14685,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L133",
-			"type": "{ addresses: AirdropInput, tokenId: BigNumberish }",
+			"type": "{ addresses: AirdropInput; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -14729,7 +14729,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L175",
-			"type": "{ amount: Amount, tokenId: BigNumberish }",
+			"type": "{ amount: Amount; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -14752,18 +14752,18 @@
 					"name": "TListingType"
 				}
 			],
-			"type": "TListingType extends ListingType.Direct ? { buyAmount: BigNumberish, buyForWallet: WalletAddress, id: BigNumberish, type: ListingType.Direct } : { id: BigNumberish, type: ListingType.Auction }"
+			"type": "TListingType extends ListingType.Direct ? { buyAmount: BigNumberish; buyForWallet: WalletAddress; id: BigNumberish; type: ListingType.Direct } : { id: BigNumberish; type: ListingType.Auction }"
 		},
 		{
 			"kind": "type",
 			"name": "Chain",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L43",
-			"type": "{ blockExplorers: { name: string, url: string }[], id: number, name: AddEthereumChainParameter[\"chainName\"], nativeCurrency: AddEthereumChainParameter[\"nativeCurrency\"], rpcUrls: AddEthereumChainParameter[\"rpcUrls\"], testnet: boolean }",
+			"type": "{ blockExplorers: { name: string; url: string }[]; id: number; name: AddEthereumChainParameter[\"chainName\"]; nativeCurrency: AddEthereumChainParameter[\"nativeCurrency\"]; rpcUrls: AddEthereumChainParameter[\"rpcUrls\"]; testnet: boolean }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "blockExplorers",
-					"type": "{ name: string, url: string }[]"
+					"type": "{ name: string; url: string }[]"
 				},
 				{
 					"kind": "subtype",
@@ -14822,7 +14822,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L35",
-			"type": "{ quantity: (string) | (number), walletAddress: WalletAddress }",
+			"type": "{ quantity: (string) | (number); walletAddress: WalletAddress }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -14866,7 +14866,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L223",
-			"type": "{ options: ClaimOptions, quantity: BigNumberish, to: WalletAddress, tokenId: BigNumberish }",
+			"type": "{ options: ClaimOptions; quantity: BigNumberish; to: WalletAddress; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -14937,7 +14937,7 @@
 			"kind": "type",
 			"name": "ClaimTokenParams",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L279",
-			"type": "{ amount: Amount, checkERC20Allowance: boolean, to: WalletAddress }",
+			"type": "{ amount: Amount; checkERC20Allowance: boolean; to: WalletAddress }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -14966,22 +14966,22 @@
 					"extendsType": "WalletInstance"
 				}
 			],
-			"type": "{ connected: (() => void), goBack: (() => void), hide: (() => void), isOpen: boolean, modalSize: (\"compact\") | (\"wide\"), onLocallyConnected: ((walleInstance : WalletInstance) => void), selectionData: any, setSelectionData: ((data : any) => void), show: (() => void), supportedWallets: WalletConfig[], theme: (\"dark\") | (\"light\"), walletConfig: WalletConfig<I> }",
+			"type": "{ connected: () => void; goBack: () => void; hide: () => void; isOpen: boolean; modalSize: (\"compact\") | (\"wide\"); onLocallyConnected: (walleInstance: WalletInstance) => void; selectionData: any; setSelectionData: (data: any) => void; show: () => void; supportedWallets: WalletConfig[]; theme: (\"dark\") | (\"light\"); walletConfig: WalletConfig<I> }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "connected",
-					"type": "(() => void)"
+					"type": "() => void"
 				},
 				{
 					"kind": "subtype",
 					"name": "goBack",
-					"type": "(() => void)"
+					"type": "() => void"
 				},
 				{
 					"kind": "subtype",
 					"name": "hide",
-					"type": "(() => void)"
+					"type": "() => void"
 				},
 				{
 					"kind": "subtype",
@@ -15035,7 +15035,7 @@
 				{
 					"kind": "subtype",
 					"name": "onLocallyConnected",
-					"type": "((walleInstance : WalletInstance) => void)"
+					"type": "(walleInstance: WalletInstance) => void"
 				},
 				{
 					"kind": "subtype",
@@ -15072,12 +15072,12 @@
 				{
 					"kind": "subtype",
 					"name": "setSelectionData",
-					"type": "((data : any) => void)"
+					"type": "(data: any) => void"
 				},
 				{
 					"kind": "subtype",
 					"name": "show",
-					"type": "(() => void)"
+					"type": "() => void"
 				},
 				{
 					"kind": "subtype",
@@ -15221,7 +15221,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L202",
-			"type": "{ metadatas: NFTMetadataInput[], password: string, placeholder: NFTMetadataInput }",
+			"type": "{ metadatas: NFTMetadataInput[]; password: string; placeholder: NFTMetadataInput }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15304,7 +15304,7 @@
 			"kind": "type",
 			"name": "MakeBidParams",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L244",
-			"type": "{ bid: Price, listingId: BigNumberish }",
+			"type": "{ bid: Price; listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15322,7 +15322,7 @@
 			"kind": "type",
 			"name": "MakeOfferParams",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L245",
-			"type": "{ listingId: BigNumberish, pricePerToken: Price, quantity: Amount }",
+			"type": "{ listingId: BigNumberish; pricePerToken: Price; quantity: Amount }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15371,7 +15371,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L153",
-			"type": "{ metadata: NFTMetadataOrUri, supply: Amount, to: WalletAddress }",
+			"type": "{ metadata: NFTMetadataOrUri; supply: Amount; to: WalletAddress }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15450,7 +15450,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L142",
-			"type": "{ additionalSupply: Amount, to: WalletAddress, tokenId: BigNumberish }",
+			"type": "{ additionalSupply: Amount; to: WalletAddress; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15516,7 +15516,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L213",
-			"type": "{ batchId: BigNumberish, password: string }",
+			"type": "{ batchId: BigNumberish; password: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15557,7 +15557,7 @@
 					"extendsType": "WalletInstance"
 				}
 			],
-			"type": "{ modalSize: (\"compact\") | (\"wide\"), onSelect: ((selectionData : any) => void), supportedWallets: WalletConfig[], theme: (\"dark\") | (\"light\"), walletConfig: WalletConfig<I> }",
+			"type": "{ modalSize: (\"compact\") | (\"wide\"); onSelect: (selectionData: any) => void; supportedWallets: WalletConfig[]; theme: (\"dark\") | (\"light\"); walletConfig: WalletConfig<I> }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15595,7 +15595,7 @@
 				{
 					"kind": "subtype",
 					"name": "onSelect",
-					"type": "((selectionData : any) => void)"
+					"type": "(selectionData: any) => void"
 				},
 				{
 					"kind": "subtype",
@@ -15703,7 +15703,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L47",
-			"type": "{ phases: ClaimConditionInput[], reset: boolean }",
+			"type": "{ phases: ClaimConditionInput[]; reset: boolean }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15773,7 +15773,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L72",
-			"type": "{ amount: Amount, to: WalletAddress }",
+			"type": "{ amount: Amount; to: WalletAddress }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15810,7 +15810,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/react-core/src/evm/types.ts#L123",
-			"type": "{ amount: Amount, to: WalletAddress, tokenId: BigNumberish }",
+			"type": "{ amount: Amount; to: WalletAddress; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15874,7 +15874,7 @@
 					"extendsType": "WalletInstance"
 				}
 			],
-			"type": "{ id: string, meta: typeof AbstractClientWallet[\"meta\"] }",
+			"type": "{ (options: WalletOptions) : I ; id: string; meta: typeof AbstractClientWallet[\"meta\"] }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15898,7 +15898,7 @@
 					"extendsType": "WalletInstance"
 				}
 			],
-			"type": "{ category: (\"socialLogin\") | (\"walletLogin\"), connectUI: React.FC<ConnectUIProps<I>>, create: ((options : WalletOptions) => I), id: string, isHeadless: boolean, isInstalled: (() => boolean), meta: typeof AbstractClientWallet[\"meta\"], personalWallets: WalletConfig[], recommended: boolean, selectUI: React.FC<SelectUIProps<I>> }",
+			"type": "{ category: (\"socialLogin\") | (\"walletLogin\"); connectUI: React.FC<ConnectUIProps<I>>; create: (options: WalletOptions) => I; id: string; isHeadless: boolean; isInstalled: () => boolean; meta: typeof AbstractClientWallet[\"meta\"]; personalWallets: WalletConfig[]; recommended: boolean; selectUI: React.FC<SelectUIProps<I>> }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -15924,7 +15924,7 @@
 				{
 					"kind": "subtype",
 					"name": "create",
-					"type": "((options : WalletOptions) => I)"
+					"type": "(options: WalletOptions) => I"
 				},
 				{
 					"kind": "subtype",
@@ -15950,7 +15950,7 @@
 				{
 					"kind": "subtype",
 					"name": "isInstalled",
-					"type": "(() => boolean)"
+					"type": "() => boolean"
 				},
 				{
 					"kind": "subtype",

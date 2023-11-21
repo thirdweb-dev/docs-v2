@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.3.2"
+		"typedocBetterJsonVersion": "0.4.0"
 	},
 	"functions": [
 		{
@@ -663,7 +663,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/constants/wc.ts#L7",
-			"type": "{ ETH_SEND_TRANSACTION: string, ETH_SIGN: string, ETH_SIGN_TRANSACTION: string, ETH_SIGN_TYPED_DATA: string, ETH_SIGN_TYPED_DATA_V3: string, ETH_SIGN_TYPED_DATA_V4: string, PERSONAL_SIGN: string, SWITCH_CHAIN: string }",
+			"type": "{ ETH_SEND_TRANSACTION: string; ETH_SIGN: string; ETH_SIGN_TRANSACTION: string; ETH_SIGN_TYPED_DATA: string; ETH_SIGN_TYPED_DATA_V3: string; ETH_SIGN_TYPED_DATA_V4: string; PERSONAL_SIGN: string; SWITCH_CHAIN: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -733,7 +733,7 @@
 			"kind": "variable",
 			"name": "walletIds",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/constants/walletIds.ts#L1",
-			"type": "{ blocto: \"blocto\", coin98: \"coin98\", coinbase: \"coinbase\", coreWallet: \"coreWallet\", embeddedWallet: \"embeddedWallet\", frame: \"frame\", localWallet: \"localWallet\", magicLink: \"magicLink\", metamask: \"metamask\", okx: \"okx\", paper: \"paper\", phantom: \"phantom\", rainbow: \"rainbowWallet\", safe: \"safe\", smartWallet: \"smartWallet\", tokenBoundSmartWallet: \"tokenBoundSmartWallet\", trust: \"trust\", walletConnect: \"walletConnect\", walletConnectV1: \"walletConnectV1\" }",
+			"type": "{ blocto: \"blocto\"; coin98: \"coin98\"; coinbase: \"coinbase\"; coreWallet: \"coreWallet\"; embeddedWallet: \"embeddedWallet\"; frame: \"frame\"; localWallet: \"localWallet\"; magicLink: \"magicLink\"; metamask: \"metamask\"; okx: \"okx\"; paper: \"paper\"; phantom: \"phantom\"; rainbow: \"rainbowWallet\"; safe: \"safe\"; smartWallet: \"smartWallet\"; tokenBoundSmartWallet: \"tokenBoundSmartWallet\"; trust: \"trust\"; walletConnect: \"walletConnect\"; walletConnectV1: \"walletConnectV1\" }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -904,7 +904,7 @@
 			"kind": "type",
 			"name": "AsyncStorage",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/AsyncStorage.ts#L1",
-			"type": "{getItem : ((key : string) => Promise<(null) | (string)>),removeItem : ((key : string) => Promise<void>),setItem : ((key : string, value : string) => Promise<void>)}",
+			"type": "{getItem : (key: string) => Promise<(null) | (string)>,removeItem : (key: string) => Promise<void>,setItem : (key: string, value: string) => Promise<void>}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -1069,7 +1069,7 @@
 			"kind": "type",
 			"name": "EVMWallet",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/interfaces/index.ts#L3",
-			"type": "{getSigner : (() => Promise<Signer>)}",
+			"type": "{getSigner : () => Promise<Signer>}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -1089,7 +1089,7 @@
 			"kind": "type",
 			"name": "GenericAuthWallet",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/interfaces/auth.ts#L2",
-			"type": "{type : \"evm\",getAddress : (() => Promise<string>),getChainId : (() => Promise<number>),signMessage : ((message : string) => Promise<string>),verifySignature : ((message : string, signature : string, address : string, chainId : number) => Promise<boolean>)}",
+			"type": "{type : \"evm\",getAddress : () => Promise<string>,getChainId : () => Promise<number>,signMessage : (message: string) => Promise<string>,verifySignature : (message: string, signature: string, address: string, chainId?: number) => Promise<boolean>}",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1177,7 +1177,7 @@
 			"kind": "type",
 			"name": "IWalletConnectReceiver",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L70",
-			"type": "{approveRequest : (() => Promise<void>),approveSession : (() => Promise<void>),connectApp : ((uri : string) => Promise<void>),disconnectSession : (() => Promise<void>),getActiveSessions : (() => WCSession[]),isWCReceiverEnabled : (() => boolean),rejectRequest : (() => Promise<void>),rejectSession : (() => Promise<void>)}",
+			"type": "{approveRequest : () => Promise<void>,approveSession : () => Promise<void>,connectApp : (uri: string) => Promise<void>,disconnectSession : () => Promise<void>,getActiveSessions : () => WCSession[],isWCReceiverEnabled : () => boolean,rejectRequest : () => Promise<void>,rejectSession : () => Promise<void>}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -1373,7 +1373,7 @@
 			"kind": "type",
 			"name": "SyncStorage",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/SyncStorage.ts#L1",
-			"type": "{getItem : ((key : string) => (null) | (string)),removeItem : ((key : string) => void),setItem : ((key : string, value : string) => void)}",
+			"type": "{getItem : (key: string) => (null) | (string),removeItem : (key: string) => void,setItem : (key: string, value: string) => void}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -1439,7 +1439,7 @@
 			"kind": "type",
 			"name": "WalletEvents",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/abstract.ts#L30",
-			"type": "{change : ((data : WalletData) => void),connect : ((data : WalletData) => void),disconnect : (() => void),display_uri : ((uri : string) => void),error : ((error : Error) => void),message : ((__namedParameters : { data: unknown, type: string }) => void),request : (() => void),wc_session_request_sent : (() => void)}",
+			"type": "{change : (data: WalletData) => void,connect : (data: WalletData) => void,disconnect : () => void,display_uri : (uri: string) => void,error : (error: Error) => void,message : (__namedParameters: { data: unknown; type: string }) => void,request : () => void,wc_session_request_sent : () => void}",
 			"typeDeclaration": [
 				{
 					"kind": "function",
@@ -1533,7 +1533,7 @@
 							"parameters": [
 								{
 									"name": "__namedParameters",
-									"type": "{ data: unknown, type: string }"
+									"type": "{ data: unknown; type: string }"
 								}
 							],
 							"returns": {
@@ -1573,7 +1573,7 @@
 			"kind": "type",
 			"name": "AccessibleSmartWallets",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/smart-wallet/utils.ts#L8",
-			"type": "{ hasSignerRole: string[], owned: string }",
+			"type": "{ hasSignerRole: string[]; owned: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1591,7 +1591,7 @@
 			"kind": "type",
 			"name": "AccountContractInfo",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L70",
-			"type": "{ abi: ContractInterface, execute: ((account : SmartContract, target : string, value : BigNumberish, data : string) => Promise<Transaction>), getNonce: ((account : SmartContract) => Promise<BigNumber>) }",
+			"type": "{ abi: ContractInterface; execute: (account: SmartContract, target: string, value: BigNumberish, data: string) => Promise<Transaction>; getNonce: (account: SmartContract) => Promise<BigNumber> }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1601,12 +1601,12 @@
 				{
 					"kind": "subtype",
 					"name": "execute",
-					"type": "((account : SmartContract, target : string, value : BigNumberish, data : string) => Promise<Transaction>)"
+					"type": "(account: SmartContract, target: string, value: BigNumberish, data: string) => Promise<Transaction>"
 				},
 				{
 					"kind": "subtype",
 					"name": "getNonce",
-					"type": "((account : SmartContract) => Promise<BigNumber>)"
+					"type": "(account: SmartContract) => Promise<BigNumber>"
 				}
 			]
 		},
@@ -1620,7 +1620,7 @@
 			"kind": "type",
 			"name": "AuthDetails",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L42",
-			"type": "{ backupRecoveryCodes: string[], email: string, encryptionKey: string, recoveryShareManagement: RecoveryShareManagement, userWalletId: string }",
+			"type": "{ backupRecoveryCodes: string[]; email: string; encryptionKey: string; recoveryShareManagement: RecoveryShareManagement; userWalletId: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1672,7 +1672,7 @@
 			"kind": "type",
 			"name": "AuthResult",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/types.ts#L63",
-			"type": "{ isNewUser: boolean, needsRecoveryCode: boolean, user: InitializedUser }",
+			"type": "{ isNewUser: boolean; needsRecoveryCode: boolean; user: InitializedUser }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1695,19 +1695,19 @@
 			"kind": "type",
 			"name": "AuthStoredTokenWithCookieReturnType",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/auth.ts#L34",
-			"type": "{ storedToken: StoredTokenType & { cookieString: string, isNewUser: boolean, shouldStoreCookieString: boolean } }",
+			"type": "{ storedToken: StoredTokenType & { cookieString: string; isNewUser: boolean; shouldStoreCookieString: boolean } }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "storedToken",
-					"type": "StoredTokenType & { cookieString: string, isNewUser: boolean, shouldStoreCookieString: boolean }"
+					"type": "StoredTokenType & { cookieString: string; isNewUser: boolean; shouldStoreCookieString: boolean }"
 				}
 			]
 		},
 		{
 			"kind": "type",
 			"name": "Chain",
-			"type": "{ chain: string, chainId: number, ens: { registry: string }, explorers: Readonly<ChainExplorer[]>, faucets: readonly string[], features: Readonly<{ name: string }[]>, icon: Icon, infoURL: string, name: string, nativeCurrency: { decimals: number, name: string, symbol: string }, networkId: number, parent: { bridges: Readonly<{ url: string }[]>, chain: string, type: string }, redFlags: readonly string[], rpc: readonly string[], shortName: string, slip44: number, slug: string, status: string, testnet: boolean, title: string }",
+			"type": "{ chain: string; chainId: number; ens: { registry: string }; explorers: Readonly<ChainExplorer[]>; faucets: readonly string[]; features: Readonly<{ name: string }[]>; icon: Icon; infoURL: string; name: string; nativeCurrency: { decimals: number; name: string; symbol: string }; networkId: number; parent: { bridges: Readonly<{ url: string }[]>; chain: string; type: string }; redFlags: readonly string[]; rpc: readonly string[]; shortName: string; slip44: number; slug: string; status: string; testnet: boolean; title: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1757,7 +1757,7 @@
 				{
 					"kind": "subtype",
 					"name": "nativeCurrency",
-					"type": "{ decimals: number, name: string, symbol: string }"
+					"type": "{ decimals: number; name: string; symbol: string }"
 				},
 				{
 					"kind": "subtype",
@@ -1767,7 +1767,7 @@
 				{
 					"kind": "subtype",
 					"name": "parent",
-					"type": "{ bridges: Readonly<{ url: string }[]>, chain: string, type: string }"
+					"type": "{ bridges: Readonly<{ url: string }[]>; chain: string; type: string }"
 				},
 				{
 					"kind": "subtype",
@@ -1821,7 +1821,7 @@
 			"kind": "type",
 			"name": "CoinbaseWalletOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/coinbase-wallet.ts#L12",
-			"type": "WalletOptions<{ headlessMode: boolean, theme: (\"dark\") | (\"light\") }>"
+			"type": "WalletOptions<{ headlessMode: boolean; theme: (\"dark\") | (\"light\") }>"
 		},
 		{
 			"kind": "type",
@@ -1839,7 +1839,7 @@
 			"kind": "type",
 			"name": "ContractInfo",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L65",
-			"type": "{ accountInfo: AccountContractInfo, factoryInfo: FactoryContractInfo }",
+			"type": "{ accountInfo: AccountContractInfo; factoryInfo: FactoryContractInfo }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1857,7 +1857,7 @@
 			"kind": "type",
 			"name": "ContractInfoInput",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L60",
-			"type": "{ accountInfo: AccountContractInfo, factoryInfo: FactoryContractInfo }",
+			"type": "{ accountInfo: AccountContractInfo; factoryInfo: FactoryContractInfo }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1881,7 +1881,7 @@
 			"kind": "type",
 			"name": "CreateAsyncStorage",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/AsyncStorage.ts#L7",
-			"type": "((name : string) => AsyncStorage)"
+			"type": "(name: string) => AsyncStorage"
 		},
 		{
 			"kind": "type",
@@ -1893,7 +1893,7 @@
 			"kind": "type",
 			"name": "EmbeddedWalletAdditionalOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/types.ts#L4",
-			"type": "{ chain: Pick<Chain, (\"chainId\") | (\"rpc\")>, clientId: string, onAuthSuccess: ((authResult : AuthAndWalletRpcReturnType) => void) }",
+			"type": "{ chain: Pick<Chain, (\"chainId\") | (\"rpc\")>; clientId: string; onAuthSuccess: (authResult: AuthAndWalletRpcReturnType) => void }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1908,7 +1908,7 @@
 				{
 					"kind": "subtype",
 					"name": "onAuthSuccess",
-					"type": "((authResult : AuthAndWalletRpcReturnType) => void)"
+					"type": "(authResult: AuthAndWalletRpcReturnType) => void"
 				}
 			]
 		},
@@ -1916,7 +1916,7 @@
 			"kind": "type",
 			"name": "EmbeddedWalletConnectionArgs",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/types.ts#L17",
-			"type": "{ authResult: AuthResult, chainId: number }",
+			"type": "{ authResult: AuthResult; chainId: number }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1934,7 +1934,7 @@
 			"kind": "type",
 			"name": "EmbeddedWalletConstructorType",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L18",
-			"type": "ClientIdConstructorType & { chain: Chain, onAuthSuccess: ((authResult : AuthAndWalletRpcReturnType) => void), styles: CustomizationOptionsType }"
+			"type": "ClientIdConstructorType & { chain: Chain; onAuthSuccess: (authResult: AuthAndWalletRpcReturnType) => void; styles: CustomizationOptionsType }"
 		},
 		{
 			"kind": "type",
@@ -1952,7 +1952,7 @@
 			"kind": "type",
 			"name": "FactoryContractInfo",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L81",
-			"type": "{ abi: ContractInterface, createAccount: ((factory : SmartContract, owner : string) => Promise<Transaction>), getAccountAddress: ((factory : SmartContract, owner : string) => Promise<string>) }",
+			"type": "{ abi: ContractInterface; createAccount: (factory: SmartContract, owner: string) => Promise<Transaction>; getAccountAddress: (factory: SmartContract, owner: string) => Promise<string> }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -1962,12 +1962,12 @@
 				{
 					"kind": "subtype",
 					"name": "createAccount",
-					"type": "((factory : SmartContract, owner : string) => Promise<Transaction>)"
+					"type": "(factory: SmartContract, owner: string) => Promise<Transaction>"
 				},
 				{
 					"kind": "subtype",
 					"name": "getAccountAddress",
-					"type": "((factory : SmartContract, owner : string) => Promise<string>)"
+					"type": "(factory: SmartContract, owner: string) => Promise<string>"
 				}
 			]
 		},
@@ -2014,19 +2014,19 @@
 			"kind": "type",
 			"name": "GetUser",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L115",
-			"type": "({ status: UserWalletStatus.LOGGED_OUT }) | ({ authDetails: AuthDetails, status: UserWalletStatus.LOGGED_IN_WALLET_UNINITIALIZED }) | ({ authDetails: AuthDetails, status: UserWalletStatus.LOGGED_IN_NEW_DEVICE, walletAddress: string }) | (InitializedUser)"
+			"type": "({ status: UserWalletStatus.LOGGED_OUT }) | ({ authDetails: AuthDetails; status: UserWalletStatus.LOGGED_IN_WALLET_UNINITIALIZED }) | ({ authDetails: AuthDetails; status: UserWalletStatus.LOGGED_IN_NEW_DEVICE; walletAddress: string }) | (InitializedUser)"
 		},
 		{
 			"kind": "type",
 			"name": "GetUserWalletStatusRpcReturnType",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L96",
-			"type": "({ status: UserWalletStatus.LOGGED_OUT, user: undefined }) | ({ status: UserWalletStatus.LOGGED_IN_WALLET_UNINITIALIZED, user: { authDetails: AuthDetails } }) | ({ status: UserWalletStatus.LOGGED_IN_NEW_DEVICE, user: { authDetails: AuthDetails, walletAddress: string } }) | ({ status: UserWalletStatus.LOGGED_IN_WALLET_INITIALIZED, user: Omit<InitializedUser, (\"wallet\") | (\"status\")> })"
+			"type": "({ status: UserWalletStatus.LOGGED_OUT; user: undefined }) | ({ status: UserWalletStatus.LOGGED_IN_WALLET_UNINITIALIZED; user: { authDetails: AuthDetails } }) | ({ status: UserWalletStatus.LOGGED_IN_NEW_DEVICE; user: { authDetails: AuthDetails; walletAddress: string } }) | ({ status: UserWalletStatus.LOGGED_IN_WALLET_INITIALIZED; user: Omit<InitializedUser, (\"wallet\") | (\"status\")> })"
 		},
 		{
 			"kind": "type",
 			"name": "InitializedUser",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L50",
-			"type": "{ authDetails: AuthDetails, status: UserWalletStatus.LOGGED_IN_WALLET_INITIALIZED, wallet: EmbeddedWallet, walletAddress: string }",
+			"type": "{ authDetails: AuthDetails; status: UserWalletStatus.LOGGED_IN_WALLET_INITIALIZED; wallet: EmbeddedWallet; walletAddress: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2054,13 +2054,13 @@
 			"kind": "type",
 			"name": "LocalWalletConnectionArgs",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/local-wallet.ts#L28",
-			"type": "{}"
+			"type": "{  }"
 		},
 		{
 			"kind": "type",
 			"name": "LocalWalletOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/local-wallet.ts#L14",
-			"type": "{ chain: Chain, secretKey: string, storage: AsyncStorage }",
+			"type": "{ chain: Chain; secretKey: string; storage: AsyncStorage }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2132,7 +2132,7 @@
 			"kind": "type",
 			"name": "PaperWalletAdditionalOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/paper/types.ts#L12",
-			"type": "{ advancedOptions: PaperAdvanceOptions, chain: Pick<Chain, (\"chainId\") | (\"rpc\")>, clientId: string, onAuthSuccess: ((authResult : AuthAndWalletRpcReturnType) => void), paperClientId: string, styles: PaperConstructorType<RecoveryShareManagement>[\"styles\"] }",
+			"type": "{ advancedOptions: PaperAdvanceOptions; chain: Pick<Chain, (\"chainId\") | (\"rpc\")>; clientId: string; onAuthSuccess: (authResult: AuthAndWalletRpcReturnType) => void; paperClientId: string; styles: PaperConstructorType<RecoveryShareManagement>[\"styles\"] }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2152,7 +2152,7 @@
 				{
 					"kind": "subtype",
 					"name": "onAuthSuccess",
-					"type": "((authResult : AuthAndWalletRpcReturnType) => void)"
+					"type": "(authResult: AuthAndWalletRpcReturnType) => void"
 				},
 				{
 					"kind": "subtype",
@@ -2188,7 +2188,7 @@
 			"kind": "type",
 			"name": "SendEmailOtpReturnType",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L86",
-			"type": "{ isNewDevice: boolean, isNewUser: boolean, recoveryShareManagement: RecoveryShareManagement }",
+			"type": "{ isNewDevice: boolean; isNewUser: boolean; recoveryShareManagement: RecoveryShareManagement }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2211,7 +2211,7 @@
 			"kind": "type",
 			"name": "SetUpWalletRpcReturnType",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/embedded-wallets/embedded-wallets.ts#L72",
-			"type": "WalletAddressObjectType & { deviceShareStored: string, isIframeStorageEnabled: boolean }"
+			"type": "WalletAddressObjectType & { deviceShareStored: string; isIframeStorageEnabled: boolean }"
 		},
 		{
 			"kind": "type",
@@ -2256,7 +2256,7 @@
 			"kind": "type",
 			"name": "SignerWalletAdditionalOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/signer.ts#L13",
-			"type": "{ chain: Chain, secretKey: string, signer: Signer, storage: AsyncStorage }",
+			"type": "{ chain: Chain; secretKey: string; signer: Signer; storage: AsyncStorage }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2284,19 +2284,19 @@
 			"kind": "type",
 			"name": "SignerWalletConnectionArgs",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/signer.ts#L21",
-			"type": "{}"
+			"type": "{  }"
 		},
 		{
 			"kind": "type",
 			"name": "SmartWalletConfig",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L18",
-			"type": "{ bundlerUrl: string, chain: ChainOrRpcUrl, clientId: string, entryPointAddress: string, factoryAddress: string, gasless: boolean, paymasterAPI: PaymasterAPI, paymasterUrl: string, secretKey: string } & ContractInfoInput & WalletConnectReceiverConfig"
+			"type": "{ bundlerUrl: string; chain: ChainOrRpcUrl; clientId: string; entryPointAddress: string; factoryAddress: string; gasless: boolean; paymasterAPI: PaymasterAPI; paymasterUrl: string; secretKey: string } & ContractInfoInput & WalletConnectReceiverConfig"
 		},
 		{
 			"kind": "type",
 			"name": "SmartWalletConnectionArgs",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L31",
-			"type": "{ accountAddress: string, personalWallet: EVMWallet }",
+			"type": "{ accountAddress: string; personalWallet: EVMWallet }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2320,7 +2320,7 @@
 			"kind": "type",
 			"name": "StoredTokenType",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/connectors/embedded-wallet/implementations/interfaces/auth.ts#L27",
-			"type": "{ authDetails: AuthDetails, authProvider: AuthProvider, developerClientId: string, jwtToken: string }",
+			"type": "{ authDetails: AuthDetails; authProvider: AuthProvider; developerClientId: string; jwtToken: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2360,7 +2360,7 @@
 			"kind": "type",
 			"name": "WCErrorResponse",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L29",
-			"type": "{ code: number, data: string, message: string }",
+			"type": "{ code: number; data: string; message: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2389,7 +2389,7 @@
 			"kind": "type",
 			"name": "WCJsonRpcError",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L31",
-			"type": "{ error: WCErrorResponse, id: number, jsonrpc: string }",
+			"type": "{ error: WCErrorResponse; id: number; jsonrpc: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2412,7 +2412,7 @@
 			"kind": "type",
 			"name": "WCJsonRpcResult",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L37",
-			"type": "{ id: number, jsonrpc: string, result: string }",
+			"type": "{ id: number; jsonrpc: string; result: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2435,7 +2435,7 @@
 			"kind": "type",
 			"name": "WCMetadata",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L18",
-			"type": "{ description: string, icons: string[], name: string, redirect: { native: string, universal: string }, url: string }",
+			"type": "{ description: string; icons: string[]; name: string; redirect: { native: string; universal: string }; url: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2455,7 +2455,7 @@
 				{
 					"kind": "subtype",
 					"name": "redirect",
-					"type": "{ native: string, universal: string }"
+					"type": "{ native: string; universal: string }"
 				},
 				{
 					"kind": "subtype",
@@ -2494,7 +2494,7 @@
 			"kind": "type",
 			"name": "WCProposerMetadata",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L39",
-			"type": "{ description: string, icons: string[], name: string, url: string }",
+			"type": "{ description: string; icons: string[]; name: string; url: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2522,7 +2522,7 @@
 			"kind": "type",
 			"name": "WCRequest",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L58",
-			"type": "{ method: string, params: any, peer: WCPeer, topic: string }",
+			"type": "{ method: string; params: any; peer: WCPeer; topic: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2550,7 +2550,7 @@
 			"kind": "type",
 			"name": "WCSession",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L65",
-			"type": "{ peer: WCPeer, topic: string }",
+			"type": "{ peer: WCPeer; topic: string }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2574,7 +2574,7 @@
 			"kind": "type",
 			"name": "WalletConnectOptions",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/wallet-connect.ts#L18",
-			"type": "{ projectId: string, qrModalOptions: WC2_QRModalOptions, qrcode: boolean }",
+			"type": "{ projectId: string; qrModalOptions: WC2_QRModalOptions; qrcode: boolean }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2665,12 +2665,12 @@
 			"kind": "type",
 			"name": "WalletConnectReceiverConfig",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/core/types/walletConnect.ts#L8",
-			"type": "{ walletConnectReceiver: ({ walletConnectV2ProjectId: string, walletConnectV2RelayUrl: string, walletConnectWalletMetadata: WCMetadata }) | (true) }",
+			"type": "{ walletConnectReceiver: ({ walletConnectV2ProjectId: string; walletConnectV2RelayUrl: string; walletConnectWalletMetadata: WCMetadata }) | (true) }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "walletConnectReceiver",
-					"type": "({ walletConnectV2ProjectId: string, walletConnectV2RelayUrl: string, walletConnectWalletMetadata: WCMetadata }) | (true)"
+					"type": "({ walletConnectV2ProjectId: string; walletConnectV2RelayUrl: string; walletConnectWalletMetadata: WCMetadata }) | (true)"
 				}
 			]
 		},
@@ -2678,7 +2678,7 @@
 			"kind": "type",
 			"name": "WalletData",
 			"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/abstract.ts#L25",
-			"type": "{ address: string, chainId: number }",
+			"type": "{ address: string; chainId: number }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
@@ -2702,7 +2702,7 @@
 					"extendsType": "Record<string, any>"
 				}
 			],
-			"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage } & TOpts"
+			"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage } & TOpts"
 		}
 	],
 	"enums": [
@@ -2850,7 +2850,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -2896,7 +2896,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -3109,7 +3109,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -3298,7 +3298,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -3327,7 +3327,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -3391,7 +3391,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -3446,7 +3446,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -3536,7 +3536,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -3859,7 +3859,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -3996,7 +3996,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -4114,7 +4114,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -4143,7 +4143,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -4207,7 +4207,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -4262,7 +4262,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -4352,7 +4352,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -4632,7 +4632,7 @@
 				{
 					"kind": "variable",
 					"name": "prepareStackTrace",
-					"type": "((err : Error, stackTraces : CallSite[]) => any)",
+					"type": "(err: Error, stackTraces: CallSite[]) => any",
 					"flags": {
 						"isStatic": true,
 						"isExternal": true,
@@ -4801,7 +4801,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -4847,7 +4847,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -5060,7 +5060,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -5121,7 +5121,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -5192,7 +5192,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -5261,7 +5261,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -5290,7 +5290,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -5354,7 +5354,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -5409,7 +5409,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -5499,7 +5499,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -5719,7 +5719,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/blocto.ts#L12",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -5814,7 +5814,7 @@
 						"parameters": [
 							{
 								"name": "__namedParameters",
-								"type": "{ chainId: number, connectorId: string }"
+								"type": "{ chainId: number; connectorId: string }"
 							}
 						],
 						"returns": {
@@ -5895,7 +5895,7 @@
 				{
 					"kind": "variable",
 					"name": "prepareStackTrace",
-					"type": "((err : Error, stackTraces : CallSite[]) => any)",
+					"type": "(err: Error, stackTraces: CallSite[]) => any",
 					"flags": {
 						"isStatic": true,
 						"isExternal": true,
@@ -5969,7 +5969,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -6015,7 +6015,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -6270,7 +6270,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -6331,7 +6331,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -6459,7 +6459,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -6488,7 +6488,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -6552,7 +6552,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -6607,7 +6607,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -6697,7 +6697,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -6926,7 +6926,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/coin98.ts#L41",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -7090,7 +7090,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -7136,7 +7136,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -7349,7 +7349,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -7410,7 +7410,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -7434,7 +7434,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage })"
+								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage })"
 							}
 						}
 					],
@@ -7550,7 +7550,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -7579,7 +7579,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -7643,7 +7643,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -7698,7 +7698,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -7788,7 +7788,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -8017,7 +8017,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/coinbase-wallet.ts#L18",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -8041,7 +8041,7 @@
 					"kind": "variable",
 					"name": "options",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/base.ts#L41",
-					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
+					"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -8122,7 +8122,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/coinbase-wallet.ts#L22",
-					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
+					"type": "{ iconURL: string; name: string; urls: { android: string; chrome: string; ios: string } }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -8137,7 +8137,7 @@
 						{
 							"kind": "subtype",
 							"name": "urls",
-							"type": "{ android: string, chrome: string, ios: string }"
+							"type": "{ android: string; chrome: string; ios: string }"
 						}
 					],
 					"flags": {
@@ -8208,7 +8208,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -8451,7 +8451,7 @@
 								}
 							],
 							"returns": {
-								"type": "((args : any[]) => void)[]"
+								"type": "(...args: any[]) => void[]"
 							},
 							"typeParameters": [
 								{
@@ -8480,7 +8480,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -8544,7 +8544,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -8599,7 +8599,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -8689,7 +8689,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -8847,7 +8847,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -8893,7 +8893,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -9148,7 +9148,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -9209,7 +9209,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -9337,7 +9337,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -9366,7 +9366,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -9430,7 +9430,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -9485,7 +9485,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -9575,7 +9575,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -9816,7 +9816,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/core-wallet.ts#L41",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -10042,7 +10042,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -10088,7 +10088,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -10319,7 +10319,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -10380,7 +10380,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -10556,7 +10556,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -10585,7 +10585,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -10649,7 +10649,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -10704,7 +10704,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -10794,7 +10794,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -11027,7 +11027,7 @@
 							"parameters": [
 								{
 									"name": "options",
-									"type": "{ clientId: string, email: string }"
+									"type": "{ clientId: string; email: string }"
 								}
 							],
 							"returns": {
@@ -11091,7 +11091,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/embedded-wallet.ts#L27",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -11152,7 +11152,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/embedded-wallet.ts#L31",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -11511,7 +11511,7 @@
 							"parameters": [
 								{
 									"name": "__namedParameters",
-									"type": "{ body: any, method: (\"POST\") | (\"GET\"), path: string }"
+									"type": "{ body: any; method: (\"POST\") | (\"GET\"); path: string }"
 								}
 							],
 							"returns": {
@@ -11816,7 +11816,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -11953,7 +11953,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -12071,7 +12071,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -12100,7 +12100,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -12164,7 +12164,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -12219,7 +12219,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -12309,7 +12309,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -12541,7 +12541,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -12678,7 +12678,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -12796,7 +12796,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -12825,7 +12825,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -12889,7 +12889,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -12944,7 +12944,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -13034,7 +13034,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -13237,7 +13237,7 @@
 						"parameters": [
 							{
 								"name": "options",
-								"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
+								"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }",
 								"flags": {
 									"isOptional": true
 								}
@@ -13284,7 +13284,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -13330,7 +13330,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -13543,7 +13543,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -13604,7 +13604,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -13628,7 +13628,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage })"
+								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage })"
 							}
 						}
 					],
@@ -13732,7 +13732,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -13761,7 +13761,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -13825,7 +13825,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -13880,7 +13880,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -13970,7 +13970,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -14190,7 +14190,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/frame.ts#L6",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -14208,7 +14208,7 @@
 					"kind": "variable",
 					"name": "options",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/base.ts#L41",
-					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
+					"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -14324,7 +14324,7 @@
 						"parameters": [
 							{
 								"name": "options",
-								"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
+								"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }",
 								"flags": {
 									"isOptional": true
 								}
@@ -14371,7 +14371,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -14417,7 +14417,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -14630,7 +14630,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -14691,7 +14691,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -14715,7 +14715,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage })"
+								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage })"
 							}
 						}
 					],
@@ -14819,7 +14819,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -14848,7 +14848,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -14912,7 +14912,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -14967,7 +14967,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -15057,7 +15057,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -15277,7 +15277,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/injected.ts#L5",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -15295,7 +15295,7 @@
 					"kind": "variable",
 					"name": "options",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/base.ts#L41",
-					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
+					"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -15586,7 +15586,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -15632,7 +15632,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -15932,7 +15932,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -15993,7 +15993,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -16209,7 +16209,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -16296,7 +16296,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -16360,7 +16360,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -16415,7 +16415,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -16505,7 +16505,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -16763,7 +16763,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/local-wallet.ts#L36",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -16829,7 +16829,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/local-wallet.ts#L43",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -16926,7 +16926,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -16972,7 +16972,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -17182,7 +17182,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -17243,7 +17243,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -17326,7 +17326,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -17395,7 +17395,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -17424,7 +17424,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -17488,7 +17488,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -17543,7 +17543,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -17633,7 +17633,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -17853,7 +17853,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/magic.ts#L23",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -17928,7 +17928,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/magic.ts#L27",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -18025,7 +18025,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -18071,7 +18071,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -18326,7 +18326,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -18387,7 +18387,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -18515,7 +18515,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -18544,7 +18544,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -18608,7 +18608,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -18663,7 +18663,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -18753,7 +18753,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -18985,7 +18985,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/metamask.ts#L41",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -19070,7 +19070,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/metamask.ts#L46",
-					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
+					"type": "{ iconURL: string; name: string; urls: { android: string; chrome: string; ios: string } }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -19085,7 +19085,7 @@
 						{
 							"kind": "subtype",
 							"name": "urls",
-							"type": "{ android: string, chrome: string, ios: string }"
+							"type": "{ android: string; chrome: string; ios: string }"
 						}
 					],
 					"flags": {
@@ -19172,7 +19172,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -19218,7 +19218,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -19473,7 +19473,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -19534,7 +19534,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -19662,7 +19662,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -19691,7 +19691,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -19755,7 +19755,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -19810,7 +19810,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -19900,7 +19900,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -20141,7 +20141,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/okx.ts#L41",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -20344,7 +20344,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -20390,7 +20390,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -20603,7 +20603,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -20664,7 +20664,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -20834,7 +20834,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -20863,7 +20863,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -20927,7 +20927,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -20982,7 +20982,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -21072,7 +21072,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -21298,7 +21298,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/paper-wallet.ts#L24",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -21316,7 +21316,7 @@
 					"kind": "variable",
 					"name": "onAuthSuccess",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/paper-wallet.ts#L40",
-					"type": "(undefined) | (((authResult : AuthAndWalletRpcReturnType) => void))"
+					"type": "(undefined) | ((authResult: AuthAndWalletRpcReturnType) => void)"
 				},
 				{
 					"kind": "variable",
@@ -21371,7 +21371,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/paper-wallet.ts#L28",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -21502,7 +21502,7 @@
 						"parameters": [
 							{
 								"name": "options",
-								"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }"
+								"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }"
 							}
 						],
 						"returns": {
@@ -21546,7 +21546,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -21592,7 +21592,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -21805,7 +21805,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -21866,7 +21866,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -21890,7 +21890,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage })"
+								"type": "(undefined) | ({ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage })"
 							}
 						}
 					],
@@ -21994,7 +21994,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -22023,7 +22023,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -22087,7 +22087,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -22142,7 +22142,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -22232,7 +22232,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -22452,7 +22452,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/phantom.ts#L11",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -22476,7 +22476,7 @@
 					"kind": "variable",
 					"name": "options",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/base.ts#L41",
-					"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
+					"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -22569,7 +22569,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/phantom.ts#L16",
-					"type": "{ iconURL: string, name: string, urls: { chrome: string } }",
+					"type": "{ iconURL: string; name: string; urls: { chrome: string } }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -22670,7 +22670,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -22807,7 +22807,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -22925,7 +22925,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -22954,7 +22954,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -23018,7 +23018,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -23073,7 +23073,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -23163,7 +23163,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -23435,7 +23435,7 @@
 							},
 							{
 								"name": "options",
-								"type": "{ cause: unknown, code: (4001) | (4100) | (4200) | (4900) | (4901) | (4902), data: T }"
+								"type": "{ cause: unknown; code: (4001) | (4100) | (4200) | (4900) | (4901) | (4902); data: T }"
 							}
 						],
 						"returns": {
@@ -23551,7 +23551,7 @@
 				{
 					"kind": "variable",
 					"name": "prepareStackTrace",
-					"type": "((err : Error, stackTraces : CallSite[]) => any)",
+					"type": "(err: Error, stackTraces: CallSite[]) => any",
 					"flags": {
 						"isStatic": true,
 						"isExternal": true,
@@ -23630,7 +23630,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -23676,7 +23676,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -23931,7 +23931,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -23992,7 +23992,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -24120,7 +24120,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -24149,7 +24149,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -24213,7 +24213,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -24268,7 +24268,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -24358,7 +24358,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -24578,7 +24578,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/rainbow-wallet.ts#L41",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -24663,7 +24663,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/rainbow-wallet.ts#L46",
-					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
+					"type": "{ iconURL: string; name: string; urls: { android: string; chrome: string; ios: string } }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -24678,7 +24678,7 @@
 						{
 							"kind": "subtype",
 							"name": "urls",
-							"type": "{ android: string, chrome: string, ios: string }"
+							"type": "{ android: string; chrome: string; ios: string }"
 						}
 					],
 					"flags": {
@@ -24721,7 +24721,7 @@
 						"parameters": [
 							{
 								"name": "options",
-								"type": "{ analytics: (\"enabled\") | (\"disabled\"), chains: Chain[], clientId: string, dappMetadata: DAppMetaData, walletId: string, walletStorage: AsyncStorage }",
+								"type": "{ analytics: (\"enabled\") | (\"disabled\"); chains: Chain[]; clientId: string; dappMetadata: DAppMetaData; walletId: string; walletStorage: AsyncStorage }",
 								"flags": {
 									"isOptional": true
 								}
@@ -24768,7 +24768,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -24814,7 +24814,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -25024,7 +25024,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -25085,7 +25085,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -25213,7 +25213,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -25242,7 +25242,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -25306,7 +25306,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -25361,7 +25361,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -25451,7 +25451,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -25732,7 +25732,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/safe.ts#L20",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -25829,7 +25829,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -25875,7 +25875,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -26088,7 +26088,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -26149,7 +26149,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -26277,7 +26277,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -26306,7 +26306,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -26370,7 +26370,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -26425,7 +26425,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -26515,7 +26515,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -26744,7 +26744,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/signer.ts#L27",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -26873,7 +26873,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -26959,7 +26959,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -27080,7 +27080,7 @@
 								},
 								{
 									"name": "permissions",
-									"type": "{ approvedCallTargets: Object, expirationDate: (number) | (Date), nativeTokenLimitPerTransaction: (string) | (number), startDate: (number) | (Date) }",
+									"type": "{ approvedCallTargets: Object; expirationDate: (number) | (Date); nativeTokenLimitPerTransaction: (string) | (number); startDate: (number) | (Date) }",
 									"summary": [
 										{
 											"type": "paragraph",
@@ -27265,7 +27265,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -27307,7 +27307,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -27349,7 +27349,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -27391,7 +27391,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -27728,7 +27728,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -28039,7 +28039,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -28068,7 +28068,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -28132,7 +28132,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -28187,7 +28187,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -28317,7 +28317,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -28881,7 +28881,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/smart-wallet.ts#L39",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -29070,7 +29070,7 @@
 				{
 					"kind": "variable",
 					"name": "prepareStackTrace",
-					"type": "((err : Error, stackTraces : CallSite[]) => any)",
+					"type": "(err: Error, stackTraces: CallSite[]) => any",
 					"flags": {
 						"isStatic": true,
 						"isExternal": true,
@@ -29155,7 +29155,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -29241,7 +29241,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -29362,7 +29362,7 @@
 								},
 								{
 									"name": "permissions",
-									"type": "{ approvedCallTargets: Object, expirationDate: (number) | (Date), nativeTokenLimitPerTransaction: (string) | (number), startDate: (number) | (Date) }",
+									"type": "{ approvedCallTargets: Object; expirationDate: (number) | (Date); nativeTokenLimitPerTransaction: (string) | (number); startDate: (number) | (Date) }",
 									"summary": [
 										{
 											"type": "paragraph",
@@ -29547,7 +29547,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -29589,7 +29589,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -29631,7 +29631,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -29673,7 +29673,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ details: { deployCost: BigNumber, deployGasLimit: BigNumber, gasPrice: BigNumber, totalCost: BigNumber, transactionCost: BigNumber, transactionGasLimit: BigNumber }, ether: string, wei: BigNumber }>",
+								"type": "Promise<{ details: { deployCost: BigNumber; deployGasLimit: BigNumber; gasPrice: BigNumber; totalCost: BigNumber; transactionCost: BigNumber; transactionGasLimit: BigNumber }; ether: string; wei: BigNumber }>",
 								"summary": []
 							},
 							"blockTags": []
@@ -30010,7 +30010,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -30321,7 +30321,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -30350,7 +30350,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -30414,7 +30414,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -30469,7 +30469,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -30599,7 +30599,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -31143,7 +31143,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/token-bound-smart-wallet.ts#L15",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -31240,7 +31240,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -31286,7 +31286,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -31541,7 +31541,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -31602,7 +31602,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -31730,7 +31730,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -31759,7 +31759,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -31823,7 +31823,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -31878,7 +31878,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -31968,7 +31968,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -32188,7 +32188,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/trust.ts#L41",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -32273,7 +32273,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/trust.ts#L46",
-					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
+					"type": "{ iconURL: string; name: string; urls: { android: string; chrome: string; ios: string } }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -32288,7 +32288,7 @@
 						{
 							"kind": "subtype",
 							"name": "urls",
-							"type": "{ android: string, chrome: string, ios: string }"
+							"type": "{ android: string; chrome: string; ios: string }"
 						}
 					],
 					"flags": {
@@ -32467,7 +32467,7 @@
 				{
 					"kind": "variable",
 					"name": "prepareStackTrace",
-					"type": "((err : Error, stackTraces : CallSite[]) => any)",
+					"type": "(err: Error, stackTraces: CallSite[]) => any",
 					"flags": {
 						"isStatic": true,
 						"isExternal": true,
@@ -32532,7 +32532,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -32775,7 +32775,7 @@
 								}
 							],
 							"returns": {
-								"type": "((args : any[]) => void)[]"
+								"type": "(...args: any[]) => void[]"
 							},
 							"typeParameters": [
 								{
@@ -32804,7 +32804,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -32868,7 +32868,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -32923,7 +32923,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -33013,7 +33013,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -33145,7 +33145,7 @@
 						"parameters": [
 							{
 								"name": "__namedParameters",
-								"type": "{ chains: Chain[], options: Options }"
+								"type": "{ chains: Chain[]; options: Options }"
 							}
 						],
 						"returns": {
@@ -33185,7 +33185,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void)",
+									"type": "(...args: ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -33494,7 +33494,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -33523,7 +33523,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void)",
+									"type": "(...args: ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -33587,7 +33587,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void)",
+									"type": "(...args: ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -33696,7 +33696,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void)",
+									"type": "(...args: ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -33786,7 +33786,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void)",
+									"type": "(...args: ArgumentMap<WagmiConnectorEvents<Provider>>[Extract<T, keyof WagmiConnectorEvents<Provider>>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -34172,7 +34172,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -34218,7 +34218,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -34449,7 +34449,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -34510,7 +34510,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -34638,7 +34638,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -34667,7 +34667,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -34731,7 +34731,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -34786,7 +34786,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -34876,7 +34876,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -35116,7 +35116,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/wallet-connect.ts#L45",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -35189,7 +35189,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/wallet-connect.ts#L49",
-					"type": "{ iconURL: string, name: string }",
+					"type": "{ iconURL: string; name: string }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -35271,7 +35271,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -35511,7 +35511,7 @@
 								}
 							],
 							"returns": {
-								"type": "((args : any[]) => void)[]"
+								"type": "(...args: any[]) => void[]"
 							},
 							"typeParameters": [
 								{
@@ -35540,7 +35540,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -35604,7 +35604,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -35659,7 +35659,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -35773,7 +35773,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -35916,7 +35916,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -36156,7 +36156,7 @@
 								}
 							],
 							"returns": {
-								"type": "((args : any[]) => void)[]"
+								"type": "(...args: any[]) => void[]"
 							},
 							"typeParameters": [
 								{
@@ -36185,7 +36185,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -36249,7 +36249,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -36304,7 +36304,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -36418,7 +36418,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : any[]) => void)",
+									"type": "(...args: any[]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -36588,7 +36588,7 @@
 							"parameters": [
 								{
 									"name": "connector",
-									"type": "Connector<{}>"
+									"type": "Connector<{  }>"
 								}
 							],
 							"returns": {
@@ -36634,7 +36634,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -36865,7 +36865,7 @@
 								}
 							],
 							"returns": {
-								"type": "Promise<{ decimals: number, displayValue: string, name: string, symbol: string, value: BigNumber }>",
+								"type": "Promise<{ decimals: number; displayValue: string; name: string; symbol: string; value: BigNumber }>",
 								"summary": [
 									{
 										"type": "paragraph",
@@ -36926,7 +36926,7 @@
 					"signatures": [
 						{
 							"returns": {
-								"type": "Promise<Connector<{}>>"
+								"type": "Promise<Connector<{  }>>"
 							}
 						}
 					],
@@ -37054,7 +37054,7 @@
 								}
 							],
 							"returns": {
-								"type": "Array<((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)>"
+								"type": "Array<(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void>"
 							},
 							"typeParameters": [
 								{
@@ -37083,7 +37083,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -37147,7 +37147,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -37202,7 +37202,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true
 									}
@@ -37292,7 +37292,7 @@
 								},
 								{
 									"name": "fn",
-									"type": "((args : ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void)",
+									"type": "(...args: ArgumentMap<WalletEvents>[Extract<T, keyof WalletEvents>]) => void",
 									"flags": {
 										"isExternal": true,
 										"isOptional": true
@@ -37512,7 +37512,7 @@
 					"kind": "variable",
 					"name": "connector",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/zerion.ts#L38",
-					"type": "Connector<{}>",
+					"type": "Connector<{  }>",
 					"flags": {
 						"isOptional": true
 					}
@@ -37597,7 +37597,7 @@
 					"kind": "variable",
 					"name": "meta",
 					"source": "https://github.com/thirdweb-dev/js/blob/9cfb067fb/packages/wallets/src/evm/wallets/zerion.ts#L44",
-					"type": "{ iconURL: string, name: string, urls: { android: string, chrome: string, ios: string } }",
+					"type": "{ iconURL: string; name: string; urls: { android: string; chrome: string; ios: string } }",
 					"typeDeclaration": [
 						{
 							"kind": "subtype",
@@ -37612,7 +37612,7 @@
 						{
 							"kind": "subtype",
 							"name": "urls",
-							"type": "{ android: string, chrome: string, ios: string }"
+							"type": "{ android: string; chrome: string; ios: string }"
 						}
 					],
 					"flags": {
