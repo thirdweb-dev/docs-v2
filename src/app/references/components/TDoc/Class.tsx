@@ -10,6 +10,19 @@ import { Details } from "../../../../components/Document/Details";
 export function ClassTDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
 
+	const methods = doc.methods?.filter((method) => {
+		const flags = method.signatures && method.signatures[0]?.flags;
+		return !flags?.isPrivate && !flags?.isProtected;
+	});
+
+	const properties = doc.properties?.filter((property) => {
+		return !property.flags?.isPrivate && !property.flags?.isProtected;
+	});
+
+	const accessors = doc.accessors?.filter((accessor) => {
+		return !accessor.flags?.isPrivate && !accessor.flags?.isProtected;
+	});
+
 	return (
 		<div>
 			<Heading level={1} id={doc.name}>
@@ -33,88 +46,77 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Methods */}
-			{doc.methods && (
+			{methods && methods.length > 1 && (
 				<div>
 					<br />
 					<Heading level={2} id="methods">
 						Methods
 					</Heading>
 					<div>
-						{doc.methods
-							.filter((method) => {
-								const flags = method.signatures && method.signatures[0]?.flags;
-								return !flags?.isPrivate && !flags?.isProtected;
-							})
-							.map((method, i) => {
-								const flags = method.signatures && method.signatures[0]?.flags;
-								return (
-									<Details
-										key={i}
-										summary={method.name}
-										id={method.name}
-										headingClassName="font-mono"
-										tags={[
-											flags?.isOptional ? "optional" : "",
-											flags?.isStatic ? "static" : "",
-										].filter((w) => w)}
-									>
-										<FunctionTDoc
-											doc={method}
-											key={method.name}
-											level={3}
-											showHeading={false}
-										/>
-									</Details>
-								);
-							})}
+						{methods.map((method, i) => {
+							const flags = method.signatures && method.signatures[0]?.flags;
+							return (
+								<Details
+									key={i}
+									summary={method.name}
+									id={method.name}
+									headingClassName="font-mono"
+									tags={[
+										flags?.isOptional ? "optional" : "",
+										flags?.isStatic ? "static" : "",
+									].filter((w) => w)}
+								>
+									<FunctionTDoc
+										doc={method}
+										key={method.name}
+										level={3}
+										showHeading={false}
+									/>
+								</Details>
+							);
+						})}
 					</div>
 				</div>
 			)}
 
 			{/* Properties */}
-			{doc.properties && (
+			{properties && properties.length > 1 && (
 				<div>
 					<br />
 					<Heading level={2} id="properties">
 						Properties
 					</Heading>
 					<div>
-						{doc.properties
-							.filter((property) => {
-								return (
-									!property.flags?.isPrivate && !property.flags?.isProtected
-								);
-							})
-							.map((property, i) => {
-								return (
-									<Details
-										key={i}
-										summary={property.name}
-										id={property.name}
-										headingClassName="font-mono"
-									>
-										<VariableTDoc
-											doc={property}
-											key={property.name}
-											level={3}
-											showHeading={false}
-										/>
-									</Details>
-								);
-							})}
+						{properties.map((property, i) => {
+							return (
+								<Details
+									key={i}
+									summary={property.name}
+									id={property.name}
+									headingClassName="font-mono"
+								>
+									<VariableTDoc
+										doc={property}
+										key={property.name}
+										level={3}
+										showHeading={false}
+									/>
+								</Details>
+							);
+						})}
 					</div>
 				</div>
 			)}
 
 			{/* Accessor */}
-			{doc.accessors && (
+			{accessors && accessors.length > 1 && (
 				<div>
 					<br />
 					<Heading level={2} id="properties" className="text-5xl">
 						Accessors
 					</Heading>
 					<div>
-						{doc.accessors.map((accessor, i) => {
+						{accessors.map((accessor, i) => {
 							return (
 								<Details key={i} id={accessor.name} summary={accessor.name}>
 									<AccessorTDoc doc={accessor} key={accessor.name} level={3} />
