@@ -5,7 +5,6 @@ const prebuilt: SidebarLink = (() => {
 	const parentSlug = "/pre-built-contracts";
 	return {
 		name: "Pre-built Contracts",
-		href: parentSlug,
 		links: [
 			{
 				name: "Account Factory (ERC-4337)",
