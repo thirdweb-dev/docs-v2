@@ -100,7 +100,7 @@ export const sidebar: SideBar = {
 		prebuilt,
 		{
 			name: "FAQs",
-			href: "/contracts/faqs",
+			href: "/contracts/faq",
 		},
 	],
 };
