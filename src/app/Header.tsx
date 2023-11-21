@@ -25,10 +25,6 @@ import { DocSearch } from "@/components/others/DocSearch";
 
 const links = [
 	{
-		name: "SDKs",
-		href: "/#sdk",
-	},
-	{
 		name: "Wallets",
 		href: "/wallets",
 	},
@@ -43,6 +39,10 @@ const links = [
 	{
 		name: "Infrastructure",
 		href: "/infra",
+	},
+	{
+		name: "SDKs",
+		href: "/#sdk",
 	},
 ];
 
@@ -79,11 +79,11 @@ const referenceLinks = [
 
 const supportLinks = [
 	{
-		name: "Get Help",
+		name: "Support Articles",
 		href: "https://support.thirdweb.com/",
 	},
 	{
-		name: "Contact us",
+		name: "Contact Us",
 		href: "https://thirdweb.com/contact-us",
 	},
 ];

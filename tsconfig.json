@@ -26,7 +26,7 @@
 			"@root/*": ["./*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/infra/storage/page.mdx", "src/app/contracts/page.mdx"],
 	"exclude": ["node_modules"],
 	"ts-node": {
 		"compilerOptions": {
