@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.5.0"
+		"typedocBetterJsonVersion": "0.5.2"
 	},
 	"functions": [
 		{
@@ -11274,7 +11274,8 @@
 					"typeParameters": [
 						{
 							"name": "T",
-							"extendsType": "UploadOptions"
+							"extendsType": "UploadOptions",
+							"defaultType": "IpfsUploadBatchOptions"
 						}
 					],
 					"blockTags": [
@@ -13259,11 +13260,13 @@
 					"typeParameters": [
 						{
 							"name": "TData",
-							"extendsType": "Json"
+							"extendsType": "Json",
+							"defaultType": "Json"
 						},
 						{
 							"name": "TContext",
-							"extendsType": "Json"
+							"extendsType": "Json",
+							"defaultType": "Json"
 						}
 					],
 					"blockTags": [
@@ -14665,11 +14668,13 @@
 			"typeParameters": [
 				{
 					"name": "TData",
-					"extendsType": "Json"
+					"extendsType": "Json",
+					"defaultType": "Json"
 				},
 				{
 					"name": "TContext",
-					"extendsType": "Json"
+					"extendsType": "Json",
+					"defaultType": "Json"
 				}
 			],
 			"type": "{address : string,data : TData,session : TContext}",
@@ -14796,7 +14801,8 @@
 			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L258",
 			"typeParameters": [
 				{
-					"name": "TListingType"
+					"name": "TListingType",
+					"defaultType": "ListingType"
 				}
 			],
 			"type": "TListingType extends ListingType.Direct ? { buyAmount: BigNumberish; buyForWallet: WalletAddress; id: BigNumberish; type: ListingType.Direct } : { id: BigNumberish; type: ListingType.Auction }"
@@ -15010,7 +15016,8 @@
 			"typeParameters": [
 				{
 					"name": "I",
-					"extendsType": "WalletInstance"
+					"extendsType": "WalletInstance",
+					"defaultType": "WalletInstance"
 				}
 			],
 			"type": "{ connected: () => void; goBack: () => void; hide: () => void; isOpen: boolean; modalSize: (\"compact\") | (\"wide\"); onLocallyConnected: (walleInstance: WalletInstance) => void; selectionData: any; setSelectionData: (data: any) => void; show: () => void; supportedWallets: WalletConfig[]; theme: (\"dark\") | (\"light\"); walletConfig: WalletConfig<I> }",
@@ -15614,7 +15621,8 @@
 			"typeParameters": [
 				{
 					"name": "I",
-					"extendsType": "WalletInstance"
+					"extendsType": "WalletInstance",
+					"defaultType": "WalletInstance"
 				}
 			],
 			"type": "{ modalSize: (\"compact\") | (\"wide\"); onSelect: (selectionData: any) => void; supportedWallets: WalletConfig[]; theme: (\"dark\") | (\"light\"); walletConfig: WalletConfig<I> }",
@@ -15909,7 +15917,8 @@
 			"typeParameters": [
 				{
 					"name": "TContract",
-					"extendsType": "ValidContractInstance"
+					"extendsType": "ValidContractInstance",
+					"defaultType": "SmartContract"
 				}
 			],
 			"type": "UseQueryResult<(TContract) | (undefined)> & { contract: (TContract) | (undefined) }"
@@ -15944,7 +15953,8 @@
 			"typeParameters": [
 				{
 					"name": "I",
-					"extendsType": "WalletInstance"
+					"extendsType": "WalletInstance",
+					"defaultType": "WalletInstance"
 				}
 			],
 			"type": "{ (options: WalletOptions) : I ; id: string; meta: typeof AbstractClientWallet[\"meta\"] }",
@@ -15968,7 +15978,8 @@
 			"typeParameters": [
 				{
 					"name": "I",
-					"extendsType": "WalletInstance"
+					"extendsType": "WalletInstance",
+					"defaultType": "WalletInstance"
 				}
 			],
 			"type": "{ category: (\"socialLogin\") | (\"walletLogin\"); connectUI: React.FC<ConnectUIProps<I>>; create: (options: WalletOptions) => I; id: string; isHeadless: boolean; isInstalled: () => boolean; meta: typeof AbstractClientWallet[\"meta\"]; personalWallets: WalletConfig[]; recommended: boolean; selectUI: React.FC<SelectUIProps<I>> }",

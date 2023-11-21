@@ -124,7 +124,6 @@ function RenderFunctionSignature(props: {
 								id={slugger.slug(param.name)}
 								key={param.name}
 								level={props.level + 1}
-								headingClassName="font-mono"
 								summary={param.name}
 								tags={[
 									param.flags?.isOptional ? "optional" : "",
@@ -191,12 +190,14 @@ export function getFunctionSignatureCode(
 
 	const typeParams = signature.typeParameters
 		? `<${signature.typeParameters
-				.map(
-					(param) =>
+				.map((param) => {
+					const defaultVal = param.defaultType ? ` = ${param.defaultType}` : "";
+					return (
 						`${param.name}${
 							param.extendsType ? ` extends ${param.extendsType}` : ""
-						}`,
-				)
+						}` + defaultVal
+					);
+				})
 				.join(", ")}>`
 		: "";
 
