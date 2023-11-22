@@ -107,11 +107,12 @@ export function transform(node: TransformerNode, index: number) {
 				.trim();
 			if (knownLangs.has(specifiedLang)) {
 				lang = specifiedLang;
-			} else {
-				console.warn(
-					`Unknown language "${specifiedLang}" specified for code block in Changelog`,
-				);
 			}
+			// else {
+			// 	console.warn(
+			// 		`Unknown language "${specifiedLang}" specified for code block in Changelog`,
+			// 	);
+			// }
 		}
 		if (code) {
 			return <CodeBlock lang={lang} code={code} />;

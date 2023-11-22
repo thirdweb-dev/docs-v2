@@ -7,52 +7,76 @@ const prebuilt: SidebarLink = (() => {
 		name: "Pre-built Contracts",
 		links: [
 			{
-				name: "Account Factory (ERC-4337)",
-				href: `${parentSlug}/account-factory`,
+				name: "ERC-4337",
+				isCollapsible: false,
+				links: [
+					{
+						name: "Account Factory",
+						href: `${parentSlug}/account-factory`,
+					},
+					{
+						name: "Dynamic Account Factory",
+						href: `${parentSlug}/dynamic-account-factory`,
+					},
+					{
+						name: "Managed Account Factory",
+						href: `${parentSlug}/managed-account-factory`,
+					},
+				],
 			},
 			{
-				name: "Dynamic Account Factory (ERC-4337)",
-				href: `${parentSlug}/dynamic-account-factory`,
+				name: "ERC-20",
+				isCollapsible: false,
+				links: [
+					{
+						name: "Token",
+						href: `${parentSlug}/token`,
+					},
+					{
+						name: "Token Drop",
+						href: `${parentSlug}/token-drop`,
+					},
+				],
 			},
 			{
-				name: "Managed Account Factory (ERC-4337)",
-				href: `${parentSlug}/managed-account-factory`,
+				name: "ERC-721",
+				isCollapsible: false,
+				links: [
+					{
+						name: "NFT Collection",
+						href: `${parentSlug}/nft-collection`,
+					},
+					{
+						name: "NFT Drop",
+						href: `${parentSlug}/nft-drop`,
+					},
+					{
+						name: "Loyalty Card",
+						href: `${parentSlug}/loyalty-card`,
+					},
+					{
+						name: "Open Edition",
+						href: `${parentSlug}/open-edition`,
+					},
+					{
+						name: "Signature Drop",
+						href: `${parentSlug}/signature-drop`,
+					},
+				],
 			},
 			{
-				name: "Token (ERC-20)",
-				href: `${parentSlug}/token`,
-			},
-			{
-				name: "Token Drop (ERC-20)",
-				href: `${parentSlug}/token-drop`,
-			},
-			{
-				name: "NFT Collection (ERC-721)",
-				href: `${parentSlug}/nft-collection`,
-			},
-			{
-				name: "NFT Drop (ERC-721)",
-				href: `${parentSlug}/nft-drop`,
-			},
-			{
-				name: "Loyalty Card (ERC-721)",
-				href: `${parentSlug}/loyalty-card`,
-			},
-			{
-				name: "Open Edition (ERC-721)",
-				href: `${parentSlug}/open-edition`,
-			},
-			{
-				name: "Signature Drop (ERC-721)",
-				href: `${parentSlug}/signature-drop`,
-			},
-			{
-				name: "Edition (ERC-1155)",
-				href: `${parentSlug}/edition`,
-			},
-			{
-				name: "Edition Drop (ERC-1155)",
-				href: `${parentSlug}/edition-drop`,
+				name: "ERC-1155",
+				isCollapsible: false,
+				links: [
+					{
+						name: "Edition",
+						href: `${parentSlug}/edition`,
+					},
+					{
+						name: "Edition Drop",
+						href: `${parentSlug}/edition-drop`,
+					},
+				],
 			},
 			{
 				name: "Airdrop",

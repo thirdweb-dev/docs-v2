@@ -16,6 +16,8 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 
 	const pages: PageData[] = [];
 
+	const noMainFound: string[] = [];
+
 	await Promise.all(
 		htmlFiles.map(async (filePath) => {
 			const htmlContent = await readFile(filePath, "utf-8");
@@ -27,10 +29,9 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 			}).querySelector("main");
 
 			if (!mainEl) {
-				console.warn(
-					`No <main> element found in ${filePath}, It won't be included in the search results.`,
+				noMainFound.push(
+					filePath.split(".next/server/app")[1]?.replace(".html", "") || "",
 				);
-
 				return;
 			}
 
@@ -43,6 +44,14 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 			});
 		}),
 	);
+
+	if (noMainFound.length) {
+		console.warn(
+			`\n\nNo <main> element found in below routes, They will not be included in search results :\n`,
+		);
+		noMainFound.forEach((f) => console.warn("* " + f));
+		console.warn("\n");
+	}
 
 	return pages;
 }

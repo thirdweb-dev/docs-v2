@@ -112,7 +112,7 @@ function DocSidebarCategory(props: {
 
 	if (isCollapsible === false) {
 		return (
-			<div className="my-6">
+			<div className="my-4">
 				<div className="mb-2 flex items-center gap-2">
 					{icon && <SidebarIcon icon={icon} />}
 					{href ? (
