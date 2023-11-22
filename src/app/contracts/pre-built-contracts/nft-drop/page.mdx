@@ -9,7 +9,7 @@ import {
 } from "@/components/Document";
 import Image from "next/image";
 
-## Overview
+# Overview
 
 NFT Drop enables users to release a collection of unique NFTs using the ERC721A standard. NFT Drop uses a “drop” mechanism intended for large collections to distribute NFTs. The NFT Drop contract can be deployed via the [dashboard](/pre-built-contracts/nft-drop#deploy-nft-drop-dashboard), [CLI](/pre-built-contracts/nft-drop#deploy-nft-drop-cli), or [SDKs](/pre-built-contracts/nft-drop#deploy-nft-drop-sdk).
 
@@ -23,7 +23,7 @@ NFT Drop enables users to release a collection of unique NFTs using the ERC721A 
 
 <br />
 
-### Use Cases
+## Use Cases
 
 - Create restricted-access NFTs which can only be claimed by a specified allowlist of wallets
 - Create large collections of unique NFT profile pics with each NFT corresponding to unique metadata or traits
@@ -40,19 +40,25 @@ Learn how to deploy and manage an NFT Drop contract using dashboard.
 ### Deploy and configure contract
 
 <Steps>
+
 <Step title="Select Contract">
-Navigate to Contracts > Explore > [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721)
+	Navigate to Contracts > Explore > [NFT
+	Drop](https://thirdweb.com/thirdweb.eth/DropERC721)
 </Step>
 
 <Step title="Deploy">
-	Select `Deploy now`
-	<Image
-		src={require("./assets/deploy-now.png")}
-		alt="Deploy a contract view from Explore"
-	/>
+
+Select `Deploy now`
+
+<Image
+	src={require("./assets/deploy-now.png")}
+	alt="Deploy a contract view from Explore"
+/>
+
 </Step>
 
 <Step title="Set Metadata">
+
 A modal will appear to set Contract Metadata or settings to organize and distinguish between contracts. Set the following metadata:
 
 - **Name** - name of the contract.
@@ -60,27 +66,41 @@ A modal will appear to set Contract Metadata or settings to organize and disting
 - **Description (optional)** - description of contract to
 - **Image (optional)** - image or icon of contract
 
-<Image src={require('./assets/contract-metadata.png')} alt="Contract metadata settings"/>
+<Image
+	src={require("./assets/contract-metadata.png")}
+	alt="Contract metadata settings"
+/>
+
 </Step>
 
 <Step title="Fund distribution">
+
 Set fund distribution recipients for Primary Sales and Secondary Sales by passing in the corresponding wallet addresses you want to receive the funds.
 
 - **Primary Sales** - The initial recipient will receive any funds from sales made upon initially minting the NFT.
+
 - **Royalties / Secondary Sales** - The recipient that will receive funds from any secondary sales or re-sales of the NFT.
 
-      <Image src={require('./assets/funds.png')} alt="Fund distribution settings"/>
+  <Image src={require("./assets/funds.png")} alt="Fund distribution settings" />
 
 - **(Optional) Platform fees** - Recipient that will receive additional fees for all primary sales that happen on this contract. (This is useful if you are deploying this contract for a 3rd party and want to take fees for your service).
 
-      <Image src={require('./assets/advanced-configuration.png')} alt="Screenshot of advanced configuration"/>
+  <Image
+  	src={require("./assets/advanced-configuration.png")}
+  	alt="Screenshot of advanced configuration"
+  />
 
 </Step>
 
 <Step title="Choose network">
+
 Choose a Network / Chain to Deploy to. [View list of available Networks.](https://thirdweb.com/chainlist)
 
-<Image src={require('./assets/choose-network.png')} alt="Choose network screen"/>
+<Image
+	src={require("./assets/choose-network.png")}
+	alt="Choose network screen"
+/>
+
 </Step>
 
 <Step title="Sign transaction">
@@ -124,7 +144,7 @@ Optionally, users may choose to hide their NFT image and metadata from users bef
 
 1. In the CLI run the following Deploy command:
 
-   ```jsx
+   ```bash
    npx thirdweb deploy -n --name nft-drop
    ```
 
@@ -134,56 +154,77 @@ Optionally, users may choose to hide their NFT image and metadata from users bef
 
 ## Deploy NFT Drop (SDK)
 
-<Tabs defaultValue="account">
-	<TabsList>
-		<TabsTrigger value="typescript">TypeScript</TabsTrigger>
-		<TabsTrigger value="react">React</TabsTrigger>
-		<TabsTrigger value="react-native">React Native</TabsTrigger>
-		<TabsTrigger value="python">Python</TabsTrigger>
-		<TabsTrigger value="go">Go</TabsTrigger>
-	</TabsList>
-	<TabsContent value="typescript">
-        ```jsx
-        const txResult = await sdk.deployer.deployBuiltInContract("nft-drop", {
-	    name: "<your_contract_name>",
-	    primary_sale_recipient: "<wallet_address>",
-        });
-        ```
-    </TabsContent>
-	<TabsContent value="react">//placeholder for now</TabsContent>
-    <TabsContent value="react-native">
-    ```jsx
-        const sdk = useSDK(sdk.deployer.deployBuiltInContract("nft-drop", {
-        name: "<your_contract_name>",
-        primary_sale_recipient: "<wallet_address>",
-    });)
-    ```
-    </TabsContent>
-    <TabsContent value="python">
-        ```jsx
-        from thirdweb.types.settings.metadata import NFTDropContractMetadata
+<Tabs defaultValue="typescript">
 
-    metadata = NFTDropContractMetadata(
-        name="<your_contract_name>",
-        primary_sale_recipient="<wallet_address>",
-        seller_fee_basis_points=500, # 5% royalty fee
-        fee_recipient="<wallet_address>",
-        platform_fee_basis_points=10, # 0.1% platform fee
-        platform_fee_recipient="<wallet_address>",
-    )
+<TabsList>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="react-native">React Native</TabsTrigger>
+	<TabsTrigger value="python">Python</TabsTrigger>
+	<TabsTrigger value="go">Go</TabsTrigger>
+</TabsList>
 
-    sdk.deployer.deploy_nft_drop(metadata)
-    ```
-    </TabsContent>
-    <TabsContent value="go">
-    ```jsx
-    address, err := sdk.Deployer.DeployNFTDrop(
-     context.Background(),
-        &thirdweb.DeployNFTDropMetadata{
-            Name: "<your_contract_name>",
-        }
-    })
-    ```
+<TabsContent value="typescript">
+
+```jsx
+const txResult = await sdk.deployer.deployBuiltInContract("nft-drop", {
+	name: "<your_contract_name>",
+	primary_sale_recipient: "<wallet_address>",
+});
+```
+
+</TabsContent>
+
+<TabsContent value="react">
+
+```tsx
+// TODO
+```
+
+</TabsContent>
+
+<TabsContent value="react-native">
+
+```jsx
+const sdk = useSDK(
+	sdk.deployer.deployBuiltInContract("nft-drop", {
+		name: "<your_contract_name>",
+		primary_sale_recipient: "<wallet_address>",
+	}),
+);
+```
+
+</TabsContent>
+
+<TabsContent value="python">
+
+```python
+from thirdweb.types.settings.metadata import NFTDropContractMetadata
+
+metadata = NFTDropContractMetadata(
+	name="<your_contract_name>",
+	primary_sale_recipient="<wallet_address>",
+	seller_fee_basis_points=500, # 5% royalty fee
+	fee_recipient="<wallet_address>",
+	platform_fee_basis_points=10, # 0.1% platform fee
+	platform_fee_recipient="<wallet_address>",
+)
+
+sdk.deployer.deploy_nft_drop(metadata)
+```
+
+</TabsContent>
+
+<TabsContent value="go">
+
+```go
+address, err := sdk.Deployer.DeployNFTDrop(
+	context.Background(),
+		&thirdweb.DeployNFTDropMetadata{
+				Name: "<your_contract_name>",
+		}
+)
+```
 
 </TabsContent>
 
