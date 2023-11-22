@@ -9,6 +9,11 @@
 	@apply transition-colors duration-300;
 }
 
+.blaze-slider.static .blaze-prev,
+.blaze-slider.static .blaze-next {
+	@apply hidden;
+}
+
 .blaze-pagination button {
 	@apply w-6 h-6 rounded-[50%] bg-b-600 text-sm font-semibold border;
 }

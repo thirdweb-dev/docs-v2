@@ -33,10 +33,13 @@ export function Feedback() {
 						</DialogTrigger>
 
 						<DialogContent className="p-5">
-							<h3 className="mb-3 text-lg text-f-100"> Sorry about that </h3>
+							<h3 className="mb-3 text-lg text-f-100">
+								{" "}
+								Apologies for any confusion.{" "}
+							</h3>
 							<p className="mb-3 text-f-300" placeholder="Your feedback...">
-								Please describe the issue you faced so that we can improve the
-								page.
+								Please provide details about the issue you encountered to help
+								us improve our documentation.
 							</p>
 							<textarea className="mb-2 h-32 w-full rounded-sm border bg-b-700 p-2 text-f-300 outline-none"></textarea>
 							<div className="flex flex-row-reverse">

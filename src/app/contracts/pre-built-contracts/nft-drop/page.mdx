@@ -1,0 +1,196 @@
+import {
+	Callout,
+	Steps,
+	Step,
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger,
+} from "@/components/Document";
+import Image from "next/image";
+
+## Overview
+
+NFT Drop enables users to release a collection of unique NFTs using the ERC721A standard. NFT Drop uses a “drop” mechanism intended for large collections to distribute NFTs. The NFT Drop contract can be deployed via the [dashboard](/pre-built-contracts/nft-drop#deploy-nft-drop-dashboard), [CLI](/pre-built-contracts/nft-drop#deploy-nft-drop-cli), or [SDKs](/pre-built-contracts/nft-drop#deploy-nft-drop-sdk).
+
+<Callout title="NFT Drop vs NFT Collection" variant="info">
+	NFT Drop differs from [NFT
+	Collection](https://portal.thirdweb.com/pre-built-contracts/nft-collection) in
+	that it allows users to lazy-mint the NFT directly to their wallet. This
+	eliminates the need to mint the NFT to the creator's wallet and then transfer
+	the asset to another user’s wallet.
+</Callout>
+
+<br />
+
+### Use Cases
+
+- Create restricted-access NFTs which can only be claimed by a specified allowlist of wallets
+- Create large collections of unique NFT profile pics with each NFT corresponding to unique metadata or traits
+- Create NFTs of artwork intended for distribution
+
+<br />
+
+## Deploy NFT Drop (Dashboard)
+
+Learn how to deploy and manage an NFT Drop contract using dashboard.
+
+<br />
+
+### Deploy and configure contract
+
+<Steps>
+<Step title="Select Contract">
+Navigate to Contracts > Explore > [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721)
+</Step>
+
+<Step title="Deploy">
+	Select `Deploy now`
+	<Image
+		src={require("./assets/deploy-now.png")}
+		alt="Deploy a contract view from Explore"
+	/>
+</Step>
+
+<Step title="Set Metadata">
+A modal will appear to set Contract Metadata or settings to organize and distinguish between contracts. Set the following metadata:
+
+- **Name** - name of the contract.
+- **Symbol (optional)** - shortened name or symbol to denote a specific group of tokens. Similar to a stock ticker.
+- **Description (optional)** - description of contract to
+- **Image (optional)** - image or icon of contract
+
+<Image src={require('./assets/contract-metadata.png')} alt="Contract metadata settings"/>
+</Step>
+
+<Step title="Fund distribution">
+Set fund distribution recipients for Primary Sales and Secondary Sales by passing in the corresponding wallet addresses you want to receive the funds.
+
+- **Primary Sales** - The initial recipient will receive any funds from sales made upon initially minting the NFT.
+- **Royalties / Secondary Sales** - The recipient that will receive funds from any secondary sales or re-sales of the NFT.
+
+      <Image src={require('./assets/funds.png')} alt="Fund distribution settings"/>
+
+- **(Optional) Platform fees** - Recipient that will receive additional fees for all primary sales that happen on this contract. (This is useful if you are deploying this contract for a 3rd party and want to take fees for your service).
+
+      <Image src={require('./assets/advanced-configuration.png')} alt="Screenshot of advanced configuration"/>
+
+</Step>
+
+<Step title="Choose network">
+Choose a Network / Chain to Deploy to. [View list of available Networks.](https://thirdweb.com/chainlist)
+
+<Image src={require('./assets/choose-network.png')} alt="Choose network screen"/>
+</Step>
+
+<Step title="Sign transaction">
+	Select `Deploy` and sign the transaction prompted in the connected wallet to
+	finish deploying the contract.
+</Step>
+
+</Steps>
+
+<br />
+
+### Upload NFTs
+
+**Single Upload**
+
+- Single upload is a preferred option for users uploading few NFTs at a time. Learn [how to single upload](https://portal.thirdweb.com/dashboard/NFTs#single-upload) through dashboard.
+
+**Batch Upload**
+
+- Batch upload is a method that allows you to upload large amounts of NFTs in one click. Learn [how to batch upload](https://portal.thirdweb.com/dashboard/NFTs#batch-upload) through dashboard.
+
+<Image
+	src={require("./assets/upload-types.png")}
+	alt="NFT settings page highlighting NFT Upload types"
+/>
+
+<br />
+
+### Enable Delayed Reveal
+
+Optionally, users may choose to hide their NFT image and metadata from users before minting. [Learn more about delayed reveal.](https://portal.thirdweb.com/dashboard/NFTs#reveal-nfts)
+
+<Image
+	src={require("./assets/delayed-reveal.png")}
+	alt="Screenshot of delayed reveal page"
+/>
+
+<br />
+
+## Deploy NFT Drop (CLI)
+
+1. In the CLI run the following Deploy command:
+
+   ```jsx
+   npx thirdweb deploy -n --name nft-drop
+   ```
+
+2. Follow the prompts to fill out your contract by following the Deploy NFT Drop (Dashboard) section.
+
+<br />
+
+## Deploy NFT Drop (SDK)
+
+<Tabs defaultValue="account">
+	<TabsList>
+		<TabsTrigger value="typescript">TypeScript</TabsTrigger>
+		<TabsTrigger value="react">React</TabsTrigger>
+		<TabsTrigger value="react-native">React Native</TabsTrigger>
+		<TabsTrigger value="python">Python</TabsTrigger>
+		<TabsTrigger value="go">Go</TabsTrigger>
+	</TabsList>
+	<TabsContent value="typescript">
+        ```jsx
+        const txResult = await sdk.deployer.deployBuiltInContract("nft-drop", {
+	    name: "<your_contract_name>",
+	    primary_sale_recipient: "<wallet_address>",
+        });
+        ```
+    </TabsContent>
+	<TabsContent value="react">//placeholder for now</TabsContent>
+    <TabsContent value="react-native">
+    ```jsx
+        const sdk = useSDK(sdk.deployer.deployBuiltInContract("nft-drop", {
+        name: "<your_contract_name>",
+        primary_sale_recipient: "<wallet_address>",
+    });)
+    ```
+    </TabsContent>
+    <TabsContent value="python">
+        ```jsx
+        from thirdweb.types.settings.metadata import NFTDropContractMetadata
+
+    metadata = NFTDropContractMetadata(
+        name="<your_contract_name>",
+        primary_sale_recipient="<wallet_address>",
+        seller_fee_basis_points=500, # 5% royalty fee
+        fee_recipient="<wallet_address>",
+        platform_fee_basis_points=10, # 0.1% platform fee
+        platform_fee_recipient="<wallet_address>",
+    )
+
+    sdk.deployer.deploy_nft_drop(metadata)
+    ```
+    </TabsContent>
+    <TabsContent value="go">
+    ```jsx
+    address, err := sdk.Deployer.DeployNFTDrop(
+     context.Background(),
+        &thirdweb.DeployNFTDropMetadata{
+            Name: "<your_contract_name>",
+        }
+    })
+    ```
+
+</TabsContent>
+
+</Tabs>
+
+<br />
+
+## Interact with your contract
+
+For easy-to-use code snippets for your contract, view the [Code Snippets](https://portal.thirdweb.com/dashboard/build) view on your contract’s dashboard or visit the [SDK documentation](/sdk).

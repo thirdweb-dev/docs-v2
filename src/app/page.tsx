@@ -42,10 +42,10 @@ export default function Page() {
 		<main className="container grow pb-20">
 			<Hero />
 			<TutorialsSection />
-			<ContractsSection />
 			<WalletsSection />
-			<InfraSection />
+			<ContractsSection />
 			<PaymentSection />
+			<InfraSection />
 			<SDKSection />
 		</main>
 	);
@@ -79,7 +79,7 @@ function Hero() {
 							className="text-lg lg:min-w-[150px] lg:px-10"
 							asChild
 						>
-							<Link href="/">Explore Products</Link>
+							<Link href="/#wallets">Explore Products</Link>
 						</Button>
 					</div>
 				</div>
@@ -105,8 +105,8 @@ function TutorialsSection() {
 					title="Commerce"
 					links={[
 						{
-							name: "Shopify Storefront",
-							href: "/",
+							name: "Create a web3 Shopify theme",
+							href: "https://blog.thirdweb.com/guides/create-a-shopify-theme-with-thirdweb/",
 						},
 						{
 							name: "Create Loyalty Points",
@@ -239,6 +239,41 @@ function TutorialCard(props: {
 	);
 }
 
+function WalletsSection() {
+	return (
+		<section className="py-10">
+			<SectionTitle id="wallets" title="Wallets" />
+
+			<Grid>
+				<ArticleCard
+					href="/wallets/connect"
+					title="Connect"
+					description="Fully customizable Connect Wallet component"
+					icon={WalletsConnectIcon}
+				/>
+				<ArticleCard
+					href="/wallets/smart"
+					title="Smart Wallet"
+					description="Complete toolkit for Account Abstraction"
+					icon={WalletsSmartIcon}
+				/>
+				<ArticleCard
+					title="Embedded Wallets"
+					description="Email & social login wallets for your customers"
+					href="/wallets/embedded-wallet"
+					icon={WalletsEmbeddedIcon}
+				/>
+				<ArticleCard
+					href="/wallets/auth"
+					title="Auth"
+					description="Authenticate users with their wallets"
+					icon={WalletsAuthIcon}
+				/>
+			</Grid>
+		</section>
+	);
+}
+
 function ContractsSection() {
 	return (
 		<section className="py-10">
@@ -280,35 +315,23 @@ function ContractsSection() {
 	);
 }
 
-function WalletsSection() {
+function PaymentSection() {
 	return (
 		<section className="py-10">
-			<SectionTitle id="wallets" title="Wallets" />
+			<SectionTitle id="payments" title="Payments" />
 
 			<Grid>
 				<ArticleCard
-					href="/wallets/connect"
-					title="Connect"
-					description="Fully customizable Connect Wallet component"
-					icon={WalletsConnectIcon}
+					href="/payments/checkout"
+					title="NFT Checkout"
+					description="Credit card checkout for NFTs"
+					icon={PaymentsNFTCheckoutIcon}
 				/>
 				<ArticleCard
-					href="/wallets/smart"
-					title="Smart Wallet"
-					description="Complete toolkit for Account Abstraction"
-					icon={WalletsSmartIcon}
-				/>
-				<ArticleCard
-					title="Embedded Wallets"
-					description="Email & social login wallets for your customers"
-					href="/wallets/embedded-wallet"
-					icon={WalletsEmbeddedIcon}
-				/>
-				<ArticleCard
-					href="/wallets/auth"
-					title="Auth"
-					description="Authenticate users with their wallets"
-					icon={WalletsAuthIcon}
+					href="/payments/sponsored-tx"
+					title="Sponsored Transactions"
+					description="Remove all user friction with invisible transactions"
+					icon={PaymentsSponsoredIcon}
 				/>
 			</Grid>
 		</section>
@@ -338,29 +361,6 @@ function InfraSection() {
 					title="Engine"
 					description="HTTP server with contract APIs and backend wallets"
 					icon={InfraEngineIcon}
-				/>
-			</Grid>
-		</section>
-	);
-}
-
-function PaymentSection() {
-	return (
-		<section className="py-10">
-			<SectionTitle id="payments" title="Payments" />
-
-			<Grid>
-				<ArticleCard
-					href="/payments/checkout"
-					title="NFT Checkout"
-					description="Credit card checkout for NFTs"
-					icon={PaymentsNFTCheckoutIcon}
-				/>
-				<ArticleCard
-					href="/payments/sponsored-tx"
-					title="Sponsored Transactions"
-					description="Remove all user friction with invisible transactions"
-					icon={PaymentsSponsoredIcon}
 				/>
 			</Grid>
 		</section>
