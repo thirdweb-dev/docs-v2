@@ -112,7 +112,7 @@ const prebuilt: SidebarLink = (() => {
 })();
 
 const baseContracts: SidebarLink = (() => {
-	const parentSlug = "/contracts/solidity-sdk/base-contracts";
+	const parentSlug = "/contracts/base-contracts";
 	return {
 		name: "Base Contracts",
 		links: [
@@ -121,19 +121,27 @@ const baseContracts: SidebarLink = (() => {
 				links: [
 					{
 						name: "Base",
-						href: `${parentSlug}/ERC-20/base`,
+						href: `${parentSlug}/erc-20/base`,
 					},
 					{
 						name: "Drop",
-						href: `${parentSlug}/ERC-20/drop`,
+						href: `${parentSlug}/erc-20/drop`,
 					},
 					{
 						name: "Drop Vote",
-						href: `${parentSlug}/ERC-20/drop-vote`,
+						href: `${parentSlug}/erc-20/drop-vote`,
+					},
+					{
+						name: "Signature Mint",
+						href: `${parentSlug}/erc-20/signature-mint`,
+					},
+					{
+						name: "Signature Mint Vote",
+						href: `${parentSlug}/erc-20/signature-mint-vote`,
 					},
 					{
 						name: "Vote",
-						href: `${parentSlug}/ERC-20/vote`,
+						href: `${parentSlug}/erc-20/vote`,
 					},
 				],
 			},
@@ -142,19 +150,23 @@ const baseContracts: SidebarLink = (() => {
 				links: [
 					{
 						name: "Base",
-						href: `${parentSlug}/ERC-721/base`,
+						href: `${parentSlug}/erc-721/base`,
 					},
 					{
 						name: "Delayed Reveal",
-						href: `${parentSlug}/ERC-721/delayed-reveal`,
+						href: `${parentSlug}/erc-721/delayed-reveal`,
 					},
 					{
 						name: "Drop",
-						href: `${parentSlug}/ERC-721/drop`,
+						href: `${parentSlug}/erc-721/drop`,
 					},
 					{
 						name: "Lazy Mint",
-						href: `${parentSlug}/ERC-721/lazy-mint`,
+						href: `${parentSlug}/erc-721/lazy-mint`,
+					},
+					{
+						name: "Signature Mint",
+						href: `${parentSlug}/erc-721/signature-mint`,
 					},
 				],
 			},
