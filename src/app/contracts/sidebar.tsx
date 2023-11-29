@@ -175,19 +175,23 @@ const baseContracts: SidebarLink = (() => {
 				links: [
 					{
 						name: "Base",
-						href: `${parentSlug}/ERC-1155/base`,
+						href: `${parentSlug}/erc-1155/base`,
 					},
 					{
 						name: "Delayed Reveal",
-						href: `${parentSlug}/ERC-1155/delayed-reveal`,
+						href: `${parentSlug}/erc-1155/delayed-reveal`,
 					},
 					{
 						name: "Drop",
-						href: `${parentSlug}/ERC-1155/drop`,
+						href: `${parentSlug}/erc-1155/drop`,
 					},
 					{
 						name: "Lazy Mint",
-						href: `${parentSlug}/ERC-1155/lazy-mint`,
+						href: `${parentSlug}/erc-1155/lazy-mint`,
+					},
+					{
+						name: "Signature Mint",
+						href: `${parentSlug}/erc-1155/signature-mint`,
 					},
 				],
 			},
@@ -196,27 +200,27 @@ const baseContracts: SidebarLink = (() => {
 				links: [
 					{
 						name: "Account",
-						href: `${parentSlug}/ERC-4337/account`,
+						href: `${parentSlug}/erc-4337/account`,
 					},
 					{
 						name: "Account Factory",
-						href: `${parentSlug}/ERC-4337/account-factory`,
+						href: `${parentSlug}/erc-4337/account-factory`,
 					},
 					{
 						name: "Dynamic Account",
-						href: `${parentSlug}/ERC-4337/dynamic-account`,
+						href: `${parentSlug}/erc-4337/dynamic-account`,
 					},
 					{
 						name: "Dynamic Account Factory",
-						href: `${parentSlug}/ERC-4337/dynamic-account-factory`,
+						href: `${parentSlug}/erc-4337/dynamic-account-factory`,
 					},
 					{
 						name: "Managed Account",
-						href: `${parentSlug}/ERC-4337/managed-account`,
+						href: `${parentSlug}/erc-4337/managed-account`,
 					},
 					{
 						name: "Managed Account Factory",
-						href: `${parentSlug}/ERC-4337/managed-account-factory`,
+						href: `${parentSlug}/erc-4337/managed-account-factory`,
 					},
 				],
 			},
@@ -360,8 +364,44 @@ const extensions: SidebarLink = (() => {
 						href: `${parentSlug}/ERC721Burnable`,
 					},
 					{
-						name: "ERC721",
-						href: `${parentSlug}/ERC-721/lazy-mint`,
+						name: "ERC721ClaimConditions",
+						href: `${parentSlug}/ERC721ClaimConditions`,
+					},
+					{
+						name: "ERC721ClaimCustom",
+						href: `${parentSlug}/ERC721ClaimCustom`,
+					},
+					{
+						name: "ERC721ClaimPhases",
+						href: `${parentSlug}/ERC721ClaimCustom`,
+					},
+					{
+						name: "ERC721Claimable",
+						href: `${parentSlug}/ERC721Claimable`,
+					},
+					{
+						name: "ERC721Enumerable",
+						href: `${parentSlug}/ERC721Enumerable`,
+					},
+					{
+						name: "ERC721Mintable",
+						href: `${parentSlug}/ERC721Mintable`,
+					},
+					{
+						name: "ERC721Revealable",
+						href: `${parentSlug}/ERC721Revealable`,
+					},
+					{
+						name: "ERC721SignatureMint",
+						href: `${parentSlug}/ERC721SignatureMint`,
+					},
+					{
+						name: "ERC721Staking",
+						href: `${parentSlug}/ERC721Staking`,
+					},
+					{
+						name: "ERC721Supply",
+						href: `${parentSlug}/ERC721Supply`,
 					},
 				],
 			},
@@ -369,20 +409,64 @@ const extensions: SidebarLink = (() => {
 				name: "ERC-1155",
 				links: [
 					{
-						name: "Base",
-						href: `${parentSlug}/ERC-1155/base`,
+						name: "ERC1155",
+						href: `${parentSlug}/ERC1155`,
 					},
 					{
-						name: "Delayed Reveal",
-						href: `${parentSlug}/ERC-1155/delayed-reveal`,
+						name: "ERC1155BatchMintable",
+						href: `${parentSlug}/ERC1155BatchMintable`,
 					},
 					{
-						name: "Drop",
-						href: `${parentSlug}/ERC-1155/drop`,
+						name: "ERC1155Burnable",
+						href: `${parentSlug}/ERC1155Burnable`,
 					},
 					{
-						name: "Lazy Mint",
-						href: `${parentSlug}/ERC-1155/lazy-mint`,
+						name: "ERC1155ClaimConditions",
+						href: `${parentSlug}/ERC1155ClaimConditions`,
+					},
+					{
+						name: "ERC1155ClaimCustom",
+						href: `${parentSlug}/ERC1155ClaimCustom`,
+					},
+					{
+						name: "ERC1155ClaimPhases",
+						href: `${parentSlug}/ERC1155ClaimPhases`,
+					},
+					{
+						name: "ERC1155Claimable",
+						href: `${parentSlug}/ERC1155Claimable`,
+					},
+					{
+						name: "ERC1155Drop",
+						href: `${parentSlug}/ERC1155Drop`,
+					},
+					{
+						name: "ERC1155DropSinglePhase",
+						href: `${parentSlug}/ERC1155DropSinglePhase`,
+					},
+					{
+						name: "ERC1155Enumerable",
+						href: `${parentSlug}/ERC1155Enumerable`,
+					},
+					{
+						name: "ERC1155Mintable",
+						href: `${parentSlug}/ERC1155Mintable`,
+					},
+					{
+						name: "ERC1155Revealable",
+						href: `${parentSlug}/ERC1155Revealable`,
+					},
+					{
+						name: "ERC1155SignatureMint",
+						href: `${parentSlug}/ERC1155SignatureMint`,
+					},
+					{
+						name: "ERC1155Staking",
+						href: `${parentSlug}/ERC1155Staking`,
+					},
+					{
+						name: "ERC1155Supply",
+						href: `${parentSlug}/ERC1155Supply`,
 					},
 				],
 			},
@@ -390,59 +474,47 @@ const extensions: SidebarLink = (() => {
 				name: "ERC-4337",
 				links: [
 					{
-						name: "Account",
-						href: `${parentSlug}/ERC-4337/account`,
+						name: "AccountExtension",
+						href: `${parentSlug}/AccountExtension`,
 					},
 					{
-						name: "Account Factory",
-						href: `${parentSlug}/ERC-4337/account-factory`,
+						name: "SmartWallet",
+						href: `${parentSlug}/SmartWallet`,
 					},
 					{
-						name: "Dynamic Account",
-						href: `${parentSlug}/ERC-4337/dynamic-account`,
-					},
-					{
-						name: "Dynamic Account Factory",
-						href: `${parentSlug}/ERC-4337/dynamic-account-factory`,
-					},
-					{
-						name: "Managed Account",
-						href: `${parentSlug}/ERC-4337/managed-account`,
-					},
-					{
-						name: "Managed Account Factory",
-						href: `${parentSlug}/ERC-4337/managed-account-factory`,
+						name: "SmartWalletFactory",
+						href: `${parentSlug}/SmartWalletFactory`,
 					},
 				],
 			},
+		],
+	};
+})();
+
+const designDocs: SidebarLink = (() => {
+	const parentSlug = "/contracts/design-docs";
+	return {
+		name: "Design Docs",
+		links: [
 			{
-				name: "Staking",
-				links: [
-					{
-						name: "Staking ERC-20",
-						href: `${parentSlug}/staking/erc-20`,
-					},
-					{
-						name: "Staking ERC-721",
-						href: `${parentSlug}/staking/erc-721`,
-					},
-					{
-						name: "Staking ERC-1155",
-						href: `${parentSlug}/staking/erc-1155`,
-					},
-					{
-						name: "Dynamic Account Factory",
-						href: `${parentSlug}/ERC-4337/dynamic-account-factory`,
-					},
-					{
-						name: "Managed Account",
-						href: `${parentSlug}/ERC-4337/managed-account`,
-					},
-					{
-						name: "Managed Account Factory",
-						href: `${parentSlug}/ERC-4337/managed-account-factory`,
-					},
-				],
+				name: "Drop",
+				href: `${parentSlug}/drop`,
+			},
+			{
+				name: "Marketplace",
+				href: `${parentSlug}/marketplace`,
+			},
+			{
+				name: "Multiwrap",
+				href: `${parentSlug}/multiwrap`,
+			},
+			{
+				name: "Pack",
+				href: `${parentSlug}/pack`,
+			},
+			{
+				name: "Signature Mint",
+				href: `${parentSlug}/signature-mint`,
 			},
 		],
 	};
@@ -456,8 +528,13 @@ export const sidebar: SideBar = {
 			href: "/contracts",
 		},
 		prebuilt,
+		{
+			name: "Get Started",
+			href: "/contracts/build/get-started",
+		},
 		baseContracts,
 		extensions,
+		designDocs,
 		{
 			name: "FAQs",
 			href: "/contracts/faq",
