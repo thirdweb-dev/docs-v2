@@ -1,4 +1,5 @@
 import { Details} from "@/components/Document";
+import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 # ERC1155 Signature Mint
 
@@ -8,11 +9,10 @@ import "@thirdweb-dev/contracts/base/ERC1155SignatureMint.sol";
 
 The `ERC1155SignatureMint` smart contract adds [Signature-Based Minting](/solidity/extensions/erc1155signaturemint)
 extensions to the [ERC1155Base](/solidity/base-contracts/erc1155base) contract.
-{/* 
-  <ViewContractCodeButton
-    link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155SignatureMint.sol"
-    name="ERC1155SignatureMint"
-  /> */}
+
+  <GithubButtonLink
+    href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155SignatureMint.sol"
+  />
 
 Signature minting uses the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) standard,
 and enables a contract admin to authorize an external party's request to mint tokens on the admin's contract.
