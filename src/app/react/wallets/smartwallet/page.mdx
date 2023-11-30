@@ -3,8 +3,6 @@ import { WalletsBreadcrumb } from "../_components";
 
 <WalletsBreadcrumb name="Smart Wallet" slug="smart" />
 
-<br />
-
 # smartWallet
 
 A wallet configurator for [Smart Wallet](/wallets/smart-wallet) which allows integrating the wallet with React
@@ -19,8 +17,6 @@ const smartWalletConfig = smartWallet(walletConfig, {
 	gasless: true,
 });
 ```
-
-<br />
 
 ## options
 
@@ -51,8 +47,6 @@ Must be a `boolean`.
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -81,8 +75,6 @@ const config = {
   <YourApp />
 </ThirdwebProvider>;
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -125,7 +117,6 @@ function App() {
 }
 ```
 
-<br />
 ### connectOptions
 
 ```ts

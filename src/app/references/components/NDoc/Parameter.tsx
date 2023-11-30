@@ -21,7 +21,6 @@ export function ParameterNDoc(props: {
 		<div>
 			{props.showHeading !== false && (
 				<>
-					<br />
 					<Heading
 						level={level}
 						id={slugger.slug(`${props.slugPrefix}--${doc.name}`)}

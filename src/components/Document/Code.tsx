@@ -16,6 +16,9 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { linkMapContext } from "@/contexts/linkMap";
 import { DocLink } from "./DocLink";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import { solidity } from "highlightjs-solidity";
 
 const htmlToReactParser = Parser();
 const processNodeDefinitions = ProcessNodeDefinitions();
@@ -30,6 +33,8 @@ const jsOrTsLangs = new Set([
 	"javascript",
 	"typescript",
 ]);
+
+highlight.registerLanguage("solidity", solidity);
 
 export async function CodeBlock(props: { code: string; lang: string }) {
 	let code = props.code;

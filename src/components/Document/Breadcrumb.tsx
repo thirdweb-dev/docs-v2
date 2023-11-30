@@ -8,7 +8,7 @@ export type Crumb = {
 
 export function Breadcrumb(props: { crumbs: Crumb[] }) {
 	return (
-		<nav id="bradcrumb">
+		<nav id="bradcrumb" className="mb-6">
 			<ul className="flex flex-wrap items-center gap-1 text-sm">
 				{props.crumbs.map((crumb, i) => {
 					return (

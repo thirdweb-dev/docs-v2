@@ -41,7 +41,6 @@ export function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 			{exampleTag?.summary && (
 				<>
-					<br />
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>
@@ -51,7 +50,6 @@ export function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 			{doc.returns?.summary && (
 				<>
-					<br />
 					<Heading id="returns" level={props.level + 1}>
 						Returns
 					</Heading>

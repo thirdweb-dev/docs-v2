@@ -39,6 +39,7 @@ const knownLangs = new Set([
 	"shell",
 	"sol",
 	"groovy",
+	"solidity",
 ]);
 
 export function transform(node: TransformerNode, index: number) {

@@ -27,7 +27,6 @@ export function FunctionTDoc(props: {
 		<>
 			{props.showHeading !== false && (
 				<>
-					{props.level !== 1 && <br />}
 					<Heading level={props.level} id={slugger.slug(doc.name)}>
 						{doc.name}
 					</Heading>
@@ -69,7 +68,6 @@ function RenderFunctionSignature(props: {
 		<>
 			{props.signatureId && (
 				<>
-					<br />
 					<Heading
 						level={props.level}
 						id={slugger.slug(
@@ -101,7 +99,6 @@ function RenderFunctionSignature(props: {
 
 			{exampleTag?.summary && (
 				<>
-					<br />
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>
@@ -111,7 +108,6 @@ function RenderFunctionSignature(props: {
 
 			{signature.parameters && (
 				<div className="mt-5">
-					<br />
 					<Heading
 						level={subLevel}
 						id={slugger.slug(props.name + "--param--" + props.name, false)}
@@ -148,7 +144,6 @@ function RenderFunctionSignature(props: {
 
 			{signature.returns && (
 				<div className="mt-5">
-					<br />
 					<Heading level={subLevel} id={slugger.slug(props.name + "-returns")}>
 						Returns
 					</Heading>

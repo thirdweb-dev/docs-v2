@@ -5,8 +5,6 @@ import ConnectWalletSafeImage from "./safe.png";
 
 <WalletsBreadcrumb name="Safe" slug="safe" />
 
-<br />
-
 # safeWallet
 
 A wallet configurator for [Safe Wallet](/wallet/safe) which allows integrating the wallet with React
@@ -23,8 +21,6 @@ const safeWalletConfig = safeWallet();
 	connectUI="SafeWalletConnectUI"
 	selectUI="SafeWalletSelectUI"
 />
-
-<br />
 
 ## options
 
@@ -62,8 +58,6 @@ paperWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -91,9 +85,6 @@ import {
 
 <Image src={ConnectWalletSafeImage} className="border rounded-lg" />
 
-<br />
-<br />
-
 ## Usage with useConnect
 
 you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
@@ -115,8 +106,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

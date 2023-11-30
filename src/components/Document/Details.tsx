@@ -73,7 +73,9 @@ export function Details(props: {
 					</Anchor>
 				</AccordionTrigger>
 				<AccordionContent>
-					<div className="pl-4 pt-4">{props.children}</div>
+					<div className="pl-4 pt-4 [&>:first-child]:mt-0">
+						{props.children}
+					</div>
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>

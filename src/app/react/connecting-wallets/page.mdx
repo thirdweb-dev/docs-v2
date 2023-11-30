@@ -36,8 +36,6 @@ You can easily integrate _any_ wallet provider by [Building your own wallet !](/
 
 </Details>
 
-<br />
-
 <Heading id="connect-wallet" level={2} children="1. ConnectWallet component" />
 
 [ConnectWallet component](/react/react.connectwallet) renders a button which when clicked opens a modal to allow users to connect to wallets specified in the [`ThirdwebProvider`'s supportedWallets](/react/react.thirdwebprovider#supportedWallets) prop.
@@ -93,9 +91,6 @@ function App() {
 }
 ```
 
-<br />
-<br />
-
 <Heading
 	id="custom-ui"
 	level={2}
@@ -143,8 +138,6 @@ function Example() {
 
 </Details>
 
-<br />
-
 But if you need to create wallet instance and call some methods on the wallet instance before connecting the wallet,
 you can do these steps manually as shown below using the [useCreateWalletInstance](/react/react.usecreatewalletinstance), [useSetConnectionStatus](/react/react.usesetconnectionstatus) and [useSetConnectedWallet](/react/react.usesetconnectedwallet) hooks.
 
@@ -158,7 +151,6 @@ There are 3 steps to connect your wallet manually:
 
 Make sure to update the `connectionStatus` using [useSetConnectionStatus](/react/react.usesetconnectionstatus) to `"connecting"` before connecting your wallet and `"disconnected"` if the connection fails.
 
-<br />
 ### Example
 
 We will use [localWallet](/react/react.localwallet) as an example because it can not be connected using the `useConnect` hook because it requires additional steps after creating the wallet instance - like generating a random wallet or importing a wallet. We will generate a random wallet in this example.
@@ -209,8 +201,6 @@ function Example() {
 ```
 
 </Details>
-
-<br />
 
 Once the wallet is connected, you can use React SDK's 100+ hooks to show connected wallet's Details, send transactions, interact with smart contracts, sign messages and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, [RPC URLs](/glossary/rpc), [IPFS gateways](/glossary/ipfs), and more!
 

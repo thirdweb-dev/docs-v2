@@ -3,8 +3,6 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Blocto Wallet" slug="blocto" />
 
-<br />
-
 # bloctoWallet
 
 A wallet configurator for [MetaMask](/wallet/metamask) which allows integrating the wallet with React
@@ -22,8 +20,6 @@ const bloctoWalletConfig = bloctoWallet(options);
 	selectUI="BloctoWalletSelectUI"
 	isInstalled="isBloctoWalletInstalled"
 />
-
-<br />
 
 ### options
 
@@ -53,8 +49,6 @@ bloctoWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -64,8 +58,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -86,8 +78,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

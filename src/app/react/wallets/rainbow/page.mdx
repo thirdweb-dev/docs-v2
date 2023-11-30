@@ -3,8 +3,6 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Rainbow Wallet" slug="rainbow" />
 
-<br />
-
 # rainbowWallet
 
 A wallet configurator for Rainbow Wallet which allows integrating the wallet with React.
@@ -23,8 +21,6 @@ const rainbowWalletConfig = rainbowWallet(options);
 	connectUI="RainbowWalletConnectUI"
 	selectUI="RainbowWalletSelectUI"
 />
-
-<br />
 
 ## options
 
@@ -57,8 +53,6 @@ rainbowWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -71,8 +65,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -93,8 +85,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

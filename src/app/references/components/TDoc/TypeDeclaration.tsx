@@ -73,7 +73,6 @@ function SubtypeDeclarationTDoc(props: {
 
 			{exampleTag?.summary && (
 				<>
-					<br />
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>

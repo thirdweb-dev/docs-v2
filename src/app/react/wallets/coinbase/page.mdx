@@ -3,8 +3,6 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Coinbase Wallet" slug="coinbase" />
 
-<br />
-
 # coinbaseWallet
 
 A wallet configurator for [Coinbase Wallet](/wallet/coinbase-wallet) which allows integrating the wallet with React
@@ -22,8 +20,6 @@ const coinbaseConfig = coinbaseWallet(options);
 	selectUI="CoinbaseSelectUI"
 	isInstalled="isCoinbaseInstalled"
 />
-
-<br />
 
 ## options
 
@@ -53,8 +49,6 @@ coinbaseWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -67,8 +61,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -89,8 +81,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

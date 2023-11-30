@@ -63,8 +63,6 @@ ${config}.isInstalled = ${isInstalled}; // function`
 `}
 			></CodeBlock>
 
-			<br />
-
 			<Paragraph>
 				Once the config is ready, you can use it with <code>ConnectWallet</code>{" "}
 				component or <code>useConnect</code> hook as shown below

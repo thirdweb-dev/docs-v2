@@ -46,7 +46,6 @@ export function getTDocPage(options: {
 							},
 						]}
 					/>
-					<br />
 					<RootTDoc doc={selectedDoc} />
 				</div>
 			);
@@ -60,7 +59,6 @@ export function getTDocPage(options: {
 						{ name: "References", href: `/references/${packageSlug}` },
 					]}
 				/>
-				<br />
 				{indexContent}
 			</div>
 		);
