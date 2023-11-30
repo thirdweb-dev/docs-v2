@@ -36,6 +36,7 @@
 		"flexsearch": "^0.7.31",
 		"github-slugger": "^2.0.0",
 		"highlight.js": "^11.9.0",
+		"highlightjs-solidity": "^2.0.6",
 		"html-to-react": "^1.7.0",
 		"lucide-react": "^0.286.0",
 		"next": "~13.4",
