@@ -3,7 +3,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 # ERC1155Base
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC1155Base.sol";
 ```
 
@@ -20,7 +20,7 @@ It allows for minting NFTs to yourself (or to someone else) and selling those NF
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -68,7 +68,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="uri" summary="uri">
 
-```text
+```solidity
     /// @notice Returns the metadata URI for the given tokenId.
     function uri(uint256 _tokenId) public view virtual override returns (string memory) {
         string memory uriForToken = _uri[_tokenId];
@@ -84,7 +84,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="mintTo" summary="mintTo">
 
-```text
+```solidity
     /**
      *  @notice          Lets an authorized address mint NFTs to a recipient.
      *  @dev             - The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs.
@@ -122,7 +122,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="batchMintTo" summary="batchMintTo">
-```text
+```solidity
     /**
      *  @notice          Lets an authorized address mint multiple NEW NFTs at once to a recipient.
      *  @dev             The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs.
@@ -173,7 +173,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="burn" summary="burn">
 
-```text
+```solidity
     /**
      *  @notice         Lets an owner or approved operator burn NFTs of the given tokenId.
      *
@@ -198,7 +198,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="burnBatch" summary="burnBatch">
 
-```text
+```solidity
     /**
      *  @notice         Lets an owner or approved operator burn NFTs of the given tokenIds.
      *
@@ -227,7 +227,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="_beforeTokenTransfer" summary="_beforeTokenTransfer">
 
-```text
+```solidity
 /// @dev Runs before every token transfer / mint / burn.
     function _beforeTokenTransfer(
         address operator,

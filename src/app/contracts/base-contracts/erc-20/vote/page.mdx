@@ -8,7 +8,7 @@ It also supports [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612); allowing a
 [ERC20Votes](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Votes.sol) contract;
 which provides voting and delegation functionality, along with delegation by signature.
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC20Vote.sol";
 ```
 
@@ -22,7 +22,7 @@ import "@thirdweb-dev/contracts/base/ERC20Vote.sol";
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -64,7 +64,7 @@ Click on each feature to learn more about what functions are available.
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <Details id="mintTo" summary="mintTo">
-```text
+```solidity
     /**
      *  @notice          Lets an authorized address mint tokens to a recipient.
      *  @dev             The logic in the `_canMint` function determines whether the caller is authorized to mint tokens.
@@ -82,7 +82,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="burn" summary="burn">
-```text
+```solidity
     /**
      *  @notice          Lets an owner a given amount of their tokens.
      *  @dev             Caller should own the `_amount` of tokens.

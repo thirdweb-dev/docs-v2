@@ -60,7 +60,7 @@ To wrap multiple ERC20, ERC721 or ERC1155 tokens as a single wrapped NFT, a toke
 - approve the relevant tokens to be transferred by the `Multiwrap` contract.
 - specify the tokens to be wrapped into a single wrapped NFT. The following is the format in which each token to be wrapped must be specified:
 
-```text
+```solidity
 /// @notice The type of assets that can be wrapped.
 enum TokenType { ERC20, ERC721, ERC1155 }
 
@@ -83,7 +83,7 @@ Each token in the bundle of tokens to be wrapped as a single wrapped NFT must be
 
 Multiple tokens can be wrapped as a single wrapped NFT by calling the following function:
 
-```text
+```solidity
 function wrap(
     Token[] memory tokensToWrap,
     string calldata uriForWrappedToken,
@@ -108,7 +108,7 @@ When unwrapping the wrapped NFT, the wrapped NFT is burned.\*\*\*\*
 
 A wrapped NFT can be unwrapped by calling the following function:
 
-```text
+```solidity
 function unwrap(
     uint256 tokenId,
     address recipient

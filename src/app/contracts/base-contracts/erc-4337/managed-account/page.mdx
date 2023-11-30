@@ -3,7 +3,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 # Managed Account
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
 ```
 
@@ -44,7 +44,7 @@ Once deployed, you can use the features made available by these extensions on th
 
 Import the contract and inherit from it. This is an example contract demonstrating one way that you could override the functionality to create a token bound account.
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
 
 contract ManagedTokenBoundAccount is ManagedAccount {
@@ -66,7 +66,7 @@ The following functions have been implemented on this contract & are available t
 
 Initializes the smart contract wallet.
 
-```text
+```solidity
 function initialize(address _defaultAdmin, bytes calldata _data) public virtual initializer {
     factory = msg.sender;
     _setupRole(DEFAULT_ADMIN_ROLE, _defaultAdmin);
@@ -88,7 +88,7 @@ The abi encoded data to initialize the contract with. Must be of type `bytes`.
 
 Returns the extension implementation address, stored in the router, for the given function.
 
-```text
+```solidity
 function getImplementationForFunction(bytes4 _functionSelector) public view virtual override returns (address) {
     return Router(payable(factory)).getImplementationForFunction(_functionSelector);
 }
@@ -104,7 +104,7 @@ The function selector to get the extension implementation address. Must be of ty
 
 Returns whether a signer is authorized to perform transactions using the wallet.
 
-```text
+```solidity
 function isValidSigner(address _signer) public view virtual returns (bool) {
     return _hasRole(SIGNER_ROLE, _signer) || _hasRole(DEFAULT_ADMIN_ROLE, _signer);
 }
@@ -120,7 +120,7 @@ The signer to check authorization for. Must be of type `address`.
 
 Returns the entry point contract address.
 
-```text
+```solidity
 function entryPoint() public view virtual override returns (IEntryPoint) {
     return entrypointContract;
 }
@@ -131,7 +131,7 @@ function entryPoint() public view virtual override returns (IEntryPoint) {
 
 Validates the signature of a user operation.
 
-```text
+```solidity
 function _validateSignature(UserOperation calldata userOp, bytes32 userOpHash)
     internal
     virtual

@@ -3,7 +3,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 # Account Factory
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/smart-wallet/non-upgradeable/AccountFactory.sol";
 ```
 
@@ -48,7 +48,7 @@ npx thirdweb deploy
 
 Or import the contract into your existing project and inherit from it.
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/smart-wallet/non-upgradable/AccountFactory.sol";
 
 contract MyAccountFactory is AccountFactory {
@@ -70,7 +70,7 @@ The following functions have been implemented on this contract & are available t
 
 Called in `createAccount`. Initializes the account contract created in `createAccount`.
 
-```text
+```solidity
 function _initializeAccount(
     address _account,
     address _admin,
@@ -95,7 +95,7 @@ pass them to this function as the `bytes` argument.
 
 For example:
 
-```text
+```solidity
 
 function initializeAccount(
     address _admin,

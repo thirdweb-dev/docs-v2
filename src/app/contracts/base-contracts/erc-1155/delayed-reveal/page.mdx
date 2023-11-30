@@ -3,7 +3,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 # ERC1155DelayedReveal
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC1155DelayedReveal.sol";
 ```
 
@@ -19,7 +19,7 @@ import "@thirdweb-dev/contracts/base/ERC1155DelayedReveal.sol";
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.0;
 
@@ -58,7 +58,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="uri" summary="uri">
 
-```text
+```solidity
     /**
      *  @notice         Returns the metadata URI for an NFT.
      *  @dev            See `BatchMintMetadata` for handling of metadata in this contract.
@@ -80,7 +80,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="lazyMint" summary="lazyMint">
 
-```text
+```solidity
     /**
      *  @notice                  Lets an authorized address lazy mint a given amount of NFTs.
      *
@@ -109,7 +109,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="reveal" summary="reveal">
 
-```text
+```solidity
     /**
      *  @notice       Lets an authorized address reveal a batch of delayed reveal NFTs.
      *

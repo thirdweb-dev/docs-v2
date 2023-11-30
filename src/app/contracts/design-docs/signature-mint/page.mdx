@@ -47,7 +47,7 @@ We'll now go over the technical details involved in the 'signature minting' mech
 
 We'll now cover what makes up a payload, or 'mint request':
 
-```text
+```solidity
 struct MintRequest {
     address to;
     address royaltyRecipient;
@@ -90,7 +90,7 @@ Any external party can present a smart contract implementing the 'signature mint
 
 To mint tokens with a payload, the following function is called:
 
-```text
+```solidity
 function mintWithSignature(MintRequest calldata req, bytes calldata signature) external payable;
 ```
 

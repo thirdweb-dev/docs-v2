@@ -3,7 +3,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 # ERC1155LazyMint
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC1155LazyMint.sol";
 ```
 
@@ -22,7 +22,7 @@ without paying the gas cost for actually minting the NFTs.
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.0;
 
@@ -64,7 +64,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="uri" summary="uri">
 
-```text
+```solidity
     /// @notice Returns the metadata URI for the given tokenId.
     function uri(uint256 _tokenId) public view virtual override returns (string memory) {
         string memory batchUri = _getBaseURI(_tokenId);
@@ -74,7 +74,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="claim" summary="claim">
-```text
+```solidity
     /**
      *  @notice          Lets an address claim multiple lazy minted NFTs at once to a recipient.
      *                   This function prevents any reentrant calls, and is not allowed to be overridden.
@@ -107,7 +107,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="verifyClaim" summary="verifyClaim">
 
-```text
+```solidity
     /**
      *  @notice          Override this function to add logic for claim verification, based on conditions
      *                   such as allowlist, price, max quantity etc.
@@ -128,7 +128,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="burn" summary="burn">
 
-```text
+```solidity
     /**
      *  @notice         Lets an owner or approved operator burn NFTs of the given tokenId.
      *
@@ -153,7 +153,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="burnBatch" summary="burnBatch">
 
-```text
+```solidity
     /**
      *  @notice         Lets an owner or approved operator burn NFTs of the given tokenIds.
      *
@@ -203,7 +203,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="_beforeTokenTransfer" summary="_beforeTokenTransfer">
 
-```text
+```solidity
 /// @dev Runs before every token transfer / mint / burn.
     function _beforeTokenTransfer(
         address operator,

@@ -68,7 +68,7 @@ With fungible (ERC20) and semi-fungible (ERC1155) tokens, you must specify how m
 
 And so, what can be packed in packs are _n_ number of configurations like ‘500 units of 20 USDC’. These configurations are interpreted by the `Pack` contract as `PackContent`:
 
-```text
+```solidity
 enum TokenType { ERC20, ERC721, ERC1155 }
 
 struct Token {
@@ -96,7 +96,7 @@ uint256 perUnitAmount;
 
 You can create packs with any ERC20, ERC721 or ERC1155 tokens that you own. To create packs, you must specify the following:
 
-```text
+```solidity
 /// @dev Creates a pack with the stated contents.
 function createPack(
     Token[] calldata contents,
@@ -140,7 +140,7 @@ This guarantees that each pack can be opened to retrieve the intended _n_ reward
 
 You can add more contents to a created pack, up till the first transfer of packs. No addition can be made post that.
 
-```text
+```solidity
 /// @dev Add contents to an existing packId.
 function addPackContents(
     uint256 packId,
@@ -162,7 +162,7 @@ function addPackContents(
 
 Packs can be opened by owners of packs. A pack owner can open multiple packs at once. ‘Opening a pack’ essentially means burning the pack and receiving the intended _n_ number of reward units from inside the set of packs, in exchange.
 
-```text
+```solidity
 function openPack(uint256 packId, uint256 amountToOpen) external;
 
 ```
@@ -179,7 +179,7 @@ We build on the example in the previous section — ‘Non-technical overview’
 
 Each single **square**, **circle** or **star** is considered as a ‘reward unit’. For example, the 5 **stars** in the packs may be “5 units of 1000 USDC”, which is represented in the `Pack` contract by the following information
 
-```text
+```solidity
 struct Token {
     address assetContract; // USDC address
     TokenType tokenType; // TokenType.ERC20
@@ -224,7 +224,7 @@ The `Pack` contract requires a design where a pack owner _cannot possibly_ predi
 
 To ensure the above, we make a simple check in the `openPack` function:
 
-```text
+```solidity
 require(isTrustedForwarder(msg.sender) || _msgSender() == tx.origin, "opener cannot be smart contract");
 ```
 
@@ -232,7 +232,7 @@ require(isTrustedForwarder(msg.sender) || _msgSender() == tx.origin, "opener can
 
 The above check essentially means that only an external account i.e. an end user wallet, and no smart contract, can open packs. This lets us generate a pseudo random number using block variables, for the purpose of `openPack`:
 
-```text
+```solidity
 uint256 random = uint256(keccak256(abi.encodePacked(_msgSender(), blockhash(block.number - 1), block.difficulty)));
 ```
 
@@ -265,7 +265,7 @@ We’ll now discuss some possible solutions for this design problem along with t
   - When creating a set of packs, the creator provides (1) an encrypted seed i.e. integer (see the [encryption pattern used in thirdweb’s delayed-reveal NFTs](https://blog.thirdweb.com/delayed-reveal-nfts#step-1-encryption)), and (2) a future block number.
   - The created packs are _non-transferrable_ by any address except the (1) pack creator, or (2) addresses manually approved by the pack creator. This is to let the creator distribute packs as they desire, _and_ is essential for the next step.
   - After the specified future block number passes, the creator submits the unencrypted seed to the `Pack` contract. Whenever a pack owner now opens a pack, we calculate the random number to be used in the opening process as follows:
-    ```text
+    ```solidity
     uint256 random = uint(keccak256(seed, msg.sender, blockhash(storedBlockNumber)));
     ```
     - No one can predict the block hash of the stored future block unless the pack creator is the miner of the block with that block number (highly unlikely).

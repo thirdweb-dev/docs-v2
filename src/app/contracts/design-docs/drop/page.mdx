@@ -39,7 +39,7 @@ The distribution mechanism of `Drop` is as follows — A contract admin establis
 
 The following makes up a claim condition —
 
-```text
+```solidity
 struct ClaimCondition {
   uint256 startTimestamp;
   uint256 maxClaimableSupply;
@@ -75,7 +75,7 @@ At any moment, there is only one active claim condition, and an account attempti
 
 A `Drop` contract natively keeps track of claim conditions set by a contract admin in a ‘claim conditions list’, which looks as follows —
 
-```text
+```solidity
 struct ClaimConditionList {
   uint256 currentStartId;
   uint256 count;
@@ -144,7 +144,7 @@ Let’s say the contract admin wants to increase the price per token from 0.1 et
 
 To go from **C1** to **C2** while ensuring that wallets that have already claimed tokens are not able to claim tokens again, the contract admin will set claim conditions while specifying `resetClaimEligibility == false`. As a result, the **C2** will be assigned the same UID as **C1**. Since `ClaimConditionList.supplyClaimedByWallet` is indexed by the UID of claim conditions, the information of the quantity of tokens claimed by the wallet during **C1** will not be lost. And so, wallets that claimed tokens during **C1** will now be ineligible to claim tokens during **C2** because of the following check:
 
-```text
+```solidity
 // pseudo-code
 supplyClaimedByWallet = claimCondition.supplyClaimedByWallet[conditionId][claimer];
 

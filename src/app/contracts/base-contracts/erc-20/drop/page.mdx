@@ -6,7 +6,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 The `ERC20Drop` base contract adds the [Drop Single Phase](/solidity/extensions/dropsinglephase) extension contract to the [ERC20 base](/solidity/base-contracts/erc20base) contract
 to allow you to distribute your tokens under the criteria of claim conditions.
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC20Drop.sol";
 ```
 
@@ -20,7 +20,7 @@ import "@thirdweb-dev/contracts/base/ERC20Drop.sol";
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -62,7 +62,7 @@ Once deployed, you can use the features made available by these extensions on th
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <Details id="burn" summary="burn">
-```text
+```solidity
      /**
      *  @notice          Lets an owner a given amount of their tokens.
      *  @dev             Caller should own the `_amount` of tokens.
@@ -77,7 +77,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="_collectPriceOnClaim" summary="_collectPriceOnClaim">
-```text
+```solidity
      /// @dev Collects and distributes the primary sale value of tokens being claimed.
     function _collectPriceOnClaim(
         address _primarySaleRecipient,
@@ -103,7 +103,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details title="_transferTokensOnClaim" summary="_transferTokensOnClaim">
-```text
+```solidity
      /// @dev Transfers the tokens being claimed.
     function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
         internal

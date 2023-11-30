@@ -8,7 +8,7 @@ The `ERC721Base` smart contract implements the [ERC721](https://eips.ethereum.or
 along with the [ERC721A](https://www.erc721a.org/) optimization to the standard.
 It allows you to mint NFTs to yourself (or to someone else) and selling those NFTs on a marketplace.
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 ```
 
@@ -23,7 +23,7 @@ import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -73,7 +73,7 @@ Click on each feature to learn more about what functions are available.
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <Details id="tokenURI" summary="tokenURI">
-```text
+```solidity
     /**
      *  @notice         Returns the metadata URI for an NFT.
      *  @dev            See `BatchMintMetadata` for handling of metadata in this contract.
@@ -93,7 +93,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="mintTo" summary="mintTo">
-```text
+```solidity
     /**
      *  @notice          Lets an authorized address mint an NFT to a recipient.
      *  @dev             The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs.
@@ -110,7 +110,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="batchMintTo" summary="batchMintTo">
-```text
+```solidity
     /**
      *  @notice          Lets an authorized address mint multiple NFTs at once to a recipient.
      *  @dev             The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs.
@@ -134,7 +134,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="burn" summary="burn">
-```text
+```solidity
     /**
      *  @notice         Lets an owner or approved operator burn the NFT of the given tokenId.
      *  @dev            ERC721A's `_burn(uint256,bool)` internally checks for token approvals.
@@ -157,7 +157,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="transferFrom" summary="transferFrom">
-```text
+```solidity
     /// @dev See {ERC721-_transferFrom}.
     function transferFrom(
         address from,
@@ -170,7 +170,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="safeTransferFrom" summary="safeTransferFrom">
-```text
+```solidity
     /// @dev See {ERC721-_safeTransferFrom}.
     function safeTransferFrom(
         address from,

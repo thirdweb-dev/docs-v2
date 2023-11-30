@@ -6,7 +6,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 The `ERC20Base` smart contract implements the [ERC-20](https://eips.ethereum.org/EIPS/eip-20) standard. Additionally, it supports [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612), allowing approvals to be made via signatures.
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC20Base.sol";
 ```
 
@@ -21,7 +21,7 @@ import "@thirdweb-dev/contracts/base/ERC20Base.sol";
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -62,7 +62,7 @@ Once deployed, you can use the features made available by these extensions on th
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <Details id="mintTo" summary="mintTo">
-```text
+```solidity
     /**
      *  @notice          Lets an authorized address mint tokens to a recipient.
      *  @dev             The logic in the `_canMint` function determines whether the caller is authorized to mint tokens.
@@ -80,7 +80,7 @@ The following functions have been implemented on this contract & are available t
 </Details>
 
 <Details id="burn" summary="burn">
-```text
+```solidity
     /**
      *  @notice          Lets an owner a given amount of their tokens.
      *  @dev             Caller should own the `_amount` of tokens.

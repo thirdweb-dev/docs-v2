@@ -3,7 +3,7 @@ import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
 
 # ERC1155 Signature Mint
 
-```text
+```solidity
 import "@thirdweb-dev/contracts/base/ERC1155SignatureMint.sol";
 ```
 
@@ -25,7 +25,7 @@ on your contract, and specify what will be minted.
 
 Import the contract and inherit from it.
 
-```text
+```solidity
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.0;
 
@@ -79,7 +79,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="mintWithSignature" summary="mintWithSignature">
 
-```text
+```solidity
     /**
      *  @notice           Mints tokens according to the provided mint request.
      *
@@ -134,7 +134,7 @@ The following functions have been implemented on this contract & are available t
 
 <Details id="_collectPriceOnClaim" summary="_collectPriceOnClaim">
 
-```text
+```solidity
  /// @dev Collects and distributes the primary sale value of NFTs being claimed.
     function _collectPriceOnClaim(
         address _primarySaleRecipient,

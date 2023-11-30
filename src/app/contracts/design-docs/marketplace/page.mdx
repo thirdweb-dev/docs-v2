@@ -112,7 +112,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   struct ListingParameters {
     address assetContract;
     uint256 tokenId;
@@ -155,7 +155,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   struct ListingParameters {
     address assetContract;
     uint256 tokenId;
@@ -198,7 +198,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   function cancelListing(uint256 listingId) external;
 
   ```
@@ -218,7 +218,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   function approveBuyerForListing(
     uint256 listingId,
     address buyer,
@@ -244,7 +244,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   function approveCurrencyForListing(
     uint256 listingId,
     address currency,
@@ -270,7 +270,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   function buyFromListing(
     uint256 listingId,
     address buyFor,
@@ -305,7 +305,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   function totalListings() external view returns (uint256);
 
   ```
@@ -317,7 +317,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   enum TokenType {
     ERC721,
     ERC1155
@@ -362,7 +362,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   function getAllValidListings(uint256 startId, uint256 endId) external view returns (Listing[] memory listings);
 
   ```
@@ -380,7 +380,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
 - Interface
 
-  ```text
+  ```solidity
   function getListing(uint256 listingId) external view returns (Listing memory listing);
 
   ```
@@ -413,7 +413,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
     - The “highest bidder” e.g. `Tom` collects the auctioned NFTs.
 - Interface
 
-  ```text
+  ```solidity
   struct AuctionParameters {
     address assetContract;
     uint256 tokenId;
@@ -461,7 +461,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function cancelAuction(uint256 auctionId) external;
 
   ```
@@ -481,7 +481,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function collectAuctionPayout(uint256 auctionId) external;
 
   ```
@@ -501,7 +501,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function collectAuctionTokens(uint256 auctionId) external;
 
   ```
@@ -521,7 +521,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function bidInAuction(uint256 auctionId, uint256 bidAmount) external payable;
 
   ```
@@ -543,7 +543,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function isNewWinningBid(uint256 auctionId, uint256 bidAmount) external view returns (bool);
 
   ```
@@ -563,7 +563,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function totalAuctions() external view returns (uint256);
 
   ```
@@ -575,7 +575,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   struct Auction {
     uint256 auctionId;
     address auctionCreator;
@@ -609,7 +609,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function getAllAuctions(uint256 startId, uint256 endId) external view returns (Auction[] memory auctions);
 
   ```
@@ -627,7 +627,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function getAllValidAuctions(uint256 startId, uint256 endId) external view returns (Auction[] memory auctions);
 
   ```
@@ -645,7 +645,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function getWinningBid(uint256 auctionId)
     external
     view
@@ -669,7 +669,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function isAuctionExpired(uint256 auctionId) external view returns (bool);
 
   ```
@@ -689,7 +689,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   struct OfferParams {
     address assetContract;
     uint256 tokenId;
@@ -724,7 +724,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function cancelOffer(uint256 offerId) external;
 
   ```
@@ -743,7 +743,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function acceptOffer(uint256 offerId) external;
 
   ```
@@ -763,7 +763,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function totalOffers() external view returns (uint256);
 
   ```
@@ -775,7 +775,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   struct Offer {
     uint256 offerId;
     address offeror;
@@ -805,7 +805,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function getAllOffers(uint256 startId, uint256 endId) external view returns (Offer[] memory offers);
 
   ```
@@ -823,7 +823,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
 - Interface
 
-  ```text
+  ```solidity
   function getAllValidOffer(uint256 startId, uint256 endId) external view returns (Offer[] memory offers);
 
   ```
