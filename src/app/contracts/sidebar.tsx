@@ -246,7 +246,7 @@ const baseContracts: SidebarLink = (() => {
 })();
 
 const extensions: SidebarLink = (() => {
-	const parentSlug = "/contracts/solidity-sdk/extensions";
+	const parentSlug = "/contracts/extensions";
 	return {
 		name: "Extensions",
 		links: [
@@ -312,23 +312,23 @@ const extensions: SidebarLink = (() => {
 				links: [
 					{
 						name: "ERC20",
-						href: `${parentSlug}/ERC20`,
+						href: `${parentSlug}/erc-20/ERC20`,
 					},
 					{
 						name: "ERC20BatchMintable",
-						href: `${parentSlug}/ERC20BatchMintable`,
+						href: `${parentSlug}/erc-20/ERC20BatchMintable`,
 					},
 					{
 						name: "ERC20Burnable",
-						href: `${parentSlug}/ERC20Burnable`,
+						href: `${parentSlug}/erc-20/ERC20Burnable`,
 					},
 					{
 						name: "ERC20ClaimConditions",
-						href: `${parentSlug}/ERC20ClaimConditions`,
+						href: `${parentSlug}/erc-20/ERC20ClaimConditions`,
 					},
 					{
 						name: "ERC20ClaimPhases",
-						href: `${parentSlug}/ERC20ClaimPhases`,
+						href: `${parentSlug}/erc-20/ERC20ClaimPhases`,
 					},
 					{
 						name: "ERC20Mintable",
