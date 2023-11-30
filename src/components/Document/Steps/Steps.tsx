@@ -4,7 +4,7 @@ import styles from "./Steps.module.css";
 export function Steps(props: { children: React.ReactNode }) {
 	return (
 		<div className={`pl-4 ${styles.steps} relative`}>
-			<ul className="flex flex-col gap-8 border-l-2 py-4 pl-8">
+			<ul className="border-l-2 py-4 pl-8 [&_li:first-child_[data-step]_div:first-child]:mt-0">
 				{props.children}
 			</ul>
 		</div>

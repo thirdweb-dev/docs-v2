@@ -51,7 +51,6 @@ export function VariableTDoc(props: {
 
 			{exampleTag?.summary && (
 				<>
-					<br />
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>

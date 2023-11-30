@@ -3,8 +3,6 @@ import { Details } from "@/components/Document";
 
 <WalletsBreadcrumb name="MetaMask" slug="metamask" />
 
-<br />
-
 # metamaskWallet
 
 A wallet configurator for [MetaMask](/wallet/metamask) to integrate the wallet with React SDK
@@ -22,8 +20,6 @@ const metamaskConfig = metamaskWallet(options);
 	selectUI="MetamaskSelectUI"
 	isInstalled="isMetamaskInstalled"
 />
-
-<br />
 
 ## options
 
@@ -53,7 +49,6 @@ metamaskWallet({
 
 </Details>
 
-<br />
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -67,7 +62,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 </ThirdwebProvider>
 ```
 
-<br />
 ## Usage with useConnect
 
 you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
@@ -88,7 +82,6 @@ function App() {
 }
 ```
 
-<br />
 ### connectOptions
 
 ```ts

@@ -4,8 +4,6 @@ import QRModalOptionsMDX from "./qrModalOptions.mdx";
 
 <WalletsBreadcrumb name="WalletConnect" slug="walletconnect" />
 
-<br />
-
 # walletConnect
 
 A wallet configurator for [Wallet Connect](/wallets/wallet-connect) which allows integrating the wallet with React
@@ -22,8 +20,6 @@ const walletConnectConfig = walletConnect(options);
 	connectUI="WalletConnectConnectUI"
 	selectUI="WalletConnectSelectUI"
 />
-
-<br />
 
 ## options
 
@@ -65,8 +61,6 @@ walletConnect({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -79,8 +73,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -101,8 +93,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

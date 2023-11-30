@@ -38,7 +38,6 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 
 			{exampleTag?.summary && (
 				<>
-					<br />
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>

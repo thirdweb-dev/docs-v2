@@ -25,7 +25,6 @@ export function FunctionNDoc(props: {
 		<div>
 			{props.showHeading !== false && (
 				<>
-					{props.level !== 1 && <br />}
 					<Heading
 						level={level}
 						id={slugger.slug(`${props.slugPrefix}--${doc.name}`)}
@@ -48,7 +47,6 @@ export function FunctionNDoc(props: {
 
 			{doc.parameters && doc.parameters.length > 0 && (
 				<div>
-					<br />
 					<Heading
 						level={subLevel}
 						id={slugger.slug(`${props.slugPrefix}--${doc.name}--params`)}
@@ -81,7 +79,6 @@ export function FunctionNDoc(props: {
 				<div>
 					{doc.returns.type && (
 						<div>
-							<br />
 							<Heading
 								id={slugger.slug(`${doc.name}--returns`)}
 								level={subLevel}

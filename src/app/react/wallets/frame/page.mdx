@@ -3,8 +3,6 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Frame Wallet" slug="frame" />
 
-<br />
-
 # frameWallet
 
 A wallet configurator for [Frame Wallet](/wallet/frame) which allows integrating the wallet with React
@@ -23,8 +21,6 @@ const frameWalletConfig = frameWallet(options);
 	isInstalled="isFrameWalletInstalled"
 />
 
-<br />
-
 ### Options
 
 <Details summary="recommended" tags={["Optional"]}>
@@ -39,8 +35,6 @@ frameWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -50,8 +44,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -72,8 +64,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

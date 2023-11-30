@@ -4,8 +4,6 @@ import { Details, InstallTabs, Callout } from "@/components/Document";
 
 You can get started by creating a new project or adding thirdweb to an existing project.
 
-<br />
-
 ## Existing Projects
 
 Install the thirdweb packages in your project
@@ -51,15 +49,12 @@ And follow the framework specific instructions below.
 
 No additional configuration is required if you are using the [pages router](https://nextjs.org/docs/pages)
 
-<br />
-
 ### App Router
 
 If you are using the new [app router](https://nextjs.org/docs/app), and If you import a component such as `ThirdwebProvider` in a server component, Next.js will throw an error saying that the component is not marked with `"use client"` directive.
 
 You will need to create an alias for that component in a separate file with `"use client"` directive on top (before all the imports) and import that instead of using the component directly from `@thirdweb-dev/react` in server components.
 
-<br />
 #### Example
 
 ```tsx
@@ -108,8 +103,6 @@ export default function Home() {
 
    <InstallTabs npm="npm install" yarn="yarn" pnpm="pnpm install" />
 
-<br />
-
 To ignore the sourcemap warnings, create a `.env` file with the following in your root directory:
 
 ```text
@@ -117,8 +110,6 @@ GENERATE_SOURCEMAP=false
 ```
 
 </Details>
-
-<br />
 
 ## New Projects
 
@@ -128,17 +119,11 @@ Create a new project using the thirdweb CLI
 npx thirdweb create app
 ```
 
-<br />
-
 <Callout variant="info" title='API Key'>
 
 You will require an API key to use thirdweb's infrastructure services with the SDK. If you haven't created a key yet you can do so for **free** from the [thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 </Callout>
-
-<br />
-
-<br />
 
 ## Wrap your application in ThirdwebProvider
 
@@ -155,8 +140,6 @@ const App = () => {
 	);
 };
 ```
-
-<br />
 
 With the provider set up, all of the SDK&rsquo;s hooks and components work out of the box!
 

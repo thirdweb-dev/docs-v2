@@ -3,8 +3,6 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Trust Wallet" slug="trust" />
 
-<br />
-
 # trustWallet
 
 A wallet configurator for trust Wallet which allows integrating the wallet with React.
@@ -16,8 +14,6 @@ import { trustWallet } from "@thirdweb-dev/react";
 
 const trustWalletConfig = trustWallet(options);
 ```
-
-<br />
 
 ## options
 
@@ -50,8 +46,6 @@ trustWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -61,8 +55,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -83,8 +75,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

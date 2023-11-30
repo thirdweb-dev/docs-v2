@@ -14,8 +14,6 @@ messages, and utilize common standards such as tokens, NFTs, marketplaces; all w
 	repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/react"
 />
 
-<br />
-
 ## Installation
 
 <InstallTabs
@@ -29,8 +27,6 @@ messages, and utilize common standards such as tokens, NFTs, marketplaces; all w
 	[Templates](/templates) • [GitHub](https://github.com/thirdweb-dev/js)
 </div>
 
-<br />
-
 ## Get Started
 
 Check out the [getting started](/react/getting-started) guide to learn how to use the SDK in less than 2 minutes.
@@ -40,9 +36,6 @@ Check out the [getting started](/react/getting-started) guide to learn how to us
 	icon="educate"
 	label="Get started with the React SDK"
 />
-
-<br />
-<br />
 
 ## How It Works
 
@@ -59,8 +52,6 @@ or as a [mutation](https://tanstack.com/query/v4/docs/react/guides/mutations) ho
 When mutations are called (when a user executes a transaction), [query invalidation](https://tanstack.com/query/v4/docs/react/guides/query-invalidation) is automatically triggered
 to update the relevant queries that depend on the data that was changed. For example, when minting a new NFT, queries that view information about
 NFTs are re-fetched to load the new NFT automatically.
-
-<br />
 
 ### Queries
 
@@ -80,8 +71,6 @@ function App() {
 	const { data, isLoading, error } = useContractRead(contract, "functionName");
 }
 ```
-
-<br />
 
 ### Mutations
 

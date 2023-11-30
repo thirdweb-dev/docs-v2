@@ -43,7 +43,6 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Methods */}
 			{methods && methods.length > 1 && (
 				<div>
-					<br />
 					<Heading level={2} id="methods">
 						Methods
 					</Heading>
@@ -76,7 +75,6 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Properties */}
 			{properties && properties.length > 1 && (
 				<div>
-					<br />
 					<Heading level={2} id="properties">
 						Properties
 					</Heading>
@@ -100,7 +98,6 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Accessor */}
 			{accessors && accessors.length > 1 && (
 				<div>
-					<br />
 					<Heading level={2} id="properties" className="text-5xl">
 						Accessors
 					</Heading>
