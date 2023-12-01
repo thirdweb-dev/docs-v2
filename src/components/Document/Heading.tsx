@@ -26,7 +26,10 @@ export function Heading(props: {
 
 		case 2: {
 			return (
-				<Anchor id={props.id} className={cn("mb-3", props.anchorClassName)}>
+				<Anchor
+					id={props.id}
+					className={cn("mt-10 mb-3", props.anchorClassName)}
+				>
 					<h2
 						className={cn(
 							"text-2xl md:text-3xl font-semibold tracking-tight text-f-100",
@@ -41,7 +44,10 @@ export function Heading(props: {
 
 		case 3: {
 			return (
-				<Anchor id={props.id} className={cn("mb-3", props.anchorClassName)}>
+				<Anchor
+					id={props.id}
+					className={cn("mt-10 mb-3", props.anchorClassName)}
+				>
 					<h3
 						className={cn(
 							"text-xl md:text-2xl font-semibold text-f-200",
@@ -56,7 +62,10 @@ export function Heading(props: {
 
 		case 4: {
 			return (
-				<Anchor id={props.id} className={cn("mb-3", props.anchorClassName)}>
+				<Anchor
+					id={props.id}
+					className={cn("mt-10 mb-3", props.anchorClassName)}
+				>
 					<h4
 						className={cn(
 							"text-lg md:text-xl font-semibold text-f-200",
@@ -71,7 +80,10 @@ export function Heading(props: {
 
 		case 5: {
 			return (
-				<Anchor id={props.id} className={cn("mb-3", props.anchorClassName)}>
+				<Anchor
+					id={props.id}
+					className={cn("mt-10 mb-3", props.anchorClassName)}
+				>
 					<h5
 						className={cn("text-lg font-semibold text-f-200", props.className)}
 					>
@@ -83,7 +95,10 @@ export function Heading(props: {
 
 		default: {
 			return (
-				<Anchor id={props.id} className={cn("mb-3", props.anchorClassName)}>
+				<Anchor
+					id={props.id}
+					className={cn("mt-10 mb-3", props.anchorClassName)}
+				>
 					<h6
 						className={cn("text-lg font-semibold text-f-200", props.className)}
 					>

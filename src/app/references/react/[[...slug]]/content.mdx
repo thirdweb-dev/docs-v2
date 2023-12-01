@@ -2,8 +2,6 @@
 
 Ultimate collection of React hooks for your web3 apps
 
-<br />
-
 ## Installation
 
 The easiest way to get started with the React SDK is to use the CLI:
@@ -22,15 +20,11 @@ npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers@5
 yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@5
 ```
 
-<br />
-
 ## Getting Started
 
 Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-with-react-context-api/); meaning any component within the `ThirdwebProvider` will have access to the SDK. If you use the CLI to initialize your project, this is already set up for you.
 
 Let's take a look at a typical setup:
-
-<br />
 
 ### Configure the `ThirdwebProvider`
 
@@ -54,8 +48,6 @@ Below are examples of where to set this up in your application:
 [Next.js](https://github.com/thirdweb-example/next-javascript-starter/blob/main/pages/_app.js)
 [Vite](https://github.com/thirdweb-example/vite-javascript-starter/blob/main/src/main.jsx)
 
-<br />
-
 ### Connect to a User's Wallet
 
 Now the provider is set up, we can use all of the hooks and UI components available in the SDK, such as the [ConnectWallet](https://portal.thirdweb.com/ui-components/connectwalletbutton) component.
@@ -78,8 +70,6 @@ export const YourApp = () => {
 The `ConnectWallet` component handles everything for us, including switching networks, accounts, displaying balances and more.
 
 We can then get the connected address using the `useAddress` hook anywhere in the app.
-
-<br />
 
 ### Interact With Contracts
 
@@ -122,8 +112,6 @@ export default function Home() {
 }
 ```
 
-<br />
-
 ### Using Extensions
 
 Each [extension](https://portal.thirdweb.com/extensions) you implement in your smart contract unlocks new functionality in the SDK.
@@ -152,8 +140,6 @@ export default function Home() {
 	const { mutate: mintNFT, isLoading: isMintingNFT } = useMintNFT(contract);
 }
 ```
-
-<br />
 
 ### UI Components
 
@@ -228,8 +214,6 @@ export default function Home() {
 	);
 }
 ```
-
-<br />
 
 ## Advanced Configuration
 

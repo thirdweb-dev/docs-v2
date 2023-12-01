@@ -3,8 +3,6 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Zerion Wallet" slug="zerion" />
 
-<br />
-
 # zerionWallet
 
 A wallet configurator for [Zerion Wallet](/wallet/zerion-wallet) which allows integrating the wallet with React.
@@ -21,8 +19,6 @@ const zerionWalletConfig = zerionWallet(options);
 	connectUI="ZerionWalletConnectUI"
 	selectUI="ZerionWalletSelectUI"
 />
-
-<br />
 
 ## options
 
@@ -55,8 +51,6 @@ zerionWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -66,8 +60,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with `useConnect`
 
@@ -88,8 +80,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

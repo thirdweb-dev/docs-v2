@@ -2,7 +2,6 @@ import { Details } from "@/components/Document";
 import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Embedded Wallet" slug="embedded-wallet" />
-<br />
 
 # embeddedWallet
 
@@ -20,8 +19,6 @@ const embeddedWalletConfig = embeddedWallet();
 	connectUI="embeddedWalletConnectUI"
 	selectUI="embeddedWalletSelectUI"
 />
-
-<br />
 
 ## Options
 
@@ -53,8 +50,6 @@ embeddedWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -68,8 +63,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 </ThirdwebProvider>
 ```
 
-<br />
-
 ## Usage with useEmbeddedWallet
 
 You can use the `useEmbeddedWallet` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
@@ -77,8 +70,6 @@ You can use the `useEmbeddedWallet` hook to programmatically connect to the wall
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
 
 The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
-
-<br />
 
 ### Connecting with Google sign in
 
@@ -95,8 +86,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### Connecting with email verification
 
@@ -122,8 +111,6 @@ function App() {
 }
 ```
 
-<br />
-
 ### Connecting with iframe
 
 ```tsx
@@ -139,8 +126,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ## Available connection strategies
 

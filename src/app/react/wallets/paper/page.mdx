@@ -3,8 +3,6 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 <WalletsBreadcrumb name="Paper Wallet" slug="paper" />
 
-<br />
-
 # paperWallet
 
 A wallet configurator for [Paper Wallet](/wallet/paper) which allows integrating the wallet with React
@@ -21,8 +19,6 @@ const paperWalletConfig = paperWallet();
 	connectUI="PaperWalletConnectUI"
 	selectUI="PaperWalletSelectUI"
 />
-
-<br />
 
 ### options
 
@@ -77,8 +73,6 @@ paperWallet({
 
 </Details>
 
-<br />
-
 ## Usage with ConnectWallet
 
 To allow users to connect to this wallet using the [ConnectWallet](/react/react.connectwallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) prop.
@@ -88,8 +82,6 @@ To allow users to connect to this wallet using the [ConnectWallet](/react/react.
 	<YourApp />
 </ThirdwebProvider>
 ```
-
-<br />
 
 ## Usage with useConnect
 
@@ -112,8 +104,6 @@ function App() {
 	return <div> ... </div>;
 }
 ```
-
-<br />
 
 ### connectOptions
 

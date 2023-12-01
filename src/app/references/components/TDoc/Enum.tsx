@@ -36,7 +36,6 @@ export function EnumTDoc(props: { doc: EnumDoc; level: number }) {
 
 			{exampleTag?.summary && (
 				<>
-					<br />
 					<Heading level={subLevel} id={slugger.slug("example")}>
 						Example
 					</Heading>
@@ -78,7 +77,6 @@ function MemberTDoc(props: {
 
 	return (
 		<div key={member.name}>
-			<br />
 			<Heading level={props.level + 1} id={member.name}>
 				{member.name}
 			</Heading>
