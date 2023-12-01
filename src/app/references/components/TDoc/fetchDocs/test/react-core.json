@@ -19,7 +19,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L295"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L276"
 		},
 		{
 			"kind": "function",
@@ -37,7 +37,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L327"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L308"
 		},
 		{
 			"kind": "function",
@@ -55,7 +55,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L311"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L292"
 		},
 		{
 			"kind": "function",
@@ -73,7 +73,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L287"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L268"
 		},
 		{
 			"kind": "function",
@@ -91,7 +91,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/utils/addresses.ts#L49"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/utils/addresses.ts#L49"
 		},
 		{
 			"kind": "function",
@@ -119,7 +119,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/utils/addresses.ts#L53"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/utils/addresses.ts#L53"
 		},
 		{
 			"kind": "function",
@@ -140,7 +140,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/utils/ipfs.ts#L8"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/utils/ipfs.ts#L8"
 		},
 		{
 			"kind": "function",
@@ -245,7 +245,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/utils/addresses.ts#L24"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/utils/addresses.ts#L24"
 		},
 		{
 			"kind": "function",
@@ -270,7 +270,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/utils/addresses.ts#L39"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/utils/addresses.ts#L39"
 		},
 		{
 			"kind": "function",
@@ -292,7 +292,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/utils/addresses.ts#L3"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/utils/addresses.ts#L3"
 		}
 	],
 	"hooks": [
@@ -393,7 +393,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L1231"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L1221"
 		},
 		{
 			"kind": "function",
@@ -492,7 +492,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account.ts#L72"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account.ts#L70"
 		},
 		{
 			"kind": "function",
@@ -591,7 +591,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account.ts#L104"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account.ts#L101"
 		},
 		{
 			"kind": "function",
@@ -690,7 +690,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account.ts#L40"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account.ts#L39"
 		},
 		{
 			"kind": "function",
@@ -789,7 +789,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account-factory.ts#L39"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account-factory.ts#L38"
 		},
 		{
 			"kind": "function",
@@ -892,7 +892,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account-factory.ts#L71"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account-factory.ts#L69"
 		},
 		{
 			"kind": "function",
@@ -942,7 +942,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/wallet.ts#L167"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/wallet.ts#L189"
 		},
 		{
 			"kind": "function",
@@ -1074,7 +1074,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L71"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L68"
 		},
 		{
 			"kind": "function",
@@ -1214,7 +1214,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L316"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L309"
 		},
 		{
 			"kind": "function",
@@ -1317,7 +1317,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L427"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L423"
 		},
 		{
 			"kind": "function",
@@ -1367,7 +1367,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account.ts#L251"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account.ts#L248"
 		},
 		{
 			"kind": "function",
@@ -1459,7 +1459,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/wallet.ts#L82"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/wallet.ts#L104"
 		},
 		{
 			"kind": "function",
@@ -1558,7 +1558,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L629"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L618"
 		},
 		{
 			"kind": "function",
@@ -1663,7 +1663,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/roles.ts#L62"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/roles.ts#L61"
 		},
 		{
 			"kind": "function",
@@ -1762,7 +1762,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/app.ts#L33"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/app.ts#L32"
 		},
 		{
 			"kind": "function",
@@ -1876,7 +1876,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L541"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L536"
 		},
 		{
 			"kind": "function",
@@ -1888,7 +1888,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/auth/index.ts#L12"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/auth/index.ts#L12"
 		},
 		{
 			"kind": "function",
@@ -1943,7 +1943,71 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/wallet.ts#L20"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/wallet.ts#L21"
+		},
+		{
+			"kind": "function",
+			"name": "useBalanceForAddress",
+			"signatures": [
+				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Get the native token balance of a wallet address on the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "activeChain"
+								},
+								{
+									"type": "text",
+									"value": " network set in the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebProvider"
+								}
+							]
+						}
+					],
+					"parameters": [
+						{
+							"name": "walletAddress",
+							"type": "string",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "the address of the wallet that you want to get the native balance"
+										}
+									]
+								}
+							]
+						}
+					],
+					"returns": {
+						"type": "UseQueryResult<{  }, unknown>",
+						"summary": [
+							{
+								"type": "paragraph",
+								"children": [
+									{
+										"type": "text",
+										"value": "the balance of the given wallet address"
+									}
+								]
+							}
+						]
+					},
+					"blockTags": []
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/wallet.ts#L50"
 		},
 		{
 			"kind": "function",
@@ -1976,7 +2040,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1066",
+											"url": "1072",
 											"children": [
 												{
 													"type": "text",
@@ -2048,7 +2112,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L174"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L172"
 		},
 		{
 			"kind": "function",
@@ -2165,7 +2229,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L593"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L587"
 		},
 		{
 			"kind": "function",
@@ -2198,7 +2262,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -2281,7 +2345,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L686"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L674"
 		},
 		{
 			"kind": "function",
@@ -2314,7 +2378,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -2391,7 +2455,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L433"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L425"
 		},
 		{
 			"kind": "function",
@@ -2476,7 +2540,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L1420"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L1407"
 		},
 		{
 			"kind": "function",
@@ -2561,7 +2625,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L1349"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L1337"
 		},
 		{
 			"kind": "function",
@@ -2660,7 +2724,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L988"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L980"
 		},
 		{
 			"kind": "function",
@@ -2759,7 +2823,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L1049"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L1041"
 		},
 		{
 			"kind": "function",
@@ -2844,7 +2908,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L907"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L899"
 		},
 		{
 			"kind": "function",
@@ -2919,7 +2983,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/wallet.ts#L142"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/wallet.ts#L164"
 		},
 		{
 			"kind": "function",
@@ -2994,7 +3058,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/wallet.ts#L112"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/wallet.ts#L134"
 		},
 		{
 			"kind": "function",
@@ -3126,7 +3190,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L191"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L186"
 		},
 		{
 			"kind": "function",
@@ -3255,7 +3319,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L246"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L240"
 		},
 		{
 			"kind": "function",
@@ -3288,7 +3352,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1065",
+											"url": "1071",
 											"children": [
 												{
 													"type": "text",
@@ -3371,7 +3435,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L231"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L228"
 		},
 		{
 			"kind": "function",
@@ -3404,7 +3468,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -3481,7 +3545,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L244"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L239"
 		},
 		{
 			"kind": "function",
@@ -3569,7 +3633,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L148"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L146"
 		},
 		{
 			"kind": "function",
@@ -3650,7 +3714,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "698",
+											"url": "704",
 											"children": [
 												{
 													"type": "text",
@@ -3715,7 +3779,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L94"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L92"
 		},
 		{
 			"kind": "function",
@@ -3873,7 +3937,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L127"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L123"
 		},
 		{
 			"kind": "function",
@@ -3891,7 +3955,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L107"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L107"
 		},
 		{
 			"kind": "function",
@@ -3916,7 +3980,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L111"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L115"
 		},
 		{
 			"kind": "function",
@@ -4038,7 +4102,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L144"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L148"
 		},
 		{
 			"kind": "function",
@@ -4341,7 +4405,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L147"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L147"
 		},
 		{
 			"kind": "function",
@@ -4482,7 +4546,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L422"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L419"
 		},
 		{
 			"kind": "function",
@@ -4566,7 +4630,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L312"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L311"
 		},
 		{
 			"kind": "function",
@@ -4644,7 +4708,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L364"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L362"
 		},
 		{
 			"kind": "function",
@@ -4795,7 +4859,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L520"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L516"
 		},
 		{
 			"kind": "function",
@@ -4813,7 +4877,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L59"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L59"
 		},
 		{
 			"kind": "function",
@@ -4935,7 +4999,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L597"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L592"
 		},
 		{
 			"kind": "function",
@@ -5034,7 +5098,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account-factory.ts#L165"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account-factory.ts#L161"
 		},
 		{
 			"kind": "function",
@@ -5139,7 +5203,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L828"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L821"
 		},
 		{
 			"kind": "function",
@@ -5244,7 +5308,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L749"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L742"
 		},
 		{
 			"kind": "function",
@@ -5294,7 +5358,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account.ts#L169"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account.ts#L166"
 		},
 		{
 			"kind": "function",
@@ -5319,7 +5383,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L170"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L174"
 		},
 		{
 			"kind": "function",
@@ -5352,7 +5416,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1065",
+											"url": "1071",
 											"children": [
 												{
 													"type": "text",
@@ -5453,7 +5517,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L394"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L389"
 		},
 		{
 			"kind": "function",
@@ -5567,7 +5631,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L95"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L94"
 		},
 		{
 			"kind": "function",
@@ -5684,7 +5748,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L200"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L198"
 		},
 		{
 			"kind": "function",
@@ -5783,7 +5847,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L366"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L363"
 		},
 		{
 			"kind": "function",
@@ -5808,7 +5872,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L124"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L128"
 		},
 		{
 			"kind": "function",
@@ -5882,7 +5946,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -5907,7 +5971,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useEdition.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useEdition.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -5981,7 +6045,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -6006,7 +6070,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useEditionDrop.ts#L34"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useEditionDrop.ts#L34"
 		},
 		{
 			"kind": "function",
@@ -6120,7 +6184,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L132"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L131"
 		},
 		{
 			"kind": "function",
@@ -6249,7 +6313,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L501"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L496"
 		},
 		{
 			"kind": "function",
@@ -6366,7 +6430,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L270"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L268"
 		},
 		{
 			"kind": "function",
@@ -6465,7 +6529,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L395"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L392"
 		},
 		{
 			"kind": "function",
@@ -6550,7 +6614,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L1291"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L1280"
 		},
 		{
 			"kind": "function",
@@ -6655,7 +6719,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/roles.ts#L252"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/roles.ts#L247"
 		},
 		{
 			"kind": "function",
@@ -6765,7 +6829,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account-factory.ts#L107"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account-factory.ts#L104"
 		},
 		{
 			"kind": "function",
@@ -6900,7 +6964,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/roles.ts#L129"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/roles.ts#L126"
 		},
 		{
 			"kind": "function",
@@ -6933,7 +6997,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -7038,7 +7102,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L321"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L317"
 		},
 		{
 			"kind": "function",
@@ -7138,7 +7202,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L61"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L60"
 		},
 		{
 			"kind": "function",
@@ -7241,7 +7305,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L168"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L166"
 		},
 		{
 			"kind": "function",
@@ -7326,7 +7390,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L339"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L336"
 		},
 		{
 			"kind": "function",
@@ -7398,7 +7462,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/auth/useLogin.ts#L19"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/auth/useLogin.ts#L18"
 		},
 		{
 			"kind": "function",
@@ -7470,7 +7534,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/auth/useLogout.ts#L17"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/auth/useLogout.ts#L16"
 		},
 		{
 			"kind": "function",
@@ -7555,7 +7619,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L1112"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L1103"
 		},
 		{
 			"kind": "function",
@@ -7640,7 +7704,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L1171"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L1161"
 		},
 		{
 			"kind": "function",
@@ -7714,7 +7778,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -7739,7 +7803,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useMarketplace.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useMarketplace.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -7835,7 +7899,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L341"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L334"
 		},
 		{
 			"kind": "function",
@@ -7949,7 +8013,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L647"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L641"
 		},
 		{
 			"kind": "function",
@@ -7982,7 +8046,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -8065,7 +8129,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L404"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L396"
 		},
 		{
 			"kind": "function",
@@ -8164,7 +8228,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L477"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L468"
 		},
 		{
 			"kind": "function",
@@ -8197,7 +8261,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -8274,7 +8338,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L171"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L167"
 		},
 		{
 			"kind": "function",
@@ -8348,7 +8412,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -8373,7 +8437,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useMultiwrap.ts#L34"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useMultiwrap.ts#L34"
 		},
 		{
 			"kind": "function",
@@ -8406,7 +8470,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -8504,7 +8568,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L53"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L52"
 		},
 		{
 			"kind": "function",
@@ -8537,7 +8601,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -8647,7 +8711,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L288"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L282"
 		},
 		{
 			"kind": "function",
@@ -8721,7 +8785,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -8746,7 +8810,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useNFTCollection.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useNFTCollection.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -8820,7 +8884,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -8845,7 +8909,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useNFTDrop.ts#L34"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useNFTDrop.ts#L34"
 		},
 		{
 			"kind": "function",
@@ -8878,7 +8942,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -8979,16 +9043,13 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L96"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L94"
 		},
 		{
 			"kind": "function",
 			"name": "useNetwork",
 			"signatures": [
 				{
-					"flags": {
-						"isPublic": true
-					},
 					"summary": [
 						{
 							"type": "paragraph",
@@ -8996,6 +9057,15 @@
 								{
 									"type": "text",
 									"value": "Hook for getting metadata about the network the current wallet is connected to and switching networks"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "It's important to note that some wallet apps do not support programmatic network switching and switchNetwork will be undefined.\nFor those situations, you can typically switch networks in the wallet app this hook will still work."
 								}
 							]
 						}
@@ -9012,15 +9082,6 @@
 									"lang": "javascript",
 									"meta": null,
 									"value": "import { useNetwork } from \"@thirdweb-dev/react\";\n\nconst App = () => {\n  const [, switchNetwork] = useNetwork();\n  return (\n     // switchNetwork is undefined if the wallet does not support programmatic network switching\n     // 137 is the chainId for Polygon in this example\n    <button onClick={() => switchNetwork(137)}>\n       Switch Network\n    </button>\n  );\n};"
-								},
-								{
-									"type": "paragraph",
-									"children": [
-										{
-											"type": "text",
-											"value": "It's important to note that some wallet apps do not support programmatic network switching and switchNetwork will be undefined.\nFor those situations, you can typically switch networks in the wallet app this hook will still work."
-										}
-									]
 								}
 							]
 						},
@@ -9028,35 +9089,50 @@
 							"tag": "@deprecated",
 							"summary": [
 								{
-									"type": "paragraph",
+									"type": "list",
+									"ordered": false,
+									"start": null,
+									"spread": false,
 									"children": [
 										{
-											"type": "text",
-											"value": "use "
-										},
-										{
-											"type": "inlineCode",
-											"value": "useChain"
-										},
-										{
-											"type": "text",
-											"value": ", "
-										},
-										{
-											"type": "inlineCode",
-											"value": "useSwitchChain"
-										},
-										{
-											"type": "text",
-											"value": ", "
-										},
-										{
-											"type": "inlineCode",
-											"value": "useChainId"
-										},
-										{
-											"type": "text",
-											"value": " instead"
+											"type": "listItem",
+											"spread": false,
+											"checked": null,
+											"children": [
+												{
+													"type": "paragraph",
+													"children": [
+														{
+															"type": "text",
+															"value": "use "
+														},
+														{
+															"type": "inlineCode",
+															"value": "useChain"
+														},
+														{
+															"type": "text",
+															"value": ", "
+														},
+														{
+															"type": "inlineCode",
+															"value": "useSwitchChain"
+														},
+														{
+															"type": "text",
+															"value": ", "
+														},
+														{
+															"type": "inlineCode",
+															"value": "useChainId"
+														},
+														{
+															"type": "text",
+															"value": " instead"
+														}
+													]
+												}
+											]
 										}
 									]
 								}
@@ -9065,7 +9141,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/useNetwork.ts#L56"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/useNetwork.ts#L56"
 		},
 		{
 			"kind": "function",
@@ -9192,7 +9268,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/useNetworkMismatch.ts#L31"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/useNetworkMismatch.ts#L31"
 		},
 		{
 			"kind": "function",
@@ -9295,7 +9371,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L699"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L692"
 		},
 		{
 			"kind": "function",
@@ -9328,7 +9404,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -9444,7 +9520,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L242"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L237"
 		},
 		{
 			"kind": "function",
@@ -9518,7 +9594,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -9543,7 +9619,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/usePack.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/usePack.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -9555,7 +9631,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/usePersonalWalletAddress.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/usePersonalWalletAddress.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -9665,7 +9741,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L244"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L239"
 		},
 		{
 			"kind": "function",
@@ -9795,7 +9871,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L42"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L41"
 		},
 		{
 			"kind": "function",
@@ -9845,7 +9921,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account.ts#L292"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account.ts#L289"
 		},
 		{
 			"kind": "function",
@@ -9878,7 +9954,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1065",
+											"url": "1071",
 											"children": [
 												{
 													"type": "text",
@@ -9941,7 +10017,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L551"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L542"
 		},
 		{
 			"kind": "function",
@@ -9974,7 +10050,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1066",
+											"url": "1072",
 											"children": [
 												{
 													"type": "text",
@@ -10057,7 +10133,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L475"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L469"
 		},
 		{
 			"kind": "function",
@@ -10162,7 +10238,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/roles.ts#L313"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/roles.ts#L307"
 		},
 		{
 			"kind": "function",
@@ -10212,7 +10288,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/account.ts#L210"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/account.ts#L207"
 		},
 		{
 			"kind": "function",
@@ -10332,7 +10408,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/roles.ts#L95"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/roles.ts#L93"
 		},
 		{
 			"kind": "function",
@@ -10442,7 +10518,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L145"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L142"
 		},
 		{
 			"kind": "function",
@@ -10490,7 +10566,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/useSDK.ts#L28"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/useSDK.ts#L28"
 		},
 		{
 			"kind": "function",
@@ -10574,7 +10650,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/roles.ts#L192"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/roles.ts#L188"
 		},
 		{
 			"kind": "function",
@@ -10663,7 +10739,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/app.ts#L80"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/app.ts#L78"
 		},
 		{
 			"kind": "function",
@@ -10696,7 +10772,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1065",
+											"url": "1071",
 											"children": [
 												{
 													"type": "text",
@@ -10780,7 +10856,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L472"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L464"
 		},
 		{
 			"kind": "function",
@@ -10805,7 +10881,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L196"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L200"
 		},
 		{
 			"kind": "function",
@@ -10830,7 +10906,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L157"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L161"
 		},
 		{
 			"kind": "function",
@@ -10863,7 +10939,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -10940,7 +11016,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L342"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L335"
 		},
 		{
 			"kind": "function",
@@ -11017,7 +11093,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -11042,7 +11118,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useSignatureDrop.ts#L34"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useSignatureDrop.ts#L34"
 		},
 		{
 			"kind": "function",
@@ -11116,7 +11192,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -11141,7 +11217,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useSplit.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useSplit.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -11218,7 +11294,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/storage/index.ts#L10"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/storage/index.ts#L10"
 		},
 		{
 			"kind": "function",
@@ -11314,7 +11390,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/storage/useStorageUpload.ts#L40"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/storage/useStorageUpload.ts#L40"
 		},
 		{
 			"kind": "function",
@@ -11326,7 +11402,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/useSupportedChains.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/useSupportedChains.ts#L5"
 		},
 		{
 			"kind": "function",
@@ -11344,7 +11420,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/useSupportedWallet.ts#L3"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/useSupportedWallet.ts#L3"
 		},
 		{
 			"kind": "function",
@@ -11416,7 +11492,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/auth/useSwitchAccount.ts#L15"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/auth/useSwitchAccount.ts#L14"
 		},
 		{
 			"kind": "function",
@@ -11441,7 +11517,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L183"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L187"
 		},
 		{
 			"kind": "function",
@@ -11453,19 +11529,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L45"
-		},
-		{
-			"kind": "function",
-			"name": "useThirdwebConfigContext",
-			"signatures": [
-				{
-					"returns": {
-						"type": "ThirdwebConfigContext"
-					}
-				}
-			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-config.tsx#L24"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L44"
 		},
 		{
 			"kind": "function",
@@ -11477,7 +11541,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-wallet.tsx#L120"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/contexts/thirdweb-wallet.tsx#L120"
 		},
 		{
 			"kind": "function",
@@ -11551,7 +11615,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -11576,7 +11640,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useToken.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useToken.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -11609,7 +11673,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -11690,7 +11754,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L77"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L75"
 		},
 		{
 			"kind": "function",
@@ -11723,7 +11787,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -11800,7 +11864,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L114"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L111"
 		},
 		{
 			"kind": "function",
@@ -11874,7 +11938,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -11899,7 +11963,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useTokenDrop.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useTokenDrop.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -11932,7 +11996,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -12009,7 +12073,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L45"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L44"
 		},
 		{
 			"kind": "function",
@@ -12042,7 +12106,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -12137,7 +12201,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L188"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L184"
 		},
 		{
 			"kind": "function",
@@ -12170,7 +12234,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -12253,7 +12317,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L139"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L136"
 		},
 		{
 			"kind": "function",
@@ -12286,7 +12350,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -12363,7 +12427,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L366"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L359"
 		},
 		{
 			"kind": "function",
@@ -12396,7 +12460,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1037",
+											"url": "1043",
 											"children": [
 												{
 													"type": "text",
@@ -12479,7 +12543,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/nft.ts#L544"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/nft.ts#L534"
 		},
 		{
 			"kind": "function",
@@ -12512,7 +12576,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "1038",
+											"url": "1044",
 											"children": [
 												{
 													"type": "text",
@@ -12589,7 +12653,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/token.ts#L306"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/token.ts#L300"
 		},
 		{
 			"kind": "function",
@@ -12667,7 +12731,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L121"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L119"
 		},
 		{
 			"kind": "function",
@@ -12784,7 +12848,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/drop.ts#L57"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/drop.ts#L56"
 		},
 		{
 			"kind": "function",
@@ -12880,7 +12944,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L395"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L387"
 		},
 		{
 			"kind": "function",
@@ -12990,7 +13054,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L295"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L289"
 		},
 		{
 			"kind": "function",
@@ -13100,7 +13164,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L94"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L92"
 		},
 		{
 			"kind": "function",
@@ -13210,7 +13274,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contract-settings.ts#L197"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contract-settings.ts#L193"
 		},
 		{
 			"kind": "function",
@@ -13294,7 +13358,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/auth/useUser.ts#L24"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/auth/useUser.ts#L23"
 		},
 		{
 			"kind": "function",
@@ -13411,7 +13475,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L235"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L233"
 		},
 		{
 			"kind": "function",
@@ -13528,7 +13592,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L305"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L303"
 		},
 		{
 			"kind": "function",
@@ -13602,7 +13666,7 @@
 										{
 											"type": "link",
 											"title": null,
-											"url": "329",
+											"url": "335",
 											"children": [
 												{
 													"type": "text",
@@ -13627,7 +13691,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/contracts/useVote.ts#L35"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/contracts/useVote.ts#L35"
 		},
 		{
 			"kind": "function",
@@ -13669,7 +13733,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L53"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L57"
 		},
 		{
 			"kind": "function",
@@ -13694,19 +13758,19 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L85"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L89"
 		},
 		{
 			"kind": "function",
-			"name": "useWalletContext",
+			"name": "useWalletConnectHandler",
 			"signatures": [
 				{
 					"returns": {
-						"type": "ThirdwebWalletContextData"
+						"type": "(undefined) | (WalletConnectHandler)"
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/providers/thirdweb-wallet-provider.tsx#L681"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/providers/thirdweb-wallet-provider.tsx#L621"
 		},
 		{
 			"kind": "function",
@@ -13739,7 +13803,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/hooks/wallet-hooks.ts#L98"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/hooks/wallet-hooks.ts#L102"
 		},
 		{
 			"kind": "function",
@@ -13798,7 +13862,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/useTransactions.ts#L29"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/useTransactions.ts#L29"
 		},
 		{
 			"kind": "function",
@@ -13913,14 +13977,14 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/marketplace.ts#L461"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/marketplace.ts#L456"
 		}
 	],
 	"variables": [
 		{
 			"kind": "variable",
 			"name": "compilerMetadata",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L124",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L124",
 			"type": "{ cacheKey: (contractAddress: RequiredParam<string>, chainId: RequiredParam<SUPPORTED_CHAIN_ID>) => QueryKey; fetchQuery: (contractAddress: RequiredParam<string>, sdk: RequiredParam<ThirdwebSDK>) => (Promise<PublishedMetadata>) | (null); useQuery: (contractAddress: RequiredParam<string>) => UseQueryResult<(PublishedMetadata) | (null)> }",
 			"typeDeclaration": [
 				{
@@ -13943,7 +14007,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L125"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L125"
 				},
 				{
 					"kind": "function",
@@ -13965,7 +14029,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L92"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L92"
 				},
 				{
 					"kind": "function",
@@ -13983,7 +14047,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L107"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L107"
 				}
 			],
 			"flags": {
@@ -13993,7 +14057,7 @@
 		{
 			"kind": "variable",
 			"name": "contractType",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L76",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L76",
 			"type": "{ cacheKey: (contractAddress: RequiredParam<string>, chainId: RequiredParam<SUPPORTED_CHAIN_ID>) => QueryKey; fetchQuery: (contractAddress: RequiredParam<string>, sdk: RequiredParam<ThirdwebSDK>) => Promise<(null) | (\"split\") | (\"edition-drop\") | (\"edition\") | (\"marketplace\") | (\"marketplace-v3\") | (\"multiwrap\") | (\"nft-collection\") | (\"nft-drop\") | (\"pack\") | (\"signature-drop\") | (\"token-drop\") | (\"token\") | (\"vote\") | (\"custom\")>; useQuery: (contractAddress: RequiredParam<string>) => UseQueryResult<(null) | (\"split\") | (\"edition-drop\") | (\"edition\") | (\"marketplace\") | (\"marketplace-v3\") | (\"multiwrap\") | (\"nft-collection\") | (\"nft-drop\") | (\"pack\") | (\"signature-drop\") | (\"token-drop\") | (\"token\") | (\"vote\") | (\"custom\"), unknown> }",
 			"typeDeclaration": [
 				{
@@ -14016,7 +14080,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L77"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L77"
 				},
 				{
 					"kind": "function",
@@ -14038,7 +14102,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L43"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L43"
 				},
 				{
 					"kind": "function",
@@ -14056,7 +14120,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L59"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L59"
 				}
 			],
 			"flags": {
@@ -14068,7 +14132,7 @@
 		{
 			"kind": "type",
 			"name": "ISecureStorage",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L3",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L3",
 			"type": "{getItem : (key: string) => Promise<(null) | (string)>,removeItem : (key: string) => Promise<void>,setItem : (key: string, value: string) => Promise<void>}",
 			"typeDeclaration": [
 				{
@@ -14087,7 +14151,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L4"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L4"
 				},
 				{
 					"kind": "function",
@@ -14105,7 +14169,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L6"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L6"
 				},
 				{
 					"kind": "function",
@@ -14127,7 +14191,7 @@
 							}
 						}
 					],
-					"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L5"
+					"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L5"
 				}
 			]
 		},
@@ -14160,7 +14224,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L14",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/contexts/thirdweb-auth.tsx#L13",
 			"type": "{authUrl : string,domain : string,secureStorage : ISecureStorage}",
 			"typeDeclaration": [
 				{
@@ -14269,7 +14333,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/providers/thirdweb-provider.tsx#L23",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/providers/thirdweb-provider.tsx#L23",
 			"typeParameters": [
 				{
 					"name": "TChains",
@@ -14288,7 +14352,41 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The network to use for the SDK."
+									"value": "The activeChain prop determines which chain you want your app to be operating on."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "There are 1000+ chains available in the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "@thirdweb-dev/chains"
+								},
+								{
+									"type": "text",
+									"value": " package. Import the chain you want and pass it to the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "activeChain"
+								},
+								{
+									"type": "text",
+									"value": " prop."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "You can override the imported object or pass a custom chain object with required properties."
 								}
 							]
 						}
@@ -14304,7 +14402,22 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The configuration used for thirdweb auth usage. Enables users to login\nto backends with their wallet."
+									"value": "The configuration object for setting up "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://portal.thirdweb.com/auth",
+									"children": [
+										{
+											"type": "text",
+											"value": "Auth"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": "; allowing users to sign in with their wallet."
 								}
 							]
 						}
@@ -14383,7 +14496,38 @@
 				{
 					"kind": "subtype",
 					"name": "clientId",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The clientId prop is required to use the thirdweb infrastructure services with the SDK."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "You can get a client ID by creating an API key on "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://thirdweb.com/dashboard/settings/api-keys",
+									"children": [
+										{
+											"type": "text",
+											"value": "thirdweb dashboard"
+										}
+									]
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -14442,7 +14586,16 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The [SDKOptions | Thirdweb SDK Options]([object Object]) to pass to the thirdweb SDK\ncomes with sensible defaults"
+									"value": "The thirdweb SDK Options to pass to the thirdweb SDK which includes Gas settings, gasless transactions, RPC configuration, and more."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "This Overrides any of the default values for the SDK. If not provided, it uses sensible defaults."
 								}
 							]
 						}
@@ -14451,7 +14604,18 @@
 				{
 					"kind": "subtype",
 					"name": "secretKey",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "secretKey for thirdweb services\nThis is only required if server side rendering is being used."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -14468,7 +14632,74 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The storage interface to use with the sdk."
+									"value": "Override the default "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://portal.thirdweb.com/storage",
+									"children": [
+										{
+											"type": "text",
+											"value": "Storage"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": " interface used by the SDK."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "It allows you to create an instance of "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebStorage"
+								},
+								{
+									"type": "text",
+									"value": " with your own customized config, and pass it to the SDK."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "emphasis",
+									"children": [
+										{
+											"type": "text",
+											"value": "This requires the "
+										},
+										{
+											"type": "inlineCode",
+											"value": "@thirdweb-dev/storage"
+										},
+										{
+											"type": "text",
+											"value": " package to be installed."
+										}
+									]
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebSDKProvider } from \"@thirdweb-dev/react\";\nimport {\n  ThirdwebStorage,\n  StorageDownloader,\n  IpfsUploader,\n} from \"@thirdweb-dev/storage\";\n\n// Configure a custom ThirdwebStorage instance\nconst gatewayUrls = {\n  \"ipfs://\": [\n    \"https://gateway.ipfscdn.io/ipfs/\",\n    \"https://cloudflare-ipfs.com/ipfs/\",\n    \"https://ipfs.io/ipfs/\",\n  ],\n};\nconst downloader = new StorageDownloader();\nconst uploader = new IpfsUploader();\nconst storage = new ThirdwebStorage({ uploader, downloader, gatewayUrls });\n\n// Provide the custom storage instance to the SDK\nfunction MyApp() {\n  return (\n    <ThirdwebSDKProvider\n      storageInterface={storage}\n    >\n      <YourApp />\n    </ThirdwebSDKProvider>\n  );\n}"
 								}
 							]
 						}
@@ -14484,7 +14715,45 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Chains to support. If not provided, will default to the chains supported by the SDK."
+									"value": "An array of chains supported by your app.\nThere are 1000+ chains available in the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "@thirdweb-dev/chains"
+								},
+								{
+									"type": "text",
+									"value": " package. You can import the chain you want and pass it to the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "supportedChains"
+								},
+								{
+									"type": "text",
+									"value": " prop in an array."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If not provided, it will default to the default supported chains supported by the thirdweb SDK."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { Ethereum, Polygon } from \"@thirdweb-dev/chains\";\n\nfunction Example() {\n return (\n   <ThirdwebSDKProvider supportedChains={[ Ethereum, Polygon ]} activeChain={Ethereum}>\n      <App />\n   </ThirdwebSDKProvider>\n )\n}"
 								}
 							]
 						}
@@ -14550,7 +14819,7 @@
 		{
 			"kind": "type",
 			"name": "ThirdwebSDKProviderProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/providers/types.ts#L8",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/providers/types.ts#L8",
 			"typeParameters": [
 				{
 					"name": "TChains",
@@ -14569,7 +14838,41 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The network to use for the SDK."
+									"value": "The activeChain prop determines which chain you want your app to be operating on."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "There are 1000+ chains available in the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "@thirdweb-dev/chains"
+								},
+								{
+									"type": "text",
+									"value": " package. Import the chain you want and pass it to the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "activeChain"
+								},
+								{
+									"type": "text",
+									"value": " prop."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "You can override the imported object or pass a custom chain object with required properties."
 								}
 							]
 						}
@@ -14585,7 +14888,22 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The configuration used for thirdweb auth usage. Enables users to login\nto backends with their wallet."
+									"value": "The configuration object for setting up "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://portal.thirdweb.com/auth",
+									"children": [
+										{
+											"type": "text",
+											"value": "Auth"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": "; allowing users to sign in with their wallet."
 								}
 							]
 						}
@@ -14594,7 +14912,38 @@
 				{
 					"kind": "subtype",
 					"name": "clientId",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The clientId prop is required to use the thirdweb infrastructure services with the SDK."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "You can get a client ID by creating an API key on "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://thirdweb.com/dashboard/settings/api-keys",
+									"children": [
+										{
+											"type": "text",
+											"value": "thirdweb dashboard"
+										}
+									]
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -14611,7 +14960,16 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The [SDKOptions | Thirdweb SDK Options]([object Object]) to pass to the thirdweb SDK\ncomes with sensible defaults"
+									"value": "The thirdweb SDK Options to pass to the thirdweb SDK which includes Gas settings, gasless transactions, RPC configuration, and more."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "This Overrides any of the default values for the SDK. If not provided, it uses sensible defaults."
 								}
 							]
 						}
@@ -14620,12 +14978,69 @@
 				{
 					"kind": "subtype",
 					"name": "secretKey",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "secretKey for thirdweb services\nThis is only required if server side rendering is being used."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "signer",
-					"type": "Signer"
+					"type": "Signer",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "A signer is an abstraction of an Ethereum Account, which can be used to sign messages and initiate transactions."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Since the ThirdwebSDKProvider is used when you want to provide your own wallet connection logic, you will need to provide a signer prop to inform the SDK of the wallet you want to use to sign transactions."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Libraries such as ethers.js, web3.js, wagmi, etc. all provide ways to get a signer."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "To use this signer with the SDK, pass it to the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "signer"
+								},
+								{
+									"type": "text",
+									"value": " prop. If the signer is connected, the SDK will use this wallet to sign transactions for all write operations on the blockchain."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -14637,7 +15052,74 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The storage interface to use with the sdk."
+									"value": "Override the default "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://portal.thirdweb.com/storage",
+									"children": [
+										{
+											"type": "text",
+											"value": "Storage"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": " interface used by the SDK."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "It allows you to create an instance of "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebStorage"
+								},
+								{
+									"type": "text",
+									"value": " with your own customized config, and pass it to the SDK."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "emphasis",
+									"children": [
+										{
+											"type": "text",
+											"value": "This requires the "
+										},
+										{
+											"type": "inlineCode",
+											"value": "@thirdweb-dev/storage"
+										},
+										{
+											"type": "text",
+											"value": " package to be installed."
+										}
+									]
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebSDKProvider } from \"@thirdweb-dev/react\";\nimport {\n  ThirdwebStorage,\n  StorageDownloader,\n  IpfsUploader,\n} from \"@thirdweb-dev/storage\";\n\n// Configure a custom ThirdwebStorage instance\nconst gatewayUrls = {\n  \"ipfs://\": [\n    \"https://gateway.ipfscdn.io/ipfs/\",\n    \"https://cloudflare-ipfs.com/ipfs/\",\n    \"https://ipfs.io/ipfs/\",\n  ],\n};\nconst downloader = new StorageDownloader();\nconst uploader = new IpfsUploader();\nconst storage = new ThirdwebStorage({ uploader, downloader, gatewayUrls });\n\n// Provide the custom storage instance to the SDK\nfunction MyApp() {\n  return (\n    <ThirdwebSDKProvider\n      storageInterface={storage}\n    >\n      <YourApp />\n    </ThirdwebSDKProvider>\n  );\n}"
 								}
 							]
 						}
@@ -14653,7 +15135,45 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Chains to support. If not provided, will default to the chains supported by the SDK."
+									"value": "An array of chains supported by your app.\nThere are 1000+ chains available in the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "@thirdweb-dev/chains"
+								},
+								{
+									"type": "text",
+									"value": " package. You can import the chain you want and pass it to the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "supportedChains"
+								},
+								{
+									"type": "text",
+									"value": " prop in an array."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If not provided, it will default to the default supported chains supported by the thirdweb SDK."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { Ethereum, Polygon } from \"@thirdweb-dev/chains\";\n\nfunction Example() {\n return (\n   <ThirdwebSDKProvider supportedChains={[ Ethereum, Polygon ]} activeChain={Ethereum}>\n      <App />\n   </ThirdwebSDKProvider>\n )\n}"
 								}
 							]
 						}
@@ -14664,7 +15184,7 @@
 		{
 			"kind": "type",
 			"name": "UserWithData",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/auth/useUser.ts#L8",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/auth/useUser.ts#L8",
 			"typeParameters": [
 				{
 					"name": "TData",
@@ -14699,7 +15219,7 @@
 		{
 			"kind": "type",
 			"name": "AcceptDirectOffer",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L250",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L231",
 			"type": "{ addressOfOfferor: string; listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -14736,7 +15256,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L133",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L124",
 			"type": "{ addresses: AirdropInput; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -14765,7 +15285,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "744",
+							"url": "750",
 							"children": [
 								{
 									"type": "text",
@@ -14780,7 +15300,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L175",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L162",
 			"type": "{ amount: Amount; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -14798,7 +15318,7 @@
 		{
 			"kind": "type",
 			"name": "BuyNowParams",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L258",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L239",
 			"typeParameters": [
 				{
 					"name": "TListingType",
@@ -14810,7 +15330,7 @@
 		{
 			"kind": "type",
 			"name": "Chain",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L43",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L43",
 			"type": "{ blockExplorers: { name: string; url: string }[]; id: number; name: AddEthereumChainParameter[\"chainName\"]; nativeCurrency: AddEthereumChainParameter[\"nativeCurrency\"]; rpcUrls: AddEthereumChainParameter[\"rpcUrls\"]; testnet: boolean }",
 			"typeDeclaration": [
 				{
@@ -14859,7 +15379,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "234",
+							"url": "240",
 							"children": [
 								{
 									"type": "text",
@@ -14874,7 +15394,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L35",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L34",
 			"type": "{ quantity: (string) | (number); walletAddress: WalletAddress }",
 			"typeDeclaration": [
 				{
@@ -14903,7 +15423,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "416",
+							"url": "422",
 							"children": [
 								{
 									"type": "text",
@@ -14918,7 +15438,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L223",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L205",
 			"type": "{ options: ClaimOptions; quantity: BigNumberish; to: WalletAddress; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -14968,7 +15488,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "416",
+							"url": "422",
 							"children": [
 								{
 									"type": "text",
@@ -14983,13 +15503,13 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L238",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L219",
 			"type": "(Awaited<ReturnType<Erc721[\"claimTo\"]>>) | (Awaited<ReturnType<Erc1155[\"claimTo\"]>>)"
 		},
 		{
 			"kind": "type",
 			"name": "ClaimTokenParams",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L279",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L260",
 			"type": "{ amount: Amount; checkERC20Allowance: boolean; to: WalletAddress }",
 			"typeDeclaration": [
 				{
@@ -15012,7 +15532,7 @@
 		{
 			"kind": "type",
 			"name": "ConnectUIProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/types/wallet.ts#L57",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/types/wallet.ts#L57",
 			"typeParameters": [
 				{
 					"name": "I",
@@ -15259,7 +15779,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "428",
+							"url": "434",
 							"children": [
 								{
 									"type": "text",
@@ -15274,7 +15794,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L202",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L186",
 			"type": "{ metadatas: NFTMetadataInput[]; password: string; placeholder: NFTMetadataInput }",
 			"typeDeclaration": [
 				{
@@ -15308,7 +15828,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L183",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L169",
 			"type": "(NFTDrop) | (EditionDrop) | (SignatureDrop) | (TokenDrop) | (SmartContract) | (null)"
 		},
 		{
@@ -15325,13 +15845,13 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L117",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L110",
 			"type": "(Erc721) | (Erc1155)"
 		},
 		{
 			"kind": "type",
 			"name": "ExecuteAuctionSale",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L254",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L235",
 			"type": "{ listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -15344,7 +15864,7 @@
 		{
 			"kind": "type",
 			"name": "ExtraCoreWalletOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/types/wallet.ts#L5",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/types/wallet.ts#L5",
 			"type": "{ chain: Chain }",
 			"typeDeclaration": [
 				{
@@ -15357,7 +15877,7 @@
 		{
 			"kind": "type",
 			"name": "MakeBidParams",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L244",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L225",
 			"type": "{ bid: Price; listingId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -15375,7 +15895,7 @@
 		{
 			"kind": "type",
 			"name": "MakeOfferParams",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L245",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L226",
 			"type": "{ listingId: BigNumberish; pricePerToken: Price; quantity: Amount }",
 			"typeDeclaration": [
 				{
@@ -15409,7 +15929,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "724",
+							"url": "730",
 							"children": [
 								{
 									"type": "text",
@@ -15424,7 +15944,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L153",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L142",
 			"type": "{ metadata: NFTMetadataOrUri; supply: Amount; to: WalletAddress }",
 			"typeDeclaration": [
 				{
@@ -15458,7 +15978,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "724",
+							"url": "730",
 							"children": [
 								{
 									"type": "text",
@@ -15473,7 +15993,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L164",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L152",
 			"typeParameters": [
 				{
 					"name": "TContract"
@@ -15503,7 +16023,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L142",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L132",
 			"type": "{ additionalSupply: Amount; to: WalletAddress; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -15550,7 +16070,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L96",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L91",
 			"type": "(NFTCollection) | (Edition) | (Pack) | (Multiwrap) | (Exclude<DropContract, \"TokenDrop\">)"
 		},
 		{
@@ -15567,7 +16087,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "436",
+							"url": "442",
 							"children": [
 								{
 									"type": "text",
@@ -15582,7 +16102,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L213",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L196",
 			"type": "{ batchId: BigNumberish; password: string }",
 			"typeDeclaration": [
 				{
@@ -15611,13 +16131,13 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L195",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L180",
 			"type": "(NFTDrop) | (SignatureDrop) | (SmartContract) | (null)"
 		},
 		{
 			"kind": "type",
 			"name": "SelectUIProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/types/wallet.ts#L162",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/types/wallet.ts#L162",
 			"typeParameters": [
 				{
 					"name": "I",
@@ -15755,7 +16275,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "244",
+							"url": "250",
 							"children": [
 								{
 									"type": "text",
@@ -15770,7 +16290,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L47",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/claim-conditions.ts#L45",
 			"type": "{ phases: ClaimConditionInput[]; reset: boolean }",
 			"typeDeclaration": [
 				{
@@ -15799,7 +16319,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L82",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L78",
 			"type": "{ amount: Amount }",
 			"typeDeclaration": [
 				{
@@ -15836,7 +16356,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L111",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L105",
 			"type": "(TokenDrop) | (Token) | (SmartContract) | (null)"
 		},
 		{
@@ -15853,7 +16373,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L72",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L69",
 			"type": "{ amount: Amount; to: WalletAddress }",
 			"typeDeclaration": [
 				{
@@ -15890,7 +16410,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L123",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L115",
 			"type": "{ amount: Amount; to: WalletAddress; tokenId: BigNumberish }",
 			"typeDeclaration": [
 				{
@@ -15913,7 +16433,7 @@
 		{
 			"kind": "type",
 			"name": "UseContractResult",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/async/contracts.ts#L141",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/async/contracts.ts#L141",
 			"typeParameters": [
 				{
 					"name": "TContract",
@@ -15926,7 +16446,7 @@
 		{
 			"kind": "type",
 			"name": "UseWatchTransactionsParams",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/hooks/useTransactions.ts#L8",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/hooks/useTransactions.ts#L8",
 			"type": "Partial<Omit<WatchTransactionsParams, \"onTransactions\">> & { limit: number }"
 		},
 		{
@@ -15943,13 +16463,13 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/types.ts#L59",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/types.ts#L58",
 			"type": "AddressOrEns"
 		},
 		{
 			"kind": "type",
 			"name": "WalletClass",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/types/wallet.ts#L13",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/types/wallet.ts#L13",
 			"typeParameters": [
 				{
 					"name": "I",
@@ -15974,7 +16494,7 @@
 		{
 			"kind": "type",
 			"name": "WalletConfig",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/types/wallet.ts#L19",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/types/wallet.ts#L19",
 			"typeParameters": [
 				{
 					"name": "I",
@@ -16194,67 +16714,17 @@
 		{
 			"kind": "type",
 			"name": "WalletInstance",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/types/wallet.ts#L11",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/types/wallet.ts#L11",
 			"type": "AbstractClientWallet"
 		},
 		{
 			"kind": "type",
 			"name": "WalletOptions",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/core/types/wallet.ts#L9",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/core/types/wallet.ts#L9",
 			"type": "WalletOptions_<ExtraCoreWalletOptions>"
 		}
 	],
 	"components": [
-		{
-			"kind": "function",
-			"name": "ThirdwebAuthProvider",
-			"signatures": [
-				{
-					"parameters": [
-						{
-							"name": "props",
-							"type": "PropsWithChildren<{ value: ThirdwebAuthConfig }>"
-						},
-						{
-							"name": "context",
-							"type": "any",
-							"flags": {
-								"isOptional": true
-							}
-						}
-					],
-					"returns": {
-						"type": "ReactNode"
-					}
-				}
-			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/ThirdwebAuthProvider.tsx#L13"
-		},
-		{
-			"kind": "function",
-			"name": "ThirdwebConfigProvider",
-			"signatures": [
-				{
-					"parameters": [
-						{
-							"name": "props",
-							"type": "PropsWithChildren<{ value: ThirdwebConfigContext }>"
-						},
-						{
-							"name": "context",
-							"type": "any",
-							"flags": {
-								"isOptional": true
-							}
-						}
-					],
-					"returns": {
-						"type": "ReactNode"
-					}
-				}
-			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/contexts/thirdweb-config.tsx#L14"
-		},
 		{
 			"kind": "function",
 			"name": "ThirdwebSDKProvider",
@@ -16266,7 +16736,23 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "A basic wrapper around the Thirdweb SDK."
+									"value": "The "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebSDKProvider"
+								},
+								{
+									"type": "text",
+									"value": " is used when you want to provide your own wallet connection logic and just use the thirdweb SDK to interact with smart contracts and the blockchain.\nThis means you can use everything in the SDK except for wallet connection-related components and hooks. if you need those please use the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebProvider"
+								},
+								{
+									"type": "text",
+									"value": " instead."
 								}
 							]
 						},
@@ -16274,15 +16760,19 @@
 							"type": "paragraph",
 							"children": [
 								{
+									"type": "inlineCode",
+									"value": "ThirdwebSDKProvider"
+								},
+								{
 									"type": "text",
-									"value": "You can use this in order to be able to pass a provider & signer directly to the SDK."
+									"value": " allows you to set a provider & signer to the Thirdweb SDK."
 								}
 							]
 						}
 					],
 					"parameters": [
 						{
-							"name": "__namedParameters",
+							"name": "props",
 							"type": "PropsWithChildren<ThirdwebSDKProviderProps<TChains>>"
 						}
 					],
@@ -16297,38 +16787,29 @@
 					],
 					"blockTags": [
 						{
-							"tag": "@remarks",
+							"tag": "@example",
 							"summary": [
 								{
 									"type": "paragraph",
 									"children": [
 										{
 											"type": "text",
-											"value": "Utilizing this provider will mean hooks for wallet management are not available, if you need those please use the "
-										},
-										{
-											"type": "link",
-											"title": null,
-											"url": "undefined",
-											"children": [
-												{
-													"type": "text",
-													"value": "ThirdwebProvider"
-												}
-											]
-										},
-										{
-											"type": "text",
-											"value": " instead."
+											"value": "Wrap your app in the ThirdwebSDKProvider to access the SDK’s functionality from anywhere in your app."
 										}
 									]
+								},
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebSDKProvider } from \"@thirdweb-dev/react\";\nimport { ethers } from \"ethers\";\n\n// Example shows how to get the signer from the injected provider ( wallet extension )\nfunction Example() {\n return (\n   <ThirdwebSDKProvider\n     activeChain=\"ethereum\"\n     clientId=\"YOUR_CLIENT_ID\"\n     signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}\n   >\n     <App />\n   </ThirdwebSDKProvider>\n )\n}"
 								}
 							]
 						}
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react-core/src/evm/providers/thirdweb-sdk-provider.tsx#L163"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react-core/src/evm/providers/thirdweb-sdk-provider.tsx#L183"
 		}
 	]
 }

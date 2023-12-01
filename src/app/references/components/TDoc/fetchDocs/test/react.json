@@ -5,24 +5,6 @@
 	"functions": [
 		{
 			"kind": "function",
-			"name": "ConnectEmbed",
-			"signatures": [
-				{
-					"parameters": [
-						{
-							"name": "props",
-							"type": "ConnectEmbedProps"
-						}
-					],
-					"returns": {
-						"type": "(null) | (Element)"
-					}
-				}
-			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/Modal/ConnectEmbed.tsx#L36"
-		},
-		{
-			"kind": "function",
 			"name": "bloctoWallet",
 			"signatures": [
 				{
@@ -40,7 +22,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/blocto/bloctoWallet.tsx#L19"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/blocto/bloctoWallet.tsx#L19"
 		},
 		{
 			"kind": "function",
@@ -61,7 +43,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/coin98/coin98Wallet.tsx#L20"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/coin98/coin98Wallet.tsx#L20"
 		},
 		{
 			"kind": "function",
@@ -82,7 +64,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/coinbase/coinbaseWallet.tsx#L28"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/coinbase/coinbaseWallet.tsx#L28"
 		},
 		{
 			"kind": "function",
@@ -103,13 +85,45 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/coreWallet/coreWallet.tsx#L23"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/coreWallet/coreWallet.tsx#L23"
+		},
+		{
+			"kind": "function",
+			"name": "cryptoDefiWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "CryptoDefiWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<CryptoDefiWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/defiWallet/cryptoDefiWallet.tsx#L23"
 		},
 		{
 			"kind": "function",
 			"name": "darkTheme",
 			"signatures": [
 				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Create a custom dark theme object by using the default dark theme as a base and applying overrides."
+								}
+							]
+						}
+					],
 					"parameters": [
 						{
 							"name": "overrides",
@@ -121,10 +135,23 @@
 					],
 					"returns": {
 						"type": "Theme"
-					}
+					},
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "const customTheme = darkTheme({\n colors: {\n  modalBg: \"red\",\n }\n})"
+								}
+							]
+						}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/design-system/index.ts#L152"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/design-system/index.ts#L176"
 		},
 		{
 			"kind": "function",
@@ -145,7 +172,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx#L32"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx#L32"
 		},
 		{
 			"kind": "function",
@@ -155,18 +182,18 @@
 					"parameters": [
 						{
 							"name": "overrides",
-							"type": "DeepPartial<{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; goBackButton: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }>",
+							"type": "DeepPartial<{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }>",
 							"flags": {
 								"isOptional": true
 							}
 						}
 					],
 					"returns": {
-						"type": "{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; goBackButton: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }"
+						"type": "{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }"
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/locales/en.ts#L321"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/locales/en.ts#L322"
 		},
 		{
 			"kind": "function",
@@ -176,18 +203,18 @@
 					"parameters": [
 						{
 							"name": "overrides",
-							"type": "DeepPartial<{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; goBackButton: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }>",
+							"type": "DeepPartial<{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }>",
 							"flags": {
 								"isOptional": true
 							}
 						}
 					],
 					"returns": {
-						"type": "{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; goBackButton: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }"
+						"type": "{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }"
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/locales/es.ts#L328"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/locales/es.ts#L329"
 		},
 		{
 			"kind": "function",
@@ -208,7 +235,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/frame/frameWallet.tsx#L12"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/frame/frameWallet.tsx#L12"
 		},
 		{
 			"kind": "function",
@@ -218,24 +245,35 @@
 					"parameters": [
 						{
 							"name": "overrides",
-							"type": "DeepPartial<{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; goBackButton: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }>",
+							"type": "DeepPartial<{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }>",
 							"flags": {
 								"isOptional": true
 							}
 						}
 					],
 					"returns": {
-						"type": "{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; goBackButton: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }"
+						"type": "{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }"
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/locales/ja.ts#L322"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/locales/ja.ts#L323"
 		},
 		{
 			"kind": "function",
 			"name": "lightTheme",
 			"signatures": [
 				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Create a custom light theme object by using the default dark theme as a base and applying overrides."
+								}
+							]
+						}
+					],
 					"parameters": [
 						{
 							"name": "overrides",
@@ -247,10 +285,23 @@
 					],
 					"returns": {
 						"type": "Theme"
-					}
+					},
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "const customTheme = lightTheme({\n colors: {\n  modalBg: \"red\",\n }\n})"
+								}
+							]
+						}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/design-system/index.ts#L145"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/design-system/index.ts#L157"
 		},
 		{
 			"kind": "function",
@@ -271,7 +322,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/localWallet/localWallet.tsx#L11"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/localWallet/localWallet.tsx#L11"
 		},
 		{
 			"kind": "function",
@@ -289,7 +340,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/magic/magicLink.tsx#L45"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/magic/magicLink.tsx#L46"
 		},
 		{
 			"kind": "function",
@@ -310,7 +361,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/metamask/metamaskWallet.tsx#L23"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/metamask/metamaskWallet.tsx#L23"
 		},
 		{
 			"kind": "function",
@@ -331,7 +382,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/okx/okxWallet.tsx#L20"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/okx/okxWallet.tsx#L20"
 		},
 		{
 			"kind": "function",
@@ -424,7 +475,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/paper/paperWallet.tsx#L32"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/paper/paperWallet.tsx#L32"
 		},
 		{
 			"kind": "function",
@@ -445,7 +496,28 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/phantom/phantomWallet.tsx#L15"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/phantom/phantomWallet.tsx#L15"
+		},
+		{
+			"kind": "function",
+			"name": "rabbyWallet",
+			"signatures": [
+				{
+					"parameters": [
+						{
+							"name": "options",
+							"type": "RabbyWalletOptions",
+							"flags": {
+								"isOptional": true
+							}
+						}
+					],
+					"returns": {
+						"type": "WalletConfig<RabbyWallet>"
+					}
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/rabby/rabbyWallet.tsx#L20"
 		},
 		{
 			"kind": "function",
@@ -466,7 +538,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/rainbow/RainbowWallet.tsx#L25"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/rainbow/RainbowWallet.tsx#L25"
 		},
 		{
 			"kind": "function",
@@ -487,7 +559,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/safe/safeWallet.tsx#L15"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/safe/safeWallet.tsx#L16"
 		},
 		{
 			"kind": "function",
@@ -509,7 +581,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx#L15"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx#L12"
 		},
 		{
 			"kind": "function",
@@ -530,7 +602,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/trustWallet/TrustWallet.tsx#L22"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/trustWallet/TrustWallet.tsx#L22"
 		},
 		{
 			"kind": "function",
@@ -551,7 +623,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/walletConnect/walletConnect.tsx#L32"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/walletConnect/walletConnect.tsx#L32"
 		},
 		{
 			"kind": "function",
@@ -622,7 +694,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/walletConnectV1.tsx#L9"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/walletConnectV1.tsx#L9"
 		},
 		{
 			"kind": "function",
@@ -643,7 +715,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/zerion/zerionWallet.tsx#L22"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/zerion/zerionWallet.tsx#L22"
 		}
 	],
 	"hooks": [
@@ -657,7 +729,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useBloctoWallet.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useBloctoWallet.ts#L5"
 		},
 		{
 			"kind": "function",
@@ -669,7 +741,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useCoinbaseWallet.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useCoinbaseWallet.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -704,7 +776,7 @@
 					"blockTags": []
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useEmbeddedWallet.ts#L26"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useEmbeddedWallet.ts#L26"
 		},
 		{
 			"kind": "function",
@@ -716,7 +788,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/useEmbeddedWalletSendVerificationEmail.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/useEmbeddedWalletSendVerificationEmail.ts#L5"
 		},
 		{
 			"kind": "function",
@@ -728,7 +800,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useEmbeddedWallet.ts#L82"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useEmbeddedWallet.ts#L83"
 		},
 		{
 			"kind": "function",
@@ -740,19 +812,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useFrame.ts#L4"
-		},
-		{
-			"kind": "function",
-			"name": "useInstalledWallets",
-			"signatures": [
-				{
-					"returns": {
-						"type": "{ coinbaseWallet: boolean; metamask: boolean; trustWallet: boolean; zerionWallet: boolean }"
-					}
-				}
-			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/hooks/useInstalledWallets.ts#L7"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useFrame.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -764,7 +824,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L83"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L80"
 		},
 		{
 			"kind": "function",
@@ -776,7 +836,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/connectors/magic/useMagic.ts#L6"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/connectors/magic/useMagic.ts#L6"
 		},
 		{
 			"kind": "function",
@@ -788,31 +848,113 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useMetamask.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useMetamask.ts#L4"
 		},
 		{
 			"kind": "function",
 			"name": "usePaperWallet",
 			"signatures": [
 				{
+					"summary": [],
 					"returns": {
 						"type": "(options: { chainId: number; email: string } & PaperConfig) => Promise<PaperWallet>"
-					}
+					},
+					"blockTags": [
+						{
+							"tag": "@deprecated",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "We have deprecated "
+										},
+										{
+											"type": "inlineCode",
+											"value": "PaperWallet"
+										},
+										{
+											"type": "text",
+											"value": " in favor of our "
+										},
+										{
+											"type": "inlineCode",
+											"value": "EmbeddedWallet"
+										},
+										{
+											"type": "text",
+											"value": " which adds support for more sign in methods. use the "
+										},
+										{
+											"type": "inlineCode",
+											"value": "useEmbeddedWallet"
+										},
+										{
+											"type": "text",
+											"value": " hook instead"
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/usePaper.ts#L16"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/usePaper.ts#L19"
 		},
 		{
 			"kind": "function",
 			"name": "usePaperWalletUserEmail",
 			"signatures": [
 				{
+					"summary": [],
 					"returns": {
 						"type": "UseQueryResult<(string) | (undefined), string>"
-					}
+					},
+					"blockTags": [
+						{
+							"tag": "@deprecated",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "We have deprecated "
+										},
+										{
+											"type": "inlineCode",
+											"value": "PaperWallet"
+										},
+										{
+											"type": "text",
+											"value": " in favor of our "
+										},
+										{
+											"type": "inlineCode",
+											"value": "EmbeddedWallet"
+										},
+										{
+											"type": "text",
+											"value": " which adds support for more sign in methods. use the "
+										},
+										{
+											"type": "inlineCode",
+											"value": "useEmbeddedWallet"
+										},
+										{
+											"type": "text",
+											"value": " hook instead"
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/usePaper.ts#L32"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/usePaper.ts#L38"
 		},
 		{
 			"kind": "function",
@@ -824,7 +966,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useRainbowWallet.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useRainbowWallet.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -919,7 +1061,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/components/MediaRenderer.tsx#L528"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/MediaRenderer.tsx#L529"
 		},
 		{
 			"kind": "function",
@@ -931,7 +1073,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/connectors/gnosis/useSafe.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/connectors/gnosis/useSafe.ts#L5"
 		},
 		{
 			"kind": "function",
@@ -943,7 +1085,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L87"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/providers/wallet-ui-states-provider.tsx#L84"
 		},
 		{
 			"kind": "function",
@@ -971,7 +1113,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useSmartWallet.ts#L18"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useSmartWallet.ts#L18"
 		},
 		{
 			"kind": "function",
@@ -983,7 +1125,7 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useTrustWallet.ts#L4"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useTrustWallet.ts#L4"
 		},
 		{
 			"kind": "function",
@@ -995,26 +1137,51 @@
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L18"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L21"
 		},
 		{
 			"kind": "function",
 			"name": "useWalletConnectV1",
 			"signatures": [
 				{
+					"summary": [],
 					"returns": {
 						"type": "(options?: { chainId: number }) => Promise<WalletConnect>"
-					}
+					},
+					"blockTags": [
+						{
+							"tag": "@deprecated",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "use the "
+										},
+										{
+											"type": "inlineCode",
+											"value": "useWalletConnect"
+										},
+										{
+											"type": "text",
+											"value": " hook instead"
+										}
+									]
+								}
+							]
+						}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L5"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/hooks/wallets/useWalletConnect.ts#L8"
 		}
 	],
 	"variables": [
 		{
 			"kind": "variable",
 			"name": "defaultTokens",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L34",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L34",
 			"type": "SupportedTokens",
 			"flags": {
 				"isConst": true
@@ -1023,7 +1190,7 @@
 		{
 			"kind": "variable",
 			"name": "defaultWallets",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/wallets/defaultWallets.ts#L10",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/wallets/defaultWallets.ts#L10",
 			"type": "WalletConfig<any>[]",
 			"flags": {
 				"isConst": true
@@ -1045,7 +1212,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "2829",
+							"url": "3557",
 							"children": [
 								{
 									"type": "text",
@@ -1060,7 +1227,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/components/types.ts#L27",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/types.ts#L44",
 			"type": "{alt : string,children : ReactNode,className : string,controls : boolean,gatewayUrl : string,height : string,mimeType : string,poster : (null) | (string),requireInteraction : boolean,src : (null) | (string),style : CSSProperties,width : string}",
 			"typeDeclaration": [
 				{
@@ -1087,7 +1254,18 @@
 				{
 					"kind": "subtype",
 					"name": "className",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The className to apply on the rendered element to add custom styling."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1099,7 +1277,20 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Show the media controls (where applicable) (default false)"
+									"value": "Show the media controls (where applicable)"
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@defaultValue",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "false"
 								}
 							]
 						}
@@ -1124,12 +1315,49 @@
 				{
 					"kind": "subtype",
 					"name": "height",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The CSS height property to apply on the rendered element."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "mimeType",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Provide the "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types",
+									"children": [
+										{
+											"type": "text",
+											"value": "MIME type"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": " of the media if it is known"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1157,7 +1385,20 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Require user interaction to play the media. (default false)"
+									"value": "Require user interaction to play the media."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@defaultValue",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "false"
 								}
 							]
 						}
@@ -1182,19 +1423,41 @@
 				{
 					"kind": "subtype",
 					"name": "style",
-					"type": "CSSProperties"
+					"type": "CSSProperties",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The style to apply on the rendered element to add custom styling."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "width",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The CSS width property to apply on the rendered element."
+								}
+							]
+						}
+					]
 				}
 			]
 		},
 		{
 			"kind": "type",
 			"name": "MediaType",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/components/MediaRenderer.tsx#L498",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/MediaRenderer.tsx#L499",
 			"type": "{mimeType : string,url : string}",
 			"typeDeclaration": [
 				{
@@ -1223,7 +1486,7 @@
 						{
 							"type": "link",
 							"title": null,
-							"url": "2846",
+							"url": "3574",
 							"children": [
 								{
 									"type": "text",
@@ -1238,7 +1501,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/components/NftMedia.tsx#L9",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/NftMedia.tsx#L9",
 			"type": "{children : ReactNode,className : string,controls : boolean,height : string,metadata : objectOutputType<{  }, ZodUnion<[ZodEffects<ZodUnion<[ZodBigInt, ZodType<BigNumber, ZodTypeDef, BigNumber>, ZodType<BN, ZodTypeDef, BN>]>, string, (bigint) | (BigNumber) | (BN)>, ZodUnknown]>, \"strip\">,mimeType : string,requireInteraction : boolean,style : CSSProperties,width : string}",
 			"typeDeclaration": [
 				{
@@ -1249,7 +1512,18 @@
 				{
 					"kind": "subtype",
 					"name": "className",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The className to apply on the rendered element to add custom styling."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1261,7 +1535,20 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Show the media controls (where applicable) (default false)"
+									"value": "Show the media controls (where applicable)"
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@defaultValue",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "false"
 								}
 							]
 						}
@@ -1270,7 +1557,18 @@
 				{
 					"kind": "subtype",
 					"name": "height",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "CSS height of the media"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1291,7 +1589,33 @@
 				{
 					"kind": "subtype",
 					"name": "mimeType",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Provide the "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types",
+									"children": [
+										{
+											"type": "text",
+											"value": "MIME type"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": " of the media if it is known"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1303,7 +1627,20 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Require user interaction to play the media. (default false)"
+									"value": "Require user interaction to play the media."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@defaultValue",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "false"
 								}
 							]
 						}
@@ -1312,37 +1649,175 @@
 				{
 					"kind": "subtype",
 					"name": "style",
-					"type": "CSSProperties"
+					"type": "CSSProperties",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The style to apply on the rendered element to add custom styling."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "width",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "CSS width of the media"
+								}
+							]
+						}
+					]
 				}
 			]
 		},
 		{
 			"kind": "type",
-			"name": "ConnectEmbedProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/Modal/ConnectEmbed.tsx#L20",
-			"type": "{ className: string; privacyPolicyUrl: string; style: React.CSSProperties; termsOfServiceUrl: string; theme: (\"dark\") | (\"light\") | (Theme) }",
+			"name": "ThirdwebProviderProps",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/providers/thirdweb-provider.tsx#L19",
+			"typeParameters": [
+				{
+					"name": "TChains",
+					"extendsType": "Chain[]"
+				}
+			],
+			"type": "{locale : { connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } },signer : Signer,supportedWallets : WalletConfig<any>[],theme : ThemeObjectOrType}",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
-					"name": "className",
-					"type": "string"
-				},
-				{
-					"kind": "subtype",
-					"name": "privacyPolicyUrl",
-					"type": "string",
+					"name": "locale",
+					"type": "{ connectWallet: { agreement: { and: string; prefix: string; privacyPolicy: string; termsOfService: string }; backupWallet: string; confirmInWallet: string; connectAWallet: string; connectedToSmartWallet: string; connecting: string; continueAsGuest: string; copyAddress: string; currentNetwork: string; defaultButtonTitle: string; defaultModalTitle: string; disconnectWallet: string; download: { android: string; chrome: string; iOS: string }; getStarted: string; guest: string; guestWalletWarning: string; installed: string; networkSelector: { addCustomNetwork: string; allNetworks: string; categoryLabel: { others: string; popular: string; recentlyUsed: string }; failedToSwitch: string; inputPlaceholder: string; loading: string; mainnets: string; testnets: string; title: string }; newToWallets: string; or: string; personalWallet: string; receive: string; receiveFundsScreen: { instruction: string; title: string }; recommended: string; requestTestnetFunds: string; send: string; sendFundsScreen: { amount: string; insufficientFunds: string; invalidAddress: string; noTokensFound: string; searchToken: string; selectTokenTitle: string; sendTo: string; sending: string; submitButton: string; successMessage: string; title: string; token: string; transactionFailed: string; transactionRejected: string }; signIn: string; signatureScreen: { instructionScreen: { instruction: string; signInButton: string; title: string }; signingScreen: { approveTransactionInSafe: string; failedToSignIn: string; inProgress: string; prompt: string; promptForSafe: string; title: string; tryAgain: string } }; smartWallet: string; switchAccount: string; switchNetwork: string; switchTo: string; switchingNetwork: string; transactionHistory: string; welcomeScreen: { defaultSubtitle: string; defaultTitle: string } }; wallets: { coin98Wallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coinbaseWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; coreWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; cryptoDefiWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; embeddedWallet: { createPassword: { confirmation: string; failedToSetPassword: string; inputPlaceholder: string; instruction: string; saveInstruction: string; submitButton: string; title: string }; emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; enterPassword: { inputPlaceholder: string; instruction: string; submitButton: string; title: string; wrongPassword: string }; invalidEmail: string; signIn: string; signInWithApple: string; signInWithFacebook: string; signInWithGoogle: string; socialLoginScreen: { failed: string; instruction: string; retry: string; title: string }; submitEmail: string }; frameWallet: { connectionFailedScreen: { description: string; downloadFrame: string; supportLink: string; title: string }; connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; localWallet: { confirmPasswordLabel: string; createScreen: { connecting: string; createNewWallet: string; importWallet: string; instruction: string }; enterYourPassword: string; exportScreen: { description1: string; description2: string; download: string; title: string; walletAddress: string }; importScreen: { description1: string; description2: string; import: string; title: string; uploadJSON: string; uploadedSuccessfully: string }; passwordLabel: string; reconnectScreen: { continue: string; createNewWallet: string; savedWallet: string; title: string }; warningScreen: { backupWallet: string; title: string; warning: string } }; magicLink: { countryCodeMissing: string; emailOrPhoneRequired: string; emailPlaceholder: string; emailRequired: string; invalidEmail: string; invalidEmailOrPhone: string; invalidPhone: string; loginWith: string; loginWithEmailOrPhone: string; loginWithPhone: string; phoneRequired: string; signIn: string; submitEmail: string }; metamaskWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; okxWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; paperWallet: { emailLoginScreen: { enterCodeSendTo: string; enterRecoveryCode: string; failedToSendCode: string; invalidCode: string; invalidCodeOrRecoveryCode: string; newDeviceDetected: string; resendCode: string; sendingCode: string; title: string; verify: string }; emailPlaceholder: string; emailRequired: string; googleLoginScreen: { failed: string; instruction: string; retry: string; title: string }; invalidEmail: string; signIn: string; signInWithGoogle: string; submitEmail: string }; phantomWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rabbyWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; rainbowWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; safeWallet: { accountDetailsScreen: { connectToSafe: string; connecting: string; dashboardLink: string; failedToConnect: string; failedToSwitch: string; findSafeAddressIn: string; invalidChainConfig: string; mainnets: string; network: string; safeAddress: string; selectNetworkPlaceholder: string; switchNetwork: string; switchingNetwork: string; testnets: string; title: string }; connectWalletScreen: { learnMoreLink: string; subtitle: string; title: string } }; smartWallet: { connecting: string; failedToConnect: string; wrongNetworkScreen: { failedToSwitch: string; subtitle: string; title: string } }; trustWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } }; walletConnect: { scanInstruction: string }; zerionWallet: { connectionScreen: { failed: string; inProgress: string; instruction: string; retry: string }; getStartedLink: string; getStartedScreen: { instruction: string }; scanScreen: { instruction: string } } } }",
 					"summary": [
 						{
 							"type": "paragraph",
 							"children": [
 								{
 									"type": "text",
-									"value": "If provided, Embed will show a Privacy Policy message at the bottom with below link"
+									"value": "locale object contains text used for all thirdweb components"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "it allows you to change the language used in UI components or override the texts used in the UI"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "React SDK comes out of the box with Spanish and Japanese locale functions, but you can add support for any language you want just by passing an object with the required strings"
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "heading",
+									"depth": 2,
+									"children": [
+										{
+											"type": "text",
+											"value": "Using Built-in Locales"
+										}
+									]
+								},
+								{
+									"type": "heading",
+									"depth": 3,
+									"children": [
+										{
+											"type": "text",
+											"value": "Using the Spanish locale"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebProvider, es } from \"@thirdweb-dev/react\";\n\nconst spanish = es();\n\n<ThirdwebProvider locale={spanish}> <App /> </ThirdwebProvider>"
+								},
+								{
+									"type": "heading",
+									"depth": 3,
+									"children": [
+										{
+											"type": "text",
+											"value": "Using the Japanese locale"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebProvider, jp } from \"@thirdweb-dev/react\";\n\nconst japanese = jp();\n\n<ThirdwebProvider locale={japanese}> <App /> </ThirdwebProvider>"
+								},
+								{
+									"type": "heading",
+									"depth": 3,
+									"children": [
+										{
+											"type": "text",
+											"value": "Using English locale ( default )"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebProvider, en } from \"@thirdweb-dev/react\";\n\nconst english = en();\n\n<ThirdwebProvider locale={english}> <App /> </ThirdwebProvider>"
+								},
+								{
+									"type": "heading",
+									"depth": 2,
+									"children": [
+										{
+											"type": "text",
+											"value": "Overriding the locale"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebProvider, en } from \"@thirdweb-dev/react\";\n\n// override some texts\nconst english = en({\n  connectWallet: {\n    confirmInWallet: \"Confirm in your wallet\",\n  },\n  wallets: {\n    metamaskWallet: {\n      connectionScreen: {\n        inProgress: \"Awaiting Confirmation\",\n        instruction: \"Accept connection request in your MetaMask wallet\",\n      },\n    },\n  },\n});\n\n<ThirdwebProvider locale={english}>\n  <App />\n</ThirdwebProvider>;\n"
+								},
+								{
+									"type": "heading",
+									"depth": 3,
+									"children": [
+										{
+											"type": "text",
+											"value": "Custom locale object"
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ThirdwebProvider } from \"@thirdweb-dev/react\";\n\n<ThirdwebProvider locale={{ .... }}>\n  <App />\n</ThirdwebProvider>;"
 								}
 							]
 						}
@@ -1350,20 +1825,66 @@
 				},
 				{
 					"kind": "subtype",
-					"name": "style",
-					"type": "React.CSSProperties"
-				},
-				{
-					"kind": "subtype",
-					"name": "termsOfServiceUrl",
-					"type": "string",
+					"name": "signer",
+					"type": "Signer",
 					"summary": [
 						{
 							"type": "paragraph",
 							"children": [
 								{
 									"type": "text",
-									"value": "If provided, Embed will show a Terms of Service message at the bottom with below link"
+									"value": "Use a signer instead of "
+								},
+								{
+									"type": "inlineCode",
+									"value": "supportedWallets"
+								},
+								{
+									"type": "text",
+									"value": " if you want to provide your own wallet connection logic."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "supportedWallets",
+					"type": "WalletConfig<any>[]",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Wallets supported by the dApp"
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@defaultValue",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "inlineCode",
+											"value": "[ metamaskWallet(), coinbaseWallet(), walletConnect() ]"
+										}
+									]
+								}
+							]
+						},
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "jsx",
+									"meta": null,
+									"value": "import { metamaskWallet, coinbaseWallet, walletConnect } from \"@thirdweb-dev/react\";\n\n<ThirdwebProvider\n supportedWallets={[metamaskWallet(), coinbaseWallet(), walletConnect()]}\n/>"
 								}
 							]
 						}
@@ -1372,30 +1893,543 @@
 				{
 					"kind": "subtype",
 					"name": "theme",
-					"type": "(\"dark\") | (\"light\") | (Theme)"
+					"type": "ThemeObjectOrType",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Set the theme for all thirdweb components"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "By default it is set to \"dark\"."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "theme can be set to either \"dark\" or \"light\" or a custom theme object."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "You can also import "
+								},
+								{
+									"type": "inlineCode",
+									"value": "lightTheme"
+								},
+								{
+									"type": "text",
+									"value": " or "
+								},
+								{
+									"type": "inlineCode",
+									"value": "darkTheme"
+								},
+								{
+									"type": "text",
+									"value": " functions from "
+								},
+								{
+									"type": "inlineCode",
+									"value": "@thirdweb-dev/react"
+								},
+								{
+									"type": "text",
+									"value": " to use the default themes as base and overrides parts of it."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "import { lightTheme } from \"@thirdweb-dev/react\";\nconst customTheme = lightTheme({\n colors: {\n   modalBg: 'red'\n }\n})"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"kind": "type",
+			"name": "Web3ButtonProps",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/Web3Button/index.tsx#L31",
+			"typeParameters": [
+				{
+					"name": "TActionFn",
+					"extendsType": "ActionFn"
+				}
+			],
+			"type": "{action : TActionFn,className : string,connectWallet : { auth: { loginOptional: boolean; onLogin: (token: string) => void; onLogout: () => void }; btnTitle: string; className: string; modalSize: (\"compact\") | (\"wide\"); modalTitle: string; modalTitleIconUrl: string; privacyPolicyUrl: string; style: CSSProperties; termsOfServiceUrl: string; welcomeScreen: WelcomeScreen },contractAbi : ContractInterface,contractAddress : string,isDisabled : boolean,onError : (error: Error) => void,onSubmit : () => void,onSuccess : (result: Awaited<ReturnType<TActionFn>>) => void,style : CSSProperties,theme : (\"dark\") | (\"light\") | ({ colors: { accentButtonBg: string; accentButtonText: string; accentText: string; borderColor: string; connectedButtonBg: string; connectedButtonBgHover: string; danger: string; dropdownBg: string; inputAutofillBg: string; modalBg: string; modalOverlayBg: string; primaryButtonBg: string; primaryButtonText: string; primaryText: string; scrollbarBg: string; secondaryButtonBg: string; secondaryButtonHoverBg: string; secondaryButtonText: string; secondaryIconColor: string; secondaryIconHoverBg: string; secondaryIconHoverColor: string; secondaryText: string; selectedTextBg: string; selectedTextColor: string; separatorLine: string; skeletonBg: string; success: string; tooltipBg: string; tooltipText: string; walletSelectorButtonHoverBg: string }; fontFamily: string; type: (\"dark\") | (\"light\") }),type : (\"button\") | (\"reset\") | (\"submit\")}",
+			"typeDeclaration": [
+				{
+					"kind": "subtype",
+					"name": "action",
+					"type": "TActionFn",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The logic to execute when the button is clicked."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The contract instance is available as the first argument of the function for you to interact with."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If the action you are performing is async, make sure to return a Promise from the action function so that the SDK knows when the action is complete"
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<Web3Button\n contractAddress=\"0x...\"\n action={(contract) => contract.erc721.claim(1)}\n>\n Claim NFT\n</Web3Button>"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "className",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "the class to apply to the button for adding custom styles"
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<Web3Button className=\"my-custom-class\" contractAddress={contractAddress} action={someAction} >\nClaim NFT\n</Web3Button>"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "connectWallet",
+					"type": "{ auth: { loginOptional: boolean; onLogin: (token: string) => void; onLogout: () => void }; btnTitle: string; className: string; modalSize: (\"compact\") | (\"wide\"); modalTitle: string; modalTitleIconUrl: string; privacyPolicyUrl: string; style: CSSProperties; termsOfServiceUrl: string; welcomeScreen: WelcomeScreen }",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Web3Button renders a "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ConnectWallet"
+								},
+								{
+									"type": "text",
+									"value": " if no wallet is connected. You can pass props for that component by passing a "
+								},
+								{
+									"type": "inlineCode",
+									"value": "connectWallet"
+								},
+								{
+									"type": "text",
+									"value": " prop to Web3Button"
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<Web3Button\n contractAddress=\"0x...\"\n action={(contract) => contract.erc721.claim(1)}\n>\n Claim NFT\n</Web3Button>"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "contractAbi",
+					"type": "ContractInterface",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://docs.soliditylang.org/en/v0.8.17/abi-spec.html",
+									"children": [
+										{
+											"type": "text",
+											"value": "Application Binary Interface"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": " (ABI) of the contract."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "This is only required if you have not imported your contract to the "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://thirdweb.com/dashboard",
+									"children": [
+										{
+											"type": "text",
+											"value": "thirdweb dashboard"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": "."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "contractAddress",
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "the address of the contract"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If you have not imported your contract to "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://thirdweb.com/dashboard",
+									"children": [
+										{
+											"type": "text",
+											"value": "thirdweb dashboard"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": ", you must additionally specify the contractAbi prop."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "isDisabled",
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Whether the button should be disabled or not"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The button is disabled and shows a spinner when the transaction is executing."
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "onError",
+					"type": "(error: Error) => void"
+				},
+				{
+					"kind": "subtype",
+					"name": "onSubmit",
+					"type": "() => void"
+				},
+				{
+					"kind": "subtype",
+					"name": "onSuccess",
+					"type": "(result: Awaited<ReturnType<TActionFn>>) => void"
+				},
+				{
+					"kind": "subtype",
+					"name": "style",
+					"type": "CSSProperties",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The style to apply to the button element"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "theme",
+					"type": "(\"dark\") | (\"light\") | ({ colors: { accentButtonBg: string; accentButtonText: string; accentText: string; borderColor: string; connectedButtonBg: string; connectedButtonBgHover: string; danger: string; dropdownBg: string; inputAutofillBg: string; modalBg: string; modalOverlayBg: string; primaryButtonBg: string; primaryButtonText: string; primaryText: string; scrollbarBg: string; secondaryButtonBg: string; secondaryButtonHoverBg: string; secondaryButtonText: string; secondaryIconColor: string; secondaryIconHoverBg: string; secondaryIconHoverColor: string; secondaryText: string; selectedTextBg: string; selectedTextColor: string; separatorLine: string; skeletonBg: string; success: string; tooltipBg: string; tooltipText: string; walletSelectorButtonHoverBg: string }; fontFamily: string; type: (\"dark\") | (\"light\") })",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The theme to use for the button and ConnectWallet component rendered by Web3Button when wallet is not connected"
+								}
+							]
+						}
+					]
+				},
+				{
+					"kind": "subtype",
+					"name": "type",
+					"type": "(\"button\") | (\"reset\") | (\"submit\")",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "button element's "
+								},
+								{
+									"type": "inlineCode",
+									"value": "type"
+								},
+								{
+									"type": "text",
+									"value": " attribute"
+								}
+							]
+						}
+					]
 				}
 			]
 		},
 		{
 			"kind": "type",
 			"name": "ConnectWalletProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L40",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L40",
 			"type": "{ auth: { loginOptional: boolean; onLogin: (token: string) => void; onLogout: () => void }; btnTitle: string; className: string; detailsBtn: () => JSX.Element; displayBalanceToken: Record<number, string>; dropdownPosition: DropDownPosition; hideSwitchToPersonalWallet: boolean; hideTestnetFaucet: boolean; modalSize: (\"compact\") | (\"wide\"); modalTitle: string; modalTitleIconUrl: string; networkSelector: Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>; privacyPolicyUrl: string; style: React.CSSProperties; supportedTokens: SupportedTokens; switchToActiveChain: boolean; termsOfServiceUrl: string; theme: (\"dark\") | (\"light\") | (Theme); welcomeScreen: WelcomeScreen }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "auth",
-					"type": "{ loginOptional: boolean; onLogin: (token: string) => void; onLogout: () => void }"
+					"type": "{ loginOptional: boolean; onLogin: (token: string) => void; onLogout: () => void }",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Enforce that users must sign in with their wallet using "
+								},
+								{
+									"type": "link",
+									"title": null,
+									"url": "https://portal.thirdweb.com/auth",
+									"children": [
+										{
+											"type": "text",
+											"value": "auth"
+										}
+									]
+								},
+								{
+									"type": "text",
+									"value": " after connecting their wallet."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "This requires the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "authConfig"
+								},
+								{
+									"type": "text",
+									"value": " prop to be set on the "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdWebProvider"
+								},
+								{
+									"type": "text",
+									"value": " component."
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "btnTitle",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "set custom label for the button."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@defaultValue",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "\"Connect\""
+								}
+							]
+						},
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<ConnectWallet btnTitle=\"Sign in\" />"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "className",
-					"type": "string"
+					"type": "string",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "CSS class to apply to the button element"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "For some CSS properties, you may need to use the !important to override the default styles"
+								}
+							]
+						},
+						{
+							"type": "code",
+							"lang": "tsx",
+							"meta": null,
+							"value": "<ConnectWallet className=\"my-custom-class\" />"
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1412,7 +2446,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Show balance of ERC20 token instead of the native token  in the \"Connected\" button when connected to certain network"
+									"value": "Display the balance of a token instead of the native token in ConnectWallet details button."
 								}
 							]
 						}
@@ -1425,7 +2459,7 @@
 									"type": "code",
 									"lang": "tsx",
 									"meta": null,
-									"value": "<ConnectWallet balanceToken={{\n 1: \"0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599\" // show USDC balance when connected to Ethereum mainnet\n}} />"
+									"value": "import { Base } from \"@thirdweb-dev/chains\";\n\n<ConnectWallet balanceToken={{\n   1: \"0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599\" // show USDC balance when connected to Ethereum mainnet\n   [Base.chainId]: \"0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb\", // show Dai stablecoin token balance when connected to Base mainnet\n }}\n/>"
 								}
 							]
 						}
@@ -1434,7 +2468,37 @@
 				{
 					"kind": "subtype",
 					"name": "dropdownPosition",
-					"type": "DropDownPosition"
+					"type": "DropDownPosition",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "When user connects the wallet using ConnectWallet Modal, a \"Details Button\" is rendered. Clicking on this button opens a dropdown which opens in a certain direction relative to the Details button."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "inlineCode",
+									"value": "dropdownPosition"
+								},
+								{
+									"type": "text",
+									"value": " prop allows you to customize the direction the dropdown should open relative to the Details button."
+								}
+							]
+						},
+						{
+							"type": "code",
+							"lang": "tsx",
+							"meta": null,
+							"value": "<ConnectWallet\n dropdownPosition={{\n   side: \"bottom\", // or use:  \"top\" | \"bottom\" | \"left\" | \"right\"\n   align: \"end\", // or use:  \"start\" | \"center\" | \"end\";\n }}\n />"
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1446,7 +2510,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Hide the \"switch to Personal wallet\" option in the dropdown which is shown when wallet is connected to either Smart Wallet or Safe"
+									"value": "Hide the \"Switch to Personal wallet\" option in the wallet modal which is shown when wallet is connected to either Smart Wallet or Safe."
 								}
 							]
 						}
@@ -1460,6 +2524,17 @@
 									"lang": "ts",
 									"meta": null,
 									"value": "false"
+								}
+							]
+						},
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<ConnectWallet hideSwitchToPersonalWallet={true} />"
 								}
 							]
 						}
@@ -1475,7 +2550,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Hide option to request testnet funds for testnets in dropdown"
+									"value": "Hide the \"Request Testnet funds\" link in ConnectWallet dropdown which is shown when user is connected to a testnet."
 								}
 							]
 						}
@@ -1489,6 +2564,17 @@
 									"lang": "ts",
 									"meta": null,
 									"value": "false"
+								}
+							]
+						},
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<ConnectWallet hideTestnetFaucet={false} />"
 								}
 							]
 						}
@@ -1566,7 +2652,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Set a custom title for the modal"
+									"value": "Change the title of ConnectWallet Modal"
 								}
 							]
 						}
@@ -1613,7 +2699,18 @@
 				{
 					"kind": "subtype",
 					"name": "networkSelector",
-					"type": "Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>"
+					"type": "Omit<NetworkSelectorProps, (\"theme\") | (\"onClose\") | (\"chains\") | (\"open\")>",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "customize the Network selector shown"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1629,12 +2726,36 @@
 								}
 							]
 						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<ConnectWallet privacyPolicyUrl=\"https://your-privacy-policy-url.com\" />"
+								}
+							]
+						}
 					]
 				},
 				{
 					"kind": "subtype",
 					"name": "style",
-					"type": "React.CSSProperties"
+					"type": "React.CSSProperties",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "CSS styles to apply to the button element"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1646,7 +2767,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Override the default supported tokens for each network"
+									"value": "Customize the tokens shown in the \"Send Funds\" screen for various networks."
 								}
 							]
 						},
@@ -1655,7 +2776,29 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "These tokens will be displayed in \"Send Funds\" Modal"
+									"value": "By default, The \"Send Funds\" screen shows a few popular tokens for default chains and the native token. For other chains it only shows the native token."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "paragraph",
+									"children": [
+										{
+											"type": "text",
+											"value": "supportedTokens prop allows you to customize this list as shown below which shows  \"Dai Stablecoin\" when users wallet is connected to the \"Base\" mainnet."
+										}
+									]
+								},
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { ConnectWallet } from '@thirdweb-dev/react';\nimport { Base } from '@thirdweb-dev/chains';\n\nfunction Example() {\n  return (\n\t\t<ConnectWallet\n\t\t\tsupportedTokens={{\n\t\t\t\t[Base.chainId]: [\n\t\t\t\t\t{\n\t\t\t\t\t\taddress: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb', // token contract address\n\t\t\t\t\t\tname: 'Dai Stablecoin',\n\t\t\t\t\t\tsymbol: 'DAI',\n\t\t\t\t\t\ticon: 'https://assets.coingecko.com/coins/images/9956/small/Badge_Dai.png?1687143508',\n\t\t\t\t\t},\n\t\t\t\t],\n\t\t\t}}\n\t\t/>\n\t);\n}"
 								}
 							]
 						}
@@ -1733,12 +2876,139 @@
 								}
 							]
 						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "<ConnectWallet termsOfServiceUrl=\"https://your-terms-of-service-url.com\" />"
+								}
+							]
+						}
 					]
 				},
 				{
 					"kind": "subtype",
 					"name": "theme",
-					"type": "(\"dark\") | (\"light\") | (Theme)"
+					"type": "(\"dark\") | (\"light\") | (Theme)",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Set the theme for the button and modal."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "By default it is set to \"dark\" if "
+								},
+								{
+									"type": "inlineCode",
+									"value": "theme"
+								},
+								{
+									"type": "text",
+									"value": " is not set on "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdWebProvider"
+								},
+								{
+									"type": "text",
+									"value": "\nIf a "
+								},
+								{
+									"type": "inlineCode",
+									"value": "theme"
+								},
+								{
+									"type": "text",
+									"value": " is set on "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdWebProvider"
+								},
+								{
+									"type": "text",
+									"value": " then that theme will be used by default which can be overridden by setting "
+								},
+								{
+									"type": "inlineCode",
+									"value": "theme"
+								},
+								{
+									"type": "text",
+									"value": " prop on "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ConnectWallet"
+								},
+								{
+									"type": "text",
+									"value": " component"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "theme can be set to either \"dark\" or \"light\" or a custom theme object. You can also import "
+								},
+								{
+									"type": "inlineCode",
+									"value": "lightTheme"
+								},
+								{
+									"type": "text",
+									"value": " or "
+								},
+								{
+									"type": "inlineCode",
+									"value": "darkTheme"
+								},
+								{
+									"type": "text",
+									"value": " functions from "
+								},
+								{
+									"type": "inlineCode",
+									"value": "@thirdweb-dev/react"
+								},
+								{
+									"type": "text",
+									"value": " to use the default themes as base and overrides parts of it."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "ts",
+									"meta": null,
+									"value": "import { lightTheme } from \"@thirdweb-dev/react\";\nconst customTheme = lightTheme({\n colors: {\n   modalBg: 'red'\n }\n})"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1750,7 +3020,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Customize the welcome screen"
+									"value": "Customize the welcome screen. This prop is only applicable when modalSize prop is set to \"wide\". On \"wide\" Modal size, a welcome screen is shown on the right side of the modal."
 								}
 							]
 						},
@@ -1759,18 +3029,41 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "Either provide a component to replace the default screen entirely"
+									"value": "This screen can be customized in two ways"
 								}
 							]
 						},
 						{
-							"type": "paragraph",
+							"type": "heading",
+							"depth": 3,
 							"children": [
 								{
 									"type": "text",
-									"value": "or an object with title, subtitle and imgSrc to change the content of the default screen"
+									"value": "1. Customize Metadata and Image"
 								}
 							]
+						},
+						{
+							"type": "code",
+							"lang": "tsx",
+							"meta": null,
+							"value": "<ConnectWallet welcomeScreen={{\n title: \"your title\",\n subtitle: \"your subtitle\",\n img: {\n  src: \"https://your-image-url.png\",\n  width: 300,\n  height: 50,\n },\n}} />"
+						},
+						{
+							"type": "heading",
+							"depth": 3,
+							"children": [
+								{
+									"type": "text",
+									"value": "2. Render Custom Component"
+								}
+							]
+						},
+						{
+							"type": "code",
+							"lang": "tsx",
+							"meta": null,
+							"value": "<ConnectWallet\n welcomeScreen={() => {\n return <YourCustomComponent />\n}}\n/>"
 						}
 					]
 				}
@@ -1778,14 +3071,48 @@
 		},
 		{
 			"kind": "type",
+			"name": "DefaultChains",
+			"summary": [
+				{
+					"type": "paragraph",
+					"children": [
+						{
+							"type": "text",
+							"value": "Array of default supported chains by the thirdweb SDK"
+						}
+					]
+				}
+			],
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/providers/thirdweb-provider.tsx#L146",
+			"type": "typeof defaultChains"
+		},
+		{
+			"kind": "type",
+			"name": "NetworkSelectorChain",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L37",
+			"type": "React.FC<{ chain: Chain; close: () => void; switchChain: () => void; switchFailed: boolean; switching: boolean }>"
+		},
+		{
+			"kind": "type",
 			"name": "NetworkSelectorProps",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L45",
-			"type": "{ chains: Chain[]; onClose: () => void; onCustomClick: () => void; onSwitch: (chain: Chain) => void; open: boolean; popularChains: Chain[]; recentChains: Chain[]; renderChain: RenderChain; theme: (\"dark\") | (\"light\") | (Theme) }",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L60",
+			"type": "{ chains: Chain[]; onClose: () => void; onCustomClick: () => void; onSwitch: (chain: Chain) => void; open: boolean; popularChains: Chain[]; recentChains: Chain[]; renderChain: React.FC<{ chain: Chain; close: () => void; switchChain: () => void; switchFailed: boolean; switching: boolean }>; theme: (\"dark\") | (\"light\") | (Theme) }",
 			"typeDeclaration": [
 				{
 					"kind": "subtype",
 					"name": "chains",
-					"type": "Chain[]"
+					"type": "Chain[]",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Array of chains to be displayed in the modal"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
@@ -1805,47 +3132,161 @@
 				{
 					"kind": "subtype",
 					"name": "open",
-					"type": "boolean"
+					"type": "boolean",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Specify whether the Modal should be open or closed"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "popularChains",
-					"type": "Chain[]"
+					"type": "Chain[]",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Array of chains to be displayed under \"Popular\" section"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "recentChains",
-					"type": "Chain[]"
+					"type": "Chain[]",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Array of chains to be displayed under \"Recent\" section"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "renderChain",
-					"type": "RenderChain"
+					"type": "React.FC<{ chain: Chain; close: () => void; switchChain: () => void; switchFailed: boolean; switching: boolean }>",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Override how the chain button is rendered in the Modal"
+								}
+							]
+						}
+					]
 				},
 				{
 					"kind": "subtype",
 					"name": "theme",
-					"type": "(\"dark\") | (\"light\") | (Theme)"
+					"type": "(\"dark\") | (\"light\") | (Theme)",
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Theme to use in Modal"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Either specify string \"dark\" or \"light\" to use the default themes, or provide a custom theme object."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "You can also use "
+								},
+								{
+									"type": "inlineCode",
+									"value": "darkTheme"
+								},
+								{
+									"type": "text",
+									"value": " or "
+								},
+								{
+									"type": "inlineCode",
+									"value": "lightTheme"
+								},
+								{
+									"type": "text",
+									"value": " functions to use the default themes as base and override it."
+								}
+							]
+						}
+					],
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { darkTheme } from \"@thirdweb-dev/react\";\n\n<NetworkSelector\n open={true}\n theme={darkTheme({\n   colors: {\n     modalBg: \"#000000\",\n   }\n })}\n/>"
+								}
+							]
+						}
+					]
 				}
 			]
 		},
 		{
 			"kind": "type",
 			"name": "SupportedTokens",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L32",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/defaultTokens.ts#L32",
 			"type": "Record<number, TokenInfo[]>"
 		},
 		{
 			"kind": "type",
 			"name": "Theme",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/design-system/index.ts#L88",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/design-system/index.ts#L88",
 			"type": "typeof darkThemeObj"
 		},
 		{
 			"kind": "type",
 			"name": "ThemeOverrides",
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/design-system/index.ts#L92",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/design-system/index.ts#L92",
 			"type": "{[key in Exclude<keyof Theme, \"type\">] : Partial<Theme[key]>}"
+		},
+		{
+			"kind": "type",
+			"name": "ThirdwebLocale",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/locales/en.ts#L320",
+			"type": "ReturnType<typeof enDefault>"
+		},
+		{
+			"kind": "type",
+			"name": "WelcomeScreen",
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/screens/types.ts#L1",
+			"type": "({ img: { height: number; src: string; width: number }; subtitle: string; title: string }) | (() => React.ReactNode)"
 		}
 	],
 	"components": [
@@ -1869,7 +3310,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The button must be descendant of "
+									"value": "it renders a button which when clicked opens a modal to allow users to connect to wallets specified in the "
 								},
 								{
 									"type": "inlineCode",
@@ -1877,7 +3318,20 @@
 								},
 								{
 									"type": "text",
-									"value": " in order to function."
+									"value": "'s supportedWallets prop."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "This component must be descendant of "
+								},
+								{
+									"type": "inlineCode",
+									"value": "ThirdwebProvider"
 								}
 							]
 						}
@@ -1886,21 +3340,14 @@
 						{
 							"name": "props",
 							"type": "ConnectWalletProps"
-						},
-						{
-							"name": "context",
-							"type": "any",
-							"flags": {
-								"isOptional": true
-							}
 						}
 					],
 					"returns": {
-						"type": "ReactNode"
+						"type": "Element"
 					}
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L156"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/ConnectWallet.tsx#L321"
 		},
 		{
 			"kind": "function",
@@ -1913,7 +3360,25 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "This component can be used to render any media type, including image, audio, video, and html files.\nIts convenient for rendering NFT media files, as these can be a variety of different types.\nThe component falls back to a external link if the media type is not supported.\nThe default size is 300px by 300px, but this can be changed using the "
+									"value": "This component can be used to render any media type, including image, audio, video, and html files.\nIts convenient for rendering NFT media files, as these can be a variety of different types."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The component falls back to a external link if the media type is not supported."
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "The default size is 300px by 300px, but this can be changed using the "
 								},
 								{
 									"type": "inlineCode",
@@ -1930,26 +3395,6 @@
 								{
 									"type": "text",
 									"value": " props."
-								}
-							]
-						},
-						{
-							"type": "paragraph",
-							"children": [
-								{
-									"type": "text",
-									"value": "Props: "
-								},
-								{
-									"type": "link",
-									"title": null,
-									"url": "2712",
-									"children": [
-										{
-											"type": "text",
-											"value": "MediaRendererProps"
-										}
-									]
 								}
 							]
 						}
@@ -2004,32 +3449,49 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/components/MediaRenderer.tsx#L378"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/MediaRenderer.tsx#L379"
 		},
 		{
 			"kind": "function",
 			"name": "NetworkSelector",
 			"signatures": [
 				{
+					"summary": [
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "Renders a Network Switcher Modal that allows users to switch their wallet to a different network."
+								}
+							]
+						}
+					],
 					"parameters": [
 						{
 							"name": "props",
 							"type": "NetworkSelectorProps"
-						},
-						{
-							"name": "context",
-							"type": "any",
-							"flags": {
-								"isOptional": true
-							}
 						}
 					],
 					"returns": {
-						"type": "ReactNode"
-					}
+						"type": "Element"
+					},
+					"blockTags": [
+						{
+							"tag": "@example",
+							"summary": [
+								{
+									"type": "code",
+									"lang": "tsx",
+									"meta": null,
+									"value": "import { NetworkSelector } from \"@thirdweb-dev/react\";\n\nfunction Example() {\n const [open, setOpen] = useState(false);\n return (\n   <div>\n     <button onClick={() => setOpen(true)}>Open Modal</button>\n     <NetworkSelector open={open} onClose={() => setOpen(false)} />\n   </div>\n )\n}"
+								}
+							]
+						}
+					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L71"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/wallet/ConnectWallet/NetworkSelector.tsx#L159"
 		},
 		{
 			"kind": "function",
@@ -2072,7 +3534,7 @@
 								{
 									"type": "link",
 									"title": null,
-									"url": "2835",
+									"url": "3563",
 									"children": [
 										{
 											"type": "text",
@@ -2107,7 +3569,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/components/NftMedia.tsx#L44"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/NftMedia.tsx#L50"
 		},
 		{
 			"kind": "function",
@@ -2150,7 +3612,7 @@
 					],
 					"parameters": [
 						{
-							"name": "__namedParameters",
+							"name": "props",
 							"type": "PropsWithChildren<ThirdwebProviderProps<TChains>>"
 						}
 					],
@@ -2161,7 +3623,7 @@
 						{
 							"name": "TChains",
 							"extendsType": "Chain[]",
-							"defaultType": "Array<({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  })>"
+							"defaultType": "Array<({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  }) | ({  })>"
 						}
 					],
 					"blockTags": [
@@ -2188,7 +3650,7 @@
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/providers/thirdweb-provider.tsx#L71"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/providers/thirdweb-provider.tsx#L169"
 		},
 		{
 			"kind": "function",
@@ -2201,7 +3663,7 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "A component that allows the user to call an on-chain function on a contract."
+									"value": "Button that executes a function on a smart contract from the connected wallet when clicked."
 								}
 							]
 						},
@@ -2210,15 +3672,96 @@
 							"children": [
 								{
 									"type": "text",
-									"value": "The button has to be wrapped in a "
+									"value": "It ensures the following criteria before attempting to call the contract function:"
+								}
+							]
+						},
+						{
+							"type": "list",
+							"ordered": true,
+							"start": 1,
+							"spread": true,
+							"children": [
+								{
+									"type": "listItem",
+									"spread": false,
+									"checked": null,
+									"children": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "There is a connected wallet (if there is not, it renders a "
+												},
+												{
+													"type": "inlineCode",
+													"value": "ConnectWallet"
+												},
+												{
+													"type": "text",
+													"value": " component instead."
+												}
+											]
+										}
+									]
+								},
+								{
+									"type": "listItem",
+									"spread": false,
+									"checked": null,
+									"children": [
+										{
+											"type": "paragraph",
+											"children": [
+												{
+													"type": "text",
+													"value": "The connected wallet is on the correct network as specified in the "
+												},
+												{
+													"type": "inlineCode",
+													"value": "ThirdwebProvider"
+												},
+												{
+													"type": "text",
+													"value": "'s "
+												},
+												{
+													"type": "inlineCode",
+													"value": "activeChain"
+												},
+												{
+													"type": "text",
+													"value": " prop. if it is not, it renders a \"switch network\" button instead."
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"children": [
+								{
+									"type": "text",
+									"value": "If the action you are performing is async, make sure to return a "
 								},
 								{
 									"type": "inlineCode",
-									"value": "ThirdwebProvider"
+									"value": "Promise"
 								},
 								{
 									"type": "text",
-									"value": " in order to function."
+									"value": " from the action function so that the SDK knows when the action is complete. This can be done by either using async/await or by returning a "
+								},
+								{
+									"type": "inlineCode",
+									"value": "Promise"
+								},
+								{
+									"type": "text",
+									"value": "."
 								}
 							]
 						}
@@ -2246,14 +3789,14 @@
 									"type": "code",
 									"lang": "javascript",
 									"meta": null,
-									"value": "import { Web3Button } from \"@thirdweb-dev/react\";\n\nconst App = () => {\n return (\n  <div>\n    <Web3Button contractAddress=\"0x...\" action={(contract) => contract.erc721.transfer(\"0x...\", 1)} />\n  </div>\n)\n}"
+									"value": "import { Web3Button } from \"@thirdweb-dev/react\";\n\nconst App = () => {\n return (\n  <div>\n    <Web3Button\n      contractAddress=\"0x...\"\n      action={(contract) => contract.erc721.transfer(\"0x...\", 1)}\n    >\n      Claim NFT\n    </Web3Button>\n  </div>\n )\n}"
 								}
 							]
 						}
 					]
 				}
 			],
-			"source": "https://github.com/thirdweb-dev/js/blob/7b6d24b47/packages/react/src/evm/components/Web3Button/index.tsx#L83"
+			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/react/src/evm/components/Web3Button/index.tsx#L219"
 		}
 	]
 }
