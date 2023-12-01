@@ -1,5 +1,5 @@
-import { Details, Callout} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details, Callout } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # Account
 
@@ -23,9 +23,7 @@ Developers should use this wallet if they do not anticipate making any future up
 
 App developers can issue `Account` smart wallets programmatically by deploying an [`AccountFactory`](/solidity/base-contracts/account-factory) smart contract.
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/non-upgradeable/Account.sol"
-/>
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/non-upgradeable/Account.sol" />
 
 <br />
 
@@ -160,6 +158,7 @@ function entryPoint() public view virtual override returns (IEntryPoint) {
     return entrypointContract;
 }
 ```
+
 </Details>
 
 <Details id="_canSetExtension" summary="_canSetExtension">
@@ -171,6 +170,7 @@ function _canSetExtension() internal view virtual override returns (bool) {
     return _hasRole(EXTENSION_ADMIN_ROLE, msg.sender);
 }
 ```
+
 </Details>
 
 <Details id="_validatesSignature" summary="_validatesSignature">
@@ -190,4 +190,5 @@ function _validateSignature(UserOperation calldata userOp, bytes32 userOpHash)
     return 0;
 }
 ```
+
 </Details>

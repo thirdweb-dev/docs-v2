@@ -1,5 +1,5 @@
-import { Details} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # ERC1155LazyMint
 
@@ -14,9 +14,7 @@ Lazy minting allows you to define the metadata of NFTs without minting it to an 
 As a contract admin, this lets you prepare the metadata for NFTs that will be minted by other wallets,
 without paying the gas cost for actually minting the NFTs.
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155LazyMint.sol"
-/>
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155LazyMint.sol" />
 
 ## Usage
 
@@ -65,90 +63,97 @@ The following functions have been implemented on this contract & are available t
 <Details id="uri" summary="uri">
 
 ```solidity
-    /// @notice Returns the metadata URI for the given tokenId.
-    function uri(uint256 _tokenId) public view virtual override returns (string memory) {
-        string memory batchUri = _getBaseURI(_tokenId);
-        return string(abi.encodePacked(batchUri, _tokenId.toString()));
-    }
+/// @notice Returns the metadata URI for the given tokenId.
+function uri(uint256 _tokenId) public view virtual override returns (string memory) {
+    string memory batchUri = _getBaseURI(_tokenId);
+    return string(abi.encodePacked(batchUri, _tokenId.toString()));
+}
 ```
+
 </Details>
 
 <Details id="claim" summary="claim">
-```solidity
-    /**
-     *  @notice          Lets an address claim multiple lazy minted NFTs at once to a recipient.
-     *                   This function prevents any reentrant calls, and is not allowed to be overridden.
-     *
-     *                   Contract creators should override `verifyClaim` and `transferTokensOnClaim`
-     *                   functions to create custom logic for verification and claiming,
-     *                   for e.g. price collection, allowlist, max quantity, etc.
-     *
-     *  @dev             The logic in `verifyClaim` determines whether the caller is authorized to mint NFTs.
-     *                   The logic in `transferTokensOnClaim` does actual minting of tokens,
-     *                   can also be used to apply other state changes.
-     *
-     *  @param _receiver  The recipient of the tokens to mint.
-     *  @param _tokenId   The tokenId of the lazy minted NFT to mint.
-     *  @param _quantity  The number of tokens to mint.
-     */
-    function claim(
-        address _receiver,
-        uint256 _tokenId,
-        uint256 _quantity
-    ) public payable nonReentrant {
-        require(_tokenId < nextTokenIdToMint(), "invalid id");
-        verifyClaim(msg.sender, _tokenId, _quantity); // Add your claim verification logic by overriding this function.
 
-        _transferTokensOnClaim(_receiver, _tokenId, _quantity); // Mints tokens. Apply any state updates by overriding this function.
-        emit TokensClaimed(msg.sender, _receiver, _tokenId, _quantity);
-    }
+```solidity
+/**
+*  @notice          Lets an address claim multiple lazy minted NFTs at once to a recipient.
+*                   This function prevents any reentrant calls, and is not allowed to be overridden.
+*
+*                   Contract creators should override `verifyClaim` and `transferTokensOnClaim`
+*                   functions to create custom logic for verification and claiming,
+*                   for e.g. price collection, allowlist, max quantity, etc.
+*
+*  @dev             The logic in `verifyClaim` determines whether the caller is authorized to mint NFTs.
+*                   The logic in `transferTokensOnClaim` does actual minting of tokens,
+*                   can also be used to apply other state changes.
+*
+*  @param _receiver  The recipient of the tokens to mint.
+*  @param _tokenId   The tokenId of the lazy minted NFT to mint.
+*  @param _quantity  The number of tokens to mint.
+*/
+function claim(
+    address _receiver,
+    uint256 _tokenId,
+    uint256 _quantity
+) public payable nonReentrant {
+    require(_tokenId < nextTokenIdToMint(), "invalid id");
+    verifyClaim(msg.sender, _tokenId, _quantity); // Add your claim verification logic by overriding this function.
+
+    _transferTokensOnClaim(_receiver, _tokenId, _quantity); // Mints tokens. Apply any state updates by overriding this function.
+    emit TokensClaimed(msg.sender, _receiver, _tokenId, _quantity);
+
+}
+
 ```
+
 </Details>
 
 <Details id="verifyClaim" summary="verifyClaim">
 
 ```solidity
-    /**
-     *  @notice          Override this function to add logic for claim verification, based on conditions
-     *                   such as allowlist, price, max quantity etc.
-     *
-     *  @dev             Checks a request to claim NFTs against a custom condition.
-     *
-     *  @param _claimer   Caller of the claim function.
-     *  @param _tokenId   The tokenId of the lazy minted NFT to mint.
-     *  @param _quantity  The number of NFTs being claimed.
-     */
-    function verifyClaim(
-        address _claimer,
-        uint256 _tokenId,
-        uint256 _quantity
-    ) public view virtual {}
+/**
+ *  @notice          Override this function to add logic for claim verification, based on conditions
+ *                   such as allowlist, price, max quantity etc.
+ *
+ *  @dev             Checks a request to claim NFTs against a custom condition.
+ *
+ *  @param _claimer   Caller of the claim function.
+ *  @param _tokenId   The tokenId of the lazy minted NFT to mint.
+ *  @param _quantity  The number of NFTs being claimed.
+ */
+function verifyClaim(
+    address _claimer,
+    uint256 _tokenId,
+    uint256 _quantity
+) public view virtual {}
 ```
+
 </Details>
 
 <Details id="burn" summary="burn">
 
 ```solidity
-    /**
-     *  @notice         Lets an owner or approved operator burn NFTs of the given tokenId.
-     *
-     *  @param _owner   The owner of the NFT to burn.
-     *  @param _tokenId The tokenId of the NFT to burn.
-     *  @param _amount  The amount of the NFT to burn.
-     */
-    function burn(
-        address _owner,
-        uint256 _tokenId,
-        uint256 _amount
-    ) external virtual {
-        address caller = msg.sender;
+/**
+ *  @notice         Lets an owner or approved operator burn NFTs of the given tokenId.
+ *
+ *  @param _owner   The owner of the NFT to burn.
+ *  @param _tokenId The tokenId of the NFT to burn.
+ *  @param _amount  The amount of the NFT to burn.
+ */
+function burn(
+    address _owner,
+    uint256 _tokenId,
+    uint256 _amount
+) external virtual {
+    address caller = msg.sender;
 
-        require(caller == _owner || isApprovedForAll[_owner][caller], "Unapproved caller");
-        require(balanceOf[_owner][_tokenId] >= _amount, "Not enough tokens owned");
+    require(caller == _owner || isApprovedForAll[_owner][caller], "Unapproved caller");
+    require(balanceOf[_owner][_tokenId] >= _amount, "Not enough tokens owned");
 
-        _burn(_owner, _tokenId, _amount);
-    }
+    _burn(_owner, _tokenId, _amount);
+}
 ```
+
 </Details>
 
 <Details id="burnBatch" summary="burnBatch">
@@ -178,6 +183,7 @@ The following functions have been implemented on this contract & are available t
         _burnBatch(_owner, _tokenIds, _amounts);
     }
 ```
+
 </Details>
 
 <Details id="_transferTokensOnClaim" summary="_transferTokensOnClaim">
@@ -199,6 +205,7 @@ The following functions have been implemented on this contract & are available t
         _mint(_receiver, _tokenId, _quantity, "");
     }
 ```
+
 </Details>
 
 <Details id="_beforeTokenTransfer" summary="_beforeTokenTransfer">
@@ -228,4 +235,5 @@ The following functions have been implemented on this contract & are available t
         }
     }
 ```
+
 </Details>

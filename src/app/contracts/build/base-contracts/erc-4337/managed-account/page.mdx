@@ -1,5 +1,5 @@
-import { Details, Callout} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details, Callout } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # Managed Account
 
@@ -17,9 +17,7 @@ The admin of the [`ManagedAccountFactory`](/solidity/base-contracts/managed-acco
 
 An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccount` smart wallets created by the factory. This is the right wallet for developers who anticipate **pushing upgrades** to their users’ wallets.
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/managed/ManagedAccount.sol"
-/>
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/managed/ManagedAccount.sol" />
 
 <br />
 
@@ -85,7 +83,6 @@ The abi encoded data to initialize the contract with. Must be of type `bytes`.
 
 <Details id="getImplementationForFunction" summary="getImplementationForFunction">
 
-
 Returns the extension implementation address, stored in the router, for the given function.
 
 ```solidity
@@ -125,6 +122,7 @@ function entryPoint() public view virtual override returns (IEntryPoint) {
     return entrypointContract;
 }
 ```
+
 </Details>
 
 <Details id="_validatesSignature" summary="_validatesSignature">
@@ -145,4 +143,5 @@ function _validateSignature(UserOperation calldata userOp, bytes32 userOpHash)
     return 0;
 }
 ```
+
 </Details>

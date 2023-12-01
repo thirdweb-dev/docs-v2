@@ -1,5 +1,5 @@
-import { Details} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # ERC20Vote
 
@@ -12,11 +12,7 @@ which provides voting and delegation functionality, along with delegation by sig
 import "@thirdweb-dev/contracts/base/ERC20Vote.sol";
 ```
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20Vote.sol"
-/>
-
-
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20Vote.sol" />
 
 ## Usage
 
@@ -43,7 +39,6 @@ contract MyToken is ERC20Vote {
 }
 ```
 
-
 ## Detected Extensions
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
@@ -57,41 +52,44 @@ Click on each feature to learn more about what functions are available.
 - [ContractMetadata](/solidity/extensions/contractmetadata)
 - [Ownable](/solidity/extensions/ownable)
 
-
-
 ## Functions to Override
 
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <Details id="mintTo" summary="mintTo">
-```solidity
-    /**
-     *  @notice          Lets an authorized address mint tokens to a recipient.
-     *  @dev             The logic in the `_canMint` function determines whether the caller is authorized to mint tokens.
-     *
-     *  @param _to       The recipient of the tokens to mint.
-     *  @param _amount   Quantity of tokens to mint.
-     */
-    function mintTo(address _to, uint256 _amount) public virtual {
-        require(_canMint(), "Not authorized to mint.");
-        require(_amount != 0, "Minting zero tokens.");
 
-        _mint(_to, _amount);
-    }
+```solidity
+/**
+ *  @notice          Lets an authorized address mint tokens to a recipient.
+ *  @dev             The logic in the `_canMint` function determines whether the caller is authorized to mint tokens.
+ *
+ *  @param _to       The recipient of the tokens to mint.
+ *  @param _amount   Quantity of tokens to mint.
+ */
+function mintTo(address _to, uint256 _amount) public virtual {
+    require(_canMint(), "Not authorized to mint.");
+    require(_amount != 0, "Minting zero tokens.");
+
+    _mint(_to, _amount);
+}
+
 ```
+
 </Details>
 
 <Details id="burn" summary="burn">
+
 ```solidity
-    /**
-     *  @notice          Lets an owner a given amount of their tokens.
-     *  @dev             Caller should own the `_amount` of tokens.
-     *
-     *  @param _amount   The number of tokens to burn.
-     */
-    function burn(uint256 _amount) external virtual {
-        require(balanceOf(_msgSender()) >= _amount, "not enough balance");
-        _burn(msg.sender, _amount);
-    }
+/**
+ *  @notice          Lets an owner a given amount of their tokens.
+ *  @dev             Caller should own the `_amount` of tokens.
+ *
+ *  @param _amount   The number of tokens to burn.
+ */
+function burn(uint256 _amount) external virtual {
+    require(balanceOf(_msgSender()) >= _amount, "not enough balance");
+    _burn(msg.sender, _amount);
+}
 ```
+
 </Details>

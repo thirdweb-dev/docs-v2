@@ -1,12 +1,11 @@
-import { Details} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # ERC20SignatureMintVote
 
-
 The `ERC20SignatureMintVote` smart contract adds [signature-based minting](/solidity/extensions/erc20signaturemint) extension
 to the [ERC20Vote](/solidity/base-contracts/erc20vote) base contract.
-It also implements the [ERC20Votes](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Votes.sol) contract, which provides voting and delegation functionality, along with delegation by signature. 
+It also implements the [ERC20Votes](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Votes.sol) contract, which provides voting and delegation functionality, along with delegation by signature.
 [Signature minting](/glossary/signature-based-minting) uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712),
 which enables the contract admin to authorize an external party's request to mint tokens on the admin's contract.
 At a high level, this means you can authorize others to mint tokens
@@ -15,11 +14,8 @@ on your contract, and specify what exactly will be minted by that external party
 ```solidity
 import "@thirdweb-dev/contracts/base/ERC20SignatureMintVote.sol";
 ```
-  <GithubButtonLink
-    href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20SignatureMint.sol"
-  />
 
-
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20SignatureMint.sol" />
 
 ## Usage
 
@@ -48,7 +44,6 @@ contract MyToken is ERC20SignatureMintVote {
 }
 ```
 
-
 ## Detected Extensions
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
@@ -69,65 +64,68 @@ The following functions have been implemented on this contract & are available t
 <Details id="mintWithSignature" summary="mintWithSignature">
 
 ```solidity
+/**
+ *  @notice           Mints tokens according to the provided mint request.
+ *
+ *  @param _req       The payload / mint request.
+ *  @param _signature The signature produced by an account signing the mint request.
+ */
+function mintWithSignature(MintRequest calldata _req, bytes calldata _signature)
+    external
+    payable
+    virtual
+    returns (address signer)
+{
+    require(_req.quantity > 0, "Minting zero tokens.");
+
+    // Verify and process payload.
+    signer = _processRequest(_req, _signature);
+
     /**
-     *  @notice           Mints tokens according to the provided mint request.
-     *
-     *  @param _req       The payload / mint request.
-     *  @param _signature The signature produced by an account signing the mint request.
-     */
-    function mintWithSignature(MintRequest calldata _req, bytes calldata _signature)
-        external
-        payable
-        virtual
-        returns (address signer)
-    {
-        require(_req.quantity > 0, "Minting zero tokens.");
+        *  Get receiver of tokens.
+        *
+        *  Note: If `_req.to == address(0)`, a `mintWithSignature` transaction sitting in the
+        *        mempool can be frontrun by copying the input data, since the minted tokens
+        *        will be sent to the `_msgSender()` in this case.
+        */
+    address receiver = _req.to == address(0) ? msg.sender : _req.to;
 
-        // Verify and process payload.
-        signer = _processRequest(_req, _signature);
+    // Collect price
+    _collectPriceOnClaim(_req.primarySaleRecipient, _req.quantity, _req.currency, _req.pricePerToken);
 
-        /**
-         *  Get receiver of tokens.
-         *
-         *  Note: If `_req.to == address(0)`, a `mintWithSignature` transaction sitting in the
-         *        mempool can be frontrun by copying the input data, since the minted tokens
-         *        will be sent to the `_msgSender()` in this case.
-         */
-        address receiver = _req.to == address(0) ? msg.sender : _req.to;
+    // Mint tokens.
+    _mint(receiver, _req.quantity);
 
-        // Collect price
-        _collectPriceOnClaim(_req.primarySaleRecipient, _req.quantity, _req.currency, _req.pricePerToken);
-
-        // Mint tokens.
-        _mint(receiver, _req.quantity);
-
-        emit TokensMintedWithSignature(signer, receiver, _req);
-    }
+    emit TokensMintedWithSignature(signer, receiver, _req);
+}
 ```
+
 </Details>
 
 <Details id="_collectPriceOnClaim" summary="_collectPriceOnClaim">
+
 ```solidity
-     /// @dev Collects and distributes the primary sale value of tokens being claimed.
-    function _collectPriceOnClaim(
-        address _primarySaleRecipient,
-        uint256 _quantityToClaim,
-        address _currency,
-        uint256 _pricePerToken
-    ) internal virtual {
-        if (_pricePerToken == 0) {
-            return;
-        }
-
-        uint256 totalPrice = (_quantityToClaim * _pricePerToken) / 1 ether;
-        require(totalPrice > 0, "quantity too low");
-
-        if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
-            require(msg.value == totalPrice, "Must send total price.");
-        }
-
-        address saleRecipient = _primarySaleRecipient == address(0) ? primarySaleRecipient() : _primarySaleRecipient;
-        CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
+/// @dev Collects and distributes the primary sale value of tokens being claimed.
+function _collectPriceOnClaim(
+    address _primarySaleRecipient,
+    uint256 _quantityToClaim,
+    address _currency,
+    uint256 _pricePerToken
+) internal virtual {
+    if (_pricePerToken == 0) {
+        return;
     }
+
+    uint256 totalPrice = (_quantityToClaim * _pricePerToken) / 1 ether;
+    require(totalPrice > 0, "quantity too low");
+
+    if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
+        require(msg.value == totalPrice, "Must send total price.");
+    }
+
+    address saleRecipient = _primarySaleRecipient == address(0) ? primarySaleRecipient() : _primarySaleRecipient;
+    CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
+}
 ```
+
 </Details>

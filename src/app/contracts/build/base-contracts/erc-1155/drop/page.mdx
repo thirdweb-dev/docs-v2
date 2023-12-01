@@ -1,5 +1,5 @@
-import { Details} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # ERC1155Drop
 
@@ -13,11 +13,7 @@ It implements the [ERC1155 standard](/solidity/extensions/erc1155) with [Lazy Mi
 [Delayed Reveal](/solidity/extensions/delayedreveal) and [Drop](/solidity/extensions/erc1155dropsinglephase) extensions;
 allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155Drop.sol"
-/>
-
-
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155Drop.sol" />
 
 ## Usage
 
@@ -50,7 +46,6 @@ contract MyNFT is ERC1155Drop {
 }
 ```
 
-
 ## Detected Extensions
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
@@ -68,8 +63,6 @@ Click on each feature to learn more about what functions are available.
 - [ContractMetadata](/solidity/extensions/contractmetadata)
 - [Ownable](/solidity/extensions/ownable)
 
-
-
 ## Functions to Override
 
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
@@ -77,189 +70,196 @@ The following functions have been implemented on this contract & are available t
 <Details id="burn" summary="burn">
 
 ```solidity
-    /**
-     *  @notice         Lets an owner or approved operator burn NFTs of the given tokenId.
-     *
-     *  @param _owner   The owner of the NFT to burn.
-     *  @param _tokenId The tokenId of the NFT to burn.
-     *  @param _amount  The amount of the NFT to burn.
-     */
-    function burn(
-        address _owner,
-        uint256 _tokenId,
-        uint256 _amount
-    ) external virtual {
-        address caller = msg.sender;
+/**
+*  @notice         Lets an owner or approved operator burn NFTs of the given tokenId.
+*
+*  @param _owner   The owner of the NFT to burn.
+*  @param _tokenId The tokenId of the NFT to burn.
+*  @param _amount  The amount of the NFT to burn.
+*/
+function burn(
+    address _owner,
+    uint256 _tokenId,
+    uint256 _amount
+) external virtual {
+    address caller = msg.sender;
 
-        require(caller == _owner || isApprovedForAll[_owner][caller], "Unapproved caller");
-        require(balanceOf[_owner][_tokenId] >= _amount, "Not enough tokens owned");
+    require(caller == _owner || isApprovedForAll[_owner][caller], "Unapproved caller");
+    require(balanceOf[_owner][_tokenId] >= _amount, "Not enough tokens owned");
 
-        _burn(_owner, _tokenId, _amount);
-    }
+    _burn(_owner, _tokenId, _amount);
+}
 ```
+
 </Details>
 
 <Details id="burnBatch" summary="burnBatch">
 
 ```solidity
-    /**
-     *  @notice         Lets an owner or approved operator burn NFTs of the given tokenIds.
-     *
-     *  @param _owner    The owner of the NFTs to burn.
-     *  @param _tokenIds The tokenIds of the NFTs to burn.
-     *  @param _amounts  The amounts of the NFTs to burn.
-     */
-    function burnBatch(
-        address _owner,
-        uint256[] memory _tokenIds,
-        uint256[] memory _amounts
-    ) external virtual {
-        address caller = msg.sender;
+/**
+*  @notice         Lets an owner or approved operator burn NFTs of the given tokenIds.
+*
+*  @param _owner    The owner of the NFTs to burn.
+*  @param _tokenIds The tokenIds of the NFTs to burn.
+*  @param _amounts  The amounts of the NFTs to burn.
+*/
+function burnBatch(
+    address _owner,
+    uint256[] memory _tokenIds,
+    uint256[] memory _amounts
+) external virtual {
+    address caller = msg.sender;
 
-        require(caller == _owner || isApprovedForAll[_owner][caller], "Unapproved caller");
-        require(_tokenIds.length == _amounts.length, "Length mismatch");
+    require(caller == _owner || isApprovedForAll[_owner][caller], "Unapproved caller");
+    require(_tokenIds.length == _amounts.length, "Length mismatch");
 
-        for (uint256 i = 0; i < _tokenIds.length; i += 1) {
-            require(balanceOf[_owner][_tokenIds[i]] >= _amounts[i], "Not enough tokens owned");
-        }
-
-        _burnBatch(_owner, _tokenIds, _amounts);
+    for (uint256 i = 0; i < _tokenIds.length; i += 1) {
+        require(balanceOf[_owner][_tokenIds[i]] >= _amounts[i], "Not enough tokens owned");
     }
+
+    _burnBatch(_owner, _tokenIds, _amounts);
+}
 ```
+
 </Details>
 
 <Details id="uri" summary="uri">
 
 ```solidity
 /**
-     *  @notice         Returns the metadata URI for an NFT.
-     *  @dev            See `BatchMintMetadata` for handling of metadata in this contract.
-     *
-     *  @param _tokenId The tokenId of an NFT.
-     */
-    function uri(uint256 _tokenId) public view virtual override returns (string memory) {
-        (uint256 batchId, ) = _getBatchId(_tokenId);
-        string memory batchUri = _getBaseURI(_tokenId);
+*  @notice         Returns the metadata URI for an NFT.
+*  @dev            See `BatchMintMetadata` for handling of metadata in this contract.
+*
+*  @param _tokenId The tokenId of an NFT.
+*/
+function uri(uint256 _tokenId) public view virtual override returns (string memory) {
+    (uint256 batchId, ) = _getBatchId(_tokenId);
+    string memory batchUri = _getBaseURI(_tokenId);
 
-        if (isEncryptedBatch(batchId)) {
-            return string(abi.encodePacked(batchUri, "0"));
-        } else {
-            return string(abi.encodePacked(batchUri, _tokenId.toString()));
-        }
+    if (isEncryptedBatch(batchId)) {
+        return string(abi.encodePacked(batchUri, "0"));
+    } else {
+        return string(abi.encodePacked(batchUri, _tokenId.toString()));
     }
+}
 ```
+
 </Details>
 
 <Details id="reveal" summary="reveal">
 
 ```solidity
 /**
-     *  @notice       Lets an authorized address reveal a batch of delayed reveal NFTs.
-     *
-     *  @param _index The ID for the batch of delayed-reveal NFTs to reveal.
-     *  @param _key   The key with which the base URI for the relevant batch of NFTs was encrypted.
-     */
-    function reveal(uint256 _index, bytes calldata _key) public virtual override returns (string memory revealedURI) {
-        require(_canReveal(), "Not authorized");
+*  @notice       Lets an authorized address reveal a batch of delayed reveal NFTs.
+*
+*  @param _index The ID for the batch of delayed-reveal NFTs to reveal.
+*  @param _key   The key with which the base URI for the relevant batch of NFTs was encrypted.
+*/
+function reveal(uint256 _index, bytes calldata _key) public virtual override returns (string memory revealedURI) {
+    require(_canReveal(), "Not authorized");
 
-        uint256 batchId = getBatchIdAtIndex(_index);
-        revealedURI = getRevealURI(batchId, _key);
+    uint256 batchId = getBatchIdAtIndex(_index);
+    revealedURI = getRevealURI(batchId, _key);
 
-        _setEncryptedData(batchId, "");
-        _setBaseURI(batchId, revealedURI);
+    _setEncryptedData(batchId, "");
+    _setBaseURI(batchId, revealedURI);
 
-        emit TokenURIRevealed(_index, revealedURI);
-    }
+    emit TokenURIRevealed(_index, revealedURI);
+}
 ```
+
 </Details>
 
 <Details id="lazyMint" summary="lazyMint">
 
 ```solidity
 /**
-     *  @notice                  Lets an authorized address lazy mint a given amount of NFTs.
-     *
-     *  @param _amount           The number of NFTs to lazy mint.
-     *  @param _baseURIForTokens The placeholder base URI for the 'n' number of NFTs being lazy minted, where the
-     *                           metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`.
-     *  @param _data             The encrypted base URI + provenance hash for the batch of NFTs being lazy minted.
-     *  @return batchId          A unique integer identifier for the batch of NFTs lazy minted together.
-     */
-    function lazyMint(
-        uint256 _amount,
-        string calldata _baseURIForTokens,
-        bytes calldata _data
-    ) public virtual override returns (uint256 batchId) {
-        if (_data.length > 0) {
-            (bytes memory encryptedURI, bytes32 provenanceHash) = abi.decode(_data, (bytes, bytes32));
-            if (encryptedURI.length != 0 && provenanceHash != "") {
-                _setEncryptedData(nextTokenIdToLazyMint + _amount, _data);
-            }
+*  @notice                  Lets an authorized address lazy mint a given amount of NFTs.
+*
+*  @param _amount           The number of NFTs to lazy mint.
+*  @param _baseURIForTokens The placeholder base URI for the 'n' number of NFTs being lazy minted, where the
+*                           metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`.
+*  @param _data             The encrypted base URI + provenance hash for the batch of NFTs being lazy minted.
+*  @return batchId          A unique integer identifier for the batch of NFTs lazy minted together.
+*/
+function lazyMint(
+    uint256 _amount,
+    string calldata _baseURIForTokens,
+    bytes calldata _data
+) public virtual override returns (uint256 batchId) {
+    if (_data.length > 0) {
+        (bytes memory encryptedURI, bytes32 provenanceHash) = abi.decode(_data, (bytes, bytes32));
+        if (encryptedURI.length != 0 && provenanceHash != "") {
+            _setEncryptedData(nextTokenIdToLazyMint + _amount, _data);
         }
-
-        return LazyMint.lazyMint(_amount, _baseURIForTokens, _data);
     }
+
+    return LazyMint.lazyMint(_amount, _baseURIForTokens, _data);
+}
 ```
+
 </Details>
 
 <Details id="_beforeClaim" summary="_beforeClaim">
 
 ```solidity
 /// @dev Runs before every `claim` function call.
-    function _beforeClaim(
-        uint256 _tokenId,
-        address,
-        uint256,
-        address,
-        uint256,
-        AllowlistProof calldata,
-        bytes memory
-    ) internal view virtual override {
-        if (_tokenId >= nextTokenIdToLazyMint) {
-            revert("Not enough minted tokens");
-        }
+function _beforeClaim(
+    uint256 _tokenId,
+    address,
+    uint256,
+    address,
+    uint256,
+    AllowlistProof calldata,
+    bytes memory
+) internal view virtual override {
+    if (_tokenId >= nextTokenIdToLazyMint) {
+        revert("Not enough minted tokens");
     }
+}
 ```
+
 </Details>
 
 <Details id="_collectPriceOnClaim" summary="_collectPriceOnClaim">
 
 ```solidity
 /// @dev Collects and distributes the primary sale value of NFTs being claimed.
-    function _collectPriceOnClaim(
-        address _primarySaleRecipient,
-        uint256 _quantityToClaim,
-        address _currency,
-        uint256 _pricePerToken
-    ) internal virtual override {
-        if (_pricePerToken == 0) {
-            return;
-        }
-
-        uint256 totalPrice = _quantityToClaim * _pricePerToken;
-
-        if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
-            if (msg.value != totalPrice) {
-                revert("Must send total price.");
-            }
-        }
-
-        address saleRecipient = _primarySaleRecipient == address(0) ? primarySaleRecipient() : _primarySaleRecipient;
-        CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
+function _collectPriceOnClaim(
+    address _primarySaleRecipient,
+    uint256 _quantityToClaim,
+    address _currency,
+    uint256 _pricePerToken
+) internal virtual override {
+    if (_pricePerToken == 0) {
+        return;
     }
+
+    uint256 totalPrice = _quantityToClaim * _pricePerToken;
+
+    if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
+        if (msg.value != totalPrice) {
+            revert("Must send total price.");
+        }
+    }
+
+    address saleRecipient = _primarySaleRecipient == address(0) ? primarySaleRecipient() : _primarySaleRecipient;
+    CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
+}
 ```
+
 </Details>
 
 <Details id="_transferTokensOnClaim" summary="_transferTokensOnClaim">
 ```solidity
 /// @dev Transfers the NFTs being claimed.
-    function _transferTokensOnClaim(
-        address _to,
-        uint256 _tokenId,
-        uint256 _quantityBeingClaimed
-    ) internal virtual override {
-        _mint(_to, _tokenId, _quantityBeingClaimed, "");
-    }
+function _transferTokensOnClaim(
+    address _to,
+    uint256 _tokenId,
+    uint256 _quantityBeingClaimed
+) internal virtual override {
+    _mint(_to, _tokenId, _quantityBeingClaimed, "");
+}
 ```
 </Details>
 
@@ -267,27 +267,28 @@ The following functions have been implemented on this contract & are available t
 
 ```solidity
 /// @dev Runs before every token transfer / mint / burn.
-    function _beforeTokenTransfer(
-        address operator,
-        address from,
-        address to,
-        uint256[] memory ids,
-        uint256[] memory amounts,
-        bytes memory data
-    ) internal virtual override {
-        super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
+function _beforeTokenTransfer(
+    address operator,
+    address from,
+    address to,
+    uint256[] memory ids,
+    uint256[] memory amounts,
+    bytes memory data
+) internal virtual override {
+    super._beforeTokenTransfer(operator, from, to, ids, amounts, data);
 
-        if (from == address(0)) {
-            for (uint256 i = 0; i < ids.length; ++i) {
-                totalSupply[ids[i]] += amounts[i];
-            }
-        }
-
-        if (to == address(0)) {
-            for (uint256 i = 0; i < ids.length; ++i) {
-                totalSupply[ids[i]] -= amounts[i];
-            }
+    if (from == address(0)) {
+        for (uint256 i = 0; i < ids.length; ++i) {
+            totalSupply[ids[i]] += amounts[i];
         }
     }
+
+    if (to == address(0)) {
+        for (uint256 i = 0; i < ids.length; ++i) {
+            totalSupply[ids[i]] -= amounts[i];
+        }
+    }
+}
 ```
+
 </Details>

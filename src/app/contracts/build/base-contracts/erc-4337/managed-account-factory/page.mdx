@@ -1,5 +1,5 @@
-import { Details, Callout} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details, Callout } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # Managed Account Factory
 
@@ -11,9 +11,7 @@ This contract inherits from the [`BaseAccountFactory`](/solidity/extensions/base
 
 This factory smart contract is intended to be used to distribute ['ManagedAccounts`](/solidity/base-contracts/managed-account) programmatically.
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/managed/ManagedAccountFactory.sol"
-/>
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/managed/ManagedAccountFactory.sol" />
 
 <br />
 
@@ -102,6 +100,7 @@ function initializeAccount(
     ManagedAccount.initialize(_admin, _data);
 }
 ```
+
 </Details>
 
 <Details id="_canSetExtension" summary="_canSetExtension">
@@ -113,4 +112,5 @@ function _canSetExtension() internal view virtual override returns (bool) {
     return hasRole(DEFAULT_ADMIN_ROLE, msg.sender);
 }
 ```
+
 </Details>

@@ -1,6 +1,5 @@
-
-import { Details} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # ERC721Base
 
@@ -12,12 +11,7 @@ It allows you to mint NFTs to yourself (or to someone else) and selling those NF
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 ```
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol"
-/>
-
-
-
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol" />
 
 ## Usage
 
@@ -50,8 +44,6 @@ contract MyNFT is ERC721Base {
 }
 ```
 
-
-
 ## Detected Extensions
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
@@ -67,12 +59,12 @@ Click on each feature to learn more about what functions are available.
 - [ContractMetadata](/solidity/extensions/contractmetadata)
 - [Ownable](/solidity/extensions/ownable)
 
-
 ## Functions to Override
 
 The following functions have been implemented on this contract & are available to be overridden to add custom logic:
 
 <Details id="tokenURI" summary="tokenURI">
+
 ```solidity
     /**
      *  @notice         Returns the metadata URI for an NFT.
@@ -89,10 +81,13 @@ The following functions have been implemented on this contract & are available t
         string memory batchUri = _getBaseURI(_tokenId);
         return string(abi.encodePacked(batchUri, _tokenId.toString()));
     }
+
 ```
+
 </Details>
 
 <Details id="mintTo" summary="mintTo">
+
 ```solidity
     /**
      *  @notice          Lets an authorized address mint an NFT to a recipient.
@@ -107,9 +102,11 @@ The following functions have been implemented on this contract & are available t
         _safeMint(_to, 1, "");
     }
 ```
+
 </Details>
 
 <Details id="batchMintTo" summary="batchMintTo">
+
 ```solidity
     /**
      *  @notice          Lets an authorized address mint multiple NFTs at once to a recipient.
@@ -131,9 +128,11 @@ The following functions have been implemented on this contract & are available t
         _safeMint(_to, _quantity, _data);
     }
 ```
+
 </Details>
 
 <Details id="burn" summary="burn">
+
 ```solidity
     /**
      *  @notice         Lets an owner or approved operator burn the NFT of the given tokenId.
@@ -153,10 +152,13 @@ The following functions have been implemented on this contract & are available t
     function nextTokenIdToMint() public view virtual returns (uint256) {
         return _currentIndex;
     }
+
 ```
+
 </Details>
 
 <Details id="transferFrom" summary="transferFrom">
+
 ```solidity
     /// @dev See {ERC721-_transferFrom}.
     function transferFrom(
@@ -167,6 +169,7 @@ The following functions have been implemented on this contract & are available t
         super.transferFrom(from, to, tokenId);
     }
 ```
+
 </Details>
 
 <Details id="safeTransferFrom" summary="safeTransferFrom">

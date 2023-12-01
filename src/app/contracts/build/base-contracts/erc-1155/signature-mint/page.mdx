@@ -1,5 +1,5 @@
-import { Details} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # ERC1155 Signature Mint
 
@@ -10,16 +10,12 @@ import "@thirdweb-dev/contracts/base/ERC1155SignatureMint.sol";
 The `ERC1155SignatureMint` smart contract adds [Signature-Based Minting](/solidity/extensions/erc1155signaturemint)
 extensions to the [ERC1155Base](/solidity/base-contracts/erc1155base) contract.
 
-  <GithubButtonLink
-    href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155SignatureMint.sol"
-  />
-
 Signature minting uses the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) standard,
 and enables a contract admin to authorize an external party's request to mint tokens on the admin's contract.
 At a high level, this means you can authorize some external party to mint tokens
 on your contract, and specify what will be minted.
 
-<br/>
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155SignatureMint.sol" />
 
 ## Usage
 
@@ -52,7 +48,7 @@ contract MyNFT is ERC1155SignatureMint {
 }
 ```
 
-<br/>
+<br />
 
 ## Detected Extensions
 
@@ -71,7 +67,7 @@ Click on each feature to learn more about what functions are available.
 - [ContractMetadata](/solidity/extensions/contractmetadata)
 - [Ownable](/solidity/extensions/ownable)
 
-<br/>
+<br />
 
 ## Functions to Override
 
@@ -80,80 +76,82 @@ The following functions have been implemented on this contract & are available t
 <Details id="mintWithSignature" summary="mintWithSignature">
 
 ```solidity
-    /**
-     *  @notice           Mints tokens according to the provided mint request.
-     *
-     *  @param _req       The payload / mint request.
-     *  @param _signature The signature produced by an account signing the mint request.
-     */
-    function mintWithSignature(MintRequest calldata _req, bytes calldata _signature)
-        external
-        payable
-        virtual
-        override
-        returns (address signer)
-    {
-        require(_req.quantity > 0, "Minting zero tokens.");
+/**
+ *  @notice           Mints tokens according to the provided mint request.
+ *
+ *  @param _req       The payload / mint request.
+ *  @param _signature The signature produced by an account signing the mint request.
+ */
+function mintWithSignature(MintRequest calldata _req, bytes calldata _signature)
+    external
+    payable
+    virtual
+    override
+    returns (address signer)
+{
+    require(_req.quantity > 0, "Minting zero tokens.");
 
-        uint256 tokenIdToMint;
-        uint256 nextIdToMint = nextTokenIdToMint();
+    uint256 tokenIdToMint;
+    uint256 nextIdToMint = nextTokenIdToMint();
 
-        if (_req.tokenId == type(uint256).max) {
-            tokenIdToMint = nextIdToMint;
-            nextTokenIdToMint_ += 1;
-        } else {
-            require(_req.tokenId < nextIdToMint, "invalid id");
-            tokenIdToMint = _req.tokenId;
-        }
-
-        // Verify and process payload.
-        signer = _processRequest(_req, _signature);
-
-        address receiver = _req.to;
-
-        // Collect price
-        _collectPriceOnClaim(_req.primarySaleRecipient, _req.quantity, _req.currency, _req.pricePerToken);
-
-        // Set royalties, if applicable.
-        if (_req.royaltyRecipient != address(0)) {
-            _setupRoyaltyInfoForToken(tokenIdToMint, _req.royaltyRecipient, _req.royaltyBps);
-        }
-
-        // Set URI
-        if (_req.tokenId == type(uint256).max) {
-            _setTokenURI(tokenIdToMint, _req.uri);
-        }
-
-        // Mint tokens.
-        _mint(receiver, tokenIdToMint, _req.quantity, "");
-
-        emit TokensMintedWithSignature(signer, receiver, tokenIdToMint, _req);
+    if (_req.tokenId == type(uint256).max) {
+        tokenIdToMint = nextIdToMint;
+        nextTokenIdToMint_ += 1;
+    } else {
+        require(_req.tokenId < nextIdToMint, "invalid id");
+        tokenIdToMint = _req.tokenId;
     }
+
+    // Verify and process payload.
+    signer = _processRequest(_req, _signature);
+
+    address receiver = _req.to;
+
+    // Collect price
+    _collectPriceOnClaim(_req.primarySaleRecipient, _req.quantity, _req.currency, _req.pricePerToken);
+
+    // Set royalties, if applicable.
+    if (_req.royaltyRecipient != address(0)) {
+        _setupRoyaltyInfoForToken(tokenIdToMint, _req.royaltyRecipient, _req.royaltyBps);
+    }
+
+    // Set URI
+    if (_req.tokenId == type(uint256).max) {
+        _setTokenURI(tokenIdToMint, _req.uri);
+    }
+
+    // Mint tokens.
+    _mint(receiver, tokenIdToMint, _req.quantity, "");
+
+    emit TokensMintedWithSignature(signer, receiver, tokenIdToMint, _req);
+}
 ```
+
 </Details>
 
 <Details id="_collectPriceOnClaim" summary="_collectPriceOnClaim">
 
 ```solidity
  /// @dev Collects and distributes the primary sale value of NFTs being claimed.
-    function _collectPriceOnClaim(
-        address _primarySaleRecipient,
-        uint256 _quantityToClaim,
-        address _currency,
-        uint256 _pricePerToken
-    ) internal virtual {
-        if (_pricePerToken == 0) {
-            return;
-        }
-
-        uint256 totalPrice = _quantityToClaim * _pricePerToken;
-
-        if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
-            require(msg.value == totalPrice, "Must send total price.");
-        }
-
-        address saleRecipient = _primarySaleRecipient == address(0) ? primarySaleRecipient() : _primarySaleRecipient;
-        CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
+function _collectPriceOnClaim(
+    address _primarySaleRecipient,
+    uint256 _quantityToClaim,
+    address _currency,
+    uint256 _pricePerToken
+) internal virtual {
+    if (_pricePerToken == 0) {
+        return;
     }
+
+    uint256 totalPrice = _quantityToClaim * _pricePerToken;
+
+    if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
+        require(msg.value == totalPrice, "Must send total price.");
+    }
+
+    address saleRecipient = _primarySaleRecipient == address(0) ? primarySaleRecipient() : _primarySaleRecipient;
+    CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
+}
 ```
+
 </Details>

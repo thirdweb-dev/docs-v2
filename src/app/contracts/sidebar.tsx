@@ -1,5 +1,4 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
-import { SidebarLink } from "@/components/others/Sidebar";
 import {
 	ContractBuildIcon,
 	ContractExploreIcon,
@@ -8,634 +7,14 @@ import {
 	ContractPublishIcon,
 } from "@/icons";
 
-const prebuilt: SidebarLink = (() => {
-	const parentSlug = "/contracts/pre-built-contracts";
-	return {
-		name: "Pre-built Contracts",
-		links: [
-			{
-				name: "ERC-20",
-				links: [
-					{
-						name: "Token",
-						href: `${parentSlug}/token`,
-					},
-					{
-						name: "Token Drop",
-						href: `${parentSlug}/token-drop`,
-					},
-				],
-			},
-			{
-				name: "ERC-721",
-				links: [
-					{
-						name: "NFT Collection",
-						href: `${parentSlug}/nft-collection`,
-					},
-					{
-						name: "NFT Drop",
-						href: `${parentSlug}/nft-drop`,
-					},
-					{
-						name: "Loyalty Card",
-						href: `${parentSlug}/loyalty-card`,
-					},
-					{
-						name: "Open Edition",
-						href: `${parentSlug}/open-edition`,
-					},
-				],
-			},
-			{
-				name: "ERC-1155",
-				links: [
-					{
-						name: "Edition",
-						href: `${parentSlug}/edition`,
-					},
-					{
-						name: "Edition Drop",
-						href: `${parentSlug}/edition-drop`,
-					},
-				],
-			},
-			{
-				name: "ERC-4337",
-				links: [
-					{
-						name: "Account Factory",
-						href: `${parentSlug}/account-factory`,
-					},
-					{
-						name: "Dynamic Account Factory",
-						href: `${parentSlug}/dynamic-account-factory`,
-					},
-					{
-						name: "Managed Account Factory",
-						href: `${parentSlug}/managed-account-factory`,
-					},
-				],
-			},
-			{
-				name: "MISC.",
-				links: [
-					{
-						name: "Airdrop",
-						href: `${parentSlug}/airdrop`,
-					},
-					{
-						name: "Airdrop Claimable",
-						href: `${parentSlug}/airdrop-claimable`,
-					},
-					{
-						name: "Stake",
-						href: `${parentSlug}/stake`,
-					},
-					{
-						name: "Marketplace",
-						href: `${parentSlug}/marketplace`,
-					},
-					{
-						name: "Multiwrap",
-						href: `${parentSlug}/multiwrap`,
-					},
-					{
-						name: "Pack",
-						href: `${parentSlug}/pack`,
-					},
-					{
-						name: "Split",
-						href: `${parentSlug}/split`,
-					},
-					{
-						name: "Vote",
-						href: `${parentSlug}/vote`,
-					},
-				],
-			},
-		],
-	};
-})();
-
-const baseContracts: SidebarLink = (() => {
-	const parentSlug = "/contracts/base-contracts";
-	return {
-		name: "Base Contracts",
-		links: [
-			{
-				name: "ERC-20",
-				links: [
-					{
-						name: "Base",
-						href: `${parentSlug}/erc-20/base`,
-					},
-					{
-						name: "Drop",
-						href: `${parentSlug}/erc-20/drop`,
-					},
-					{
-						name: "Drop Vote",
-						href: `${parentSlug}/erc-20/drop-vote`,
-					},
-					{
-						name: "Signature Mint",
-						href: `${parentSlug}/erc-20/signature-mint`,
-					},
-					{
-						name: "Signature Mint Vote",
-						href: `${parentSlug}/erc-20/signature-mint-vote`,
-					},
-					{
-						name: "Vote",
-						href: `${parentSlug}/erc-20/vote`,
-					},
-				],
-			},
-			{
-				name: "ERC-721",
-				links: [
-					{
-						name: "Base",
-						href: `${parentSlug}/erc-721/base`,
-					},
-					{
-						name: "Delayed Reveal",
-						href: `${parentSlug}/erc-721/delayed-reveal`,
-					},
-					{
-						name: "Drop",
-						href: `${parentSlug}/erc-721/drop`,
-					},
-					{
-						name: "Lazy Mint",
-						href: `${parentSlug}/erc-721/lazy-mint`,
-					},
-					{
-						name: "Signature Mint",
-						href: `${parentSlug}/erc-721/signature-mint`,
-					},
-				],
-			},
-			{
-				name: "ERC-1155",
-				links: [
-					{
-						name: "Base",
-						href: `${parentSlug}/erc-1155/base`,
-					},
-					{
-						name: "Delayed Reveal",
-						href: `${parentSlug}/erc-1155/delayed-reveal`,
-					},
-					{
-						name: "Drop",
-						href: `${parentSlug}/erc-1155/drop`,
-					},
-					{
-						name: "Lazy Mint",
-						href: `${parentSlug}/erc-1155/lazy-mint`,
-					},
-					{
-						name: "Signature Mint",
-						href: `${parentSlug}/erc-1155/signature-mint`,
-					},
-				],
-			},
-			{
-				name: "ERC-4337",
-				links: [
-					{
-						name: "Account",
-						href: `${parentSlug}/erc-4337/account`,
-					},
-					{
-						name: "Account Factory",
-						href: `${parentSlug}/erc-4337/account-factory`,
-					},
-					{
-						name: "Dynamic Account",
-						href: `${parentSlug}/erc-4337/dynamic-account`,
-					},
-					{
-						name: "Dynamic Account Factory",
-						href: `${parentSlug}/erc-4337/dynamic-account-factory`,
-					},
-					{
-						name: "Managed Account",
-						href: `${parentSlug}/erc-4337/managed-account`,
-					},
-					{
-						name: "Managed Account Factory",
-						href: `${parentSlug}/erc-4337/managed-account-factory`,
-					},
-				],
-			},
-			{
-				name: "Staking",
-				links: [
-					{
-						name: "Staking ERC-20",
-						href: `${parentSlug}/staking/erc-20`,
-					},
-					{
-						name: "Staking ERC-721",
-						href: `${parentSlug}/staking/erc-721`,
-					},
-					{
-						name: "Staking ERC-1155",
-						href: `${parentSlug}/staking/erc-1155`,
-					},
-				],
-			},
-		],
-	};
-})();
-
-const extensions: SidebarLink = (() => {
-	const parentSlug = "/contracts/extensions";
-	return {
-		name: "Extensions",
-		links: [
-			{
-				name: "General",
-				links: [
-					{
-						name: "BatchMintMetadata",
-						href: `${parentSlug}/batchMintMetadata`,
-					},
-					{
-						name: "ContractMetadata",
-						href: `${parentSlug}/contractMetadata`,
-					},
-					{
-						name: "DelayedReveal",
-						href: `${parentSlug}/delayedReveal`,
-					},
-					{
-						name: "Drop",
-						href: `${parentSlug}/drop`,
-					},
-					{
-						name: "DropSinglePhase",
-						href: `${parentSlug}/dropSinglePhase`,
-					},
-					{
-						name: "LazyMint",
-						href: `${parentSlug}/lazyMint`,
-					},
-					{
-						name: "Multicall",
-						href: `${parentSlug}/multicall`,
-					},
-					{
-						name: "Ownable",
-						href: `${parentSlug}/ownable`,
-					},
-					{
-						name: "Permissions",
-						href: `${parentSlug}/permissions`,
-					},
-					{
-						name: "PermissionsEnumerable",
-						href: `${parentSlug}/permissionsEnumerable`,
-					},
-					{
-						name: "PlatformFee",
-						href: `${parentSlug}/platformFee`,
-					},
-					{
-						name: "PrimarySale",
-						href: `${parentSlug}/primarySale`,
-					},
-					{
-						name: "Royalty",
-						href: `${parentSlug}/royalty`,
-					},
-				],
-			},
-			{
-				name: "ERC-20",
-				links: [
-					{
-						name: "ERC20",
-						href: `${parentSlug}/erc-20/ERC20`,
-					},
-					{
-						name: "ERC20BatchMintable",
-						href: `${parentSlug}/erc-20/ERC20BatchMintable`,
-					},
-					{
-						name: "ERC20Burnable",
-						href: `${parentSlug}/erc-20/ERC20Burnable`,
-					},
-					{
-						name: "ERC20ClaimConditions",
-						href: `${parentSlug}/erc-20/ERC20ClaimConditions`,
-					},
-					{
-						name: "ERC20ClaimPhases",
-						href: `${parentSlug}/erc-20/ERC20ClaimPhases`,
-					},
-					{
-						name: "ERC20Mintable",
-						href: `${parentSlug}/ERC20Mintable`,
-					},
-					{
-						name: "ERC20Permit",
-						href: `${parentSlug}/ERC20Permit`,
-					},
-					{
-						name: "ERC20SignatureMinting",
-						href: `${parentSlug}/ERC20SignatureMint`,
-					},
-					{
-						name: "ERC20Staking",
-						href: `${parentSlug}/ERC20Staking`,
-					},
-				],
-			},
-			{
-				name: "ERC-721",
-				links: [
-					{
-						name: "ERC721",
-						href: `${parentSlug}/ERC721`,
-					},
-					{
-						name: "ERC721BatchMintable",
-						href: `${parentSlug}/ERC721BatchMintable`,
-					},
-					{
-						name: "ERC721Burnable",
-						href: `${parentSlug}/ERC721Burnable`,
-					},
-					{
-						name: "ERC721ClaimConditions",
-						href: `${parentSlug}/ERC721ClaimConditions`,
-					},
-					{
-						name: "ERC721ClaimCustom",
-						href: `${parentSlug}/ERC721ClaimCustom`,
-					},
-					{
-						name: "ERC721ClaimPhases",
-						href: `${parentSlug}/ERC721ClaimCustom`,
-					},
-					{
-						name: "ERC721Claimable",
-						href: `${parentSlug}/ERC721Claimable`,
-					},
-					{
-						name: "ERC721Enumerable",
-						href: `${parentSlug}/ERC721Enumerable`,
-					},
-					{
-						name: "ERC721Mintable",
-						href: `${parentSlug}/ERC721Mintable`,
-					},
-					{
-						name: "ERC721Revealable",
-						href: `${parentSlug}/ERC721Revealable`,
-					},
-					{
-						name: "ERC721SignatureMint",
-						href: `${parentSlug}/ERC721SignatureMint`,
-					},
-					{
-						name: "ERC721Staking",
-						href: `${parentSlug}/ERC721Staking`,
-					},
-					{
-						name: "ERC721Supply",
-						href: `${parentSlug}/ERC721Supply`,
-					},
-				],
-			},
-			{
-				name: "ERC-1155",
-				links: [
-					{
-						name: "ERC1155",
-						href: `${parentSlug}/ERC1155`,
-					},
-					{
-						name: "ERC1155BatchMintable",
-						href: `${parentSlug}/ERC1155BatchMintable`,
-					},
-					{
-						name: "ERC1155Burnable",
-						href: `${parentSlug}/ERC1155Burnable`,
-					},
-					{
-						name: "ERC1155ClaimConditions",
-						href: `${parentSlug}/ERC1155ClaimConditions`,
-					},
-					{
-						name: "ERC1155ClaimCustom",
-						href: `${parentSlug}/ERC1155ClaimCustom`,
-					},
-					{
-						name: "ERC1155ClaimPhases",
-						href: `${parentSlug}/ERC1155ClaimPhases`,
-					},
-					{
-						name: "ERC1155Claimable",
-						href: `${parentSlug}/ERC1155Claimable`,
-					},
-					{
-						name: "ERC1155Drop",
-						href: `${parentSlug}/ERC1155Drop`,
-					},
-					{
-						name: "ERC1155DropSinglePhase",
-						href: `${parentSlug}/ERC1155DropSinglePhase`,
-					},
-					{
-						name: "ERC1155Enumerable",
-						href: `${parentSlug}/ERC1155Enumerable`,
-					},
-					{
-						name: "ERC1155Mintable",
-						href: `${parentSlug}/ERC1155Mintable`,
-					},
-					{
-						name: "ERC1155Revealable",
-						href: `${parentSlug}/ERC1155Revealable`,
-					},
-					{
-						name: "ERC1155SignatureMint",
-						href: `${parentSlug}/ERC1155SignatureMint`,
-					},
-					{
-						name: "ERC1155Staking",
-						href: `${parentSlug}/ERC1155Staking`,
-					},
-					{
-						name: "ERC1155Supply",
-						href: `${parentSlug}/ERC1155Supply`,
-					},
-				],
-			},
-			{
-				name: "ERC-4337",
-				links: [
-					{
-						name: "AccountExtension",
-						href: `${parentSlug}/AccountExtension`,
-					},
-					{
-						name: "SmartWallet",
-						href: `${parentSlug}/SmartWallet`,
-					},
-					{
-						name: "SmartWalletFactory",
-						href: `${parentSlug}/SmartWalletFactory`,
-					},
-				],
-			},
-		],
-	};
-})();
-
-const designDocs: SidebarLink = (() => {
-	const parentSlug = "/contracts/design-docs";
-	return {
-		name: "Design Docs",
-		links: [
-			{
-				name: "Drop",
-				href: `${parentSlug}/drop`,
-			},
-			{
-				name: "Marketplace",
-				href: `${parentSlug}/marketplace`,
-			},
-			{
-				name: "Multiwrap",
-				href: `${parentSlug}/multiwrap`,
-			},
-			{
-				name: "Pack",
-				href: `${parentSlug}/pack`,
-			},
-			{
-				name: "Signature Mint",
-				href: `${parentSlug}/signature-mint`,
-			},
-		],
-	};
-})();
-
-const explore: SidebarLink = (() => {
-	const parentSlug = "/contracts/explore";
-	return {
-		name: "Explore",
-		icon: <ContractExploreIcon />,
-		isCollapsible: false,
-		links: [
-			{
-				name: "Overview",
-				href: `${parentSlug}/overview`,
-			},
-			prebuilt,
-		],
-	};
-})();
-
-const build: SidebarLink = (() => {
-	const parentSlug = "/contracts/build";
-	return {
-		name: "Build",
-		icon: <ContractBuildIcon />,
-		isCollapsible: false,
-		links: [
-			{
-				name: "Overview",
-				href: `${parentSlug}/overview`,
-			},
-			{
-				name: "Get Started",
-				href: `${parentSlug}/get-started`,
-			},
-			baseContracts,
-			extensions,
-		],
-	};
-})();
-
-const deploy: SidebarLink = (() => {
-	const parentSlug = "/contracts/deploy";
-	return {
-		name: "Deploy",
-		icon: <ContractDeployIcon />,
-		isCollapsible: false,
-		links: [
-			{
-				name: "Overview",
-				href: `${parentSlug}/overview`,
-			},
-			{
-				name: "Deploy Contract",
-				href: `${parentSlug}/deploy-contract`,
-			},
-			{
-				name: "CLI Reference",
-				href: `${parentSlug}/reference`,
-			},
-		],
-	};
-})();
-
-const interact: SidebarLink = (() => {
-	const parentSlug = "/contracts/interact";
-	return {
-		name: "Interact",
-		icon: <ContractInteractIcon />,
-		isCollapsible: false,
-		links: [
-			{
-				name: "Overview",
-				href: `${parentSlug}/overview`,
-			},
-		],
-	};
-})();
-
-const publish: SidebarLink = (() => {
-	const parentSlug = "/contracts/publish";
-	return {
-		name: "Publish",
-		icon: <ContractPublishIcon />,
-		isCollapsible: false,
-		links: [
-			{
-				name: "Overview",
-				href: `${parentSlug}/overview`,
-			},
-			{
-				name: "Publish Contract",
-				href: `${parentSlug}/publish-contract`,
-			},
-			{
-				name: "Publish Options",
-				href: `${parentSlug}/publish-options`,
-			},
-		],
-	};
-})();
-
-const resources: SidebarLink = {
-	name: "Resources",
-	isCollapsible: false,
-	links: [
-		designDocs,
-		{
-			name: "FAQs",
-			href: "/contracts/faq",
-		},
-	],
-};
+const prebuiltSlug = "/contracts/explore/pre-built-contracts";
+const buildSlug = "/contracts/build";
+const deploySlug = "/contracts/deploy";
+const publishSlug = "/contracts/publish";
+const interactSlug = "/contracts/interact";
+const designDocs = "/contracts/design-docs";
+const extensionsSlug = "/contracts/build/extensions";
+const baseContractsSlug = "/contracts/build/base-contracts";
 
 export const sidebar: SideBar = {
 	name: "Contracts",
@@ -644,11 +23,601 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: "/contracts",
 		},
-		explore,
-		build,
-		deploy,
-		publish,
-		interact,
-		resources,
+		// explore
+		{
+			name: "Explore",
+			icon: <ContractExploreIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `/contracts/explore/overview`,
+				},
+				{
+					name: "Pre-built Contracts",
+					links: [
+						{
+							name: "ERC-20",
+							links: [
+								{
+									name: "Token",
+									href: `${prebuiltSlug}/token`,
+								},
+								{
+									name: "Token Drop",
+									href: `${prebuiltSlug}/token-drop`,
+								},
+							],
+						},
+						{
+							name: "ERC-721",
+							links: [
+								{
+									name: "NFT Collection",
+									href: `${prebuiltSlug}/nft-collection`,
+								},
+								{
+									name: "NFT Drop",
+									href: `${prebuiltSlug}/nft-drop`,
+								},
+								{
+									name: "Loyalty Card",
+									href: `${prebuiltSlug}/loyalty-card`,
+								},
+								{
+									name: "Open Edition",
+									href: `${prebuiltSlug}/open-edition`,
+								},
+							],
+						},
+						{
+							name: "ERC-1155",
+							links: [
+								{
+									name: "Edition",
+									href: `${prebuiltSlug}/edition`,
+								},
+								{
+									name: "Edition Drop",
+									href: `${prebuiltSlug}/edition-drop`,
+								},
+							],
+						},
+						{
+							name: "ERC-4337",
+							links: [
+								{
+									name: "Account Factory",
+									href: `${prebuiltSlug}/account-factory`,
+								},
+								{
+									name: "Dynamic Account Factory",
+									href: `${prebuiltSlug}/dynamic-account-factory`,
+								},
+								{
+									name: "Managed Account Factory",
+									href: `${prebuiltSlug}/managed-account-factory`,
+								},
+							],
+						},
+						{
+							name: "MISC.",
+							links: [
+								{
+									name: "Airdrop",
+									href: `${prebuiltSlug}/airdrop`,
+								},
+								{
+									name: "Airdrop Claimable",
+									href: `${prebuiltSlug}/airdrop-claimable`,
+								},
+								{
+									name: "Stake",
+									href: `${prebuiltSlug}/stake`,
+								},
+								{
+									name: "Marketplace",
+									href: `${prebuiltSlug}/marketplace`,
+								},
+								{
+									name: "Multiwrap",
+									href: `${prebuiltSlug}/multiwrap`,
+								},
+								{
+									name: "Pack",
+									href: `${prebuiltSlug}/pack`,
+								},
+								{
+									name: "Split",
+									href: `${prebuiltSlug}/split`,
+								},
+								{
+									name: "Vote",
+									href: `${prebuiltSlug}/vote`,
+								},
+							],
+						},
+					],
+				},
+			],
+		},
+		// build
+		{
+			name: "Build",
+			icon: <ContractBuildIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `${buildSlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${buildSlug}/get-started`,
+				},
+				// base contracts
+				{
+					name: "Base Contracts",
+					links: [
+						{
+							name: "ERC-20",
+							links: [
+								{
+									name: "Base",
+									href: `${baseContractsSlug}/erc-20/base`,
+								},
+								{
+									name: "Drop",
+									href: `${baseContractsSlug}/erc-20/drop`,
+								},
+								{
+									name: "Drop Vote",
+									href: `${baseContractsSlug}/erc-20/drop-vote`,
+								},
+								{
+									name: "Signature Mint",
+									href: `${baseContractsSlug}/erc-20/signature-mint`,
+								},
+								{
+									name: "Signature Mint Vote",
+									href: `${baseContractsSlug}/erc-20/signature-mint-vote`,
+								},
+								{
+									name: "Vote",
+									href: `${baseContractsSlug}/erc-20/vote`,
+								},
+							],
+						},
+						{
+							name: "ERC-721",
+							links: [
+								{
+									name: "Base",
+									href: `${baseContractsSlug}/erc-721/base`,
+								},
+								{
+									name: "Delayed Reveal",
+									href: `${baseContractsSlug}/erc-721/delayed-reveal`,
+								},
+								{
+									name: "Drop",
+									href: `${baseContractsSlug}/erc-721/drop`,
+								},
+								{
+									name: "Lazy Mint",
+									href: `${baseContractsSlug}/erc-721/lazy-mint`,
+								},
+								{
+									name: "Signature Mint",
+									href: `${baseContractsSlug}/erc-721/signature-mint`,
+								},
+							],
+						},
+						{
+							name: "ERC-1155",
+							links: [
+								{
+									name: "Base",
+									href: `${baseContractsSlug}/erc-1155/base`,
+								},
+								{
+									name: "Delayed Reveal",
+									href: `${baseContractsSlug}/erc-1155/delayed-reveal`,
+								},
+								{
+									name: "Drop",
+									href: `${baseContractsSlug}/erc-1155/drop`,
+								},
+								{
+									name: "Lazy Mint",
+									href: `${baseContractsSlug}/erc-1155/lazy-mint`,
+								},
+								{
+									name: "Signature Mint",
+									href: `${baseContractsSlug}/erc-1155/signature-mint`,
+								},
+							],
+						},
+						{
+							name: "ERC-4337",
+							links: [
+								{
+									name: "Account",
+									href: `${baseContractsSlug}/erc-4337/account`,
+								},
+								{
+									name: "Account Factory",
+									href: `${baseContractsSlug}/erc-4337/account-factory`,
+								},
+								{
+									name: "Dynamic Account",
+									href: `${baseContractsSlug}/erc-4337/dynamic-account`,
+								},
+								{
+									name: "Dynamic Account Factory",
+									href: `${baseContractsSlug}/erc-4337/dynamic-account-factory`,
+								},
+								{
+									name: "Managed Account",
+									href: `${baseContractsSlug}/erc-4337/managed-account`,
+								},
+								{
+									name: "Managed Account Factory",
+									href: `${baseContractsSlug}/erc-4337/managed-account-factory`,
+								},
+							],
+						},
+						{
+							name: "Staking",
+							links: [
+								{
+									name: "Staking ERC-20",
+									href: `${baseContractsSlug}/staking/erc-20`,
+								},
+								{
+									name: "Staking ERC-721",
+									href: `${baseContractsSlug}/staking/erc-721`,
+								},
+								{
+									name: "Staking ERC-1155",
+									href: `${baseContractsSlug}/staking/erc-1155`,
+								},
+							],
+						},
+					],
+				},
+				// extensions
+				{
+					name: "Extensions",
+					links: [
+						{
+							name: "General",
+							links: [
+								{
+									name: "BatchMintMetadata",
+									href: `${extensionsSlug}/general/BatchMintMetadata`,
+								},
+								{
+									name: "ContractMetadata",
+									href: `${extensionsSlug}/general/ContractMetadata`,
+								},
+								{
+									name: "DelayedReveal",
+									href: `${extensionsSlug}/general/DelayedReveal`,
+								},
+								{
+									name: "Drop",
+									href: `${extensionsSlug}/general/Drop`,
+								},
+								{
+									name: "DropSinglePhase",
+									href: `${extensionsSlug}/general/DropSinglePhase`,
+								},
+								{
+									name: "LazyMint",
+									href: `${extensionsSlug}/general/LazyMint`,
+								},
+								{
+									name: "Multicall",
+									href: `${extensionsSlug}/general/Multicall`,
+								},
+								{
+									name: "Ownable",
+									href: `${extensionsSlug}/general/Ownable`,
+								},
+								{
+									name: "Permissions",
+									href: `${extensionsSlug}/general/Permissions`,
+								},
+								{
+									name: "PermissionsEnumerable",
+									href: `${extensionsSlug}/general/PermissionsEnumerable`,
+								},
+								{
+									name: "PlatformFee",
+									href: `${extensionsSlug}/general/PlatformFee`,
+								},
+								{
+									name: "PrimarySale",
+									href: `${extensionsSlug}/general/PrimarySale`,
+								},
+								{
+									name: "Royalty",
+									href: `${extensionsSlug}/general/Royalty`,
+								},
+							],
+						},
+						{
+							name: "ERC-20",
+							links: [
+								{
+									name: "ERC20",
+									href: `${extensionsSlug}/erc-20/ERC20`,
+								},
+								{
+									name: "ERC20BatchMintable",
+									href: `${extensionsSlug}/erc-20/ERC20BatchMintable`,
+								},
+								{
+									name: "ERC20Burnable",
+									href: `${extensionsSlug}/erc-20/ERC20Burnable`,
+								},
+								{
+									name: "ERC20ClaimConditions",
+									href: `${extensionsSlug}/erc-20/ERC20ClaimConditions`,
+								},
+								{
+									name: "ERC20ClaimPhases",
+									href: `${extensionsSlug}/erc-20/ERC20ClaimPhases`,
+								},
+								{
+									name: "ERC20Mintable",
+									href: `${extensionsSlug}/ERC20Mintable`,
+								},
+								{
+									name: "ERC20Permit",
+									href: `${extensionsSlug}/ERC20Permit`,
+								},
+								{
+									name: "ERC20SignatureMinting",
+									href: `${extensionsSlug}/ERC20SignatureMint`,
+								},
+								{
+									name: "ERC20Staking",
+									href: `${extensionsSlug}/ERC20Staking`,
+								},
+							],
+						},
+						{
+							name: "ERC-721",
+							links: [
+								{
+									name: "ERC721",
+									href: `${extensionsSlug}/ERC721`,
+								},
+								{
+									name: "ERC721BatchMintable",
+									href: `${extensionsSlug}/ERC721BatchMintable`,
+								},
+								{
+									name: "ERC721Burnable",
+									href: `${extensionsSlug}/ERC721Burnable`,
+								},
+								{
+									name: "ERC721ClaimConditions",
+									href: `${extensionsSlug}/ERC721ClaimConditions`,
+								},
+								{
+									name: "ERC721ClaimCustom",
+									href: `${extensionsSlug}/ERC721ClaimCustom`,
+								},
+								{
+									name: "ERC721ClaimPhases",
+									href: `${extensionsSlug}/ERC721ClaimCustom`,
+								},
+								{
+									name: "ERC721Claimable",
+									href: `${extensionsSlug}/ERC721Claimable`,
+								},
+								{
+									name: "ERC721Enumerable",
+									href: `${extensionsSlug}/ERC721Enumerable`,
+								},
+								{
+									name: "ERC721Mintable",
+									href: `${extensionsSlug}/ERC721Mintable`,
+								},
+								{
+									name: "ERC721Revealable",
+									href: `${extensionsSlug}/ERC721Revealable`,
+								},
+								{
+									name: "ERC721SignatureMint",
+									href: `${extensionsSlug}/ERC721SignatureMint`,
+								},
+								{
+									name: "ERC721Staking",
+									href: `${extensionsSlug}/ERC721Staking`,
+								},
+								{
+									name: "ERC721Supply",
+									href: `${extensionsSlug}/ERC721Supply`,
+								},
+							],
+						},
+						{
+							name: "ERC-1155",
+							links: [
+								{
+									name: "ERC1155",
+									href: `${extensionsSlug}/ERC1155`,
+								},
+								{
+									name: "ERC1155BatchMintable",
+									href: `${extensionsSlug}/ERC1155BatchMintable`,
+								},
+								{
+									name: "ERC1155Burnable",
+									href: `${extensionsSlug}/ERC1155Burnable`,
+								},
+								{
+									name: "ERC1155ClaimConditions",
+									href: `${extensionsSlug}/ERC1155ClaimConditions`,
+								},
+								{
+									name: "ERC1155ClaimCustom",
+									href: `${extensionsSlug}/ERC1155ClaimCustom`,
+								},
+								{
+									name: "ERC1155ClaimPhases",
+									href: `${extensionsSlug}/ERC1155ClaimPhases`,
+								},
+								{
+									name: "ERC1155Claimable",
+									href: `${extensionsSlug}/ERC1155Claimable`,
+								},
+								{
+									name: "ERC1155Drop",
+									href: `${extensionsSlug}/ERC1155Drop`,
+								},
+								{
+									name: "ERC1155DropSinglePhase",
+									href: `${extensionsSlug}/ERC1155DropSinglePhase`,
+								},
+								{
+									name: "ERC1155Enumerable",
+									href: `${extensionsSlug}/ERC1155Enumerable`,
+								},
+								{
+									name: "ERC1155Mintable",
+									href: `${extensionsSlug}/ERC1155Mintable`,
+								},
+								{
+									name: "ERC1155Revealable",
+									href: `${extensionsSlug}/ERC1155Revealable`,
+								},
+								{
+									name: "ERC1155SignatureMint",
+									href: `${extensionsSlug}/ERC1155SignatureMint`,
+								},
+								{
+									name: "ERC1155Staking",
+									href: `${extensionsSlug}/ERC1155Staking`,
+								},
+								{
+									name: "ERC1155Supply",
+									href: `${extensionsSlug}/ERC1155Supply`,
+								},
+							],
+						},
+						{
+							name: "ERC-4337",
+							links: [
+								{
+									name: "AccountExtension",
+									href: `${extensionsSlug}/AccountExtension`,
+								},
+								{
+									name: "SmartWallet",
+									href: `${extensionsSlug}/SmartWallet`,
+								},
+								{
+									name: "SmartWalletFactory",
+									href: `${extensionsSlug}/SmartWalletFactory`,
+								},
+							],
+						},
+					],
+				},
+			],
+		},
+		// deploy
+		{
+			name: "Deploy",
+			icon: <ContractDeployIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `${deploySlug}/overview`,
+				},
+				{
+					name: "Deploy Contract",
+					href: `${deploySlug}/deploy-contract`,
+				},
+				{
+					name: "CLI Reference",
+					href: `${deploySlug}/reference`,
+				},
+			],
+		},
+		// publish
+		{
+			name: "Publish",
+			icon: <ContractPublishIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `${publishSlug}/overview`,
+				},
+				{
+					name: "Publish Contract",
+					href: `${publishSlug}/publish-contract`,
+				},
+				{
+					name: "Publish Options",
+					href: `${publishSlug}/publish-options`,
+				},
+			],
+		},
+		// interact
+		{
+			name: "Interact",
+			icon: <ContractInteractIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `${interactSlug}/overview`,
+				},
+			],
+		},
+		// resources
+		{
+			name: "Resources",
+			isCollapsible: false,
+			links: [
+				{
+					name: "Design Docs",
+					links: [
+						{
+							name: "Drop",
+							href: `${designDocs}/drop`,
+						},
+						{
+							name: "Marketplace",
+							href: `${designDocs}/marketplace`,
+						},
+						{
+							name: "Multiwrap",
+							href: `${designDocs}/multiwrap`,
+						},
+						{
+							name: "Pack",
+							href: `${designDocs}/pack`,
+						},
+						{
+							name: "Signature Mint",
+							href: `${designDocs}/signature-mint`,
+						},
+					],
+				},
+				{
+					name: "FAQs",
+					href: "/contracts/faq",
+				},
+			],
+		},
 	],
 };

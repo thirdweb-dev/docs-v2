@@ -1,5 +1,5 @@
-import { Details} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # ERC1155DelayedReveal
 
@@ -10,12 +10,9 @@ import "@thirdweb-dev/contracts/base/ERC1155DelayedReveal.sol";
 `ERC1155DelayedReveal` adds the [Delayed Reveal](/glossary/delayed-reveal) feature to the
 [ERC1155LazyMint](/solidity/base-contracts/erc1155lazymint) base contract.
 
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155DelayedReveal.sol" />
 
-  <GithubButtonLink
-    href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155DelayedReveal.sol"
-  />
-
-  ## Usage
+## Usage
 
 Import the contract and inherit from it.
 
@@ -59,78 +56,81 @@ The following functions have been implemented on this contract & are available t
 <Details id="uri" summary="uri">
 
 ```solidity
-    /**
-     *  @notice         Returns the metadata URI for an NFT.
-     *  @dev            See `BatchMintMetadata` for handling of metadata in this contract.
-     *
-     *  @param _tokenId The tokenId of an NFT.
-     */
-    function uri(uint256 _tokenId) public view override returns (string memory) {
-        (uint256 batchId, ) = _getBatchId(_tokenId);
-        string memory batchUri = _getBaseURI(_tokenId);
+/**
+    *  @notice         Returns the metadata URI for an NFT.
+    *  @dev            See `BatchMintMetadata` for handling of metadata in this contract.
+    *
+    *  @param _tokenId The tokenId of an NFT.
+    */
+function uri(uint256 _tokenId) public view override returns (string memory) {
+    (uint256 batchId, ) = _getBatchId(_tokenId);
+    string memory batchUri = _getBaseURI(_tokenId);
 
-        if (isEncryptedBatch(batchId)) {
-            return string(abi.encodePacked(batchUri, "0"));
-        } else {
-            return string(abi.encodePacked(batchUri, _tokenId.toString()));
-        }
+    if (isEncryptedBatch(batchId)) {
+        return string(abi.encodePacked(batchUri, "0"));
+    } else {
+        return string(abi.encodePacked(batchUri, _tokenId.toString()));
     }
+}
 ```
+
 </Details>
 
 <Details id="lazyMint" summary="lazyMint">
 
 ```solidity
-    /**
-     *  @notice                  Lets an authorized address lazy mint a given amount of NFTs.
-     *
-     *  @param _amount           The number of NFTs to lazy mint.
-     *  @param _baseURIForTokens The placeholder base URI for the 'n' number of NFTs being lazy minted, where the
-     *                           metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`.
-     *  @param _data             The encrypted base URI + provenance hash for the batch of NFTs being lazy minted.
-     *  @return batchId          A unique integer identifier for the batch of NFTs lazy minted together.
-     */
-    function lazyMint(
-        uint256 _amount,
-        string calldata _baseURIForTokens,
-        bytes calldata _data
-    ) public virtual override returns (uint256 batchId) {
-        if (_data.length > 0) {
-            (bytes memory encryptedURI, bytes32 provenanceHash) = abi.decode(_data, (bytes, bytes32));
-            if (encryptedURI.length != 0 && provenanceHash != "") {
-                _setEncryptedData(nextTokenIdToLazyMint + _amount, _data);
-            }
+/**
+    *  @notice                  Lets an authorized address lazy mint a given amount of NFTs.
+    *
+    *  @param _amount           The number of NFTs to lazy mint.
+    *  @param _baseURIForTokens The placeholder base URI for the 'n' number of NFTs being lazy minted, where the
+    *                           metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`.
+    *  @param _data             The encrypted base URI + provenance hash for the batch of NFTs being lazy minted.
+    *  @return batchId          A unique integer identifier for the batch of NFTs lazy minted together.
+    */
+function lazyMint(
+    uint256 _amount,
+    string calldata _baseURIForTokens,
+    bytes calldata _data
+) public virtual override returns (uint256 batchId) {
+    if (_data.length > 0) {
+        (bytes memory encryptedURI, bytes32 provenanceHash) = abi.decode(_data, (bytes, bytes32));
+        if (encryptedURI.length != 0 && provenanceHash != "") {
+            _setEncryptedData(nextTokenIdToLazyMint + _amount, _data);
         }
-
-        return super.lazyMint(_amount, _baseURIForTokens, _data);
     }
+
+    return super.lazyMint(_amount, _baseURIForTokens, _data);
+}
 ```
+
 </Details>
 
 <Details id="reveal" summary="reveal">
 
 ```solidity
-    /**
-     *  @notice       Lets an authorized address reveal a batch of delayed reveal NFTs.
-     *
-     *  @param _index The ID for the batch of delayed-reveal NFTs to reveal.
-     *  @param _key   The key with which the base URI for the relevant batch of NFTs was encrypted.
-     */
-    function reveal(uint256 _index, bytes calldata _key) external virtual override returns (string memory revealedURI) {
-        require(_canReveal(), "Not authorized");
+/**
+    *  @notice       Lets an authorized address reveal a batch of delayed reveal NFTs.
+    *
+    *  @param _index The ID for the batch of delayed-reveal NFTs to reveal.
+    *  @param _key   The key with which the base URI for the relevant batch of NFTs was encrypted.
+    */
+function reveal(uint256 _index, bytes calldata _key) external virtual override returns (string memory revealedURI) {
+    require(_canReveal(), "Not authorized");
 
-        uint256 batchId = getBatchIdAtIndex(_index);
-        revealedURI = getRevealURI(batchId, _key);
+    uint256 batchId = getBatchIdAtIndex(_index);
+    revealedURI = getRevealURI(batchId, _key);
 
-        _setEncryptedData(batchId, "");
-        _setBaseURI(batchId, revealedURI);
+    _setEncryptedData(batchId, "");
+    _setBaseURI(batchId, revealedURI);
 
-        emit TokenURIRevealed(_index, revealedURI);
-    }
+    emit TokenURIRevealed(_index, revealedURI);
+}
 
-    /// @dev Checks whether NFTs can be revealed in the given execution context.
-    function _canReveal() internal view virtual returns (bool) {
-        return msg.sender == owner();
-    }
+/// @dev Checks whether NFTs can be revealed in the given execution context.
+function _canReveal() internal view virtual returns (bool) {
+    return msg.sender == owner();
+}
 ```
+
 </Details>

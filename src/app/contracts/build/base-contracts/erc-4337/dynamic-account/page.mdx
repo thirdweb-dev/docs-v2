@@ -1,5 +1,5 @@
-import { Details, Callout} from "@/components/Document";
-import {GithubButtonLink} from "@/components/Document/GithubButtonLink"
+import { Details, Callout } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
 
 # Dynamic Account
 
@@ -15,9 +15,7 @@ The difference between `DynamicAccount` smart wallet and [`Account`](/solidity/b
 
 The admin of a given `DynamicAccount` smart wallet is allowed to make upgrades to their **own** smart wallets. This is the right wallet for developers who anticipate providing **opt-in upgrades** to their users’ wallets.
 
-<GithubButtonLink
-  href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/dynamic/DynamicAccount.sol"
-/>
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/dynamic/DynamicAccount.sol" />
 
 <br />
 
@@ -99,6 +97,7 @@ function initialize(
     );
 }
 ```
+
 </Details>
 
 <Details id="entryPoint" summary="entryPoint">
@@ -110,6 +109,7 @@ function entryPoint() public view virtual override returns (IEntryPoint) {
     return entrypointContract;
 }
 ```
+
 </Details>
 
 <Details id="getImplementationForFunction" summary="getImplementationForFunction">
@@ -153,6 +153,7 @@ function _canSetExtension() internal view virtual override returns (bool) {
     return _hasRole(EXTENSION_ADMIN_ROLE, msg.sender);
 }
 ```
+
 </Details>
 
 <Details id="_validatesSignature" summary="_validatesSignature">
@@ -173,4 +174,5 @@ function _validateSignature(UserOperation calldata userOp, bytes32 userOpHash)
     return 0;
 }
 ```
+
 </Details>
