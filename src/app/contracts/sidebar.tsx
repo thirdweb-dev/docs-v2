@@ -1,26 +1,11 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
 import { SidebarLink } from "@/components/others/Sidebar";
 import {
-	ReactIcon,
-	TypeScriptIcon,
-	PythonIcon,
-	GoIcon,
-	UnityIcon,
-	SolidityIcon,
 	ContractBuildIcon,
 	ContractExploreIcon,
 	ContractInteractIcon,
 	ContractDeployIcon,
 	ContractPublishIcon,
-	InfraEngineIcon,
-	InfraRPCIcon,
-	InfraStorageIcon,
-	WalletsAuthIcon,
-	WalletsConnectIcon,
-	WalletsEmbeddedIcon,
-	WalletsSmartIcon,
-	PaymentsNFTCheckoutIcon,
-	PaymentsSponsoredIcon,
 } from "@/icons";
 
 const prebuilt: SidebarLink = (() => {
@@ -640,20 +625,17 @@ const publish: SidebarLink = (() => {
 	};
 })();
 
-const resources: SidebarLink = (() => {
-	const parentSlug = "/contracts/resources";
-	return {
-		name: "Resources",
-		isCollapsible: false,
-		links: [
-			designDocs,
-			{
-				name: "FAQs",
-				href: "/contracts/faq",
-			},
-		],
-	};
-})();
+const resources: SidebarLink = {
+	name: "Resources",
+	isCollapsible: false,
+	links: [
+		designDocs,
+		{
+			name: "FAQs",
+			href: "/contracts/faq",
+		},
+	],
+};
 
 export const sidebar: SideBar = {
 	name: "Contracts",
