@@ -6,7 +6,7 @@ The document is written for technical and non-technical readers. To ask further 
 
 ---
 
-<br/>
+
 
 ## Background
 
@@ -14,7 +14,7 @@ The [thirdweb](https://thirdweb.com/) `Marketplace V3` is a marketplace where pe
 
 `Marketplace V3` offers improvements over previous version in terms of design and features, which are discussed in this document. You can refer to previous (v2) `Marketplace` design document [here](https://github.com/thirdweb-dev/contracts/blob/main/contracts/old-marketplace/marketplace.md).
 
-<br/>
+
 ## Context behind this update
 
 We have given `Marketplace` an update that was long overdue. The marketplace product is still made up of three core ways of exchanging NFTs for money:
@@ -42,7 +42,7 @@ For all these reasons and feature additions, the `Marketplace` contract is getti
 
 Finally, to accomplish all these things without the constraint of the smart contract size limit, the `Marketplace V3` contract is written in the following new code pattern, which we call `Plugin Pattern`. It was influenced by [EIP-2535](https://eips.ethereum.org/EIPS/eip-2535). You can read more about Plugin Pattern [here](https://blog.thirdweb.com/).
 
-<br/>
+
 ## Extensions that make up `Marketplace V3`
 
 The `Marketplace V3` smart contract is now written as the sum of three main extension smart contracts:
@@ -53,7 +53,7 @@ The `Marketplace V3` smart contract is now written as the sum of three main exte
 
 Each of these extension smart contracts is independent, and does not care about the state of the other extension contracts.
 
-<br/>
+
 ### What the Marketplace will look like to users
 
 There are two groups of users — (1) thirdweb's customers who'll set up the marketplace, and (2) the end users of thirdweb customers' marketplaces.
@@ -72,7 +72,7 @@ To the end users of thirdweb customers, the experience of using the marketplace 
   - Can make bids to auctions.
   - Must pay gas fees to perform any actions, including the actions just listed.
 
-<br/>
+
 ### EIPs implemented / supported
 
 To be able to escrow NFTs in the case of auctions, Marketplace implements the receiver interfaces for [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) and [ERC721](https://eips.ethereum.org/EIPS/eip-721) tokens.
@@ -81,12 +81,12 @@ To enable meta-transactions (gasless), Marketplace implements [ERC2771](https://
 
 Marketplace also honors [ERC2981](https://eips.ethereum.org/EIPS/eip-2981) for the distribution of royalties on direct and auction listings.
 
-<br/>
+
 ### Events emitted
 
 All events emitted by the contract, as well as when they're emitted, can be found in the interface of the contract, [here](https://github.com/thirdweb-dev/contracts/blob/main/contracts/marketplace/IMarketplace.sol). In general, events are emitted whenever there is a state change in the contract.
 
-<br/>
+
 ### Currency transfers
 
 The contract supports both ERC20 currencies and a chain's native token (e.g. ether for Ethereum mainnet). This means that any action that involves transferring currency (e.g. buying a token from a direct listing) can be performed with either an ERC20 token or the chain's native token.
@@ -97,15 +97,15 @@ The contract wraps all native tokens deposited into it as the canonical ERC20 wr
 
 If the contract fails to transfer out native tokens, it wraps them back to wrapped native tokens, and transfers the wrapped native tokens to the concerned address. The contract may fail to transfer out native tokens to an address, if the address represents a smart contract that cannot accept native tokens transferred to it directly.
 
-<br/>
+
 # API Reference for Extensions
 
-<br/>
+
 ## Direct listings
 
 The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-721 or ERC-1155) for a fixed price.
 
-<br/>
+
 ### `createListing`
 
 **What:** List NFTs (ERC721 or ERC1155) for sale at a fixed price.
@@ -148,7 +148,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   - The listing creator must have `LISTER_ROLE` if role restrictions are active.
   - The asset being listed must have `ASSET_ROLE` if role restrictions are active.
 
-<br/>
+
 ### `updateListing`
 
 **What:** Update information (e.g. price) for one of your listings on the marketplace.
@@ -191,7 +191,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   - The listing start time must be greater than or equal to the incumbent start timestamp. The listing end time must be after the listing start time.
   - The asset being listed must have `ASSET_ROLE` if role restrictions are active.
 
-<br/>
+
 ### `cancelListing`
 
 **What:** Cancel (i.e. delete) one of your listings on the marketplace.
@@ -211,7 +211,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   - The caller of the function _must_ be the creator of the listing being cancelled.
   - The listing must exist.
 
-<br/>
+
 ### `approveBuyerForListing`
 
 **What:** Approve a buyer to buy from a reserved listing.
@@ -237,7 +237,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   - The caller of the function _must_ be the creator of the listing in question.
   - The listing must be reserved.
 
-<br/>
+
 ### `approveCurrencyForListing`
 
 **What:** Approve a currency as a form of payment for the listing.
@@ -263,7 +263,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   - The caller of the function _must_ be the creator of the listing in question.
   - The currency being approved must not be the main currency accepted by the listing.
 
-<br/>
+
 ### `buyFromListing`
 
 **What:** Buy NFTs from a listing.
@@ -298,7 +298,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   - The buyer must not attempt to buy more NFTs than are listed at the time.
   - The buyer must pay in a currency approved by the listing creator.
 
-<br/>
+
 ### `totalListings`
 
 **What:** Returns the total number of listings created so far.
@@ -310,7 +310,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
 
   ```
 
-<br/>
+
 ### `getAllListings`
 
 **What:** Returns all listings between the start and end Id (both inclusive) provided.
@@ -355,7 +355,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   | startId | Inclusive start listing Id |
   | endId | Inclusive end listing Id |
 
-<br/>
+
 ### `getAllValidListings`
 
 **What:** Returns all valid listings between the start and end Id (both inclusive) provided. A valid listing is where the listing is active, as well as the creator still owns and has approved Marketplace to transfer the listed NFTs.
@@ -373,7 +373,7 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   | startId | Inclusive start listing Id |
   | endId | Inclusive end listing Id |
 
-<br/>
+
 ### `getListing`
 
 **What:** Returns a listing at the provided listing ID.
@@ -390,12 +390,12 @@ The `DirectListings` extension smart contract lets you buy and sell NFTs (ERC-72
   | --------- | ------------------------------- |
   | listingId | The ID of the listing to fetch. |
 
-<br/>
+
 ## English auctions
 
 The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ERC-1155) in an english auction.
 
-<br/>
+
 ### `createAuction`
 
 **What:** Put up NFTs (ERC721 or ERC1155) for an english auction.
@@ -454,7 +454,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   - The auction creator must have `LISTER_ROLE` if role restrictions are active.
   - The asset being auctioned must have `ASSET_ROLE` if role restrictions are active.
 
-<br/>
+
 ### `cancelAuction`
 
 **What:** Cancel an auction.
@@ -474,7 +474,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   - The caller of the function must be the auction creator.
   - There must be no bids placed in the ongoing auction. (Default true for all auctions that haven’t started)
 
-<br/>
+
 ### `collectAuctionPayout`
 
 **What:** Once the auction ends, collect the highest bid made for your auctioned NFTs.
@@ -494,7 +494,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   - The auction must be expired.
   - The auction must have received at least one valid bid.
 
-<br/>
+
 ### `collectAuctionTokens`
 
 **What:** Once the auction ends, collect the auctioned NFTs for which you were the highest bidder.
@@ -514,7 +514,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   - The auction must be expired.
   - The caller must be the winning bidder.
 
-<br/>
+
 ### `bidInAuction`
 
 **What:** Make a bid in an auction.
@@ -536,7 +536,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   - The caller must own and approve Marketplace to transfer the requisite bid amount to itself.
   - The bid amount must be a winning bid amount. (For convenience, this can be verified by calling `isNewWinningBid`)
 
-<br/>
+
 ### `isNewWinningBid`
 
 **What:** Check whether a given bid amount would make for a new winning bid.
@@ -556,7 +556,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 - Criteria that must be satisfied
   - The auction must not have been cancelled or expired.
 
-<br/>
+
 ### `totalAuctions`
 
 **What:** Returns the total number of auctions created so far.
@@ -568,7 +568,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
   ```
 
-<br/>
+
 ### `getAuction`
 
 **What:** Fetch the auction info at a particular auction ID.
@@ -602,7 +602,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   | --------- | ----------------------------- |
   | auctionId | The unique ID of the auction. |
 
-<br/>
+
 ### `getAllAuctions`
 
 **What:** Returns all auctions between the start and end Id (both inclusive) provided.
@@ -620,7 +620,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   | startId | Inclusive start auction Id |
   | endId | Inclusive end auction Id |
 
-<br/>
+
 ### `getAllValidAuctions`
 
 **What:** Returns all valid auctions between the start and end Id (both inclusive) provided. A valid auction is where the auction is active, as well as the creator still owns and has approved Marketplace to transfer the auctioned NFTs.
@@ -638,7 +638,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   | startId | Inclusive start auction Id |
   | endId | Inclusive end auction Id |
 
-<br/>
+
 ### `getWinningBid`
 
 **What:** Get the winning bid of an auction.
@@ -662,7 +662,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   | --------- | ---------------------------- |
   | auctionId | The unique ID of an auction. |
 
-<br/>
+
 ### `isAuctionExpired`
 
 **What:** Returns whether an auction is expired or not.
@@ -679,10 +679,10 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   | --------- | ---------------------------- |
   | auctionId | The unique ID of an auction. |
 
-<br/>
+
 ## Offers
 
-<br/>
+
 ### `makeOffer`
 
 **What:** Make an offer for any ERC721 or ERC1155 NFTs (unless `ASSET_ROLE` restrictions apply)
@@ -717,7 +717,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   - The offeror must make an offer for non-zero quantity of NFTs. If offering for ERC721 tokens, the quantity wanted must be `1`.
   - Expiration timestamp must be greater than block timestamp, or within 1 hour of block timestamp.
 
-<br/>
+
 ### `cancelOffer`
 
 **What:** Cancel an existing offer.
@@ -736,7 +736,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 - Criteria that must be satisfied
   - The caller of the function must be the offeror.
 
-<br/>
+
 ### `acceptOffer`
 
 **What:** Accept an offer made for your NFTs.
@@ -756,7 +756,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   - The caller of the function must own and approve Marketplace to transfer the tokens for which the offer is made.
   - The offeror must still own and have approved Marketplace to transfer the requisite amount currency offered for the NFTs wanted.
 
-<br/>
+
 ### `totalOffers`
 
 **What:** Returns the total number of offers created so far.
@@ -768,7 +768,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
 
   ```
 
-<br/>
+
 ### `getOffer`
 
 **What:** Returns the offer at a particular offer Id.
@@ -798,7 +798,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   | --------- | -------------------------- |
   | offerId | The unique ID of an offer. |
 
-<br/>
+
 ### `getAllOffers`
 
 **What:** Returns all offers between the start and end Id (both inclusive) provided.
@@ -816,7 +816,7 @@ The `EnglishAuctions` extension smart contract lets you sell NFTs (ERC-721 or ER
   | startId | Inclusive start offer Id |
   | endId | Inclusive end offer Id |
 
-<br/>
+
 ### `getAllValidOffers`
 
 **What:** Returns all valid offers between the start and end Id (both inclusive) provided. A valid offer is where the offer is active, as well as the offeror still owns and has approved Marketplace to transfer the currency tokens.

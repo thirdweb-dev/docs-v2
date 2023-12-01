@@ -6,7 +6,7 @@ The document is written for technical and non-technical readers. To ask further 
 
 ---
 
-<br/>
+
 ## Background
 
 The thirdweb `Drop` contracts are distribution mechanisms for tokens. This distribution mechanism is offered for ERC20, ERC721 and ERC1155 tokens, as `DropERC20`, `DropERC721` and `DropERC1155`.
@@ -15,7 +15,7 @@ The `Drop` contracts are meant to be used when the goal of the contract creator 
 
 The `Drop` contracts let the contract creator establish phases (periods of time), where each phase can specify multiple such restrictions on the minting of tokens during that period of time. We refer to such a phase as a ‘claim condition’.
 
-<br/>
+
 ### Why we’re building `Drop`
 
 We’ve observed that there are largely three distinct contexts under which one mints tokens —
@@ -29,12 +29,12 @@ The thirdweb `Token` contracts serve the cases described in (1) and 2(ii).
 
 The thirdweb `Drop` contracts serve the case described in 2(i). They are written to give a contract creator granular control over restrictions around an audience minting tokens from the same contract (or ‘collection’, in the case of NFTs) over an extended period of time.
 
-<br/>
+
 ## Technical Details
 
 The distribution mechanism of `Drop` is as follows — A contract admin establishes a series of ‘claim conditions’. A ‘claim condition’ is a period of time in which accounts can mint tokens on the respective `Drop` contract, within a set of restrictions defined by the ‘claim condition’.
 
-<br/>
+
 ### Claim Conditions
 
 The following makes up a claim condition —
@@ -92,7 +92,7 @@ struct ClaimConditionList {
 | conditions            | The claim conditions at a given uid. Claim conditions are ordered in an ascending order by their startTimestamp.                                                              |
 | supplyClaimedByWallet | Map from a claim condition uid and account to the supply claimed by that account.                                                                                             |
 
-<br/>
+
 ### Allowlist as an override list
 
 As mentioned above, an allowlist can specify different conditions for addresses in the list. This way, it serves as an override over general/open restrictions for non-allowlisted addresses.
@@ -106,7 +106,7 @@ If a value is not set for any of these, then the value specified in general clai
 
 > **IMPORTANT**: _The allowlist should not contain an address more than once in the same merkle tree. Multiple instances for the same address (with different/same quantity, price etc.) may not function as expected and may lead to unexpected behavior during claim. (More details in Limitations section)._
 
-<br/>
+
 ### Setting claim conditions
 
 In all `Drop` contracts, a contract admin specifies the following when setting claim conditions:
@@ -151,7 +151,7 @@ supplyClaimedByWallet = claimCondition.supplyClaimedByWallet[conditionId][claime
 require(quantityToClaim + supplyClaimedByWallet <= quantityLimitPerWallet);
 ```
 
-<br/>
+
 ### EIPs supported / implemented
 
 The distribution mechanism for tokens expressed by thirdweb’s `Drop` is implemented for ERC20, ERC721 and ERC1155 tokens, as `DropERC20`, `DropERC721` and `DropERC1155`.
@@ -161,17 +161,17 @@ There are a few key differences between the three implementations —
 - `DropERC20` is written for the distribution of completely fungible, ERC20 tokens. On the other hand, `DropERC721` and `DropERC1155` are written for the distribution of NFTs, which requires ‘lazy minting’ i.e. defining the content of the NFTs before an audience comes in to mint them during a claim condition.
 - Both `DropERC20` and `DropERC721` maintain a global, contract-wide `ClaimConditionsList` which stores the claim conditions under which tokens can be minted. The `DropERC1155` contract, on the other hand, maintains a `ClaimConditionList` for every integer token ID that an NFT can assume. And so, a contract admin can set up claim conditions per NFT i.e. per token ID, in the `DropERC1155` contract.
 
-<br/>
+
 ## Limitations
 
-<br/>
+
 ### Sybil attacks
 
 The distribution mechanism of thirdweb’s `Drop` contracts is vulnerable to [sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack). That is, despite the various ways in which restrictions can be applied to the minting of tokens, some restrictions that claim conditions can express target wallets and not persons.
 
 For example, the restriction `quantityLimitPerWallet` expresses the max quantity a _wallet_ can claim during the respective claim condition. A sophisticated actor may generate multiple wallets to claim tokens in a way that undermine such restrictions, when viewing such restrictions as restrictions on unique persons, and not wallets.
 
-<br/>
+
 ### Allowlist behavior
 
 When specifying allowlist of addresses, and quantities, price, etc. for those addresses, contract admins must ensure that they don't list an address more than once in the same merkle tree.

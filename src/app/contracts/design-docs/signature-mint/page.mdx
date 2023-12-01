@@ -6,7 +6,7 @@ The document is written for technical and non-technical readers. To ask further 
 
 ---
 
-<br/>
+
 
 ## Background
 
@@ -21,7 +21,7 @@ The following diagram illustrates how the 'signature minting' flow looks like. F
 
 ![signature-minting-diagram-1.png](/assets/signature-minting-diag-1.png)
 
-<br/>
+
 
 ### Why we're developing `Signature Minting`
 
@@ -36,13 +36,13 @@ The thirdweb `Drop` contracts serve the cases described in 2(i).
 
 The thirdweb `Token` contracts serve the cases described in (1) and 2(ii). And the 'signature minting' mechanism is particularly designed to serve the case described in 2(ii).
 
-<br/>
+
 
 ## Technical Details
 
 We'll now go over the technical details involved in the 'signature minting' mechanism illustrated in the diagram in the preceding section.
 
-<br/>
+
 ### Payload / Mint request
 
 We'll now cover what makes up a payload, or 'mint request':
@@ -83,7 +83,7 @@ The described fields in `MintRequest` are what make up a payload or 'mint reques
 
 When any external party presents a payload to the contract implementing the 'signature minting' mechanism, tokens are minted exactly according to the information specified in the presented `MintRequest`.
 
-<br/>
+
 ### Minting tokens with a payload / 'mint request'
 
 Any external party can present a smart contract implementing the 'signature minting' mechanism with a payload, along with the signature generated from a contract admin signing the payload. Tokens will then be minted according to the information specified in the payload.

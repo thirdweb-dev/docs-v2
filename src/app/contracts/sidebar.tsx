@@ -1,5 +1,27 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
 import { SidebarLink } from "@/components/others/Sidebar";
+import {
+	ReactIcon,
+	TypeScriptIcon,
+	PythonIcon,
+	GoIcon,
+	UnityIcon,
+	SolidityIcon,
+	ContractBuildIcon,
+	ContractExploreIcon,
+	ContractInteractIcon,
+	ContractDeployIcon,
+	ContractPublishIcon,
+	InfraEngineIcon,
+	InfraRPCIcon,
+	InfraStorageIcon,
+	WalletsAuthIcon,
+	WalletsConnectIcon,
+	WalletsEmbeddedIcon,
+	WalletsSmartIcon,
+	PaymentsNFTCheckoutIcon,
+	PaymentsSponsoredIcon,
+} from "@/icons";
 
 const prebuilt: SidebarLink = (() => {
 	const parentSlug = "/contracts/pre-built-contracts";
@@ -520,6 +542,119 @@ const designDocs: SidebarLink = (() => {
 	};
 })();
 
+const explore: SidebarLink = (() => {
+	const parentSlug = "/contracts/explore";
+	return {
+		name: "Explore",
+		icon: <ContractExploreIcon />,
+		isCollapsible: false,
+		links: [
+			{
+				name: "Overview",
+				href: `${parentSlug}/overview`,
+			},
+			prebuilt,
+		],
+	};
+})();
+
+const build: SidebarLink = (() => {
+	const parentSlug = "/contracts/build";
+	return {
+		name: "Build",
+		icon: <ContractBuildIcon />,
+		isCollapsible: false,
+		links: [
+			{
+				name: "Overview",
+				href: `${parentSlug}/overview`,
+			},
+			{
+				name: "Get Started",
+				href: `${parentSlug}/get-started`,
+			},
+			baseContracts,
+			extensions,
+		],
+	};
+})();
+
+const deploy: SidebarLink = (() => {
+	const parentSlug = "/contracts/deploy";
+	return {
+		name: "Deploy",
+		icon: <ContractDeployIcon />,
+		isCollapsible: false,
+		links: [
+			{
+				name: "Overview",
+				href: `${parentSlug}/overview`,
+			},
+			{
+				name: "Deploy Contract",
+				href: `${parentSlug}/deploy-contract`,
+			},
+			{
+				name: "CLI Reference",
+				href: `${parentSlug}/reference`,
+			},
+		],
+	};
+})();
+
+const interact: SidebarLink = (() => {
+	const parentSlug = "/contracts/interact";
+	return {
+		name: "Interact",
+		icon: <ContractInteractIcon />,
+		isCollapsible: false,
+		links: [
+			{
+				name: "Overview",
+				href: `${parentSlug}/overview`,
+			},
+		],
+	};
+})();
+
+const publish: SidebarLink = (() => {
+	const parentSlug = "/contracts/publish";
+	return {
+		name: "Publish",
+		icon: <ContractPublishIcon />,
+		isCollapsible: false,
+		links: [
+			{
+				name: "Overview",
+				href: `${parentSlug}/overview`,
+			},
+			{
+				name: "Publish Contract",
+				href: `${parentSlug}/publish-contract`,
+			},
+			{
+				name: "Publish Options",
+				href: `${parentSlug}/publish-options`,
+			},
+		],
+	};
+})();
+
+const resources: SidebarLink = (() => {
+	const parentSlug = "/contracts/resources";
+	return {
+		name: "Resources",
+		isCollapsible: false,
+		links: [
+			designDocs,
+			{
+				name: "FAQs",
+				href: "/contracts/faq",
+			},
+		],
+	};
+})();
+
 export const sidebar: SideBar = {
 	name: "Contracts",
 	links: [
@@ -527,17 +662,11 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: "/contracts",
 		},
-		prebuilt,
-		{
-			name: "Get Started",
-			href: "/contracts/build/get-started",
-		},
-		baseContracts,
-		extensions,
-		designDocs,
-		{
-			name: "FAQs",
-			href: "/contracts/faq",
-		},
+		explore,
+		build,
+		deploy,
+		publish,
+		interact,
+		resources,
 	],
 };

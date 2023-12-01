@@ -6,7 +6,7 @@ The document is written for technical and non-technical readers. To ask further 
 
 ---
 
-<br/>
+
 ## Background
 
 The thirdweb Multiwrap contract lets you wrap arbitrary ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token / NFT.
@@ -15,7 +15,7 @@ The `Multiwrap` contract is meant to be used for bundling up multiple assets (
 
 The single wrapped token received on bundling up multiple assets, as mentioned above, is an ERC721 NFT. It can be transferred, sold on any NFT Marketplace, and generate royalties just like any other NFTs.
 
-<br/>
+
 ### How the `Multiwrap` product _should_ work
 
 ![multiwrap-diagram.png](/assets/multiwrap-diagram.png)
@@ -30,20 +30,20 @@ The `Multiwrap` contract creator should be able to apply the following role-base
 - Restrict which wallets can wrap tokens on the contract.
 - Restrict what wallets can unwrap owned wrapped NFTs.
 
-<br/>
+
 ### Core parts of the `Multiwrap` product
 
 - A token owner should be able to wrap any combination of _n_ ERC20, ERC721 or ERC1155 tokens as a wrapped token.
 - A wrapped token owner should be able to unwrap the token to retrieve the underlying contents of the wrapped token.
 
-<br/>
+
 ### Why we’re building `Multiwrap`
 
 We're building `Multiwrap` for cases where an application wishes to bundle up / distribute / transact over *n* independent tokens all at once, as a single asset. This opens up several novel NFT use cases.
 
 For example, consider a lending service where people can take out a loan while putting up an NFT as a collateral. Using `Multiwrap`, a borrower can wrap their NFT with some ether, and put up the resultant wrapped ERC721 NFT as collateral on the lending service. Now, the borrower's NFT, as collateral, has a floor value.
 
-<br/>
+
 ## Technical Details
 
 The `Multiwrap`contract itself is an ERC721 contract.
@@ -52,7 +52,7 @@ It lets you wrap arbitrary ERC20, ERC721 or ERC1155 tokens you own into a single
 
 This wrapped NFT can later be 'unwrapped' i.e. burned in exchange for the underlying tokens.
 
-<br/>
+
 ### Wrapping tokens
 
 To wrap multiple ERC20, ERC721 or ERC1155 tokens as a single wrapped NFT, a token owner must:
@@ -97,7 +97,7 @@ function wrap(
 | uriForWrappedToken | string  | The metadata URI for the wrapped NFT. |
 | recipient          | address | The recipient of the wrapped NFT.     |
 
-<br/>
+
 ### Unwrapping the wrapped NFT
 
 The single wrapped NFT, received on wrapping multiple assets as explained in the previous section, can be unwrapped in exchange for the underlying assets.
@@ -120,7 +120,7 @@ function unwrap(
 | tokenId    | Token[] | The token Id of the wrapped NFT to unwrap.                                          |
 | recipient  | address | The recipient of the underlying ERC20, ERC721 or ERC1155 tokens of the wrapped NFT. |
 
-<br/>
+
 ## Permissions
 
 | Role name     | Type (Switch / !Switch) | Purpose                                                   |
@@ -135,7 +135,7 @@ What does **Type (Switch / !Switch)** mean?
 - **Switch:** If `address(0)` has `ROLE`, then the `ROLE` restrictions don't apply.
 - **!Switch:** `ROLE` restrictions always apply.
 
-<br/>
+
 ## Relevant EIPs
 
 | EIP  | Link                                    | Relation to `Multiwrap`                                                                                                                                     |
