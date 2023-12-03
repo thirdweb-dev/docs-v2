@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.5.2"
+		"typedocBetterJsonVersion": "0.5.3"
 	},
 	"functions": [
 		{
@@ -5826,6 +5826,7 @@
 					"defaultType": "{  }"
 				}
 			],
+			"extends": ["BaseContract"],
 			"type": "{_deployedPromise : Promise<Contract>,_runningEvents : {  },_wrappedEmits : {  },address : string,callStatic : {  },deployTransaction : TransactionResponse,estimateGas : {  },filters : {  },functions : TFunctions,interface : Interface,populateTransaction : {  },provider : Provider,resolvedAddress : Promise<string>,signer : Signer,_checkRunningEvents : (runningEvent: RunningEvent) => void,_deployed : (blockTag?: BlockTag) => Promise<Contract>,_wrapEvent : (runningEvent: RunningEvent, log: Log, listener: Listener) => Event,attach : (addressOrName: string) => Contract,connect : (signerOrProvider: (string) | (Signer) | (Provider)) => Contract,deployed : () => Promise<Contract>,emit : (eventName: (string) | (EventFilter), ...args: any[]) => boolean,fallback : (overrides?: TransactionRequest) => Promise<TransactionResponse>,listenerCount : (eventName?: (string) | (EventFilter)) => number,listeners : (eventName?: (string) | (EventFilter)) => Listener[],off : (eventName: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>,on : (event: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>,once : (event: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>,queryFilter : (event: (string) | (EventFilter), fromBlockOrBlockhash?: BlockTag, toBlock?: BlockTag) => Promise<Event[]>,removeAllListeners : (eventName?: (string) | (EventFilter)) => BaseContractInterface<TFunctions>,removeListener : (eventName: (string) | (EventFilter), listener: Listener) => BaseContractInterface<TFunctions>}",
 			"typeDeclaration": [
 				{
@@ -7520,6 +7521,7 @@
 			"kind": "type",
 			"name": "MarketplaceFilter",
 			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/sdk/src/evm/types/marketplace/MarketPlaceFilter.ts#L8",
+			"extends": ["QueryAllParams"],
 			"type": "{count : number,offeror : string,seller : string,start : number,tokenContract : string,tokenId : BigNumberish}",
 			"typeDeclaration": [
 				{
@@ -7569,6 +7571,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/sdk/src/evm/types/marketplace/MarketPlaceFilter.ts#L18",
+			"extends": ["Omit<MarketplaceFilter, \"offeror\">"],
 			"type": "{count : number,seller : string,start : number,tokenContract : string,tokenId : BigNumberish}",
 			"typeDeclaration": [
 				{
@@ -7613,6 +7616,7 @@
 				}
 			],
 			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/sdk/src/evm/types/marketplace/MarketPlaceFilter.ts#L24",
+			"extends": ["Omit<MarketplaceFilter, \"seller\">"],
 			"type": "{count : number,offeror : string,start : number,tokenContract : string,tokenId : BigNumberish}",
 			"typeDeclaration": [
 				{
@@ -8167,6 +8171,7 @@
 			"kind": "type",
 			"name": "NativeToken",
 			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/sdk/src/evm/types/currency.ts#L17",
+			"extends": ["Currency"],
 			"type": "{decimals : 18,name : string,symbol : string,wrapped : { address: string; name: string; symbol: string }}",
 			"typeDeclaration": [
 				{

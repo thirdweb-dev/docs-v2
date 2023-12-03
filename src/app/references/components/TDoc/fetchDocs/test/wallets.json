@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.5.2"
+		"typedocBetterJsonVersion": "0.5.3"
 	},
 	"functions": [
 		{
@@ -875,6 +875,7 @@
 			"kind": "type",
 			"name": "AccountApiParams",
 			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L37",
+			"extends": ["Omit<BaseApiParams, \"provider\">", "ContractInfo"],
 			"type": "{accountAddress : string,accountInfo : AccountContractInfo,chain : ChainOrRpcUrl,clientId : string,entryPointAddress : string,factoryAddress : string,factoryInfo : FactoryContractInfo,localSigner : Signer,overheads : Partial<GasOverheads>,paymasterAPI : PaymasterAPI,secretKey : string}",
 			"typeDeclaration": [
 				{
@@ -1337,6 +1338,7 @@
 			"kind": "type",
 			"name": "ProviderConfig",
 			"source": "https://github.com/thirdweb-dev/js/blob/0fbd3c6f3/packages/wallets/src/evm/connectors/smart-wallet/types.ts#L48",
+			"extends": ["ContractInfo"],
 			"type": "{accountAddress : string,accountInfo : AccountContractInfo,bundlerUrl : string,chain : ChainOrRpcUrl,clientId : string,entryPointAddress : string,factoryAddress : string,factoryInfo : FactoryContractInfo,localSigner : Signer,paymasterAPI : PaymasterAPI,secretKey : string}",
 			"typeDeclaration": [
 				{

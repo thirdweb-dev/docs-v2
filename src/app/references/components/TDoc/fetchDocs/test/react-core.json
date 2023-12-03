@@ -1,6 +1,6 @@
 {
 	"meta": {
-		"typedocBetterJsonVersion": "0.5.2"
+		"typedocBetterJsonVersion": "0.5.3"
 	},
 	"functions": [
 		{
@@ -14340,6 +14340,7 @@
 					"extendsType": "Chain[]"
 				}
 			],
+			"extends": ["Omit<ThirdwebSDKProviderProps<TChains>, \"signer\">"],
 			"type": "{activeChain : (Chain) | (number & {  }) | (string & {  }) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,autoConnect : boolean,autoConnectTimeout : number,autoSwitch : boolean,clientId : string,createWalletStorage : CreateAsyncStorage,dAppMeta : DAppMetaData,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({  }), \"chains\">,secretKey : string,signerWallet : WalletConfig<SignerWallet>,storageInterface : IThirdwebStorage,supportedChains : TChains,supportedWallets : WalletConfig[],theme : (\"light\") | (\"dark\")}",
 			"typeDeclaration": [
 				{
@@ -14826,6 +14827,7 @@
 					"extendsType": "Chain[]"
 				}
 			],
+			"extends": ["QueryClientProviderProps"],
 			"type": "{activeChain : (Chain) | (number & {  }) | (string & {  }) | (TChains[number][\"chainId\"]) | (TChains[number][\"slug\"]),authConfig : ThirdwebAuthConfig,clientId : string,queryClient : QueryClient,sdkOptions : Omit<(undefined) | ({  }), \"chains\">,secretKey : string,signer : Signer,storageInterface : IThirdwebStorage,supportedChains : TChains}",
 			"typeDeclaration": [
 				{
@@ -15197,6 +15199,7 @@
 					"defaultType": "Json"
 				}
 			],
+			"extends": ["User<TContext>"],
 			"type": "{address : string,data : TData,session : TContext}",
 			"typeDeclaration": [
 				{

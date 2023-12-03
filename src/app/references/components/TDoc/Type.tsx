@@ -69,5 +69,25 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 
 export function getInterfaceCode(doc: InterfaceDoc) {
 	if (!doc.type) return doc.name;
-	return `type ${doc.name} = ${doc.type}`;
+
+	const generic = doc.typeParameters
+		? `<${doc.typeParameters
+				.map((t) => {
+					const defaultVal = t.defaultType ? ` = ${t.defaultType}` : "";
+					return (
+						(t.extendsType ? `${t.name} extends ${t.extendsType}` : t.name) +
+						defaultVal
+					);
+				})
+				.join(", ")}>`
+		: "";
+
+	if (doc.extends) {
+		const extendsClause = doc.extends
+			? `extends ${doc.extends.join(", ")}`
+			: "";
+
+		return `interface ${doc.name}${generic} ${extendsClause} ${doc.type}`;
+	}
+	return `type ${doc.name}${generic} = ${doc.type}`;
 }
