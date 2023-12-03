@@ -1,4 +1,4 @@
-import { AccessorDoc } from "typedoc-better-json";
+import { AccessorDoc, TypeRef } from "typedoc-better-json";
 import { CodeBlock } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
@@ -8,6 +8,7 @@ import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { Callout } from "@/components/Document";
+import { getTokenLinks } from "@/contexts/linkMap";
 
 export function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 	const { doc } = props;
@@ -18,6 +19,8 @@ export function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
+
+	const { code: signatureCode, references } = getAccessorSignatureCode(doc);
 
 	return (
 		<>
@@ -37,7 +40,11 @@ export function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 				</Callout>
 			)}
 
-			<CodeBlock lang="ts" code={getAccessorSignatureCode(doc)} />
+			<CodeBlock
+				lang="ts"
+				code={signatureCode}
+				tokenLinks={references ? getTokenLinks(references) : undefined}
+			/>
 
 			{exampleTag?.summary && (
 				<>
@@ -62,6 +69,9 @@ export function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 	);
 }
 
-export function getAccessorSignatureCode(doc: AccessorDoc) {
-	return `${doc.name}(): ${doc.returns?.type || "void"}`;
+export function getAccessorSignatureCode(doc: AccessorDoc): TypeRef {
+	return {
+		code: `${doc.name}(): ${doc.returns?.type?.code || "void"}`,
+		references: doc.returns?.type?.references,
+	};
 }

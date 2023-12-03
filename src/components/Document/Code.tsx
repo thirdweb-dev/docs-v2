@@ -7,15 +7,12 @@ import "highlight.js/styles/github-dark.css";
 import { format } from "prettier/standalone";
 import * as parserBabel from "prettier/plugins/babel";
 import * as estree from "prettier/plugins/estree";
-// python format
 // html-to-react
 import { Parser, ProcessNodeDefinitions } from "html-to-react";
 import { ChildNode } from "domhandler";
 // others
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { linkMapContext } from "@/contexts/linkMap";
-import { DocLink } from "./DocLink";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { solidity } from "highlightjs-solidity";
@@ -36,9 +33,14 @@ const jsOrTsLangs = new Set([
 
 highlight.registerLanguage("solidity", solidity);
 
-export async function CodeBlock(props: { code: string; lang: string }) {
+export async function CodeBlock(props: {
+	code: string;
+	lang: string;
+	tokenLinks?: Map<string, string>;
+}) {
 	let code = props.code;
 	let lang = props.lang;
+	const tokenLinks = props.tokenLinks;
 
 	if (lang === "shell" || lang === "sh") {
 		lang = "bash";
@@ -65,9 +67,8 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 	let ReactElement: any;
 
 	// wrap with links
-	const linkMap = linkMapContext.get();
 
-	if (linkMap) {
+	if (tokenLinks) {
 		const processingInstructions = [
 			{
 				shouldProcessNode: function (node: ChildNode) {
@@ -76,8 +77,8 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 				processNode: function (node: Text) {
 					const tokens = alphaSplit(node.data);
 					const result = tokens.map((token, i) => {
-						if (linkMap.has(token)) {
-							const href = linkMap.get(token);
+						if (tokenLinks.has(token)) {
+							const href = tokenLinks.get(token);
 
 							return (
 								<Link
@@ -99,6 +100,7 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 								</Link>
 							);
 						}
+
 						return token;
 					});
 
@@ -139,8 +141,6 @@ export async function CodeBlock(props: { code: string; lang: string }) {
 }
 
 export function InlineCode(props: { code: string; className?: string }) {
-	const linkMap = linkMapContext.get();
-	const href = linkMap?.get(props.code);
 	return (
 		<code
 			className={cn(
@@ -148,39 +148,9 @@ export function InlineCode(props: { code: string; className?: string }) {
 				props.className,
 			)}
 		>
-			{href ? <DocLink href={href || "#"}>{props.code}</DocLink> : props.code}
+			{props.code}
 		</code>
 	);
-}
-
-/**
- * Given a string with some alpha characters and some non-alpha characters mixed together,
- * split the string into an array of tokens
- * where each token is either a consecutive string of alpha characters or a string of non-alpha characters.
- *
- * @param str - The string to split
- * @returns An array of alpha and non-alpha tokens
- */
-function alphaSplit(str: string) {
-	const output: string[] = [];
-	let collecting = "";
-	let isCollectingVar = true;
-
-	for (const char of str) {
-		const isValidVar = /[a-zA-Z_]/.test(char);
-
-		// if mismatch between current char and current word type
-		if ((!isValidVar && isCollectingVar) || (isValidVar && !isCollectingVar)) {
-			output.push(collecting); // save currently collected word
-			collecting = char; // start collecting new word
-			isCollectingVar = !isCollectingVar; // toggle flag
-			continue;
-		} else {
-			collecting += char; // keep collecting current word
-		}
-	}
-	if (collecting) output.push(collecting);
-	return output;
 }
 
 function fixBashHighlight() {
@@ -197,4 +167,34 @@ function fixBashHighlight() {
 			"add",
 		];
 	}
+}
+
+/**
+ * Given a string with some alpha characters and some non-alpha characters mixed together,
+ * split the string into an array of tokens
+ * where each token is either a consecutive string of alpha characters or a string of non-alpha characters.
+ *
+ * @param str - The string to split
+ * @returns An array of alpha and non-alpha tokens
+ */
+function alphaSplit(str: string) {
+	const output: string[] = [];
+	let collecting = "";
+	let isCollectingVar = true;
+
+	for (const char of str) {
+		const isValidVar = /[a-zA-Z_0-9]/.test(char);
+
+		// if mismatch between current char and current word type
+		if ((!isValidVar && isCollectingVar) || (isValidVar && !isCollectingVar)) {
+			output.push(collecting); // save currently collected word
+			collecting = char; // start collecting new word
+			isCollectingVar = !isCollectingVar; // toggle flag
+			continue;
+		} else {
+			collecting += char; // keep collecting current word
+		}
+	}
+	if (collecting) output.push(collecting);
+	return output;
 }

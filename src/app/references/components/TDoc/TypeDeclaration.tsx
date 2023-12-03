@@ -8,6 +8,7 @@ import invariant from "tiny-invariant";
 import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { Callout } from "@/components/Document";
 import { getTags } from "./utils/getTags";
+import { getTokenLinks } from "@/contexts/linkMap";
 
 export function TypeDeclarationTDoc(props: {
 	doc: TypeDeclarationDoc;
@@ -69,7 +70,13 @@ function SubtypeDeclarationTDoc(props: {
 				</Callout>
 			)}
 
-			<CodeBlock lang="ts" code={`type ${doc.name} = ${doc.type}`} />
+			<CodeBlock
+				lang="ts"
+				code={`type ${doc.name} = ${doc.type.code}`}
+				tokenLinks={
+					doc.type.references ? getTokenLinks(doc.type.references) : undefined
+				}
+			/>
 
 			{exampleTag?.summary && (
 				<>

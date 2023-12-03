@@ -1,4 +1,4 @@
-import { FunctionDoc, FunctionSignature } from "typedoc-better-json";
+import { FunctionDoc, FunctionSignature, TypeRef } from "typedoc-better-json";
 import { CodeBlock } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
@@ -9,6 +9,7 @@ import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { getTags } from "./utils/getTags";
+import { getTokenLinks } from "@/contexts/linkMap";
 
 export function FunctionTDoc(props: {
 	doc: FunctionDoc;
@@ -64,6 +65,12 @@ function RenderFunctionSignature(props: {
 
 	const subLevel = props.signatureId ? props.level + 1 : props.level;
 
+	const signatureCode = getFunctionSignatureCode(name, signature);
+
+	const tokenLinks = signatureCode.references
+		? getTokenLinks(signatureCode.references)
+		: undefined;
+
 	return (
 		<>
 			{props.signatureId && (
@@ -95,7 +102,7 @@ function RenderFunctionSignature(props: {
 				</Callout>
 			)}
 
-			<CodeBlock code={getFunctionSignatureCode(name, signature)} lang="ts" />
+			<CodeBlock code={signatureCode.code} lang="ts" tokenLinks={tokenLinks} />
 
 			{exampleTag?.summary && (
 				<>
@@ -131,7 +138,12 @@ function RenderFunctionSignature(props: {
 								{param.type && (
 									<div>
 										<CodeBlock
-											code={`let ${param.name}: ${param.type}`}
+											code={`let ${param.name}: ${param.type.code}`}
+											tokenLinks={
+												param.type.references
+													? getTokenLinks(param.type.references)
+													: undefined
+											}
 											lang="ts"
 										/>
 									</div>
@@ -154,7 +166,7 @@ function RenderFunctionSignature(props: {
 
 						{signature.returns.type && (
 							<CodeBlock
-								code={`type ReturnType = ${signature.returns.type}`}
+								code={`type ReturnType = ${signature.returns.type.code}`}
 								lang="ts"
 							/>
 						)}
@@ -170,31 +182,44 @@ function RenderFunctionSignature(props: {
 export function getFunctionSignatureCode(
 	name: string,
 	signature: FunctionSignature,
-) {
+): TypeRef {
+	const refs: string[] = [];
+
 	const paramList = signature.parameters
 		? signature.parameters
 				.map((param) => {
 					const postfix = param.flags?.isOptional ? "?" : "";
 					const prefix = param.flags?.isRest ? "..." : "";
-					return `${prefix}${param.name}${postfix}: ${param.type}`;
+					param.type?.references?.forEach((ref) => refs.push(ref));
+					return `${prefix}${param.name}${postfix}: ${param.type?.code}`;
 				})
 				.join(", ")
 		: "";
 
-	const returnType = signature.returns?.type ?? "void";
+	const returnType = signature.returns?.type?.code ?? "void";
+
+	signature.returns?.type?.references?.forEach((ref) => refs.push(ref));
 
 	const typeParams = signature.typeParameters
 		? `<${signature.typeParameters
 				.map((param) => {
-					const defaultVal = param.defaultType ? ` = ${param.defaultType}` : "";
+					const defaultVal = param.defaultType
+						? ` = ${param.defaultType.code}`
+						: "";
+
+					param.defaultType?.references?.forEach((ref) => refs.push(ref));
+					param.extendsType?.references?.forEach((ref) => refs.push(ref));
 					return (
 						`${param.name}${
-							param.extendsType ? ` extends ${param.extendsType}` : ""
+							param.extendsType ? ` extends ${param.extendsType.code}` : ""
 						}` + defaultVal
 					);
 				})
 				.join(", ")}>`
 		: "";
 
-	return `function ${name}${typeParams}(${paramList}) : ${returnType}`;
+	return {
+		code: `function ${name}${typeParams}(${paramList}) : ${returnType}`,
+		references: refs,
+	};
 }
