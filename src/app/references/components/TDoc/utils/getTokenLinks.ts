@@ -16,6 +16,7 @@ export async function getTokenLinks(
 	tokens.forEach((token) => {
 		if (token.package) {
 			switch (token.package) {
+				case "@thirdweb-dev/react-core":
 				case "@thirdweb-dev/react": {
 					setLink(token.name, `/references/react/${token.name}`);
 					break;

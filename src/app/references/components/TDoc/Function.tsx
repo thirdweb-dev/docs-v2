@@ -172,6 +172,11 @@ async function RenderFunctionSignature(props: {
 							<CodeBlock
 								code={`type ReturnType = ${signature.returns.type.code}`}
 								lang="ts"
+								tokenLinks={
+									signature.returns.type.tokens
+										? await getTokenLinks(signature.returns.type.tokens)
+										: undefined
+								}
 							/>
 						)}
 					</div>
