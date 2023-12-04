@@ -48,7 +48,7 @@ export function isStaticImport(value: any): value is StaticImport {
 	return "default" in value || "src" in value;
 }
 
-export type SidebarLink = LinkMeta | LinkGroup;
+export type SidebarLink = LinkMeta | LinkGroup | { separator: true };
 
 type ReferenceSideBarProps = {
 	links: SidebarLink[];
@@ -75,6 +75,11 @@ export function DocSidebar(props: ReferenceSideBarProps) {
 
 function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 	const pathname = usePathname();
+
+	if ("separator" in props.link) {
+		return <hr className="mb-2 border-t-2 border-border" />;
+	}
+
 	const isActive = pathname === props.link.href;
 
 	const { link } = props;
@@ -131,9 +136,9 @@ function DocSidebarCategory(props: {
 				</div>
 
 				<ul className="flex flex-col">
-					{links.map((link) => {
+					{links.map((link, i) => {
 						return (
-							<li key={link.name + link.href}>
+							<li key={i}>
 								<SidebarItem link={link} onLinkClick={props.onLinkClick} />
 							</li>
 						);
@@ -184,9 +189,9 @@ function DocSidebarCategory(props: {
 
 				<AccordionContent>
 					<ul className="flex flex-col border-l-2 pl-4">
-						{links.map((link) => {
+						{links.map((link, i) => {
 							return (
-								<li key={link.name + link.href}>
+								<li key={i}>
 									<SidebarItem link={link} onLinkClick={props.onLinkClick} />
 								</li>
 							);
@@ -245,6 +250,10 @@ function containsActiveHref(
 	sidebarlink: SidebarLink,
 	activeLink: string,
 ): boolean {
+	if ("separator" in sidebarlink) {
+		return false;
+	}
+
 	if (sidebarlink.href === activeLink) {
 		return true;
 	}
