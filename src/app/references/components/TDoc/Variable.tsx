@@ -1,4 +1,4 @@
-import { TypeDeclarationDoc, TypeRef, VariableDoc } from "typedoc-better-json";
+import { TypeDeclarationDoc, TypeInfo, VariableDoc } from "typedoc-better-json";
 import { CodeBlock } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
@@ -11,9 +11,9 @@ import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { Callout } from "@/components/Document";
-import { getTokenLinks } from "@/contexts/linkMap";
+import { getTokenLinks } from "./utils/getTokenLinks";
 
-export function VariableTDoc(props: {
+export async function VariableTDoc(props: {
 	doc: VariableDoc;
 	level: number;
 	showHeading?: boolean;
@@ -28,7 +28,7 @@ export function VariableTDoc(props: {
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
 
-	const { code: signatureCode, references } = getVariableSignatureCode(doc);
+	const { code: signatureCode, tokens } = getVariableSignatureCode(doc);
 
 	return (
 		<>
@@ -53,7 +53,7 @@ export function VariableTDoc(props: {
 			<CodeBlock
 				lang="ts"
 				code={signatureCode}
-				tokenLinks={references ? getTokenLinks(references) : undefined}
+				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
 			/>
 
 			{exampleTag?.summary && (
@@ -88,9 +88,9 @@ export function VariableTDoc(props: {
 	);
 }
 
-export function getVariableSignatureCode(doc: VariableDoc): TypeRef {
+export function getVariableSignatureCode(doc: VariableDoc): TypeInfo {
 	return {
 		code: `let ${doc.name}: ${doc.type?.code}`,
-		references: doc.type?.references,
+		tokens: doc.type?.tokens,
 	};
 }

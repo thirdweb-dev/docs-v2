@@ -1,4 +1,8 @@
-import { FunctionDoc, FunctionSignature, TypeRef } from "typedoc-better-json";
+import {
+	FunctionDoc,
+	FunctionSignature,
+	getFunctionSignature,
+} from "typedoc-better-json";
 import { CodeBlock } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
@@ -9,7 +13,7 @@ import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { getTags } from "./utils/getTags";
-import { getTokenLinks } from "@/contexts/linkMap";
+import { getTokenLinks } from "./utils/getTokenLinks";
 
 export function FunctionTDoc(props: {
 	doc: FunctionDoc;
@@ -49,7 +53,7 @@ export function FunctionTDoc(props: {
 	);
 }
 
-function RenderFunctionSignature(props: {
+async function RenderFunctionSignature(props: {
 	signature: FunctionSignature;
 	signatureId?: number;
 	name: string;
@@ -65,10 +69,10 @@ function RenderFunctionSignature(props: {
 
 	const subLevel = props.signatureId ? props.level + 1 : props.level;
 
-	const signatureCode = getFunctionSignatureCode(name, signature);
+	const signatureCode = getFunctionSignature(name, signature);
 
-	const tokenLinks = signatureCode.references
-		? getTokenLinks(signatureCode.references)
+	const tokenLinks = signatureCode.tokens
+		? await getTokenLinks(signatureCode.tokens)
 		: undefined;
 
 	return (
@@ -121,7 +125,7 @@ function RenderFunctionSignature(props: {
 					>
 						Parameters
 					</Heading>
-					{props.signature.parameters?.map((param) => {
+					{props.signature.parameters?.map(async (param) => {
 						return (
 							<Details
 								id={slugger.slug(param.name)}
@@ -140,8 +144,8 @@ function RenderFunctionSignature(props: {
 										<CodeBlock
 											code={`let ${param.name}: ${param.type.code}`}
 											tokenLinks={
-												param.type.references
-													? getTokenLinks(param.type.references)
+												param.type.tokens
+													? await getTokenLinks(param.type.tokens)
 													: undefined
 											}
 											lang="ts"
@@ -177,49 +181,4 @@ function RenderFunctionSignature(props: {
 			{props.signatureId && <div className="h-10" />}
 		</>
 	);
-}
-
-export function getFunctionSignatureCode(
-	name: string,
-	signature: FunctionSignature,
-): TypeRef {
-	const refs: string[] = [];
-
-	const paramList = signature.parameters
-		? signature.parameters
-				.map((param) => {
-					const postfix = param.flags?.isOptional ? "?" : "";
-					const prefix = param.flags?.isRest ? "..." : "";
-					param.type?.references?.forEach((ref) => refs.push(ref));
-					return `${prefix}${param.name}${postfix}: ${param.type?.code}`;
-				})
-				.join(", ")
-		: "";
-
-	const returnType = signature.returns?.type?.code ?? "void";
-
-	signature.returns?.type?.references?.forEach((ref) => refs.push(ref));
-
-	const typeParams = signature.typeParameters
-		? `<${signature.typeParameters
-				.map((param) => {
-					const defaultVal = param.defaultType
-						? ` = ${param.defaultType.code}`
-						: "";
-
-					param.defaultType?.references?.forEach((ref) => refs.push(ref));
-					param.extendsType?.references?.forEach((ref) => refs.push(ref));
-					return (
-						`${param.name}${
-							param.extendsType ? ` extends ${param.extendsType.code}` : ""
-						}` + defaultVal
-					);
-				})
-				.join(", ")}>`
-		: "";
-
-	return {
-		code: `function ${name}${typeParams}(${paramList}) : ${returnType}`,
-		references: refs,
-	};
 }

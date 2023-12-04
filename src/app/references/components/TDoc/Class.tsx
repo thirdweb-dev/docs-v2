@@ -1,4 +1,4 @@
-import { ClassDoc, TypeRef } from "typedoc-better-json";
+import { ClassDoc, getClassSignature } from "typedoc-better-json";
 import { Heading } from "../../../../components/Document/Heading";
 import { SourceLinkTypeDoc } from "./SourceLink";
 import { FunctionTDoc } from "./Function";
@@ -6,9 +6,9 @@ import { CodeBlock } from "../../../../components/Document/Code";
 import { VariableTDoc } from "./Variable";
 import { AccessorTDoc } from "./Accessor";
 import { Details } from "../../../../components/Document/Details";
-import { getTokenLinks } from "@/contexts/linkMap";
+import { getTokenLinks } from "./utils/getTokenLinks";
 
-export function ClassTDoc(props: { doc: ClassDoc }) {
+export async function ClassTDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
 
 	const methods = doc.methods?.filter((method) => {
@@ -26,7 +26,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 		return !accessor.flags?.isPrivate && !accessor.flags?.isProtected;
 	});
 
-	const { code: signatureCode, references } = getClassSignatureDoc(doc);
+	const { code: signatureCode, tokens } = getClassSignature(doc);
 
 	return (
 		<div>
@@ -39,7 +39,7 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			<CodeBlock
 				lang="ts"
 				code={signatureCode}
-				tokenLinks={references ? getTokenLinks(references) : undefined}
+				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
 			/>
 
 			{/* Constructor */}
@@ -123,52 +123,4 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 		</div>
 	);
-}
-
-function getClassSignatureDoc(classDoc: ClassDoc): TypeRef {
-	const refs: string[] = [];
-
-	const generic = classDoc.typeParameters
-		? `<${classDoc.typeParameters
-				.map((t) => {
-					t.defaultType?.references?.forEach((r) => refs.push(r));
-
-					const defaultVal = t.defaultType ? ` = ${t.defaultType.code}` : "";
-					t.extendsType?.references?.forEach((r) => refs.push(r));
-					return (
-						(t.extendsType
-							? `${t.name} extends ${t.extendsType.code}`
-							: t.name) + defaultVal
-					);
-				})
-				.join(", ")}>`
-		: "";
-
-	const implmentsStr = classDoc.implements
-		? `implements ${classDoc.implements
-				.map((i) => {
-					i.references?.forEach((r) => refs.push(r));
-					return i.code;
-				})
-				?.join(", ")}`
-		: "";
-
-	const extendsStr = classDoc.extends
-		? `extends ${classDoc.extends
-				?.map((ex) => {
-					ex.references?.forEach((r) => refs.push(r));
-					return ex.code;
-				})
-				.join(", ")}`
-		: "";
-
-	const code = `class ${classDoc.name}${generic} ${[
-		extendsStr,
-		implmentsStr,
-	].join(" ")} {}`;
-
-	return {
-		code,
-		references: refs,
-	};
 }

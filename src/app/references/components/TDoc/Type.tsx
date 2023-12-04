@@ -1,4 +1,4 @@
-import { InterfaceDoc, TypeRef } from "typedoc-better-json";
+import { InterfaceDoc, getInterfaceSignature } from "typedoc-better-json";
 import { CodeBlock } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
@@ -10,9 +10,9 @@ import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { Callout } from "@/components/Document";
-import { getTokenLinks } from "@/contexts/linkMap";
+import { getTokenLinks } from "./utils/getTokenLinks";
 
-export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
+export async function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 	const { doc } = props;
 	const { deprecatedTag, exampleTag, remarksTag, seeTag } = getTags(
 		doc.blockTags,
@@ -23,7 +23,7 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
 
-	const { code: signatureCode, references } = getInterfaceCode(doc);
+	const { code, tokens } = getInterfaceSignature(doc);
 
 	return (
 		<>
@@ -39,8 +39,8 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 
 			<CodeBlock
 				lang="ts"
-				code={signatureCode}
-				tokenLinks={references ? getTokenLinks(references) : undefined}
+				code={code}
+				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
 			/>
 
 			{exampleTag?.summary && (
@@ -72,48 +72,4 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 			})}
 		</>
 	);
-}
-
-export function getInterfaceCode(doc: InterfaceDoc): TypeRef {
-	if (!doc.type)
-		return {
-			code: doc.name,
-		};
-
-	let code: string;
-	const references = doc.type.references;
-
-	const generic = doc.typeParameters
-		? `<${doc.typeParameters
-				.map((t) => {
-					t.defaultType?.references?.forEach((r) => references?.push(r));
-					const defaultVal = t.defaultType ? ` = ${t.defaultType.code}` : "";
-					t.extendsType?.references?.forEach((r) => references?.push(r));
-					return (
-						(t.extendsType
-							? `${t.name} extends ${t.extendsType.code}`
-							: t.name) + defaultVal
-					);
-				})
-				.join(", ")}>`
-		: "";
-
-	if (doc.extends) {
-		const extendsClause = doc.extends
-			? `extends ${doc.extends
-					.map((ext) => {
-						ext.references?.forEach((r) => references?.push(r));
-						return ext.code;
-					})
-					.join(", ")}`
-			: "";
-
-		code = `interface ${doc.name}${generic} ${extendsClause} ${doc.type.code}`;
-	}
-	code = `type ${doc.name}${generic} = ${doc.type.code}`;
-
-	return {
-		code,
-		references: references,
-	};
 }

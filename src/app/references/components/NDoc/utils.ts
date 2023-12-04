@@ -1,24 +1,6 @@
 import { LinkGroup } from "../../../../components/others/Sidebar";
 import { NRootDocType, SomeNDocType } from "./types";
 
-export function getNLinkMap(
-	rootDoc: NRootDocType,
-	path: string,
-): Map<string, string> {
-	const linkMap: Map<string, string> = new Map();
-
-	for (const k in rootDoc) {
-		const v = rootDoc[k as keyof NRootDocType];
-		if (Array.isArray(v)) {
-			v.forEach((child) => {
-				linkMap.set(child.name, `${path}/${child.name}`);
-			});
-		}
-	}
-
-	return linkMap;
-}
-
 export function getNLinkGroups(rootDoc: NRootDocType, path: string) {
 	const linkGroups: LinkGroup[] = [];
 

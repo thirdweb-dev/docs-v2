@@ -1,4 +1,4 @@
-import { EnumDoc } from "typedoc-better-json";
+import { EnumDoc, getEnumSignature } from "typedoc-better-json";
 import { CodeBlock } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
@@ -20,6 +20,8 @@ export function EnumTDoc(props: { doc: EnumDoc; level: number }) {
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
 
+	const { code } = getEnumSignature(doc);
+
 	return (
 		<>
 			<Heading level={props.level} id={doc.name}>
@@ -32,7 +34,7 @@ export function EnumTDoc(props: { doc: EnumDoc; level: number }) {
 			{doc.summary && <TypedocSummary summary={doc.summary} />}
 			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
 
-			<CodeBlock lang="ts" code={getEnumCode(doc)} />
+			<CodeBlock lang="ts" code={code} />
 
 			{exampleTag?.summary && (
 				<>
@@ -61,11 +63,6 @@ export function EnumTDoc(props: { doc: EnumDoc; level: number }) {
 			})}
 		</>
 	);
-}
-
-export function getEnumCode(doc: EnumDoc) {
-	return `enum ${doc.name} {
-    ${doc.members?.map((member) => member.name).join(",\n")}}`;
 }
 
 function MemberTDoc(props: {
