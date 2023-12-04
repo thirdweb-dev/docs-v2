@@ -38,7 +38,8 @@ html {
 		--accent-700: hsl(221 53% 20%);
 
 		--danger-500: hsl(0deg 84% 60%);
-		--danger-900: #331515;
+		--danger-900: hsl(0deg 41.67% 14.12%);
+		--danger-800: hsl(0 36% 20% / 1);
 
 		--warning-500: hsl(30.66deg 97.16% 40%);
 		--warning-600: #f9a03f;

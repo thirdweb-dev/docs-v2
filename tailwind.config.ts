@@ -45,6 +45,7 @@ module.exports = {
 			danger: {
 				500: "var(--danger-500)",
 				900: "var(--danger-900)",
+				800: "var(--danger-800)",
 			},
 			warning: {
 				500: "var(--warning-500)",

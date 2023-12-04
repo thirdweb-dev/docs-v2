@@ -11,12 +11,13 @@ export function Callout(props: {
 		<div
 			role="alert"
 			className={cn(
-				"my-5 flex flex-col gap-5 rounded-md border p-4 [&_*]:!m-0",
-				props.variant === "danger" && "bg-danger-900 border-danger-500",
+				"my-5 flex flex-col gap-5 rounded-md border p-4 ",
+				props.variant === "danger" &&
+					"bg-danger-900 border border-danger-500 [&_code]:border-none [&_code]:bg-danger-800 [&_code_button]:bg-danger-800 [&_code_button]:border-danger-500 [&_code_button_*]:text-danger-500",
 				props.variant === "warning" &&
-					"bg-warning-900 border-warning-500 [&_code]:border-none [&_code]:bg-warning-800",
+					"bg-warning-900 border border-warning-500 [&_code]:border-none [&_code]:bg-warning-800 [&_code_button]:bg-warning-800 [&_code_button]:border-warning-500 [&_code_button_*]:text-warning-500",
 				props.variant === "info" &&
-					"bg-accent-900 border border-accent-500 [&_code]:border-none [&_code]:bg-accent-700",
+					"bg-accent-900 border border-accent-500 [&_code]:border-none [&_code]:bg-accent-800 [&_code_button]:bg-accent-800 [&_code_button]:border-accent-500 [&_code_button_*]:text-accent-500",
 			)}
 		>
 			{props.title && (
@@ -41,7 +42,9 @@ export function Callout(props: {
 				</div>
 			)}
 
-			<div className="flex flex-col gap-2">{props.children}</div>
+			<div className="gap-2 [&_*:first-child]:mt-0 [&_*:last-child]:mb-0">
+				{props.children}
+			</div>
 		</div>
 	);
 }
