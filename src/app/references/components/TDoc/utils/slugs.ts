@@ -30,7 +30,7 @@ export function getSlugToDocMap(doc: TransformedDoc) {
 }
 
 export function getLinkMap(doc: TransformedDoc, path: string) {
-	const linkMap: LinkMap = new Map();
+	const linkMap: Map<string, string> = new Map();
 	for (const key in doc) {
 		const value = doc[key as keyof TransformedDoc];
 		if (Array.isArray(value)) {
@@ -42,5 +42,3 @@ export function getLinkMap(doc: TransformedDoc, path: string) {
 
 	return linkMap;
 }
-
-export type LinkMap = Map<string, string>;

@@ -1,6 +1,6 @@
-import type { TransformedDoc } from "typedoc-better-json";
+import { transform } from "typedoc-better-json";
 import doc from "./test/typescript.json";
 
-export async function fetchTypeScriptDoc(): Promise<TransformedDoc> {
-	return doc as TransformedDoc;
+export async function fetchTypeScriptDoc() {
+	return transform(doc as any);
 }

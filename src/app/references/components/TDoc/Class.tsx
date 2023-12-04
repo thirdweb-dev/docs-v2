@@ -1,4 +1,4 @@
-import { ClassDoc } from "typedoc-better-json";
+import { ClassDoc, getClassSignature } from "typedoc-better-json";
 import { Heading } from "../../../../components/Document/Heading";
 import { SourceLinkTypeDoc } from "./SourceLink";
 import { FunctionTDoc } from "./Function";
@@ -6,13 +6,16 @@ import { CodeBlock } from "../../../../components/Document/Code";
 import { VariableTDoc } from "./Variable";
 import { AccessorTDoc } from "./Accessor";
 import { Details } from "../../../../components/Document/Details";
+import { getTokenLinks } from "./utils/getTokenLinks";
 
-export function ClassTDoc(props: { doc: ClassDoc }) {
+export async function ClassTDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
 
 	const methods = doc.methods?.filter((method) => {
 		const flags = method.signatures && method.signatures[0]?.flags;
-		return !flags?.isPrivate && !flags?.isProtected;
+		return (
+			!flags?.isPrivate && !flags?.isProtected && !method.name.startsWith("#")
+		);
 	});
 
 	const properties = doc.properties?.filter((property) => {
@@ -23,6 +26,8 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 		return !accessor.flags?.isPrivate && !accessor.flags?.isProtected;
 	});
 
+	const { code: signatureCode, tokens } = getClassSignature(doc);
+
 	return (
 		<div>
 			<Heading level={1} id={doc.name}>
@@ -31,7 +36,11 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 
 			{doc.source && <SourceLinkTypeDoc href={doc.source} />}
 
-			<CodeBlock lang="ts" code={getClassSignatureDoc(doc)} />
+			<CodeBlock
+				lang="ts"
+				code={signatureCode}
+				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
+			/>
 
 			{/* Constructor */}
 			{doc.constructor && (
@@ -114,30 +123,4 @@ export function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 		</div>
 	);
-}
-
-function getClassSignatureDoc(classDoc: ClassDoc) {
-	const generic = classDoc.typeParameters
-		? `<${classDoc.typeParameters
-				.map((t) => {
-					const defaultVal = t.defaultType ? ` = ${t.defaultType}` : "";
-					return (
-						(t.extendsType ? `${t.name} extends ${t.extendsType}` : t.name) +
-						defaultVal
-					);
-				})
-				.join(", ")}>`
-		: "";
-
-	const implmentsStr = classDoc.implements
-		? `implements ${classDoc.implements?.join(", ")}`
-		: "";
-
-	const extendsStr = classDoc.extends
-		? `extends ${classDoc.extends?.join(", ")}`
-		: "";
-
-	return `class ${classDoc.name}${generic} ${[extendsStr, implmentsStr].join(
-		" ",
-	)} {}`;
 }

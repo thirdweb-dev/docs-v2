@@ -1,6 +1,6 @@
-import type { TransformedDoc } from "typedoc-better-json";
+import { transform } from "typedoc-better-json";
 import doc from "./test/storage.json";
 
-export async function fetchStorageDoc(): Promise<TransformedDoc> {
-	return doc as TransformedDoc;
+export async function fetchStorageDoc() {
+	return transform(doc as any);
 }

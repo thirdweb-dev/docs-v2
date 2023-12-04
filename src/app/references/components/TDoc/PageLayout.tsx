@@ -1,8 +1,7 @@
-import { linkMapContext } from "@/contexts/linkMap";
 import { notFound } from "next/navigation";
 import type { TransformedDoc } from "typedoc-better-json";
 import { RootTDoc } from "./Root";
-import { getSlugToDocMap, getLinkMap, fetchAllSlugs } from "./utils/slugs";
+import { getSlugToDocMap, fetchAllSlugs } from "./utils/slugs";
 import type { Metadata } from "next";
 import { DocLayout } from "@/components/Layouts/DocLayout";
 import { getSidebarLinkGroups } from "./utils/getSidebarLinkgroups";
@@ -29,10 +28,6 @@ export function getTDocPage(options: {
 			if (!selectedDoc) {
 				notFound();
 			}
-
-			const linkMap = getLinkMap(doc, `/references/${packageSlug}`);
-			linkMap.delete(docSlug); // remove current doc's link
-			linkMapContext.set(linkMap);
 
 			return (
 				<div>
@@ -116,11 +111,6 @@ export function getTDocLayout(options: {
 
 	return async function Layout(props: { children: React.ReactNode }) {
 		const doc = await getDoc();
-
-		if (!linkMapContext.get()) {
-			const linkMap = getLinkMap(doc, `/references/${packageSlug}`);
-			linkMapContext.set(linkMap);
-		}
 
 		return (
 			<DocLayout

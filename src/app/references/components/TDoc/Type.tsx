@@ -1,4 +1,4 @@
-import { InterfaceDoc } from "typedoc-better-json";
+import { InterfaceDoc, getInterfaceSignature } from "typedoc-better-json";
 import { CodeBlock } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
@@ -10,8 +10,9 @@ import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { Callout } from "@/components/Document";
+import { getTokenLinks } from "./utils/getTokenLinks";
 
-export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
+export async function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 	const { doc } = props;
 	const { deprecatedTag, exampleTag, remarksTag, seeTag } = getTags(
 		doc.blockTags,
@@ -21,6 +22,8 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
+
+	const { code, tokens } = getInterfaceSignature(doc);
 
 	return (
 		<>
@@ -34,7 +37,11 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 			{doc.summary && <TypedocSummary summary={doc.summary} />}
 			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
 
-			<CodeBlock lang="ts" code={getInterfaceCode(doc)} />
+			<CodeBlock
+				lang="ts"
+				code={code}
+				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
+			/>
 
 			{exampleTag?.summary && (
 				<>
@@ -65,9 +72,4 @@ export function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 			})}
 		</>
 	);
-}
-
-export function getInterfaceCode(doc: InterfaceDoc) {
-	if (!doc.type) return doc.name;
-	return `type ${doc.name} = ${doc.type}`;
 }
