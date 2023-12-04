@@ -213,7 +213,7 @@ function TutorialCard(props: {
 		<div className="rounded-lg border bg-b-800 p-6">
 			<div className="mb-6 flex items-center gap-3">
 				<props.icon className="h-6 w-6 text-f-300" />
-				<Heading level={3} id={props.title} anchorClassName="mb-0">
+				<Heading level={3} id={props.title} anchorClassName="mb-0 mt-0">
 					{props.title}
 				</Heading>
 			</div>

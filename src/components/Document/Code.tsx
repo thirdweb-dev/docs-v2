@@ -16,6 +16,7 @@ import Link from "next/link";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { solidity } from "highlightjs-solidity";
+import { CopyButton } from "../others/CopyButton";
 
 const htmlToReactParser = Parser();
 const processNodeDefinitions = ProcessNodeDefinitions();
@@ -125,9 +126,10 @@ export async function CodeBlock(props: {
 
 	return (
 		<code
-			className="styled-scrollbar mb-5 block max-h-[80vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
+			className="styled-scrollbar relative mb-5 block max-h-[80vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
 			lang={lang}
 		>
+			<CopyButton text={code} />
 			<pre
 				className=""
 				dangerouslySetInnerHTML={
