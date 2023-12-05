@@ -23,6 +23,7 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: "/contracts",
 		},
+		// { separator: true }
 		// explore
 		{
 			name: "Explore",
@@ -47,6 +48,18 @@ export const sidebar: SideBar = {
 									name: "Token Drop",
 									href: `${prebuiltSlug}/token-drop`,
 								},
+								{
+									name: "Stake ERC-20",
+									href: `${prebuiltSlug}/stake-erc20`,
+								},
+								{
+									name: "Airdrop ERC-20",
+									href: `${prebuiltSlug}/airdrop-erc20`,
+								},
+								{
+									name: "Airdrop ERC-20 (Claimable)",
+									href: `${prebuiltSlug}/airdrop-erc20-claimable`,
+								},
 							],
 						},
 						{
@@ -68,6 +81,18 @@ export const sidebar: SideBar = {
 									name: "Open Edition",
 									href: `${prebuiltSlug}/open-edition`,
 								},
+								{
+									name: "Stake ERC-721",
+									href: `${prebuiltSlug}/stake-erc721`,
+								},
+								{
+									name: "Airdrop ERC-721",
+									href: `${prebuiltSlug}/airdrop-erc721`,
+								},
+								{
+									name: "Airdrop ERC-721 (Claimable)",
+									href: `${prebuiltSlug}/airdrop-erc721-claimable`,
+								},
 							],
 						},
 						{
@@ -80,6 +105,18 @@ export const sidebar: SideBar = {
 								{
 									name: "Edition Drop",
 									href: `${prebuiltSlug}/edition-drop`,
+								},
+								{
+									name: "Stake ERC-1155",
+									href: `${prebuiltSlug}/stake-erc1155`,
+								},
+								{
+									name: "Airdrop ERC-1155",
+									href: `${prebuiltSlug}/airdrop-erc1155`,
+								},
+								{
+									name: "Airdrop ERC-1155 (Claimable)",
+									href: `${prebuiltSlug}/airdrop-erc1155-claimable`,
 								},
 							],
 						},
@@ -103,14 +140,6 @@ export const sidebar: SideBar = {
 						{
 							name: "MISC.",
 							links: [
-								{
-									name: "Airdrop",
-									href: `${prebuiltSlug}/airdrop`,
-								},
-								{
-									name: "Airdrop Claimable",
-									href: `${prebuiltSlug}/airdrop-claimable`,
-								},
 								{
 									name: "Stake",
 									href: `${prebuiltSlug}/stake`,
@@ -141,7 +170,9 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
+		// { separator: true }
 		// build
+
 		{
 			name: "Build",
 			icon: <ContractBuildIcon />,
@@ -531,6 +562,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
+		// { separator: true }
 		// deploy
 		{
 			name: "Deploy",
@@ -551,6 +583,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
+		// { separator: true }
 		// publish
 		{
 			name: "Publish",
@@ -571,6 +604,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
+		// { separator: true }
 		// interact
 		{
 			name: "Interact",
@@ -583,6 +617,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
+		// { separator: true }
 		// resources
 		{
 			name: "Resources",
