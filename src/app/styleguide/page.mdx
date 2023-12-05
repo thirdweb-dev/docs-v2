@@ -1,7 +1,13 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Image from "next/image";
 import thirdwebLogo from "@public/icons/thirdweb-logo.svg";
-import { Steps, Step, Carousel, ArticleCard } from "@/components/Document";
+import {
+	Steps,
+	Step,
+	Carousel,
+	ArticleCard,
+	Callout,
+} from "@/components/Document";
 import testImage from "./test.jpg";
 import test2Image from "./test2.jpg";
 
@@ -271,3 +277,35 @@ content for step 3
 />
 
 </Carousel>
+
+<br />
+
+<Callout variant='info' title="This is info variant">
+
+lorem ipsum dolor sit amet, consectetur adipiscing elit. [foo bar](https://www.google.com/search?q=foo+bar&rlz=1C5CHFA_enIN1037IN1041&oq=foo+bar&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzczMmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8). `SomeInlineCode` and **bold** and _italic_
+
+```ts
+console.log("hello world");
+```
+
+</Callout>
+
+<Callout variant='warning' title="This is warning variant">
+
+lorem ipsum dolor sit amet, consectetur adipiscing elit. [foo bar](https://www.google.com/search?q=foo+bar&rlz=1C5CHFA_enIN1037IN1041&oq=foo+bar&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzczMmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8). `SomeInlineCode` and **bold** and _italic_
+
+```ts
+console.log("hello world");
+```
+
+</Callout>
+
+<Callout variant='danger' title="This is danger variant">
+
+lorem ipsum dolor sit amet, consectetur adipiscing elit. [foo bar](https://www.google.com/search?q=foo+bar&rlz=1C5CHFA_enIN1037IN1041&oq=foo+bar&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzczMmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8). `SomeInlineCode` and **bold** and _italic_
+
+```ts
+console.log("hello world");
+```
+
+</Callout>
