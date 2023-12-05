@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 # Multiwrap design document.
 
 This is a live document that explains what the [thirdweb](https://thirdweb.com/) `Multiwrap` smart contract is, how it works and can be used, and why it is designed the way it is.
@@ -16,7 +18,10 @@ The single wrapped token received on bundling up multiple assets, as mentioned a
 
 ### How the `Multiwrap` product _should_ work
 
-![multiwrap-diagram.png](/assets/multiwrap-diagram.png)
+<Image
+	src={require("./assets/multiwrap-diagram.png")}
+	alt="Multiwrap diagram"
+/>
 
 A token owner should be able to wrap any combination of _n_ ERC20, ERC721 or ERC1155 tokens as a wrapped NFT. When wrapping, the token owner should be able to specify a recipient for the wrapped NFT. At the time of wrapping, the token owner should be able to set the metadata of the wrapped NFT that will be minted.
 

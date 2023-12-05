@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 # Drop design document.
 
 This is a live document that explains what the [thirdweb](https://thirdweb.com/) `Drop` smart contracts are, how they work and can be used, and why they are written the way they are.
@@ -116,7 +118,10 @@ The claim conditions specified in `conditions` are expected to be in ordered in 
 
 Each of the claim conditions specified in `conditions` is assigned a unique integer ID. The UID of the first condition in `conditions` is stored as the `ClaimConditionList.currentStartId` and each next claim condition's UID is one more than the previous condition's UID.
 
-![claim-conditions-diagram-1.png](/assets/claim-conditions-diagram-1.png)
+<Image
+	src={require("./assets/claim-conditions.png")}
+	alt="Claim conditions"
+/>
 
 The `resetClaimEligibility` boolean flag determines what UIDs are assigned to the claim conditions specified in `conditions`. Since `ClaimConditionList.supplyClaimedByWallet` is indexed by the UID of claim conditions, this gives a contract admin more granular control over the restrictions that claim conditions can express. We now illustrate this with an example:
 
