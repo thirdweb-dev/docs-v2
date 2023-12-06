@@ -1,0 +1,35 @@
+import { Callouts} from "@/components/Document";
+
+# Custom CSS
+
+## CSS Classes
+
+Apply custom CSS classes to the Connect Wallet button.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ConnectWallet
+      className="my-custom-class"
+    />
+  );
+}
+```
+
+## CSS Styles
+
+Directly add custom CSS styles to the Connect Wallet button.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+function App() {
+  return (
+    <ConnectWallet
+      style={{ color: "red" }}
+    />
+  );
+}
+```
