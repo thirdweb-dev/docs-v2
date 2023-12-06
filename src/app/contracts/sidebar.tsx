@@ -23,7 +23,7 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: "/contracts",
 		},
-		// { separator: true }
+		{ separator: true },
 		// explore
 		{
 			name: "Explore",
@@ -170,7 +170,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		// { separator: true }
+		{ separator: true },
 		// build
 
 		{
@@ -562,7 +562,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		// { separator: true }
+		{ separator: true },
 		// deploy
 		{
 			name: "Deploy",
@@ -583,7 +583,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		// { separator: true }
+		{ separator: true },
 		// publish
 		{
 			name: "Publish",
@@ -604,7 +604,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		// { separator: true }
+		{ separator: true },
 		// interact
 		{
 			name: "Interact",
@@ -617,7 +617,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		// { separator: true }
+		{ separator: true },
 		// resources
 		{
 			name: "Resources",
