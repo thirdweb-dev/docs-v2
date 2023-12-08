@@ -4,7 +4,7 @@ import {
 	FunctionSignature,
 	getFunctionSignature,
 } from "typedoc-better-json";
-import { CodeBlock } from "../../../../components/Document/Code";
+import { CodeBlock, InlineCode } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
 import { Callout } from "../../../../components/Document/Callout";
@@ -95,6 +95,12 @@ async function RenderFunctionSignature(props: {
 						</span>
 					</Heading>
 				</>
+			)}
+
+			{signature.inheritedFrom && (
+				<div className="mb-5 text-f-300">
+					Inherited from <InlineCode code={signature.inheritedFrom.name} />
+				</div>
 			)}
 
 			{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
