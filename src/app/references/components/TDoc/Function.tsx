@@ -1,9 +1,10 @@
 import {
 	FunctionDoc,
+	FunctionParameter,
 	FunctionSignature,
 	getFunctionSignature,
 } from "typedoc-better-json";
-import { CodeBlock } from "../../../../components/Document/Code";
+import { CodeBlock, InlineCode } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
 import { Callout } from "../../../../components/Document/Callout";
@@ -96,6 +97,12 @@ async function RenderFunctionSignature(props: {
 				</>
 			)}
 
+			{signature.inheritedFrom && (
+				<div className="mb-5 text-f-300">
+					Inherited from <InlineCode code={signature.inheritedFrom.name} />
+				</div>
+			)}
+
 			{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
 			{signature.summary && <TypedocSummary summary={signature.summary} />}
 			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
@@ -139,19 +146,7 @@ async function RenderFunctionSignature(props: {
 									param.flags?.isStatic ? "static" : "",
 								].filter((w) => w)}
 							>
-								{param.type && (
-									<div>
-										<CodeBlock
-											code={`let ${param.name}: ${param.type.code}`}
-											tokenLinks={
-												param.type.tokens
-													? await getTokenLinks(param.type.tokens)
-													: undefined
-											}
-											lang="ts"
-										/>
-									</div>
-								)}
+								<ParameterTDoc param={param} level={subLevel} />
 							</Details>
 						);
 					})}
@@ -185,5 +180,61 @@ async function RenderFunctionSignature(props: {
 
 			{props.signatureId && <div className="h-10" />}
 		</>
+	);
+}
+
+async function ParameterTDoc(props: {
+	param: FunctionParameter;
+	level: number;
+}) {
+	const { param } = props;
+
+	const slugger = sluggerContext.get();
+	invariant(slugger, "slugger context not set");
+
+	const { deprecatedTag, remarksTag, seeTag, exampleTag } = getTags(
+		param.blockTags,
+	);
+
+	return (
+		<div>
+			{param.type && (
+				<div>
+					{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
+					{param.summary && <TypedocSummary summary={param.summary} />}
+					{remarksTag?.summary && (
+						<TypedocSummary summary={remarksTag.summary} />
+					)}
+
+					{seeTag?.summary && (
+						<Callout variant="info">
+							<TypedocSummary summary={seeTag.summary} />
+						</Callout>
+					)}
+
+					<CodeBlock
+						code={`let ${param.name}: ${param.type.code}`}
+						tokenLinks={
+							param.type.tokens
+								? await getTokenLinks(param.type.tokens)
+								: undefined
+						}
+						lang="ts"
+					/>
+
+					{exampleTag?.summary && (
+						<>
+							<Heading
+								level={props.level + 1}
+								id={slugger.slug(param.name + "example")}
+							>
+								Example
+							</Heading>
+							<TypedocSummary summary={exampleTag.summary} />
+						</>
+					)}
+				</div>
+			)}
+		</div>
 	);
 }

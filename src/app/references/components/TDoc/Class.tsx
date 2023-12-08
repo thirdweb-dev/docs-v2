@@ -1,4 +1,4 @@
-import { ClassDoc, getClassSignature } from "typedoc-better-json";
+import { ClassDoc, FunctionDoc, getClassSignature } from "typedoc-better-json";
 import { Heading } from "../../../../components/Document/Heading";
 import { SourceLinkTypeDoc } from "./SourceLink";
 import { FunctionTDoc } from "./Function";
@@ -18,6 +18,20 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 		);
 	});
 
+	const regularMethods = methods?.filter((m) => {
+		if (m.signatures && m.signatures[0] && m.signatures[0]?.inheritedFrom) {
+			return false;
+		}
+		return true;
+	});
+
+	const inheritedMethods = methods?.filter((m) => {
+		if (m.signatures && m.signatures[0] && m.signatures[0]?.inheritedFrom) {
+			return true;
+		}
+		return false;
+	});
+
 	const properties = doc.properties?.filter((property) => {
 		return !property.flags?.isPrivate && !property.flags?.isProtected;
 	});
@@ -27,6 +41,29 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 	});
 
 	const { code: signatureCode, tokens } = getClassSignature(doc);
+
+	const renderMethods = (_methods: FunctionDoc[]) =>
+		_methods.map((method, i) => {
+			const flags = method.signatures && method.signatures[0]?.flags;
+			return (
+				<Details
+					key={i}
+					summary={method.name}
+					id={method.name}
+					tags={[
+						flags?.isOptional ? "optional" : "",
+						flags?.isStatic ? "static" : "",
+					].filter((w) => w)}
+				>
+					<FunctionTDoc
+						doc={method}
+						key={method.name}
+						level={3}
+						showHeading={false}
+					/>
+				</Details>
+			);
+		});
 
 	return (
 		<div>
@@ -50,34 +87,22 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Methods */}
-			{methods && methods.length > 1 && (
+			{regularMethods && regularMethods.length > 1 && (
 				<div>
 					<Heading level={2} id="methods">
 						Methods
 					</Heading>
-					<div>
-						{methods.map((method, i) => {
-							const flags = method.signatures && method.signatures[0]?.flags;
-							return (
-								<Details
-									key={i}
-									summary={method.name}
-									id={method.name}
-									tags={[
-										flags?.isOptional ? "optional" : "",
-										flags?.isStatic ? "static" : "",
-									].filter((w) => w)}
-								>
-									<FunctionTDoc
-										doc={method}
-										key={method.name}
-										level={3}
-										showHeading={false}
-									/>
-								</Details>
-							);
-						})}
-					</div>
+					<div>{renderMethods(regularMethods)}</div>
+				</div>
+			)}
+
+			{/* Inherited methods */}
+			{inheritedMethods && inheritedMethods.length > 1 && (
+				<div>
+					<Heading level={2} id="methods">
+						Inherited Methods
+					</Heading>
+					<div>{renderMethods(inheritedMethods)}</div>
 				</div>
 			)}
 
