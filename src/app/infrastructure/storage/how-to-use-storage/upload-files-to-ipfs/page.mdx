@@ -5,6 +5,8 @@ import {
 	ArticleCard,
 	Callout,
 } from "@/components/Document";
+import Image from "next/image";
+
 
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
@@ -16,22 +18,48 @@ Upload and pin files and directories directly to IPFS using the dashboard, CLI o
 
 To upload files using dashboard:
 
-1. To authenticate to your account, connect your wallet.
-2. Navigate to the [storage dashboard](https://thirdweb.com/dashboard/infrastructure/storage)
+<Steps>
 
-   ![Screenshot of dashboard](./assets/storage-dashboard.png)
+<Step title="Connect Wallet">
+To authenticate to your account, connect your wallet.
+</Step>
 
-3. Select your files or drag them into the upload box. Confirm that your files are correct, and then select "Start Upload.”
+<Step title="Storage Dashboard">
+Navigate to the [storage dashboard](https://thirdweb.com/dashboard/infrastructure/storage)
 
-   ![Screenshot of assets uploaded](./assets/storage-upload.png)
+   <Image
+	src={require("./assets/storage-dashboard.png")}
+	alt="storage diagram"
+    />
 
-:::info
-The duration of this process will depend on the amount of data uploaded.
-:::
+</Step>
 
-4. Upon completion, the corresponding IPFS addresses refers to where your content is stored on the IPFS Network. You may access these files using your unique gateway URL.
+<Step title="Select files">
+Select your files or drag them into the upload box. Confirm that your files are correct, and then select "Start Upload.”
 
-   ![Screenshot of assets with corresponding URL](./assets/storage-urls.png)
+    <Image
+	src={require("./assets/storage-upload.png")}
+	alt="storage diagram"
+    />
+
+
+    <Callout title="Info" variant="info">
+    The duration of this process will depend on the amount of data uploaded.
+    </Callout>
+
+</Step>
+
+<Step title="Access via Gateway">
+Upon completion, the corresponding IPFS addresses refers to where your content is stored on the IPFS Network. You may access these files using your unique gateway URL.
+
+    <Image
+	src={require("./assets/storage-urls.png")}
+	alt="storage diagram"
+    />
+</Step>
+</Steps>
+
+<hr/>
 
 ## Upload files to IPFS using CLI
 
@@ -57,6 +85,7 @@ To upload an entire directory, specify the relative directory name:
 npx thirdweb upload directory_name
 ```
 
+<hr/>
 ## Upload files to IPFS using SDKs
 
 <Tabs defaultValue="react">
