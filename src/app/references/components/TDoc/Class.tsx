@@ -119,7 +119,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Methods */}
-			{regularMethods && regularMethods.length > 1 && (
+			{regularMethods && regularMethods.length > 0 && (
 				<div>
 					<Heading level={2} id="methods">
 						Methods
@@ -129,7 +129,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Inherited methods */}
-			{inheritedMethods && inheritedMethods.length > 1 && (
+			{inheritedMethods && inheritedMethods.length > 0 && (
 				<div>
 					<Heading level={2} id="methods">
 						Inherited Methods
@@ -139,7 +139,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Properties */}
-			{properties && properties.length > 1 && (
+			{properties && properties.length > 0 && (
 				<div>
 					<Heading level={2} id="properties">
 						Properties
@@ -162,7 +162,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			)}
 
 			{/* Accessor */}
-			{accessors && accessors.length > 1 && (
+			{accessors && accessors.length > 0 && (
 				<div>
 					<Heading level={2} id="properties" className="text-5xl">
 						Accessors
