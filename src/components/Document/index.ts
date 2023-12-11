@@ -17,3 +17,4 @@ export { Carousel } from "../ui/Carousel/Carousel";
 export { Steps, Step } from "./Steps/Steps";
 export { ArticleCard } from "./Cards/ArticleCard";
 export { GithubButtonLink } from "./GithubButtonLink";
+export { EditPage } from "./EditPage";
