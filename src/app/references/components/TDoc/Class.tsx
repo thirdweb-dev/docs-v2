@@ -25,7 +25,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 	invariant(slugger, "slugger context not set");
 
 	const methods = doc.methods?.filter((method) => {
-		const flags = method.signatures && method.signatures[0]?.flags;
+		const { flags } = method;
 		return (
 			!flags?.isPrivate && !flags?.isProtected && !method.name.startsWith("#")
 		);
