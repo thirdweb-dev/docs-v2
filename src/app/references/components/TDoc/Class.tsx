@@ -7,9 +7,22 @@ import { VariableTDoc } from "./Variable";
 import { AccessorTDoc } from "./Accessor";
 import { Details } from "../../../../components/Document/Details";
 import { getTokenLinks } from "./utils/getTokenLinks";
+import { getTags } from "./utils/getTags";
+import { Callout } from "@/components/Document";
+import { DeprecatedCalloutTDoc } from "./Deprecated";
+import { TypedocSummary } from "./Summary";
+import { sluggerContext } from "@/contexts/slugger";
+import invariant from "tiny-invariant";
 
 export async function ClassTDoc(props: { doc: ClassDoc }) {
 	const { doc } = props;
+
+	const { deprecatedTag, remarksTag, seeTag, exampleTag } = getTags(
+		doc.blockTags,
+	);
+
+	const slugger = sluggerContext.get();
+	invariant(slugger, "slugger context not set");
 
 	const methods = doc.methods?.filter((method) => {
 		const flags = method.signatures && method.signatures[0]?.flags;
@@ -73,6 +86,16 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 
 			{doc.source && <SourceLinkTypeDoc href={doc.source} />}
 
+			{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
+			{doc.summary && <TypedocSummary summary={doc.summary} />}
+			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
+
+			{seeTag?.summary && (
+				<Callout variant="info">
+					<TypedocSummary summary={seeTag.summary} />
+				</Callout>
+			)}
+
 			<CodeBlock
 				lang="ts"
 				code={signatureCode}
@@ -84,6 +107,15 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 				<Details id="constructor" level={2} summary="Constructor">
 					<FunctionTDoc doc={doc.constructor} level={2} showHeading={false} />
 				</Details>
+			)}
+
+			{exampleTag?.summary && (
+				<>
+					<Heading level={2} id={slugger.slug("example")}>
+						Example
+					</Heading>
+					<TypedocSummary summary={exampleTag.summary} />
+				</>
 			)}
 
 			{/* Methods */}
