@@ -28,7 +28,11 @@ You can create [Node.js](https://github.com/thirdweb-example/node-typescript-sta
 
 ## Initialize the SDK
 
-The SDK can be instantiated as read only or read/write.
+The SDK can be instantiated as read only by passing a chain or read/write by passing a chain and a wallet.
+
+- Chain - The chain you want to connect to. This can be a chain name, chain id or a chain object from the `@thirdweb-dev/chains` package.
+- Wallet - The wallet you want to use to connect to the chain. This can be a wallet instance from the Wallet SDK, a private key or a ethers.js Signer instance.
+- SDK Options -
 
 <Callout variant="info" title='API Key'>
 
@@ -53,13 +57,15 @@ const sdk = new ThirdwebSDK("sepolia", {
 
 ### Read/Write SDK
 
-This can be used for reading and writing data to the blockchain and requires a valid signer.
+This can be used for reading and writing data to the blockchain and requires a connected wallet.
 
-Can be instantiated from:
+Can be instantiated from different wallet types:
 
-- A wallet instance from the Wallet SDK - [`ThirdwebSDK.fromWallet()`](/references/typescript/ThirdwebSDK#fromWallet) (recommended)
-- A private key - [`ThirdwebSDK.fromPrivateKey()`](/references/typescript/ThirdwebSDK#fromPrivateKey)
-- A ethers.js Signer instance - [`ThirdwebSDK.fromSigner()`](/references/typescript/ThirdwebSDK#fromSigner)
+| Wallet type          | Function                                                                            | Notes                                                                                              |
+| -------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Wallet (recommended) | [`ThirdwebSDK.fromWallet()`](/references/typescript/ThirdwebSDK#fromWallet)         | This function is async, needs to be awaited                                                        |
+| ethers.js Signer     | [`ThirdwebSDK.fromSigner()`](/references/typescript/ThirdwebSDK#fromSigner)         | Use this when combining the SDK with other libraries                                               |
+| Private Key          | [`ThirdwebSDK.fromPrivateKey()`](/references/typescript/ThirdwebSDK#fromPrivateKey) | This should only be used on the server side. Never commit or expose your private key on the client |
 
 Here's a typical example of instantiating the SDK from a private key:
 
