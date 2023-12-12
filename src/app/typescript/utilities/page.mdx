@@ -7,7 +7,7 @@ The SDK comes packed with a few utilities that are useful beyond developing web3
 Verify a contract on a given block explorer via the [`sdk.verifier`](/references/typescript/ContractVerifier) object.
 
 ```typescript
-const contractAddress = "";
+const contractAddress = "0x...";
 const explorerAPIUrl = ""; // e.g. https://api.etherscan.io/api
 const explorerAPIKey = ""; // Generate API key on the explorer
 
@@ -32,10 +32,6 @@ const ABI = contract.abi;
 Get parsed function and event definitions from a contract:
 
 ```ts
-const sdk = new ThirdwebSDK(chain, {
-	// pass your cliendId or secretKey...
-});
-
 const contract = await sdk.getContract("0x...");
 const functions = await c.publishedMetadata.extractFunctions();
 const events = await c.publishedMetadata.extractEvents();
@@ -46,10 +42,6 @@ const events = await c.publishedMetadata.extractEvents();
 Get the solidity sources of a contract:
 
 ```ts
-const sdk = new ThirdwebSDK(chain, {
-	// pass your cliendId or secretKey...
-});
-
 const contract = await sdk.getContract("0x...");
 const sources = await contract.publishedMetadata.extractSources();
 ```
@@ -59,10 +51,6 @@ const sources = await contract.publishedMetadata.extractSources();
 Resolve the implementation address and bytecode of a given proxy contract. Supports a wide variety of proxy standards.
 
 ```ts
-const sdk = new ThirdwebSDK(chain, {
-	// pass your cliendId or secretKey...
-});
-
 const { address, bytecode } = await resolveImplementation(
 	"0x...", // the proxy address
 	sdk.getProvider(),
