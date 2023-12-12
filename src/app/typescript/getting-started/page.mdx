@@ -4,7 +4,7 @@ import { Details, InstallTabs, Callout } from "@/components/Document";
 
 You can get started by creating a new project or adding thirdweb to an existing project.
 
-## Existing Projects
+### Existing Projects
 
 Install the thirdweb package in your project
 
@@ -15,7 +15,7 @@ Install the thirdweb package in your project
 	pnpm="pnpm i @thirdweb-dev/sdk ethers@^5"
 />
 
-## New Projects
+### New Projects
 
 Create a new project using the thirdweb CLI
 
@@ -29,10 +29,6 @@ You can create [Node.js](https://github.com/thirdweb-example/node-typescript-sta
 ## Initialize the SDK
 
 The SDK can be instantiated as read only by passing a chain or read/write by passing a chain and a wallet.
-
-- Chain - The chain you want to connect to. This can be a chain name, chain id or a chain object from the `@thirdweb-dev/chains` package.
-- Wallet - The wallet you want to use to connect to the chain. This can be a wallet instance from the Wallet SDK, a private key or a ethers.js Signer instance.
-- SDK Options -
 
 <Callout variant="info" title='API Key'>
 
@@ -83,7 +79,7 @@ const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "polygon", {
 	[Express](https://github.com/thirdweb-example/express-typescript-starter)
 </div>
 
-### Using the SDK
+## Using the SDK
 
 With the SDK instantiated, you can now deploy smart contracts, interact with them, and much more.
 

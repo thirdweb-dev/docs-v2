@@ -2,6 +2,17 @@
 
 To deploy contracts, you will first need to instantiate the SDK with a valid signer.
 
+```ts
+const sdk = await ThirdwebSDK.fromWallet(wallet, "sepolia");
+const address = await sdk.deployer.deployBuiltInContract("nft-collection", {
+	name: "My NFT Contract",
+	primary_sale_recipient: "0x...",
+});
+console.log("Deployed at", address);
+```
+
+## Deploy methods
+
 You can then use the [`sdk.deployer`](/references/typescript/ContractDeployer) object to deploy different kind of contracts.
 
 | Deploy type    | Function                                                                                   | Notes                                                                             |
@@ -11,14 +22,3 @@ You can then use the [`sdk.deployer`](/references/typescript/ContractDeployer) o
 | Proxy          | [deployViaProxy](/references/typescript/ContractDeployer#deployViaProxy)                   | Deploy a proxy of an implementation contract                                      |
 | Factory        | [deployViaFactory](/references/typescript/ContractDeployer#deployViaFactory)               | Deploy a contract via the given factory contract                                  |
 | ABI / Bytecode | [deployContractWithAbi](/references/typescript/ContractDeployer#deployContractWithAbi)     | Deploy a contract from its bytecode and ABI                                       |
-
-### Example
-
-```ts
-const sdk = await ThirdwebSDK.fromWallet(wallet, "sepolia");
-const address = await sdk.deployer.deployBuiltInContract("nft-collection", {
-	name: "My NFT Contract",
-	primary_sale_recipient: "0x...",
-});
-console.log("Deployed at", address);
-```

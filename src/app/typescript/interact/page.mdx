@@ -56,6 +56,23 @@ const result = await contract.call("myTransactionFunction", [arg1, arg2], {
 });
 ```
 
+<Callout variant="info" title='Handling transaction errors'>
+
+Every write transaction in the SDK will throw an error of type [`TransactionError`](/references/typescript/TransactionError) if the execution fails for any reason.
+
+You can show heplful error messages to your users by checking the `reason` property of the error.
+
+```ts
+try {
+	await contract.call("myTransactionFunction", [arg1, arg2]);
+} catch (e) {
+	const errorReason = (e as TransactionError)?.reason;
+	console.log("Execution reverted with reason:", reason);
+}
+```
+
+</Callout>
+
 <Heading id="prepare" level={2} children="Preparing Transactions" />
 
 You can also prepare a transaction without executing it. This will return a [`Transaction`](/references/typescript/Transaction) object that you can use to estimate, simulate, sign, send and execute the transaction yourself.
