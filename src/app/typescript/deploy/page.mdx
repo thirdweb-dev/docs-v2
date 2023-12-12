@@ -1,0 +1,21 @@
+# Deploying contracts
+
+## Requirements
+
+To deploy contracts, you will first need to instantiate the SDK with a valid signer.
+
+You can then use the `sdk.deployer` object to deploy contracts.
+
+## Deploying prebuilt contracts
+
+Deploy one of thirdweb's prebuilt contracts.
+
+```ts
+const txResult = await sdk.deployer.deployBuiltInContract(
+	"nft-collection", // ex: nft-collection, edition-drop, etc
+	{
+		name: "My Contract",
+		primary_sale_recipient: "{{wallet_address}}",
+	},
+);
+```

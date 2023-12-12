@@ -1,0 +1,65 @@
+import { OpenSourceCard } from "@/components/Document/OpenSourceCard";
+import { CardLink } from "@/components/Document/CardLink";
+import { InstallTabs } from "@/components/Document/InstallTabs";
+
+# thirdweb TypeScript SDK
+
+A type-safe library to interact with any EVM-compatible blockchain in both Node.js and the browser.
+
+Connect to user's wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, marketplaces; all with built-in RPC URLs, IPFS gateways, and more.
+
+<OpenSourceCard
+	repoName="TypeScript SDK"
+	repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/sdk"
+/>
+
+## Installation
+
+<InstallTabs
+	thirdwebInstallSupported
+	npm="npm i @thirdweb-dev/sdk ethers@^5"
+	yarn="yarn add @thirdweb-dev/sdk ethers@^5"
+	pnpm="pnpm i @thirdweb-dev/sdk ethers@^5"
+/>
+
+<div className="flex gap-3">
+	[Starter Kits](https://github.com/thirdweb-example#starter-kits) •
+	[Templates](/templates) • [GitHub](https://github.com/thirdweb-dev/js)
+</div>
+
+## Get Started
+
+Check out the [getting started](/typescript/getting-started) guide to learn how to use the SDK in less than 2 minutes.
+
+<CardLink
+	href="/typescript/getting-started"
+	icon="educate"
+	label="Get started with the TypeScript SDK"
+/>
+
+## How It Works
+
+The TypeScript SDK provides a type-safe interface to interact with your smart contracts, wallets, and the blockchain.
+
+It can interact with any contract on any EVM-compatible blockchain, without having to specify ABIs, RPC URLs, or IPFS gateways.
+
+It also simplifies interacting with standard contracts using the Extensions framework. Each extension that your smart contract implements unlock new functionality for you to use in the SDK, which does the heavy lifting for you under the hood. For example, if your smart contract implements the standard `ERC721` interface, you unlock the ability to list NFTs in a type-safe manner, using the `contract.erc721.getAll()` method.
+
+```ts
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+// instantiate the SDK with a simple chain name or chain id
+const sdk = new ThirdwebSDK("polygon");
+
+// access your deployed contracts, ABI is optional
+const contract = await sdk.getContract("0x...");
+
+// Read data using direct calls to your contract
+const myData = await contract.call("myFunction");
+
+// Or Using the extensions API matching to your contract extensions
+const allNFTs = await contract.erc721.getAll();
+const tokenSupply = await contract.erc20.totalSupply();
+```
+
+Create an instance of the ThirdwebSDK class to connect to your smart contract and start interacting with it's functions and extensions.
