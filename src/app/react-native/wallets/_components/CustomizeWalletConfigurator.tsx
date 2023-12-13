@@ -12,7 +12,6 @@ type Props = {
 	config: string;
 	connectUI: string;
 	selectUI: string;
-	isInstalled?: string;
 };
 
 export function CustomizeWalletConfigurator({
@@ -20,7 +19,6 @@ export function CustomizeWalletConfigurator({
 	config,
 	connectUI,
 	selectUI,
-	isInstalled,
 }: Props) {
 	return (
 		<Details summary="Customize" id="customize" tags={["Optional"]}>
