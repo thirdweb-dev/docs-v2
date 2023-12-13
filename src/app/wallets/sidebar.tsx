@@ -1,5 +1,6 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
 import {
+	WalletsAuthIcon,
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
@@ -8,24 +9,25 @@ import {
 const connectSlug = "/wallets/connect";
 const embeddedSlug = "/wallets/embedded-wallet";
 const smartWalletSlug = "/wallets/smart-wallet";
+const authSlug = "/wallets/auth";
 
 export const sidebar: SideBar = {
 	name: "Wallets",
 	links: [
 		{
 			name: "Overview",
-			href: "/contracts",
+			href: "/wallets",
 		},
 		{ separator: true },
 		// Connect
 		{
 			name: "Connect",
 			icon: <WalletsConnectIcon />,
-			isCollapsible: false,
+			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
-					href: `${connectSlug}/overview`,
+					href: `${connectSlug}`,
 				},
 				{
 					name: "Use Connect Component",
@@ -184,7 +186,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Embedded Wallet",
 			icon: <WalletsEmbeddedIcon />,
-			isCollapsible: false,
+			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
@@ -197,11 +199,24 @@ export const sidebar: SideBar = {
 		{
 			name: "Smart Wallet",
 			icon: <WalletsSmartIcon />,
-			isCollapsible: false,
+			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
 					href: `${smartWalletSlug}/overview`,
+				},
+			],
+		},
+		// Auth
+		{ separator: true },
+		{
+			name: "Auth",
+			icon: <WalletsAuthIcon />,
+			isCollapsible: true,
+			links: [
+				{
+					name: "Overview",
+					href: `${authSlug}/overview`,
 				},
 			],
 		},
