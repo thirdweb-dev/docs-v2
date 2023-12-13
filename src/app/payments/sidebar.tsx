@@ -1,8 +1,7 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
-import { PaymentsNFTCheckoutIcon, PaymentsSponsoredIcon } from "@/icons";
+import { PaymentsNFTCheckoutIcon } from "@/icons";
 
 const checkoutSlug = "/payments/nft-checkout";
-const sponsoredSlug = "/payments/sponsored-transactions";
 
 export const sidebar: SideBar = {
 	name: "Payments",
@@ -12,30 +11,74 @@ export const sidebar: SideBar = {
 			href: "/payments",
 		},
 		{ separator: true },
-		// Checkouts
 		{
-			name: "NFT Checkouts",
+			name: "NFT Checkout",
 			icon: <PaymentsNFTCheckoutIcon />,
 			isCollapsible: false,
 			links: [
 				{
-					name: "Overview",
-					href: `${checkoutSlug}/overview`,
+					name: "Get Started",
+					href: `${checkoutSlug}/get-started`,
+					links: [
+						{
+							name: "Enable Contract",
+							href: `${checkoutSlug}/enable-contract`,
+						},
+						{
+							name: "Create Checkout Link",
+							href: `${checkoutSlug}/checkout-link`,
+						},
+						{
+							name: "Go Live Checklist",
+							href: `${checkoutSlug}/go-live-checklist`,
+						},
+					],
 				},
-			],
-		},
-		// Sponsored Transactions
-		{ separator: true },
-		{
-			name: "Sponsored Transactions",
-			icon: <PaymentsSponsoredIcon />,
-			isCollapsible: false,
-			links: [
+
 				{
-					name: "Overview",
-					href: `${sponsoredSlug}/overview`,
+					name: "Embedded Elements",
+
+					links: [
+						{
+							name: "Overview",
+							href: `${checkoutSlug}/elements`,
+						},
+						{
+							name: "CheckoutWithCard",
+							href: `${checkoutSlug}/checkout-with-card`,
+						},
+						{
+							name: "CheckoutWithEth",
+							href: `${checkoutSlug}/checkout-with-eth`,
+						},
+					],
+				},
+				{
+					name: "Webhooks",
+					href: `${checkoutSlug}/webhooks`,
+				},
+				{ name: "Translations", href: `${checkoutSlug}/translations` },
+				{ name: "Marketplaces", href: `${checkoutSlug}/marketplaces` },
+				{
+					name: "One-Time Checkout Link",
+					href: `${checkoutSlug}/one-time-checkout-link`,
+				},
+				{
+					name: "Pre-built Contracts",
+					href: `${checkoutSlug}/pre-built-contracts`,
+				},
+				{
+					name: "Custom Contracts",
+					href: `${checkoutSlug}/custom-contracts`,
+				},
+				{
+					name: "ERC-20 Pricing",
+					href: `${checkoutSlug}/erc20-pricing`,
 				},
 			],
 		},
+		{ separator: true },
+		{ name: "API Reference", href: `${checkoutSlug}/api-reference` },
+		{ name: "FAQ", href: `${checkoutSlug}/faq` },
 	],
 };

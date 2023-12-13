@@ -34,7 +34,6 @@ import {
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
-	PaymentsSponsoredIcon,
 } from "@/icons";
 
 export default function Page() {
@@ -326,12 +325,6 @@ function PaymentSection() {
 					title="NFT Checkout"
 					description="Credit card checkout for NFTs"
 					icon={PaymentsNFTCheckoutIcon}
-				/>
-				<ArticleCard
-					href="/payments/sponsored-tx"
-					title="Sponsored Transactions"
-					description="Remove all user friction with invisible transactions"
-					icon={PaymentsSponsoredIcon}
 				/>
 			</Grid>
 		</section>
