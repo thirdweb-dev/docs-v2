@@ -3,8 +3,6 @@ import { PaymentsNFTCheckoutIcon } from "@/icons";
 
 const checkoutSlug = "/payments/nft-checkout";
 
-const gettingStartedSlug = "/payments/getting-started";
-
 export const sidebar: SideBar = {
 	name: "Payments",
 	links: [
