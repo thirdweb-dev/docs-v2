@@ -1,0 +1,17 @@
+import Image from "next/image";
+import DetailsDropdownImage from "../images/connect-wallet-details-open-dark.png";
+
+When user connects the wallet using ConnectWallet Modal, a "Details Button" is rendered. Clicking on this button opens a dropdown which opens in a certain direction relative to the Details button.
+
+`dropdownPosition` prop allows you to customize the direction the dropdown should open relative to the Details button
+
+```jsx
+<ConnectWallet
+	dropdownPosition={{
+		side: "bottom", //  "top" | "bottom" | "left" | "right";
+		align: "end", // "start" | "center" | "end";
+	}}
+/>
+```
+
+<Image src={DetailsDropdownImage} className="border rounded-lg" />
