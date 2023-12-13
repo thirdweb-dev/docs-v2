@@ -203,7 +203,15 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${smartWalletSlug}/overview`,
+					href: `${smartWalletSlug}`,
+				},
+				{
+					name: "How it Works",
+					href: `${smartWalletSlug}/how-it-works`,
+				},
+				{
+					name: "Getting Started",
+					href: `${smartWalletSlug}/getting-started`,
 				},
 			],
 		},
