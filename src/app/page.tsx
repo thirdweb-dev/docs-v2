@@ -2,7 +2,7 @@ import Image from "next/image";
 import DocsHero from "./_images/docs-hero.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { DocLink, Heading } from "@/components/Document";
+import { DocLink, Heading, Grid, SDKCard } from "@/components/Document";
 
 // icons
 import {
@@ -402,30 +402,6 @@ function ArticleCard(props: {
 				<p className="text-f-300">{props.description}</p>
 			</div>
 		</Link>
-	);
-}
-
-function SDKCard(props: {
-	title: string;
-	href: string;
-	icon?: React.FC<{ className?: string }>;
-}) {
-	return (
-		<Link
-			href={props.href}
-			className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-		>
-			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
-			<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
-		</Link>
-	);
-}
-
-function Grid(props: { children: React.ReactNode }) {
-	return (
-		<div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-			{props.children}
-		</div>
 	);
 }
 
