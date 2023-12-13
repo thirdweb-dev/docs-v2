@@ -1,4 +1,9 @@
 import Image from "next/image";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import {
+	Callout,
+} from "@/components/Document";
+
 
 ### Add RPC Edge to your application
 
@@ -15,83 +20,98 @@ Obtain a Client ID & Secret Key by navigating to Settings > API Keys > `Create A
 
 Pass in the Client ID and Secret Keys into the application’s configuration.
 
-<Tabs>
-  <TabItem value="Typescript" label="Typescript" default>
-
-When writing backends or scripts, you can use the secret key to instantiate the SDK:
-
-```ts
-// Read-only mode
-const readOnlySdk = new ThirdwebSDK("<chain_id>", {
-  secretKey: "<your_secret_key>",
-});
-```
-
-When using the Typescript SDK for frontend applications, use the client id:
-
-```ts
-const readOnlySdk = new ThirdwebSDK("<chain_id>", {
-  clientId: "<your_client_id>",
-});
-```
-
-  </TabItem>
-  <TabItem value="React" label="React">
-
-```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+<Tabs defaultValue="account">
+	<TabsList>
+		<TabsTrigger value="react">React</TabsTrigger>
+		<TabsTrigger value="react-native">React Native</TabsTrigger>
+    <TabsTrigger value="typescript">TypeScript</TabsTrigger>
+		<TabsTrigger value="python">Python</TabsTrigger>
+    <TabsTrigger value="go">Go</TabsTrigger>
+	</TabsList>
+	<TabsContent value="react">
+  ```jsx
+  import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 function MyApp() {
   return (
-    <ThirdwebProvider clientId="<your_client_id>">
+    <ThirdwebProvider
+      activeChain="ethereum"
+      clientId="your-client-id"
+    >
       <YourApp />
     </ThirdwebProvider>
   );
 }
 ```
+</TabsContent>
+	<TabsContent value="react-native">
+  ```jsx
+  import { ThirdwebProvider } from "@thirdweb-dev/react";
 
-  </TabItem>
-  <TabItem value="Unity" label="Unity">
-
-When using the Unity SDK, you can use the client id to instantiate the SDK:
-
-```csharp
-  ThirdwebSDK sdk = new ThirdwebSDK("<chain_id>", 5, new ThirdwebSDK.Options()
-  {
-    clientId = "<your_client_id>",
-  });
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      activeChain="ethereum"
+      clientId="your-client-id"
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
 ```
+</TabsContent>
+  <TabsContent value="typescript">
+  ```ts
+    // Read-only mode
+    const readOnlySdk = new ThirdwebSDK("<chain_id>", {
+      secretKey: "<your_secret_key>",
+    });
+  ```
 
-  </TabItem>
-  <TabItem value="Python" label="Python">
+    When using the Typescript SDK for frontend applications, use the client id:
 
-When using the Python SDK, use the secret key to instantiate the SDK:
+  ```ts
+    const readOnlySdk = new ThirdwebSDK("<chain_id>", {
+    clientId: "<your_client_id>",
+    });
+  ```
+  </TabsContent>
+  <TabsContent value="python">
+  When using the Python SDK, use the secret key to instantiate the SDK:
 
-```python
-sdk = ThirdwebSDK.from_private_key(
-    <private_key>,
-    "<chain_id>",
-    SDKOptions(secret_key=<your_secret_key>)
-)
-```
+  ```python
+  sdk = ThirdwebSDK.from_private_key(
+      <private_key>,
+      "<chain_id>",
+      SDKOptions(secret_key=<your_secret_key>)
+  )
+  ```
+  </TabsContent>
+  <TabsContent value="go">
+  When using the GO SDK, you can use the secret key to instantiate the SDK:
 
-  </TabItem>
-  <TabItem value="GO" label="GO">
+  ```go
+    func main() {
+        // Your secret key from the thirdweb api keys dashboard
+        secretKey := "<your_secret_key"
+        sdk, err := thirdweb.NewThirdwebSDK("<chain_id>", &thirdweb.SDKOptions{
+          SecretKey: <your_secret_key>,
+        })
+      }
+  ```
+</TabsContent>
+  <TabsContent value="unity">
+  When using the Unity SDK, you can use the client id to instantiate the SDK:
 
-When using the GO SDK, you can use the secret key to instantiate the SDK:
-
-```go
-  func main() {
-	    // Your secret key from the thirdweb api keys dashboard
-	    secretKey := "<your_secret_key"
-	    sdk, err := thirdweb.NewThirdwebSDK("<chain_id>", &thirdweb.SDKOptions{
-		    SecretKey: <your_secret_key>,
-	    })
-    }
-```
-
-  </TabItem>
+  ```csharp
+    ThirdwebSDK sdk = new ThirdwebSDK("<chain_id>", 5, new ThirdwebSDK.Options()
+    {
+      clientId = "<your_client_id>",
+    });
+  ```
+  </TabsContent>
 </Tabs>
+
 
 ---
 
@@ -99,43 +119,43 @@ When using the GO SDK, you can use the secret key to instantiate the SDK:
 
 To override the default RPC for any given chain:
 
-<Tabs>
-  <TabItem value="Typescript" label="Typescript" default>
+<Tabs defaultValue="react">
+  <TabsList>
+		<TabsTrigger value="react">React</TabsTrigger>
+    <TabsTrigger value="typescript">TypeScript</TabsTrigger>
+	</TabsList>
+  <TabsContent value="react">
+    ```jsx
+    import { ThirdwebProvider } from "@thirdweb-dev/react";
 
-```ts
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+    const App = () => {
+      return (
+        <ThirdwebProvider
+          activeChain={{
+            rpc: ["https://<your-rpc-to-use>.com"],
+          }}
+        >
+          <YourApp />
+        </ThirdwebProvider>
+      );
+    };
+    ```
+  </TabsContent>
+	<TabsContent value="typescript">
+      ```ts
+    import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const sdk = new ThirdwebSDK({
-  rpc: ["https://<your-rpc-to-use>.com"],
-});
-```
-
-  </TabItem>
-  <TabItem value="React" label="React">
-
-```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
-const App = () => {
-  return (
-    <ThirdwebProvider
-      activeChain={{
-        rpc: ["https://<your-rpc-to-use>.com"],
-      }}
-    >
-      <YourApp />
-    </ThirdwebProvider>
-  );
-};
-```
-
-  </TabItem>
+    const sdk = new ThirdwebSDK({
+      rpc: ["https://<your-rpc-to-use>.com"],
+    });
+    ```
+  </TabsContent>
 
 </Tabs>
 
-:::info
+<Callout title="Public RPCs" variant="info">
 Public RPCs can be used without an API Key. Refer to the [configured chains page](https://thirdweb.com/dashboard/infrastructure/rpc-edge).
-:::
+</Callout>
 
 ### View RPC usage
 
