@@ -338,19 +338,19 @@ function InfraSection() {
 
 			<Grid>
 				<ArticleCard
-					href="/infra/storage"
+					href="/infrastructure/storage"
 					title="Storage"
 					description="Secure, fast, decentralized storage"
 					icon={InfraStorageIcon}
 				/>
 				<ArticleCard
-					href="/infra/rpc"
+					href="/infrastructure/rpc"
 					title="RPC Edge"
 					description="Enterprise-grade RPCs, for free"
 					icon={InfraRPCIcon}
 				/>
 				<ArticleCard
-					href="/infra/engine"
+					href="/infrastructure/engine"
 					title="Engine"
 					description="HTTP server with contract APIs and backend wallets"
 					icon={InfraEngineIcon}

@@ -1,0 +1,105 @@
+import { SideBar } from "@/components/Layouts/DocLayout";
+import { InfraEngineIcon, InfraRPCIcon, InfraStorageIcon } from "@/icons";
+
+const engineSlug = "/infrastructure/engine";
+const storageSlug = "/infrastructure/storage";
+const rpcSlug = "/infrastructure/rpc-edge";
+
+export const sidebar: SideBar = {
+	name: "Infrastructure",
+	links: [
+		{
+			name: "Overview",
+			href: "/infrastructure",
+		},
+		{ separator: true },
+		// Engine
+		{
+			name: "Engine",
+			icon: <InfraEngineIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `${engineSlug}/overview`,
+				},
+			],
+		},
+		//Storage
+		{ separator: true },
+		{
+			name: "Storage",
+			icon: <InfraStorageIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `${storageSlug}/overview`,
+				},
+				{
+					name: "How Storage Works",
+					href: `${storageSlug}/how-storage-works`,
+				},
+				{
+					name: "How to Use Storage",
+					links: [
+						{
+							name: "Upload Files to IPFS",
+							href: `${storageSlug}/how-to-use-storage/upload-files-to-ipfs`,
+						},
+						{
+							name: "Host Web App",
+							href: `${storageSlug}/how-to-use-storage/host-web-app`,
+						},
+					],
+				},
+				{
+					name: "Full Reference",
+					links: [
+						{
+							name: "React",
+							href: `${storageSlug}/full-reference/react`,
+						},
+						{
+							name: "React Native",
+							href: `${storageSlug}/full-reference/react-native`,
+						},
+						{
+							name: "TypeScript",
+							href: `${storageSlug}/full-reference/typescript`,
+						},
+						{
+							name: "Python",
+							href: `${storageSlug}/full-reference/python`,
+						},
+						{
+							name: "Go",
+							href: `${storageSlug}/full-reference/go`,
+						},
+						{
+							name: "Unity",
+							href: `${storageSlug}/full-reference/unity`,
+						},
+					],
+				},
+			],
+		},
+		//RPC Edge
+		{ separator: true },
+		{
+			name: "RPC Edge",
+			icon: <InfraRPCIcon />,
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: `${rpcSlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${rpcSlug}/get-started`,
+				},
+			],
+		},
+	],
+};
