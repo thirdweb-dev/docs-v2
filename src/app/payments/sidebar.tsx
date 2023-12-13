@@ -2,7 +2,7 @@ import { SideBar } from "@/components/Layouts/DocLayout";
 import { PaymentsNFTCheckoutIcon, PaymentsSponsoredIcon } from "@/icons";
 
 const checkoutSlug = "/payments/nft-checkout";
-const sponsoredSlug = "/payments/sponsored-transactions";
+const gettingStartedSlug = "/payments/getting-started";
 
 export const sidebar: SideBar = {
 	name: "Payments",
@@ -12,30 +12,76 @@ export const sidebar: SideBar = {
 			href: "/payments",
 		},
 		{ separator: true },
-		// Checkouts
 		{
-			name: "NFT Checkouts",
+			name: "NFT Checkout",
 			icon: <PaymentsNFTCheckoutIcon />,
 			isCollapsible: false,
 			links: [
 				{
-					name: "Overview",
-					href: `${checkoutSlug}/overview`,
+					name: "Getting Started",
+					href: gettingStartedSlug,
+					links: [
+						{
+							name: "Enable Contract",
+							href: "/payments/enable-contract",
+						},
+						{
+							name: "Create Checkout Link",
+							href: "/payments/checkout-link",
+						},
+						{ name: "Go Live Checklist", href: "/payments/go-live-checklist" },
+					],
 				},
-			],
-		},
-		// Sponsored Transactions
-		{ separator: true },
-		{
-			name: "Sponsored Transactions",
-			icon: <PaymentsSponsoredIcon />,
-			isCollapsible: false,
-			links: [
 				{
-					name: "Overview",
-					href: `${sponsoredSlug}/overview`,
+					name: "Advanced Guides",
+
+					links: [
+						{
+							name: "Embedded Elements",
+
+							links: [
+								{
+									name: "Overview",
+									href: "/payments/elements",
+								},
+								{
+									name: "CheckoutWithCard",
+									href: "/payments/checkout-with-card",
+								},
+								{
+									name: "CheckoutWithEth",
+									href: "/payments/checkout-with-eth",
+								},
+							],
+						},
+						{
+							name: "Webhooks",
+							href: "/payments/webhooks",
+						},
+						{ name: "Translations", href: "/payments/translations" },
+						{ name: "Marketplaces", href: "/payments/marketplaces" },
+						{
+							name: "One-Time Checkout Link",
+							href: "/payments/one-time-checkout-link",
+						},
+						{
+							name: "Thirdweb Contracts",
+							href: "/payments/thirdweb-contracts",
+						},
+						{
+							name: "Custom Contracts",
+							href: "/payments/custom-contracts",
+						},
+						{
+							name: "ERC-20 Pricing",
+							href: "/payments/erc20-pricing",
+						},
+					],
 				},
 			],
 		},
+		{ separator: true },
+		{ name: "API Reference", href: "/payments/api-reference" },
+		{ name: "FAQ", href: "/payments/faq" },
 	],
 };
