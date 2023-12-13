@@ -18,8 +18,8 @@ export function CopyButton(props: { text: string }) {
 	return (
 		<Button
 			variant="outline"
-			className="absolute right-4 top-4 p-2"
 			onClick={copyToClipboard}
+			className="bg-b-900 p-2"
 		>
 			<Icon className="h-3 w-3 text-f-300" />
 		</Button>
