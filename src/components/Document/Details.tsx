@@ -49,8 +49,8 @@ export function Details(props: {
 					<Anchor id={id || "#"} className={"m-0 flex gap-3"}>
 						<h4
 							className={cn(
-								"text-3xl md:text-4xl font-bold tracking-tight text-f-100 break-all ",
-								"text-base md:text-base font-semibold text-accent-500 flex gap-3 text-left w-full",
+								"text-lg font-bold tracking-tight text-f-100 break-all",
+								"font-semibold text-accent-500 flex gap-3 text-left w-full",
 								props.headingClassName,
 							)}
 						>

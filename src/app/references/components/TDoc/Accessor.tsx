@@ -7,7 +7,7 @@ import { getTags } from "./utils/getTags";
 import { DeprecatedCalloutTDoc } from "./Deprecated";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
-import { Callout } from "@/components/Document";
+import { Callout, Details } from "@/components/Document";
 import { getTokenLinks } from "./utils/getTokenLinks";
 
 export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
@@ -40,11 +40,13 @@ export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 				</Callout>
 			)}
 
-			<CodeBlock
-				lang="ts"
-				code={signatureCode}
-				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
-			/>
+			<Details id="signature" summary="Signature">
+				<CodeBlock
+					lang="ts"
+					code={signatureCode}
+					tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
+				/>
+			</Details>
 
 			{exampleTag?.summary && (
 				<>

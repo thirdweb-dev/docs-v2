@@ -34,8 +34,6 @@ export function EnumTDoc(props: { doc: EnumDoc; level: number }) {
 			{doc.summary && <TypedocSummary summary={doc.summary} />}
 			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
 
-			<CodeBlock lang="ts" code={code} />
-
 			{exampleTag?.summary && (
 				<>
 					<Heading level={subLevel} id={slugger.slug("example")}>
@@ -50,6 +48,8 @@ export function EnumTDoc(props: { doc: EnumDoc; level: number }) {
 					<TypedocSummary summary={seeTag.summary} />
 				</Callout>
 			)}
+
+			<CodeBlock lang="ts" code={code} />
 
 			{doc.members?.map((member) => {
 				return (
@@ -78,10 +78,7 @@ function MemberTDoc(props: {
 				{member.name}
 			</Heading>
 			{member.summary && <TypedocSummary summary={member.summary} />}
-			<CodeBlock
-				lang="ts"
-				code={`${props.enumName}.${member.name}: ${member.value}`}
-			/>
+			<CodeBlock lang="ts" code={`${member.value.code}`} />
 		</div>
 	);
 }
