@@ -32,51 +32,46 @@ export const sidebar: SideBar = {
 						{ name: "Go Live Checklist", href: "/payments/go-live-checklist" },
 					],
 				},
+
 				{
-					name: "Advanced Guides",
+					name: "Embedded Elements",
 
 					links: [
 						{
-							name: "Embedded Elements",
-
-							links: [
-								{
-									name: "Overview",
-									href: "/payments/elements",
-								},
-								{
-									name: "CheckoutWithCard",
-									href: "/payments/checkout-with-card",
-								},
-								{
-									name: "CheckoutWithEth",
-									href: "/payments/checkout-with-eth",
-								},
-							],
+							name: "Overview",
+							href: "/payments/elements",
 						},
 						{
-							name: "Webhooks",
-							href: "/payments/webhooks",
-						},
-						{ name: "Translations", href: "/payments/translations" },
-						{ name: "Marketplaces", href: "/payments/marketplaces" },
-						{
-							name: "One-Time Checkout Link",
-							href: "/payments/one-time-checkout-link",
+							name: "CheckoutWithCard",
+							href: "/payments/checkout-with-card",
 						},
 						{
-							name: "Thirdweb Contracts",
-							href: "/payments/thirdweb-contracts",
-						},
-						{
-							name: "Custom Contracts",
-							href: "/payments/custom-contracts",
-						},
-						{
-							name: "ERC-20 Pricing",
-							href: "/payments/erc20-pricing",
+							name: "CheckoutWithEth",
+							href: "/payments/checkout-with-eth",
 						},
 					],
+				},
+				{
+					name: "Webhooks",
+					href: "/payments/webhooks",
+				},
+				{ name: "Translations", href: "/payments/translations" },
+				{ name: "Marketplaces", href: "/payments/marketplaces" },
+				{
+					name: "One-Time Checkout Link",
+					href: "/payments/one-time-checkout-link",
+				},
+				{
+					name: "Thirdweb Contracts",
+					href: "/payments/thirdweb-contracts",
+				},
+				{
+					name: "Custom Contracts",
+					href: "/payments/custom-contracts",
+				},
+				{
+					name: "ERC-20 Pricing",
+					href: "/payments/erc20-pricing",
 				},
 			],
 		},

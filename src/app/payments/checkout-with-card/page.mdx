@@ -1,3 +1,5 @@
+import { Steps, Step } from "@/components/Document";
+
 # CheckoutWithCard
 
 The **CheckoutWithCard** element embeds a form on your app that accepts credit/debit card, Apple Pay, and Google Pay.
@@ -11,21 +13,24 @@ This component also handles:
 
 ---
 
-## Demo
-
-> 👍 <a href="https://payments.thirdweb.com/sdk/2022-08-12/examples/checkout-with-card" target="_blank">Try a demo!</a> > ![CheckoutWithCard component demo](../../assets/checkout-with-card-demo.png)
-
 ## React Integration
 
-1. Install the React SDK ([Install guide](/react/getting-started)):
-   ```Text npm
-   npm install @thirdweb-dev/react
-   ```
-   ```Text yarn
-   yarn add @thirdweb-dev/react
-   ```
-2. On your frontend, render the `CheckoutWithCard` component with your configs.
-
+<Steps>
+	<Step title="Install the React SDK">
+  Follow our SDK [install guide](/react/getting-started) here.
+   {/* <!-- prettier-ignore --> */}
+		```bash
+    npm install @thirdweb-dev/react
+    ```
+    {/* <!-- prettier-ignore --> */}
+		```bash
+    yarn add @thirdweb-dev/react
+    ```
+	</Step>
+  <Step title="Embed your component">
+    On your frontend, render the `CheckoutWithCard` component with your configs.
+  </Step>
+</Steps>
 ### Example code
 
 ```typescript
@@ -72,11 +77,23 @@ import { CheckoutWithCard } from "@thirdweb-dev/react";
 
 ## Javascript Integration
 
-1. Install the Javascript SDK with your preferred package manager.
-   - `npm install @thirdweb-dev/payments`
-   - `yarn add @thirdweb-dev/payments`
-2. Call `createCheckoutWithCardElement` to insert the iframe on your page. Pass the `configs` to this component.
-   1. If you don't provide `elementOrId`, this call returns an iframe element for you to insert into your page.
+<Steps>
+	<Step title="Install the Javascript SDK with your preferred package manager">
+  Follow our SDK [install guide](/react/getting-started) here.
+   {/* <!-- prettier-ignore --> */}
+		```bash
+    npm install @thirdweb-dev/payments
+    ```
+    {/* <!-- prettier-ignore --> */}
+		```bash
+    yarn add @thirdweb-dev/payments
+    ```
+	</Step>
+  <Step title="Add your iframe">
+    Call `createCheckoutWithCardElement` to insert the iframe on your page. Pass the `configs` to this component.
+    >  If you don't provide `elementOrId`, this call returns an iframe element for you to insert into your page.
+  </Step>
+</Steps>
 
 ### Example code
 
