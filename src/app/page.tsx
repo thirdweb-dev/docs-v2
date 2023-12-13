@@ -34,7 +34,6 @@ import {
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
-	PaymentsSponsoredIcon,
 } from "@/icons";
 
 export default function Page() {
