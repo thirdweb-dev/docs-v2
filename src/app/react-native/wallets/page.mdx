@@ -1,0 +1,43 @@
+import { Breadcrumb } from "@/components/Document";
+import { WalletCard } from "./_components/WalletCard";
+// icons
+import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
+import CoinbaseIcon from "@public/icons/wallets/coinbase.svg";
+import WalletConnectIcon from "@public/icons/wallets/walletconnect.svg";
+import SmartWalletIcon from "@public/icons/wallets/smartwallet.svg";
+import EmbeddedWalletIcon from "@public/icons/wallets/embeddedwallet.svg";
+import SafeIcon from "@public/icons/wallets/safe.svg";
+import LocalWalletIcon from "@public/icons/wallets/localwallet.svg";
+import MagicLinkIcon from "@public/icons/wallets/magiclink.svg";
+import RainbowIcon from "@public/icons/wallets/rainbow.svg";
+import ZerionIcon from "@public/icons/wallets/zerion.svg";
+import BloctoIcon from "@public/icons/wallets/blocto.svg";
+import FrameIcon from "@public/icons/wallets/frame.svg";
+import PhantomIcon from "@public/icons/wallets/phantom.svg";
+
+<Breadcrumb
+	crumbs={[
+		{
+			name: "React Native",
+			href: "/react-native",
+		},
+		{
+			name: "Wallets",
+			href: "/react-native/wallets",
+		},
+	]}
+/>
+
+# Wallets
+
+<div className="grid-cols-1 md:grid-cols-3 grid gap-x-10 gap-y-16 mt-20">
+	<WalletCard label="MetaMask" href="/react-native/wallets/metamask" icon={MetaMaskIcon} />
+	<WalletCard label="Coinbase" href="/react-native/wallets/coinbase" icon={CoinbaseIcon} />
+	<WalletCard label="WalletConnect" href="/react-native/wallets/walletconnect" icon={WalletConnectIcon} />
+	<WalletCard label="Smart Wallet" href="/react-native/wallets/smartwallet" icon={SmartWalletIcon} />
+  <WalletCard label="Embedded Wallet" href="/react-native/wallets/embedded-wallet" icon={EmbeddedWalletIcon} />
+  <WalletCard label="Local Wallet" href="/react-native/wallets/local-wallet" icon={LocalWalletIcon} />
+  <WalletCard label="Magic Link (deprecated)" href="/react-native/wallets/magiclink" icon={MagicLinkIcon} />
+  <WalletCard label="Rainbow" href="/react-native/wallets/rainbow" icon={RainbowIcon} />
+
+</div>
