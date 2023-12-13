@@ -15,6 +15,7 @@ import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { getTags } from "./utils/getTags";
 import { getTokenLinks } from "./utils/getTokenLinks";
+import { Paragraph } from "@/components/Document";
 
 export function FunctionTDoc(props: {
 	doc: FunctionDoc;
@@ -64,7 +65,7 @@ async function RenderFunctionSignature(props: {
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
 
-	const { deprecatedTag, remarksTag, seeTag, exampleTag } = getTags(
+	const { deprecatedTag, remarksTag, seeTag, exampleTag, prepareTag } = getTags(
 		signature.blockTags,
 	);
 
@@ -113,8 +114,6 @@ async function RenderFunctionSignature(props: {
 				</Callout>
 			)}
 
-			<CodeBlock code={signatureCode.code} lang="ts" tokenLinks={tokenLinks} />
-
 			{exampleTag?.summary && (
 				<>
 					<Heading level={subLevel} id={slugger.slug("example")}>
@@ -123,6 +122,16 @@ async function RenderFunctionSignature(props: {
 					<TypedocSummary summary={exampleTag.summary} />
 				</>
 			)}
+
+			<div className="mt-8">
+				<Details id={slugger.slug("signature")} summary="Signature">
+					<CodeBlock
+						code={signatureCode.code}
+						lang="ts"
+						tokenLinks={tokenLinks}
+					/>
+				</Details>
+			</div>
 
 			{signature.parameters && (
 				<div className="mt-5">
@@ -175,6 +184,24 @@ async function RenderFunctionSignature(props: {
 							/>
 						)}
 					</div>
+				</div>
+			)}
+
+			{prepareTag && (
+				<div className="mt-8">
+					<Callout variant="info" title="Preparable">
+						<Paragraph>
+							To gain more granular control over the transaction process, all
+							transaction methods come with a <InlineCode code={`prepare`} />{" "}
+							method that gives you full control over each step of this
+							transaction journey.
+						</Paragraph>
+
+						<Paragraph>
+							You can prepare <InlineCode code={name} /> method by calling{" "}
+							<InlineCode code={`${name}.prepare()`} /> with same arguments.
+						</Paragraph>
+					</Callout>
 				</div>
 			)}
 

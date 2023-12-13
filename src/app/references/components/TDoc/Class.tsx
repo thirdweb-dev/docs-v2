@@ -1,4 +1,9 @@
-import { ClassDoc, FunctionDoc, getClassSignature } from "typedoc-better-json";
+import {
+	ClassDoc,
+	FunctionDoc,
+	VariableDoc,
+	getClassSignature,
+} from "typedoc-better-json";
 import { Heading } from "../../../../components/Document/Heading";
 import { SourceLinkTypeDoc } from "./SourceLink";
 import { FunctionTDoc } from "./Function";
@@ -31,6 +36,55 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 		);
 	});
 
+	const properties: VariableDoc[] = [];
+
+	doc.properties?.forEach((property) => {
+		if (property.flags) {
+			if (property.flags.isPrivate || property.flags.isProtected) {
+				return;
+			}
+		}
+
+		// if property is a function - show it as a method
+		if (property.typeDeclaration && property.typeDeclaration.length === 1) {
+			const method = property.typeDeclaration[0];
+			if (method && method.kind === "function") {
+				methods?.push(method);
+				return;
+			}
+		}
+
+		// handling "preparable" methods - add a @prepare tag to them
+		if (
+			property.typeDeclaration &&
+			property.typeDeclaration.length === 2 &&
+			property.typeDeclaration.find((t) => t.name === "prepare")
+		) {
+			let isMethod = false;
+			property.typeDeclaration?.find((m) => {
+				if (m.kind === "function") {
+					m.signatures?.forEach((s) => {
+						if (!s.blockTags) {
+							s.blockTags = [];
+						}
+						s.blockTags.push({
+							tag: "@prepare",
+						});
+					});
+					methods?.push(m);
+					isMethod = true;
+					return true;
+				}
+			});
+
+			if (!isMethod) {
+				properties.push(property);
+			}
+		} else {
+			properties.push(property);
+		}
+	});
+
 	const regularMethods = methods?.filter((m) => {
 		if (m.signatures && m.signatures[0] && m.signatures[0]?.inheritedFrom) {
 			return false;
@@ -43,10 +97,6 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			return true;
 		}
 		return false;
-	});
-
-	const properties = doc.properties?.filter((property) => {
-		return !property.flags?.isPrivate && !property.flags?.isProtected;
 	});
 
 	const accessors = doc.accessors?.filter((accessor) => {
@@ -96,26 +146,30 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 				</Callout>
 			)}
 
-			<CodeBlock
-				lang="ts"
-				code={signatureCode}
-				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
-			/>
+			{exampleTag?.summary && (
+				<>
+					<Heading level={3} id={slugger.slug("example")}>
+						Example
+					</Heading>
+					<TypedocSummary summary={exampleTag.summary} />
+				</>
+			)}
+
+			<div className="h-2" />
+
+			<Details summary="Signature" id={slugger.slug("signature")}>
+				<CodeBlock
+					lang="ts"
+					code={signatureCode}
+					tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
+				/>
+			</Details>
 
 			{/* Constructor */}
 			{doc.constructor && (
 				<Details id="constructor" level={2} summary="Constructor">
 					<FunctionTDoc doc={doc.constructor} level={2} showHeading={false} />
 				</Details>
-			)}
-
-			{exampleTag?.summary && (
-				<>
-					<Heading level={2} id={slugger.slug("example")}>
-						Example
-					</Heading>
-					<TypedocSummary summary={exampleTag.summary} />
-				</>
 			)}
 
 			{/* Methods */}
