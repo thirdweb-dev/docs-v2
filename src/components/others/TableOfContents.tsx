@@ -37,9 +37,14 @@ export function TableOfContentsSideBar() {
 		if (!root) throw new Error("No main element found");
 
 		// get all anchor links in root
-		const anchors = Array.from(
+		const anchorsAll = Array.from(
 			root.querySelectorAll("a[href^='#']"),
 		) as HTMLAnchorElement[];
+
+		// hide anchors inside hidden elements
+		const anchors = anchorsAll.filter((anchor) => {
+			return anchor.closest("[data-collapsible]") === null;
+		});
 
 		// when heading's intersection changes, update corresponding link's data-active attribute to true/false
 		const observer = new IntersectionObserver(

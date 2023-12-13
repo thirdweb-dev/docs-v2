@@ -72,7 +72,8 @@ export function Details(props: {
 						)}
 					</Anchor>
 				</AccordionTrigger>
-				<AccordionContent>
+
+				<AccordionContent data-collapsible>
 					<div className="pl-4 pt-4 [&>:first-child]:mt-0">
 						{props.children}
 					</div>
