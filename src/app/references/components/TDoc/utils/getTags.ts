@@ -6,10 +6,14 @@ export function getTags(blockTags?: BlockTag[]) {
 	const remarksTag = blockTags?.find((t) => t.tag === "@remarks");
 	const seeTag = blockTags?.find((t) => t.tag === "@see");
 
+	// this is add manually by us in docs repo
+	const prepareTag = blockTags?.find((t) => t.tag === "@prepare");
+
 	return {
 		exampleTag,
 		deprecatedTag,
 		remarksTag,
 		seeTag,
+		prepareTag,
 	};
 }

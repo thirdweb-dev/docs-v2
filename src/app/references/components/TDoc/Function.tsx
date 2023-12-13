@@ -1,9 +1,10 @@
 import {
 	FunctionDoc,
+	FunctionParameter,
 	FunctionSignature,
 	getFunctionSignature,
 } from "typedoc-better-json";
-import { CodeBlock } from "../../../../components/Document/Code";
+import { CodeBlock, InlineCode } from "../../../../components/Document/Code";
 import { TypedocSummary } from "./Summary";
 import { Heading } from "../../../../components/Document/Heading";
 import { Callout } from "../../../../components/Document/Callout";
@@ -14,6 +15,7 @@ import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { getTags } from "./utils/getTags";
 import { getTokenLinks } from "./utils/getTokenLinks";
+import { Paragraph } from "@/components/Document";
 
 export function FunctionTDoc(props: {
 	doc: FunctionDoc;
@@ -63,7 +65,7 @@ async function RenderFunctionSignature(props: {
 	const slugger = sluggerContext.get();
 	invariant(slugger, "slugger context not set");
 
-	const { deprecatedTag, remarksTag, seeTag, exampleTag } = getTags(
+	const { deprecatedTag, remarksTag, seeTag, exampleTag, prepareTag } = getTags(
 		signature.blockTags,
 	);
 
@@ -96,6 +98,12 @@ async function RenderFunctionSignature(props: {
 				</>
 			)}
 
+			{signature.inheritedFrom && (
+				<div className="mb-5 text-f-300">
+					Inherited from <InlineCode code={signature.inheritedFrom.name} />
+				</div>
+			)}
+
 			{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
 			{signature.summary && <TypedocSummary summary={signature.summary} />}
 			{remarksTag?.summary && <TypedocSummary summary={remarksTag.summary} />}
@@ -106,8 +114,6 @@ async function RenderFunctionSignature(props: {
 				</Callout>
 			)}
 
-			<CodeBlock code={signatureCode.code} lang="ts" tokenLinks={tokenLinks} />
-
 			{exampleTag?.summary && (
 				<>
 					<Heading level={subLevel} id={slugger.slug("example")}>
@@ -116,6 +122,16 @@ async function RenderFunctionSignature(props: {
 					<TypedocSummary summary={exampleTag.summary} />
 				</>
 			)}
+
+			<div className="mt-8">
+				<Details id={slugger.slug("signature")} summary="Signature">
+					<CodeBlock
+						code={signatureCode.code}
+						lang="ts"
+						tokenLinks={tokenLinks}
+					/>
+				</Details>
+			</div>
 
 			{signature.parameters && (
 				<div className="mt-5">
@@ -139,19 +155,7 @@ async function RenderFunctionSignature(props: {
 									param.flags?.isStatic ? "static" : "",
 								].filter((w) => w)}
 							>
-								{param.type && (
-									<div>
-										<CodeBlock
-											code={`let ${param.name}: ${param.type.code}`}
-											tokenLinks={
-												param.type.tokens
-													? await getTokenLinks(param.type.tokens)
-													: undefined
-											}
-											lang="ts"
-										/>
-									</div>
-								)}
+								<ParameterTDoc param={param} level={subLevel} />
 							</Details>
 						);
 					})}
@@ -183,7 +187,81 @@ async function RenderFunctionSignature(props: {
 				</div>
 			)}
 
+			{prepareTag && (
+				<div className="mt-8">
+					<Callout variant="info" title="Preparable">
+						<Paragraph>
+							To gain more granular control over the transaction process, all
+							transaction methods come with a <InlineCode code={`prepare`} />{" "}
+							method that gives you full control over each step of this
+							transaction journey.
+						</Paragraph>
+
+						<Paragraph>
+							You can prepare <InlineCode code={name} /> method by calling{" "}
+							<InlineCode code={`${name}.prepare()`} /> with same arguments.
+						</Paragraph>
+					</Callout>
+				</div>
+			)}
+
 			{props.signatureId && <div className="h-10" />}
 		</>
+	);
+}
+
+async function ParameterTDoc(props: {
+	param: FunctionParameter;
+	level: number;
+}) {
+	const { param } = props;
+
+	const slugger = sluggerContext.get();
+	invariant(slugger, "slugger context not set");
+
+	const { deprecatedTag, remarksTag, seeTag, exampleTag } = getTags(
+		param.blockTags,
+	);
+
+	return (
+		<div>
+			{param.type && (
+				<div>
+					{deprecatedTag && <DeprecatedCalloutTDoc tag={deprecatedTag} />}
+					{param.summary && <TypedocSummary summary={param.summary} />}
+					{remarksTag?.summary && (
+						<TypedocSummary summary={remarksTag.summary} />
+					)}
+
+					{seeTag?.summary && (
+						<Callout variant="info">
+							<TypedocSummary summary={seeTag.summary} />
+						</Callout>
+					)}
+
+					<CodeBlock
+						code={`let ${param.name}: ${param.type.code}`}
+						tokenLinks={
+							param.type.tokens
+								? await getTokenLinks(param.type.tokens)
+								: undefined
+						}
+						lang="ts"
+					/>
+
+					{exampleTag?.summary && (
+						<>
+							<Heading
+								level={props.level + 1}
+								id={slugger.slug(param.name + "example")}
+							>
+								Example
+							</Heading>
+							<TypedocSummary summary={exampleTag.summary} />
+						</>
+					)}
+				</div>
+			)}
+		</div>
 	);
 }

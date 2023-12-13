@@ -10,7 +10,7 @@ export function Feedback() {
 
 	if (!isSubmitted) {
 		return (
-			<div className="flex flex-col  items-center gap-3 md:h-16 md:flex-row md:gap-5">
+			<div className="flex flex-col gap-3 md:h-16 md:flex-row md:items-center md:gap-5">
 				<p>Was this page helpful?</p>
 
 				<div className="flex gap-3">

@@ -1,6 +1,6 @@
 import { transform } from "typedoc-better-json";
-import doc from "./test/typescript.json";
 
 export async function fetchTypeScriptDoc() {
+	const doc = await import("./test/typescript.json");
 	return transform(doc as any);
 }

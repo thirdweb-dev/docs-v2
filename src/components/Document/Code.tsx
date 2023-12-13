@@ -125,20 +125,24 @@ export async function CodeBlock(props: {
 	}
 
 	return (
-		<code
-			className="styled-scrollbar relative mb-5 block max-h-[80vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
-			lang={lang}
-		>
-			<CopyButton text={code} />
-			<pre
-				className=""
-				dangerouslySetInnerHTML={
-					ReactElement ? undefined : { __html: highlightedCode }
-				}
+		<div className="relative">
+			<code
+				className="styled-scrollbar relative mb-5 block max-h-[80vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
+				lang={lang}
 			>
-				{ReactElement}
-			</pre>
-		</code>
+				<pre
+					dangerouslySetInnerHTML={
+						ReactElement ? undefined : { __html: highlightedCode }
+					}
+				>
+					{ReactElement}
+				</pre>
+			</code>
+
+			<div className="absolute right-4 top-4 z-10">
+				<CopyButton text={code} />
+			</div>
+		</div>
 	);
 }
 

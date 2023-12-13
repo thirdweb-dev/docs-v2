@@ -9,7 +9,7 @@ export const ignoreHeadings = new Set(
 		"type",
 		"prop",
 		"__namedParameters",
-		"installtion",
+		"installation",
 		"getting started",
 		"enums",
 		"classes",

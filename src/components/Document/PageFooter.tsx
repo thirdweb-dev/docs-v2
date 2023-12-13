@@ -7,15 +7,17 @@ import {
 	VideoIcon,
 } from "lucide-react";
 import { Subscribe } from "../others/Subscribe";
+import { AutoEditPageButton } from "./AutoEditPageButton";
 
-export function PageFooter() {
+export function PageFooter(props: { editPageButton?: true }) {
 	return (
-		<footer className="flex flex-col gap-5 pb-8">
-			<div className="flex md:justify-start">
+		<footer className="flex flex-col gap-7 pb-8">
+			<div className="flex flex-col justify-between gap-7 md:flex-row md:items-center">
+				{props.editPageButton && <AutoEditPageButton />}
 				<Feedback />
 			</div>
 			<div className="h-1 border-t"></div>
-			<div className="flex flex-col justify-between gap-5 md:flex-row">
+			<div className="flex flex-col justify-between gap-7 md:flex-row">
 				<Links />
 				<Subscribe />
 			</div>

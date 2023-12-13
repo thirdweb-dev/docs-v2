@@ -5,6 +5,7 @@ export function GithubButtonLink(props: { href: string }) {
 	return (
 		<Link
 			href={props.href}
+			target="_blank"
 			className="inline-flex items-center rounded-lg border text-sm duration-200 hover:border-f-300"
 		>
 			<div className="p-2.5">

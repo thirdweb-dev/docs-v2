@@ -11,6 +11,7 @@ export type SideBar = {
 export type DocLayoutProps = {
 	sideBar: SideBar;
 	children?: React.ReactNode;
+	editPageButton?: true;
 };
 
 export function DocLayout(props: DocLayoutProps) {
@@ -34,8 +35,8 @@ export function DocLayout(props: DocLayoutProps) {
 					<DocSidebarMobile {...props.sideBar} />
 				</div>
 				<div className="grow">{props.children}</div>
-				<div className="mt-16 xl:mt-24">
-					<PageFooter />
+				<div className="mt-16 xl:mt-20">
+					<PageFooter editPageButton={props.editPageButton} />
 				</div>
 			</main>
 			<TableOfContentsSideBar />
