@@ -2,7 +2,13 @@ import Image from "next/image";
 import DocsHero from "./_images/docs-hero.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { DocLink, Heading, Grid, SDKCard } from "@/components/Document";
+import {
+	DocLink,
+	Heading,
+	Grid,
+	SDKCard,
+	ArticleIconCard,
+} from "@/components/Document";
 
 // icons
 import {
@@ -244,25 +250,25 @@ function WalletsSection() {
 			<SectionTitle id="wallets" title="Wallets" />
 
 			<Grid>
-				<ArticleCard
+				<ArticleIconCard
 					href="/wallets/connect"
 					title="Connect"
 					description="Fully customizable Connect Wallet component"
 					icon={WalletsConnectIcon}
 				/>
-				<ArticleCard
-					href="/wallets/smart"
+				<ArticleIconCard
+					href="/wallets/smart-wallet"
 					title="Smart Wallet"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					title="Embedded Wallets"
 					description="Email & social login wallets for your customers"
 					href="/wallets/embedded-wallet"
 					icon={WalletsEmbeddedIcon}
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					href="/wallets/auth"
 					title="Auth"
 					description="Authenticate users with their wallets"
@@ -279,31 +285,31 @@ function ContractsSection() {
 			<SectionTitle id="contracts" title="Contracts" />
 
 			<Grid>
-				<ArticleCard
+				<ArticleIconCard
 					title="Deploy"
 					description="Contract deployment build for any use-case"
 					href="/contracts/deploy"
 					icon={ContractDeployIcon}
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					title="Build"
 					description="Write your own smart contracts"
 					href="/contracts/build"
 					icon={ContractBuildIcon}
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					title="Interact"
 					description="Integrate smart contract interactions directly into your app"
 					icon={ContractInteractIcon}
 					href="/contracts/interact"
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					title="Explore"
 					description="Ready-to-deploy contracts"
 					href="/contracts/example"
 					icon={ContractExploreIcon}
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					href="/contracts/publish"
 					title="Publish"
 					description="Publish your contracts on-chain"
@@ -320,7 +326,7 @@ function PaymentSection() {
 			<SectionTitle id="payments" title="Payments" />
 
 			<Grid>
-				<ArticleCard
+				<ArticleIconCard
 					href="/payments/checkout"
 					title="NFT Checkout"
 					description="Credit card checkout for NFTs"
@@ -337,19 +343,19 @@ function InfraSection() {
 			<SectionTitle id="infra" title="Infrastructure" />
 
 			<Grid>
-				<ArticleCard
+				<ArticleIconCard
 					href="/infrastructure/storage"
 					title="Storage"
 					description="Secure, fast, decentralized storage"
 					icon={InfraStorageIcon}
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					href="/infrastructure/rpc"
 					title="RPC Edge"
 					description="Enterprise-grade RPCs, for free"
 					icon={InfraRPCIcon}
 				/>
-				<ArticleCard
+				<ArticleIconCard
 					href="/infrastructure/engine"
 					title="Engine"
 					description="HTTP server with contract APIs and backend wallets"
@@ -375,26 +381,6 @@ function SDKSection() {
 				<SDKCard href="/solidity" title="Solidity" icon={SolidityIcon} />
 			</Grid>
 		</section>
-	);
-}
-
-function ArticleCard(props: {
-	title: string;
-	description: string;
-	href: string;
-	icon?: React.FC<{ className?: string }>;
-}) {
-	return (
-		<Link
-			href={props.href}
-			className="flex min-h-[120px] items-center gap-4 rounded-lg border bg-b-800 px-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-		>
-			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
-			<div className="flex flex-col gap-1">
-				<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
-				<p className="text-f-300">{props.description}</p>
-			</div>
-		</Link>
 	);
 }
 

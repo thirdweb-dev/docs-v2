@@ -1,0 +1,52 @@
+import { OpenSourceCard, Grid, SDKCard } from "@/components/Document";
+import { ReactIcon, TypeScriptIcon, UnityIcon } from "@/icons";
+
+# Smart Wallet
+
+Everything you need to build [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) Smart Wallets for your users.
+
+## Features
+
+thirdweb's smart wallets have the following features by default:
+
+- The ability to have multiple owners on the same wallet.
+- Give access to scoped session keys with restrictions.
+- Execute transactions (single and batched).
+- Send and receive native tokens to and from the smart wallet.
+- Send and receive [ERC-721](/solidity/extensions/erc721) and [ERC-1155](/solidity/extensions/erc1155) NFTs from the smart wallet.
+- Store contract metadata.
+- Pay for its own gas via a [paymaster](/smart-wallet/how-it-works#paymaster).
+- Assign roles and permissions such as signers and admins.
+- Upgrade functionality over time when using the dynamic and managed factories.
+
+And more!
+
+Smart Wallets can be deployed via the [explore page](https://thirdweb.com/explore) or customized to each application's needs using the [Solidity SDK](/solidity).
+
+The `SmartWallet` API is **composable** - you can use with your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
+
+## Templates
+
+Get started quickly with these fully functional templates:
+
+<OpenSourceCard
+	repoName="Node.js Script"
+	description="A Node.js script to create and interact with smart wallets."
+	repoUrl={"https://github.com/thirdweb-example/smart-wallet-script"}
+/>
+<OpenSourceCard
+	repoName="React App"
+	description="A React app to create and interact with smart wallets."
+	repoUrl={"https://github.com/thirdweb-example/smart-wallet-react"}
+/>
+
+## References
+
+By using the thirdweb SDKs, you can easily create and manage smart wallets for your users:
+
+<Grid>
+	<SDKCard href="/react" title="React" icon={ReactIcon} />
+	<SDKCard href="/react-native" title="React Native" icon={ReactIcon} />
+	<SDKCard href="/typescript" title="TypeScript" icon={TypeScriptIcon} />
+	<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
+</Grid>

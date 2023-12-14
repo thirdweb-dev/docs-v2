@@ -203,7 +203,41 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${smartWalletSlug}/overview`,
+					href: `${smartWalletSlug}`,
+				},
+				{
+					name: "How it Works",
+					href: `${smartWalletSlug}/how-it-works`,
+				},
+				{
+					name: "Getting Started",
+					href: `${smartWalletSlug}/getting-started`,
+				},
+				{
+					name: "Bundler & Paymaster",
+					href: `${smartWalletSlug}/infrastructure`,
+				},
+				{
+					name: "Permissions & Session Keys",
+					href: `${smartWalletSlug}/permissions`,
+				},
+				{
+					name: "FAQs",
+					href: `${smartWalletSlug}/faq`,
+				},
+				{
+					name: "Guides",
+					isCollapsible: true,
+					links: [
+						{
+							name: "Usage in React",
+							href: `${smartWalletSlug}/guides/react`,
+						},
+						{
+							name: "Usage in Typescript",
+							href: `${smartWalletSlug}/guides/typescript`,
+						},
+					],
 				},
 			],
 		},
