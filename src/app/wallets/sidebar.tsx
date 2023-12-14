@@ -228,6 +228,7 @@ export const sidebar: SideBar = {
 				{
 					name: "Guides",
 					isCollapsible: true,
+					expanded: true,
 					links: [
 						{
 							name: "Usage in React",
@@ -236,6 +237,29 @@ export const sidebar: SideBar = {
 						{
 							name: "Usage in Typescript",
 							href: `${smartWalletSlug}/guides/typescript`,
+						},
+					],
+				},
+				{
+					name: "References",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "React",
+							href: `/react/wallets/smartwallet`,
+						},
+						{
+							name: "React Native",
+							href: `/react-native/wallets/smartwallet`,
+						},
+						{
+							name: "TypeScript",
+							href: `/references/wallets/SmartWallet`,
+						},
+						{
+							name: "Unity",
+							href: `/unity/wallets/smartwallet`,
 						},
 					],
 				},
