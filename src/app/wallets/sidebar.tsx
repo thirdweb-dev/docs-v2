@@ -186,11 +186,91 @@ export const sidebar: SideBar = {
 		{
 			name: "Embedded Wallet",
 			icon: <WalletsEmbeddedIcon />,
+			href: `${embeddedSlug}/overview`,
 			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
 					href: `${embeddedSlug}/overview`,
+				},
+				{
+					name: "How it works",
+					href: `${embeddedSlug}/how-it-works`,
+				},
+				{
+					name: "QuickStart",
+					href: `${embeddedSlug}/quick-start`,
+				},
+				{
+					name: "How to",
+					links: [
+						{
+							name: "Connect Users",
+							href: `${embeddedSlug}/how-to/connect-users`,
+						},
+						{
+							name: "Build your own UI",
+							href: `${embeddedSlug}/how-to/build-your-own-ui`,
+						},
+						{
+							name: "Interact with wallets",
+							href: `${embeddedSlug}/how-to/interact-with-wallets`,
+						},
+						{
+							name: "Interact with the blockchain",
+							href: `${embeddedSlug}/how-to/interact-blockchain`,
+						},
+						{
+							name: "Enable Gasless Transactions",
+							href: `${embeddedSlug}/how-to/enable-gasless`,
+						},
+						{
+							name: "Export private key",
+							href: `${embeddedSlug}/how-to/export-private-key`,
+						},
+					],
+				},
+				{
+					name: "Add Custom Authentication",
+					links: [
+						{
+							name: "User your own auth",
+							href: `${embeddedSlug}/custom-auth/use-own-auth`,
+						},
+						{
+							name: "Custom Auth Server",
+							href: `${embeddedSlug}/custom-auth/custom-auth-server`,
+						},
+						{
+							name: "Custom JWT Auth Server",
+							href: `${embeddedSlug}/custom-auth/custom-jwt-auth-server`,
+						},
+						{
+							name: "Integrate Firebase Auth",
+							href: `${embeddedSlug}/custom-auth/firebase-auth`,
+						},
+					],
+				},
+				{
+					name: "FAQs",
+					href: `${embeddedSlug}/faqs`,
+				},
+				{
+					name: "References",
+					links: [
+						{
+							name: "React",
+							href: `/react/wallets/embedded-wallet`,
+						},
+						{
+							name: "React Native",
+							href: `/react-native/wallets/embedded-wallet`,
+						},
+						{
+							name: "Unity",
+							href: `/unity/wallets/embedded-wallet`,
+						},
+					],
 				},
 			],
 		},
