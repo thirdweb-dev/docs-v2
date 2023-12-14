@@ -76,87 +76,35 @@ const config = {
 </ThirdwebProvider>;
 ```
 
-## Usage with useConnect
+## Usage with `useSmartWallet`
 
-you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/react/react.connectwallet) component.
+you can use the [`useSmartWallet`](/references/react/useSmartWallet) hook to programmatically connect to the smart wallet without using the [ConnectWallet](/references/react/ConnectWallet) component.
 
-The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react/react.thirdwebprovider#supportedwallets-optional) if you want the wallet to auto-connect on next page load.
-
-You need to connect to a personal wallet first, You can use the [useConnect](/react/react.useconnect) hook to connect to a personal wallet first and then connect to the Smart Wallet. Make sure personal wallet is on the same network as the Smart Wallet.
+`smartWallet()` also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
 ```tsx
-import { useConnect, smartWallet, metamaskWallet } from "@thirdweb-dev/react";
-import { Goerli } from "@thirdweb-dev/chains";
+import { useSmartWallet, metamaskWallet } from "@thirdweb-dev/react";
 
-const personalWalletConfig = metamaskWallet(); // or use any other wallet
+function Example() {
+	// here we're using metamask as the personal wallet
+	// can be any other wallet, including localWallet(), embeddedWallet(), etc
+	const { connect } = useSmartWallet(metamaskWallet(), {
+		factoryAddress: "your-factory-address",
+		gasless: true,
+	});
 
-const smartWalletConfig = smartWallet(personalWalletConfig, {
-	factoryAddress: "0x...",
-	gasless: true,
-});
-
-function App() {
-	const connect = useConnect();
-
-	const handleConnect = async () => {
-		// 1. connect the personal wallet first on the network that the smart wallet is deployed to
-		const personalWallet = await connect(personalWalletConfig, {
-			chainId: Goerli.chainId,
-		});
-
-		// 2. connect to smart wallet
-		const smartWallet = await connect(smartWalletConfig, {
-			chainId: Goerli.chainId,
-			personalWallet: personalWallet,
-		});
-
-		console.log("connected to", smartWallet);
-	};
-
-	return <div> ... </div>;
-}
-```
-
-### connectOptions
-
-```ts
-import type { EVMWallet } from "@thirdweb-dev/wallets";
-
-type ConenctOptions = {
-	personalWallet: EVMWallet;
-	chainId?: number;
-};
-```
-
-<details>
-  <summary> personalWallet </summary>
-<div>
-
-The instance of a personal wallet that can sign transactions on the Smart Wallet
-
-</div>
-</details>
-
-<details>
-  <summary>chainId </summary>
-<div>
-
-The `chainId` of network that the Smart Wallet is deployed to.
-
-`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedChains](/react/react.thirdwebprovider#supportedchains-optional) prop as shown below
-
-```tsx
-import { Polygon } from "@thirdweb-dev/chains";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
-export function YourApp() {
 	return (
-		<ThirdwebProvider supportedChains={[Polygon]} clientId="your-client-id">
-			<App />
-		</ThirdwebProvider>
+		<button
+			onClick={async () => {
+				const smartWallet = await connect();
+				console.log(
+					"connected to smart wallet",
+					await smartWallet.getAddress(),
+				);
+			}}
+		>
+			Connect
+		</button>
 	);
 }
 ```
-
-</div>
-</details>

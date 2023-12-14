@@ -141,22 +141,23 @@ The [useSmartWallet](/references/react/useSmartWallet) hook allows you to progra
 
 ```tsx
 import { useSmartWallet, metamaskWallet } from "@thirdweb-dev/react";
-import { Goerli } from "@thirdweb-dev/chains";
 
 function Example() {
 	// here we're using metamask as the personal wallet
 	// can be any other wallet, including localWallet(), embeddedWallet(), etc
 	const { connect } = useSmartWallet(metamaskWallet(), {
-		factoryAddress: "0xE38fAC32BbA9F1Fe700a5D7f5630236171fa87e4",
+		factoryAddress: "your-factory-address",
 		gasless: true,
 	});
 
 	return (
 		<button
 			onClick={async () => {
-				// nothing to do here, all handled internally
-				const walletAddress = await connect();
-				console.log("connected to smart wallet", walletAddress);
+				const smartWallet = await connect();
+				console.log(
+					"connected to smart wallet",
+					await smartWallet.getAddress(),
+				);
 			}}
 		>
 			Connect
