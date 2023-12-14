@@ -38,7 +38,7 @@ const links = [
 	},
 	{
 		name: "Infrastructure",
-		href: "/infra",
+		href: "/infrastructure",
 	},
 	{
 		name: "SDKs",

@@ -74,47 +74,35 @@ const config = {
 </ThirdwebProvider>;
 ```
 
-## Usage with useConnect
+## Usage with `useSmartWallet`
 
-you can use the `useConnect` hook to programmatically connect to the wallet without using the [ConnectWallet](/references/react-native/ConnectWallet) component.
+you can use the [`useSmartWallet`](/references/react-native/useSmartWallet) hook to programmatically connect to the smart wallet without using the [ConnectWallet](/references/react-native/ConnectWallet) component.
 
-The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
-
-You need to connect to a personal wallet first, You can use the [useConnect](/references/react-native/useConnect) hook to connect to a personal wallet first and then connect to the Smart Wallet. Make sure personal wallet is on the same network as the Smart Wallet.
+`smartWallet()` also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
 ```tsx
-import {
-	useConnect,
-	smartWallet,
-	metamaskWallet,
-} from "@thirdweb-dev/react-native";
-import { Goerli } from "@thirdweb-dev/chains";
+import { useSmartWallet, metamaskWallet } from "@thirdweb-dev/react-native";
 
-const personalWalletConfig = metamaskWallet(); // or use any other wallet
+function Example() {
+	// here we're using metamask as the personal wallet
+	// can be any other wallet, including localWallet(), embeddedWallet(), etc
+	const { connect } = useSmartWallet(metamaskWallet(), {
+		factoryAddress: "your-factory-address",
+		gasless: true,
+	});
 
-const smartWalletConfig = smartWallet(personalWalletConfig, {
-	factoryAddress: "0x...",
-	gasless: true,
-});
-
-function App() {
-	const connect = useConnect();
-
-	const handleConnect = async () => {
-		// 1. connect the personal wallet first on the network that the smart wallet is deployed to
-		const personalWallet = await connect(personalWalletConfig, {
-			chainId: Goerli.chainId,
-		});
-
-		// 2. connect to smart wallet
-		const smartWallet = await connect(smartWalletConfig, {
-			chainId: Goerli.chainId,
-			personalWallet: personalWallet,
-		});
-
-		console.log("connected to", smartWallet);
-	};
-
-	return <View> ... </View>;
+	return (
+		<button
+			onClick={async () => {
+				const smartWallet = await connect();
+				console.log(
+					"connected to smart wallet",
+					await smartWallet.getAddress(),
+				);
+			}}
+		>
+			Connect
+		</button>
+	);
 }
 ```

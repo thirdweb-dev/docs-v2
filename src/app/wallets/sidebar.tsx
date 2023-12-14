@@ -1,5 +1,6 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
 import {
+	WalletsAuthIcon,
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
@@ -8,24 +9,25 @@ import {
 const connectSlug = "/wallets/connect";
 const embeddedSlug = "/wallets/embedded-wallet";
 const smartWalletSlug = "/wallets/smart-wallet";
+const authSlug = "/wallets/auth";
 
 export const sidebar: SideBar = {
 	name: "Wallets",
 	links: [
 		{
 			name: "Overview",
-			href: "/contracts",
+			href: "/wallets",
 		},
 		{ separator: true },
 		// Connect
 		{
 			name: "Connect",
 			icon: <WalletsConnectIcon />,
-			isCollapsible: false,
+			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
-					href: `${connectSlug}/overview`,
+					href: `${connectSlug}`,
 				},
 				{
 					name: "Use Connect Component",
@@ -186,6 +188,7 @@ export const sidebar: SideBar = {
 			icon: <WalletsEmbeddedIcon />,
 			href: `${embeddedSlug}/overview`,
 			isCollapsible: false,
+			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
@@ -277,11 +280,82 @@ export const sidebar: SideBar = {
 		{
 			name: "Smart Wallet",
 			icon: <WalletsSmartIcon />,
-			isCollapsible: false,
+			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
-					href: `${smartWalletSlug}/overview`,
+					href: `${smartWalletSlug}`,
+				},
+				{
+					name: "How it Works",
+					href: `${smartWalletSlug}/how-it-works`,
+				},
+				{
+					name: "Getting Started",
+					href: `${smartWalletSlug}/getting-started`,
+				},
+				{
+					name: "Bundler & Paymaster",
+					href: `${smartWalletSlug}/infrastructure`,
+				},
+				{
+					name: "Permissions & Session Keys",
+					href: `${smartWalletSlug}/permissions`,
+				},
+				{
+					name: "FAQs",
+					href: `${smartWalletSlug}/faq`,
+				},
+				{
+					name: "Guides",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Usage in React",
+							href: `${smartWalletSlug}/guides/react`,
+						},
+						{
+							name: "Usage in Typescript",
+							href: `${smartWalletSlug}/guides/typescript`,
+						},
+					],
+				},
+				{
+					name: "References",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "React",
+							href: `/react/wallets/smartwallet`,
+						},
+						{
+							name: "React Native",
+							href: `/react-native/wallets/smartwallet`,
+						},
+						{
+							name: "TypeScript",
+							href: `/references/wallets/SmartWallet`,
+						},
+						{
+							name: "Unity",
+							href: `/unity/wallets/smartwallet`,
+						},
+					],
+				},
+			],
+		},
+		// Auth
+		{ separator: true },
+		{
+			name: "Auth",
+			icon: <WalletsAuthIcon />,
+			isCollapsible: true,
+			links: [
+				{
+					name: "Overview",
+					href: `${authSlug}/overview`,
 				},
 			],
 		},
