@@ -403,19 +403,19 @@ export const sidebar: SideBar = {
 								},
 								{
 									name: "ERC20Mintable",
-									href: `${extensionsSlug}/ERC20Mintable`,
+									href: `${extensionsSlug}/erc-20/ERC20Mintable`,
 								},
 								{
 									name: "ERC20Permit",
-									href: `${extensionsSlug}/ERC20Permit`,
+									href: `${extensionsSlug}/erc-20/ERC20Permit`,
 								},
 								{
-									name: "ERC20SignatureMinting",
-									href: `${extensionsSlug}/ERC20SignatureMint`,
+									name: "ERC20SignatureMint",
+									href: `${extensionsSlug}/erc-20/ERC20SignatureMint`,
 								},
 								{
 									name: "ERC20Staking",
-									href: `${extensionsSlug}/ERC20Staking`,
+									href: `${extensionsSlug}/erc-20/ERC20Staking`,
 								},
 							],
 						},
