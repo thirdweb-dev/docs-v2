@@ -20,5 +20,10 @@ export const redirects = async () => {
 			destination: "/wallets/react/metamask",
 			permanent: true,
 		},
+		{
+			source: "/wallets/embedded-wallet",
+			destination: "/wallets/embedded-wallet/overview",
+			permanent: true,
+		},
 	];
 };
