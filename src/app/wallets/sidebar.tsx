@@ -274,7 +274,91 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${authSlug}/overview`,
+					href: `${authSlug}`,
+				},
+				{
+					name: "How it Works",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Overview",
+							href: `${authSlug}/how-it-works`,
+						},
+						{
+							name: "Sign-in with Wallet",
+							href: `${authSlug}/how-it-works/siwe`,
+						},
+						{
+							name: "JSON Web Tokens",
+							href: `${authSlug}/how-it-works/jwt`,
+						},
+						{
+							name: "Auth API",
+							href: `${authSlug}/how-it-works/api`,
+						},
+					],
+				},
+				{
+					name: "Getting Started",
+					href: `${authSlug}/getting-started`,
+				},
+				{
+					name: "Client Frameworks",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "React",
+							href: `${authSlug}/client-frameworks/react`,
+						},
+						{
+							name: "React Native",
+							href: `${authSlug}/client-frameworks/react-native`,
+						},
+					],
+				},
+				{
+					name: "Server Frameworks",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Next.js",
+							href: `${authSlug}/server-frameworks/next`,
+						},
+						{
+							name: "Express",
+							href: `${authSlug}/server-frameworks/express`,
+						},
+					],
+				},
+				{
+					name: "Integrations",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Next Auth",
+							href: `${authSlug}/integrations/next-auth`,
+						},
+						{
+							name: "Supabase",
+							href: `${authSlug}/integrations/supabase`,
+						},
+						{
+							name: "Firebase",
+							href: `${authSlug}/integrations/firebase`,
+						},
+					],
+				},
+				{
+					name: "Wallet Configuration",
+					href: `${authSlug}/wallet-configuration`,
+				},
+				{
+					name: "FAQs",
+					href: `${authSlug}/faq`,
 				},
 			],
 		},

@@ -1,0 +1,129 @@
+import {
+	ArticleCard,
+	Grid,
+	SDKCard,
+	CardLink,
+	Callout,
+	OpenSourceCard,
+	ArticleIconCard,
+	InstallTabs,
+} from "@/components/Document";
+import next from "@/icons/frameworks/nextjs.png";
+import express from "@/icons/frameworks/javascript.png";
+import react from "@/icons/frameworks/react.png";
+import reactNative from "@/icons/frameworks/react-native.png";
+import nextauth from "@/icons/frameworks/nextauth.png";
+import firebase from "@/icons/frameworks/firebase.png";
+import supabase from "@/icons/frameworks/supabase.png";
+
+# Overview
+
+Auth is a developer SDK that lets you integrate passwordless web3-native authentication and authorization into your applications.
+
+It enables users to sign in with their wallets, allowing apps to access rich blockchain-level data and interact with their users on-chain.
+
+With Auth, developers can build applications that have secure, self-custodied, web3-first authentication.
+
+<OpenSourceCard
+	repoName="Auth"
+	repoUrl="https://github.com/thirdweb-dev/js/tree/main/packages/auth"
+/>
+
+## Installation
+
+<InstallTabs
+	npm="npm i @thirdweb-dev/auth"
+	yarn="yarn add @thirdweb-dev/auth"
+	pnpm="pnpm i @thirdweb-dev/auth"
+/>
+
+## Resources
+
+<div className="flex flex-col gap-4">
+	<CardLink
+		label="Getting Started"
+		href="/auth/getting-started"
+		icon="educate"
+	/>
+	<CardLink
+		label="How Auth Works"
+		href="/auth/getting-started"
+		icon="educate"
+	/>
+</div>
+
+## Applications
+
+Auth unlocks a variety of new possibilities by enabling the connection of web2 and web3 flows. Add wallet-based authentication to existing applications or build web3 experiences that utilize server-side architecture.
+
+Below are some of the applications that Auth enables:
+
+- **Passwordless Authentication:** Let users seamlessly login to your applications with just their wallets.
+- **Identity Verification:** Securely verify the on-chain identities of existing users.
+- **Gated Resources:** Gate access to protected resources based on on-chain criteria like NFT ownership.
+- **On-chain Interaction:** Interact with users on-chain, like sending users reward NFTs.
+- **On-chain Payments:** Allow users to pay for your services with on-chain assets like ETH or ERC20 tokens.
+- **Access On-chain Data:** Access rich on-chain data associated with your users.
+
+## Frameworks
+
+Auth integrates with a variety of server-side and client-side development frameworks. We&apos;re always adding support for more frameworks, so if you don&apos;t see yours, [let us know](https://discord.com/invite/thirdweb), and we can explore adding support!
+
+### Server Frameworks
+
+<div className="flex flex-col gap-4"> 
+<ArticleIconCard
+	title="Next.js"
+	href="/auth/server-frameworks/next"
+	description="Integrate Auth in Next.js applications."
+	image={next}
+/>
+
+<ArticleIconCard
+	title="Express"
+	href="/auth/server-frameworks/express"
+	description="Integrates Auth in Express applications."
+	image={express}
+/>
+</div>
+
+### Client Frameworks
+
+<div className="flex flex-col gap-4"> 
+<ArticleIconCard
+	title="React"
+	href="/auth/client-frameworks/react"
+	description="Integrate Auth in React applications."
+	image={react}
+/>
+
+<ArticleIconCard
+	title="React Native"
+	href="/auth/client-frameworks/react-native"
+	description="Integrate Auth in React Native applications."
+	image={reactNative}
+/>
+</div>
+
+### Integrations
+
+<div className="flex flex-col gap-4">
+	<ArticleIconCard
+		title="Next Auth"
+		href="/auth/integrations/next-auth"
+		description="Add Auth to existing Next Auth applications."
+		image={nextauth}
+	/>
+	<ArticleIconCard
+		title="Supabase"
+		href="/auth/integrations/supabase"
+		description="Add Auth to existing Supabase applications."
+		image={supabase}
+	/>
+	<ArticleIconCard
+		title="Firebase"
+		href="/auth/integrations/firebase"
+		description="Add Auth to existing Firebase applications."
+		image={firebase}
+	/>
+</div>
