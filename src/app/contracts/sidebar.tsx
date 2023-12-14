@@ -546,15 +546,15 @@ export const sidebar: SideBar = {
 							links: [
 								{
 									name: "AccountExtension",
-									href: `${extensionsSlug}/AccountExtension`,
+									href: `${extensionsSlug}/erc-4337/AccountExtension`,
 								},
 								{
 									name: "SmartWallet",
-									href: `${extensionsSlug}/SmartWallet`,
+									href: `${extensionsSlug}/erc-4337/SmartWallet`,
 								},
 								{
 									name: "SmartWalletFactory",
-									href: `${extensionsSlug}/SmartWalletFactory`,
+									href: `${extensionsSlug}/erc-4337/SmartWalletFactory`,
 								},
 							],
 						},
