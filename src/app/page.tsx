@@ -40,7 +40,6 @@ import {
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
-	PaymentsSponsoredIcon,
 } from "@/icons";
 
 export default function Page() {
@@ -258,7 +257,7 @@ function WalletsSection() {
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleIconCard
-					href="/wallets/smart"
+					href="/wallets/smart-wallet"
 					title="Smart Wallet"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
@@ -333,12 +332,6 @@ function PaymentSection() {
 					description="Credit card checkout for NFTs"
 					icon={PaymentsNFTCheckoutIcon}
 				/>
-				<ArticleIconCard
-					href="/payments/sponsored-tx"
-					title="Sponsored Transactions"
-					description="Remove all user friction with invisible transactions"
-					icon={PaymentsSponsoredIcon}
-				/>
 			</Grid>
 		</section>
 	);
@@ -351,19 +344,19 @@ function InfraSection() {
 
 			<Grid>
 				<ArticleIconCard
-					href="/infra/storage"
+					href="/infrastructure/storage"
 					title="Storage"
 					description="Secure, fast, decentralized storage"
 					icon={InfraStorageIcon}
 				/>
 				<ArticleIconCard
-					href="/infra/rpc"
+					href="/infrastructure/rpc"
 					title="RPC Edge"
 					description="Enterprise-grade RPCs, for free"
 					icon={InfraRPCIcon}
 				/>
 				<ArticleIconCard
-					href="/infra/engine"
+					href="/infrastructure/engine"
 					title="Engine"
 					description="HTTP server with contract APIs and backend wallets"
 					icon={InfraEngineIcon}
