@@ -75,6 +75,7 @@ To set the permissions for a given signer, the `setPermissionsForSigner` functio
 <TabsList>
 	<TabsTrigger value="react">React Hooks</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript functions</TabsTrigger>
+	<TabsTrigger value="unity">Unity</TabsTrigger>
 </TabsList>
 
   <TabsContent value="react">
@@ -136,5 +137,35 @@ await smartWallet.createSessionKey(
 ```
 
 </div>  
+</TabsContent>
+<TabsContent value="unity">
+
+```csharp
+using Thirdweb;
+
+// Reference to your Thirdweb SDK
+var sdk = ThirdwebManager.Instance.SDK;
+
+// Create a session key
+string signerAddress = "0xSignerAddress";
+List<string> approvedTargets = new List<string> { "0xTargetAddress" };
+string nativeTokenLimitPerTransactionInWei = "0";
+string permissionStartTimestamp = "0";
+string permissionEndTimestamp = Utils.GetUnixTimestampIn10Years().ToString();
+string reqValidityStartTimestamp = "0";
+string reqValidityEndTimestamp = Utils.GetUnixTimestampIn10Years().ToString();
+
+await sdk.wallet.CreateSessionKey(
+  "0xSignerAddress",
+  approvedTargets,
+  nativeTokenLimitPerTransactionInWei,
+  permissionStartTimestamp,
+  permissionEndTimestamp,
+  reqValidityStartTimestamp,
+  reqValidityEndTimestamp
+);
+
+```
+
 </TabsContent>
 </Tabs>

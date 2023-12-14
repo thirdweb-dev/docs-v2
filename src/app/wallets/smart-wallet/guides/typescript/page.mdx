@@ -5,6 +5,8 @@ import {
 	Callout,
 	OpenSourceCard,
 	ArticleIconCard,
+	Steps,
+	Step,
 } from "@/components/Document";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { WalletsSmartIcon } from "@/icons";
@@ -12,16 +14,17 @@ import Image from "next/image";
 
 # Using Smart Wallet in Typescript
 
-By using the [wallet SDK](/wallet/smart-wallet) alongside the [TypeScript SDK](/typescript), you can use smart wallets in your applications easily.
+By using the [wallet SDK](/references/wallets) alongside the [TypeScript SDK](/typescript), you can use smart wallets in your applications easily.
 
 ## Example Use Cases
 
 The wallet SDK with the TypeScript SDK is primarily used when creating a backend for your application or when creating a node script.
 In this guide, we will be using the wallet SDK to create a Node script but the logic for creating a backend is the same.
 
-If you are working in a React environment, you are recommended to follow [this guide](/smart-wallet/guides/react).
+If you are working in a React environment, you are recommended to follow [this guide](/wallets/smart-wallet/guides/react).
 
-## 1. Deploy an Account Factory
+<Steps>
+    <Step title="Deploy an Account Factory">
 
 Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/solidity/base-contracts/smart-accounts).
 
@@ -47,7 +50,8 @@ Choose the right smart wallet setup for your app. thirdweb offers the following 
 
 Read about the differences between the three smart wallet types [here](/smart-wallet/how-it-works#smart-wallet-factories).
 
-## 2. Create an API key
+</Step>
+<Step title="Create an API key">
 
 To use the smart wallet bundler and paymaster, you must create an API key and a billing account.
 
@@ -59,9 +63,8 @@ To create an API Key:
 
 To use smart wallet infrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
 
-## 3. Create a Node Script
-
-### 3.(a) Using the Create Command
+</Step>
+<Step title="Create a Node Script">
 
 To use smart wallets in a node script, we are going to setup our project using the CLI [create](/cli/create) command.
 Open your terminal and run:
@@ -87,10 +90,11 @@ THIRDWEB_SECRET_KEY=<YOUR_SECRET_KEY>
 
 Open the `index.ts` file and delete the starter script, we won't need it.
 
-### 3.(b) Creating the Personal Wallet Key
+</Step>
+<Step title="Creating the Personal Wallet Key">
 
-This smart wallet is unlocked by a 'key' - a personal account.
-This key can be anything from a [MetaMask wallet](/wallet/metamask) or even a [Local Wallet](/wallet/local-wallet) and is used as a way to 'sign in' to the wallet.
+This smart wallet is unlocked by a 'key' - a personal wallet.
+This key can be anything from a [MetaMask wallet](/references/wallets/MetaMaskWallet) or even a [Local Wallet](/references/wallets/LocalWallet) and is used as a way to 'sign in' to the wallet.
 
 First install the wallets package if you haven't already:
 
@@ -98,7 +102,7 @@ First install the wallets package if you haven't already:
 yarn add @thirdweb-dev/wallets
 ```
 
-To create a personal wallet key, we are going to use the [Local Wallet](/wallet/local-wallet), which we need to import from the `@thirdweb-dev/wallets` package, and store it in an ecrypted JSON file.
+To create a personal wallet key, we are going to use the [Local Wallet](/references/wallets/LocalWallet), which we need to import from the `@thirdweb-dev/wallets` package, and store it in an ecrypted JSON file.
 
 ```typescript
 import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-node";
@@ -108,13 +112,14 @@ import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-
 const personalWallet = new LocalWalletNode();
 await personalWallet.loadOrCreate({
 	strategy: "encryptedJson",
-	password: "password", // or any password
+	password: "my_password", // or any password
 });
 const personalWalletAddress = await personalWallet.getAddress();
 console.log("Personal wallet address:", personalWalletAddress);
 ```
 
-### 3.(c) Creating the Smart Wallet
+</Step>
+<Step title="Creating the Smart Wallet">
 
 Now, let's create a smart wallet using the [SmartWallet](/wallet/smart-wallet) class from the `@thirdweb-dev/wallets` package.
 To do this, we need to pass a `SmartWalletConfig` object to the constructor. This object contains the following properties:
@@ -144,7 +149,8 @@ await smartWallet.connect({
 
 To view all of the methods on the `SmartWallet` class, [view the Wallet SDK documentation](/wallet/smart-wallet).
 
-### 3.(d) Instantiate the thirdweb SDK
+</Step>
+<Step title="Instantiate the thirdweb SDK">
 
 Now that we have created a smart wallet object and connected it, we can instantiate the [thirdweb SDK](/typescript) with the smart wallet using the `fromWallet` method.
 
@@ -162,7 +168,8 @@ We have also passed our `secretKey` to the SDK so that we can use the smart wall
 
 We have also added some helpful logs to view the smart wallet address and balance using the associated `balance` and `getAddress` methods.
 
-### 3.(d) Using the Smart Wallet
+</Step>
+<Step title="Using the Smart Wallet">
 
 In order to follow this specific example, you will need the following setup:
 
@@ -186,7 +193,8 @@ const tx = await contract.erc20.claim(1);
 console.log("Claimed 1 ERC20 token, tx hash:", tx.receipt.transactionHash);
 ```
 
-## 4. Run the Script
+</Step>
+<Step title="Run the Script">
 
 To run the script, run the following command:
 
@@ -198,7 +206,8 @@ As you can see in the terminal output, upon claiming the token, the smart wallet
 
 We have successfully deployed a smart wallet using our factory contract and claimed an ERC20 token!
 
-## Conclusion
+</Step>
+<Step title="Conclusion">
 
 In this guide, we have learnt how to use the wallet SDK with the TypeScript SDK to
 create a smart wallet and claim an ERC20 token.
@@ -210,3 +219,5 @@ Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart
 	description="A Node.js script to create and interact with smart wallets."
 	repoUrl={"https://github.com/thirdweb-example/smart-wallet-script"}
 />
+</Step>
+</Steps>
