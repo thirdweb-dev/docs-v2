@@ -444,7 +444,7 @@ export const sidebar: SideBar = {
 								},
 								{
 									name: "ERC721ClaimPhases",
-									href: `${extensionsSlug}/erc-721/ERC721ClaimCustom`,
+									href: `${extensionsSlug}/erc-721/ERC721ClaimPhases`,
 								},
 								{
 									name: "ERC721Claimable",
