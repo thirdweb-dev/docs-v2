@@ -1,8 +1,5 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
 import {
-	ReactIcon,
-	TypeScriptIcon,
-	UnityIcon,
 	WalletsAuthIcon,
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
