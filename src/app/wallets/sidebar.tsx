@@ -187,7 +187,6 @@ export const sidebar: SideBar = {
 			name: "Embedded Wallet",
 			icon: <WalletsEmbeddedIcon />,
 			href: `${embeddedSlug}/overview`,
-			isCollapsible: false,
 			isCollapsible: true,
 			links: [
 				{
