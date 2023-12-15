@@ -231,23 +231,32 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "Add Custom Authentication",
+					name: "Custom Authentication",
 					links: [
 						{
-							name: "User your own auth",
-							href: `${embeddedSlug}/custom-auth/use-own-auth`,
+							name: "Overview",
+							href: `${embeddedSlug}/custom-auth/overview`,
 						},
 						{
-							name: "Custom Auth Server",
-							href: `${embeddedSlug}/custom-auth/custom-auth-server`,
+							name: "Configuration",
+							href: `${embeddedSlug}/custom-auth/configuration`,
 						},
 						{
-							name: "Custom JWT Auth Server",
-							href: `${embeddedSlug}/custom-auth/custom-jwt-auth-server`,
-						},
-						{
-							name: "Integrate Firebase Auth",
-							href: `${embeddedSlug}/custom-auth/firebase-auth`,
+							name: "Integration guides",
+							links: [
+								{
+									name: "Custom auth server (OIDC Auth)",
+									href: `${embeddedSlug}/custom-auth/custom-jwt-auth-server`,
+								},	
+								{
+								name: "Custom auth server (Generic Auth)",
+								href: `${embeddedSlug}/custom-auth/custom-auth-server`,
+								},
+								{
+									name: "Firebase Auth",
+									href: `${embeddedSlug}/custom-auth/firebase-auth`,
+								},	
+							]
 						},
 					],
 				},
