@@ -33,22 +33,22 @@ type Tag =
 	| "Storage"
 	| "Wallets"
 	| "Python"
-	| "Go";
+	| "Contracts"
+	| "Go"
+	| "All"
+	| "Infra"
+	| "Solidity"
+	| "Payments";
 
 function SearchModalContent(props: { closeModal: () => void }) {
 	const [input, setInput] = useState("");
 	const debouncedInput = useDebounce(input, 500);
 
-	const [selectedTags, setSelectedTags] = useState<Record<Tag, boolean>>({
-		React: true,
-		"React Native": true,
-		Unity: true,
-		TypeScript: true,
-		Storage: true,
-		Wallets: true,
-		Python: true,
-		Go: true,
-	});
+	const [selectedTags, setSelectedTags] = useState<{
+		[T in Tag]?: boolean;
+	}>({});
+
+	const [enabledTags, setEnabledTags] = useState<Tag[]>([]);
 
 	const searchQuery = useQuery({
 		queryKey: ["search-index", debouncedInput],
@@ -56,25 +56,24 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			const res = await fetch(`/api/search?q=${encodeURI(debouncedInput)}`);
 			const { results } = (await res.json()) as SearchResult;
 
-			const _selectedTags: typeof selectedTags = {
-				React: false,
-				"React Native": false,
-				Unity: false,
-				TypeScript: false,
-				Storage: false,
-				Wallets: false,
-				Python: false,
-				Go: false,
-			};
+			const tagsSet: Set<Tag> = new Set([]);
+
+			if (results.length > 0) {
+				tagsSet.add("All");
+				setSelectedTags({
+					All: true,
+				});
+			}
 
 			results.forEach((r) => {
 				const tag = getTagFromHref(r.pageHref);
 				if (tag) {
-					_selectedTags[tag] = true;
+					tagsSet.add(tag);
 				}
 			});
 
-			setSelectedTags(_selectedTags);
+			const tags = Array.from(tagsSet);
+			setEnabledTags(tags);
 
 			return results;
 		},
@@ -82,20 +81,9 @@ function SearchModalContent(props: { closeModal: () => void }) {
 		placeholderData: keepPreviousData,
 	});
 
-	const tagsSet: Set<Tag> = new Set();
-
-	searchQuery.data?.forEach((result) => {
-		const tag = getTagFromHref(result.pageHref);
-		if (tag) {
-			tagsSet.add(tag);
-		}
-	});
-
 	const data = searchQuery.data;
 	const noResults =
 		debouncedInput && searchQuery.isFetched && data && data.length === 0;
-
-	const tags = Array.from(tagsSet);
 
 	const handleLinkClick = () => {
 		props.closeModal();
@@ -126,9 +114,9 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			<DynamicHeight>
 				<div className="min-h-[200px]">
 					{/* tags */}
-					{tags && tags.length > 0 && (
+					{enabledTags && enabledTags.length > 0 && (
 						<div className="flex flex-wrap gap-2 border-b p-4">
-							{tags.map((tag) => (
+							{enabledTags.map((tag) => (
 								<Button
 									variant="ghost"
 									key={tag}
@@ -139,10 +127,36 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											: "!bg-b-800 !text-f-300",
 									)}
 									onClick={() => {
-										setSelectedTags((prev) => ({
-											...prev,
-											[tag]: !prev[tag],
-										}));
+										// do not allow removing the last remaining tag
+										const enabledTags = Object.keys(selectedTags).filter(
+											(k) => selectedTags[k as Tag],
+										);
+										if (enabledTags.length === 1 && enabledTags[0] === tag) {
+											return;
+										}
+
+										setSelectedTags((prev) => {
+											const newValue = !prev[tag];
+
+											if (tag === "All") {
+												if (newValue) {
+													return {
+														[tag]: true,
+													};
+												}
+
+												return {
+													...prev,
+													[tag]: false,
+												};
+											}
+
+											return {
+												...prev,
+												[tag]: newValue,
+												All: newValue ? false : prev.All,
+											};
+										});
 									}}
 								>
 									{tag}
@@ -156,7 +170,12 @@ function SearchModalContent(props: { closeModal: () => void }) {
 						<div className="styled-scrollbar flex max-h-[500px] min-h-[200px] flex-col gap-2 overflow-y-auto p-4">
 							{data?.map((result, i) => {
 								const tag = getTagFromHref(result.pageHref);
-								if (tag && selectedTags[tag] !== true) return null;
+								if (!selectedTags["All"] && tag && selectedTags[tag] !== true)
+									return null;
+
+								if (!tag && !selectedTags["All"]) {
+									return null;
+								}
 
 								return (
 									<div key={i} className="flex flex-col gap-2">
@@ -167,7 +186,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											tag={tag}
 											onClick={handleLinkClick}
 										/>
-
+										{/*
 										{result.sections && (
 											<div className="flex flex-col gap-2 border-l pl-3">
 												{result.sections?.map((sectionData) => {
@@ -183,7 +202,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 													);
 												})}
 											</div>
-										)}
+										)} */}
 									</div>
 								);
 							})}
@@ -319,8 +338,16 @@ function getTagFromHref(href: string): Tag | undefined {
 		return "Wallets";
 	} else if (href.includes("python")) {
 		return "Python";
+	} else if (href.includes("infrastructure")) {
+		return "Infra";
 	} else if (href.includes("go")) {
 		return "Go";
+	} else if (href.includes("solidity")) {
+		return "Solidity";
+	} else if (href.includes("contracts")) {
+		return "Contracts";
+	} else if (href.includes("payments")) {
+		return "Payments";
 	}
 }
 

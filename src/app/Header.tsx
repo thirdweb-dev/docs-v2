@@ -67,14 +67,6 @@ const referenceLinks = [
 		name: "Wallets",
 		href: "/references/wallets",
 	},
-	{
-		name: "Python",
-		href: "/references/python",
-	},
-	{
-		name: "Go",
-		href: "/references/go",
-	},
 ];
 
 const supportLinks = [
