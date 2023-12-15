@@ -18,13 +18,13 @@ npx thirdweb create app --template thirdweb-auth-express
 
 ## Getting Started
 
-To add support for Auth to your Express.js backend, you'll need to install the `@thirdweb-dev/auth` package as well as its peer dependencies (as well as any other packages you'll need for your [wallet configuration](/auth/wallet-configuration), we'll need the `ethers` package for this example as we'll be using the `PrivateKeyWallet`):
+To add support for Auth to your Express.js backend, you'll need to install the `@thirdweb-dev/auth` package as well as its peer dependencies (as well as any other packages you'll need for your [wallet configuration](/wallets/auth/wallet-configuration), we'll need the `ethers` package for this example as we'll be using the `PrivateKeyWallet`):
 
 ```bash npm2yarn
 npm install @thirdweb-dev/auth cookie-parser ethers@5
 ```
 
-Now we can setup our Express.js server by using the `@thirdweb-dev/auth/express` entrypoint. First, we need to setup our [Auth API](/auth/how-it-works/auth-api) by adding the auth router to our app:
+Now we can setup our Express.js server by using the `@thirdweb-dev/auth/express` entrypoint. First, we need to setup our [Auth API](/wallets/auth/how-it-works/api) by adding the auth router to our app:
 
 ```ts file="src/index.ts"
 import { ThirdwebAuth } from "@thirdweb-dev/auth/express";
@@ -106,7 +106,7 @@ app.get("/secret", async (req, res) => {
 
 ### Validating the login request
 
-By default, the Auth API will validate the login request by checking that the user requesting to login successfully signed a valid [sign-in with wallet](/auth/how-it-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
+By default, the Auth API will validate the login request by checking that the user requesting to login successfully signed a valid [sign-in with wallet](/wallets/auth/how-it-works/siwe) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
 
 If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuration:
 
@@ -124,7 +124,7 @@ const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 });
 ```
 
-Note that when you enforce these checks on the server-side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/auth/client-frameworks/react#customizing-the-login-message).
+Note that when you enforce these checks on the server-side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/wallets/auth/client-frameworks/react#customizing-the-login-message).
 
 **Prevent replay attacks**
 
@@ -217,7 +217,7 @@ export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 ### Enhancing session data
 
-When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/auth/how-it-works/json-web-tokens)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
+When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/wallets/auth/how-it-works/json-web-tokens)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
@@ -262,14 +262,14 @@ export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 | Name                                   | Required | Default  | Description                                                                                                                                                                                                                                                                                                  |
 | -------------------------------------- | -------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `domain`                               | ✅       | -        | The domain of your app, used for anti-phishing. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                           |
-| `wallet`                               | ✅       | -        | The wallet used to issue and verify JWTs. See the [wallet configuration](/auth/wallet-configuration) page for more details.                                                                                                                                                                                  |
+| `domain`                               | ✅       | -        | The domain of your app, used for anti-phishing. See the [sign-in with wallet](/wallets/auth/hoa-it-works/siwe) overview for more details.                                                                                                                                                                    |
+| `wallet`                               | ✅       | -        | The wallet used to issue and verify JWTs. See the [wallet configuration](/wallets/auth/wallet-configuration) page for more details.                                                                                                                                                                          |
 | `authOptions`                          | ❌       | -        | Configuration used to validate login requests and JWTs                                                                                                                                                                                                                                                       |
-| `authOptions.statement`                | ❌       | -        | The required statement used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                         |
-| `authOptions.uri`                      | ❌       | -        | The required URI used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                               |
-| `authOptions.version`                  | ❌       | `1`      | The required version used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                           |
-| `authOptions.chainId`                  | ❌       | -        | The required chain ID used on the login payload. If set, smart contract wallets on other chains won't be able to login. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                   |
-| `authOptions.resources`                | ❌       | -        | The required resources used on the login payload. See the [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) overview for more details.                                                                                                                                                         |
+| `authOptions.statement`                | ❌       | -        | The required statement used on the login payload. See the [sign-in with wallet](/wallets/auth/hoa-it-works/siwe) overview for more details.                                                                                                                                                                  |
+| `authOptions.uri`                      | ❌       | -        | The required URI used on the login payload. See the [sign-in with wallet](/wallets/auth/hoa-it-works/siwe) overview for more details.                                                                                                                                                                        |
+| `authOptions.version`                  | ❌       | `1`      | The required version used on the login payload. See the [sign-in with wallet](/wallets/auth/hoa-it-works/siwe) overview for more details.                                                                                                                                                                    |
+| `authOptions.chainId`                  | ❌       | -        | The required chain ID used on the login payload. If set, smart contract wallets on other chains won't be able to login. See the [sign-in with wallet](/wallets/auth/hoa-it-works/siwe) overview for more details.                                                                                            |
+| `authOptions.resources`                | ❌       | -        | The required resources used on the login payload. See the [sign-in with wallet](/wallets/auth/hoa-it-works/siwe) overview for more details.                                                                                                                                                                  |
 | `authOptions.validateNonce`            | ❌       | -        | A function to check if the nonce on a login payload is valid, used to prevent replay attacks.                                                                                                                                                                                                                |
 | `authOptions.validateTokenId`          | ❌       | -        | A function to check if the JWT uid is still valid, used to logout users when using a setup with a database.                                                                                                                                                                                                  |
 | `authOptions.tokenDurationInSeconds`   | ❌       | `259200` | The number of seconds that each JWT is valid for. Defaults to 259200 (3 days).                                                                                                                                                                                                                               |
