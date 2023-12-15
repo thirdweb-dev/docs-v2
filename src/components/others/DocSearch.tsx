@@ -16,7 +16,6 @@ import {
 	Search as SearchIcon,
 	FileText as FileTextIcon,
 	AlignLeft as SectionIcon,
-	FolderSearch as FolderSearchIcon,
 	Command as CommandIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -24,6 +23,37 @@ import Link from "next/link";
 import { DynamicHeight } from "./DynamicHeight";
 import { SearchResult } from "@/app/api/search/types";
 import { Spinner } from "../ui/Spinner/Spinner";
+
+const suggestedLinks: { title: string; href: string }[] = [
+	{
+		title: "React SDK",
+		href: "/react",
+	},
+	{
+		title: "React Native SDK",
+		href: "/react",
+	},
+	{
+		title: "TypeScript SDK",
+		href: "/react",
+	},
+	{
+		title: "Wallets",
+		href: "/wallets",
+	},
+	{
+		title: "Contracts",
+		href: "/contracts",
+	},
+	{
+		title: "Payments",
+		href: "/payments",
+	},
+	{
+		title: "Infrastructure",
+		href: "/infrastructure",
+	},
+];
 
 type Tag =
 	| "React"
@@ -217,12 +247,28 @@ function SearchModalContent(props: { closeModal: () => void }) {
 					)}
 
 					{!debouncedInput && (!data || data.length === 0) && (
-						<div className="flex min-h-[200px] items-center justify-center">
-							<FolderSearchIcon className="h-12 w-12 text-f-300" />
-						</div>
+						<NoSearchLinks onClick={handleLinkClick} />
 					)}
 				</div>
 			</DynamicHeight>
+		</div>
+	);
+}
+
+function NoSearchLinks(props: { onClick?: () => void }) {
+	return (
+		<div className="flex flex-col gap-2 p-4">
+			{suggestedLinks.map((link) => {
+				return (
+					<SearchResultItem
+						type="page"
+						href={link.href}
+						title={link.title}
+						key={link.href}
+						onClick={props.onClick}
+					/>
+				);
+			})}
 		</div>
 	);
 }
