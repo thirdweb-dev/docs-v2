@@ -68,6 +68,7 @@ module.exports = {
 				"header-height": "var(--header-height)",
 				"sidebar-height": "calc(100vh - var(--header-height))",
 				"offset-top": "calc(var(--header-height) + 18px)",
+				"offset-top-mobile": "calc(var(--header-height) + 100px)",
 			},
 			keyframes: {
 				"accordion-down": {

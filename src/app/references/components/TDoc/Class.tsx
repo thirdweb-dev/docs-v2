@@ -225,7 +225,12 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 						{accessors.map((accessor, i) => {
 							return (
 								<Details key={i} id={accessor.name} summary={accessor.name}>
-									<AccessorTDoc doc={accessor} key={accessor.name} level={3} />
+									<AccessorTDoc
+										doc={accessor}
+										key={accessor.name}
+										level={3}
+										hideHeading={true}
+									/>
 								</Details>
 							);
 						})}

@@ -56,7 +56,7 @@ export function Details(props: {
 						>
 							{props.summary}
 						</h4>
-						{props.tags && (
+						{props.tags && props.tags.length > 0 && (
 							<div className="ml-auto flex items-center gap-2">
 								{props.tags?.map((flag) => {
 									return (

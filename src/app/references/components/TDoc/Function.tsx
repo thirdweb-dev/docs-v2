@@ -15,7 +15,7 @@ import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import { getTags } from "./utils/getTags";
 import { getTokenLinks } from "./utils/getTokenLinks";
-import { Paragraph } from "@/components/Document";
+import { DocLink, Paragraph } from "@/components/Document";
 
 export function FunctionTDoc(props: {
 	doc: FunctionDoc;
@@ -87,7 +87,7 @@ async function RenderFunctionSignature(props: {
 							props.name + "-signature-" + props.signatureId,
 							false,
 						)}
-						className="text-accent-500"
+						className="text-f-100"
 					>
 						Signature
 						<span className="font-normal text-f-300">
@@ -191,15 +191,12 @@ async function RenderFunctionSignature(props: {
 				<div className="mt-8">
 					<Callout variant="info" title="Preparable">
 						<Paragraph>
-							To gain more granular control over the transaction process, all
-							transaction methods come with a <InlineCode code={`prepare`} />{" "}
-							method that gives you full control over each step of this
-							transaction journey.
-						</Paragraph>
-
-						<Paragraph>
-							You can prepare <InlineCode code={name} /> method by calling{" "}
-							<InlineCode code={`${name}.prepare()`} /> with same arguments.
+							You can also prepare the transaction without executing it by
+							calling <InlineCode code={`${name}.prepare()`} /> with same
+							arguments.{" "}
+							<DocLink href="/typescript/extensions#preparing-transactions">
+								Learn more
+							</DocLink>
 						</Paragraph>
 					</Callout>
 				</div>

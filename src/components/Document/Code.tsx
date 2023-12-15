@@ -125,7 +125,7 @@ export async function CodeBlock(props: {
 	}
 
 	return (
-		<div className="relative">
+		<div className="group/code relative">
 			<code
 				className="styled-scrollbar relative mb-5 block max-h-[80vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
 				lang={lang}
@@ -139,7 +139,7 @@ export async function CodeBlock(props: {
 				</pre>
 			</code>
 
-			<div className="absolute right-4 top-4 z-10">
+			<div className="absolute right-4 top-4 z-10 opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
 				<CopyButton text={code} />
 			</div>
 		</div>
@@ -150,9 +150,13 @@ export function InlineCode(props: { code: string; className?: string }) {
 	return (
 		<code
 			className={cn(
-				"max-h-20 rounded-md border bg-b-700 px-2 py-0.5 text-[0.9em]",
+				"max-h-20 rounded-md border bg-b-700 px-2 py-0.5 text-[0.9em] break-all",
 				props.className,
 			)}
+			style={{
+				boxDecorationBreak: "clone",
+				WebkitBoxDecorationBreak: "clone",
+			}}
 		>
 			{props.code}
 		</code>

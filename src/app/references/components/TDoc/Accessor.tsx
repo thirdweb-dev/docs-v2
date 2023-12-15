@@ -10,7 +10,11 @@ import invariant from "tiny-invariant";
 import { Callout, Details } from "@/components/Document";
 import { getTokenLinks } from "./utils/getTokenLinks";
 
-export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
+export async function AccessorTDoc(props: {
+	doc: AccessorDoc;
+	level: number;
+	hideHeading?: boolean;
+}) {
 	const { doc } = props;
 	const { deprecatedTag, exampleTag, remarksTag, seeTag } = getTags(
 		doc.blockTags,
@@ -24,9 +28,11 @@ export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 	return (
 		<>
-			<Heading level={props.level} id={doc.name}>
-				{doc.name}
-			</Heading>
+			{props.hideHeading !== true && (
+				<Heading level={props.level} id={doc.name}>
+					{doc.name}
+				</Heading>
+			)}
 
 			{doc.source && <SourceLinkTypeDoc href={doc.source} />}
 
