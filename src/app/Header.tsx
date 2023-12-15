@@ -40,9 +40,36 @@ const links = [
 		name: "Infrastructure",
 		href: "/infrastructure",
 	},
+];
+
+const sdkLinks = [
 	{
-		name: "SDKs",
-		href: "/#sdk",
+		name: "TypeScript",
+		href: "/typescript",
+	},
+	{
+		name: "React",
+		href: "/react",
+	},
+	{
+		name: "React Native",
+		href: "/react-native",
+	},
+	// {
+	// 	name: "Python",
+	// 	href: "/python",
+	// },
+	// {
+	// 	name: "Go",
+	// 	href: "/go",
+	// },
+	{
+		name: "Unity",
+		href: "/unity",
+	},
+	{
+		name: "Solidity",
+		href: "/solidity",
 	},
 ];
 
@@ -136,6 +163,12 @@ export function Header() {
 								</li>
 							);
 						})}
+
+						<DropdownLinks
+							links={sdkLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="SDKs"
+						/>
 					</ul>
 
 					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">
