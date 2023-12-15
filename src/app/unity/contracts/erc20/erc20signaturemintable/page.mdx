@@ -46,7 +46,6 @@ Mint tokens from a previously generated signature (see [`generate`](#generate)).
 var payload = new ERC20MintPayload("{{wallet_address}}", "{{quantity}}");
 var signedPayload = await contract.ERC20.signature.Generate(payload);
 
-// highlight-next-line
 var data = await contract.ERC20.signature.Mint(signedPayload);
 ```
 
@@ -78,7 +77,6 @@ if you want to show a more user-friendly error message.
 var payload = new ERC20MintPayload("{{wallet_address}}", "{{quantity}}");
 var signedPayload = await contract.ERC20.signature.Generate(payload);
 
-// highlight-next-line
 var data = await contract.ERC20.signature.Verify(signedPayload);
 ```
 

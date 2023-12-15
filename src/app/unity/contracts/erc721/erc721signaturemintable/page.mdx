@@ -1,4 +1,4 @@
-# ERC721SignatureMint
+# ERC721SignatureMintable
 
 Allows you to utilize [signature-based minting](/glossary/signature-based-minting) of NFTs.
 
@@ -66,7 +66,6 @@ var receiverAddress = "{{wallet_address}}";
 var payload = new ERC721MintPayload(receiverAddress, meta);
 var signedPayload = await contract.ERC721.signature.Generate(payload);
 
-// highlight-next-line
 var data = await contract.ERC721.signature.Mint(signedPayload);
 ```
 
@@ -93,7 +92,17 @@ but you can use this function to verify that the payload is valid before attempt
 if you want to show a more user-friendly error message.
 
 ```csharp
+NFTMetadata meta = new NFTMetadata()
+{
+    name = "Unity NFT",
+    description = "Minted From Unity",
+    image = "ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc",
+};
+var receiverAddress = "{{wallet_address}}";
+var payload = new ERC721MintPayload(receiverAddress, meta);
+var signedPayload = await contract.ERC721.signature.Generate(payload);
 
+bool isValid = await contract.ERC721.signature.Verify(signedPayload);
 ```
 
 <details>
@@ -107,21 +116,6 @@ The payload to verify.
 ### Return Value
 
 Returns `true` if the payload is valid, `false` otherwise.
-
-```csharp
-NFTMetadata meta = new NFTMetadata()
-{
-    name = "Unity NFT",
-    description = "Minted From Unity",
-    image = "ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc",
-};
-var receiverAddress = "{{wallet_address}}";
-var payload = new ERC721MintPayload(receiverAddress, meta);
-var signedPayload = await contract.ERC721.signature.Generate(payload);
-
-// highlight-next-line
-var data = await contract.ERC721.signature.Verify(signedPayload);
-```
 
 </div>
 </details>

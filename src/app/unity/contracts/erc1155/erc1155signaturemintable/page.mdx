@@ -119,7 +119,6 @@ var receiverAddress = "{{wallet_address}}";
 var payload = new ERC1155MintAdditionalPayload(receiverAddress, "{{token_id}}", 1);
 var signedPayload = await contract.ERC1155.signature.GenerateFromTokenId(payload);
 
-// highlight-next-line
 var data = await contract.ERC1155.signature.Mint(signedPayload);
 ```
 
@@ -158,7 +157,6 @@ var receiverAddress = "{{wallet_address}}";
 var payload = new ERC1155MintAdditionalPayload(receiverAddress, "{{token_id}}", 1);
 var signedPayload = await contract.ERC1155.signature.GenerateFromTokenId(payload);
 
-// highlight-next-line
 var data = await contract.ERC1155.signature.Verify(signedPayload);
 ```
 
