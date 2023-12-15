@@ -22,12 +22,16 @@ export function TBody(props: { children: React.ReactNode }) {
 
 export function Th(props: { children: React.ReactNode }) {
 	return (
-		<th className="border-b bg-b-700 p-4 pb-3 pl-8 text-left text-base font-semibold text-f-200">
+		<th className="border-b bg-b-700 p-4 pb-3 pl-8 text-left text-base font-semibold text-f-100">
 			{props.children}
 		</th>
 	);
 }
 
 export function Td(props: { children: React.ReactNode }) {
-	return <td className="p-4 pl-8 text-base leading-7">{props.children}</td>;
+	return (
+		<td className="p-4 pl-8 text-base leading-7 text-f-200">
+			{props.children}
+		</td>
+	);
 }
