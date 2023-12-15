@@ -1,10 +1,4 @@
----
-title: Submit Your Wallet
-slug: /submit-wallet
-toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
----
-
-import ViewRepoButton from "@components/ViewRepoButton";
+import { OpenSourceCard } from "@/components/Document/OpenSourceCard";
 
 # Submit Your Wallet
 
@@ -295,8 +289,8 @@ namespace Thirdweb.AccountAbstraction
 
 If you think your wallet implementation would be useful to others, please consider sharing it by opening a PR to the `thirdweb-dev/unity-sdk` repository.
 
-<ViewRepoButton
-  name={"js"}
-  text="Contribute"
-  link={"https://github.com/thirdweb-dev/unity-sdk"}
+<OpenSourceCard
+	repoName="Unity SDK"
+	repoUrl="https://github.com/thirdweb-dev/unity-sdk"
+	isLibrary={false}
 />

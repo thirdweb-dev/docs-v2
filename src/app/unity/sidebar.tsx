@@ -91,10 +91,6 @@ const walletActions: SidebarLink = (() => {
 				name: "Transfer",
 				href: `${parentSlug}/transfer`,
 			},
-			{
-				name: "FundWallet",
-				href: `${parentSlug}/fundwallet`,
-			},
 		],
 	};
 })();
