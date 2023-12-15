@@ -13,7 +13,7 @@ export function OpenSourceCard(props: {
 			</div>
 			<Paragraph className="mb-3 text-f-300">
 				{props.description ||
-					`The ${props.repoName} is open-source. You can view the source code and
+					`${props.repoName} is open-source. You can view the source code and
 				contribute to it on GitHub`}
 			</Paragraph>
 			<GithubButtonLink href={props.repoUrl} />
