@@ -17,6 +17,7 @@ const tagsToGroup = {
 	"@delayedReveal": "Delayed Reveal",
 	"@marketplace": "Marketplace",
 	"@walletConnection": "Wallet Connection",
+	"@token": "Tokens",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
@@ -29,6 +30,7 @@ const sidebarGroupOrder: TagKey[] = [
 	"@nftDrop",
 	"@claimConditions",
 	"@delayedReveal",
+	"@token",
 	"@marketplace",
 	"@metadata",
 	"@permissionControl",

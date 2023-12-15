@@ -168,20 +168,28 @@ async function RenderFunctionSignature(props: {
 						Returns
 					</Heading>
 					<div>
-						{signature.returns.summary && (
-							<TypedocSummary summary={signature.returns.summary} />
+						{signature.returns.type && (
+							<Details
+								id={slugger.slug(props.name + "-return-type")}
+								summary="Return Type"
+							>
+								<CodeBlock
+									code={`${signature.returns.type.code}`}
+									lang="ts"
+									tokenLinks={
+										signature.returns.type.tokens
+											? await getTokenLinks(signature.returns.type.tokens)
+											: undefined
+									}
+								/>
+							</Details>
 						)}
 
-						{signature.returns.type && (
-							<CodeBlock
-								code={`type ReturnType = ${signature.returns.type.code}`}
-								lang="ts"
-								tokenLinks={
-									signature.returns.type.tokens
-										? await getTokenLinks(signature.returns.type.tokens)
-										: undefined
-								}
-							/>
+						{signature.returns.summary && (
+							<>
+								<TypedocSummary summary={signature.returns.summary} />
+								<div className="h-2" />
+							</>
 						)}
 					</div>
 				</div>

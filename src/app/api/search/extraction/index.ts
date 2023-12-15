@@ -35,6 +35,12 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 				return;
 			}
 
+			const noIndex = mainEl.getAttribute("data-noindex");
+
+			if (noIndex) {
+				return;
+			}
+
 			const pageTitle = mainEl.querySelector("h1")?.text;
 
 			pages.push({

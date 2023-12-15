@@ -23,8 +23,8 @@ import {
 import {
 	ReactIcon,
 	TypeScriptIcon,
-	PythonIcon,
-	GoIcon,
+	// PythonIcon,
+	// GoIcon,
 	UnityIcon,
 	SolidityIcon,
 	ContractBuildIcon,
@@ -372,11 +372,11 @@ function SDKSection() {
 			<SectionTitle id="sdk" title="SDKs" />
 
 			<Grid>
+				<SDKCard href="/typescript" title="TypeScript" icon={TypeScriptIcon} />
 				<SDKCard href="/react" title="React" icon={ReactIcon} />
 				<SDKCard href="/react-native" title="React Native" icon={ReactIcon} />
-				<SDKCard href="/typescript" title="TypeScript" icon={TypeScriptIcon} />
-				<SDKCard href="/python" title="Python" icon={PythonIcon} />
-				<SDKCard href="/go" title="Go" icon={GoIcon} />
+				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
+				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
 				<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
 				<SDKCard href="/solidity" title="Solidity" icon={SolidityIcon} />
 			</Grid>
