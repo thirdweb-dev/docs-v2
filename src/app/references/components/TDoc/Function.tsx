@@ -87,7 +87,7 @@ async function RenderFunctionSignature(props: {
 							props.name + "-signature-" + props.signatureId,
 							false,
 						)}
-						className="text-accent-500"
+						className="text-f-100"
 					>
 						Signature
 						<span className="font-normal text-f-300">
