@@ -142,7 +142,7 @@ export async function CodeBlock(props: {
 				</ScrollShadow>
 			</code>
 
-			<div className="absolute right-4 top-4 z-50 opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
+			<div className="absolute right-4 top-4 z-20 opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
 				<CopyButton text={code} />
 			</div>
 		</div>

@@ -72,7 +72,7 @@ export function ScrollShadow(props: {
 
 	return (
 		<div
-			className={cn(props.className, "relative overflow-hidden")}
+			className={cn(props.className, "relative overflow-hidden z-0")}
 			ref={wrapperEl}
 		>
 			<div
