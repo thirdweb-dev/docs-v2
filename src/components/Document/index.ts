@@ -1,4 +1,3 @@
-export { Playground } from "../others/Playground/Playground";
 export { Breadcrumb } from "./Breadcrumb";
 export { Callout } from "./Callout";
 export { CardLink } from "./CardLink";

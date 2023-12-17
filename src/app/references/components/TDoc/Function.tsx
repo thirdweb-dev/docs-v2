@@ -88,6 +88,7 @@ async function RenderFunctionSignature(props: {
 							false,
 						)}
 						className="text-f-100"
+						noIndex
 					>
 						Signature
 						<span className="font-normal text-f-300">
@@ -99,7 +100,7 @@ async function RenderFunctionSignature(props: {
 			)}
 
 			{signature.inheritedFrom && (
-				<div className="mb-5 text-f-300">
+				<div className="mb-5 text-f-300" data-noindex>
 					Inherited from <InlineCode code={signature.inheritedFrom.name} />
 				</div>
 			)}
@@ -116,7 +117,7 @@ async function RenderFunctionSignature(props: {
 
 			{exampleTag?.summary && (
 				<>
-					<Heading level={subLevel} id={slugger.slug("example")}>
+					<Heading level={subLevel} id={slugger.slug("example")} noIndex>
 						Example
 					</Heading>
 					<TypedocSummary summary={exampleTag.summary} />
@@ -124,7 +125,7 @@ async function RenderFunctionSignature(props: {
 			)}
 
 			<div className="mt-8">
-				<Details id={slugger.slug("signature")} summary="Signature">
+				<Details id={slugger.slug("signature")} summary="Signature" noIndex>
 					<CodeBlock
 						code={signatureCode.code}
 						lang="ts"
@@ -138,6 +139,7 @@ async function RenderFunctionSignature(props: {
 					<Heading
 						level={subLevel}
 						id={slugger.slug(props.name + "--param--" + props.name, false)}
+						noIndex
 					>
 						Parameters
 					</Heading>
@@ -164,7 +166,11 @@ async function RenderFunctionSignature(props: {
 
 			{signature.returns && (
 				<div className="mt-5">
-					<Heading level={subLevel} id={slugger.slug(props.name + "-returns")}>
+					<Heading
+						level={subLevel}
+						id={slugger.slug(props.name + "-returns")}
+						noIndex
+					>
 						Returns
 					</Heading>
 					<div>
@@ -172,6 +178,7 @@ async function RenderFunctionSignature(props: {
 							<Details
 								id={slugger.slug(props.name + "-return-type")}
 								summary="Return Type"
+								noIndex
 							>
 								<CodeBlock
 									code={`${signature.returns.type.code}`}
@@ -196,7 +203,7 @@ async function RenderFunctionSignature(props: {
 			)}
 
 			{prepareTag && (
-				<div className="mt-8">
+				<div className="mt-8" data-noindex>
 					<Callout variant="info" title="Preparable">
 						<Paragraph>
 							You can also prepare the transaction without executing it by
@@ -259,6 +266,7 @@ async function ParameterTDoc(props: {
 							<Heading
 								level={props.level + 1}
 								id={slugger.slug(param.name + "example")}
+								noIndex
 							>
 								Example
 							</Heading>

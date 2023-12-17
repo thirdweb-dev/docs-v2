@@ -1,10 +1,14 @@
+import { ScrollShadow } from "../others/ScrollShadow/ScrollShadow";
+
 export function Table(props: { children: React.ReactNode }) {
 	return (
-		<div className="mb-7 overflow-hidden rounded-lg border ">
-			<table className="styled-scrollbar w-full border-collapse overflow-auto text-sm [&_tr:last-of-type]:border-none">
-				{props.children}
-			</table>
-		</div>
+		<ScrollShadow className="my-7 rounded-lg border">
+			<div className="w-full">
+				<table className="min-w-full border-collapse text-sm [&_tr:last-of-type]:border-none">
+					{props.children}
+				</table>
+			</div>
+		</ScrollShadow>
 	);
 }
 
@@ -30,7 +34,7 @@ export function Th(props: { children: React.ReactNode }) {
 
 export function Td(props: { children: React.ReactNode }) {
 	return (
-		<td className="p-4 pl-8 text-base leading-7 text-f-200">
+		<td className="w-min min-w-[200px] p-4 pl-8 text-base leading-7 text-f-200 md:min-w-[300px]">
 			{props.children}
 		</td>
 	);

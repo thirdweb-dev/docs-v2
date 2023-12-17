@@ -7,7 +7,7 @@ import {
 	useQuery,
 } from "@tanstack/react-query";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -79,6 +79,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 	}>({});
 
 	const [enabledTags, setEnabledTags] = useState<Tag[]>([]);
+	const scrollableElement = useRef<HTMLDivElement | null>(null);
 
 	const searchQuery = useQuery({
 		queryKey: ["search-index", debouncedInput],
@@ -104,6 +105,10 @@ function SearchModalContent(props: { closeModal: () => void }) {
 
 			const tags = Array.from(tagsSet);
 			setEnabledTags(tags);
+
+			scrollableElement.current?.scrollTo({
+				top: 0,
+			});
 
 			return results;
 		},
@@ -132,6 +137,11 @@ function SearchModalContent(props: { closeModal: () => void }) {
 				<Input
 					onChange={(e) => {
 						setInput(e.target.value);
+					}}
+					onKeyDown={(e) => {
+						if (e.key === "Enter" && e.target instanceof HTMLInputElement) {
+							e.target.blur();
+						}
 					}}
 					placeholder="Search documentation"
 					className={cn(
@@ -197,7 +207,10 @@ function SearchModalContent(props: { closeModal: () => void }) {
 
 					{/* links */}
 					{data && data.length > 0 && (
-						<div className="styled-scrollbar flex max-h-[500px] min-h-[200px] flex-col gap-2 overflow-y-auto p-4">
+						<div
+							className="styled-scrollbar flex max-h-[50vh] min-h-[200px] flex-col gap-2 overflow-y-auto p-4"
+							ref={scrollableElement}
+						>
 							{data?.map((result, i) => {
 								const tag = getTagFromHref(result.pageHref);
 								if (!selectedTags["All"] && tag && selectedTags[tag] !== true)
@@ -370,29 +383,29 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 }
 
 function getTagFromHref(href: string): Tag | undefined {
-	if (href.includes("react-native")) {
+	if (href.includes("/react-native")) {
 		return "React Native";
-	} else if (href.includes("react")) {
+	} else if (href.includes("/react")) {
 		return "React";
-	} else if (href.includes("unity")) {
+	} else if (href.includes("/unity")) {
 		return "Unity";
-	} else if (href.includes("typescript")) {
+	} else if (href.includes("/typescript")) {
 		return "TypeScript";
-	} else if (href.includes("storage")) {
+	} else if (href.includes("/storage")) {
 		return "Storage";
-	} else if (href.includes("wallets")) {
+	} else if (href.includes("/wallets")) {
 		return "Wallets";
-	} else if (href.includes("python")) {
+	} else if (href.includes("/python")) {
 		return "Python";
-	} else if (href.includes("infrastructure")) {
+	} else if (href.includes("/infrastructure")) {
 		return "Infra";
-	} else if (href.includes("go")) {
+	} else if (href.includes("/go")) {
 		return "Go";
-	} else if (href.includes("solidity")) {
+	} else if (href.includes("/solidity")) {
 		return "Solidity";
-	} else if (href.includes("contracts")) {
+	} else if (href.includes("/contracts")) {
 		return "Contracts";
-	} else if (href.includes("payments")) {
+	} else if (href.includes("/payments")) {
 		return "Payments";
 	}
 }
@@ -429,7 +442,7 @@ function SearchResultItem(props: {
 						<span
 							key={props.tag}
 							className={cn(
-								"rounded-lg border px-2 py-1 text-xs bg-b-800 text-f-300 shrink-0",
+								"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
 							)}
 						>
 							{props.tag}
