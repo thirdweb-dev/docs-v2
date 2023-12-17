@@ -46,7 +46,7 @@ export async function AccessorTDoc(props: {
 				</Callout>
 			)}
 
-			<Details id="signature" summary="Signature">
+			<Details id="signature" summary="Signature" noIndex>
 				<CodeBlock
 					lang="ts"
 					code={signatureCode}
@@ -56,7 +56,7 @@ export async function AccessorTDoc(props: {
 
 			{exampleTag?.summary && (
 				<>
-					<Heading level={subLevel} id={slugger.slug("example")}>
+					<Heading level={subLevel} id={slugger.slug("example")} noIndex>
 						Example
 					</Heading>
 					<TypedocSummary summary={exampleTag.summary} />
@@ -65,7 +65,7 @@ export async function AccessorTDoc(props: {
 
 			{doc.returns?.summary && (
 				<>
-					<Heading id="returns" level={props.level + 1}>
+					<Heading id="returns" level={props.level + 1} noIndex>
 						Returns
 					</Heading>
 					{doc.returns?.summary && (

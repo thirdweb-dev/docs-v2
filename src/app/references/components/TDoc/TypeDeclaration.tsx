@@ -80,7 +80,7 @@ async function SubtypeDeclarationTDoc(props: {
 
 			{exampleTag?.summary && (
 				<>
-					<Heading level={subLevel} id={slugger.slug("example")}>
+					<Heading level={subLevel} id={slugger.slug("example")} noIndex>
 						Example
 					</Heading>
 					<TypedocSummary summary={exampleTag.summary} />

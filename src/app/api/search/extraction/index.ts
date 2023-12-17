@@ -17,6 +17,7 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 	const pages: PageData[] = [];
 
 	const noMainFound: string[] = [];
+	const noH1Found: string[] = [];
 
 	await Promise.all(
 		htmlFiles.map(async (filePath) => {
@@ -43,6 +44,12 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 
 			const pageTitle = mainEl.querySelector("h1")?.text;
 
+			if (!pageTitle) {
+				noH1Found.push(
+					filePath.split(".next/server/app")[1]?.replace(".html", "") || "",
+				);
+			}
+
 			pages.push({
 				href: filePath.replace(nextOutputDir, "").replace(".html", ""),
 				title: pageTitle ? trimExtraSpace(pageTitle) : "",
@@ -59,6 +66,12 @@ export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 		console.warn("\n");
 	}
 
+	if (noH1Found.length) {
+		console.warn(`\n\nNo <h1> element found in below routes :\n`);
+		noH1Found.forEach((f) => console.warn("* " + f));
+		console.warn("\n");
+	}
+
 	return pages;
 }
 
@@ -72,6 +85,12 @@ function getPageSections(main: X_HTMLElement): PageSectionData[] {
 			return;
 		} else if (node instanceof X_HTMLElement) {
 			if (ignoreTags.has(node.tagName)) {
+				return;
+			}
+
+			const noIndexAttribute = node.getAttribute("data-noindex");
+
+			if (noIndexAttribute === "true") {
 				return;
 			}
 

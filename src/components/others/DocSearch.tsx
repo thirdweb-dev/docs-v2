@@ -370,29 +370,29 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 }
 
 function getTagFromHref(href: string): Tag | undefined {
-	if (href.includes("react-native")) {
+	if (href.includes("/react-native")) {
 		return "React Native";
-	} else if (href.includes("react")) {
+	} else if (href.includes("/react")) {
 		return "React";
-	} else if (href.includes("unity")) {
+	} else if (href.includes("/unity")) {
 		return "Unity";
-	} else if (href.includes("typescript")) {
+	} else if (href.includes("/typescript")) {
 		return "TypeScript";
-	} else if (href.includes("storage")) {
+	} else if (href.includes("/storage")) {
 		return "Storage";
-	} else if (href.includes("wallets")) {
+	} else if (href.includes("/wallets")) {
 		return "Wallets";
-	} else if (href.includes("python")) {
+	} else if (href.includes("/python")) {
 		return "Python";
-	} else if (href.includes("infrastructure")) {
+	} else if (href.includes("/infrastructure")) {
 		return "Infra";
-	} else if (href.includes("go")) {
+	} else if (href.includes("/go")) {
 		return "Go";
-	} else if (href.includes("solidity")) {
+	} else if (href.includes("/solidity")) {
 		return "Solidity";
-	} else if (href.includes("contracts")) {
+	} else if (href.includes("/contracts")) {
 		return "Contracts";
-	} else if (href.includes("payments")) {
+	} else if (href.includes("/payments")) {
 		return "Payments";
 	}
 }

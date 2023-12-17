@@ -7,11 +7,16 @@ export function Heading(props: {
 	level: number;
 	className?: string;
 	anchorClassName?: string;
+	noIndex?: boolean;
 }) {
 	switch (props.level) {
 		case 1: {
 			return (
-				<Anchor id={props.id} className={cn("mb-5", props.anchorClassName)}>
+				<Anchor
+					id={props.id}
+					className={cn("mb-5", props.anchorClassName)}
+					data-noindex={props.noIndex}
+				>
 					<h1
 						className={cn(
 							"text-3xl md:text-4xl font-bold tracking-tight text-f-100 break-all",
@@ -29,6 +34,7 @@ export function Heading(props: {
 				<Anchor
 					id={props.id}
 					className={cn("mt-10 mb-3", props.anchorClassName)}
+					data-noindex={props.noIndex}
 				>
 					<h2
 						className={cn(
@@ -47,6 +53,7 @@ export function Heading(props: {
 				<Anchor
 					id={props.id}
 					className={cn("mt-10 mb-3", props.anchorClassName)}
+					data-noindex={props.noIndex}
 				>
 					<h3
 						className={cn(
@@ -65,6 +72,7 @@ export function Heading(props: {
 				<Anchor
 					id={props.id}
 					className={cn("mt-10 mb-3", props.anchorClassName)}
+					data-noindex={props.noIndex}
 				>
 					<h4
 						className={cn(
@@ -83,6 +91,7 @@ export function Heading(props: {
 				<Anchor
 					id={props.id}
 					className={cn("mt-10 mb-3", props.anchorClassName)}
+					data-noindex={props.noIndex}
 				>
 					<h5
 						className={cn("text-lg font-semibold text-f-200", props.className)}
@@ -98,6 +107,7 @@ export function Heading(props: {
 				<Anchor
 					id={props.id}
 					className={cn("mt-10 mb-3", props.anchorClassName)}
+					data-noindex={props.noIndex}
 				>
 					<h6
 						className={cn("text-lg font-semibold text-f-200", props.className)}
