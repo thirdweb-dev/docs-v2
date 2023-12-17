@@ -127,7 +127,7 @@ export async function CodeBlock(props: {
 	return (
 		<div className="group/code relative">
 			<code
-				className="styled-scrollbar relative mb-5 block max-h-[80vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
+				className="styled-scrollbar relative mb-5 block max-h-[250vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
 				lang={lang}
 			>
 				<pre
