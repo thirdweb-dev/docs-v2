@@ -18,6 +18,12 @@ const tagsToGroup = {
 	"@marketplace": "Marketplace",
 	"@walletConnection": "Wallet Connection",
 	"@token": "Tokens",
+	"@auth": "Auth",
+	"@smartWallet": "Smart Wallet",
+	"@connectWallet": "Connect Wallet",
+	"@appURI": "App URI",
+	"@storage": "Storage",
+	"@others": "Others",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
@@ -35,6 +41,12 @@ const sidebarGroupOrder: TagKey[] = [
 	"@metadata",
 	"@permissionControl",
 	"@platformFees",
+	"@auth",
+	"@storage",
+	"@smartWallet",
+	"@connectWallet",
+	"@appURI",
+	"@others",
 ];
 
 function getCustomTag(doc: SomeDoc): TagKey | undefined {
