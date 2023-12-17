@@ -31,11 +31,6 @@ export function ScrollShadow(props: {
 		const contentScrollHeight = content.scrollHeight - wrapper.offsetHeight;
 		const contentScrollWidth = content.scrollWidth - wrapper.offsetWidth;
 
-		console.log({
-			contentScrollWidth,
-			contentScrollHeight,
-		});
-
 		function handleScroll() {
 			if (
 				!content ||
