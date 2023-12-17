@@ -4,7 +4,7 @@ export function Table(props: { children: React.ReactNode }) {
 	return (
 		<ScrollShadow className="my-7 rounded-lg border">
 			<div className="w-full">
-				<table className="border-collapse text-sm [&_tr:last-of-type]:border-none">
+				<table className="min-w-full border-collapse text-sm [&_tr:last-of-type]:border-none">
 					{props.children}
 				</table>
 			</div>
