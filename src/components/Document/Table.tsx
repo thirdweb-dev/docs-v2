@@ -34,7 +34,7 @@ export function Th(props: { children: React.ReactNode }) {
 
 export function Td(props: { children: React.ReactNode }) {
 	return (
-		<td className="w-min min-w-[300px] p-4 pl-8 text-base leading-7 text-f-200">
+		<td className="w-min min-w-[200px] p-4 pl-8 text-base leading-7 text-f-200">
 			{props.children}
 		</td>
 	);

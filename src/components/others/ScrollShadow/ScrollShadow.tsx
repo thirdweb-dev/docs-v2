@@ -46,7 +46,7 @@ export function ScrollShadow(props: {
 			)
 				return;
 
-			if (contentScrollHeight > 100) {
+			if (contentScrollHeight > 10) {
 				const currentScroll = content.scrollTop / contentScrollHeight;
 				shadowTop.style.opacity = currentScroll + "";
 				shadowBottom.style.opacity = 1 - currentScroll + "";
@@ -55,7 +55,7 @@ export function ScrollShadow(props: {
 				shadowBottom.style.opacity = "0";
 			}
 
-			if (contentScrollWidth > 100) {
+			if (contentScrollWidth > 10) {
 				const currentScrollX = content.scrollLeft / contentScrollWidth;
 				shadowLeft.style.opacity = currentScrollX + "";
 				shadowRight.style.opacity = 1 - currentScrollX + "";
