@@ -94,3 +94,11 @@ button {
 	background: var(--accent-600);
 	color: var(--f-100);
 }
+
+.hide-scrollbar {
+	scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+	display: none; /* Safari and Chrome */
+}
