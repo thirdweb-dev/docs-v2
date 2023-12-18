@@ -3,7 +3,10 @@ import { CodeBlock, InlineCode } from "../../../../components/Document/Code";
 import { Paragraph } from "../../../../components/Document/Paragraph";
 import { DocLink } from "../../../../components/Document/DocLink";
 import { Lang } from "shiki";
-import { UnorderedList } from "../../../../components/Document/List";
+import {
+	OrderedList,
+	UnorderedList,
+} from "../../../../components/Document/List";
 import { Heading } from "../../../../components/Document/Heading";
 
 export function TypedocSummary(props: {
@@ -46,6 +49,14 @@ export function TypedocSummary(props: {
 					}
 
 					case "list": {
+						if (s.ordered) {
+							return (
+								<OrderedList>
+									<TypedocSummary summary={s.children} />
+								</OrderedList>
+							);
+						}
+
 						return (
 							<UnorderedList>
 								<TypedocSummary summary={s.children} />

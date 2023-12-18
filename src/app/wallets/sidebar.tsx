@@ -186,11 +186,100 @@ export const sidebar: SideBar = {
 		{
 			name: "Embedded Wallet",
 			icon: <WalletsEmbeddedIcon />,
+			href: `${embeddedSlug}/overview`,
 			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
 					href: `${embeddedSlug}/overview`,
+				},
+				{
+					name: "How it works",
+					href: `${embeddedSlug}/how-it-works`,
+				},
+				{
+					name: "QuickStart",
+					href: `${embeddedSlug}/quick-start`,
+				},
+				{
+					name: "How to",
+					links: [
+						{
+							name: "Connect Users",
+							href: `${embeddedSlug}/how-to/connect-users`,
+						},
+						{
+							name: "Build your own UI",
+							href: `${embeddedSlug}/how-to/build-your-own-ui`,
+						},
+						{
+							name: "Interact with wallets",
+							href: `${embeddedSlug}/how-to/interact-with-wallets`,
+						},
+						{
+							name: "Interact with the blockchain",
+							href: `${embeddedSlug}/how-to/interact-blockchain`,
+						},
+						{
+							name: "Enable Gasless Transactions",
+							href: `${embeddedSlug}/how-to/enable-gasless`,
+						},
+						{
+							name: "Export private key",
+							href: `${embeddedSlug}/how-to/export-private-key`,
+						},
+					],
+				},
+				{
+					name: "Custom Authentication",
+					links: [
+						{
+							name: "Overview",
+							href: `${embeddedSlug}/custom-auth/overview`,
+						},
+						{
+							name: "Configuration",
+							href: `${embeddedSlug}/custom-auth/configuration`,
+						},
+						{
+							name: "Integration guides",
+							links: [
+								{
+									name: "Custom auth server (OIDC Auth)",
+									href: `${embeddedSlug}/custom-auth/custom-jwt-auth-server`,
+								},	
+								{
+								name: "Custom auth server (Generic Auth)",
+								href: `${embeddedSlug}/custom-auth/custom-auth-server`,
+								},
+								{
+									name: "Firebase Auth",
+									href: `${embeddedSlug}/custom-auth/firebase-auth`,
+								},	
+							]
+						},
+					],
+				},
+				{
+					name: "FAQs",
+					href: `${embeddedSlug}/faqs`,
+				},
+				{
+					name: "References",
+					links: [
+						{
+							name: "React",
+							href: `/react/wallets/embedded-wallet`,
+						},
+						{
+							name: "React Native",
+							href: `/react-native/wallets/embedded-wallet`,
+						},
+						{
+							name: "Unity",
+							href: `/unity/wallets/embedded-wallet`,
+						},
+					],
 				},
 			],
 		},
@@ -274,7 +363,91 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${authSlug}/overview`,
+					href: `${authSlug}`,
+				},
+				{
+					name: "How it Works",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Overview",
+							href: `${authSlug}/how-it-works`,
+						},
+						{
+							name: "Sign-in with Wallet",
+							href: `${authSlug}/how-it-works/siwe`,
+						},
+						{
+							name: "JSON Web Tokens",
+							href: `${authSlug}/how-it-works/jwt`,
+						},
+						{
+							name: "Auth API",
+							href: `${authSlug}/how-it-works/api`,
+						},
+					],
+				},
+				{
+					name: "Getting Started",
+					href: `${authSlug}/getting-started`,
+				},
+				{
+					name: "Client Frameworks",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "React",
+							href: `${authSlug}/client-frameworks/react`,
+						},
+						{
+							name: "React Native",
+							href: `${authSlug}/client-frameworks/react-native`,
+						},
+					],
+				},
+				{
+					name: "Server Frameworks",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Next.js",
+							href: `${authSlug}/server-frameworks/next`,
+						},
+						{
+							name: "Express",
+							href: `${authSlug}/server-frameworks/express`,
+						},
+					],
+				},
+				{
+					name: "Integrations",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Next Auth",
+							href: `${authSlug}/integrations/next-auth`,
+						},
+						{
+							name: "Supabase",
+							href: `${authSlug}/integrations/supabase`,
+						},
+						{
+							name: "Firebase",
+							href: `${authSlug}/integrations/firebase`,
+						},
+					],
+				},
+				{
+					name: "Wallet Configuration",
+					href: `${authSlug}/wallet-configuration`,
+				},
+				{
+					name: "FAQs",
+					href: `${authSlug}/faq`,
 				},
 			],
 		},

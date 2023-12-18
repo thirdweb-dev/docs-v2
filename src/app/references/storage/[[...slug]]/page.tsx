@@ -1,11 +1,9 @@
 import { getTDocPage } from "@/app/references/components/TDoc/PageLayout";
-import Content from "./content.mdx";
 import { fetchStorageDoc } from "@/app/references/components/TDoc/fetchDocs/fetchStorageDoc";
 
 const config = getTDocPage({
 	sdkTitle: "Storage SDK",
 	getDoc: fetchStorageDoc,
-	indexContent: <Content />,
 	packageSlug: "storage",
 });
 

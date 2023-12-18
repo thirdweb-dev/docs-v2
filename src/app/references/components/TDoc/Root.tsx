@@ -31,7 +31,7 @@ export function RootTDoc(props: { doc: SomeDoc }) {
 		}
 
 		default: {
-			return <div>TODO</div>;
+			return null;
 		}
 	}
 }

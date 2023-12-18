@@ -9,7 +9,7 @@ export function CardLink(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border bg-b-800 p-4 text-sm duration-200 hover:border-accent-500"
+			className="mb-4 flex items-center gap-4 rounded-lg border bg-b-800 p-4 text-sm duration-200 hover:border-accent-500"
 		>
 			{props.icon === "educate" && (
 				<GraduationCap className="h-8 w-8 text-accent-500" />

@@ -1,0 +1,57 @@
+import { Details, Callout } from "@/components/Document";
+import { GithubButtonLink } from "@/components/Document";
+
+# ERC721Revealable
+
+```solidity
+import "@thirdweb-dev/contracts/eip/ERC721.sol";
+import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
+```
+
+Create batches of ['delayed-reveal'](/glossary/delayed-reveal) NFTs that can be revealed at a later date after they have been minted and claimed.
+
+This is an extension which is detectable in the dashboard if the smart contract implements the
+[`ERC721`](/solidity/extensions/erc721) and [`DelayedReveal`](/solidity/extensions/delayedreveal) extensions.
+
+<GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol" />
+
+## Usage
+
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/LazyMint.sol";
+import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
+
+contract Contract is ERC721A, LazyMint, DelayedReveal {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+  function reveal(uint256 _index, bytes calldata _key)
+        external
+        override
+        returns (string memory revealedURI)
+    {
+      // Your custom implementation here
+    }
+
+    function _canLazyMint() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+}
+```
+
+## Base Contracts Implementing This Extension
+
+- [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
+- [ERC721Drop](/solidity/base-contracts/erc721drop)

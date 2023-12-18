@@ -148,7 +148,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 
 			{exampleTag?.summary && (
 				<>
-					<Heading level={3} id={slugger.slug("example")}>
+					<Heading level={3} id={slugger.slug("example")} noIndex>
 						Example
 					</Heading>
 					<TypedocSummary summary={exampleTag.summary} />
@@ -157,7 +157,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 
 			<div className="h-2" />
 
-			<Details summary="Signature" id={slugger.slug("signature")}>
+			<Details summary="Signature" id={slugger.slug("signature")} noIndex>
 				<CodeBlock
 					lang="ts"
 					code={signatureCode}
@@ -167,7 +167,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 
 			{/* Constructor */}
 			{doc.constructor && (
-				<Details id="constructor" level={2} summary="Constructor">
+				<Details id="constructor" level={2} summary="Constructor" noIndex>
 					<FunctionTDoc doc={doc.constructor} level={2} showHeading={false} />
 				</Details>
 			)}
@@ -175,7 +175,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Methods */}
 			{regularMethods && regularMethods.length > 0 && (
 				<div>
-					<Heading level={2} id="methods">
+					<Heading level={2} id="methods" noIndex>
 						Methods
 					</Heading>
 					<div>{renderMethods(regularMethods)}</div>
@@ -185,7 +185,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Inherited methods */}
 			{inheritedMethods && inheritedMethods.length > 0 && (
 				<div>
-					<Heading level={2} id="methods">
+					<Heading level={2} id="methods" noIndex>
 						Inherited Methods
 					</Heading>
 					<div>{renderMethods(inheritedMethods)}</div>
@@ -195,7 +195,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Properties */}
 			{properties && properties.length > 0 && (
 				<div>
-					<Heading level={2} id="properties">
+					<Heading level={2} id="properties" noIndex>
 						Properties
 					</Heading>
 					<div>
@@ -218,14 +218,19 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 			{/* Accessor */}
 			{accessors && accessors.length > 0 && (
 				<div>
-					<Heading level={2} id="properties" className="text-5xl">
+					<Heading level={2} id="properties" className="text-5xl" noIndex>
 						Accessors
 					</Heading>
 					<div>
 						{accessors.map((accessor, i) => {
 							return (
 								<Details key={i} id={accessor.name} summary={accessor.name}>
-									<AccessorTDoc doc={accessor} key={accessor.name} level={3} />
+									<AccessorTDoc
+										doc={accessor}
+										key={accessor.name}
+										level={3}
+										hideHeading={true}
+									/>
 								</Details>
 							);
 						})}

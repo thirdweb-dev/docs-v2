@@ -9,7 +9,7 @@ export function Anchor(props: {
 	return (
 		<div
 			className={cn(
-				"group/anchor flex scroll-mt-offset-top items-center gap-2 ",
+				"group/anchor flex scroll-mt-offset-top-mobile xl:scroll-mt-offset-top items-center gap-2 ",
 				props.className,
 			)}
 			id={props.id}
