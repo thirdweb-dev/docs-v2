@@ -1,11 +1,9 @@
 import { getTDocPage } from "@/app/references/components/TDoc/PageLayout";
-import Content from "./content.mdx";
 import { fetchReactNativeDoc } from "@/app/references/components/TDoc/fetchDocs/fetchReactNativeDoc";
 
 const config = getTDocPage({
 	sdkTitle: "React Native SDK",
 	getDoc: fetchReactNativeDoc,
-	indexContent: <Content />,
 	packageSlug: "react-native",
 });
 

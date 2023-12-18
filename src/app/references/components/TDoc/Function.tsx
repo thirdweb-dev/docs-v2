@@ -248,21 +248,24 @@ async function ParameterTDoc(props: {
 						</Callout>
 					)}
 
-					<Details
+					<Heading
+						level={props.level + 1}
 						id={slugger.slug(param.name + "type")}
-						summary="Type"
 						noIndex
+						anchorClassName={!param.summary ? "mt-0" : ""}
 					>
-						<CodeBlock
-							code={param.type.code || ""}
-							tokenLinks={
-								param.type.tokens
-									? await getTokenLinks(param.type.tokens)
-									: undefined
-							}
-							lang="ts"
-						/>
-					</Details>
+						Type
+					</Heading>
+
+					<CodeBlock
+						code={param.type.code || ""}
+						tokenLinks={
+							param.type.tokens
+								? await getTokenLinks(param.type.tokens)
+								: undefined
+						}
+						lang="ts"
+					/>
 
 					{exampleTag?.summary && (
 						<>

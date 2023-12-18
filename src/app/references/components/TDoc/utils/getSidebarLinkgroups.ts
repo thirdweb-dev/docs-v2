@@ -25,12 +25,18 @@ const tagsToGroup = {
 	"@storage": "Storage",
 	"@others": "Others",
 	"@wallet": "Wallets",
+	"@theme": "Theme",
+	"@locale": "Locale",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
 
 const sidebarGroupOrder: TagKey[] = [
+	// react
 	"@wallet",
+	"@theme",
+	"@locale",
+	// react-core
 	"@contract",
 	"@networkConnection",
 	"@walletConnection",
