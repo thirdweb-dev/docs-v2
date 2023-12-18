@@ -9,7 +9,7 @@ export function WalletCard(props: WalletInfo) {
 	return (
 		<Link href={props.href}>
 			<div className="group/wallet-card rounded-[26px] border bg-b-800 px-5 py-2 transition-colors hover:border-accent-500 hover:bg-accent-900">
-				<div className="mt-[-40px] flex flex-col justify-center gap-6">
+				<div className="mt-[-30px] flex flex-col justify-center gap-1">
 					<Image
 						src={props.icon}
 						alt=""
@@ -18,7 +18,7 @@ export function WalletCard(props: WalletInfo) {
 					<Heading
 						id={props.label}
 						level={3}
-						className="text-lg font-medium text-f-100 group-hover/wallet-card:text-f-100 md:text-lg"
+						className="text-xl font-medium text-f-100 group-hover/wallet-card:text-f-100 md:text-lg"
 					>
 						{props.label}
 					</Heading>

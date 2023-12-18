@@ -9,7 +9,7 @@ const tagsToGroup = {
 	"@contract": "Contract",
 	"@claimConditions": "Claim Conditions",
 	"@nftDrop": "NFT Drop",
-	"@platformFees": "Platform Fees",
+	"@platformFees": "Royalty & Fees",
 	"@nft": "NFT",
 	"@metadata": "Metadata",
 	"@permissionControl": "Permissions Control",
