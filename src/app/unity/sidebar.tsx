@@ -172,10 +172,6 @@ const contract721: SidebarLink = (() => {
 				href: `${parentSlug}/erc721`,
 			},
 			{
-				name: "ERC721BatchMintable",
-				href: `${parentSlug}/erc721batchmintable`,
-			},
-			{
 				name: "ERC721Burnable",
 				href: `${parentSlug}/erc721burnable`,
 			},
@@ -212,10 +208,6 @@ const contract1155: SidebarLink = (() => {
 			{
 				name: "ERC1155",
 				href: `${parentSlug}/erc1155`,
-			},
-			{
-				name: "ERC1155BatchMintable",
-				href: `${parentSlug}/erc1155batchmintable`,
 			},
 			{
 				name: "ERC1155Burnable",

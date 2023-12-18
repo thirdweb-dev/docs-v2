@@ -180,12 +180,6 @@ Must be a `string`.
 
 Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
 
-:::warning Warning
-
-Proceed with caution. Only approve addresses you trust.
-
-:::
-
 ```csharp
 var data = await contract.ERC1155.SetApprovalForAll("{{operator_address}}", true);
 ```
