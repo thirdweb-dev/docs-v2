@@ -1,3 +1,7 @@
+import Image from "next/image";
+import connectWallet from "./connectwallet.png";
+import connectWalletInspector from "./connectwalletinspector.png";
+
 # Connect Wallet Button Prefab
 
 The `Prefab_ConnectWallet` prefab allows users to connect their wallet to your game.
@@ -12,13 +16,13 @@ switch networks if multiple networks are set up through the ThirdwebManager.
 
 The prefab is located at: `Assets/Thirdweb/Examples/Prefabs/Prefab_ConnectWallet.prefab`.
 
-![Connect Wallet Button](../assets/connectwallet.png)
+<Image src={connectWallet} alt="connectWallet" />
 
 ## Configuration
 
 From the `Inspector` window, you can configure the options for the `ConnectWallet` prefab. The UI will update in Play mode, and it is fully customizable.
 
-![Connect Wallet Inspector](../assets/connectwalletinspector.png)
+<Image src={connectWalletInspector} alt="connectWalletInspector" />
 
 ### Supported Wallets
 
