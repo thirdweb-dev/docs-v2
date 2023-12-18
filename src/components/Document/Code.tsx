@@ -54,7 +54,7 @@ export async function CodeBlock(props: {
 			code = await format(code, {
 				parser: "babel-ts",
 				plugins: [parserBabel, estree],
-				printWidth: 70,
+				printWidth: 80,
 			});
 		} catch (e) {
 			// ignore

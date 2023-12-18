@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@/components/Document";
+import { Breadcrumb, Callout } from "@/components/Document";
 import { WalletCard } from "./_components/WalletCard";
 // icons
 import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
@@ -14,6 +14,12 @@ import ZerionIcon from "@public/icons/wallets/zerion.svg";
 import BloctoIcon from "@public/icons/wallets/blocto.svg";
 import FrameIcon from "@public/icons/wallets/frame.svg";
 import PhantomIcon from "@public/icons/wallets/phantom.svg";
+import Coin98Icon from "@public/icons/wallets/coin98.png";
+import CoreWalletIcon from "@public/icons/wallets/coreWallet.png";
+import CryptoDefiIcon from "@public/icons/wallets/cryptoDefi.png";
+import OKXIcon from "@public/icons/wallets/okx.svg";
+import OneKeyIcon from "@public/icons/wallets/oneKey.png";
+import RabbyIcon from "@public/icons/wallets/rabby.svg";
 
 <Breadcrumb
 	crumbs={[
@@ -31,18 +37,109 @@ import PhantomIcon from "@public/icons/wallets/phantom.svg";
 # Wallets
 
 <div className="grid-cols-1 md:grid-cols-3 grid gap-x-10 gap-y-16 mt-20">
-	<WalletCard label="MetaMask" href="/react/wallets/metamask" icon={MetaMaskIcon} />
-	<WalletCard label="Coinbase" href="/react/wallets/coinbase" icon={CoinbaseIcon} />
-	<WalletCard label="WalletConnect" href="/react/wallets/walletconnect" icon={WalletConnectIcon} />
-	<WalletCard label="Smart Wallet" href="/react/wallets/smartwallet" icon={SmartWalletIcon} />
-  <WalletCard label="Safe" href="/react/wallets/safe" icon={SafeIcon} />
-  <WalletCard label="Embedded Wallet" href="/react/wallets/embedded-wallet" icon={EmbeddedWalletIcon} />
-  <WalletCard label="Local Wallet" href="/react/wallets/local-wallet" icon={LocalWalletIcon} />
-  <WalletCard label="Magic Link" href="/react/wallets/magiclink" icon={MagicLinkIcon} />
-  <WalletCard label="Rainbow" href="/react/wallets/rainbow" icon={RainbowIcon} />
-  <WalletCard label="Zerion" href="/react/wallets/zerion" icon={ZerionIcon} />
-  <WalletCard label="Blocto" href="/react/wallets/blocto" icon={BloctoIcon} />
-  <WalletCard label="Frame" href="/react/wallets/frame" icon={FrameIcon} />
-  <WalletCard label="Phantom" href="/react/wallets/phantom" icon={PhantomIcon} />
-
+	<WalletCard
+		label="MetaMask"
+		href="/references/react/metamaskWallet"
+		icon={MetaMaskIcon}
+	/>
+	<WalletCard
+		label="Coinbase"
+		href="/references/react/coinbaseWallet"
+		icon={CoinbaseIcon}
+	/>
+	<WalletCard
+		label="WalletConnect"
+		href="/references/react/walletConnect"
+		icon={WalletConnectIcon}
+	/>
+	<WalletCard
+		label="Smart Wallet"
+		href="/references/react/smartWallet"
+		icon={SmartWalletIcon}
+	/>
+	<WalletCard
+		label="Safe"
+		href="/references/react/safeWallet"
+		icon={SafeIcon}
+	/>
+	<WalletCard
+		label="Embedded Wallet"
+		href="/references/react/embeddedWallet"
+		icon={EmbeddedWalletIcon}
+	/>
+	<WalletCard
+		label="Local Wallet"
+		href="/references/react/localWallet"
+		icon={LocalWalletIcon}
+	/>
+	<WalletCard
+		label="Magic Link"
+		href="/references/react/magicLink"
+		icon={MagicLinkIcon}
+	/>
+	<WalletCard
+		label="Rainbow"
+		href="/references/react/rainbowWallet"
+		icon={RainbowIcon}
+	/>
+	<WalletCard
+		label="Zerion"
+		href="/references/react/zerionWallet"
+		icon={ZerionIcon}
+	/>
+	<WalletCard
+		label="Blocto"
+		href="/references/react/bloctoWallet"
+		icon={BloctoIcon}
+	/>
+	<WalletCard
+		label="Frame"
+		href="/references/react/frameWallet"
+		icon={FrameIcon}
+	/>
+	<WalletCard
+		label="Phantom"
+		href="/references/react/phantomWallet"
+		icon={PhantomIcon}
+	/>
+	<WalletCard
+		label="Coin98"
+		href="/references/react/coin98Wallet"
+		icon={Coin98Icon}
+	/>
+	<WalletCard
+		label="Core Wallet"
+		href="/references/react/coreWallet"
+		icon={CoreWalletIcon}
+	/>
+	<WalletCard
+		label="Crypto Defi"
+		href="/references/react/cryptoDefiWallet"
+		icon={CryptoDefiIcon}
+	/>
+	<WalletCard
+		label="OKX Wallet"
+		href="/references/react/okxWallet"
+		icon={OKXIcon}
+	/>
+	<WalletCard
+		label="OneKey Wallet"
+		href="/references/react/oneKeyWallet"
+		icon={OneKeyIcon}
+	/>
+	<WalletCard
+		label="Rabby Wallet"
+		href="/references/react/rabbyWallet"
+		icon={RabbyIcon}
+	/>
 </div>
+
+<div className="h-24" />
+
+<Callout variant='info'>
+
+Don't see the wallet you are looking for?
+
+You can easily integrate _any_ wallet provider by [Building your own wallet !](/wallet/build-a-wallet)
+
+</Callout>

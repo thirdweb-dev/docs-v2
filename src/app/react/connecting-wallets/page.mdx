@@ -1,4 +1,4 @@
-import { Details, Callout, Heading } from "@/components/Document";
+import { Details, Callout, Heading, DocLink } from "@/components/Document";
 
 # Connecting Wallets
 
@@ -7,34 +7,11 @@ There are two ways you connect user's wallet to your application using thirdweb'
 1. Using the [ConnectWallet component](#connect-wallet) for a quick, easy and customizable UI
 2. Create a completely custom UI using [wallet connection hooks](#custom-ui)
 
-<Details id='supported-wallets' summary="Supported Wallets">
-
-| Wallet Name       | Wallet Configurator                     |
-| ----------------- | --------------------------------------- |
-| MetaMask          | [metamaskWallet](/react/metamaskWallet) |
-| Coinbase Wallet   | [coinbaseWallet](/react/coinbasewallet) |
-| Wallet Connect v2 | [walletConnect](/react/walletconnect)   |
-| Safe Wallet       | [safeWallet](/react/safewallet)         |
-| Paper Wallet      | [paperWallet](/react/paperwallet)       |
-| Embedded Wallet   | [embeddedWallet](/react/embeddedwallet) |
-| Local Wallet      | [localWallet](/react/localwallet)       |
-| Smart Wallet      | [smartWallet](/react/smartwallet)       |
-| Magic Link        | [magicLink](/react/magiclink)           |
-| Rainbow Wallet    | [rainbowWallet](/react/rainbowWallet)   |
-| Zerion Wallet     | [zerionWallet](/react/zerion)           |
-| Blocto Wallet     | [bloctoWallet](/react/blocto)           |
-| Frame Wallet      | [frameWallet](/react/frame)             |
-| Phantom           | [phantomWallet](/react/phantom)         |
-
-<Callout variant='info'>
-
-Don't see the wallet you are looking for?
-
-You can easily integrate _any_ wallet provider by [Building your own wallet !](/wallet/build-a-wallet)
-
-</Callout>
-
-</Details>
+<DocLink
+	href="/react/wallets"
+	className="p-4 border rounded-lg hover:border-accent-500 hover:bg-b-700 block"
+	children="Supported Wallets"
+/>
 
 <Heading id="connect-wallet" level={2} children="1. ConnectWallet component" />
 
