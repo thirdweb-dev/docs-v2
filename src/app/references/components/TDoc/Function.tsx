@@ -232,6 +232,7 @@ async function ParameterTDoc(props: {
 		param.blockTags,
 	);
 
+	const showType = param.type?.code !== "{  }";
 	return (
 		<div>
 			{param.type && (
@@ -248,24 +249,28 @@ async function ParameterTDoc(props: {
 						</Callout>
 					)}
 
-					<Heading
-						level={props.level + 1}
-						id={slugger.slug(param.name + "type")}
-						noIndex
-						anchorClassName={!param.summary ? "mt-0" : ""}
-					>
-						Type
-					</Heading>
+					{showType && (
+						<>
+							<Heading
+								level={props.level + 1}
+								id={slugger.slug(param.name + "type")}
+								noIndex
+								anchorClassName={!param.summary ? "mt-0" : ""}
+							>
+								Type
+							</Heading>
 
-					<CodeBlock
-						code={param.type.code || ""}
-						tokenLinks={
-							param.type.tokens
-								? await getTokenLinks(param.type.tokens)
-								: undefined
-						}
-						lang="ts"
-					/>
+							<CodeBlock
+								code={param.type.code || ""}
+								tokenLinks={
+									param.type.tokens
+										? await getTokenLinks(param.type.tokens)
+										: undefined
+								}
+								lang="ts"
+							/>
+						</>
+					)}
 
 					{exampleTag?.summary && (
 						<>
