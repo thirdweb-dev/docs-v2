@@ -24,11 +24,13 @@ const tagsToGroup = {
 	"@appURI": "App URI",
 	"@storage": "Storage",
 	"@others": "Others",
+	"@wallet": "Wallets",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
 
 const sidebarGroupOrder: TagKey[] = [
+	"@wallet",
 	"@contract",
 	"@networkConnection",
 	"@walletConnection",
