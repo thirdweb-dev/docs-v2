@@ -193,10 +193,7 @@ async function RenderFunctionSignature(props: {
 						)}
 
 						{signature.returns.summary && (
-							<>
-								<TypedocSummary summary={signature.returns.summary} />
-								<div className="h-2" />
-							</>
+							<TypedocSummary summary={signature.returns.summary} />
 						)}
 					</div>
 				</div>
@@ -251,8 +248,17 @@ async function ParameterTDoc(props: {
 						</Callout>
 					)}
 
+					<Heading
+						level={props.level + 1}
+						id={slugger.slug(param.name + "type")}
+						noIndex
+						anchorClassName={!param.summary ? "mt-0" : ""}
+					>
+						Type
+					</Heading>
+
 					<CodeBlock
-						code={`let ${param.name}: ${param.type.code}`}
+						code={param.type.code || ""}
 						tokenLinks={
 							param.type.tokens
 								? await getTokenLinks(param.type.tokens)

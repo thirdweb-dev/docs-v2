@@ -1,11 +1,9 @@
 import { getTDocPage } from "@/app/references/components/TDoc/PageLayout";
-import Content from "./content.mdx";
 import { fetchWalletsDoc } from "@/app/references/components/TDoc/fetchDocs/fetchWalletsDoc";
 
 const config = getTDocPage({
 	sdkTitle: "Wallets SDK",
 	getDoc: fetchWalletsDoc,
-	indexContent: <Content />,
 	packageSlug: "wallets",
 });
 

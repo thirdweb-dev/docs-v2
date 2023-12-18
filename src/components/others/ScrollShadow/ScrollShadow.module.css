@@ -5,6 +5,7 @@
 	width: 100%;
 	height: 36px;
 	--shadow: var(--b-600);
+	pointer-events: none;
 }
 
 .scrollShadowX {
@@ -14,6 +15,7 @@
 	width: 36px;
 	height: 100%;
 	--shadow: var(--b-600);
+	pointer-events: none;
 }
 
 .scrollShadowTop {
