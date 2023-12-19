@@ -1,4 +1,5 @@
-import AppScoped from "./app-scoped.svg";
+import AppScoped from "./assets/app-scoped.svg";
+import EmbedCreation from "./assets/embed-creation.svg";
 import Image from "next/image";
 
 # How it works
@@ -12,7 +13,7 @@ When a user signs into an application using their email or social logins for the
 3. **Shard C** is encrypted by user authentication and stored in Amazon's KMS using hardware security modules (HSMs) to protect the confidentiality and integrity of keys. Despite the key stored on thirdweb's servers, thirdweb has no way of decrypting and accessing the key.
 
    <div className="border rounded-lg p-6">
-   	<Image src={AppScoped} />
+   	<Image src={EmbedCreation} />
    </div>
 
 ### Recoverability
@@ -37,7 +38,10 @@ Embedded Wallets are scoped to applications per API key. If users use the same e
 
 Users may view all their application-scoped Embedded Wallets in a single view using the [My Wallets](https://ews.thirdweb.com/wallet) dashboard. Learn more about My Wallets.
 
-![Untitled](./assets/app-scoped.svg)
+
+   <div className="border rounded-lg p-6">
+   	<Image src={AppScoped} />
+   </div>
 
 ### Scalability
 
