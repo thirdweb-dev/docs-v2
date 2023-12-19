@@ -1,14 +1,14 @@
 Sets the theme for all thirdweb components.
 
-By default it is set to "dark".
+By default it is set to `"dark"`
 
-theme can be set to either "dark" or "light" or a custom theme object.
+theme can be set to either `"dark"` or `"light"` or a custom [`Theme`](/references/react/Theme) object.
 
-You can also import the `lightTheme` or `darkTheme` functions from `@thirdweb-dev/react` to use the default themes as base and overrides parts of it.
+You can also import the [`lightTheme`](/references/react/lightTheme) or [`darkTheme`](/references/react/lightTheme) functions from `@thirdweb-dev/react` to use the default themes as base and overrides parts of it.
 
-## Example
+### Using default themes
 
-```javascript
+```tsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 <ThirdwebProvider theme="light">
@@ -16,4 +16,18 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 </ThirdwebProvider>;
 ```
 
-More info in our [Theme Reference](/references/react/ThirdwebProviderProps#theme)
+### Overriding theme
+
+```tsx
+import { ThirdwebProvider, lightTheme } from "@thirdweb-dev/react";
+
+const customTheme = lightTheme({
+	colors: {
+		modalBg: "red",
+	},
+});
+
+<ThirdwebProvider theme={customTheme}>
+	<App />
+</ThirdwebProvider>;
+```
