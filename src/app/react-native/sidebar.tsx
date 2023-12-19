@@ -69,12 +69,12 @@ export const sidebar: SideBar = {
 			href: "/react-native",
 		},
 		{
-			name: "Getting Started",
-			href: "/react-native/getting-started",
+			name: "Installation",
+			href: "/react-native/installation",
 		},
 		{
-			name: "ThirdwebProvider",
-			href: "/react-native/ThirdwebProvider",
+			name: "Getting Started",
+			href: "/react-native/getting-started",
 		},
 		{
 			name: "ThirdwebSDKProvider",
@@ -88,15 +88,7 @@ export const sidebar: SideBar = {
 		components,
 		{
 			name: "Hooks",
-			href: "/react-native/hooks",
-		},
-		{
-			name: "Auth",
-			href: "/react-native/auth",
-		},
-		{
-			name: "Storage",
-			href: "/react-native/storage",
+			href: "/references/react-native#hooks",
 		},
 		{
 			name: "FAQ",

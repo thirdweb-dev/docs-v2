@@ -7,6 +7,4 @@ export default async function Layout(props: { children: React.ReactNode }) {
 			{props.children}
 		</DocLayout>
 	);
-
-
 }

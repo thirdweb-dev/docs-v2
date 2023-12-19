@@ -1,207 +1,204 @@
-import { OpenSourceCard } from "@/components/Document/OpenSourceCard";
-import { InstallTabs } from "@/components/Document/InstallTabs";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { CodeBlock, InlineCode } from "@/components/Document";
+import { Details, InstallTabs, Callout } from "@/components/Document";
 
 # Getting Started
 
-## Installation
+Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-with-react-context-api/), meaning any component within the `ThirdwebProvider` will have access to the SDK.
 
-Requirements:
+<Callout variant='info' title="API Key">
 
-- Android minSdkVersion = 26
-- iOS platform >= 13
-- XCode > 14
+You will require an API key to use thirdweb's infrastructure services with the SDK.
 
-<Tabs defaultValue="existing_projects">
+you need to first obtain an API key from the [dashboard](https://thirdweb.com/dashboard) and then copy the "Client ID" and pass it to the `ThirdwebPovider` as the `clientId` prop.
 
-<TabsList>
-	<TabsTrigger value="existing_projects">Existing Projects</TabsTrigger>
-	<TabsTrigger value="new_projects">New Projects</TabsTrigger>
-</TabsList>
+</Callout>
 
-<TabsContent value="existing_projects">
+Let's take a look at a typical setup.
 
-<Tabs defaultValue="cli_project">
-		<TabsList>
-			<TabsTrigger value="cli_project">React Native CLI Project</TabsTrigger>
-    		<TabsTrigger value="expo_project">React Native Expo Project</TabsTrigger>
-    	</TabsList>
+## Configure the [ThirdwebProvider](/references/react-native/ThirdwebProvider)
 
-    	<TabsContent value="cli_project">
-    		<InstallTabs
-    			thirdwebInstallSupported
-    			npm="npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-    			yarn="yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-    			pnpm="pnpm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-    		/>
+Specify the network your smart contracts are deployed to in the `activeChain` prop and wrap your application like so:
 
-    	Our wallets package uses the Expo Modules API, please [configure it](https://docs.expo.dev/modules/overview/) in your app:
+```tsx title="App.tsx"
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
 
-    	<CodeBlock
-    		lang={'bash'}
-    		code={`npx install-expo-modules@latest`}/>
-
-    	Move into your `/ios` folder and run the following command to install ios required pods:
-
-    	<CodeBlock
-    		lang={'bash'}
-    		code={`cd ios/ && pod install`}/>
-
-### Add shims for the crypto nodejs' libraries
-
-React Native is based on [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore?language=objc) (part of WebKit) and does not use Node.js or the common Web and DOM APIs. As such, there are many operations missing that a normal web environment or Node.js instance would provide. [[1]](https://docs.ethers.org/v5/cookbook/react-native/#cookbook-reactnative-security).
-
-For this reason we need to add shims for some of the operations not available in closed out environments like React Native:
-
-In your `metro.config.js` (please, create one if you don’t have it) add the following to shim the nodejs modules needed:
-
-<Tabs defaultValue="rn_cli">
-
-<TabsList>
-	<TabsTrigger value="rn_cli">React Native CLI Project</TabsTrigger>
-	<TabsTrigger value="expo_cli">React Native Expo Project</TabsTrigger>
-</TabsList>
-
-<TabsContent value="rn_cli">
-	<CodeBlock
-		lang={"javascript"}
-		code={`/**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
- *
- * @format
- */
-const extraNodeModules = require("node-libs-browser");
-module.exports = {
-  resolver: {
-    extraNodeModules,
-  },
-  transformer: {
-    getTransformOptions: async () => ({
-      transform: {
-        experimentalImportSupport: false,
-        inlineRequires: true,
-      },
-    }),
-  },
+const App = () => {
+	return (
+		<ThirdwebProvider activeChain={"mainnet"} clientId={"your-client-id"}>
+			<AppInner />
+		</ThirdwebProvider>
+	);
 };
-`}
-	/>
-</TabsContent>
+```
 
-<TabsContent value="expo_cli">
-	<CodeBlock
-		lang={"javascript"}
-		code={`// Learn more https://docs.expo.io/guides/customizing-metro
-const { getDefaultConfig } = require("expo/metro-config");
-const extraNodeModules = require("node-libs-browser");
-const config = getDefaultConfig(\_\_dirname);
-config.resolver.extraNodeModules = extraNodeModules;
-config.transformer.getTransformOptions = async () => ({
-  transform: {
-    experimentalImportSupport: false,
-    inlineRequires: true,
-  },
-});
-module.exports = config;
-`}
-	/>
-</TabsContent>
+Below is an example of where to set this up in your application:
 
-</Tabs>
+<p>
+	[Create React Native
+	App](https://github.com/thirdweb-example/react-native-typescript-starter/blob/main/App.tsx)
+</p>
 
-</TabsContent>
-<TabsContent value="expo_project">
-	We have a dependency on the [Coinbase Wallet Mobile SDK](https://github.com/coinbase/wallet-mobile-sdk) to support connecting with Coinbase, this dependency contains custom native code, **which breaks support for Expo Go** ([see issue here](https://github.com/coinbase/wallet-mobile-sdk/issues/206)). We are working on turning this into an optional dependency but for now you need to prebuild the Expo project:
+Finally, we can run our app!
 
-    <CodeBlock
-    	lang={'bash'}
-    	code={`npx expo prebuild`}/>
+```sh
+yarn android
+```
 
-Now, we can add the dependencies:
+```sh
+yarn ios
+```
 
-<InstallTabs
-	thirdwebInstallSupported
-	npm="npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-	yarn="yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-	pnpm="pnpm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-/>
+## Connect to a wallet using our [ConnectWallet](/references/react-native/ConnectWallet) button
 
-Our wallets package uses the Expo Modules API, please [configure it](https://docs.expo.dev/modules/overview/) in your app:
+```javascript
+import React from "react";
+import { SafeAreaView } from "react-native";
+import { ConnectWallet } from "@thirdweb-dev/react-native";
 
-<CodeBlock lang={"bash"} code={`npx install-expo-modules@latest`} />
+const AppInner = () => {
+	return (
+		<SafeAreaView style={styles.backgroundStyle}>
+			<ConnectWallet />
+		</SafeAreaView>
+	);
+};
+```
 
-</TabsContent>
-</Tabs>
+## Interact With Contracts
 
-We provide a package that imports all the necessary polyfills for you, please, import this package into your `index.js` file. Make sure it is at the top of your imports.
+Connect to your smart contract using the [`useContract`](/references/react-native/useContract) hook like so:
 
-<CodeBlock
-	lang={"javascript"}
-	code={`// Import polyfills
-			import "@thirdweb-dev/react-native-compat";`}
-/>
+```jsx title="pages/index.jsx"
+import { useContract } from "@thirdweb-dev/react-native";
 
-### Why are all these packages needed?
+export default function Home() {
+	const { contract } = useContract("<CONTRACT_ADDRESS>");
 
-As explained in the intro of this doc, we need to shim some of the packages available in Node and web environments. Find below who’s using these packages:
+	// Now you can use the contract in the rest of the component!
+}
+```
 
-**WalletConnect**
+You can then use [`useContractRead`](/references/react-native/useContractRead) and [`useContractWrite`](/references/react-native/useContractWrite) to read data and write transactions to the contract.
 
-- WalletConnect uses Node’s `crypto` package when signing transactions. Since this package is not available in React Native we need an alternative implementation for it and its dependencies, the following packages accomplishes this:
-  - `node-libs-browser`
-  - `react-native-crypto`
-  - `react-native-randombytes`
-  - `react-native-get-random-values`
-- Coinbase wallet connector package depends on `react-native-mmkv` and `expo-modules`.
-- WalletConnect V2 connectors depend on `@react-native-async-storage/async-storage`.
+You pass the `contract` object returned from [`useContract`](/references/react-native/useContract) to these hooks as the first parameter and the name of the function (or view/mapping, etc.) on your smart contract as the second parameter. If your function requires parameters, you can pass them as additional arguments.
 
-</TabsContent>
-<TabsContent value="new_projects">
-Make sure to have your React Native environment setup before using the template. Please follow React Native's [Setting up the development environment](https://reactnative.dev/docs/environment-setup)
+For example, we can read the `name` of our contract like so:
 
-<Tabs defaultValue="tw_cli">
+```jsx title="pages/index.jsx"
+import {
+	useContract,
+	useContractRead,
+	useContractWrite,
+} from "@thirdweb-dev/react-native";
 
-<TabsList>
-	<TabsTrigger value="tw_cli">thirdweb CLI</TabsTrigger>
-	<TabsTrigger value="tw_cli_expo">thirdweb CLI Expo</TabsTrigger>
-	<TabsTrigger value="rn_cli">React Native CLI</TabsTrigger>
-	<TabsTrigger value="expo_cli">Expo CLI</TabsTrigger>
-</TabsList>
+export default function Home() {
+	const { contract } = useContract("<CONTRACT_ADDRESS>");
+	const { data: name, isLoading: loadingName } = useContractRead(
+		contract,
+		"name", // The name of the view/mapping/variable on your contract
+	);
+	const { mutate: setName, isLoading: settingName } = useContractWrite(
+		contract,
+		"setName", // The name of the function on your contract
+	);
+}
+```
 
-<TabsContent value="tw_cli">
-	<CodeBlock
-		lang={"bash"}
-		code={"npx thirdweb create --template react-native-typescript-starter"}
-	/>
-</TabsContent>
+## Using Extensions
 
-<TabsContent value="tw_cli_expo">
-Note that running through <b>Expo Go</b> app currently isn't supported. You
-    need to connect your device and build manually. Use the following command to
-    create an Expo React Native app using thirdweb CLI:
+Each extension you implement in your smart contract unlocks new functionality in the SDK.
 
- <CodeBlock lang={"bash"} code={"npx thirdweb create --template react-native-expo-starter"} />
-</TabsContent>
+These hooks make it easy to interact with your smart contracts by implementing the complex logic for you under the hood.
 
-<TabsContent value="rn_cli">
-Alternatively you can use the React Native CLI. Note that you need to follow
-    the "Existing Projects -> React Native CLI Project" steps in this guide
-    after executing the following command:
+For example, if your smart contract implements [ERC721Supply](/contracts/build/extensions/ERC721Supply), you unlock the ability to view all NFTs on that contract using the SDK; which fetches all of your NFT metadata and the current owner of each NFT in parallel. In the React SDK, that is available using `useNFTs`:
 
- <CodeBlock lang={"bash"} code={"npx react-native init MyRNApp --template react-native-template-typescript"} />
-</TabsContent>
+```jsx
+import { useContract, useNFTs } from "@thirdweb-dev/react-native";
 
-<TabsContent value="expo_cli">
-Alternatively you can use the Expo CLI. Note that you need to follow the
-    "Existing Projects -> React Native Expo Project" steps in this guide after
-    executing the following command:
+export default function Home() {
+	const { contract } = useContract("<CONTRACT_ADDRESS>");
+	const { data: nfts, isLoading: isReadingNfts } = useNFTs(contract);
+}
+```
 
- <CodeBlock lang={"bash"} code={"npx create-expo-app AwesomeProject"} />
-</TabsContent>
+If we want to mint an NFT and our contract implements [ERC721Mintable](/contracts/build/extensions/ERC721Mintable), we can use the [`useMintNFT`]references/react-native/useMintNFT) hook to mint an NFT from the connected wallet; handling all of the logic of uploading and pinning the metadata to IPFS for us behind the scenes.
 
-</Tabs>
+```jsx
+import { useContract, useNFTs, useMintNFT } from "@thirdweb-dev/react-native";
 
-</TabsContent>
-</Tabs>
+export default function Home() {
+	const { contract } = useContract("<CONTRACT_ADDRESS>");
+	const { data: nfts, isLoading: isReadingNfts } = useNFTs(contract);
+	const { mutate: mintNFT, isLoading: isMintingNFT } = useMintNFT(contract);
+}
+```
+
+## Advanced Configuration
+
+The `ThirdwebProvider` offers a number of configuration options to control the behavior of the React Native and Typescript SDK.
+We provide defaults for all of them, but you customize them to suit your needs. For more info see the [ThirdwebProvider reference](/references/react-native/ThirdwebProvider).
+
+### Supported Wallets Behavior
+
+1. We render `localWallet` as "Continue as Guest" in our ConnectWallet modal.
+2. When a single `supportedWallet` is defined, we try to auto-connect to that wallet instead of showing the wallets modal with a single wallet.
+
+### Localizing our UI components
+
+You can pass a `locale` prop to the `ThirdwebProvider` with the strings in the language of your preference. See the list of strings to translate [here](https://github.com/thirdweb-dev/js/blob/main/packages/react-native/src/evm/i18n/en.ts).
+
+We support 'en' (English), 'es' (Spanish) and 'ja' (Japanese) out of the box. The default value is 'en'.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
+import React from "react";
+
+const App = () => {
+	return (
+		<ThirdwebProvider locale={"ja"}>
+			<AppInner />
+		</ThirdwebProvider>
+	);
+};
+```
+
+You can pass your own strings:
+
+```jsx
+import { ThirdwebProvider, en } from "@thirdweb-dev/react-native";
+import React from "react";
+
+const App = () => {
+	return (
+		<ThirdwebProvider
+			locale={{
+				connect_wallet: {
+					label: "Conectar Cartera",
+				},
+				connect_wallet_details: {
+					additional_actions: "Acciones Adicionales",
+					// ...
+				},
+			}}
+		>
+			<AppInner />
+		</ThirdwebProvider>
+	);
+};
+```
+
+Note that you can also use this prop to replace any string in our UI components.
+
+```jsx
+import { ThirdwebProvider, en } from "@thirdweb-dev/react-native";
+import React from "react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider locale={en({
+       ... // you can overwrite any string!
+    })}>
+      <AppInner />
+    </ThirdwebProvider>
+  );
+};
+```
