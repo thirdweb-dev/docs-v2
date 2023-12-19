@@ -33,9 +33,9 @@ Button that executes a function on a smart contract from the connected wallet wh
 It ensures the following criteria before attempting to call the contract function:
 
 1. There is a **connected wallet**
-   (if there is not, it renders a [ConnectWallet Button](/react/react.connectwallet) instead).
+   (if there is not, it renders a [ConnectWallet Button](/react/components/ConnectWallet) instead).
 2. The connected wallet is on the **correct network**
-   as specified in the [ThirdwebProvider](/react/react.thirdwebprovider#active-chain)'s
+   as specified in the [ThirdwebProvider](/react/ThirdwebProvider#activeChain)'s
    `activeChain` prop (if it is not, it renders a switch network button instead).
 
 ```jsx
