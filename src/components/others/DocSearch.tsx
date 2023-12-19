@@ -68,7 +68,8 @@ type Tag =
 	| "All"
 	| "Infra"
 	| "Solidity"
-	| "Payments";
+	| "Payments"
+	| "Glossary";
 
 function SearchModalContent(props: { closeModal: () => void }) {
 	const [input, setInput] = useState("");
@@ -407,6 +408,8 @@ function getTagFromHref(href: string): Tag | undefined {
 		return "Contracts";
 	} else if (href.includes("/payments")) {
 		return "Payments";
+	} else if (href.includes("/glossary")) {
+		return "Glossary";
 	}
 }
 
