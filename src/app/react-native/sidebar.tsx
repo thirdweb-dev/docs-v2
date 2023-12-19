@@ -77,6 +77,10 @@ export const sidebar: SideBar = {
 			href: "/react-native/getting-started",
 		},
 		{
+			name: "ThirdwebProvider",
+			href: "/react-native/ThirdwebProvider",
+		},
+		{
 			name: "ThirdwebSDKProvider",
 			href: "/react-native/ThirdwebSDKProvider",
 		},

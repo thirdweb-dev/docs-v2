@@ -5,6 +5,8 @@ import AuthConfigMDX from "./props/authConfig.mdx";
 import SupportedWalletsMDX from "./props/supportedWallets.mdx";
 import SupportedChainsMDX from "./props/supportedChains.mdx";
 import AutoConnectMDX from "./props/autoConnect.mdx";
+import LocaleMDX from "./props/locale.mdx";
+import ThemeMDX from "./props/theme.mdx";
 import DappMetaMDX from "./props/dAppMeta.mdx";
 import SDKOptionsMDX from "./props/sdkOptions.mdx";
 import StorageInterfaceMDX from "./props/storageInterface.mdx";
@@ -27,7 +29,7 @@ you need to first obtain an API key from the [dashboard](https://thirdweb.com/da
 Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality from anywhere in your app.
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
 
 function Example() {
 	return (
