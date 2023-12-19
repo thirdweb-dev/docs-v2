@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import posthog from "posthog-js";
 
 const posthogHost = "https://a.thirdweb.com";
@@ -20,12 +20,22 @@ if (typeof window !== "undefined") {
 	});
 }
 
+// Track pageviews
 export function PosthogPageView() {
 	const pathname = usePathname();
+	const searchParams = useSearchParams();
 
 	useEffect(() => {
-		posthog.capture("$pageview");
-	}, [pathname]);
+		if (pathname) {
+			let url = window.origin + pathname;
+			if (searchParams.toString()) {
+				url = url + `?${searchParams.toString()}`;
+			}
+			posthog.capture("$pageview", {
+				$current_url: url,
+			});
+		}
+	}, [pathname, searchParams]);
 
 	return null;
 }
