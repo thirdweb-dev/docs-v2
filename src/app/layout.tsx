@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
-import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/PosthogScript";
+import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/Posthog";
 
 const sansFont = Inter({
 	subsets: ["latin"],
