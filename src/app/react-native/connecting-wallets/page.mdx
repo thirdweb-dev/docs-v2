@@ -1,4 +1,4 @@
-import { Details, Callout, Heading } from "@/components/Document";
+import { Details, Callout, Heading, DocLink } from "@/components/Document";
 
 # Connecting Wallets
 
@@ -7,28 +7,11 @@ There are two ways you connect user's wallet to your application using thirdweb'
 1. Using the [ConnectWallet component](#connect-wallet) for a quick, easy and customizable UI
 2. Create a completely custom UI using [wallet connection hooks](#custom-ui)
 
-<Details id='supported-wallets' summary="Supported Wallets">
-
-| Wallet Name     | Wallet Configurator                     |
-| --------------- | --------------------------------------- |
-| MetaMask        | [metamaskWallet](/react/metamaskWallet) |
-| Coinbase Wallet | [coinbaseWallet](/react/coinbasewallet) |
-| Wallet Connect  | [walletConnect](/react/walletconnect)   |
-| Embedded Wallet | [embeddedWallet](/react/embeddedwallet) |
-| Local Wallet    | [localWallet](/react/localwallet)       |
-| Smart Wallet    | [smartWallet](/react/smartwallet)       |
-| Magic Link      | [magicLink](/react/magiclink)           |
-| Rainbow Wallet  | [rainbowWallet](/react/rainbowWallet)   |
-
-<Callout variant='info'>
-
-Don't see the wallet you are looking for?
-
-You can easily integrate _any_ wallet provider by [Building your own wallet !](/wallet/build-a-wallet)
-
-</Callout>
-
-</Details>
+<DocLink
+	href="/react-native/wallets"
+	className="p-4 border rounded-lg hover:border-accent-500 hover:bg-b-700 block"
+	children="Supported Wallets"
+/>
 
 <Heading id="connect-wallet" level={2} children="1. ConnectWallet component" />
 
@@ -36,11 +19,11 @@ You can easily integrate _any_ wallet provider by [Building your own wallet !](/
 
 If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWallet Modal shows the below shown default wallets:
 
-- [MetaMask](/react/react.metamaskwallet)
-- [Coinbase Wallet](/react/react.coinbasewallet)
-- [WalletConnect](/react/react.walletconnect)
-- [Rainbow](/react/react.rainbowWallet)
-- [Trust Wallet](/react/react.trustWallet)
+- [MetaMask](/react-native/wallets/metamask)
+- [Coinbase Wallet](/react-native/wallets/coinbase)
+- [WalletConnect](/react-native/wallets/walletconnect)
+- [Rainbow](/react-native/wallets/rainbow)
+- [Trust Wallet](/react-native/wallets/trust)
 
 <Callout variant='info'>
 
@@ -140,7 +123,7 @@ Make sure to update the `connectionStatus` using [useSetConnectionStatus](/refer
 
 ### Example
 
-We will use [localWallet](/react/react.localwallet) as an example because it can not be connected using the `useConnect` hook because it requires additional steps after creating the wallet instance - like generating a random wallet or importing a wallet. We will generate a random wallet in this example.
+We will use [`localWallet`](/react-native/wallets/local-wallet) as an example because it can not be connected using the `useConnect` hook because it requires additional steps after creating the wallet instance - like generating a random wallet or importing a wallet. We will generate a random wallet in this example.
 
 ```tsx
 import {
@@ -193,10 +176,11 @@ Once the wallet is connected, you can use React Native SDK's 100+ hooks to show 
 
 Here is a list of few hooks that will be useful when creating custom UI
 
-| Hook                                                                | Description                            |
-| ------------------------------------------------------------------- | -------------------------------------- |
-| [useAddress](/references/react-native/useAddress)                   | get connected wallet's account address |
-| [useDisconnect](/references/react-native/useDisconnect)             | disconnect the connected wallet        |
-| [useWallet](/references/react-native/useWallet)                     | get connected wallet instance          |
-| [useWalletConfig](/references/react-native/useWalletConfig)         | get connected wallet's config          |
-| [useConnectionStatus](/references/react-native/useConnectionStatus) | get status of wallet connection        |
+| Hook                                                   | Description                            |
+| ------------------------------------------------------ | -------------------------------------- |
+| [useAddress](/references/react/useAddress)             | get connected wallet's account address |
+| [useDisconnect](/references/react/useDisconnect)       | disconnect the connected wallet        |
+| [useWallet](/references/react/useWallet)               | get connected wallet instance          |
+| [useWalletConfig](/references/react/useWalletConfig)   | get connected wallet's config          |
+| [useConnectionStatus](/references/useConnectionStatus) | get status of wallet connection        |
+| [useSigner](/references/react/useSigner)               | get signer of connected wallet         |

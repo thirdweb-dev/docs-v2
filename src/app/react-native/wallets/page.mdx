@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@/components/Document";
+import { Breadcrumb, Callout } from "@/components/Document";
 import { WalletCard } from "./_components/WalletCard";
 // icons
 import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
@@ -41,3 +41,13 @@ import PhantomIcon from "@public/icons/wallets/phantom.svg";
   <WalletCard label="Rainbow" href="/react-native/wallets/rainbow" icon={RainbowIcon} />
 
 </div>
+
+<div className="h-12" />
+
+<Callout variant='info'>
+
+Don't see the wallet you are looking for?
+
+You can easily integrate _any_ wallet provider by [Building your own wallet !](/wallet/build-a-wallet)
+
+</Callout>
