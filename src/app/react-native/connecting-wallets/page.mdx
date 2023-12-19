@@ -123,7 +123,7 @@ Make sure to update the `connectionStatus` using [useSetConnectionStatus](/refer
 
 ### Example
 
-We will use [localWallet](/react/react.localwallet) as an example because it can not be connected using the `useConnect` hook because it requires additional steps after creating the wallet instance - like generating a random wallet or importing a wallet. We will generate a random wallet in this example.
+We will use [`localWallet`](/react-native/wallets/local-wallet) as an example because it can not be connected using the `useConnect` hook because it requires additional steps after creating the wallet instance - like generating a random wallet or importing a wallet. We will generate a random wallet in this example.
 
 ```tsx
 import {
@@ -176,10 +176,11 @@ Once the wallet is connected, you can use React Native SDK's 100+ hooks to show 
 
 Here is a list of few hooks that will be useful when creating custom UI
 
-| Hook                                                                | Description                            |
-| ------------------------------------------------------------------- | -------------------------------------- |
-| [useAddress](/references/react-native/useAddress)                   | get connected wallet's account address |
-| [useDisconnect](/references/react-native/useDisconnect)             | disconnect the connected wallet        |
-| [useWallet](/references/react-native/useWallet)                     | get connected wallet instance          |
-| [useWalletConfig](/references/react-native/useWalletConfig)         | get connected wallet's config          |
-| [useConnectionStatus](/references/react-native/useConnectionStatus) | get status of wallet connection        |
+| Hook                                                   | Description                            |
+| ------------------------------------------------------ | -------------------------------------- |
+| [useAddress](/references/react/useAddress)             | get connected wallet's account address |
+| [useDisconnect](/references/react/useDisconnect)       | disconnect the connected wallet        |
+| [useWallet](/references/react/useWallet)               | get connected wallet instance          |
+| [useWalletConfig](/references/react/useWalletConfig)   | get connected wallet's config          |
+| [useConnectionStatus](/references/useConnectionStatus) | get status of wallet connection        |
+| [useSigner](/references/react/useSigner)               | get signer of connected wallet         |
