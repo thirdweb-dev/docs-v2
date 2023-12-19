@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
+import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/PosthogScript";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -27,6 +28,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
+			<head>
+				<PosthogHeadSetup />
+			</head>
 			<body className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
 				<NextTopLoader
 					color="var(--accent-600)"
@@ -34,6 +38,7 @@ export default function RootLayout({
 					shadow={false}
 					showSpinner={false}
 				/>
+				<PosthogPageView />
 				<div className="relative flex min-h-screen flex-col">
 					<Header />
 					{children}
