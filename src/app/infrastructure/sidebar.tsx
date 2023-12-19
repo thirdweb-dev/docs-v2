@@ -24,8 +24,8 @@ export const sidebar: SideBar = {
 					href: `${engineSlug}/overview`,
 				},
 				{
-					name: "Getting Started",
-					href: `${engineSlug}/getting-started`,
+					name: "Get Started",
+					href: `${engineSlug}/get-started`,
 				},
 				{
 					name: "Production Checklist",
@@ -89,12 +89,12 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "FAQ",
-					href: `${engineSlug}/faq`,
-				},
-				{
 					name: "Security",
 					href: `${engineSlug}/security`,
+				},
+				{
+					name: "FAQ",
+					href: `${engineSlug}/faq`,
 				},
 			],
 		},

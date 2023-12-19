@@ -1,8 +1,96 @@
+import {
+	Carousel,
+	ArticleCard,
+} from "@/components/Document";
+import testImage from "./assets/test.jpg";
+
 # Infrastructure
 
 All the infrastructure to scale and build production grade applications.
 
 ## Products
-- Engine
-- Storage
-- Gateway
+- [**Engine:**](/infrastructure/engine/overview) HTTP server with contract APIs and backend wallets
+- [**Storage:**](/infrastructure/storage) Secure, fast, decentralized storage
+- [**RPC Edge:**](/infrastructure/rpc-edge) Enterprise-grade RPCs, for free
+
+## Guides
+
+<Carousel slidesToShow={{
+	lg: 3,
+	md: 2,
+	sm: 1
+}}>
+
+<ArticleCard
+	title="Airdrop NFTs"
+	description="Learn how to airdrop NFTs to your community using Engine."
+	href="/infrastructure/engine/guides/airdrop-nfts"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Meta-transaction relayer"
+	description="Learn how to build a meta-transaction relayer using Engine."
+	href="/infrastructure/engine/guides/relayer"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Upload files to IPFS"
+	description="Learn how to upload files to IPFS using Storage."
+	href="/infrastructure/storage/how-to-use-storage/upload-files-to-ipfs"
+	image={testImage}
+/>
+
+</Carousel>
+
+<br />
+
+## Templates
+
+<Carousel slidesToShow={{
+	lg: 3,
+	md: 2,
+	sm: 1
+}}>
+
+<ArticleCard
+	title="Scoped Sessions"
+	description="Create scoped sessions using smart accounts and Engine."
+	href="https://github.com/thirdweb-example/smart-account-engine-sessions-demo"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Speed Racer"
+	description="Create a production style setup using Unreal and Engine."
+	href="https://github.com/thirdweb-example/engine-express"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="NFT Checkout"
+	description="Create an NFT checkout using Engine."
+	href="https://github.com/thirdweb-example/engine-nft-checkout"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Minting API"
+	description="Create a minting API using Engine."
+	href="https://github.com/thirdweb-example/engine-minting-api"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Phygital Experience"
+	description="Create an NFT minting experience with QR codes"
+	href="https://github.com/thirdweb-example/phygital-experience"
+	image={testImage}
+/>
+
+</Carousel>
+
+<br />
+
+
