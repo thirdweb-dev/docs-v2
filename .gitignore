@@ -39,3 +39,5 @@ next-env.d.ts
 
 # generated files
 searchIndex.json
+
+.env

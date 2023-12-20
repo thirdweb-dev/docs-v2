@@ -24,7 +24,7 @@ export function Subscribe() {
 				setIsSubmitted(true);
 
 				try {
-					await fetch("https://thirdweb.com/api/email-signup", {
+					await fetch("/api/email-signup", {
 						method: "POST",
 						body: JSON.stringify({ email }),
 					});
