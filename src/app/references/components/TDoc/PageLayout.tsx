@@ -46,7 +46,6 @@ export function getTDocPage(options: {
 				<div>
 					<Breadcrumb
 						crumbs={[
-							{ name: sdkTitle, href: `/${packageSlug}/${version}` },
 							{
 								name: "References",
 								href: `/references/${packageSlug}/${version}`,
@@ -65,15 +64,6 @@ export function getTDocPage(options: {
 		// index page
 		return (
 			<div>
-				<Breadcrumb
-					crumbs={[
-						{ name: sdkTitle, href: `/${packageSlug}/${version}` },
-						{
-							name: "References",
-							href: `/references/${packageSlug}/${version}`,
-						},
-					]}
-				/>
 				<IndexContent
 					doc={doc}
 					packageSlug={packageSlug}
