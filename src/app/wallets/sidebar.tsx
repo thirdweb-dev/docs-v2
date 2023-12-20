@@ -198,8 +198,8 @@ export const sidebar: SideBar = {
 					href: `${embeddedSlug}/how-it-works`,
 				},
 				{
-					name: "QuickStart",
-					href: `${embeddedSlug}/quick-start`,
+					name: "Get Started",
+					href: `${embeddedSlug}/get-started`,
 				},
 				{
 					name: "How to",
@@ -261,10 +261,6 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "FAQs",
-					href: `${embeddedSlug}/faqs`,
-				},
-				{
 					name: "References",
 					links: [
 						{
@@ -280,6 +276,10 @@ export const sidebar: SideBar = {
 							href: `/unity/wallets/embedded-wallet`,
 						},
 					],
+				},
+				{
+					name: "FAQs",
+					href: `${embeddedSlug}/faqs`,
 				},
 			],
 		},
@@ -309,10 +309,6 @@ export const sidebar: SideBar = {
 				{
 					name: "Permissions & Session Keys",
 					href: `${smartWalletSlug}/permissions`,
-				},
-				{
-					name: "FAQs",
-					href: `${smartWalletSlug}/faq`,
 				},
 				{
 					name: "Guides",
@@ -351,6 +347,10 @@ export const sidebar: SideBar = {
 							href: `/unity/wallets/smartwallet`,
 						},
 					],
+				},
+				{
+					name: "FAQs",
+					href: `${smartWalletSlug}/faq`,
 				},
 			],
 		},
