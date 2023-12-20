@@ -1,0 +1,21 @@
+# Drop-down Options
+
+## Change drop-down position
+
+To change the position of the drop-down:
+
+```jsx
+<ConnectWallet
+  dropdownPosition={{
+    side: "bottom", // "top" | "bottom" | "left" | "right";
+    align: "end", // "start" | "center" | "end";
+  }}
+/>
+```
+
+## Display testnet faucet link
+To hide the testnet faucet option when connected to a test network:
+
+```jsx
+<ConnectWallet hideTestnetFaucet={true} />
+```
