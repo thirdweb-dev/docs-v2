@@ -265,11 +265,11 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/react/wallets/embedded-wallet`,
+							href: `/react/v4/wallets/embedded-wallet`,
 						},
 						{
 							name: "React Native",
-							href: `/react-native/wallets/embedded-wallet`,
+							href: `/react-native/v4/wallets/embedded-wallet`,
 						},
 						{
 							name: "Unity",
@@ -332,15 +332,15 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/react/wallets/smartwallet`,
+							href: `/react/v4/wallets/smartwallet`,
 						},
 						{
 							name: "React Native",
-							href: `/react-native/wallets/smartwallet`,
+							href: `/react-native/v4/wallets/smartwallet`,
 						},
 						{
 							name: "TypeScript",
-							href: `/references/wallets/SmartWallet`,
+							href: `/references/wallets/v2/SmartWallet`,
 						},
 						{
 							name: "Unity",

@@ -45,15 +45,15 @@ const links = [
 const sdkLinks = [
 	{
 		name: "TypeScript",
-		href: "/typescript",
+		href: "/typescript/latest",
 	},
 	{
 		name: "React",
-		href: "/react",
+		href: "/react/latest",
 	},
 	{
 		name: "React Native",
-		href: "/react-native",
+		href: "/react-native/latest",
 	},
 	// {
 	// 	name: "Python",
@@ -76,23 +76,23 @@ const sdkLinks = [
 const referenceLinks = [
 	{
 		name: "TypeScript",
-		href: "/references/typescript",
+		href: "/references/typescript/latest",
 	},
 	{
 		name: "React",
-		href: "/references/react",
+		href: "/references/react/latest",
 	},
 	{
 		name: "React Native",
-		href: "/references/react-native",
+		href: "/references/react-native/latest",
 	},
 	{
 		name: "Storage",
-		href: "/references/storage",
+		href: "/references/storage/latest",
 	},
 	{
 		name: "Wallets",
-		href: "/references/wallets",
+		href: "/references/wallets/latest",
 	},
 ];
 
