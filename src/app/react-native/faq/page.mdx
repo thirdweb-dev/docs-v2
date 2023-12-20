@@ -6,7 +6,7 @@ To be able to use some wallets in your application, they require a way to redire
 
 If you want to learn more about deep linking please check the official documentation for [Android](https://developer.android.com/training/app-links/deep-linking) and [iOS](https://developer.apple.com/ios/universal-links/).
 
-## Android
+### Android
 
 The short version is that you need to tell the Android OS that your application can manage certain urls. You define this URL in your `AndroidManifest.xml` and when another app (e.g. a wallet) asks the Android OS to open the url, the OS will check which apps can open it and send you the request.
 
@@ -56,3 +56,29 @@ Next, open your `AppDelegate.mm` file and import the `RCTLinkingManager` header 
 ```
 
 To understand how this works, please refer to the [iOS's developer official documentation.](https://developer.apple.com/ios/universal-links/)
+
+## Does this library support tree shaking?
+
+Metro currently does not implement tree shaking, i.e. it does not attempt to remove unused code from the JS bundle. For instance, given this code snippet:
+
+```js
+import { partition } from "lodash";
+```
+
+Metro will bundle all of lodash in your bundle even though you're only using a small part of it. For more details, see issues [#227](https://github.com/facebook/metro/issues/227) and [#632](https://github.com/facebook/metro/issues/632).
+
+For this reason we recommend using a tool like [`metro-serializer-esbuild`](https://www.npmjs.com/package/@rnx-kit/metro-serializer-esbuild).
+
+`metro-serializer-esbuild` is designed to be used at the React Native app level. It is a custom serializer for Metro, the React Native bundler, that leverages esbuild for faster JavaScript transformations.
+
+### Here's why it's more suitable for the app level:
+
+1. **Integration with Build Process:** The serializer integrates with your app's build process, which is managed at the app level, not the SDK level.
+
+2. **App-Specific Configuration:** Since it affects how your JavaScript code is transformed and bundled, it's more appropriate to configure this as part of your specific app's build setup, where you have control over the bundler's behavior.
+
+3. **SDK Independence:** SDKs (Software Development Kits) are generally designed to be independent of specific build tools or serializers. They provide functionality to apps but don't dictate how the app should be built or bundled.
+
+4. **Flexibility for App Developers:** Using it at the app level allows individual app developers to decide whether they want to use `metro-serializer-esbuild` based on their specific needs and setup.
+
+In summary, you should use `metro-serializer-esbuild` at the React Native app level for better integration with the build process and to keep the SDK independent of specific build tools.
