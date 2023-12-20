@@ -7,6 +7,8 @@ import { fetchWalletsDoc } from "../fetchDocs/fetchWalletsDoc";
 
 const validReferenceLinks: Set<string> = new Set();
 
+// TODO: currently we just point to /latest/ for all the links
+
 /**
  * Get the map of all valid reference links for typescript pacakges
  */
@@ -29,7 +31,7 @@ export async function getAllTSReferencesLinks() {
 			const value = doc[key as keyof TransformedDoc];
 			if (Array.isArray(value)) {
 				value.forEach((v) => {
-					validReferenceLinks.add(`/references/${path}/${v.name}`);
+					validReferenceLinks.add(`/references/${path}/latest/${v.name}`);
 				});
 			}
 		}

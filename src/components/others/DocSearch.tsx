@@ -27,15 +27,15 @@ import { Spinner } from "../ui/Spinner/Spinner";
 const suggestedLinks: { title: string; href: string }[] = [
 	{
 		title: "React SDK",
-		href: "/react",
+		href: "/react/latest",
 	},
 	{
 		title: "React Native SDK",
-		href: "/react",
+		href: "/react/latest",
 	},
 	{
 		title: "TypeScript SDK",
-		href: "/react",
+		href: "/react/latest",
 	},
 	{
 		title: "Wallets",

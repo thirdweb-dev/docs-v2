@@ -49,6 +49,7 @@
 		"react-html-parser": "^2.0.2",
 		"remark-gfm": "3.0.1",
 		"remark-heading-id": "^1.0.1",
+		"semver": "^7.5.4",
 		"server-only": "^0.0.1",
 		"tailwind-merge": "^1.14.0",
 		"tailwindcss-animate": "^1.0.7",

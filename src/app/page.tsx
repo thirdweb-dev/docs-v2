@@ -347,19 +347,19 @@ function InfraSection() {
 
 			<Grid>
 				<ArticleIconCard
-					href="/infrastructure/storage"
+					href="/infrastructure/storage/overview"
 					title="Storage"
 					description="Secure, fast, decentralized storage"
 					icon={InfraStorageIcon}
 				/>
 				<ArticleIconCard
-					href="/infrastructure/rpc"
+					href="/infrastructure/rpc-edge/overview"
 					title="RPC Edge"
 					description="Enterprise-grade RPCs, for free"
 					icon={InfraRPCIcon}
 				/>
 				<ArticleIconCard
-					href="/infrastructure/engine"
+					href="/infrastructure/engine/overview"
 					title="Engine"
 					description="HTTP server with contract APIs and backend wallets"
 					icon={InfraEngineIcon}
@@ -375,9 +375,17 @@ function SDKSection() {
 			<SectionTitle id="sdk" title="SDKs" />
 
 			<Grid>
-				<SDKCard href="/typescript" title="TypeScript" icon={TypeScriptIcon} />
-				<SDKCard href="/react" title="React" icon={ReactIcon} />
-				<SDKCard href="/react-native" title="React Native" icon={ReactIcon} />
+				<SDKCard
+					href="/typescript/latest"
+					title="TypeScript"
+					icon={TypeScriptIcon}
+				/>
+				<SDKCard href="/react/latest" title="React" icon={ReactIcon} />
+				<SDKCard
+					href="/react-native/latest"
+					title="React Native"
+					icon={ReactIcon}
+				/>
 				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
 				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
 				<SDKCard href="/unity" title="Unity" icon={UnityIcon} />

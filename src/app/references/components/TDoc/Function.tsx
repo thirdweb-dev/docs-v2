@@ -206,7 +206,7 @@ async function RenderFunctionSignature(props: {
 							You can also prepare the transaction without executing it by
 							calling <InlineCode code={`${name}.prepare()`} /> with same
 							arguments.{" "}
-							<DocLink href="/typescript/extensions#preparing-transactions">
+							<DocLink href="/typescript/v4/extensions#preparing-transactions">
 								Learn more
 							</DocLink>
 						</Paragraph>

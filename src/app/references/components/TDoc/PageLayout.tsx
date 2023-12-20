@@ -12,20 +12,29 @@ import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import GithubSlugger from "github-slugger";
 
-type PageProps = { params: { slug?: [docName: string] } };
+type PageProps = { params: { version: string; slug?: [docName: string] } };
+type LayoutProps = { params: { version: string }; children: React.ReactNode };
 
+// make sure getTDocPage() is used in .../[version]/[...slug]/page.tsx file
 export function getTDocPage(options: {
-	getDoc: () => Promise<TransformedDoc>;
+	getDoc: (version: string) => Promise<TransformedDoc>;
 	sdkTitle: string;
 	packageSlug: string;
+	getLatestVersion: () => Promise<string>;
 }) {
-	const { getDoc, sdkTitle, packageSlug } = options;
+	const { getDoc, sdkTitle, packageSlug, getLatestVersion } = options;
 
 	async function Page(props: PageProps) {
-		const doc = await getDoc();
+		const version = props.params.version;
+		const doc = await getDoc(version);
 		const slugToDoc = getSlugToDocMap(doc);
 		const docSlug = props.params.slug ? props.params.slug[0] : undefined;
 
+		if (!version) {
+			notFound();
+		}
+
+		// API page
 		if (docSlug) {
 			const selectedDoc = docSlug && slugToDoc[docSlug];
 
@@ -37,11 +46,14 @@ export function getTDocPage(options: {
 				<div>
 					<Breadcrumb
 						crumbs={[
-							{ name: sdkTitle, href: `/${packageSlug}` },
-							{ name: "References", href: `/references/${packageSlug}` },
+							{ name: sdkTitle, href: `/${packageSlug}/${version}` },
+							{
+								name: "References",
+								href: `/references/${packageSlug}/${version}`,
+							},
 							{
 								name: selectedDoc.name,
-								href: `/references/${packageSlug}/${selectedDoc.name}`,
+								href: `/references/${packageSlug}/${version}/${selectedDoc.name}`,
 							},
 						]}
 					/>
@@ -50,35 +62,51 @@ export function getTDocPage(options: {
 			);
 		}
 
+		// index page
 		return (
 			<div>
 				<Breadcrumb
 					crumbs={[
-						{ name: sdkTitle, href: `/${packageSlug}` },
-						{ name: "References", href: `/references/${packageSlug}` },
+						{ name: sdkTitle, href: `/${packageSlug}/${version}` },
+						{
+							name: "References",
+							href: `/references/${packageSlug}/${version}`,
+						},
 					]}
 				/>
-				<IndexContent doc={doc} packageSlug={packageSlug} sdkTitle={sdkTitle} />
+				<IndexContent
+					doc={doc}
+					packageSlug={packageSlug}
+					sdkTitle={sdkTitle}
+					version={version}
+				/>
 			</div>
 		);
 	}
 
-	async function generateStaticParams() {
-		const slugs = fetchAllSlugs(await getDoc());
+	// statically generate pages for latest version
+	async function generateStaticParams(): Promise<PageProps["params"][]> {
+		const version = await getLatestVersion();
+		const slugs = fetchAllSlugs(await getDoc(version));
 
 		return [
-			...slugs.map((slug) => ({
-				slug: [slug],
-			})),
+			...slugs.map((slug) => {
+				return {
+					slug: [slug] as [docName: string],
+					version: version,
+				};
+			}),
 			{
 				slug: undefined,
+				version: version,
 			},
 		];
 	}
 
 	async function generateMetadata(props: PageProps): Promise<Metadata> {
+		const version = await getLatestVersion();
 		const docName = props.params.slug ? props.params.slug[0] : undefined;
-		const doc = await getDoc();
+		const doc = await getDoc(version);
 		const slugToDoc = getSlugToDocMap(doc);
 
 		if (!docName) {
@@ -106,21 +134,26 @@ export function getTDocPage(options: {
 	};
 }
 
+// make sure getTDocLayout() is used in .../[version]/layout.tsx file
 export function getTDocLayout(options: {
-	getDoc: () => Promise<TransformedDoc>;
+	getDoc: (version: string) => Promise<TransformedDoc>;
 	packageSlug: string;
 	sdkTitle: string;
 }) {
 	const { getDoc, packageSlug, sdkTitle } = options;
 
-	return async function Layout(props: { children: React.ReactNode }) {
-		const doc = await getDoc();
+	return async function Layout(props: LayoutProps) {
+		const { version } = props.params;
+		const doc = await getDoc(version);
 
 		return (
 			<DocLayout
 				sideBar={{
 					name: sdkTitle,
-					links: getSidebarLinkGroups(doc, `/references/${packageSlug}`),
+					links: getSidebarLinkGroups(
+						doc,
+						`/references/${packageSlug}/${version}`,
+					),
 				}}
 			>
 				{props.children}
@@ -133,10 +166,11 @@ async function IndexContent(props: {
 	doc: TransformedDoc;
 	packageSlug: string;
 	sdkTitle: string;
+	version: string;
 }) {
 	const linkGroups = getSidebarLinkGroups(
 		props.doc,
-		`/references/${props.packageSlug}`,
+		`/references/${props.packageSlug}/${props.version}`,
 	);
 
 	const slugger = new GithubSlugger();
