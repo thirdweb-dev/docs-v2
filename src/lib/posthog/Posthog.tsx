@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import posthog from "posthog-js";
 
 const posthogHost = "https://a.thirdweb.com";
@@ -23,19 +23,14 @@ if (typeof window !== "undefined") {
 // Track pageviews
 export function PosthogPageView() {
 	const pathname = usePathname();
-	const searchParams = useSearchParams();
 
 	useEffect(() => {
 		if (pathname) {
-			let url = window.origin + pathname;
-			if (searchParams.toString()) {
-				url = url + `?${searchParams.toString()}`;
-			}
 			posthog.capture("$pageview", {
-				$current_url: url,
+				$current_url: window.origin + pathname,
 			});
 		}
-	}, [pathname, searchParams]);
+	}, [pathname]);
 
 	return null;
 }
