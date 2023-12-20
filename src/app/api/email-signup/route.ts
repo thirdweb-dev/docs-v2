@@ -1,9 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import invariant from "tiny-invariant";
 
-export const config = {
-	runtime: "edge",
-};
+export const runtime = "edge";
 
 interface EmailSignupPayload {
 	email: string;
