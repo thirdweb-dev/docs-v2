@@ -180,14 +180,6 @@ function DocSidebarCategory(props: {
 
 	useEffect(() => {
 		setOpen(defaultOpen);
-		if (defaultOpen) {
-			setTimeout(() => {
-				triggerRef.current?.scrollIntoView({
-					behavior: "smooth",
-					block: "center",
-				});
-			}, 500);
-		}
 	}, [defaultOpen]);
 
 	const trigger = (
