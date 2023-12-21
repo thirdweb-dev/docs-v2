@@ -17,11 +17,11 @@ export const sidebar: SideBar = {
 			isCollapsible: false,
 			links: [
 				{
-					name: "Get Started",
-					href: `${checkoutSlug}/get-started`,
+					name: "Getting Started",
+					href: `${checkoutSlug}/getting-started`,
 					links: [
 						{
-							name: "Enable Contract",
+							name: "Enable Contract for Payments",
 							href: `${checkoutSlug}/enable-contract`,
 						},
 						{
