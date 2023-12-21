@@ -101,45 +101,72 @@ export const sidebar: SideBar = {
 							name: "Wallet Providers",
 							links: [
 								{
-									name: "MetaMask",
-									icon: <WalletsConnectIcon />,
-									href: `${connectSlug}/wallet-providers/metamask`,
+									name: "Blocto",
+									href: "/references/wallets/latest/BloctoWallet",
+								},
+								{
+									name: "Coin98",
+									href: "/references/wallets/latest/Coin98Wallet",
 								},
 								{
 									name: "Coinbase",
-									href: `${connectSlug}/wallet-providers/coinbase`,
+									href: "/references/wallets/latest/CoinbaseWallet",
 								},
 								{
-									name: "WalletConnect",
-									href: `${connectSlug}/wallet-providers/walletconnect`,
+									name: "Core",
+									href: "/references/wallets/latest/CoreWallet",
 								},
 								{
-									name: "Trust",
-									href: `${connectSlug}/wallet-providers/trust`,
-								},
-								{
-									name: "Rainbow",
-									href: `${connectSlug}/wallet-providers/rainbow`,
-								},
-								{
-									name: "Zerion",
-									href: `${connectSlug}/wallet-providers/zerion`,
-								},
-								{
-									name: "Phantom",
-									href: `${connectSlug}/wallet-providers/phantom`,
-								},
-								{
-									name: "Safe",
-									href: `${connectSlug}/wallet-providers/safe`,
-								},
-								{
-									name: "Blocto",
-									href: `${connectSlug}/wallet-providers/blocto`,
+									name: "DefiWallet",
+									href: "/references/wallets/latest/CryptoDefiWallet",
 								},
 								{
 									name: "Frame",
-									href: `${connectSlug}/wallet-providers/frame`,
+									href: "/references/wallets/latest/FrameWallet",
+								},
+								{
+									name: "Magic Link",
+									href: "/references/wallets/latest/MagicLink",
+								},
+								{
+									name: "MetaMask",
+									href: "/references/wallets/latest/MetaMaskWallet",
+								},
+								{
+									name: "OKX Wallet",
+									href: "/references/wallets/latest/OKXWallet",
+								},
+								{
+									name: "OneKeyWallet",
+									href: "/references/wallets/latest/OneKeyWallet",
+								},
+								{
+									name: "Phantom",
+									href: "/references/wallets/latest/PhantomWallet",
+								},
+								{
+									name: "Rabby",
+									href: "/references/wallets/latest/RabbyWallet",
+								},
+								{
+									name: "WalletConnect",
+									href: "/references/wallets/latest/WalletConnect",
+								},
+								{
+									name: "Rainbow",
+									href: "/references/wallets/latest/RainbowWallet",
+								},
+								{
+									name: "Safe",
+									href: "/references/wallets/latest/SafeWallet",
+								},
+								{
+									name: "Trust",
+									href: "/references/wallets/latest/TrustWallet",
+								},
+								{
+									name: "Zerion",
+									href: "/references/wallets/latest/ZerionWallet",
 								},
 							],
 						},
