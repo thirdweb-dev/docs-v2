@@ -141,10 +141,6 @@ export const sidebar: SideBar = {
 							name: "MISC.",
 							links: [
 								{
-									name: "Stake",
-									href: `${prebuiltSlug}/stake`,
-								},
-								{
 									name: "Marketplace",
 									href: `${prebuiltSlug}/marketplace`,
 								},
@@ -602,6 +598,10 @@ export const sidebar: SideBar = {
 					name: "Publish Options",
 					href: `${publishSlug}/publish-options`,
 				},
+				{
+					name: "CLI Reference",
+					href: `${publishSlug}/reference`,
+				},
 			],
 		},
 		{ separator: true },
@@ -614,6 +614,27 @@ export const sidebar: SideBar = {
 				{
 					name: "Overview",
 					href: `${interactSlug}/overview`,
+				},
+				{
+					name: "References",
+					links: [
+						{
+							name: "TypeScript",
+							href: "/typescript/v4",
+						},
+						{
+							name: "React",
+							href: "/react/v4",
+						},
+						{
+							name: "React Native",
+							href: "/react-native/v0",
+						},
+						{
+							name: "Unity",
+							href: "/unity",
+						},
+					],
 				},
 			],
 		},
