@@ -124,15 +124,13 @@ async function RenderFunctionSignature(props: {
 				</>
 			)}
 
-			<div className="mt-8">
-				<Details id={slugger.slug("signature")} summary="Signature" noIndex>
-					<CodeBlock
-						code={signatureCode.code}
-						lang="ts"
-						tokenLinks={tokenLinks}
-					/>
-				</Details>
-			</div>
+			<Details id={slugger.slug("signature")} summary="Signature" noIndex>
+				<CodeBlock
+					code={signatureCode.code}
+					lang="ts"
+					tokenLinks={tokenLinks}
+				/>
+			</Details>
 
 			{signature.parameters && (
 				<div className="mt-5">

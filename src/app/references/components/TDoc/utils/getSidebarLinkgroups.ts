@@ -27,16 +27,16 @@ const tagsToGroup = {
 	"@wallet": "Wallets",
 	"@theme": "Theme",
 	"@locale": "Locale",
+	"@abstractWallet": "Abstract Wallets",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
 
 const sidebarGroupOrder: TagKey[] = [
-	// react
 	"@wallet",
+	"@abstractWallet",
 	"@theme",
 	"@locale",
-	// react-core
 	"@contract",
 	"@networkConnection",
 	"@walletConnection",

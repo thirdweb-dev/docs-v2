@@ -5476,10 +5476,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typedoc-better-json@^0.7.6:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/typedoc-better-json/-/typedoc-better-json-0.7.6.tgz#cc62cf137a1e3e9a1d6228192775036d921b4da1"
-  integrity sha512-5ckErnTz4Kxc4wPjULtY4qjhRAzSZ4RjzZAJDGKMDdJleUPlisI3EPVWHl2SR0rSmAQHAGsiOODyAXkes0vx6g==
+typedoc-better-json@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/typedoc-better-json/-/typedoc-better-json-0.8.0.tgz#1159e0599174a2950da57f23ae9e2274030e50e7"
+  integrity sha512-Dz+vBKzWJlkVz4pVVb+alfUK1FF/44OOsxNSAZQpIRva1Jn6mcP5ECx9GYK7M3nq8PbIH4uKJGxOS4AVFTdopg==
   dependencies:
     mdast "^3.0.0"
     mdast-util-from-markdown "^2.0.0"

@@ -155,8 +155,6 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 				</>
 			)}
 
-			<div className="h-2" />
-
 			<Details summary="Signature" id={slugger.slug("signature")} noIndex>
 				<CodeBlock
 					lang="ts"
