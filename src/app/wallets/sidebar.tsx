@@ -1,4 +1,10 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
+import {
+	WalletsAuthIcon,
+	WalletsConnectIcon,
+	WalletsEmbeddedIcon,
+	WalletsSmartIcon,
+} from "@/icons";
 
 const connectSlug = "/wallets/connect";
 const embeddedSlug = "/wallets/embedded-wallet";
@@ -12,9 +18,11 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: "/wallets",
 		},
+		{ separator: true },
 		// Connect
 		{
 			name: "Connect",
+			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
 				{
@@ -29,8 +37,10 @@ export const sidebar: SideBar = {
 		},
 
 		//Embedded Wallets
+		{ separator: true },
 		{
 			name: "Embedded Wallet",
+			icon: <WalletsEmbeddedIcon />,
 			href: `${embeddedSlug}/overview`,
 			links: [
 				{
@@ -121,8 +131,10 @@ export const sidebar: SideBar = {
 			],
 		},
 		//Smart Wallets
+		{ separator: true },
 		{
 			name: "Smart Wallet",
+			icon: <WalletsSmartIcon />,
 			isCollapsible: true,
 			href: `${smartWalletSlug}`,
 			links: [
@@ -187,8 +199,10 @@ export const sidebar: SideBar = {
 			],
 		},
 		// Auth
+		{ separator: true },
 		{
 			name: "Auth",
+			icon: <WalletsAuthIcon />,
 			isCollapsible: true,
 			links: [
 				{
@@ -282,6 +296,7 @@ export const sidebar: SideBar = {
 			],
 		},
 		// Wallet SDK
+		{ separator: true },
 		{
 			name: "Wallet SDK",
 			href: "/wallet-sdk/latest",

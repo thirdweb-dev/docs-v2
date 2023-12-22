@@ -126,9 +126,9 @@ export async function CodeBlock(props: {
 	}
 
 	return (
-		<div className="group/code relative">
+		<div className="group/code relative mb-5">
 			<code
-				className="relative mb-5 block rounded-md border bg-b-800 font-mono text-sm leading-7"
+				className="relative block rounded-md border bg-b-800 font-mono text-sm leading-7"
 				lang={lang}
 			>
 				<ScrollShadow scrollableClassName="p-4" className="">

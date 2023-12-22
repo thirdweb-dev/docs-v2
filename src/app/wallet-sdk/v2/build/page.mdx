@@ -1,0 +1,43 @@
+import { Steps, Step, DocLink } from "@/components/Document";
+
+# Integrate a wallet provider
+
+## Build a Wallet interface
+
+To use a wallet provider with thirdweb's TypeScript SDK, you have to create a wallet class which extends `AbstractClientWallet` class
+
+```javascript
+export class MyWallet extends AbstractClientWallet {
+	// ....
+}
+```
+
+<DocLink
+	href="/wallet-sdk/v2/build/connector"
+	className="p-4 border rounded-lg hover:border-accent-500 hover:bg-b-700 block"
+	children="Build a wallet interface"
+/>
+
+<br />
+
+## Integrate with ConnectWallet
+
+If you also want to integrate this wallet with [`ConnectWallet`](/wallets/connect/ConnectWallet) component in [React SDK](/react/v4) or [React Native SDK](/react-native/v0), You have to create a Wallet Configurator function which can be passed to `ThirdwebProvider` component
+
+```ts
+function myWallet(): WalletConfig<MyWallet> {
+	// ...
+}
+```
+
+```tsx
+<ThirdwebProvider supportedWallets={[myWallet()]}>
+	<App />
+</ThirdwebProvider>
+```
+
+<DocLink
+	href="/wallet-sdk/v2/build/connect-wallet-integration"
+	className="p-4 border rounded-lg hover:border-accent-500 hover:bg-b-700 block"
+	children="Integrate with ConnectWallet"
+/>

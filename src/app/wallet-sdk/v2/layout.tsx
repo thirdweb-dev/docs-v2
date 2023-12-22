@@ -11,6 +11,14 @@ export default async function Layout(props: { children: React.ReactNode }) {
 						href: "/wallet-sdk/v2",
 					},
 					{
+						name: "Usage",
+						href: "/wallet-sdk/v2/usage",
+					},
+					{
+						name: "Wallets",
+						href: "/wallet-sdk/v2/wallets",
+					},
+					{
 						name: "Build a Wallet",
 						href: "/wallet-sdk/v2/build",
 						links: [
@@ -20,7 +28,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
 							},
 							{
 								name: "ConnectWallet integration",
-								href: "/wallet-sdk/v2/build/wallet-provider",
+								href: "/wallet-sdk/v2/build/connect-wallet-integration",
 							},
 						],
 					},

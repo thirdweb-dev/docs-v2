@@ -1,4 +1,3 @@
-import { OpenSourceCard, Heading } from "@/components/Document";
 import { WalletCard, WalletCardGrid } from "@/components/others/WalletCard";
 // icons
 import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
@@ -25,29 +24,9 @@ import AWSSecretsManager from "@public/icons/wallets/aws-secrets-manager.png";
 import EthersWallet from "@public/icons/wallets/ethers.png";
 import PrivateKeyIcon from "@public/icons/wallets/privateKey.svg";
 
-# Wallet SDK
-
-The Wallet SDK allows you to build a fully featured wallet solution
-or integrate an existing wallet provider with thirdweb's
-[Typescript](/typescript/v4),
-[React](/react/v4),
-[React Native](/react-native/v0), and
-[Unity](/unity) SDKs.
-
-<OpenSourceCard
-	title="wallets"
-	href="https://github.com/thirdweb-dev/js/tree/main/packages/wallets"
-/>
-
-<Heading level={2} id="wallets" children="Popular Wallets Available" />
+# Wallets
 
 The Wallet SDK comes out of the box with support for the most popular wallets that are ready to be used with thirdweb SDKs:
-
-- Custodial wallets like [MetaMask](/references/wallets/v2/MetaMaskWallet), [WalletConnect](/references/wallets/v2/WalletConnect), and [Coinbase Wallet](/references/wallets/v2/CoinbaseWallet)
-- Self-custodial wallets like [Embedded Wallet](/references/wallets/v2/EmbeddedWallet)
-- Multi-sig wallets like [Safe (Gnosis)](/references/wallets/v2/SafeWallet)
-- [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) compliant [Smart Wallet](/references/wallets/v2/SmartWallet)
-- [Local Wallet](/references/wallets/v2/LocalWallet) that allows you to create a "continue as guest" experience
 
 You can also easily integrate _any_ other wallet provider by a [Building a wallet interface](/wallet-sdk/v2/build) for it.
 
