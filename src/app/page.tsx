@@ -389,7 +389,11 @@ function SDKSection() {
 				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
 				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
 				<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
-				<SDKCard href="/solidity" title="Solidity" icon={SolidityIcon} />
+				<SDKCard
+					href="/contracts/build/overview"
+					title="Solidity"
+					icon={SolidityIcon}
+				/>
 			</Grid>
 		</section>
 	);
