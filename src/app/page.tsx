@@ -8,7 +8,6 @@ import {
 	Grid,
 	SDKCard,
 	ArticleIconCard,
-	ArticleIconCard,
 } from "@/components/Document";
 
 // icons
