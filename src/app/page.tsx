@@ -321,7 +321,7 @@ function PaymentSection() {
 
 			<Grid>
 				<ArticleCard
-					href="/payments/checkout"
+					href="/payments"
 					title="NFT Checkout"
 					description="Credit card checkout for NFTs"
 					icon={PaymentsNFTCheckoutIcon}
