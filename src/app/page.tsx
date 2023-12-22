@@ -2,13 +2,7 @@ import Image from "next/image";
 import DocsHero from "./_images/docs-hero.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-	DocLink,
-	Heading,
-	Grid,
-	SDKCard,
-	ArticleIconCard,
-} from "@/components/Document";
+import { DocLink, Heading, Grid } from "@/components/Document";
 
 // icons
 import {
@@ -253,25 +247,25 @@ function WalletsSection() {
 			<SectionTitle id="wallets" title="Wallets" />
 
 			<Grid>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/wallets/connect"
 					title="Connect"
 					description="Fully customizable Connect Wallet component"
 					icon={WalletsConnectIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/wallets/smart-wallet"
 					title="Smart Wallet"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					title="Embedded Wallets"
 					description="Email & social login wallets for your customers"
 					href="/wallets/embedded-wallet"
 					icon={WalletsEmbeddedIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/wallets/auth"
 					title="Auth"
 					description="Authenticate users with their wallets"
@@ -288,31 +282,31 @@ function ContractsSection() {
 			<SectionTitle id="contracts" title="Contracts" />
 
 			<Grid>
-				<ArticleIconCard
+				<ArticleCardIndex
 					title="Deploy"
 					description="Contract deployment build for any use-case"
 					href="/contracts/deploy"
 					icon={ContractDeployIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					title="Build"
 					description="Write your own smart contracts"
 					href="/contracts/build"
 					icon={ContractBuildIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					title="Interact"
 					description="Integrate smart contract interactions directly into your app"
 					icon={ContractInteractIcon}
 					href="/contracts/interact"
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					title="Explore"
 					description="Ready-to-deploy contracts"
 					href="/contracts/example"
 					icon={ContractExploreIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/contracts/publish"
 					title="Publish"
 					description="Publish your contracts on-chain"
@@ -329,7 +323,7 @@ function PaymentSection() {
 			<SectionTitle id="payments" title="Payments" />
 
 			<Grid>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/payments/checkout"
 					title="NFT Checkout"
 					description="Credit card checkout for NFTs"
@@ -346,19 +340,19 @@ function InfraSection() {
 			<SectionTitle id="infra" title="Infrastructure" />
 
 			<Grid>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/infrastructure/storage/overview"
 					title="Storage"
 					description="Secure, fast, decentralized storage"
 					icon={InfraStorageIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/infrastructure/rpc-edge/overview"
 					title="RPC Edge"
 					description="Enterprise-grade RPCs, for free"
 					icon={InfraRPCIcon}
 				/>
-				<ArticleIconCard
+				<ArticleCardIndex
 					href="/infrastructure/engine/overview"
 					title="Engine"
 					description="HTTP server with contract APIs and backend wallets"
@@ -375,21 +369,21 @@ function SDKSection() {
 			<SectionTitle id="sdk" title="SDKs" />
 
 			<Grid>
-				<SDKCard
+				<SDKCardIndex
 					href="/typescript/latest"
 					title="TypeScript"
 					icon={TypeScriptIcon}
 				/>
-				<SDKCard href="/react/latest" title="React" icon={ReactIcon} />
-				<SDKCard
+				<SDKCardIndex href="/react/latest" title="React" icon={ReactIcon} />
+				<SDKCardIndex
 					href="/react-native/latest"
 					title="React Native"
 					icon={ReactIcon}
 				/>
 				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
 				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
-				<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
-				<SDKCard href="/solidity" title="Solidity" icon={SolidityIcon} />
+				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
+				<SDKCardIndex href="/solidity" title="Solidity" icon={SolidityIcon} />
 			</Grid>
 		</section>
 	);
@@ -400,5 +394,47 @@ function SectionTitle(props: { title: string; id: string }) {
 		<Heading id={props.id} level={2} anchorClassName="mb-5">
 			{props.title}
 		</Heading>
+	);
+}
+
+/***
+ * This component is only for the index page
+ */
+function ArticleCardIndex(props: {
+	title: string;
+	description: string;
+	href: string;
+	icon?: React.FC<{ className?: string }>;
+}) {
+	return (
+		<Link
+			href={props.href}
+			className="flex min-h-[120px] items-center gap-4 rounded-lg border bg-b-800 px-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+		>
+			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
+			<div className="flex flex-col gap-1">
+				<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
+				<p className="text-f-300">{props.description}</p>
+			</div>
+		</Link>
+	);
+}
+
+/**
+ * This component is only for the index page
+ */
+function SDKCardIndex(props: {
+	title: string;
+	href: string;
+	icon?: React.FC<{ className?: string }>;
+}) {
+	return (
+		<Link
+			href={props.href}
+			className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+		>
+			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
+			<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
+		</Link>
 	);
 }

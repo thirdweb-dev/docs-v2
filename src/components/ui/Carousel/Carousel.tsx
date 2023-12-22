@@ -1,10 +1,9 @@
 "use client";
 
 /* eslint-disable tailwindcss/no-custom-classname */
-import React, { useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import BlazeSlider, { BlazeConfig } from "blaze-slider";
 import "blaze-slider/dist/blaze.css";
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import "./Carousel.css";
 
 function useBlazeSlider(config: BlazeConfig) {
@@ -49,7 +48,7 @@ export function Carousel(props: {
 				slidesToShow: lg,
 				slidesToScroll: lg,
 				loop: false,
-				slideGap: "20px",
+				slideGap: "16px",
 			},
 			"(max-width: 900px)": {
 				slidesToShow: md,
@@ -64,21 +63,24 @@ export function Carousel(props: {
 
 	const elRef = useBlazeSlider(config);
 
+	useEffect(() => {
+		if (elRef.current) {
+			elRef.current.setAttribute("data-initialized", "");
+		}
+	}, [elRef]);
+
 	return (
-		<div className={`blaze-slider`} ref={elRef} data-variant={variant}>
+		<div className={"blaze-slider mt-4"} ref={elRef} data-variant={variant}>
 			<div className="blaze-container">
 				<div className="blaze-track-container">
 					<div className="blaze-track">{props.children}</div>
 				</div>
 
-				<div className="flex items-center justify-center gap-4 py-6">
-					<button className="blaze-prev">
-						<ChevronLeftIcon className="h-6 w-6" />
-					</button>
-					<div className="blaze-pagination flex justify-center gap-2 "></div>
-					<button className="blaze-next">
-						<ChevronRightIcon className="h-6 w-6" />
-					</button>
+				<div
+					className="flex items-center justify-center gap-4 pt-4"
+					data-controls
+				>
+					<div className="blaze-pagination flex items-center justify-center gap-2 "></div>
 				</div>
 			</div>
 		</div>

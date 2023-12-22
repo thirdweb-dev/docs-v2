@@ -1,5 +1,5 @@
 import { CardLink } from "@/components/Document/CardLink";
-import { Grid, SDKCard } from "@/components/Document";
+import { Grid, SDKCard, DocImage } from "@/components/Document";
 import Image from "next/image";
 import connectModal from "./assets/connect-modal.png";
 import customModal from "./assets/custom-modals.png";
@@ -10,7 +10,7 @@ import { ReactIcon, TypeScriptIcon, UnityIcon } from "@/icons";
 
 Connect is a comprehensive toolkit for connecting end-user wallets to applications and games. With Connect, you have the option to use the Connect Wallet component or utilize the Wallet SDK to create a customized experience that suits your app requirements.
 
-<Image src={connectModal} alt="connectModal" className="mt-6" />
+<DocImage src={connectModal} />
 
 ### Features
 
@@ -21,7 +21,7 @@ Connect is a comprehensive toolkit for connecting end-user wallets to applicatio
 - **Authenticate Users:** Easily enable Auth (SIWE) to authenticate your end users.
 - **SDK Integration:** Easily integrate with thirdweb's Contract SDKs to enable users to interact with your application.
 
-<Image src={customModal} alt="customModal" />
+<DocImage src={customModal} />
 
 ### Use Cases
 
@@ -33,7 +33,7 @@ Connect is a comprehensive toolkit for connecting end-user wallets to applicatio
 
 Try out and customize the Connect modal to match your brand using the thirdweb dashboard.
 
-<Image src={connectPlayground} alt="connectPlayground" />
+<DocImage src={connectPlayground} />
 
 <CardLink
 	label="Try Out the Connect Wallet Component"
@@ -46,8 +46,8 @@ Try out and customize the Connect modal to match your brand using the thirdweb d
 Pick a platform to learn how to integrate Connect into your application.
 
 <Grid>
-	<SDKCard href="/react" title="React" icon={ReactIcon} />
-	<SDKCard href="/react-native" title="React Native" icon={ReactIcon} />
-	<SDKCard href="/typescript" title="TypeScript" icon={TypeScriptIcon} />
-	<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
+	<SDKCard href="/react/latest" title="React" icon={ReactIcon} />
+	<SDKCard href="/react-native/latest" title="React Native" icon={ReactIcon} />
+	<SDKCard href="/typescript/latest" title="TypeScript" icon={TypeScriptIcon} />
+	<SDKCard href="/unity/latest" title="Unity" icon={UnityIcon} />
 </Grid>
