@@ -1,4 +1,5 @@
 import { Steps, Step } from "@/components/Document";
+import Image from "next/image";
 
 # CheckoutWithCard
 
@@ -31,6 +32,12 @@ This component also handles:
     On your frontend, render the `CheckoutWithCard` component with your configs.
   </Step>
 </Steps>
+
+<Image
+	src={require("./assets/checkout-with-card-demo.png")}
+	alt="CheckoutWithCard Embed Demo"
+/>
+
 ### Example code
 
 ```typescript
@@ -127,3 +134,38 @@ createCheckoutWithCardElement({
 //		document.getElementById('paper-checkout-container').appendChild(iframe);
 
 ```
+
+## Customization
+
+The optional `options` argument allows you to customize the component's styling. All customization fields are optional.
+
+#### `options` object
+
+| Name                 | Type                                                                                | Description                                     |
+| -------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------- |
+| colorPrimary         | string (In hex, e.g. #cf3781)                                                       | The primary brand color for buttons and links.  |
+| colorBackground      | string (In hex, e.g. #cf3781)                                                       | The background color of the page.               |
+| colorText            | string (In hex, e.g. #cf3781)                                                       | The color for text on the page and UI elements. |
+| borderRadius         | number (In px, e.g. 0 for sharp corners, 12 for rounded corners, 24 for pill shape) | The roundness of buttons and input elements.    |
+| inputBorderColor     | string (In hex, e.g. #cf3781)                                                       | The border color of the input field.            |
+| inputBackgroundColor | string (In hex, e.g. #cf3781)                                                       | The background color of the input field.        |
+
+#### Example
+
+Here's an example component with the following props:
+
+```javascript
+{
+	colorBackground: '#fefae0',
+	colorPrimary: '#606c38',
+	colorText: '#283618',
+	borderRadius: 6,
+	inputBackgroundColor: '#faedcd',
+	inputBorderColor: '#d4a373',
+}
+```
+
+<Image
+	src={require("./assets/checkout-with-card-customization-demo.png")}
+	alt="CheckoutWithCard Embed Demo"
+/>

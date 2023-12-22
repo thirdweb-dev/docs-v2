@@ -69,7 +69,7 @@ const sdkLinks = [
 	},
 	{
 		name: "Solidity",
-		href: "/solidity",
+		href: "/contracts/build/overview",
 	},
 	{
 		name: "Wallets",
