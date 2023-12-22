@@ -46,7 +46,7 @@ export default function Page() {
 	return (
 		<main className="container grow pb-20">
 			<Hero />
-			<TutorialsSection />
+			{/* <TutorialsSection /> */}
 			<WalletsSection />
 			<ContractsSection />
 			<PaymentSection />
@@ -266,9 +266,9 @@ function WalletsSection() {
 					icon={WalletsSmartIcon}
 				/>
 				<ArticleIconCard
-					title="Embedded Wallets"
+					title="Embedded Wallet"
 					description="Email & social login wallets for your customers"
-					href="/wallets/embedded-wallet"
+					href="/wallets/embedded-wallet/overview"
 					icon={WalletsEmbeddedIcon}
 				/>
 				<ArticleIconCard
@@ -291,29 +291,29 @@ function ContractsSection() {
 				<ArticleIconCard
 					title="Deploy"
 					description="Contract deployment build for any use-case"
-					href="/contracts/deploy"
+					href="/contracts/deploy/overview"
 					icon={ContractDeployIcon}
 				/>
 				<ArticleIconCard
 					title="Build"
 					description="Write your own smart contracts"
-					href="/contracts/build"
+					href="/contracts/build/overview"
 					icon={ContractBuildIcon}
 				/>
 				<ArticleIconCard
 					title="Interact"
 					description="Integrate smart contract interactions directly into your app"
 					icon={ContractInteractIcon}
-					href="/contracts/interact"
+					href="/contracts/interact/overview"
 				/>
 				<ArticleIconCard
 					title="Explore"
 					description="Ready-to-deploy contracts"
-					href="/contracts/example"
+					href="/contracts/explore/overview"
 					icon={ContractExploreIcon}
 				/>
 				<ArticleIconCard
-					href="/contracts/publish"
+					href="/contracts/publish/overview"
 					title="Publish"
 					description="Publish your contracts on-chain"
 					icon={ContractPublishIcon}
@@ -330,7 +330,7 @@ function PaymentSection() {
 
 			<Grid>
 				<ArticleIconCard
-					href="/payments/checkout"
+					href="/payments"
 					title="NFT Checkout"
 					description="Credit card checkout for NFTs"
 					icon={PaymentsNFTCheckoutIcon}

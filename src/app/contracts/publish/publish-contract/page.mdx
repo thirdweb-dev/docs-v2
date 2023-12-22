@@ -28,8 +28,6 @@ From the dashboard, provide the metadata for your smart contract including:
 - **Description**
 - **README** - Markdown is supported. What your contract does, common use cases & examples are great things to include here.
 
-![Enter Contract Metadata](/assets/publish/publish-your-contract.png)
-
 ### Add A Version & Audit Report (Optional)
 
 Use [semantic versioning](https://semver.org/) to incrementally publish new versions of your smart contract;
@@ -39,8 +37,6 @@ Each version of your smart contract is stored on-chain and can be deployed by an
 can optionally include release notes, to describe the changes you've made between versions.
 
 You can also link each version to an audit report. You can paste a link to it, or drag and drop a PDF. We will generate an IPFS link for you.
-
-![Versioned Releases](/assets/publish/version-and-audit.png)
 
 ### Choose how users will deploy your published contract
 
@@ -54,7 +50,6 @@ Select the contract type for your published contract
   - [Default Factory](/publish/deployment-options#default-factory) - Use this option to use the thirdweb default factory if your contract follows the upgradeable contract pattern.
   - [Custom Factory](/publish/deployment-options#custom-factory) - Use this option to use your own pre-deployed custom factory to create proxies for your users.
 
-![Choose Contract Type](/assets/publish/choose-contract-type.png)
 
 Once selected, click "Next" to move on to the flow corresponding to the contract type selected.
 
@@ -62,7 +57,6 @@ Once selected, click "Next" to move on to the flow corresponding to the contract
 
 Select the network(s) you would like to publish your contract. You can select multiple networks or any EVM.
 
-![Choose Network](/assets/publish/choose-network.png)
 
 If you chose to publish via direct deploy, you will be asked to select the network(s) you would like users to be able to deploy your contract to and then click the "Next" button.
 If you chose to publish via factory, you will be asked to select the network(s) you would like users to be able to deploy your contract to when setting your "Factory deploy settings".
@@ -76,7 +70,6 @@ Help users trying to deploy your smart contract by changing what your contract p
 - **Description**: Use this to clear up any confusion and explain what value this parameter is expecting
 - **Advanced**: Tick this option if you want to hide this parameter from the deploy form. This is useful for parameters that are not required to be changed by the user. This option is only available for parameters that have a default value.
 
-![Describe Constructor Parameters](/assets/publish/contract-parameters.png)
 
 ### Publish Contract
 
