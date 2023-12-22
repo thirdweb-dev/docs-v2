@@ -2,17 +2,7 @@ import Image from "next/image";
 import DocsHero from "./_images/docs-hero.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-<<<<<<< HEAD
-import { DocLink, Heading, Grid } from "@/components/Document";
-=======
-import {
-	// DocLink,
-	Heading,
-	Grid,
-	SDKCard,
-	ArticleIconCard,
-} from "@/components/Document";
->>>>>>> main
+import { Heading, Grid } from "@/components/Document";
 
 // icons
 // import {
@@ -269,13 +259,8 @@ function WalletsSection() {
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
 				/>
-<<<<<<< HEAD
 				<ArticleCardIndex
-					title="Embedded Wallets"
-=======
-				<ArticleIconCard
 					title="Embedded Wallet"
->>>>>>> main
 					description="Email & social login wallets for your customers"
 					href="/wallets/embedded-wallet/overview"
 					icon={WalletsEmbeddedIcon}
@@ -321,13 +306,8 @@ function ContractsSection() {
 					href="/contracts/explore/overview"
 					icon={ContractExploreIcon}
 				/>
-<<<<<<< HEAD
 				<ArticleCardIndex
-					href="/contracts/publish"
-=======
-				<ArticleIconCard
 					href="/contracts/publish/overview"
->>>>>>> main
 					title="Publish"
 					description="Publish your contracts on-chain"
 					icon={ContractPublishIcon}
@@ -343,13 +323,8 @@ function PaymentSection() {
 			<SectionTitle id="payments" title="Payments" />
 
 			<Grid>
-<<<<<<< HEAD
 				<ArticleCardIndex
-					href="/payments/checkout"
-=======
-				<ArticleIconCard
 					href="/payments"
->>>>>>> main
 					title="NFT Checkout"
 					description="Credit card checkout for NFTs"
 					icon={PaymentsNFTCheckoutIcon}
@@ -407,17 +382,12 @@ function SDKSection() {
 				/>
 				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
 				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
-<<<<<<< HEAD
 				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
-				<SDKCardIndex href="/solidity" title="Solidity" icon={SolidityIcon} />
-=======
-				<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
-				<SDKCard
+				<SDKCardIndex
 					href="/contracts/build/overview"
 					title="Solidity"
 					icon={SolidityIcon}
 				/>
->>>>>>> main
 			</Grid>
 		</section>
 	);
