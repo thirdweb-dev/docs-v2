@@ -49,7 +49,7 @@ export const sidebar: SideBar = {
 					href: `${walletsSlug}/local-wallet`,
 				},
 				{
-					name: "Magic Link (deprecated)",
+					name: "Magic Link",
 					href: `${walletsSlug}/magiclink`,
 				},
 				{

@@ -71,6 +71,10 @@ const sdkLinks = [
 		name: "Solidity",
 		href: "/solidity",
 	},
+	{
+		name: "Wallets",
+		href: "/wallet-sdk/latest",
+	},
 ];
 
 const referenceLinks = [

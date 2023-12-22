@@ -4,16 +4,19 @@ import { InstallTabs } from "@/components/Document/InstallTabs";
 
 <WalletsBreadcrumb name="Magic Link" slug="magiclink" />
 
-# Magic Link (deprecated)
+# Magic Link
 
-** This wallet is deprecated. Please use [Embedded Wallet](/react-native/v4/wallets/embedded-wallet) instead. **
+<Callout variant="warning" title='Deprecated'>
+
+This wallet is deprecated. Please use [Embedded Wallet](/react-native/v4/wallets/embedded-wallet) instead for adding Social Login to your app.
+
+</Callout>
 
 #### Add Magic's dependencies
 
 The `@magic-sdk` has a few dependencies you need to add to your app before using the SDK in React Native. For convenience you can run:
 
 <InstallTabs
-	thirdwebInstallSupported
 	npm="npm i react-native-safe-area-context@4.5.3 react-native-webview react-native-device-info"
 	yarn="yarn add react-native-safe-area-context@4.5.3 react-native-webview react-native-device-info"
 	pnpm="pnpm i react-native-safe-area-context@4.5.3 react-native-webview react-native-device-info"
@@ -35,16 +38,27 @@ You also need a [Magic api-key](https://dashboard.magic.link/signup?ref=blog.thi
 We suggest you add `magicLink` as the first wallet in your `supportedWallets` list since the UI for it is a TextInput field:
 
 ```tsx
-import { Goerli } from '@thirdweb-dev/chains';
-import { ThirdwebProvider, magicLink, metamaskWallet } from '@thirdweb-dev/react-native';
+import { Goerli } from "@thirdweb-dev/chains";
+import {
+	ThirdwebProvider,
+	magicLink,
+	metamaskWallet,
+} from "@thirdweb-dev/react-native";
 
-<ThirdwebProvider
-    clientId="your-client-id"
-    activeChain={Goerli}
-    supportedWallets={[
-    magicLink({
-        apiKey: 'magic_api_key',
-    }),
-    metamaskWallet(),
-]}>
+function AppWithProviders() {
+	return (
+		<ThirdwebProvider
+			clientId="your-client-id"
+			activeChain={Goerli}
+			supportedWallets={[
+				magicLink({
+					apiKey: "magic_api_key",
+				}),
+				metamaskWallet(),
+			]}
+		>
+			<App />
+		</ThirdwebProvider>
+	);
+}
 ```
