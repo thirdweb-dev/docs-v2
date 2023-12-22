@@ -3,7 +3,7 @@ import DocsHero from "./_images/docs-hero.svg";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import {
-	DocLink,
+	// DocLink,
 	Heading,
 	Grid,
 	SDKCard,
@@ -11,15 +11,15 @@ import {
 } from "@/components/Document";
 
 // icons
-import {
-	ChevronRight,
-	CircleDollarSign,
-	Gamepad2,
-	LucideIcon,
-	MousePointerSquare,
-	ShoppingBag,
-	User,
-} from "lucide-react";
+// import {
+// 	ChevronRight,
+// 	CircleDollarSign,
+// 	Gamepad2,
+// 	LucideIcon,
+// 	MousePointerSquare,
+// 	ShoppingBag,
+// 	User,
+// } from "lucide-react";
 import {
 	ReactIcon,
 	TypeScriptIcon,
@@ -101,151 +101,151 @@ function Hero() {
 	);
 }
 
-function TutorialsSection() {
-	return (
-		<section className="py-10">
-			<SectionTitle id="tutorials" title="Popular Tutorials" />
+// function TutorialsSection() {
+// 	return (
+// 		<section className="py-10">
+// 			<SectionTitle id="tutorials" title="Popular Tutorials" />
 
-			<Grid>
-				<TutorialCard
-					icon={ShoppingBag}
-					viewAllHref="/"
-					title="Commerce"
-					links={[
-						{
-							name: "Create a web3 Shopify theme",
-							href: "https://blog.thirdweb.com/guides/create-a-shopify-theme-with-thirdweb/",
-						},
-						{
-							name: "Create Loyalty Points",
-							href: "/",
-						},
-						{
-							name: "Some other Tutorial",
-							href: "/",
-						},
-					]}
-				/>
+// 			<Grid>
+// 				<TutorialCard
+// 					icon={ShoppingBag}
+// 					viewAllHref="/"
+// 					title="Commerce"
+// 					links={[
+// 						{
+// 							name: "Create a web3 Shopify theme",
+// 							href: "https://blog.thirdweb.com/guides/create-a-shopify-theme-with-thirdweb/",
+// 						},
+// 						{
+// 							name: "Create Loyalty Points",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "Some other Tutorial",
+// 							href: "/",
+// 						},
+// 					]}
+// 				/>
 
-				<TutorialCard
-					icon={Gamepad2}
-					viewAllHref="/"
-					title="Gaming"
-					links={[
-						{
-							name: "In-game currencies",
-							href: "/",
-						},
-						{
-							name: "NFT character creation",
-							href: "/",
-						},
-						{
-							name: "In-game marketplace",
-							href: "/",
-						},
-					]}
-				/>
+// 				<TutorialCard
+// 					icon={Gamepad2}
+// 					viewAllHref="/"
+// 					title="Gaming"
+// 					links={[
+// 						{
+// 							name: "In-game currencies",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "NFT character creation",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "In-game marketplace",
+// 							href: "/",
+// 						},
+// 					]}
+// 				/>
 
-				<TutorialCard
-					icon={User}
-					viewAllHref="/"
-					title="Membership"
-					links={[
-						{
-							name: "Create a DAO",
-							href: "/",
-						},
-						{
-							name: "On-chain voting",
-							href: "/",
-						},
-						{
-							name: "Fiat checkout",
-							href: "/",
-						},
-					]}
-				/>
+// 				<TutorialCard
+// 					icon={User}
+// 					viewAllHref="/"
+// 					title="Membership"
+// 					links={[
+// 						{
+// 							name: "Create a DAO",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "On-chain voting",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "Fiat checkout",
+// 							href: "/",
+// 						},
+// 					]}
+// 				/>
 
-				<TutorialCard
-					icon={CircleDollarSign}
-					viewAllHref="/"
-					title="DeFi"
-					links={[
-						{
-							name: "Create a DEX",
-							href: "/",
-						},
-						{
-							name: "Staking APp",
-							href: "/",
-						},
-						{
-							name: "Some other Tutorial",
-							href: "/",
-						},
-					]}
-				/>
+// 				<TutorialCard
+// 					icon={CircleDollarSign}
+// 					viewAllHref="/"
+// 					title="DeFi"
+// 					links={[
+// 						{
+// 							name: "Create a DEX",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "Staking APp",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "Some other Tutorial",
+// 							href: "/",
+// 						},
+// 					]}
+// 				/>
 
-				<TutorialCard
-					icon={MousePointerSquare}
-					viewAllHref="/"
-					title="No-code"
-					links={[
-						{
-							name: "Create an NFT drop",
-							href: "/",
-						},
-						{
-							name: "Airdrop ERC-2o tokens",
-							href: "/",
-						},
-						{
-							name: "Some other tutorial",
-							href: "/",
-						},
-					]}
-				/>
-			</Grid>
-		</section>
-	);
-}
+// 				<TutorialCard
+// 					icon={MousePointerSquare}
+// 					viewAllHref="/"
+// 					title="No-code"
+// 					links={[
+// 						{
+// 							name: "Create an NFT drop",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "Airdrop ERC-2o tokens",
+// 							href: "/",
+// 						},
+// 						{
+// 							name: "Some other tutorial",
+// 							href: "/",
+// 						},
+// 					]}
+// 				/>
+// 			</Grid>
+// 		</section>
+// 	);
+// }
 
-function TutorialCard(props: {
-	title: string;
-	links: Array<{ name: string; href: string }>;
-	viewAllHref: string;
-	icon: LucideIcon;
-}) {
-	return (
-		<div className="rounded-lg border bg-b-800 p-6">
-			<div className="mb-6 flex items-center gap-3">
-				<props.icon className="h-6 w-6 text-f-300" />
-				<Heading level={3} id={props.title} anchorClassName="mb-0 mt-0">
-					{props.title}
-				</Heading>
-			</div>
+// function TutorialCard(props: {
+// 	title: string;
+// 	links: Array<{ name: string; href: string }>;
+// 	viewAllHref: string;
+// 	icon: LucideIcon;
+// }) {
+// 	return (
+// 		<div className="rounded-lg border bg-b-800 p-6">
+// 			<div className="mb-6 flex items-center gap-3">
+// 				<props.icon className="h-6 w-6 text-f-300" />
+// 				<Heading level={3} id={props.title} anchorClassName="mb-0 mt-0">
+// 					{props.title}
+// 				</Heading>
+// 			</div>
 
-			<div className="mb-8 flex flex-col gap-3">
-				{props.links.map((link) => {
-					return (
-						<DocLink href={link.href} key={link.href}>
-							{link.name}
-						</DocLink>
-					);
-				})}
-			</div>
+// 			<div className="mb-8 flex flex-col gap-3">
+// 				{props.links.map((link) => {
+// 					return (
+// 						<DocLink href={link.href} key={link.href}>
+// 							{link.name}
+// 						</DocLink>
+// 					);
+// 				})}
+// 			</div>
 
-			<Link
-				href={props.viewAllHref}
-				className="group/link inline-flex items-center gap-2 text-f-300 transition-colors hover:text-f-100"
-			>
-				View all
-				<ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-			</Link>
-		</div>
-	);
-}
+// 			<Link
+// 				href={props.viewAllHref}
+// 				className="group/link inline-flex items-center gap-2 text-f-300 transition-colors hover:text-f-100"
+// 			>
+// 				View all
+// 				<ChevronRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+// 			</Link>
+// 		</div>
+// 	);
+// }
 
 function WalletsSection() {
 	return (
