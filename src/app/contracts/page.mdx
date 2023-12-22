@@ -1,15 +1,67 @@
+import {
+	Carousel,
+	ArticleCard,
+} from "@/components/Document";
+import testImage from "./assets/test.jpg";
+
 # Contracts
 
 Tools to easily create, deploy, and manage smart contracts on any EVM compatible blockchain. 
 
-//TODO: Create Graphic for this section
-
 ## Products
 
-//TODO: Create more descriptions for the products
+- [**Explore:**](/contracts/explore/overview) Ready to deploy contracts
+- [**Build:**](/contracts/build/overview) Write your own smart contracts
+- [**Deploy:**](/contracts/deploy/overview) Contract deployment built for any use-case
+- [**Publish:**](/contracts/publish/overview) Publish your contracts on-chain
+- [**Interact:**](/contracts/interact/overview) Integrate smart contract interactions directly into your app
 
-- [Explore](/explore)
-- [Build](/build)
-- [Deploy](/deploy)
-- [Publish](/publish)
-- [Interact](/interact)
+## Guides
+
+<Carousel slidesToShow={{
+	lg: 3,
+	md: 2,
+	sm: 1
+}}>
+
+<ArticleCard
+	title="Deploy a Token contract"
+	description="Learn how to deploy a pre-built Token contract."
+	href="/wallets/connect/connect-get-started"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Deploy a NFT Drop contract"
+	description="Learn how to deploy a pre-built NFT Drop contract."
+	href="/wallets/connect/connect-get-started"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Deploy a NFT Drop contract"
+	description="Learn how to deploy a pre-built NFT Drop contract."
+	href="/wallets/connect/connect-get-started"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Deploy a Smart Contract"
+	description="Learn how to safely deploy any smart contract using Deploy."
+	href="/wallets/connect/custom-get-started"
+	image={testImage}
+/>
+
+<ArticleCard
+	title="Publish a Smart Contract"
+	description="Learn how to publish a smart contract for others to deploy."
+	href="/wallets/auth/integrations/supabase"
+	image={testImage}
+/>
+
+</Carousel>
+
+<br />
+
+## Templates
+

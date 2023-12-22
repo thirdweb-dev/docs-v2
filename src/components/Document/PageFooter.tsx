@@ -11,7 +11,7 @@ import { AutoEditPageButton } from "./AutoEditPageButton";
 
 export function PageFooter(props: { editPageButton?: true }) {
 	return (
-		<footer className="flex flex-col gap-7 pb-8">
+		<footer className="flex flex-col gap-7 pb-8" data-noindex>
 			<div className="flex flex-col justify-between gap-7 md:flex-row md:items-center">
 				{props.editPageButton && <AutoEditPageButton />}
 				<Feedback />

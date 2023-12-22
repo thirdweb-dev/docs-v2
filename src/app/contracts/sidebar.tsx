@@ -141,10 +141,6 @@ export const sidebar: SideBar = {
 							name: "MISC.",
 							links: [
 								{
-									name: "Stake",
-									href: `${prebuiltSlug}/stake`,
-								},
-								{
 									name: "Marketplace",
 									href: `${prebuiltSlug}/marketplace`,
 								},
@@ -403,19 +399,19 @@ export const sidebar: SideBar = {
 								},
 								{
 									name: "ERC20Mintable",
-									href: `${extensionsSlug}/ERC20Mintable`,
+									href: `${extensionsSlug}/erc-20/ERC20Mintable`,
 								},
 								{
 									name: "ERC20Permit",
-									href: `${extensionsSlug}/ERC20Permit`,
+									href: `${extensionsSlug}/erc-20/ERC20Permit`,
 								},
 								{
-									name: "ERC20SignatureMinting",
-									href: `${extensionsSlug}/ERC20SignatureMint`,
+									name: "ERC20SignatureMint",
+									href: `${extensionsSlug}/erc-20/ERC20SignatureMint`,
 								},
 								{
 									name: "ERC20Staking",
-									href: `${extensionsSlug}/ERC20Staking`,
+									href: `${extensionsSlug}/erc-20/ERC20Staking`,
 								},
 							],
 						},
@@ -424,55 +420,55 @@ export const sidebar: SideBar = {
 							links: [
 								{
 									name: "ERC721",
-									href: `${extensionsSlug}/ERC721`,
+									href: `${extensionsSlug}/erc-721/ERC721`,
 								},
 								{
 									name: "ERC721BatchMintable",
-									href: `${extensionsSlug}/ERC721BatchMintable`,
+									href: `${extensionsSlug}/erc-721/ERC721BatchMintable`,
 								},
 								{
 									name: "ERC721Burnable",
-									href: `${extensionsSlug}/ERC721Burnable`,
+									href: `${extensionsSlug}/erc-721/ERC721Burnable`,
 								},
 								{
 									name: "ERC721ClaimConditions",
-									href: `${extensionsSlug}/ERC721ClaimConditions`,
+									href: `${extensionsSlug}/erc-721/ERC721ClaimConditions`,
 								},
 								{
 									name: "ERC721ClaimCustom",
-									href: `${extensionsSlug}/ERC721ClaimCustom`,
+									href: `${extensionsSlug}/erc-721/ERC721ClaimCustom`,
 								},
 								{
 									name: "ERC721ClaimPhases",
-									href: `${extensionsSlug}/ERC721ClaimCustom`,
+									href: `${extensionsSlug}/erc-721/ERC721ClaimPhases`,
 								},
 								{
 									name: "ERC721Claimable",
-									href: `${extensionsSlug}/ERC721Claimable`,
+									href: `${extensionsSlug}/erc-721/ERC721Claimable`,
 								},
 								{
 									name: "ERC721Enumerable",
-									href: `${extensionsSlug}/ERC721Enumerable`,
+									href: `${extensionsSlug}/erc-721/ERC721Enumerable`,
 								},
 								{
 									name: "ERC721Mintable",
-									href: `${extensionsSlug}/ERC721Mintable`,
+									href: `${extensionsSlug}/erc-721/ERC721Mintable`,
 								},
 								{
 									name: "ERC721Revealable",
-									href: `${extensionsSlug}/ERC721Revealable`,
+									href: `${extensionsSlug}/erc-721/ERC721Revealable`,
 								},
 								{
 									name: "ERC721SignatureMint",
-									href: `${extensionsSlug}/ERC721SignatureMint`,
+									href: `${extensionsSlug}/erc-721/ERC721SignatureMint`,
 								},
 								{
 									name: "ERC721Staking",
-									href: `${extensionsSlug}/ERC721Staking`,
+									href: `${extensionsSlug}/erc-721/ERC721Staking`,
 								},
 								{
 									name: "ERC721Supply",
-									href: `${extensionsSlug}/ERC721Supply`,
+									href: `${extensionsSlug}/erc-721/ERC721Supply`,
 								},
 							],
 						},
@@ -481,63 +477,63 @@ export const sidebar: SideBar = {
 							links: [
 								{
 									name: "ERC1155",
-									href: `${extensionsSlug}/ERC1155`,
+									href: `${extensionsSlug}/erc-1155/ERC1155`,
 								},
 								{
 									name: "ERC1155BatchMintable",
-									href: `${extensionsSlug}/ERC1155BatchMintable`,
+									href: `${extensionsSlug}/erc-1155/ERC1155BatchMintable`,
 								},
 								{
 									name: "ERC1155Burnable",
-									href: `${extensionsSlug}/ERC1155Burnable`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Burnable`,
 								},
 								{
 									name: "ERC1155ClaimConditions",
-									href: `${extensionsSlug}/ERC1155ClaimConditions`,
+									href: `${extensionsSlug}/erc-1155/ERC1155ClaimConditions`,
 								},
 								{
 									name: "ERC1155ClaimCustom",
-									href: `${extensionsSlug}/ERC1155ClaimCustom`,
+									href: `${extensionsSlug}/erc-1155/ERC1155ClaimCustom`,
 								},
 								{
 									name: "ERC1155ClaimPhases",
-									href: `${extensionsSlug}/ERC1155ClaimPhases`,
+									href: `${extensionsSlug}/erc-1155/ERC1155ClaimPhases`,
 								},
 								{
 									name: "ERC1155Claimable",
-									href: `${extensionsSlug}/ERC1155Claimable`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Claimable`,
 								},
 								{
 									name: "ERC1155Drop",
-									href: `${extensionsSlug}/ERC1155Drop`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Drop`,
 								},
 								{
 									name: "ERC1155DropSinglePhase",
-									href: `${extensionsSlug}/ERC1155DropSinglePhase`,
+									href: `${extensionsSlug}/erc-1155/ERC1155DropSinglePhase`,
 								},
 								{
 									name: "ERC1155Enumerable",
-									href: `${extensionsSlug}/ERC1155Enumerable`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Enumerable`,
 								},
 								{
 									name: "ERC1155Mintable",
-									href: `${extensionsSlug}/ERC1155Mintable`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Mintable`,
 								},
 								{
 									name: "ERC1155Revealable",
-									href: `${extensionsSlug}/ERC1155Revealable`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Revealable`,
 								},
 								{
 									name: "ERC1155SignatureMint",
-									href: `${extensionsSlug}/ERC1155SignatureMint`,
+									href: `${extensionsSlug}/erc-1155/ERC1155SignatureMint`,
 								},
 								{
 									name: "ERC1155Staking",
-									href: `${extensionsSlug}/ERC1155Staking`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Staking`,
 								},
 								{
 									name: "ERC1155Supply",
-									href: `${extensionsSlug}/ERC1155Supply`,
+									href: `${extensionsSlug}/erc-1155/ERC1155Supply`,
 								},
 							],
 						},
@@ -546,15 +542,15 @@ export const sidebar: SideBar = {
 							links: [
 								{
 									name: "AccountExtension",
-									href: `${extensionsSlug}/AccountExtension`,
+									href: `${extensionsSlug}/erc-4337/AccountExtension`,
 								},
 								{
 									name: "SmartWallet",
-									href: `${extensionsSlug}/SmartWallet`,
+									href: `${extensionsSlug}/erc-4337/SmartWallet`,
 								},
 								{
 									name: "SmartWalletFactory",
-									href: `${extensionsSlug}/SmartWalletFactory`,
+									href: `${extensionsSlug}/erc-4337/SmartWalletFactory`,
 								},
 							],
 						},
@@ -602,6 +598,10 @@ export const sidebar: SideBar = {
 					name: "Publish Options",
 					href: `${publishSlug}/publish-options`,
 				},
+				{
+					name: "CLI Reference",
+					href: `${publishSlug}/reference`,
+				},
 			],
 		},
 		{ separator: true },
@@ -614,6 +614,27 @@ export const sidebar: SideBar = {
 				{
 					name: "Overview",
 					href: `${interactSlug}/overview`,
+				},
+				{
+					name: "References",
+					links: [
+						{
+							name: "TypeScript",
+							href: "/typescript/latest",
+						},
+						{
+							name: "React",
+							href: "/react/latest",
+						},
+						{
+							name: "React Native",
+							href: "/react-native/latest",
+						},
+						{
+							name: "Unity",
+							href: "/unity",
+						},
+					],
 				},
 			],
 		},

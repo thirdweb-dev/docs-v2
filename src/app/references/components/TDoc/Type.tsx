@@ -45,7 +45,7 @@ export async function TypeTDoc(props: { doc: InterfaceDoc; level: number }) {
 
 			{exampleTag?.summary && (
 				<>
-					<Heading level={subLevel} id={slugger.slug("example")}>
+					<Heading level={subLevel} id={slugger.slug("example")} noIndex>
 						Example
 					</Heading>
 					<TypedocSummary summary={exampleTag.summary} />

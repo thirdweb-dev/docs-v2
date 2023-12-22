@@ -17,6 +17,7 @@ export function Details(props: {
 	headingClassName?: string;
 	id?: string;
 	tags?: string[];
+	noIndex?: boolean;
 }) {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const id =
@@ -32,7 +33,11 @@ export function Details(props: {
 	}, [props.id]);
 
 	return (
-		<Accordion type="multiple" value={isExpanded ? ["x"] : undefined}>
+		<Accordion
+			type="multiple"
+			value={isExpanded ? ["x"] : undefined}
+			data-noindex={props.noIndex}
+		>
 			<AccordionItem
 				value="x"
 				className="group/details my-4 border-b-0 border-l-2 transition-colors hover:border-accent-500"
@@ -56,7 +61,7 @@ export function Details(props: {
 						>
 							{props.summary}
 						</h4>
-						{props.tags && (
+						{props.tags && props.tags.length > 0 && (
 							<div className="ml-auto flex items-center gap-2">
 								{props.tags?.map((flag) => {
 									return (

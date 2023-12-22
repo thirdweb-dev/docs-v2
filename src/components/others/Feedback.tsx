@@ -4,9 +4,12 @@ import { Button } from "@/components/ui/button";
 import { BadgeCheckIcon, ThumbsDownIcon, ThumbsUpIcon } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import posthog from "posthog-js";
 
 export function Feedback() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
+	const feedbackEvent = "Portal Feedback";
+	const [feedback, setFeedback] = useState("");
 
 	if (!isSubmitted) {
 		return (
@@ -18,6 +21,9 @@ export function Feedback() {
 						variant="outline"
 						onClick={() => {
 							setIsSubmitted(true);
+							posthog.capture(feedbackEvent, {
+								response: "yes",
+							});
 						}}
 					>
 						Yes
@@ -26,7 +32,14 @@ export function Feedback() {
 
 					<Dialog>
 						<DialogTrigger asChild>
-							<Button variant="outline">
+							<Button
+								variant="outline"
+								onClick={() => {
+									posthog.capture(feedbackEvent, {
+										response: "no",
+									});
+								}}
+							>
 								No
 								<ThumbsDownIcon className="h-4 w-4 text-f-300" />
 							</Button>
@@ -41,12 +54,21 @@ export function Feedback() {
 								Please provide details about the issue you encountered to help
 								us improve our documentation.
 							</p>
-							<textarea className="mb-2 h-32 w-full rounded-sm border bg-b-700 p-2 text-f-300 outline-none"></textarea>
+							<textarea
+								className="mb-2 h-32 w-full rounded-sm border bg-b-700 p-2 text-f-300 outline-none"
+								value={feedback}
+								onChange={(e) => {
+									setFeedback(e.target.value);
+								}}
+							></textarea>
 							<div className="flex flex-row-reverse">
 								<Button
 									className="mt-3"
 									onClick={() => {
 										setIsSubmitted(true);
+										posthog.capture("Portal Feedback", {
+											feedback: feedback,
+										});
 									}}
 								>
 									Submit

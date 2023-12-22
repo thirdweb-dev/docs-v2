@@ -38,42 +38,61 @@ const links = [
 	},
 	{
 		name: "Infrastructure",
-		href: "/infra",
+		href: "/infrastructure",
+	},
+];
+
+const sdkLinks = [
+	{
+		name: "TypeScript",
+		href: "/typescript/latest",
 	},
 	{
-		name: "SDKs",
-		href: "/#sdk",
+		name: "React",
+		href: "/react/latest",
+	},
+	{
+		name: "React Native",
+		href: "/react-native/latest",
+	},
+	// {
+	// 	name: "Python",
+	// 	href: "/python",
+	// },
+	// {
+	// 	name: "Go",
+	// 	href: "/go",
+	// },
+	{
+		name: "Unity",
+		href: "/unity",
+	},
+	{
+		name: "Solidity",
+		href: "/contracts/build/overview",
 	},
 ];
 
 const referenceLinks = [
 	{
 		name: "TypeScript",
-		href: "/references/typescript",
+		href: "/references/typescript/latest",
 	},
 	{
 		name: "React",
-		href: "/references/react",
+		href: "/references/react/latest",
 	},
 	{
 		name: "React Native",
-		href: "/references/react-native",
+		href: "/references/react-native/latest",
 	},
 	{
 		name: "Storage",
-		href: "/references/storage",
+		href: "/references/storage/latest",
 	},
 	{
 		name: "Wallets",
-		href: "/references/wallets",
-	},
-	{
-		name: "Python",
-		href: "/references/python",
-	},
-	{
-		name: "Go",
-		href: "/references/go",
+		href: "/references/wallets/latest",
 	},
 ];
 
@@ -92,7 +111,7 @@ export function Header() {
 	const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
 	return (
-		<header className="sticky top-0 z-50 flex h-header-height w-full items-center border-b bg-b-900">
+		<header className="sticky top-0 z-[1000] flex h-header-height w-full items-center border-b bg-b-900">
 			<div
 				className={
 					"container flex items-center justify-between gap-6 p-4 xl:justify-start"
@@ -144,6 +163,12 @@ export function Header() {
 								</li>
 							);
 						})}
+
+						<DropdownLinks
+							links={sdkLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="SDKs"
+						/>
 					</ul>
 
 					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">

@@ -1,6 +1,8 @@
 import { TokenInfo } from "typedoc-better-json";
 import { getAllTSReferencesLinks } from "./getAllTSReferencesLinkMap";
 
+// TODO: take the current package version as input, fetch the dependencies from NPM, and point to the correct version instead of /latest/
+
 export async function getTokenLinks(
 	tokens: TokenInfo[],
 ): Promise<Map<string, string>> {
@@ -18,27 +20,27 @@ export async function getTokenLinks(
 			switch (token.package) {
 				case "@thirdweb-dev/react-core":
 				case "@thirdweb-dev/react": {
-					setLink(token.name, `/references/react/${token.name}`);
+					setLink(token.name, `/references/react/latest/${token.name}`);
 					break;
 				}
 
 				case "@thirdweb-dev/react-native": {
-					setLink(token.name, `/references/react-native/${token.name}`);
+					setLink(token.name, `/references/react-native/latest/${token.name}`);
 					break;
 				}
 
 				case "@thirdweb-dev/sdk": {
-					setLink(token.name, `/references/typescript/${token.name}`);
+					setLink(token.name, `/references/typescript/latest/${token.name}`);
 					break;
 				}
 
 				case "@thirdweb-dev/storage": {
-					setLink(token.name, `/references/storage/${token.name}`);
+					setLink(token.name, `/references/storage/latest/${token.name}`);
 					break;
 				}
 
 				case "@thirdweb-dev/wallets": {
-					setLink(token.name, `/references/wallets/${token.name}`);
+					setLink(token.name, `/references/wallets/latest/${token.name}`);
 					break;
 				}
 			}

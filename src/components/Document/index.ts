@@ -1,4 +1,3 @@
-export { Playground } from "../others/Playground/Playground";
 export { Breadcrumb } from "./Breadcrumb";
 export { Callout } from "./Callout";
 export { CardLink } from "./CardLink";
@@ -15,7 +14,7 @@ export { Table } from "./Table";
 export { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
 export { Carousel } from "../ui/Carousel/Carousel";
 export { Steps, Step } from "./Steps/Steps";
-export { ArticleCard } from "./Cards/ArticleCard";
+export { ArticleCard, ArticleIconCard } from "./Cards/ArticleCard";
 export { GithubButtonLink } from "./GithubButtonLink";
 export { EditPage } from "./EditPage";
 export { Grid } from "./Grid";

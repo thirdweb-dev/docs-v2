@@ -1,0 +1,186 @@
+import { Details, Callout, Heading, DocLink } from "@/components/Document";
+
+# Connecting Wallets
+
+There are two ways you connect user's wallet to your application using thirdweb's React Native SDK
+
+1. Using the [ConnectWallet component](#connect-wallet) for a quick, easy and customizable UI
+2. Create a completely custom UI using [wallet connection hooks](#custom-ui)
+
+<DocLink
+	href="/react-native/wallets"
+	className="p-4 border rounded-lg hover:border-accent-500 hover:bg-b-700 block"
+	children="Supported Wallets"
+/>
+
+<Heading id="connect-wallet" level={2} children="1. ConnectWallet component" />
+
+[ConnectWallet component](#connect-wallet) renders a button which when clicked opens a modal to allow users to connect to wallets specified in the `ThirdwebProvider`'s supportedWallets prop.
+
+If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWallet Modal shows the below shown default wallets:
+
+- [MetaMask](/react-native/v0/wallets/metamask)
+- [Coinbase Wallet](/react-native/v0/wallets/coinbase)
+- [WalletConnect](/react-native/v0/wallets/walletconnect)
+- [Rainbow](/react-native/v0/wallets/rainbow)
+- [Trust Wallet](/react-native/v0/wallets/trust)
+
+<Callout variant='info'>
+
+Try out ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
+
+</Callout>
+
+```jsx
+import {
+	ThirdwebProvider,
+	ConnectWallet,
+	// import the wallets you want
+	metamaskWallet,
+	walletConnect,
+} from "@thirdweb-dev/react-native";
+
+// wrap your App with ThirdwebProvider and set supportedWallets prop
+
+function App() {
+	return (
+		<ThirdwebProvider
+			supportedWallets={[metamaskWallet(), walletConnect()]}
+			activeChain="mumbai"
+			clientId="your-client-id"
+		>
+			<Main />
+		</ThirdwebProvider>
+	);
+}
+
+// render ConnectWallet component in your App - that's it!
+
+function Main() {
+	return <ConnectWallet />;
+}
+```
+
+<Heading
+	id="custom-ui"
+	level={2}
+	children="2. Create a custom UI to connect wallet"
+/>
+
+Connecting a wallet involves a few steps:
+
+1. Create a wallet instance
+2. Call the `connect` method on the wallet instance
+3. Set the connected wallet instance as "connected wallet"
+
+If you just want to connect a wallet as mentioned above - there's a simple way to do it using the [useConnect](/references/react-native/v0/useConnect) hook which does all the above steps for you.
+
+<Details id='useConnect' summary="useConnect">
+
+```tsx
+import {
+	useConnect,
+	// import the wallet you want to connect
+	metamaskWallet,
+} from "@thirdweb-dev/react-native";
+
+const walletConfig = metamaskWallet();
+
+function Example() {
+	const connect = useConnect();
+
+	async function handleConnect() {
+		try {
+			const wallet = await connect(
+				walletConfig, // pass the wallet config object
+				connectOptions, // pass options required by the wallet (if any)
+			);
+
+			console.log("connected to", wallet);
+		} catch (e) {
+			console.error("failed to connect", e);
+		}
+	}
+
+	return <Button onPress={handleConnect} title="connect wallet" />;
+}
+```
+
+</Details>
+
+But if you need to create wallet instance and call some methods on the wallet instance before connecting the wallet,
+you can do these steps manually as shown below using the [useCreateWalletInstance](/references/react-native/v0/useCreateWalletInstance), [useSetConnectionStatus](/references/react-native/v0/useSetConnectionStatus) and [useSetConnectedWallet](/references/react-native/v0/useSetConnectedWallet) hooks.
+
+<Details summary="Manually creating wallet instance and connecting" id='manual-instance'>
+
+There are 3 steps to connect your wallet manually:
+
+- create an instance of your wallet using [useCreateWalletInstance](/references/react-native/v0/useCreateWalletInstance)
+- connect your wallet using the `connect` method of the wallet
+- once the wallet is connected, set the wallet instance as connected using [useSetConnectedWallet](/references/react-native/v0/useSetConnectedWallet)
+
+Make sure to update the `connectionStatus` using [useSetConnectionStatus](/references/react-native/v0/useSetConnectionStatus) to `"connecting"` before connecting your wallet and `"disconnected"` if the connection fails.
+
+### Example
+
+We will use [`localWallet`](/react-native/wallets/local-wallet) as an example because it can not be connected using the `useConnect` hook because it requires additional steps after creating the wallet instance - like generating a random wallet or importing a wallet. We will generate a random wallet in this example.
+
+```tsx
+import {
+	useCreateWalletInstance,
+	useSetConnectionStatus,
+	useSetConnectedWallet,
+	// import the wallet you want to connect
+	localWallet,
+} from "@thirdweb-dev/react-native";
+
+const walletConfig = localWallet();
+
+function Example() {
+	const createWalletInstance = useCreateWalletInstance();
+	const setConnectionStatus = useSetConnectionStatus();
+	const setConnectedWallet = useSetConnectedWallet();
+
+	const handleConnect = async () => {
+		// 1. create wallet instance
+		const wallet = createWalletInstance(walletConfig);
+
+		// perform additional steps that needs to be done before connecting the wallet
+		// here, we will generate a random wallet
+		await wallet.generate();
+
+		try {
+			setConnectionStatus("connecting");
+
+			// 2. Call `connect` method on wallet instance
+			await wallet.connect(
+				connectOptions, // pass options required by the wallet (if any)
+			);
+
+			// 3. Set wallet instance as the connected wallet
+			setConnectedWallet(wallet);
+		} catch (e) {
+			setConnectionStatus("disconnected");
+			console.error("failed to connect", e);
+			// show error UI or close modal using props.close()
+		}
+	};
+
+	return <Button onPress={handleConnect} title="connect wallet" />;
+}
+```
+
+</Details>
+
+Once the wallet is connected, you can use React Native SDK's 100+ hooks to show connected wallet's Details, send transactions, interact with smart contracts, sign messages and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, [RPC URLs](/glossary/rpc), [IPFS gateways](/glossary/ipfs), and more!
+
+Here is a list of few hooks that will be useful when creating custom UI
+
+| Hook                                                                   | Description                            |
+| ---------------------------------------------------------------------- | -------------------------------------- |
+| [useAddress](/references/react-native/v0/useAddress)                   | get connected wallet's account address |
+| [useDisconnect](/references/react-native/v0/useDisconnect)             | disconnect the connected wallet        |
+| [useWallet](/references/react-native/v0/useWallet)                     | get connected wallet instance          |
+| [useWalletConfig](/references/react-native/v0/useWalletConfig)         | get connected wallet's config          |
+| [useConnectionStatus](/references/react-native/v0/useConnectionStatus) | get status of wallet connection        |
+| [useSigner](/references/react-native/v0/useSigner)                     | get signer of connected wallet         |

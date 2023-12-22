@@ -14,7 +14,7 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -84,6 +84,15 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 
 	const { link } = props;
 	if ("links" in link) {
+		if (link.isCollapsible === false) {
+			return (
+				<DocSidebarNonCollapsible
+					key={link.name}
+					linkGroup={link}
+					onLinkClick={props.onLinkClick}
+				/>
+			);
+		}
 		return (
 			<DocSidebarCategory
 				key={link.name}
@@ -107,46 +116,53 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 	}
 }
 
+function DocSidebarNonCollapsible(props: {
+	linkGroup: LinkGroup;
+	onLinkClick?: () => void;
+}) {
+	const pathname = usePathname();
+	const { href, name, links, icon } = props.linkGroup;
+	const isCategoryActive = href && href === pathname;
+
+	return (
+		<div className="my-4">
+			<div className="mb-2 flex items-center gap-2">
+				{icon && <SidebarIcon icon={icon} />}
+				{href ? (
+					<Link
+						className={cn(
+							"block text-base font-semibold text-f-100 hover:text-accent-500",
+							isCategoryActive && "!text-accent-500",
+						)}
+						href={href}
+					>
+						{name}
+					</Link>
+				) : (
+					<div className="text-base font-semibold">{name}</div>
+				)}
+			</div>
+
+			<ul className="flex flex-col">
+				{links.map((link, i) => {
+					return (
+						<li key={i}>
+							<SidebarItem link={link} onLinkClick={props.onLinkClick} />
+						</li>
+					);
+				})}
+			</ul>
+		</div>
+	);
+}
+
 function DocSidebarCategory(props: {
 	linkGroup: LinkGroup;
 	onLinkClick?: () => void;
 }) {
 	const pathname = usePathname();
-	const { href, isCollapsible, name, links, expanded, icon } = props.linkGroup;
+	const { href, name, links, expanded, icon } = props.linkGroup;
 	const isCategoryActive = href && href === pathname;
-
-	if (isCollapsible === false) {
-		return (
-			<div className="my-4">
-				<div className="mb-2 flex items-center gap-2">
-					{icon && <SidebarIcon icon={icon} />}
-					{href ? (
-						<Link
-							className={cn(
-								"block text-base font-semibold text-f-100 hover:text-accent-500",
-								isCategoryActive && "!text-accent-500",
-							)}
-							href={href}
-						>
-							{name}
-						</Link>
-					) : (
-						<div className="text-base font-semibold">{name}</div>
-					)}
-				</div>
-
-				<ul className="flex flex-col">
-					{links.map((link, i) => {
-						return (
-							<li key={i}>
-								<SidebarItem link={link} onLinkClick={props.onLinkClick} />
-							</li>
-						);
-					})}
-				</ul>
-			</div>
-		);
-	}
 
 	const hasActiveHref = containsActiveHref(
 		{
@@ -156,6 +172,15 @@ function DocSidebarCategory(props: {
 		},
 		pathname,
 	);
+	const defaultOpen = !!(hasActiveHref || expanded);
+
+	const [open, setOpen] = useState(defaultOpen ? true : false);
+
+	const triggerRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		setOpen(defaultOpen);
+	}, [defaultOpen]);
 
 	const trigger = (
 		<AccordionTrigger
@@ -165,7 +190,7 @@ function DocSidebarCategory(props: {
 				"text-f-300 hover:text-f-100",
 			)}
 		>
-			<div className="flex gap-2">
+			<div className="flex gap-2" ref={triggerRef}>
 				{icon && <SidebarIcon icon={icon} />}
 				{name}
 			</div>
@@ -176,7 +201,14 @@ function DocSidebarCategory(props: {
 		<Accordion
 			collapsible
 			type="single"
-			defaultValue={expanded || hasActiveHref ? "x" : undefined}
+			value={open ? "x" : ""}
+			onValueChange={(value) => {
+				if (value === "x") {
+					setOpen(true);
+				} else {
+					setOpen(false);
+				}
+			}}
 		>
 			<AccordionItem value="x" className="border-none">
 				{href ? (

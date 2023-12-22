@@ -58,7 +58,7 @@ export async function VariableTDoc(props: {
 
 			{exampleTag?.summary && (
 				<>
-					<Heading level={subLevel} id={slugger.slug("example")}>
+					<Heading level={subLevel} id={slugger.slug("example")} noIndex>
 						Example
 					</Heading>
 					<TypedocSummary summary={exampleTag.summary} />
@@ -90,7 +90,7 @@ export async function VariableTDoc(props: {
 
 export function getVariableSignatureCode(doc: VariableDoc): TypeInfo {
 	return {
-		code: `let ${doc.name}: ${doc.type?.code}`,
+		code: doc.type?.code || "",
 		tokens: doc.type?.tokens,
 	};
 }

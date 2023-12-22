@@ -1,4 +1,109 @@
+import {
+	Steps,
+	Step,
+} from "@/components/Document";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
 # Get Started
 
-Learn how to add the Connect Wallet Component to your application. 
+Learn how to add the Connect Wallet Component to your application.
 
+<Steps>
+    <Step title="Modify ThirdwebProvider" >
+    Import and add supported wallets to ThirdwebProvider. Also provide your client ID.
+
+    <Tabs defaultValue="react">
+	<TabsList>
+		<TabsTrigger value="react">React</TabsTrigger>
+		<TabsTrigger value="react-native">React Native</TabsTrigger>
+	</TabsList>
+	<TabsContent value="react">
+
+        ```jsx
+        import {
+        ThirdwebProvider,
+        metamaskWallet,
+        coinbaseWallet,
+        walletConnect,
+        } from "@thirdweb-dev/react";
+
+        function MyApp() {
+        return (
+            <ThirdwebProvider
+            supportedWallets={[
+                metamaskWallet(),
+                coinbaseWallet(),
+                walletConnect({projectId: "YOUR_PROJECT_ID",}),
+            ]}
+            clientId="<your_client_id>"
+            >
+            <App />
+            </ThirdwebProvider>
+        );
+        }
+        ```
+
+    </TabsContent>
+	<TabsContent value="react-native">
+    ```jsx
+        import {
+        ThirdwebProvider,
+        metamaskWallet,
+        trustWallet,
+        coinbaseWallet,
+        } from "@thirdweb-dev/react-native";
+
+        function MyApp() {
+        return (
+            <ThirdwebProvider
+            supportedWallets={[
+                metamaskWallet(),
+                trustWallet(),
+                coinbaseWallet({
+                callbackURL: new URL("your-callback-url"),
+                }),
+            ]}
+            clientId="<your_client_id>"
+            >
+            <App />
+            </ThirdwebProvider>
+        );
+        }
+    ```
+    </TabsContent>
+</Tabs>
+
+    </Step>
+
+    <Step title="Add Connect component">
+
+    Import and add the ConnectWallet component anywhere in your application.
+
+    <Tabs defaultValue="react">
+        <TabsList>
+            <TabsTrigger value="react">React</TabsTrigger>
+            <TabsTrigger value="react-native">React Native</TabsTrigger>
+        </TabsList>
+        <TabsContent value="react">
+        ```jsx
+            import { ConnectWallet } from "@thirdweb-dev/react";
+
+            function App() {
+                return <ConnectWallet />;
+            }
+        
+        ```
+
+        </TabsContent>
+        <TabsContent value="react-native">
+        ```jsx
+            import { ConnectWallet } from "@thirdweb-dev/react-native";
+
+            function App() {
+                return <ConnectWallet />;
+            }
+        ```
+        </TabsContent>
+    </Tabs>
+    </Step>
+</Steps>

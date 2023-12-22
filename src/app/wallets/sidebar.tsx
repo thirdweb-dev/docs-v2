@@ -101,45 +101,72 @@ export const sidebar: SideBar = {
 							name: "Wallet Providers",
 							links: [
 								{
-									name: "MetaMask",
-									icon: <WalletsConnectIcon />,
-									href: `${connectSlug}/wallet-providers/metamask`,
+									name: "Blocto",
+									href: "/references/wallets/latest/BloctoWallet",
+								},
+								{
+									name: "Coin98",
+									href: "/references/wallets/latest/Coin98Wallet",
 								},
 								{
 									name: "Coinbase",
-									href: `${connectSlug}/wallet-providers/coinbase`,
+									href: "/references/wallets/latest/CoinbaseWallet",
 								},
 								{
-									name: "WalletConnect",
-									href: `${connectSlug}/wallet-providers/walletconnect`,
+									name: "Core",
+									href: "/references/wallets/latest/CoreWallet",
 								},
 								{
-									name: "Trust",
-									href: `${connectSlug}/wallet-providers/trust`,
-								},
-								{
-									name: "Rainbow",
-									href: `${connectSlug}/wallet-providers/rainbow`,
-								},
-								{
-									name: "Zerion",
-									href: `${connectSlug}/wallet-providers/zerion`,
-								},
-								{
-									name: "Phantom",
-									href: `${connectSlug}/wallet-providers/phantom`,
-								},
-								{
-									name: "Safe",
-									href: `${connectSlug}/wallet-providers/safe`,
-								},
-								{
-									name: "Blocto",
-									href: `${connectSlug}/wallet-providers/blocto`,
+									name: "DefiWallet",
+									href: "/references/wallets/latest/CryptoDefiWallet",
 								},
 								{
 									name: "Frame",
-									href: `${connectSlug}/wallet-providers/frame`,
+									href: "/references/wallets/latest/FrameWallet",
+								},
+								{
+									name: "Magic Link",
+									href: "/references/wallets/latest/MagicLink",
+								},
+								{
+									name: "MetaMask",
+									href: "/references/wallets/latest/MetaMaskWallet",
+								},
+								{
+									name: "OKX Wallet",
+									href: "/references/wallets/latest/OKXWallet",
+								},
+								{
+									name: "OneKeyWallet",
+									href: "/references/wallets/latest/OneKeyWallet",
+								},
+								{
+									name: "Phantom",
+									href: "/references/wallets/latest/PhantomWallet",
+								},
+								{
+									name: "Rabby",
+									href: "/references/wallets/latest/RabbyWallet",
+								},
+								{
+									name: "WalletConnect",
+									href: "/references/wallets/latest/WalletConnect",
+								},
+								{
+									name: "Rainbow",
+									href: "/references/wallets/latest/RainbowWallet",
+								},
+								{
+									name: "Safe",
+									href: "/references/wallets/latest/SafeWallet",
+								},
+								{
+									name: "Trust",
+									href: "/references/wallets/latest/TrustWallet",
+								},
+								{
+									name: "Zerion",
+									href: "/references/wallets/latest/ZerionWallet",
 								},
 							],
 						},
@@ -186,11 +213,100 @@ export const sidebar: SideBar = {
 		{
 			name: "Embedded Wallet",
 			icon: <WalletsEmbeddedIcon />,
+			href: `${embeddedSlug}/overview`,
 			isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
 					href: `${embeddedSlug}/overview`,
+				},
+				{
+					name: "How it works",
+					href: `${embeddedSlug}/how-it-works`,
+				},
+				{
+					name: "Get Started",
+					href: `${embeddedSlug}/get-started`,
+				},
+				{
+					name: "How to",
+					links: [
+						{
+							name: "Connect Users",
+							href: `${embeddedSlug}/how-to/connect-users`,
+						},
+						{
+							name: "Build your own UI",
+							href: `${embeddedSlug}/how-to/build-your-own-ui`,
+						},
+						{
+							name: "Interact with wallets",
+							href: `${embeddedSlug}/how-to/interact-with-wallets`,
+						},
+						{
+							name: "Interact with the blockchain",
+							href: `${embeddedSlug}/how-to/interact-blockchain`,
+						},
+						{
+							name: "Enable Gasless Transactions",
+							href: `${embeddedSlug}/how-to/enable-gasless`,
+						},
+						{
+							name: "Export private key",
+							href: `${embeddedSlug}/how-to/export-private-key`,
+						},
+					],
+				},
+				{
+					name: "Custom Authentication",
+					links: [
+						{
+							name: "Overview",
+							href: `${embeddedSlug}/custom-auth/overview`,
+						},
+						{
+							name: "Configuration",
+							href: `${embeddedSlug}/custom-auth/configuration`,
+						},
+						{
+							name: "Integration guides",
+							links: [
+								{
+									name: "Custom auth server (OIDC Auth)",
+									href: `${embeddedSlug}/custom-auth/custom-jwt-auth-server`,
+								},
+								{
+									name: "Custom auth server (Generic Auth)",
+									href: `${embeddedSlug}/custom-auth/custom-auth-server`,
+								},
+								{
+									name: "Firebase Auth",
+									href: `${embeddedSlug}/custom-auth/firebase-auth`,
+								},
+							],
+						},
+					],
+				},
+				{
+					name: "References",
+					links: [
+						{
+							name: "React",
+							href: `/react/v4/wallets/embedded-wallet`,
+						},
+						{
+							name: "React Native",
+							href: `/react-native/v4/wallets/embedded-wallet`,
+						},
+						{
+							name: "Unity",
+							href: `/unity/wallets/embedded-wallet`,
+						},
+					],
+				},
+				{
+					name: "FAQs",
+					href: `${embeddedSlug}/faqs`,
 				},
 			],
 		},
@@ -203,7 +319,65 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${smartWalletSlug}/overview`,
+					href: `${smartWalletSlug}`,
+				},
+				{
+					name: "How it Works",
+					href: `${smartWalletSlug}/how-it-works`,
+				},
+				{
+					name: "Getting Started",
+					href: `${smartWalletSlug}/getting-started`,
+				},
+				{
+					name: "Bundler & Paymaster",
+					href: `${smartWalletSlug}/infrastructure`,
+				},
+				{
+					name: "Permissions & Session Keys",
+					href: `${smartWalletSlug}/permissions`,
+				},
+				{
+					name: "Guides",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Usage in React",
+							href: `${smartWalletSlug}/guides/react`,
+						},
+						{
+							name: "Usage in Typescript",
+							href: `${smartWalletSlug}/guides/typescript`,
+						},
+					],
+				},
+				{
+					name: "References",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "React",
+							href: `/react/v4/wallets/smartwallet`,
+						},
+						{
+							name: "React Native",
+							href: `/react-native/v4/wallets/smartwallet`,
+						},
+						{
+							name: "TypeScript",
+							href: `/references/wallets/v2/SmartWallet`,
+						},
+						{
+							name: "Unity",
+							href: `/unity/wallets/smartwallet`,
+						},
+					],
+				},
+				{
+					name: "FAQs",
+					href: `${smartWalletSlug}/faq`,
 				},
 			],
 		},
@@ -216,7 +390,91 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${authSlug}/overview`,
+					href: `${authSlug}`,
+				},
+				{
+					name: "How it Works",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Overview",
+							href: `${authSlug}/how-it-works`,
+						},
+						{
+							name: "Sign-in with Wallet",
+							href: `${authSlug}/how-it-works/siwe`,
+						},
+						{
+							name: "JSON Web Tokens",
+							href: `${authSlug}/how-it-works/jwt`,
+						},
+						{
+							name: "Auth API",
+							href: `${authSlug}/how-it-works/api`,
+						},
+					],
+				},
+				{
+					name: "Getting Started",
+					href: `${authSlug}/getting-started`,
+				},
+				{
+					name: "Client Frameworks",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "React",
+							href: `${authSlug}/client-frameworks/react`,
+						},
+						{
+							name: "React Native",
+							href: `${authSlug}/client-frameworks/react-native`,
+						},
+					],
+				},
+				{
+					name: "Server Frameworks",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Next.js",
+							href: `${authSlug}/server-frameworks/next`,
+						},
+						{
+							name: "Express",
+							href: `${authSlug}/server-frameworks/express`,
+						},
+					],
+				},
+				{
+					name: "Integrations",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Next Auth",
+							href: `${authSlug}/integrations/next-auth`,
+						},
+						{
+							name: "Supabase",
+							href: `${authSlug}/integrations/supabase`,
+						},
+						{
+							name: "Firebase",
+							href: `${authSlug}/integrations/firebase`,
+						},
+					],
+				},
+				{
+					name: "Wallet Configuration",
+					href: `${authSlug}/wallet-configuration`,
+				},
+				{
+					name: "FAQs",
+					href: `${authSlug}/faq`,
 				},
 			],
 		},

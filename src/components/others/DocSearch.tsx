@@ -7,7 +7,7 @@ import {
 	useQuery,
 } from "@tanstack/react-query";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
@@ -16,7 +16,6 @@ import {
 	Search as SearchIcon,
 	FileText as FileTextIcon,
 	AlignLeft as SectionIcon,
-	FolderSearch as FolderSearchIcon,
 	Command as CommandIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -24,6 +23,37 @@ import Link from "next/link";
 import { DynamicHeight } from "./DynamicHeight";
 import { SearchResult } from "@/app/api/search/types";
 import { Spinner } from "../ui/Spinner/Spinner";
+
+const suggestedLinks: { title: string; href: string }[] = [
+	{
+		title: "React SDK",
+		href: "/react/latest",
+	},
+	{
+		title: "React Native SDK",
+		href: "/react/latest",
+	},
+	{
+		title: "TypeScript SDK",
+		href: "/react/latest",
+	},
+	{
+		title: "Wallets",
+		href: "/wallets",
+	},
+	{
+		title: "Contracts",
+		href: "/contracts",
+	},
+	{
+		title: "Payments",
+		href: "/payments",
+	},
+	{
+		title: "Infrastructure",
+		href: "/infrastructure",
+	},
+];
 
 type Tag =
 	| "React"
@@ -33,22 +63,24 @@ type Tag =
 	| "Storage"
 	| "Wallets"
 	| "Python"
-	| "Go";
+	| "Contracts"
+	| "Go"
+	| "All"
+	| "Infra"
+	| "Solidity"
+	| "Payments"
+	| "Glossary";
 
 function SearchModalContent(props: { closeModal: () => void }) {
 	const [input, setInput] = useState("");
 	const debouncedInput = useDebounce(input, 500);
 
-	const [selectedTags, setSelectedTags] = useState<Record<Tag, boolean>>({
-		React: true,
-		"React Native": true,
-		Unity: true,
-		TypeScript: true,
-		Storage: true,
-		Wallets: true,
-		Python: true,
-		Go: true,
-	});
+	const [selectedTags, setSelectedTags] = useState<{
+		[T in Tag]?: boolean;
+	}>({});
+
+	const [enabledTags, setEnabledTags] = useState<Tag[]>([]);
+	const scrollableElement = useRef<HTMLDivElement | null>(null);
 
 	const searchQuery = useQuery({
 		queryKey: ["search-index", debouncedInput],
@@ -56,25 +88,28 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			const res = await fetch(`/api/search?q=${encodeURI(debouncedInput)}`);
 			const { results } = (await res.json()) as SearchResult;
 
-			const _selectedTags: typeof selectedTags = {
-				React: false,
-				"React Native": false,
-				Unity: false,
-				TypeScript: false,
-				Storage: false,
-				Wallets: false,
-				Python: false,
-				Go: false,
-			};
+			const tagsSet: Set<Tag> = new Set([]);
+
+			if (results.length > 0) {
+				tagsSet.add("All");
+				setSelectedTags({
+					All: true,
+				});
+			}
 
 			results.forEach((r) => {
 				const tag = getTagFromHref(r.pageHref);
 				if (tag) {
-					_selectedTags[tag] = true;
+					tagsSet.add(tag);
 				}
 			});
 
-			setSelectedTags(_selectedTags);
+			const tags = Array.from(tagsSet);
+			setEnabledTags(tags);
+
+			scrollableElement.current?.scrollTo({
+				top: 0,
+			});
 
 			return results;
 		},
@@ -82,20 +117,9 @@ function SearchModalContent(props: { closeModal: () => void }) {
 		placeholderData: keepPreviousData,
 	});
 
-	const tagsSet: Set<Tag> = new Set();
-
-	searchQuery.data?.forEach((result) => {
-		const tag = getTagFromHref(result.pageHref);
-		if (tag) {
-			tagsSet.add(tag);
-		}
-	});
-
 	const data = searchQuery.data;
 	const noResults =
 		debouncedInput && searchQuery.isFetched && data && data.length === 0;
-
-	const tags = Array.from(tagsSet);
 
 	const handleLinkClick = () => {
 		props.closeModal();
@@ -115,6 +139,11 @@ function SearchModalContent(props: { closeModal: () => void }) {
 					onChange={(e) => {
 						setInput(e.target.value);
 					}}
+					onKeyDown={(e) => {
+						if (e.key === "Enter" && e.target instanceof HTMLInputElement) {
+							e.target.blur();
+						}
+					}}
 					placeholder="Search documentation"
 					className={cn(
 						"flex-1 border-none bg-transparent p-4 placeholder:text-base px-0 text-base placeholder:text-f-300 caret-accent-500",
@@ -126,9 +155,9 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			<DynamicHeight>
 				<div className="min-h-[200px]">
 					{/* tags */}
-					{tags && tags.length > 0 && (
+					{enabledTags && enabledTags.length > 0 && (
 						<div className="flex flex-wrap gap-2 border-b p-4">
-							{tags.map((tag) => (
+							{enabledTags.map((tag) => (
 								<Button
 									variant="ghost"
 									key={tag}
@@ -139,10 +168,36 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											: "!bg-b-800 !text-f-300",
 									)}
 									onClick={() => {
-										setSelectedTags((prev) => ({
-											...prev,
-											[tag]: !prev[tag],
-										}));
+										// do not allow removing the last remaining tag
+										const enabledTags = Object.keys(selectedTags).filter(
+											(k) => selectedTags[k as Tag],
+										);
+										if (enabledTags.length === 1 && enabledTags[0] === tag) {
+											return;
+										}
+
+										setSelectedTags((prev) => {
+											const newValue = !prev[tag];
+
+											if (tag === "All") {
+												if (newValue) {
+													return {
+														[tag]: true,
+													};
+												}
+
+												return {
+													...prev,
+													[tag]: false,
+												};
+											}
+
+											return {
+												...prev,
+												[tag]: newValue,
+												All: newValue ? false : prev.All,
+											};
+										});
 									}}
 								>
 									{tag}
@@ -153,10 +208,18 @@ function SearchModalContent(props: { closeModal: () => void }) {
 
 					{/* links */}
 					{data && data.length > 0 && (
-						<div className="styled-scrollbar flex max-h-[500px] min-h-[200px] flex-col gap-2 overflow-y-auto p-4">
+						<div
+							className="styled-scrollbar flex max-h-[50vh] min-h-[200px] flex-col gap-2 overflow-y-auto p-4"
+							ref={scrollableElement}
+						>
 							{data?.map((result, i) => {
 								const tag = getTagFromHref(result.pageHref);
-								if (tag && selectedTags[tag] !== true) return null;
+								if (!selectedTags["All"] && tag && selectedTags[tag] !== true)
+									return null;
+
+								if (!tag && !selectedTags["All"]) {
+									return null;
+								}
 
 								return (
 									<div key={i} className="flex flex-col gap-2">
@@ -167,7 +230,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											tag={tag}
 											onClick={handleLinkClick}
 										/>
-
+										{/*
 										{result.sections && (
 											<div className="flex flex-col gap-2 border-l pl-3">
 												{result.sections?.map((sectionData) => {
@@ -183,7 +246,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 													);
 												})}
 											</div>
-										)}
+										)} */}
 									</div>
 								);
 							})}
@@ -198,12 +261,28 @@ function SearchModalContent(props: { closeModal: () => void }) {
 					)}
 
 					{!debouncedInput && (!data || data.length === 0) && (
-						<div className="flex min-h-[200px] items-center justify-center">
-							<FolderSearchIcon className="h-12 w-12 text-f-300" />
-						</div>
+						<NoSearchLinks onClick={handleLinkClick} />
 					)}
 				</div>
 			</DynamicHeight>
+		</div>
+	);
+}
+
+function NoSearchLinks(props: { onClick?: () => void }) {
+	return (
+		<div className="flex flex-col gap-2 p-4">
+			{suggestedLinks.map((link) => {
+				return (
+					<SearchResultItem
+						type="page"
+						href={link.href}
+						title={link.title}
+						key={link.href}
+						onClick={props.onClick}
+					/>
+				);
+			})}
 		</div>
 	);
 }
@@ -305,22 +384,32 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 }
 
 function getTagFromHref(href: string): Tag | undefined {
-	if (href.includes("react-native")) {
+	if (href.includes("/react-native")) {
 		return "React Native";
-	} else if (href.includes("react")) {
+	} else if (href.includes("/react")) {
 		return "React";
-	} else if (href.includes("unity")) {
+	} else if (href.includes("/unity")) {
 		return "Unity";
-	} else if (href.includes("typescript")) {
+	} else if (href.includes("/typescript")) {
 		return "TypeScript";
-	} else if (href.includes("storage")) {
+	} else if (href.includes("/storage")) {
 		return "Storage";
-	} else if (href.includes("wallets")) {
+	} else if (href.includes("/wallets")) {
 		return "Wallets";
-	} else if (href.includes("python")) {
+	} else if (href.includes("/python")) {
 		return "Python";
-	} else if (href.includes("go")) {
+	} else if (href.includes("/infrastructure")) {
+		return "Infra";
+	} else if (href.includes("/go")) {
 		return "Go";
+	} else if (href.includes("/solidity")) {
+		return "Solidity";
+	} else if (href.includes("/contracts")) {
+		return "Contracts";
+	} else if (href.includes("/payments")) {
+		return "Payments";
+	} else if (href.includes("/glossary")) {
+		return "Glossary";
 	}
 }
 
@@ -356,7 +445,7 @@ function SearchResultItem(props: {
 						<span
 							key={props.tag}
 							className={cn(
-								"rounded-lg border px-2 py-1 text-xs bg-b-800 text-f-300 shrink-0",
+								"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
 							)}
 						>
 							{props.tag}

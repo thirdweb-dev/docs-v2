@@ -1,0 +1,107 @@
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ReactIcon, TypeScriptIcon } from "@/icons";
+import UnityIcon from "../../images/unity.webp";
+import WalletIcon from "../../images/wallet.png";
+import Link from "next/link";
+import Image from "next/image";
+
+# Interact with the blockchain
+
+One connected, embedded wallets can be used alongside the [Contract SDK](/sdk) to interact with the blockchain.
+
+## Initialize the SDK With Your Wallet
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React & React Native </TabsTrigger>
+	<TabsTrigger value="typescript">Other Frameworks</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+The `ThirdwebProvider` handles maintaining the connection state, and allows using all the hooks in the SDK to interact with the blockchain as the connected user.
+
+Here's an example using the `Web3Button` component to claim an NFT on a smart contract:
+
+```tsx
+export default function App() {
+	return (
+		<ThirdwebProvider
+			activeChain="goerli"
+			clientId="YOUR_CLIENT_ID"
+			supportedWallets={[embeddedWallet()]}
+		>
+			<Web3Button
+				contractAddress="0x..."
+				action={(contract) => contract.erc721.claim(1)}
+			>
+				Claim NFT
+			</Web3Button>
+		</ThirdwebProvider>
+	);
+}
+```
+
+</TabsContent>
+
+<TabsContent value="typescript">
+To initialize the Contract SDK with your wallet, use the [`fromWallet`](/references/typescript/latest/ThirdwebSDK#fromWallet) method:
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { EmbeddedWallet } from "@thirdweb-dev/wallet";
+
+const wallet = new EmbeddedWallet();
+await wallet.connect();
+
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+	clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+	secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const contract = await sdk.getContract("0x...");
+await contract.erc721.claim(1);
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Full Reference
+
+View everything you can do in the Contract SDK once you have connected your wallet:
+
+<div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+	<Link
+		href={"/wallets"}
+		className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+	>
+		<Image src={WalletIcon} className="h-10 w-10 shrink-0"/>
+		<h3 className="text-lg font-semibold text-f-100">Wallet SDK</h3>
+	</Link>
+
+    <Link
+    	href={"/react"}
+    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+    >
+    	{ReactIcon({className: "h-10 w-10 shrink-0"})}
+    	<h3 className="text-lg font-semibold text-f-100">React SDK</h3>
+    </Link>
+
+    <Link
+    	href={"/react-native"}
+    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+    >
+    	{ReactIcon({className: "h-10 w-10 shrink-0"})}
+    	<h3 className="text-lg font-semibold text-f-100">React Native SDK</h3>
+    </Link>
+
+    <Link
+    	href={"/unity"}
+    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+    >
+    	<Image src={UnityIcon} className="h-10 w-10 shrink-0"/>
+    	<h3 className="text-lg font-semibold text-f-100">Unity SDK</h3>
+    </Link>
+
+</div>

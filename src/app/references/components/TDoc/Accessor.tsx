@@ -10,7 +10,11 @@ import invariant from "tiny-invariant";
 import { Callout, Details } from "@/components/Document";
 import { getTokenLinks } from "./utils/getTokenLinks";
 
-export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
+export async function AccessorTDoc(props: {
+	doc: AccessorDoc;
+	level: number;
+	hideHeading?: boolean;
+}) {
 	const { doc } = props;
 	const { deprecatedTag, exampleTag, remarksTag, seeTag } = getTags(
 		doc.blockTags,
@@ -24,9 +28,11 @@ export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 	return (
 		<>
-			<Heading level={props.level} id={doc.name}>
-				{doc.name}
-			</Heading>
+			{props.hideHeading !== true && (
+				<Heading level={props.level} id={doc.name}>
+					{doc.name}
+				</Heading>
+			)}
 
 			{doc.source && <SourceLinkTypeDoc href={doc.source} />}
 
@@ -40,7 +46,7 @@ export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 				</Callout>
 			)}
 
-			<Details id="signature" summary="Signature">
+			<Details id="signature" summary="Signature" noIndex>
 				<CodeBlock
 					lang="ts"
 					code={signatureCode}
@@ -50,7 +56,7 @@ export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 			{exampleTag?.summary && (
 				<>
-					<Heading level={subLevel} id={slugger.slug("example")}>
+					<Heading level={subLevel} id={slugger.slug("example")} noIndex>
 						Example
 					</Heading>
 					<TypedocSummary summary={exampleTag.summary} />
@@ -59,7 +65,7 @@ export async function AccessorTDoc(props: { doc: AccessorDoc; level: number }) {
 
 			{doc.returns?.summary && (
 				<>
-					<Heading id="returns" level={props.level + 1}>
+					<Heading id="returns" level={props.level + 1} noIndex>
 						Returns
 					</Heading>
 					{doc.returns?.summary && (

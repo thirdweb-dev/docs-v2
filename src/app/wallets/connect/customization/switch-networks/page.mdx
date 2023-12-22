@@ -1,0 +1,15 @@
+import {Callout} from "@/components/Document";
+
+# Switch Network
+
+Prompt users to switch networks from their connected wallet, when they are not connected to the network set by `activeChain`. 
+
+<Callout title="info">
+    This feature only works when `activeChain` is set to any supported network. [Learn more about `activeChain`.](/react/react.thirdwebprovider#activechain-recommended) 
+</Callout>
+
+To enable "Switch Network" feature:
+
+```jsx
+    <ConnectWallet switchToActiveChain={true} />
+```

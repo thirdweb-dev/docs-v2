@@ -8,7 +8,7 @@ export default async function Page() {
 	const posts = await fetchChangeLogs();
 
 	return (
-		<main className="">
+		<div>
 			<Heading level={1} id="title">
 				Changelog
 			</Heading>
@@ -36,6 +36,6 @@ export default async function Page() {
 					);
 				})}
 			</div>
-		</main>
+		</div>
 	);
 }

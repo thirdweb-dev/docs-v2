@@ -1,0 +1,16 @@
+import { getTDocPage } from "@/app/references/components/TDoc/PageLayout";
+import { fetchStorageDoc } from "@/app/references/components/TDoc/fetchDocs/fetchStorageDoc";
+
+const config = getTDocPage({
+	sdkTitle: "Storage SDK",
+	getDoc: fetchStorageDoc,
+	packageSlug: "storage",
+	async getLatestVersion() {
+		return "v2";
+	},
+});
+
+export default config.default;
+export const generateStaticParams = config.generateStaticParams;
+export const generateMetadata = config.generateMetadata;
+export const dynamicParams = config.dynamicParams;

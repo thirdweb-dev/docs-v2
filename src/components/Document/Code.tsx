@@ -17,6 +17,7 @@ import Link from "next/link";
 // @ts-ignore
 import { solidity } from "highlightjs-solidity";
 import { CopyButton } from "../others/CopyButton";
+import { ScrollShadow } from "../others/ScrollShadow/ScrollShadow";
 
 const htmlToReactParser = Parser();
 const processNodeDefinitions = ProcessNodeDefinitions();
@@ -53,7 +54,7 @@ export async function CodeBlock(props: {
 			code = await format(code, {
 				parser: "babel-ts",
 				plugins: [parserBabel, estree],
-				printWidth: 70,
+				printWidth: 80,
 			});
 		} catch (e) {
 			// ignore
@@ -125,21 +126,23 @@ export async function CodeBlock(props: {
 	}
 
 	return (
-		<div className="relative">
+		<div className="group/code relative">
 			<code
-				className="styled-scrollbar relative mb-5 block max-h-[80vh] overflow-auto rounded-md border bg-b-800 p-4 font-mono text-sm leading-7"
+				className="relative mb-5 block rounded-md border bg-b-800 font-mono text-sm leading-7"
 				lang={lang}
 			>
-				<pre
-					dangerouslySetInnerHTML={
-						ReactElement ? undefined : { __html: highlightedCode }
-					}
-				>
-					{ReactElement}
-				</pre>
+				<ScrollShadow scrollableClassName="p-4" className="">
+					<pre
+						dangerouslySetInnerHTML={
+							ReactElement ? undefined : { __html: highlightedCode }
+						}
+					>
+						{ReactElement}
+					</pre>
+				</ScrollShadow>
 			</code>
 
-			<div className="absolute right-4 top-4 z-10">
+			<div className="absolute right-4 top-4 z-20 opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
 				<CopyButton text={code} />
 			</div>
 		</div>
@@ -150,9 +153,13 @@ export function InlineCode(props: { code: string; className?: string }) {
 	return (
 		<code
 			className={cn(
-				"max-h-20 rounded-md border bg-b-700 px-2 py-0.5 text-[0.9em]",
+				"max-h-20 rounded-md border bg-b-700 px-1.5 py-0.5 text-[0.875em]",
 				props.className,
 			)}
+			style={{
+				boxDecorationBreak: "clone",
+				WebkitBoxDecorationBreak: "clone",
+			}}
 		>
 			{props.code}
 		</code>
@@ -171,6 +178,10 @@ function fixBashHighlight() {
 			"pnpm",
 			"install",
 			"add",
+			"node",
+			"ts-node",
+			"bun",
+			"thirdweb",
 		];
 	}
 }

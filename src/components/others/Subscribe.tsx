@@ -19,9 +19,19 @@ export function Subscribe() {
 	}
 	return (
 		<form
-			onSubmit={(e) => {
+			onSubmit={async (e) => {
 				e.preventDefault();
 				setIsSubmitted(true);
+
+				try {
+					await fetch("/api/email-signup", {
+						method: "POST",
+						body: JSON.stringify({ email }),
+					});
+				} catch (e) {
+					console.debug("Error subscribing");
+					console.error(e);
+				}
 			}}
 			className="group"
 		>

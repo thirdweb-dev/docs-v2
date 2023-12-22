@@ -5,5 +5,13 @@
 	"singleQuote": false,
 	"trailingComma": "all",
 	"printWidth": 80,
-	"semi": true
+	"semi": true,
+	"overrides": [
+		{
+			"files": "redirects.mjs",
+			"options": {
+				"printWidth": 200
+			}
+		}
+	]
 }
