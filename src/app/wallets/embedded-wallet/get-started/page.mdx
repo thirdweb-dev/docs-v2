@@ -1,8 +1,8 @@
 import EmbeddedWallet from "../images/embedded-wallet.svg";
-import { Callout } from "@/components/Document";
+import { Callout, OpenSourceCard } from "@/components/Document";
 import Image from "next/image";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
- 
+
 # QuickStart
 
 Once set up, your app will be able to connect and create embedded wallets for users.
@@ -11,27 +11,21 @@ Once set up, your app will be able to connect and create embedded wallets for us
 
 See Embedded Wallets in action with our demo app:
 
-<Callout variant='info' title="CatAttackDemo">
-
-<div className="flex flex-row items-center gap-x-2">
-	<Image src={EmbeddedWallet} />
-	[CatAttack: Embedded Wallet Demo App](https://catattack.thirdweb.com)
-</div>
-
-</Callout>
+<OpenSourceCard
+	title="CatAttack"
+	description="Embedded Wallet Demo App"
+	href="https://catattack.thirdweb.com"
+/>
 
 ## Starting from a template
 
 Quickly get started with one of our templates:
 
-<Callout variant='info' title="Embedded + Smart Wallet Starter Kit">
-
-<div className="flex flex-row items-center gap-x-2">
-	<Image src={EmbeddedWallet} />
-	[Embedded + Smart Wallet Starter Kit](https://github.com/thirdweb-example/embedded-smart-wallet)
-</div>
-
-</Callout>
+<OpenSourceCard
+	title="Embedded + Smart Wallet Starter Kit"
+	description="A starter kit for building embedded wallets with smart contract integrations."
+	href="https://github.com/thirdweb-example/embedded-smart-wallet"
+/>
 
 ## Starting from existing project
 
