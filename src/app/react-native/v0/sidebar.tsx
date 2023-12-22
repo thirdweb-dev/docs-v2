@@ -31,6 +31,12 @@ export const sidebar: SideBar = {
 		{
 			name: "Connecting Wallets",
 			href: `${sdkSlug}/connecting-wallets`,
+			links: [
+				{
+					name: "Custom UI",
+					href: `${sdkSlug}/connecting-wallets/custom-ui`,
+				},
+			],
 		},
 		{
 			name: "Wallets",
