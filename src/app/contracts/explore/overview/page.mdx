@@ -1,4 +1,4 @@
-import { Carousel, ArticleCard } from "@/components/Document";
+import { Carousel, ArticleCard, OpenSourceCard } from "@/components/Document";
 import testImage from "./assets/test.jpg";
 
 # Explore (Pre-built Contracts)
@@ -53,31 +53,20 @@ Pre-built contracts are proxy contracts created by the thirdweb team to cover mo
 
 ### Templates
 
-<Carousel slidesToShow={{
-	lg: 3,
-	md: 2,
-	sm: 1
-}}>
-
-<ArticleCard
+<OpenSourceCard
 	title="Marketplace"
 	description="Create an NFT Marketplace using Marketplace contract."
 	href="/"
-	image={testImage}
 />
 
-<ArticleCard
+<OpenSourceCard
 	title="NFT Drop"
 	description="Create a claim page for NFTs using the NFT Drop contract."
 	href="/"
-	image={testImage}
 />
 
-<ArticleCard
+<OpenSourceCard
 	title="NFT Gallery"
 	description="Create an NFT Gallery to view and display metadata from any NFT contract."
 	href="/"
-	image={testImage}
 />
-
-</Carousel>

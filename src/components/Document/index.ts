@@ -19,3 +19,4 @@ export { GithubButtonLink } from "./GithubButtonLink";
 export { EditPage } from "./EditPage";
 export { Grid } from "./Grid";
 export { SDKCard } from "./SDKCard";
+export { DocImage } from "./DocImage";

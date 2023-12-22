@@ -1,12 +1,8 @@
-import {
-	Carousel,
-	ArticleCard,
-} from "@/components/Document";
-import testImage from "./assets/test.jpg";
+import { Carousel, ArticleCard, OpenSourceCard } from "@/components/Document";
 
 # Wallets
 
-Seamlessly onboard and authenticate users in your applications. 
+Seamlessly onboard and authenticate users in your applications.
 
 ## Products
 
@@ -26,21 +22,18 @@ Seamlessly onboard and authenticate users in your applications.
 	title="Get Started with Connect"
 	description="Learn how to add a Connect Wallet component into your app."
 	href="/wallets/connect/connect-get-started"
-	image={testImage}
 />
 
 <ArticleCard
 	title="Custom Connect Wallet experience"
 	description="Learn how to create a custom wallet connection experience."
 	href="/wallets/connect/custom-get-started"
-	image={testImage}
 />
 
 <ArticleCard
 	title="Integrate Auth with Supabase"
 	description="Learn how to integrate Auth with Supabase."
 	href="/wallets/auth/integrations/supabase"
-	image={testImage}
 />
 
 </Carousel>
@@ -49,40 +42,28 @@ Seamlessly onboard and authenticate users in your applications.
 
 ## Templates
 
-<Carousel slidesToShow={{
-	lg: 3,
-	md: 2,
-	sm: 1
-}}>
-
-<ArticleCard
+<OpenSourceCard
 	title="Auth with Fiber"
 	description="Enable wallet-based login using Auth (SIWE) and Fiber."
 	href="https://github.com/thirdweb-example/thirdweb-auth-fiber"
-	image={testImage}
 />
 
-<ArticleCard
+<OpenSourceCard
 	title="Auth with Next"
 	description="Create wallet-based login using Auth (SIWE) and Next."
 	href="https://github.com/thirdweb-example/thirdweb-auth-next"
-	image={testImage}
 />
 
-<ArticleCard
+<OpenSourceCard
 	title="Web3 Flight"
 	description="Create a boarding pass experience using Smart Wallets"
 	href="https://github.com/thirdweb-example/web3flight"
-	image={testImage}
 />
 
-<ArticleCard
+<OpenSourceCard
 	title="Embedded Smart Wallet"
 	description="Create an embedded wallet as the personal wallet for a smart wallet"
 	href="https://github.com/thirdweb-example/embedded-smart-wallet"
-	image={testImage}
 />
-
-</Carousel>
 
 <br />

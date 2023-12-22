@@ -1,5 +1,5 @@
 import { Breadcrumb, Callout } from "@/components/Document";
-import { WalletCard } from "./_components/WalletCard";
+import { WalletCard, WalletCardGrid } from "@/components/others/WalletCard";
 // icons
 import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
 import CoinbaseIcon from "@public/icons/wallets/coinbase.svg";
@@ -36,7 +36,11 @@ import RabbyIcon from "@public/icons/wallets/rabby.svg";
 
 # Wallets
 
-<div className="grid-cols-1 md:grid-cols-3 grid gap-x-10 gap-y-16 mt-20">
+thirdweb React SDK comes out of the box with support for below listed wallets:
+
+You can also easily integrate _any_ other wallet provider by a [Building a wallet interface](/wallet-sdk/v2/build-a-wallet) for it.
+
+<WalletCardGrid>
 	<WalletCard
 		label="MetaMask"
 		href="/references/react/v4/metamaskWallet"
@@ -132,14 +136,4 @@ import RabbyIcon from "@public/icons/wallets/rabby.svg";
 		href="/references/react/v4/rabbyWallet"
 		icon={RabbyIcon}
 	/>
-</div>
-
-<div className="h-12" />
-
-<Callout variant='info'>
-
-Don't see the wallet you are looking for?
-
-You can easily integrate _any_ wallet provider by [Building your own wallet !](/wallet/build-a-wallet)
-
-</Callout>
+</WalletCardGrid>

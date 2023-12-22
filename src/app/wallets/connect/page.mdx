@@ -1,16 +1,11 @@
-import { CardLink } from "@/components/Document/CardLink";
-import { Grid, SDKCard } from "@/components/Document";
-import Image from "next/image";
+import { Callout, DocImage } from "@/components/Document";
 import connectModal from "./assets/connect-modal.png";
 import customModal from "./assets/custom-modals.png";
 import connectPlayground from "./assets/connect-playground.png";
-import { ReactIcon, TypeScriptIcon, UnityIcon } from "@/icons";
 
 # Overview
 
-Connect is a comprehensive toolkit for connecting end-user wallets to applications and games. With Connect, you have the option to use the Connect Wallet component or utilize the Wallet SDK to create a customized experience that suits your app requirements.
-
-<Image src={connectModal} alt="connectModal" className="mt-6" />
+Connect is a comprehensive toolkit for connecting end-user wallets to applications and games. With Connect, you have the option to use the ConnectWallet component or utilize the Wallet SDK to create a customized experience that suits your app requirements.
 
 ### Features
 
@@ -21,7 +16,9 @@ Connect is a comprehensive toolkit for connecting end-user wallets to applicatio
 - **Authenticate Users:** Easily enable Auth (SIWE) to authenticate your end users.
 - **SDK Integration:** Easily integrate with thirdweb's Contract SDKs to enable users to interact with your application.
 
-<Image src={customModal} alt="customModal" />
+<DocImage src={connectModal} />
+
+<DocImage src={customModal} />
 
 ### Use Cases
 
@@ -29,25 +26,12 @@ Connect is a comprehensive toolkit for connecting end-user wallets to applicatio
 - Help onboard non-native crypto users via email, social, or guest wallets
 - Integrate with SDKs to enable contract interactions via games or applications
 
-### Try it out!
+### Try it out
 
-Try out and customize the Connect modal to match your brand using the thirdweb dashboard.
+<Callout variant='info' title="Playground">
 
-<Image src={connectPlayground} alt="connectPlayground" />
+See the ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
 
-<CardLink
-	label="Try Out the Connect Wallet Component"
-	href="https://thirdweb.com/dashboard/wallets/connect"
-	icon="educate"
-/>
+</Callout>
 
-## Get Started
-
-Pick a platform to learn how to integrate Connect into your application.
-
-<Grid>
-	<SDKCard href="/react" title="React" icon={ReactIcon} />
-	<SDKCard href="/react-native" title="React Native" icon={ReactIcon} />
-	<SDKCard href="/typescript" title="TypeScript" icon={TypeScriptIcon} />
-	<SDKCard href="/unity" title="Unity" icon={UnityIcon} />
-</Grid>
+<DocImage src={connectPlayground} />

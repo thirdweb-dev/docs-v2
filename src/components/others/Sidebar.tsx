@@ -282,6 +282,12 @@ function containsActiveHref(
 	sidebarlink: SidebarLink,
 	activeLink: string,
 ): boolean {
+	if ("links" in sidebarlink) {
+		return sidebarlink.links.some((link) =>
+			containsActiveHref(link, activeLink),
+		);
+	}
+
 	if ("separator" in sidebarlink) {
 		return false;
 	}
@@ -289,11 +295,7 @@ function containsActiveHref(
 	if (sidebarlink.href === activeLink) {
 		return true;
 	}
-	if ("links" in sidebarlink) {
-		return sidebarlink.links.some((link) =>
-			containsActiveHref(link, activeLink),
-		);
-	}
+
 	return false;
 }
 

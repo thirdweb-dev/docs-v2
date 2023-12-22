@@ -11,6 +11,7 @@ import StorageInterfaceMDX from "./props/storageInterface.mdx";
 import QueryClientMDX from "./props/queryClient.mdx";
 import LocaleMDX from "./props/locale.mdx";
 import ThemeMDX from "./props/theme.mdx";
+import DefaultChainsMDX from "../common/defaultChains.mdx";
 
 # ThirdwebProvider
 
@@ -27,6 +28,10 @@ you need to first obtain an API key from the [dashboard](https://thirdweb.com/da
 ## Usage
 
 Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality from anywhere in your app.
+
+If you are using one of [default supported chains](#default-chains), provide the name of the chain as a `string` to the `activeChain` prop.
+
+<DefaultChainsMDX />
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";

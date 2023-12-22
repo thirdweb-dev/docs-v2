@@ -1,0 +1,171 @@
+import { Details } from "@/components/Document";
+
+# Build a Wallet interface
+
+Building a Wallet interface is done in two steps:
+
+1. Create a `Connector` class
+2. Create a `Wallet` class and use the `Connector` class in it
+
+## 1. Create Connector class
+
+Extend the abstract [`Connector`](/references/wallets/v2/Connector) interface and implement the all the required methods.
+
+```javascript
+import { Connector, ConnectParams } from '@thirdweb-dev/wallets';
+
+export class MyConnector extends Connector {
+  connect(options?: ConnectParams<TConnectParams>): Promise<string> {
+    // ...
+  }
+
+  disconnect(): Promise<void> {
+    // ...
+  }
+
+  getAddress(): Promise<string> {
+    // ...
+  }
+
+  getSigner(): Promise<Signer> {
+    // ...
+  }
+
+  getProvider(): Promise<providers.Provider> {
+    // ...
+  }
+
+  switchChain(chainId: number): Promise<void> {
+    // ...
+  }
+
+  isConnected(): Promise<boolean> {
+    // ...
+  }
+
+  setupListeners(): Promise<void> {
+    // ...
+  }
+
+  updateChains(chains: Chain[]): void {
+    // ...
+  }
+}
+```
+
+### Required methods
+
+<Details summary='connect' id='connect'>
+
+This method should trigger the connection flow of your wallet with the user's app.
+
+The arguments needed to connect your wallet. This is specific to your wallet implementation which is why we leave it open for you to
+add custom arguments here.
+
+Returns a `string` containing the wallet address, or `undefined` if the connection failed.
+
+</Details>
+
+<Details summary='disconnect' id='disconnect'>
+
+Disconnect the currently connected wallet from your app.
+
+</Details>
+
+<Details summary='getSigner' id='getSigner'>
+
+Returns a `Promise<Signer>` with the ethers signer associated with your wallet.
+
+</Details>
+
+<Details summary='getProvider' id='getProvider'>
+
+Returns a `Promise<providers.Provider>` with the ethers provider associated with your wallet.
+
+</Details>
+
+<Details summary='isConnected' id='isConnected'>
+
+Returns a `Promise<boolean>` indicating whether the wallet is connected or not.
+
+</Details>
+
+<Details summary='getAddress' id='getAddress'>
+
+Returns a `Promise<string>` with the currently connected wallet address.
+
+</Details>
+
+### Optional methods
+
+You can throw an exception or leave the implementation empty if you don't want to implement these methods.
+
+<Details summary='switchChain' id='switchChain' tags={["Optional"]}>
+
+Switch the chain the wallet is connected to.
+
+</Details>
+
+<Details summary='setupListeners' id='setupListeners' tags={["Optional"]}>
+
+This method should set all listeners needed for the wallet to work. It will be used by the `AbstractClientWallet` class to set up the listeners
+when the wallet is connected.
+
+</Details>
+
+<Details summary='updateChains' id='updateChains' tags={["Optional"]}>
+
+Update the array of chains the wallet can connect to.
+
+</Details>
+
+## 2. Create Wallet class
+
+Now that the hard part is done, the rest is easy, we just need to wrap our connector in a `AbstractClientWallet` class.
+
+The [`AbstractClientWallet`](/wallet/interface/abstract-client-wallet) class is the base
+class that provides an interface for interacting with your connector on one side and with applications on the other.
+
+The main method that needs to be overridden is the `getConnector` method. This method should return a `Promise`
+that resolves to the [`Connector`](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/interfaces/connector.ts#L6)
+class that you implemented.
+
+```javascript
+export class MyWallet extends AbstractClientWallet {
+  async getConnector(): Promise<Connector> {
+    return new MyConnector();
+  }
+}
+```
+
+You can expose any custom logic here as the public API for your wallet.
+
+## Required Methods
+
+<Details summary="getConnector" id="getConnector">
+
+Returns a `Promise<Connector>` with the connector class that you implemented.
+
+ </Details>
+
+## Using your new wallet
+
+At this point, you should be able to instantiate your new wallet and call `connect` on it.
+
+```ts
+const wallet = new MyWallet();
+wallet.connect();
+```
+
+## Examples
+
+You can look at how the built-in wallets in `@thirdweb-dev/wallets` package are created for reference
+
+- [MetaMask](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/metamask.ts)
+- [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/coinbase-wallet.ts)
+- [WalletConnect v2](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect.ts)
+- [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/local-wallet.ts)
+- [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/safe.ts)
+- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/smart-wallet.ts)
+- [Embedded Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/embedded-wallet.ts)
+- [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/magic.ts)

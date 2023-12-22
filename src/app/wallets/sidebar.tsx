@@ -23,187 +23,15 @@ export const sidebar: SideBar = {
 		{
 			name: "Connect",
 			icon: <WalletsConnectIcon />,
-			isCollapsible: true,
+			href: `${connectSlug}`,
 			links: [
 				{
-					name: "Overview",
-					href: `${connectSlug}`,
-				},
-				{
-					name: "Use Connect Component",
-					isCollapsible: false,
-					links: [
-						{
-							name: "Get Started",
-							href: `${connectSlug}/connect-get-started`,
-						},
-						{
-							name: "Customization",
-							links: [
-								{
-									name: "Wallet Providers",
-									href: `${connectSlug}/customization/wallet-providers`,
-								},
-								{
-									name: "Theme",
-									href: `${connectSlug}/customization/theme`,
-								},
-								{
-									name: "Button",
-									href: `${connectSlug}/customization/button`,
-								},
-								{
-									name: "Modal",
-									href: `${connectSlug}/customization/modal`,
-								},
-								{
-									name: "Drop-Down",
-									href: `${connectSlug}/customization/drop-down`,
-								},
-								{
-									name: "Switch Networks",
-									href: `${connectSlug}/customization/switch-networks`,
-								},
-								{
-									name: "Custom CSS",
-									href: `${connectSlug}/customization/custom-css`,
-								},
-							],
-						},
-						{
-							name: "Sign-in Options",
-							links: [
-								{
-									name: "Embedded Wallet",
-									href: `${connectSlug}/advanced-sign-in-options/embedded-wallet`,
-								},
-								{
-									name: "Smart Wallet",
-									href: `${connectSlug}/advanced-sign-in-options/smart-wallet`,
-								},
-								{
-									name: "Auth (SIWE)",
-									href: `${connectSlug}/advanced-sign-in-options/auth`,
-								},
-							],
-						},
-					],
+					name: "ConnectWallet",
+					href: "/wallets/connect/ConnectWallet",
 				},
 				{
 					name: "Build Custom Experience",
-					isCollapsible: false,
-					links: [
-						{
-							name: "Get Started",
-							href: `${connectSlug}/custom-get-started`,
-						},
-						{
-							name: "Wallet Providers",
-							links: [
-								{
-									name: "Blocto",
-									href: "/references/wallets/latest/BloctoWallet",
-								},
-								{
-									name: "Coin98",
-									href: "/references/wallets/latest/Coin98Wallet",
-								},
-								{
-									name: "Coinbase",
-									href: "/references/wallets/latest/CoinbaseWallet",
-								},
-								{
-									name: "Core",
-									href: "/references/wallets/latest/CoreWallet",
-								},
-								{
-									name: "DefiWallet",
-									href: "/references/wallets/latest/CryptoDefiWallet",
-								},
-								{
-									name: "Frame",
-									href: "/references/wallets/latest/FrameWallet",
-								},
-								{
-									name: "Magic Link",
-									href: "/references/wallets/latest/MagicLink",
-								},
-								{
-									name: "MetaMask",
-									href: "/references/wallets/latest/MetaMaskWallet",
-								},
-								{
-									name: "OKX Wallet",
-									href: "/references/wallets/latest/OKXWallet",
-								},
-								{
-									name: "OneKeyWallet",
-									href: "/references/wallets/latest/OneKeyWallet",
-								},
-								{
-									name: "Phantom",
-									href: "/references/wallets/latest/PhantomWallet",
-								},
-								{
-									name: "Rabby",
-									href: "/references/wallets/latest/RabbyWallet",
-								},
-								{
-									name: "WalletConnect",
-									href: "/references/wallets/latest/WalletConnect",
-								},
-								{
-									name: "Rainbow",
-									href: "/references/wallets/latest/RainbowWallet",
-								},
-								{
-									name: "Safe",
-									href: "/references/wallets/latest/SafeWallet",
-								},
-								{
-									name: "Trust",
-									href: "/references/wallets/latest/TrustWallet",
-								},
-								{
-									name: "Zerion",
-									href: "/references/wallets/latest/ZerionWallet",
-								},
-							],
-						},
-						{
-							name: "Wallet Hooks",
-							links: [
-								{
-									name: "Wallet Providers",
-									href: `${connectSlug}/customization/wallet-providers`,
-								},
-								{
-									name: "Theme",
-									href: `${connectSlug}/customization/theme`,
-								},
-								{
-									name: "Button",
-									href: `${connectSlug}/customization/button`,
-								},
-								{
-									name: "Modal",
-									href: `${connectSlug}/customization/modal`,
-								},
-								{
-									name: "Drop-Down",
-									href: `${connectSlug}/customization/drop-down`,
-								},
-								{
-									name: "Switch Networks",
-									href: `${connectSlug}/customization/switch-networks`,
-								},
-								{
-									name: "Custom CSS",
-									href: `${connectSlug}/advanced-customization/custom-css`,
-								},
-							],
-						},
-					],
+					href: "/wallets/connect/custom",
 				},
 			],
 		},
@@ -214,12 +42,7 @@ export const sidebar: SideBar = {
 			name: "Embedded Wallet",
 			icon: <WalletsEmbeddedIcon />,
 			href: `${embeddedSlug}/overview`,
-			isCollapsible: true,
 			links: [
-				{
-					name: "Overview",
-					href: `${embeddedSlug}/overview`,
-				},
 				{
 					name: "How it works",
 					href: `${embeddedSlug}/how-it-works`,
@@ -259,11 +82,8 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Custom Authentication",
+					href: `${embeddedSlug}/custom-auth/overview`,
 					links: [
-						{
-							name: "Overview",
-							href: `${embeddedSlug}/custom-auth/overview`,
-						},
 						{
 							name: "Configuration",
 							href: `${embeddedSlug}/custom-auth/configuration`,
@@ -316,11 +136,8 @@ export const sidebar: SideBar = {
 			name: "Smart Wallet",
 			icon: <WalletsSmartIcon />,
 			isCollapsible: true,
+			href: `${smartWalletSlug}`,
 			links: [
-				{
-					name: "Overview",
-					href: `${smartWalletSlug}`,
-				},
 				{
 					name: "How it Works",
 					href: `${smartWalletSlug}/how-it-works`,
@@ -477,6 +294,12 @@ export const sidebar: SideBar = {
 					href: `${authSlug}/faq`,
 				},
 			],
+		},
+		// Wallet SDK
+		{ separator: true },
+		{
+			name: "Wallet SDK",
+			href: "/wallet-sdk/latest",
 		},
 	],
 };

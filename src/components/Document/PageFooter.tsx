@@ -45,7 +45,7 @@ function Links() {
 			<FooterLinkItem
 				prefix="View our"
 				label="Changelog"
-				href="https://blog.thirdweb.com/changelog/"
+				href="/changelog"
 				icon={ScrollTextIcon}
 			/>
 		</ul>

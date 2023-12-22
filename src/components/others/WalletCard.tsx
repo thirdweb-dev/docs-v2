@@ -9,21 +9,29 @@ export function WalletCard(props: WalletInfo) {
 	return (
 		<Link href={props.href}>
 			<div className="group/wallet-card rounded-[26px] border bg-b-800 px-5 py-2 transition-colors hover:border-accent-500 hover:bg-accent-900">
-				<div className="mt-[-40px] flex flex-col justify-center gap-6">
+				<div className="mt-[-30px] flex flex-col justify-center gap-1">
 					<Image
 						src={props.icon}
 						alt=""
-						className="h-16 w-16 transition-transform duration-300 group-hover/wallet-card:scale-110 md:h-20 md:w-20"
+						className="h-20 w-20 rounded-[16px] border-2 bg-b-900 p-2 transition-transform duration-300 group-hover/wallet-card:scale-110 group-hover/wallet-card:border-accent-500 group-hover/wallet-card:bg-accent-900"
 					/>
 					<Heading
 						id={props.label}
 						level={3}
-						className="text-lg font-medium text-f-100 group-hover/wallet-card:text-f-100 md:text-lg"
+						className="text-base font-medium text-f-100 group-hover/wallet-card:text-f-100 md:text-base"
 					>
 						{props.label}
 					</Heading>
 				</div>
 			</div>
 		</Link>
+	);
+}
+
+export function WalletCardGrid(props: { children: React.ReactNode }) {
+	return (
+		<div className="mt-20 grid grid-cols-1 gap-x-10 gap-y-16 md:grid-cols-3">
+			{props.children}
+		</div>
 	);
 }

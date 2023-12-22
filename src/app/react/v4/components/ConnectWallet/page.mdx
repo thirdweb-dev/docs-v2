@@ -1,4 +1,10 @@
-import { Details, Breadcrumb, Callout, Tabs } from "@/components/Document";
+import {
+	Details,
+	Breadcrumb,
+	Callout,
+	Steps,
+	Step,
+} from "@/components/Document";
 import Image from "next/image";
 // images
 import ConnectWalletHeroImage from "./images/connect-wallet-hero.webp";
@@ -37,9 +43,56 @@ import SwitchToActiveChainMDX from "./props/switchToActiveChain.mdx";
 
 # ConnectWallet
 
-ConnectWallet component renders a button which when clicked opens a modal to allow users to connect to wallets specified in the [ThirdwebProvider's supportedWallets](/react/v4/ThirdwebProvider#supportedWallets) prop.
+ConnectWallet component renders a button which when clicked opens a modal to allow users to connect to various wallets. It is extremly customizable and very easy to use.
 
-If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWallet Modal shows the below shown default wallets:
+<Callout variant='info' title="Playground">
+
+See the ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
+
+</Callout>
+
+<div className="border rounded-lg p-6">
+	<Image src={ConnectWalletHeroImage} />
+</div>
+
+## Usage
+
+<Steps>
+<Step title="Configure supportedWallets in ThirdwebProvider" >
+
+To Configure which wallets to show in the ConnectWallet Modal, you need to configure the `supportedWallets` prop in the [`ThirdwebProvider`](/react/v4/ThirdwebProvider) component which wraps your entire application.
+
+To display a `Recommended` tag below a wallet provider, pass in the `recommended: true` property in the wallet configurator function.
+
+```jsx
+import {
+	ThirdwebProvider,
+	metamaskWallet,
+	coinbaseWallet,
+	walletConnect,
+} from "@thirdweb-dev/react";
+
+function AppWithProviders() {
+	return (
+		<ThirdwebProvider
+			supportedWallets={[
+				metamaskWallet({
+					recommended: true,
+				}),
+				coinbaseWallet(),
+				walletConnect(),
+			]}
+			clientId="<your_client_id>"
+		>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWallet Modal show the default wallets:
+
+<Details summary="Default Wallets" id='default-wallets'>
 
 - [MetaMask](/references/react/v4/metamaskWallet)
 - [Coinbase Wallet](/references/react/v4/coinbaseWallet)
@@ -49,25 +102,29 @@ If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWa
 - [Zerion Wallet](/references/react/v4/zerionWallet)
 - [Phantom](/references/react/v4/phantomWallet)
 
-<div className="border rounded-lg p-6">
-	<Image src={ConnectWalletHeroImage} />
-</div>
+</Details>
 
-## Usage
+</Step>
+
+<Step title="Configure ConnectWallet">
+
+Render the `ConnectWallet` component anywhere in your application. Refer to [Props](#props) to see the configuration options available
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
 
-function App() {
-	return <ConnectWallet />;
+function Example() {
+	return (
+		<div>
+			<ConnectWallet />
+		</div>
+	);
 }
 ```
 
-<Callout variant='info' title="Playground">
+</Step>
 
-Try out ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
-
-</Callout>
+</Steps>
 
 ## Props
 
@@ -126,3 +183,54 @@ Try out ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.
 <Details id="switchToActiveChain" summary="switchToActiveChain">
 	<SwitchToActiveChainMDX />
 </Details>
+
+## Localization
+
+You can set the [`locale`](/react/v4/ThirdwebProvider#locale) prop of `ThirdwebProvider` component to change the language used in the ConnectWallet Modal.
+
+## Override UI and Metadata of wallets
+
+Each [Wallet Configurator](/react/v4/wallets) function returns an object. This object contains the metadata and UI of the Wallet. You can choose to override them according to your needs.
+
+```jsx
+import { metamaskWallet } from "@thirdweb-dev/react";
+
+const metamaskConfig = metamaskWallet({ ... });
+
+// override metadata
+metamaskConfig.meta.name = "..."; // change the name
+metamaskConfig.meta.iconURL = "..."; // change the icon
+metamaskConfig.meta.urls = {
+  // change urls to download the wallet on various platforms
+  android: "https://...",
+  ios: "https://...",
+  chrome: "https://...",
+};
+
+// override connection UI by passing a react component
+metamaskConfig.connectUI = () => {
+	return <div> ... </div>;
+};
+
+// custom selection UI by passing a react component
+metamaskConfig.selectUI = () => {
+	return <div> ... </div>;
+};
+
+// custom logic to check if the wallet extension is installed or not
+metamaskConfig.isInstalled = () => {
+	if (window.ethereum) {
+		return true;
+	}
+};
+
+```
+
+You can then pass the modified config to the `supportedWallets` prop in the `ThirdwebProvider` component.
+
+```jsx
+<ThirdwebProvider
+	supportedWallets={[metamaskConfig]}
+	clientId="your-client-id"
+/>
+```
