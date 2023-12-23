@@ -9,9 +9,9 @@ import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
 
 This contract inherits from the [`BaseAccount`](/contracts/build/extensions/erc-4337/SmartWallet) contract.
 
-App developers can issue `DynamicAccount` smart wallets programmatically by deploying a [`DynamicAccountFactory`](/solidity/base-contracts/dynamic-account-factory) smart contract.
+App developers can issue `DynamicAccount` smart wallets programmatically by deploying a [`DynamicAccountFactory`](/contracts/build/base-contracts/erc-4337/dynamic-account-factory) smart contract.
 
-The difference between `DynamicAccount` smart wallet and [`Account`](/solidity/base-contracts/account) smart wallet is that `DynamicAccount` is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+The difference between `DynamicAccount` smart wallet and [`Account`](/contracts/build/base-contracts/erc-4337/account) smart wallet is that `DynamicAccount` is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
 
 The admin of a given `DynamicAccount` smart wallet is allowed to make upgrades to their **own** smart wallets. This is the right wallet for developers who anticipate providing **opt-in upgrades** to their users’ wallets.
 

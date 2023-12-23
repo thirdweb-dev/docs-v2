@@ -196,6 +196,12 @@ const solidityRedirects = {
 	"/solidity/extensions/erc20": "/contracts/build/extensions/erc-20/ERC20",
 	"/solidity/base-contracts/erc20vote": "/contracts/build/base-contracts/erc-20/base",
 	"/solidity/extensions/base-account": "/contracts/build/extensions/erc-4337/SmartWallet",
+	"/solidity/base-contracts/account-factory": "/contracts/build/base-contracts/erc-4337/account-factory",
+	"/solidity/base-contracts/account": "/contracts/build/base-contracts/erc-4337/account",
+	"/solidity/base-contracts/dynamic-account-factory": "/contracts/build/base-contracts/erc-4337/dynamic-account-factory",
+	"/solidity/base-contracts/dynamic-account": "/contracts/build/base-contracts/erc-4337/dynamic-account",
+	"/solidity/base-contracts/managed-account-factory": "/contracts/build/base-contracts/erc-4337/managed-account-factory",
+	"/solidity/base-contracts/managed-account": "/contracts/build/base-contracts/erc-4337/managed-account",
 };
 
 /**
