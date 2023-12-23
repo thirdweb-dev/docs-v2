@@ -171,7 +171,7 @@ export default async (req, res) => {
 
 ### Validating the login request
 
-By default, the Auth API will validate the login request by checking that the user requesting to login successfully signed a valid [sign-in with wallet](/wallets/auth/hoa-it-works/siwe) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
+By default, the Auth API will validate the login request by checking that the user requesting to login successfully signed a valid [sign-in with wallet](/wallets/auth/how-it-works/siwe) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
 
 If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuration on the `ThirdwebAuthProvider`:
 

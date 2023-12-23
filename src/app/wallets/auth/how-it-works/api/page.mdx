@@ -37,8 +37,8 @@ The `/login` endpoint is the next part of the Auth flow. It's a `POST` endpoint 
 
 The `/login` endpoint goes through the following high-level steps to accomplish this:
 
-1. Check that the sign-in with wallet request is valid, secure, and hasn't expired, as specified in the [sign-in with wallet section](/wallets/auth/hoa-it-works/siwe).
-2. Generate a signed JWT for the user to authenticate to other endpoints, as specified in the [JWT section](/wallets/auth/hoa-it-works/json-web-tokens).
+1. Check that the sign-in with wallet request is valid, secure, and hasn't expired, as specified in the [sign-in with wallet section](/wallets/auth/how-it-works/siwe).
+2. Generate a signed JWT for the user to authenticate to other endpoints, as specified in the [JWT section](/wallets/auth/how-it-works/jwt).
 3. Return the signed JWT to the client in both the response and the cookies, for compatibility across browser and non-browser clients.
 
 ## User
@@ -53,7 +53,7 @@ The `/user` endpoint is a `GET` endpoint that allows the client to periodically 
 
 It can accomplish this by going through the following high-level steps:
 
-1. Check that the user has sent a valid JWT in the request cookies or headers, as specified in the [JWT section](/wallets/auth/hoa-it-works/json-web-tokens).
+1. Check that the user has sent a valid JWT in the request cookies or headers, as specified in the [JWT section](/wallets/auth/how-it-works/jwt).
 2. If the user hasn't sent a valid JWT, return `null`
 3. Populate any session data stored on the JWT into the user object and any external user-associated data into the user object (like data from a database)
 4. Return the user object to the client
