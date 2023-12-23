@@ -6,15 +6,15 @@ export function WalletsBreadcrumb(props: { name: string; slug: string }) {
 			crumbs={[
 				{
 					name: "React Native",
-					href: "/react-native",
+					href: "/react-native/v0",
 				},
 				{
 					name: "Wallets",
-					href: "/react-native/wallets",
+					href: "/react-native/v0/wallets",
 				},
 				{
 					name: props.name,
-					href: `/react-native/wallets/${props.slug}`,
+					href: `/react-native/v0/wallets/${props.slug}`,
 				},
 			]}
 		/>
