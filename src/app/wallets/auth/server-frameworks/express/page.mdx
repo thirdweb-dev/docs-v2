@@ -217,7 +217,7 @@ export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 ### Enhancing session data
 
-When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/wallets/auth/how-it-works/json-web-tokens)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
+When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/wallets/auth/how-it-works/jwt)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
