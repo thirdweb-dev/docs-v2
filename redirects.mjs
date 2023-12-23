@@ -163,6 +163,7 @@ const solidityRedirects = {
 	"/solidity/extensions/erc1155": "/contracts/build/extensions/erc-1155/ERC1155",
 	"/solidity/extensions/erc20mintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
 	"/solidity/base-contracts/erc721base": "/contracts/build/base-contracts/erc-721/base",
+	"/solidity/base-contracts/erc721delayedreveal": "/contracts/build/base-contracts/erc-721/delayed-reveal",
 };
 
 /**
