@@ -158,8 +158,10 @@ const reactRedirects = {
 };
 
 const solidityRedirects = {
+	"/solidity/extensions/": "/contracts/build/extensions/",
 	"/solidity/extensions/erc721": "/contracts/build/extensions/erc-721/ERC721",
 	"/solidity/extensions/erc1155": "/contracts/build/extensions/erc-1155/ERC1155",
+	"/solidity/extensions/erc20mintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
 };
 
 /**

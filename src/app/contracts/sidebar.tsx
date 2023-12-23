@@ -185,6 +185,7 @@ export const sidebar: SideBar = {
 				// base contracts
 				{
 					name: "Base Contracts",
+					href: `${baseContractsSlug}`,
 					links: [
 						{
 							name: "ERC-20",
@@ -316,6 +317,7 @@ export const sidebar: SideBar = {
 				// extensions
 				{
 					name: "Extensions",
+					href: `${extensionsSlug}`,
 					links: [
 						{
 							name: "General",
