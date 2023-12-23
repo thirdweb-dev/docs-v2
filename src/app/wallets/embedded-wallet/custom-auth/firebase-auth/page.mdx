@@ -1,5 +1,6 @@
-import { Callout } from "@/components/Document";
+import { Callout, DocImage } from "@/components/Document";
 import { Steps, Step } from "@/components/Document";
+import ewCreateKey from "../images/ew-create-key.png";
 
 # Integrate Firebase Auth
 
@@ -48,11 +49,11 @@ To skip over initialization steps, we will use the React Native TypeScript start
 1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded)
 2. To use embedded wallets, choose an existing API key or create a new one. Learn more about API keys.
 
-   ![Create an API key through the embedded wallet page](../assets/ew-create-key.png)
+   <DocImage src={ewCreateKey} />
 
 3. In the configuration view, enable **Custom JSON Web Token.**
 
-   ![Enable Custom JSON Web Token](../assets/configuration-view.png)
+   {/* ![Enable Custom JSON Web Token](../assets/configuration-view.png) */}
 
 4. Set the **JWKS URI** as the following URL:
 
@@ -62,7 +63,7 @@ To skip over initialization steps, we will use the React Native TypeScript start
 
 5. Set the AUD Value as the Firebase projectId. (Example, `custom-auth-53169`)
 
-   ![Custom JSON web token fields set up](../assets/custom-json-firebase.png)
+   {/* ![Custom JSON web token fields set up](../assets/custom-json-firebase.png) */}
 
 6. Select **Save changes**.
 
