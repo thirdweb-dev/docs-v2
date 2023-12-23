@@ -17623,7 +17623,7 @@
 						"summary": [
 							{
 								"kind": "text",
-								"text": "A wallet configurator for [Embedded Wallet](https://portal.thirdweb.com/wallet/embedded-wallet) which allows integrating the wallet with React.\n\nIt returns a "
+								"text": "A wallet configurator for [Embedded Wallet](https://portal.thirdweb.com/wallet/wallets/embedded-wallet/overview) which allows integrating the wallet with React.\n\nIt returns a "
 							},
 							{
 								"kind": "code",
