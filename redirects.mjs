@@ -175,6 +175,8 @@ const solidityRedirects = {
 	"/solidity/extensions/erc721claimphases": "/contracts/build/extensions/erc-721/ERC721ClaimPhases",
 	"/solidity/extensions/contractmetadata": "/contracts/build/extensions/general/ContractMetadata",
 	"/solidity/extensions/ownable": "/contracts/build/extensions/general/Ownable",
+	"/solidity/extensions/multicall": "/contracts/build/extensions/general/Multicall",
+	"/solidity/extensions/dropsinglephase": "/contracts/build/extensions/general/DropSinglePhase",
 };
 
 /**
