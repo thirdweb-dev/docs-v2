@@ -669,10 +669,6 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
-				{
-					name: "FAQs",
-					href: "/contracts/faq",
-				},
 			],
 		},
 	],
