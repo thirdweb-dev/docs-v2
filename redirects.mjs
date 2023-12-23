@@ -202,6 +202,9 @@ const solidityRedirects = {
 	"/solidity/base-contracts/dynamic-account": "/contracts/build/base-contracts/erc-4337/dynamic-account",
 	"/solidity/base-contracts/managed-account-factory": "/contracts/build/base-contracts/erc-4337/managed-account-factory",
 	"/solidity/base-contracts/managed-account": "/contracts/build/base-contracts/erc-4337/managed-account",
+	"/solidity/extensions/erc721claimcustom": "/contracts/build/extensions/erc-721/ERC721ClaimCustom",
+	"/solidity/extensions/permissions": "/contracts/build/extensions/general/Permissions",
+	"/solidity/base-contracts/erc1155drop": "/contracts/build/base-contracts/erc-1155/drop",
 };
 
 /**
