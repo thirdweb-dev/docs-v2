@@ -177,6 +177,9 @@ const solidityRedirects = {
 	"/solidity/extensions/ownable": "/contracts/build/extensions/general/Ownable",
 	"/solidity/extensions/multicall": "/contracts/build/extensions/general/Multicall",
 	"/solidity/extensions/dropsinglephase": "/contracts/build/extensions/general/DropSinglePhase",
+	"/solidity/extensions/erc1155batchmintable": "/contracts/build/extensions/erc-1155/ERC1155BatchMintable",
+	"/solidity/extensions/erc1155burnable": "/contracts/build/extensions/erc-1155/ERC1155Burnable",
+	"/solidity/extensions/erc1155enumerable": "/contracts/build/extensions/erc-1155/ERC1155Enumerable",
 };
 
 /**
