@@ -3,7 +3,7 @@ import { GithubButtonLink } from "@/components/Document";
 
 # ERC20DropVote
 
-The `ERC20Drop` base contract adds the [Drop Single Phase](/contracts/build/extensions/general/DropSinglePhase) extension to the [ERC20 base](/solidity/base-contracts/erc20base) contract
+The `ERC20Drop` base contract adds the [Drop Single Phase](/contracts/build/extensions/general/DropSinglePhase) extension to the [ERC20 base](/contracts/build/base-contracts/erc-20/base) contract
 to allow you to distribute your tokens under the criteria of claim conditions. It also
 implements the [ERC20Votes](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/extensions/ERC20Votes.sol) contract,
 which provides voting and delegation functionality, along with delegation by signature.
@@ -45,10 +45,10 @@ contract MyToken is ERC20DropVote {
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
 
-- [ERC20](/solidity/extensions/erc20)
-- [ERC20ClaimConditionsV2](/solidity/extensions/erc20claimconditions)
-- [ERC20Permit](/solidity/extensions/erc20permit)
-- [PrimarySale](/solidity/extensions/primarysale)
+- [ERC20](/contracts/build/extensions/erc-20/ERC20)
+- [ERC20ClaimConditionsV2](/contracts/build/extensions/erc-20/ERC20claimconditions)
+- [ERC20Permit](/contracts/build/extensions/erc-20/ERC20Permit)
+- [PrimarySale](/contracts/build/extensions/general/PrimarySale)
 - [Ownable](/contracts/build/extensions/general/Ownable)
 - [ContractMetadata](/contracts/build/extensions/general/ContractMetadata)
 

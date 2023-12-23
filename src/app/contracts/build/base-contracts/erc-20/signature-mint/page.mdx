@@ -3,8 +3,8 @@ import { GithubButtonLink } from "@/components/Document";
 
 # ERC20SignatureMint
 
-The `ERC20SignatureMint` smart contract adds the [signature-based minting extension](/solidity/extensions/erc20signaturemint)
-functionality to the [ERC20Base](/solidity/base-contracts/erc20base) contract. [Signature minting](/glossary/signature-based-minting) uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712),
+The `ERC20SignatureMint` smart contract adds the [signature-based minting extension](/contracts/build/extensions/erc-20/ERC20signaturemint)
+functionality to the [ERC20Base](/contracts/build/base-contracts/erc-20/base) contract. [Signature minting](/glossary/signature-based-minting) uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712),
 which enables the contract admin to authorize an external party's request to mint tokens on the admin's contract.
 At a high level, this means you can authorize others to mint tokens
 on your contract, and specify what exactly will be minted by that external party.
@@ -46,12 +46,12 @@ contract MyToken is ERC20SignatureMint {
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
 
-- [ERC20](/solidity/extensions/erc20)
+- [ERC20](/contracts/build/extensions/erc-20/ERC20)
 - [ERC20Mintable](/contracts/build/extensions/erc-20/ERC20BatchMintable)
-- [ERC20BatchMintable](/solidity/extensions/erc20batchmintable)
-- [ERC20SignatureMintable](/solidity/extensions/erc20signaturemint)
-- [ERC20Permit](/solidity/extensions/erc20permit)
-- [PrimarySale](/solidity/extensions/primarysale)
+- [ERC20BatchMintable](/contracts/build/extensions/erc-20/ERC20BatchMintable)
+- [ERC20SignatureMintable](/contracts/build/extensions/erc-20/ERC20signaturemint)
+- [ERC20Permit](/contracts/build/extensions/erc-20/ERC20Permit)
+- [PrimarySale](/contracts/build/extensions/general/PrimarySale)
 - [ContractMetadata](/contracts/build/extensions/general/ContractMetadata)
 - [Ownable](/contracts/build/extensions/general/Ownable)
 

@@ -184,6 +184,18 @@ const solidityRedirects = {
 	"/solidity/base-contracts/erc1155lazymint": "/contracts/build/base-contracts/erc-1155/lazy-mint",
 	"/solidity/extensions/lazymint": "/contracts/build/extensions/general/LazyMint",
 	"/solidity/extensions/erc1155claimcustom": "/contracts/build/extensions/erc-1155/ERC1155ClaimCustom",
+	"/solidity/extensions/delayedreveal": "/contracts/build/extensions/general/DelayedReveal",
+	"/solidity/extensions/erc1155dropsinglephase": "/contracts/build/extensions/erc-1155/ERC1155DropSinglePhase",
+	"/solidity/extensions/erc1155claimconditions": "/contracts/build/extensions/erc-1155/ERC1155ClaimConditions",
+	"/solidity/extensions/primarysale": "/contracts/build/extensions/general/PrimarySale",
+	"/solidity/extensions/erc1155signaturemint": "/contracts/build/extensions/erc-1155/ERC1155SignatureMint",
+	"/solidity/base-contracts/erc1155base": "/contracts/build/base-contracts/erc-1155/base",
+	"/solidity/extensions/erc20Permit": "/contracts/build/extensions/erc-20/ERC20Permit",
+	"/solidity/extensions/erc20batchmintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
+	"/solidity/base-contracts/erc20base": "/contracts/build/base-contracts/erc-20/base",
+	"/solidity/extensions/erc20": "/contracts/build/extensions/erc-20/ERC20",
+	"/solidity/base-contracts/erc20vote": "/contracts/build/base-contracts/erc-20/base",
+	"/solidity/extensions/base-account": "/contracts/build/extensions/erc-4337/SmartWallet",
 };
 
 /**

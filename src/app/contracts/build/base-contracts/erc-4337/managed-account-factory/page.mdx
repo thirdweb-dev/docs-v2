@@ -7,7 +7,7 @@ import { GithubButtonLink } from "@/components/Document";
 import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccountFactory.sol";
 ```
 
-This contract inherits from the [`BaseAccountFactory`](/solidity/extensions/base-account-factory) contract.
+This contract inherits from the [`BaseAccountFactory`](/contracts/build/extensions/erc-4337/SmartWallet-factory) contract.
 
 This factory smart contract is intended to be used to distribute ['ManagedAccounts`](/solidity/base-contracts/managed-account) programmatically.
 
@@ -18,7 +18,7 @@ This factory smart contract is intended to be used to distribute ['ManagedAccoun
 <Callout title="Modified Contract" variant="info">
 
 If you modify the [`ManagedAccount`](/solidity/base-contracts/managed-account) contract, it is recommended that you write your own
-factory contract by inheriting from the [`BaseAccountFactory`](/solidity/extensions/base-account-factory) extension.
+factory contract by inheriting from the [`BaseAccountFactory`](/contracts/build/extensions/erc-4337/SmartWallet-factory) extension.
 
 </Callout>
 
@@ -26,7 +26,7 @@ factory contract by inheriting from the [`BaseAccountFactory`](/solidity/extensi
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
 
-- [SmartWalletFactory](/solidity/extensions/base-account-factory)
+- [SmartWalletFactory](/contracts/build/extensions/erc-4337/SmartWallet-factory)
 
 ## Usage
 

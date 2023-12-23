@@ -6,10 +6,10 @@ import "@thirdweb-dev/contracts/extension/multicall.sol";
 import "@thirdweb-dev/contracts/extension/interface/IMintableERC20.sol";
 ```
 
-Enable minting multiple NFTs at once in a single transaction by Implementing [`ERC20`](/solidity/extensions/erc20), [`IMintableERC20`](/contracts/build/extensions/erc-20/ERC20BatchMintable), and [`Multicall`](/contracts/build/extensions/general/Multicall) extensions.
+Enable minting multiple NFTs at once in a single transaction by Implementing [`ERC20`](/contracts/build/extensions/erc-20/ERC20), [`IMintableERC20`](/contracts/build/extensions/erc-20/ERC20BatchMintable), and [`Multicall`](/contracts/build/extensions/general/Multicall) extensions.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the
-[`ERC20`](/solidity/extensions/erc20), [`Multicall`](/contracts/build/extensions/general/Multicall) and [`ERC20Mintable`](/contracts/build/extensions/erc-20/ERC20BatchMintable) extensions.
+[`ERC20`](/contracts/build/extensions/erc-20/ERC20), [`Multicall`](/contracts/build/extensions/general/Multicall) and [`ERC20Mintable`](/contracts/build/extensions/erc-20/ERC20BatchMintable) extensions.
 
 ## Usage
 
@@ -43,7 +43,7 @@ contract Contract is ERC20, IMintableERC20, Multicall {
 
 ## Base Contracts Implementing This Extension
 
-- [ERC20Base](/solidity/base-contracts/erc20base)
+- [ERC20Base](/contracts/build/base-contracts/erc-20/base)
 - [ERC20SignatureMint](/solidity/base-contracts/erc20signaturemint)
 - [ERC20SignatureMintVote](/solidity/base-contracts/erc20signaturemintvote)
-- [ERC20Vote](/solidity/base-contracts/erc20vote)
+- [ERC20Vote](/contracts/build/base-contracts/erc-20/base)

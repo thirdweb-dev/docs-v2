@@ -10,7 +10,7 @@ import "@thirdweb-dev/contracts/base/ERC1155Drop.sol";
 The `ERC1155Drop` base contract is the foundation for an Edition (ERC1155) NFT Drop that other wallets can claim.
 
 It implements the [ERC1155 standard](/contracts/build/extensions/erc-1155/ERC1155) with [Lazy Mint](/contracts/build/extensions/general/LazyMint),
-[Delayed Reveal](/solidity/extensions/delayedreveal) and [Drop](/solidity/extensions/erc1155dropsinglephase) extensions;
+[Delayed Reveal](/contracts/build/extensions/general/DelayedReveal) and [Drop](/contracts/build/extensions/erc-1155/ERC1155DropSinglePhase) extensions;
 allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155Drop.sol" />
@@ -56,8 +56,8 @@ Click on each feature to learn more about what functions are available.
 - [ERC1155LazyMintableV2](/contracts/build/extensions/general/LazyMint)
 - [ERC1155Burnable](/contracts/build/extensions/erc-1155/ERC1155Burnable)
 - [ERC1155Enumerable](/contracts/build/extensions/erc-1155/ERC1155Enumerable)
-- [ERC1155ClaimConditionsV2](/solidity/extensions/erc1155claimconditions)
-- [PrimarySale](/solidity/extensions/primarysale)
+- [ERC1155ClaimConditionsV2](/contracts/build/extensions/erc-1155/ERC1155ClaimConditions)
+- [PrimarySale](/contracts/build/extensions/general/PrimarySale)
 - [Royalty](/contracts/build/extensions/general/Royalty)
 - [ContractMetadata](/contracts/build/extensions/general/ContractMetadata)
 - [Ownable](/contracts/build/extensions/general/Ownable)
