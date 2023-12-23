@@ -164,6 +164,9 @@ const solidityRedirects = {
 	"/solidity/extensions/erc20mintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
 	"/solidity/base-contracts/erc721base": "/contracts/build/base-contracts/erc-721/base",
 	"/solidity/base-contracts/erc721delayedreveal": "/contracts/build/base-contracts/erc-721/delayed-reveal",
+	"/solidity/base-contracts/erc721drop": "/contracts/build/base-contracts/erc-721/drop",
+	"/solidity/base-contracts/erc721lazymint": "/contracts/build/base-contracts/erc-721/lazy-mint",
+	"/solidity/base-contracts/erc721signaturemint": "/contracts/build/base-contracts/erc-721/signature-mint",
 };
 
 /**
