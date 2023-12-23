@@ -180,6 +180,10 @@ const solidityRedirects = {
 	"/solidity/extensions/erc1155batchmintable": "/contracts/build/extensions/erc-1155/ERC1155BatchMintable",
 	"/solidity/extensions/erc1155burnable": "/contracts/build/extensions/erc-1155/ERC1155Burnable",
 	"/solidity/extensions/erc1155enumerable": "/contracts/build/extensions/erc-1155/ERC1155Enumerable",
+	"/solidity/extensions/erc1155mintable": "/contracts/build/extensions/erc-1155/ERC1155Mintable",
+	"/solidity/base-contracts/erc1155lazymint": "/contracts/build/base-contracts/erc-1155/lazy-mint",
+	"/solidity/extensions/lazymint": "/contracts/build/extensions/general/LazyMint",
+	"/solidity/extensions/erc1155claimcustom": "/contracts/build/extensions/erc-1155/ERC1155ClaimCustom",
 };
 
 /**
