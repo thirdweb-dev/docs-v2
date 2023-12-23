@@ -22,7 +22,7 @@ const localWalletConfig = localWallet(options);
 
 ## Usage with ConnectWallet
 
-To allow users to connect to this wallet using the [ConnectWallet](/react-native/connecting-wallets#connect-wallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/connecting-wallets#supported-wallets) prop.
+To allow users to connect to this wallet using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) prop.
 
 ```tsx
 <ThirdwebProvider supportedWallets={[localWallet()]} clientId="your-client-id">
@@ -32,9 +32,9 @@ To allow users to connect to this wallet using the [ConnectWallet](/react-native
 
 ## Usage with useConnect
 
-You can use the [`useConnect`](/references/react-native/useConnect) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/connecting-wallets#connect-wallet) component.
+You can use the [`useConnect`](/references/react-native/useConnect) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
 
-The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
 ```tsx
 const localWalletConfig = localWallet();
