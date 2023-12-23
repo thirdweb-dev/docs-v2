@@ -1,6 +1,5 @@
 # Account Factory
 
-
 The **Account Factory** contract is used to deploy immutable [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) smart wallets with role based permission control.
 The `Account` smart wallet is a simple smart wallet that comes with all the basic benefits of account abstraction, along with the mentioned default features. App developers can issue `Account` smart wallets programmatically by deploying an `AccountFactory` smart contract.
 The `Account` smart contract is non-upgradeable. Developers should use this wallet if they do not anticipate making any future upgrades to their users' wallets.
@@ -20,7 +19,7 @@ This contract includes the following extensions:
 
 - [Permissions](/solidity/extensions/permissions)
 - [PermissionsEnumerable](/solidity/extensions/permissionsenumerable)
-- [ContractMetadata](/solidity/extensions/contractmetadata)
+- [ContractMetadata](/contracts/build/extensions/general/ContractMetadata)
 - [AccountFactory](/solidity/extensions/base-account-factory)
 
 ## Use Cases & Examples
@@ -60,11 +59,11 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 // render ConnectWallet button wherever you want
 
 function App() {
-  return (
-    <div>
-      <ConnectWallet />
-    </div>
-  );
+	return (
+		<div>
+			<ConnectWallet />
+		</div>
+	);
 }
 ```
 
@@ -81,17 +80,17 @@ await personalWallet.generate();
 
 // Setup the Smart Wallet configuration
 const config: SmartWalletConfig = {
-  chain: Goerli, // the chain where your smart wallet will be or is deployed
-  factoryAddress: "{{factory_address}}", // your own deployed account factory address
-  clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-  secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
-  gasless: true, // enable or disable gasless transactions
+	chain: Goerli, // the chain where your smart wallet will be or is deployed
+	factoryAddress: "{{factory_address}}", // your own deployed account factory address
+	clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+	secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+	gasless: true, // enable or disable gasless transactions
 };
 
 // Then, connect the Smart wallet
 const wallet = new SmartWallet(config);
 await wallet.connect({
-  personalWallet,
+	personalWallet,
 });
 
 // You can then use this wallet to perform transactions via the SDK

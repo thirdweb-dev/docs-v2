@@ -167,6 +167,14 @@ const solidityRedirects = {
 	"/solidity/base-contracts/erc721drop": "/contracts/build/base-contracts/erc-721/drop",
 	"/solidity/base-contracts/erc721lazymint": "/contracts/build/base-contracts/erc-721/lazy-mint",
 	"/solidity/base-contracts/erc721signaturemint": "/contracts/build/base-contracts/erc-721/signature-mint",
+	"/solidity/extensions/erc721mintable": "/contracts/build/extensions/erc-721/ERC721Mintable",
+	"/solidity/extensions/erc721burnable": "/contracts/build/extensions/erc-721/ERC721Burnable",
+	"/solidity/extensions/erc721batchmintable": "/contracts/build/extensions/erc-721/ERC721BatchMintable",
+	"/solidity/extensions/erc721supply": "/contracts/build/extensions/erc-721/ERC721Supply",
+	"/solidity/extensions/royalty": "/contracts/build/extensions/general/Royalty",
+	"/solidity/extensions/erc721claimphases": "/contracts/build/extensions/erc-721/ERC721ClaimPhases",
+	"/solidity/extensions/contractmetadata": "/contracts/build/extensions/general/ContractMetadata",
+	"/solidity/extensions/ownable": "/contracts/build/extensions/general/Ownable",
 };
 
 /**
