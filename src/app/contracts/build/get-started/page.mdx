@@ -33,7 +33,7 @@ npm i @thirdweb-dev/contracts
 
 The Solidity SDK can be used to build new smart contracts _end-to-end_, or to add functionality to your own, existing smart contract using [extensions](/contracts/build/extensions).
 
-All functions in the [base contracts](/contracts/build/base-contracts) and [extensions](/contracts/build/extensions) can be modified by [overriding them](/solidity/getting-started#inheritance-and-overriding-functions).
+All functions in the [base contracts](/contracts/build/base-contracts) and [extensions](/contracts/build/extensions) can be modified by [overriding them](/contracts/build/get-started#inheritance-and-overriding-functions).
 
 ### Using Base Contracts
 
@@ -61,7 +61,7 @@ contract MyNFT is ERC721Base {
 }
 ```
 
-**3.** Now you're all set up! 🎉 Your smart contract now has all the [extensions](/contracts/build/extensions) provided by the [base contract](/solidity/base-contracts/) it inherits and is ready to be [deployed](/deploy) to any EVM blockchain of your choice.
+**3.** Now you're all set up! 🎉 Your smart contract now has all the [extensions](/contracts/build/extensions) provided by the [base contract](/solidity/base-contracts/) it inherits and is ready to be [deployed](/contracts/deploy/overview) to any EVM blockchain of your choice.
 
 ### Using Extensions
 
@@ -147,7 +147,7 @@ Child contract: The inheriting contract.
 To override a function, to add your own custom logic, simply use the keyword `override` when declaring the function, making sure that the function signature matches.
 To add the original logic from the parent contract, use the keyword `super`.
 
-For example, the [`ERC721Base`](/solidity/base-contracts/erc721base) contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic
+For example, the [`ERC721Base`](/contracts/build/base-contracts/erc-721/base) contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic
 and restrict this function in the `myNFT` contract to only allow 1 NFT per wallet:
 
 ```solidity
