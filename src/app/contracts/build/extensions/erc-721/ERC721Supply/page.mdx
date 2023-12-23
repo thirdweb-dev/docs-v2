@@ -23,7 +23,7 @@ This extension is an interface and requires all of the functions to be implement
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
-The [ERC721A](/solidity/extensions/erc721) contract comes with a `totalSupply`
+The [ERC721A](/contracts/build/extensions/erc-721/ERC721) contract comes with a `totalSupply`
 function that returns the total number of NFTs that have been minted in the collection (including tokens that have been burned).
 
 This means you can already view the total supply of NFTs in the collection by implementing the `ERC721A` contract.
@@ -56,7 +56,7 @@ contract Contract is ERC721A {
 
 ## Base Contracts Implementing This Extension
 
-- [ERC721Base](/solidity/base-contracts/erc721base)
+- [ERC721Base](/contracts/build/base-contracts/erc-721/base)
 - [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
 - [ERC721Drop](/solidity/base-contracts/erc721drop)
 - [ERC721LazyMint](/solidity/base-contracts/erc721lazymint)

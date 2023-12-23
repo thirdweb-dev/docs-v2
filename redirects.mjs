@@ -157,6 +157,14 @@ const reactRedirects = {
 	"/react/react.usestorageupload": "/references/react/v4/useStorageUpload",
 };
 
+const solidityRedirects = {
+	"/solidity/extensions/": "/contracts/build/extensions/",
+	"/solidity/extensions/erc721": "/contracts/build/extensions/erc-721/ERC721",
+	"/solidity/extensions/erc1155": "/contracts/build/extensions/erc-1155/ERC1155",
+	"/solidity/extensions/erc20mintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
+	"/solidity/base-contracts/erc721base": "/contracts/build/base-contracts/erc-721/base",
+};
+
 /**
  * @type {import('next').NextConfig['redirects']}
  */
@@ -164,6 +172,7 @@ export const redirects = async () => {
 	return [
 		// old portal redirects
 		...createRedirects(reactRedirects),
+		...createRedirects(solidityRedirects),
 		// references docs
 		latestReference("react", "v4"),
 		latestReference("react-native", "v0"),

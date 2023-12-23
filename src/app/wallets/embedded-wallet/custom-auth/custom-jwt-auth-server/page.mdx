@@ -23,16 +23,15 @@ This guide is simplified for demonstration purposes and is not ready for product
 <Step title="Setup">
 1. Create a new directory for your project and navigate to it in your CLI
 
-```bash
-mkdir jwt-auth-server
-cd jwt-auth-server
-```
+      ```bash
+      mkdir jwt-auth-server
+      cd jwt-auth-server
+      ```
 
 2. Initialize a new Node.js application
 
    ```bash
    npm init -y
-
    yarn init -y
    ```
 
@@ -47,9 +46,9 @@ cd jwt-auth-server
 <Step title="Generate RSA Key Pair">
 1. To generate a private and a public key run
 
-```bash
-ssh-keygen -t rsa -b 2048 -m PEM -f keys/rsa.key
-```
+      ```bash
+      ssh-keygen -t rsa -b 2048 -m PEM -f keys/rsa.key
+      ```
 
 2. To create the output file run
 
@@ -72,7 +71,7 @@ ssh-keygen -t rsa -b 2048 -m PEM -f keys/rsa.key
 
    1. Paste the public key, set Key ID as `0` (arbitrary string, must match when signing JWT), and then note down the generated JWK.
 
-      ![JWK Creator tool by Russel Davies showing key id of 0](../assets/jwk-creator-tool.png)
+      {/* ![JWK Creator tool by Russel Davies showing key id of 0](../assets/jwk-creator-tool.png) */}
 
 4. Create a `jwks.json` in the project root and place the generated JWK in a `keys` array.
 
@@ -177,19 +176,19 @@ Once deployed, replace `http://localhost:3000` in the JWT payload with your actu
 <Step title="Integrate Embedded Wallets">
 
 1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
-2. Create a thirdweb API key if you don’t have one or select an existing key to use for this project. [Learn more about API keys.](https://portal.thirdweb.com/api-keys)
+2. Create a thirdweb API key if you don’t have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
 
-<Image src={EWCreateKey} />
+   <Image src={EWCreateKey} />
 
 3. Allowlist domain or bundle ids in Access Restrictions.
 4. Navigate to the Configuration view and enable **Custom JSON Web Token**
 
-<Image src={EWConfig} />
+   <Image src={EWConfig} />
 
 5. Set the JWKS URI to `your-domain/.well-known/jwks.json`
 6. Set the AUD to `EpicGame` or the value you set as the aud in the `server.js` file.
 
-<Image src={EWConfigOpt} />
+   <Image src={EWConfigOpt} />
 
 7. Copy the client ID.
 8. In your preferred thirdweb client SDK, pass the JWT you retrieved from logging in to the server.

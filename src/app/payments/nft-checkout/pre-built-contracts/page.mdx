@@ -1,3 +1,5 @@
+import { DocImage } from "@/components/Document";
+
 # Pre-built Contracts
 
 ---
@@ -8,7 +10,7 @@ For some thirdweb contracts, set `contractArgs` when creating [Shareable Checkou
 
 ### Signature Drop
 
-This is an ERC-721A contract where the NFT metadata is unique but the claim configuration can be modified for each buyer by creating a _signature_ on your backend. If you don't plan to use signatures, you should consider using the [NFT Drop](https://portal.thirdweb.com/pre-built-contracts/nft-drop) contract.
+This is an ERC-721A contract where the NFT metadata is unique but the claim configuration can be modified for each buyer by creating a _signature_ on your backend. If you don't plan to use signatures, you should consider using the [NFT Drop](/pre-built-contracts/nft-drop) contract.
 
 To customize the NFT metadata, allow dynamic pricing, or enforce an off-chain allowlist, generate a signature on your backend and set `contractArgs`:
 
@@ -62,7 +64,11 @@ contractArgs = {
 
 Your thirdweb contract must have at least one active claim condition, meaning the **When will this phase start?** date is in the past.
 
-![Claim Condition Configuration Image](https://files.readme.io/994d683-image.png)
+<DocImage
+	src="https://files.readme.io/994d683-image.png"
+	width={564}
+	height={798}
+/>
 
 Helpful tips for each field:
 

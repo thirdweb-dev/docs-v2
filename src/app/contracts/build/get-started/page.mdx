@@ -31,15 +31,15 @@ npm i @thirdweb-dev/contracts
 
 ## Using the Solidity SDK
 
-The Solidity SDK can be used to build new smart contracts _end-to-end_, or to add functionality to your own, existing smart contract using [extensions](/solidity/extensions).
+The Solidity SDK can be used to build new smart contracts _end-to-end_, or to add functionality to your own, existing smart contract using [extensions](/contracts/build/extensions).
 
-All functions in the [base contracts](/solidity/base-contracts) and [extensions](/solidity/extensions) can be modified by [overriding them](/solidity/getting-started#inheritance-and-overriding-functions).
+All functions in the [base contracts](/contracts/build/base-contracts) and [extensions](/contracts/build/extensions) can be modified by [overriding them](/contracts/build/get-started#inheritance-and-overriding-functions).
 
 ### Using Base Contracts
 
-The Solidity SDK includes [**base contracts**](/solidity/base-contracts) that are fully complete smart contracts that can be customized by overriding functions OR by adding extensions.
+The Solidity SDK includes [**base contracts**](/contracts/build/base-contracts) that are fully complete smart contracts that can be customized by overriding functions OR by adding extensions.
 
-**1.** To start, import and inherit the base contract. You can find the list of all available base contracts [here](/solidity/base-contracts).
+**1.** To start, import and inherit the base contract. You can find the list of all available base contracts [here](/contracts/build/base-contracts).
 
 **2.** Base contracts expect certain constructor arguments to function as intended. Implement a constructor for your smart contract and pass the
 appropriate values to a constructor for the base contract.
@@ -61,15 +61,15 @@ contract MyNFT is ERC721Base {
 }
 ```
 
-**3.** Now you're all set up! 🎉 Your smart contract now has all the [extensions](/solidity/extensions) provided by the [base contract](/solidity/base-contracts/) it inherits and is ready to be [deployed](/deploy) to any EVM blockchain of your choice.
+**3.** Now you're all set up! 🎉 Your smart contract now has all the [extensions](/contracts/build/extensions) provided by the [base contract](/solidity/base-contracts/) it inherits and is ready to be [deployed](/contracts/deploy/overview) to any EVM blockchain of your choice.
 
 ### Using Extensions
 
 Extensions are to be used via inheritance - your project's smart contract will inherit from them.
 
-Additional [**extensions**](/solidity/extensions) can be added to existing smart contracts or to the [**base contracts**](/solidity/base-contracts) to add extra functionality and unlocking features in the SDKs and Dashboard.
+Additional [**extensions**](/contracts/build/extensions) can be added to existing smart contracts or to the [**base contracts**](/contracts/build/base-contracts) to add extra functionality and unlocking features in the SDKs and Dashboard.
 
-**1.** To start, import and inherit the extension. You can find the list of all available extensions [here](/solidity/extensions).
+**1.** To start, import and inherit the extension. You can find the list of all available extensions [here](/contracts/build/extensions).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -147,7 +147,7 @@ Child contract: The inheriting contract.
 To override a function, to add your own custom logic, simply use the keyword `override` when declaring the function, making sure that the function signature matches.
 To add the original logic from the parent contract, use the keyword `super`.
 
-For example, the [`ERC721Base`](/solidity/base-contracts/erc721base) contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic
+For example, the [`ERC721Base`](/contracts/build/base-contracts/erc-721/base) contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic
 and restrict this function in the `myNFT` contract to only allow 1 NFT per wallet:
 
 ```solidity

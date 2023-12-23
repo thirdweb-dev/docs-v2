@@ -8,7 +8,7 @@ The Edition Drop contract allows you to define the conditions for when and how y
 
 This contract includes the following extensions:
 
-- [ERC1155](/solidity/extensions/erc1155)
+- [ERC1155](/contracts/build/extensions/erc-1155/ERC1155)
 - [ERC1155Supply](/solidity/extensions/erc1155supply)
 - [ERC1155Enumerable](/solidity/extensions/erc1155enumerable)
 - [ERC1155LazyMintable](/solidity/extensions/lazymintable)
@@ -34,8 +34,7 @@ You could use the Edition Drop contract to:
 
 - [Frontend demo project](https://github.com/thirdweb-example/edition-drop)
 - [Technical Design Doc](/contracts/design/Drop)
-- [Full reference](https://portal.thirdweb.com/contracts/DropERC1155)
-
+- [Full reference](/contracts/DropERC1155)
 
 ## Creating & Configuring the Edition Drop
 
@@ -53,14 +52,11 @@ This is useful when you want _other_ wallets to mint NFTs from your drop into th
 
 To lazy-mint NFT(s), click **Create** to lazy-mint a single NFT, or **Batch Upload** to lazy-mint multiple NFTs at once.
 
-
 To get started, you can use one of our example files for [CSV](https://thirdweb.com/example.csv) or [JSON](https://nightly.thirdweb.com/example.json) metadata.
-
 
 ### Setting Claim Phases
 
 On the Edition Drop contract, you set claim phases for each NFT, by clicking the **Claim Phases** button
-
 
 A claim phase is a set of conditions that define when and how your users can claim an NFT from your drop.
 
@@ -78,7 +74,6 @@ Within a claim phase, you can define:
 
 To add a claim phase to a token, click **Add Initial Claim Phase**:
 
-
 ### Airdrop NFTs
 
 Click **Airdrop** on the token you want to use, and upload a `.csv` file containing a list of addresses you want to airdrop NFTs to.
@@ -90,10 +85,8 @@ You can download our example [CSV File](https://thirdweb.com/airdrop.csv) to get
 
 To configure the image, name, and description of the contract, click the **Settings** tab:
 
-
 ### Royalty & Platform Fees
 
 From the **Settings** tab, you also configure the [royalty fee](/dashboard/contract-settings),
 [primary sales recipient](/dashboard/contract-settings#primary-sales-recipient)
 and [platform fee](/dashboard/contract-settings).
-

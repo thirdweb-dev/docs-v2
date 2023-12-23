@@ -59,7 +59,7 @@ Server listening on: https://0.0.0.0:3005
 
 ### Production
 
-See [Production Checklist](/engine/production-checklist#cloud-hosting) for self-hosting best practices.
+See [Production Checklist](/infrastructure/engine/production-checklist#cloud-hosting) for self-hosting best practices.
 
 ## Use the dashboard
 
@@ -67,7 +67,7 @@ See [Production Checklist](/engine/production-checklist#cloud-hosting) for self-
 
 To manage your Engine instance from the dashboard:
 
-1. Navigate to [https://localhost:3005/json](https://localhost:3005/json).
+1. Navigate to `https://localhost:3005/json`
 
    - The "Your connection is not private" page will appear.
    - Select **Show advanced** and select **Proceed to localhost (unsafe)** to render the JSON file.
@@ -119,7 +119,7 @@ Here are a few example API calls.
 
 :::tip
 
-Consider the [TypeScript SDK](/engine/references/typescript-sdk) for type-safety.
+Consider the [TypeScript SDK](/infrastructure/engine/references/typescript-sdk) for type-safety.
 
 :::
 
@@ -217,7 +217,7 @@ Engine can enable your application to airdrop NFTs, send funds between wallets, 
 
 ### Wait for a transaction to complete
 
-Trigger an action when transactions complete by configuring [webhooks](/engine/webhooks) to call your backend server.
+Trigger an action when transactions complete by configuring [webhooks](/infrastructure/engine/webhooks) to call your backend server.
 
 Alternatively, query or poll the `transaction/status/<queue_id>` endpoint:
 

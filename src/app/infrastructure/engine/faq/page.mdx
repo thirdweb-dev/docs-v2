@@ -1,3 +1,6 @@
+import cancelTxImage from "../assets/cancel-transaction-button.png";
+import { DocImage } from "@/components/Document";
+
 # FAQ
 
 ## About Engine
@@ -30,7 +33,7 @@ Write calls to contracts do not block until they are mined. Instead they enqueue
 
 Here are three ways to determine when the job is mined:
 
-- Use [webhooks](/engine/webhooks) to notify your backend when a transaction event occurs.
+- Use [webhooks](/infrastructure/engine/features/webhooks) to notify your backend when a transaction event occurs.
 - Poll the `/transaction/status/<queue_id>` endpoint.
 - Use websockets:
 
@@ -50,7 +53,7 @@ If a transaction is has not yet been mined or failed, cancel the transaction wit
 
 Or to cancel a transaction in the Engine dashboard, select the **Cancel transaction** button next to the status in the **Transactions** table.
 
-![Cancel transaction button](./assets/cancel-transaction-button.png)
+<DocImage src={cancelTxImage} />
 
 ### How do I customize RPC URLs?
 

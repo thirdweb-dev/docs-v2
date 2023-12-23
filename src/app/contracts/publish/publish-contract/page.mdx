@@ -1,8 +1,6 @@
-
-
 # Publish
 
-Use the [CLI](/cli) to publish your contracts directly to **Any EVM compatible chain** using the [dashboard](/dashboard):
+Use the [CLI](/cli) to publish your contracts directly to **Any EVM compatible chain** using the [dashboard](https://thirdweb.com/dashboard):
 
 ```bash
 npx thirdweb publish
@@ -13,7 +11,6 @@ This command will:
 - Compile your smart contract.
 - Upload the contract source code (ABI) to IPFS.
 - Open the publish flow in the dashboard.
-
 
 ## How to Publish Your Contract
 
@@ -46,17 +43,15 @@ Select the contract type for your published contract
   - This option can be used for **any contract**
   - there are no requirements for using this option to publish your contract.
   - Users will deploy the **full contract**: storage and implementation logic.
-- [Deploy via Factory](/publish/deployment-options): Choose this option if you would like users to deploy proxies of your contract using the thirdweb default factory contract or using your own pre-deployed custom factory.
-  - [Default Factory](/publish/deployment-options#default-factory) - Use this option to use the thirdweb default factory if your contract follows the upgradeable contract pattern.
-  - [Custom Factory](/publish/deployment-options#custom-factory) - Use this option to use your own pre-deployed custom factory to create proxies for your users.
-
+- [Deploy via Factory](/contracts/publish/publish-options): Choose this option if you would like users to deploy proxies of your contract using the thirdweb default factory contract or using your own pre-deployed custom factory.
+  - [Default Factory](/contracts/publish/publish-options#default-factory) - Use this option to use the thirdweb default factory if your contract follows the upgradeable contract pattern.
+  - [Custom Factory](/contracts/publish/publish-options#custom-factory) - Use this option to use your own pre-deployed custom factory to create proxies for your users.
 
 Once selected, click "Next" to move on to the flow corresponding to the contract type selected.
 
 ### Choose which network(s) to publish your contract to
 
 Select the network(s) you would like to publish your contract. You can select multiple networks or any EVM.
-
 
 If you chose to publish via direct deploy, you will be asked to select the network(s) you would like users to be able to deploy your contract to and then click the "Next" button.
 If you chose to publish via factory, you will be asked to select the network(s) you would like users to be able to deploy your contract to when setting your "Factory deploy settings".
@@ -70,9 +65,8 @@ Help users trying to deploy your smart contract by changing what your contract p
 - **Description**: Use this to clear up any confusion and explain what value this parameter is expecting
 - **Advanced**: Tick this option if you want to hide this parameter from the deploy form. This is useful for parameters that are not required to be changed by the user. This option is only available for parameters that have a default value.
 
-
 ### Publish Contract
 
 Finally, click the "Publish Contract" button to publish your smart contract to the on-chain registry.
 
-For best practices and getting your contract on [Explore](https://thirdweb.com/explore), refer to [this page](https://portal.thirdweb.com/publish/get-featured-on-explore).
+For best practices and getting your contract on [Explore](https://thirdweb.com/explore), refer to [this page](/publish/get-featured-on-explore).

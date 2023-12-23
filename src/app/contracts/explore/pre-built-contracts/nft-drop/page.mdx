@@ -11,20 +11,23 @@ import Image from "next/image";
 
 # Overview
 
-NFT Drop enables users to release a collection of unique NFTs using the ERC721A standard. NFT Drop uses a “drop” mechanism intended for large collections to distribute NFTs. 
+NFT Drop enables users to release a collection of unique NFTs using the ERC721A standard. NFT Drop uses a “drop” mechanism intended for large collections to distribute NFTs.
 
 <Callout title="NFT Drop vs NFT Collection" variant="info">
 	NFT Drop differs from [NFT
-	Collection](/contracts/explore/pre-built-contracts/nft-collection) in
-	that it allows users to lazy-mint the NFT directly to their wallet. This
-	eliminates the need to mint the NFT to the creator's wallet and then transfer
-	the asset to another user’s wallet.
+	Collection](/contracts/explore/pre-built-contracts/nft-collection) in that it
+	allows users to lazy-mint the NFT directly to their wallet. This eliminates
+	the need to mint the NFT to the creator's wallet and then transfer the asset
+	to another user’s wallet.
 </Callout>
 
 The NFT Drop contract can be deployed via the [dashboard](/pre-built-contracts/nft-drop#deploy-nft-drop-dashboard), [CLI](/pre-built-contracts/nft-drop#deploy-nft-drop-cli), or [SDKs](/pre-built-contracts/nft-drop#deploy-nft-drop-sdk).
 
-<Callout title="Drop Design" variant="info">Learn more about why Drop contracts were built, how they were designed, and their limitations by reading the [Drop Design Document](/contracts/design-docs/drop)</Callout>
-
+<Callout title="Drop Design" variant="info">
+	Learn more about why Drop contracts were built, how they were designed, and
+	their limitations by reading the [Drop Design
+	Document](/contracts/design-docs/drop)
+</Callout>
 
 ## Use Cases
 
@@ -113,11 +116,11 @@ Choose a Network / Chain to Deploy to. [View list of available Networks.](https:
 
 **Single Upload**
 
-- Single upload is a preferred option for users uploading few NFTs at a time. Learn [how to single upload](https://portal.thirdweb.com/dashboard/NFTs#single-upload) through dashboard.
+- Single upload is a preferred option for users uploading few NFTs at a time. Learn [how to single upload](/dashboard/NFTs#single-upload) through dashboard.
 
 **Batch Upload**
 
-- Batch upload is a method that allows you to upload large amounts of NFTs in one click. Learn [how to batch upload](https://portal.thirdweb.com/dashboard/NFTs#batch-upload) through dashboard.
+- Batch upload is a method that allows you to upload large amounts of NFTs in one click. Learn [how to batch upload](/dashboard/NFTs#batch-upload) through dashboard.
 
 <Image
 	src={require("./assets/upload-types.png")}
@@ -126,7 +129,7 @@ Choose a Network / Chain to Deploy to. [View list of available Networks.](https:
 
 ### Enable Delayed Reveal
 
-Optionally, users may choose to hide their NFT image and metadata from users before minting. [Learn more about delayed reveal.](https://portal.thirdweb.com/dashboard/NFTs#reveal-nfts)
+Optionally, users may choose to hide their NFT image and metadata from users before minting. [Learn more about delayed reveal.](/dashboard/NFTs#reveal-nfts)
 
 <Image
 	src={require("./assets/delayed-reveal.png")}
@@ -223,4 +226,4 @@ address, err := sdk.Deployer.DeployNFTDrop(
 
 ## Interact with your contract
 
-For easy-to-use code snippets for your contract, view the [Code Snippets](https://portal.thirdweb.com/dashboard/build) view on your contract’s dashboard or visit the [SDK documentation](/sdk).
+For easy-to-use code snippets for your contract, view the [Code Snippets](/dashboard/build) view on your contract’s dashboard or visit the [SDK documentation](/sdk).
