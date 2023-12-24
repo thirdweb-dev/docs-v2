@@ -127,33 +127,8 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "Full Reference",
-					links: [
-						{
-							name: "React",
-							href: `${storageSlug}/full-reference/react`,
-						},
-						{
-							name: "React Native",
-							href: `${storageSlug}/full-reference/react-native`,
-						},
-						{
-							name: "TypeScript",
-							href: `${storageSlug}/full-reference/typescript`,
-						},
-						{
-							name: "Python",
-							href: `${storageSlug}/full-reference/python`,
-						},
-						{
-							name: "Go",
-							href: `${storageSlug}/full-reference/go`,
-						},
-						{
-							name: "Unity",
-							href: `${storageSlug}/full-reference/unity`,
-						},
-					],
+					name: "Storage SDK",
+					href: `/storage-sdk/latest`,
 				},
 			],
 		},

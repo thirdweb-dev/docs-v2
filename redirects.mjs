@@ -194,7 +194,7 @@ const solidityRedirects = {
 	"/solidity/extensions/erc20batchmintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
 	"/solidity/base-contracts/erc20base": "/contracts/build/base-contracts/erc-20/base",
 	"/solidity/extensions/erc20": "/contracts/build/extensions/erc-20/ERC20",
-	"/solidity/base-contracts/erc20vote": "/contracts/build/base-contracts/erc-20/base",
+	"/solidity/base-contracts/erc20vote": "/contracts/build/base-contracts/erc-20/vote",
 	"/solidity/extensions/base-account": "/contracts/build/extensions/erc-4337/SmartWallet",
 	"/solidity/base-contracts/account-factory": "/contracts/build/base-contracts/erc-4337/account-factory",
 	"/solidity/base-contracts/account": "/contracts/build/base-contracts/erc-4337/account",
@@ -214,6 +214,15 @@ const solidityRedirects = {
 	"/solidity/extensions/drop": "/contracts/build/extensions/general/Drop",
 	"/solidity/extensions/erc721claimable": "/contracts/build/extensions/erc-721/ERC721Claimable",
 	"/solidity/base-contract/erc1155delayedreveal": "/contracts/build/extensions/erc-1155/ERC1155Revealable",
+	"/solidity/extensions/erc721claimconditions": "/contracts/build/extensions/erc-721/ERC721ClaimConditions",
+	"/solidity/extensions/erc721signaturemint": "/contracts/build/extensions/erc-721/ERC721SignatureMint",
+	"/solidity/extensions/contract-metadata": "/contracts/build/extensions/general/ContractMetadata",
+	"/solidity/extensions/erc1155claimphases": "/contracts/build/extensions/erc-1155/ERC1155ClaimPhases",
+	"/solidity/base-contracts/staking/staking1155base": "/contracts/build/base-contracts/erc-1155/staking",
+	"/solidity/base-contracts/staking/staking20base": "/contracts/build/base-contracts/erc-20/staking",
+	"/solidity/base-contracts/staking/staking721base": "/contracts/build/base-contracts/erc-721/staking",
+	"/solidity/base-contract/erc721delayedreveal": "/contracts/build/base-contracts/erc-721/delayed-reveal",
+	"/solidity/base-contracts/smart-accounts": "/contracts/build/base-contracts/erc-4337",
 };
 
 /**
@@ -235,7 +244,7 @@ export const redirects = async () => {
 		latestSDK("react-native", "v0"),
 		latestSDK("typescript", "v4"),
 		latestSDK("wallet-sdk", "v2"),
-		latestSDK("storage", "v2"),
+		latestSDK("storage-sdk", "v2"),
 	];
 };
 
