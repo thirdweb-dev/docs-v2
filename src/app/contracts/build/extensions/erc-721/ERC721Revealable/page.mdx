@@ -11,7 +11,7 @@ import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
 Create batches of ['delayed-reveal'](/glossary/delayed-reveal) NFTs that can be revealed at a later date after they have been minted and claimed.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the
-[`ERC721`](/contracts/build/extensions/erc-721/ERC721) and [`DelayedReveal`](/solidity/extensions/delayedreveal) extensions.
+[`ERC721`](/contracts/build/extensions/erc-721/ERC721) and [`DelayedReveal`](/contracts/build/extensions/general/DelayedReveal) extensions.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol" />
 
@@ -53,5 +53,5 @@ contract Contract is ERC721A, LazyMint, DelayedReveal {
 
 ## Base Contracts Implementing This Extension
 
-- [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
-- [ERC721Drop](/solidity/base-contracts/erc721drop)
+- [ERC721DelayedReveal](/contracts/build/base-contracts/erc-721/delayed-reveal)
+- [ERC721Drop](/contracts/build/base-contracts/erc-721/drop)

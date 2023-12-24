@@ -11,7 +11,7 @@ Allow other wallets to **claim** NFTs that you have lazy-minted.
 
 This is not an extension which is detectable on the dashboard without also inheriting from other extensions.
 
-It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
+It is recommended to use this extension alongside the [`LazyMint`](/contracts/build/extensions/general/LazyMint) extension.
 
 <Callout title="info" variant="info">
 
@@ -61,8 +61,8 @@ contract Contract is ERC721A, IClaimableERC721 {
 
 ## Base Contracts Implementing This Extension
 
-This extension is used as part of the [ERC721ClaimCustom](/solidity/extensions/erc721claimcustom) extension.
+This extension is used as part of the [ERC721ClaimCustom](/contracts/build/extensions/erc-721/ERC721ClaimCustom) extension.
 The base contracts which have ERC721ClaimCustom detected on them will also implement ERC721Claimable.
 
 - [ERC721DelayedReveal](/solidity/base-contract/erc721delayedreveal)
-- [ERC721LazyMint](/solidity/base-contracts/erc721lazymint)
+- [ERC721LazyMint](/contracts/build/base-contracts/erc-721/lazy-mint)

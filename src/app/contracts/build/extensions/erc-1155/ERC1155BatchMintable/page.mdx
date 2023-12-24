@@ -9,10 +9,10 @@ import "@thirdweb-dev/contracts/extension/multicall.sol";
 import "@thirdweb-dev/contracts/extension/interface/IMintableERC1155.sol";
 ```
 
-Enable minting multiple NFTs at once in a single transaction by Implementing [`ERC1155`](/contracts/build/extensions/erc-1155/ERC1155), [`IMintableERC1155`](/solidity/extensions/erc1155mintable), and [`Multicall`](/solidity/extensions/multicall) extensions.
+Enable minting multiple NFTs at once in a single transaction by Implementing [`ERC1155`](/contracts/build/extensions/erc-1155/ERC1155), [`IMintableERC1155`](/contracts/build/extensions/erc-1155/ERC1155Mintable), and [`Multicall`](/contracts/build/extensions/general/Multicall) extensions.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the
-[`ERC1155`](/contracts/build/extensions/erc-1155/ERC1155), [`Multicall`](/solidity/extensions/multicall) and [`ERC1155Mintable`](/solidity/extensions/erc1155mintable) extensions.
+[`ERC1155`](/contracts/build/extensions/erc-1155/ERC1155), [`Multicall`](/contracts/build/extensions/general/Multicall) and [`ERC1155Mintable`](/contracts/build/extensions/erc-1155/ERC1155Mintable) extensions.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC1155.sol" />
 
@@ -52,5 +52,5 @@ contract Contract is ERC1155, IMintableERC1155, Multicall {
 
 ## Base Contracts Implementing This Extension
 
-- [ERC1155Base](/solidity/base-contracts/erc1155base)
-- [ERC1155SignatureMint](/solidity/base-contracts/erc1155signaturemint)
+- [ERC1155Base](/contracts/build/base-contracts/erc-1155/base)
+- [ERC1155SignatureMint](/contracts/build/base-contracts/erc-1155/signature-mint)

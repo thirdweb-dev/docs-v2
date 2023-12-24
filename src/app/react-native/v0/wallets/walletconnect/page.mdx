@@ -46,7 +46,7 @@ const wallet = new WalletConnect({
 
 <Details id="recommended" summary="recommended">
 
-Show this wallet as "recommended" in the [ConnectWallet Modal](/react-native/v4/components/ConnectWallet).
+Show this wallet as "recommended" in the [ConnectWallet Modal](/react-native/v0/components/ConnectWallet).
 
 ```ts
 walletConnect({
@@ -58,7 +58,7 @@ walletConnect({
 
 ## Usage with ConnectWallet
 
-To allow users to connect to this wallet using the [ConnectWallet](/react-native/v4/components/ConnectWallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/v4/connecting-wallets#supported-wallets) prop.
+To allow users to connect to this wallet using the [ConnectWallet](/react-native/v0/components/ConnectWallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) prop.
 
 ```tsx
 <ThirdwebProvider
@@ -71,9 +71,9 @@ To allow users to connect to this wallet using the [ConnectWallet](/react-native
 
 ## Usage with useConnect
 
-You can use the [`useConnect`](/references/react-native/v4/useConnect) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v4/components/ConnectWallet) component.
+You can use the [`useConnect`](/references/react-native/v0/useConnect) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/components/ConnectWallet) component.
 
-The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v4/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
 ```tsx
 const walletConnectConfig = walletConnect();
@@ -99,7 +99,7 @@ function App() {
 
 If `chainId` is provided, wallet will be connected and immediately switch to network with given `chainId`.
 
-`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedWallets](/react-native/v4/connecting-wallets#supported-wallets) prop as shown below
+`Chain` object corresponding to this chainId from [@thirdweb-dev/chains](https://www.npmjs.com/package/@thirdweb-dev/chains) package must be specified in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) prop as shown below
 
 ```tsx
 import { Polygon } from "@thirdweb-dev/chains";

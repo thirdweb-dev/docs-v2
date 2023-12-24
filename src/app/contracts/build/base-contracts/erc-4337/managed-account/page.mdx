@@ -7,13 +7,13 @@ import { GithubButtonLink } from "@/components/Document";
 import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
 ```
 
-This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
+This contract inherits from the [`BaseAccount`](/contracts/build/extensions/erc-4337/SmartWallet) contract.
 
-Like [`DynamicAccount`](/solidity/base-contracts/dynamic-account), the `ManagedAccount` smart wallet is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+Like [`DynamicAccount`](/contracts/build/base-contracts/erc-4337/dynamic-account), the `ManagedAccount` smart wallet is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
 
-App developers can issue `ManagedAccount` smart wallets programmatically by deploying a [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) smart contract.
+App developers can issue `ManagedAccount` smart wallets programmatically by deploying a [`ManagedAccountFactory`](/contracts/build/base-contracts/erc-4337/managed-account-factory) smart contract.
 
-The admin of the [`ManagedAccountFactory`](/solidity/base-contracts/managed-account-factory) contract can push upgrades to all `ManagedAccount` contracts that it creates. This admin does not require any permissions on the `ManagedAccount` smart wallets to do so.
+The admin of the [`ManagedAccountFactory`](/contracts/build/base-contracts/erc-4337/managed-account-factory) contract can push upgrades to all `ManagedAccount` contracts that it creates. This admin does not require any permissions on the `ManagedAccount` smart wallets to do so.
 
 An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccount` smart wallets created by the factory. This is the right wallet for developers who anticipate **pushing upgrades** to their users’ wallets.
 
@@ -25,7 +25,7 @@ An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccoun
 
 If you intend to issue accounts programmatically using a custom factory contract, you must do the following:
 
-- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension.
+- Create a new factory contract by extending the [BaseAccountFactory](/contracts/build/extensions/erc-4337/SmartWallet-factory) extension.
 
 - Override the `_initializeAccount` function on the factory to create a new wallet. ([reference](https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/AccountFactory.sol#L36))
 
@@ -35,8 +35,8 @@ If you intend to issue accounts programmatically using a custom factory contract
 
 Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
 
-- [SmartWallet](/solidity/extensions/base-account)
-- [Multicall](/solidity/extensions/multicall)
+- [SmartWallet](/contracts/build/extensions/erc-4337/SmartWallet)
+- [Multicall](/contracts/build/extensions/general/Multicall)
 
 ## Usage
 

@@ -1,21 +1,21 @@
-import {
-	Callout,
-} from "@/components/Document";
+import { Callout } from "@/components/Document";
 import Image from "next/image";
-
 
 # NFT Collection
 
 The NFT Collection contract is suitable for when you want to have a collection of unique NFTs, but **not** "drop" or "release" them for your community to claim.
 
-Unlike the [NFT Drop](/pre-built-contracts/nft-drop) contract, the NFT Collection contract does not **lazy mint** your NFTs. Instead, NFTs are minted immediately when they are added to the collection.
+Unlike the [NFT Drop](/contracts/explore/pre-built-contracts/nft-drop) contract, the NFT Collection contract does not **lazy mint** your NFTs. Instead, NFTs are minted immediately when they are added to the collection.
 
-This means you can still transfer the NFTs or sell them on a [Marketplace](/pre-built-contracts/marketplace) and perform any other actions you would expect to do with an NFT.
+This means you can still transfer the NFTs or sell them on a [Marketplace](/contracts/explore/pre-built-contracts/marketplace) and perform any other actions you would expect to do with an NFT.
 
 For advanced use-cases, the NFT Collection also has [signature-based minting](/glossary/signature-based-minting) capabilities.
 
-<Callout title="Signature Minting Design" variant="info">For a detailed exploration of how **signature-based minting** works in the NFT Collection contract,
-why it was built, and it's limitations, visit our [Signature Minting Design Document](/design-docs/signature-mint)</Callout>
+<Callout title="Signature Minting Design" variant="info">
+	For a detailed exploration of how **signature-based minting** works in the NFT
+	Collection contract, why it was built, and it's limitations, visit our
+	[Signature Minting Design Document](/design-docs/signature-mint)
+</Callout>
 
 ## Use Cases & Examples
 
@@ -23,7 +23,7 @@ You could use the NFT Collection contract to:
 
 - Create a 1-of-many collection of your photography
 - Create a 1-of-1 NFT that provides special utility
-- Mint your artwork as NFTs and then sell them on a [Marketplace](/pre-built-contracts/marketplace)
+- Mint your artwork as NFTs and then sell them on a [Marketplace](/contracts/explore/pre-built-contracts/marketplace)
 - Create a community-made NFT collection
 
 ## Creating & Configuring the NFT Collection

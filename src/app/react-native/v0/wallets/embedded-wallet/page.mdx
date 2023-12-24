@@ -6,7 +6,7 @@ import { InstallTabs } from "@/components/Document/InstallTabs";
 
 # EmbeddedWallet
 
-A wallet configurator for [Embedded Wallet](/wallet/embedded-wallet) which allows integrating the wallet with React Native
+A wallet configurator for [Embedded Wallet](/wallet/wallets/embedded-wallet/overview) which allows integrating the wallet with React Native
 
 ```tsx
 import { embeddedWallet } from "@thirdweb-dev/react-native";
@@ -106,7 +106,7 @@ Here are the dependencies added:
 
 ## Usage with ConnectWallet
 
-To allow users to connect to this wallet using the [ConnectWallet](/react-native/connecting-wallets#connect-wallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/connecting-wallets#supported-wallets) prop.
+To allow users to connect to this wallet using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) prop.
 
 ```tsx
 <ThirdwebProvider
@@ -119,9 +119,9 @@ To allow users to connect to this wallet using the [ConnectWallet](/react-native
 
 ## Usage with useEmbeddedWallet
 
-You can use the [`useEmbeddedWallet`](/references/react-native/useEmbeddedWallet) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/connecting-wallets#connect-wallet) component.
+You can use the [`useEmbeddedWallet`](/references/react-native/useEmbeddedWallet) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
 
-The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
+The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
 The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
 

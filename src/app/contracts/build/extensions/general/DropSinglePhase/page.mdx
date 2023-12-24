@@ -11,11 +11,11 @@ The `DropSinglePhase` smart contract is an extension meant for distributing ERC2
 
 This extension implements the 'Drop' distribution mechanism: set restrictions, known as a claim phase, such as a price to charge, an allowlist etc. for the public / allowlisted mint of your tokens.
 
-`DropSinglePhase` allows you to set one claim phase unlike the [`Drop`](/solidity/extensions/drop) extension.
+`DropSinglePhase` allows you to set one claim phase unlike the [`Drop`](/contracts/build/extensions/general/Drop) extension.
 
 <Callout title="info" variant="info">
 
-It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
+It is recommended to use this extension alongside the [`LazyMint`](/contracts/build/extensions/general/LazyMint) extension.
 
 </Callout>
 
@@ -139,7 +139,7 @@ contract MyContract is ERC20Base, DropSinglePhase {
 
 ## Base Contracts Implementing This Extension
 
-- [ERC721Drop](/solidity/base-contracts/erc721drop)
+- [ERC721Drop](/contracts/build/base-contracts/erc-721/drop)
 - [ERC20Drop](/solidity/base-contracts/erc20drop)
 
 ## Full API reference

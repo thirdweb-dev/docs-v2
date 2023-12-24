@@ -7,7 +7,7 @@ import { GithubButtonLink } from "@/components/Document";
 import "@thirdweb-dev/contracts/smart-wallet/non-upgradeable/Account.sol";
 ```
 
-This contract inherits from the [`BaseAccount`](/solidity/extensions/base-account) contract.
+This contract inherits from the [`BaseAccount`](/contracts/build/extensions/erc-4337/SmartWallet) contract.
 
 The Account smart wallet is a **non-upgradable**, simple smart wallet that comes with all the basic benefits of account abstraction,
 alongside the default features:
@@ -21,7 +21,7 @@ alongside the default features:
 
 Developers should use this wallet if they do not anticipate making any future upgrades to their users’ wallets.
 
-App developers can issue `Account` smart wallets programmatically by deploying an [`AccountFactory`](/solidity/base-contracts/account-factory) smart contract.
+App developers can issue `Account` smart wallets programmatically by deploying an [`AccountFactory`](/contracts/build/base-contracts/erc-4337/account-factory) smart contract.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/non-upgradeable/Account.sol" />
 
@@ -31,7 +31,7 @@ App developers can issue `Account` smart wallets programmatically by deploying a
 
 If you intend to issue accounts programmatically using a custom factory contract, you must do the following:
 
-- Create a new factory contract by extending the [BaseAccountFactory](/solidity/extensions/base-account-factory) extension.
+- Create a new factory contract by extending the [BaseAccountFactory](/contracts/build/extensions/erc-4337/SmartWallet-factory) extension.
 
 - Override the `_initializeAccount` function on the factory to create a new wallet. ([reference](https://github.com/thirdweb-dev/contracts/blob/main/contracts/smart-wallet/non-upgradeable/AccountFactory.sol#L36))
 
@@ -43,8 +43,8 @@ Once deployed, you can use the features made available by these extensions on th
 
 Click on each feature to learn more about what functions are available.
 
-- [SmartWallet](/solidity/extensions/base-account)
-- [Multicall](/solidity/extensions/multicall)
+- [SmartWallet](/contracts/build/extensions/erc-4337/SmartWallet)
+- [Multicall](/contracts/build/extensions/general/Multicall)
 
 ## Usage
 

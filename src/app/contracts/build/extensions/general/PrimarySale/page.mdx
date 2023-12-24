@@ -15,9 +15,9 @@ import "@thirdweb-dev/contracts/extension/PrimarySale.sol";
 
 The `PrimarySale` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                          | Type                    | Returns | Description                                                                                                                     |
-| --------------------------------------------------------------------------------------------- | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetPrimarySaleRecipient`](/solidity/extensions/primarysale#_cansetprimarysalerecipient) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
+| Name                                                                                                         | Type                    | Returns | Description                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetPrimarySaleRecipient`](/contracts/build/extensions/general/PrimarySale#_cansetprimarysalerecipient) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
@@ -62,12 +62,12 @@ contract MyContract is PrimarySale {
 
 - [`ERC20Drop`](/solidity/base-contracts/erc20drop)
 - [`ERC20DropVote`](/solidity/base-contracts/erc20dropvote)
-- [`ERC20SignatureMint`](/solidity/base-contracts/erc20signaturemint)
-- [`ERC20SignatureMintVote`](/solidity/base-contracts/erc20signaturemintvote)
-- [`ERC721Drop`](/solidity/base-contracts/erc721drop)
-- [`ERC721SignatureMint`](/solidity/base-contracts/erc721signaturemint)
-- [`ERC1155Drop`](/solidity/base-contracts/erc1155drop)
-- [`ERC1155SignatureMint`](/solidity/base-contracts/erc1155signaturemint)
+- [`ERC20SignatureMint`](/contracts/build/base-contracts/erc-20/signature-mint)
+- [`ERC20SignatureMintVote`](/contracts/build/base-contracts/erc-20/signature-mintvote)
+- [`ERC721Drop`](/contracts/build/base-contracts/erc-721/drop)
+- [`ERC721SignatureMint`](/contracts/build/base-contracts/erc-721/signature-mint)
+- [`ERC1155Drop`](/contracts/build/base-contracts/erc-1155/drop)
+- [`ERC1155SignatureMint`](/contracts/build/base-contracts/erc-1155/signature-mint)
 
 ## Full API Reference
 

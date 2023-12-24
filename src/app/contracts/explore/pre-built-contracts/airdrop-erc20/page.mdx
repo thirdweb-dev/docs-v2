@@ -1,4 +1,5 @@
 # Airdrop ERC-20
+
 Airdrop ERC-20 tokens or the chain's native token (e.g. ether for Ethereum mainnet) to a list of recipients.
 
 The `AirdropERC20` contract is suitable to use when you want to transfer ERC20 tokens or native tokens to a list of recipient addresses, where these recipients are not expected to individually claim their airdrop; they just receive it in a transfer.
@@ -10,14 +11,14 @@ When airdropping tokens with this contract, you specify:
 
 ```typescript
 [
-  {
-    recipient: "0x123...",
-    amount: 1, // these amounts are in wei
-  },
-  {
-    recipient: "0xabc...",
-    amount: 10, // these amounts are in wei
-  },
+	{
+		recipient: "0x123...",
+		amount: 1, // these amounts are in wei
+	},
+	{
+		recipient: "0xabc...",
+		amount: 10, // these amounts are in wei
+	},
 ];
 ```
 
@@ -28,10 +29,10 @@ Cost of airdropping `1` ERC20 token: ~`66,600` gas. Cost of airdropping each add
 
 ## Extensions
 
-- [Permissions](/solidity/extensions/permissions)
-- [PermissionsEnumerable](/solidity/extensions/permissionsenumerable)
-- [ContractMetadata](/solidity/extensions/contractmetadata)
-- [Gasless](/solidity/extensions/)
-- [AirdropERC20](/solidity/extensions/)
+- [Permissions](/contracts/build/extensions/general/Permissions)
+- [PermissionsEnumerable](/contracts/build/extensions/general/Permissionsenumerable)
+- [ContractMetadata](/contracts/build/extensions/general/ContractMetadata)
+- [Gasless](/contracts/build/extensions)
+- [AirdropERC20](/contracts/build/extensions)
 
-## Airdrop 
+## Airdrop

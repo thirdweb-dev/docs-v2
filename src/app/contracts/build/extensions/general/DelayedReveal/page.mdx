@@ -14,7 +14,7 @@ In order for `ERC721Revealable` or `ERC1155Revealable` extensions to be detected
 
 <Callout title="info" variant="info">
 	It is recommended to use this extension alongside the
-	[`LazyMint`](/solidity/extensions/lazymint) extension.
+	[`LazyMint`](/contracts/build/extensions/general/LazyMint) extension.
 </Callout>
 
 <br />
@@ -25,9 +25,9 @@ In order for `ERC721Revealable` or `ERC1155Revealable` extensions to be detected
 
 The `DelayedReveal` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                  | Type     | Returns         | Description                             |
-| ----------------------------------------------------- | -------- | --------------- | --------------------------------------- |
-| [`reveal`](/solidity/extensions/delayedreveal#reveal) | external | `string memory` | Reveals a batch of delayed reveal NFTs. |
+| Name                                                                 | Type     | Returns         | Description                             |
+| -------------------------------------------------------------------- | -------- | --------------- | --------------------------------------- |
+| [`reveal`](/contracts/build/extensions/general/DelayedReveal#reveal) | external | `string memory` | Reveals a batch of delayed reveal NFTs. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 
@@ -113,10 +113,10 @@ contract MyContract is ERC721LazyMint, DelayedReveal {
 
 ## Base Contracts Implementing This Extension
 
-- [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
-- [ERC721Drop](/solidity/base-contracts/erc721drop)
-- [ERC1155DelayedReveal](/solidity/base-contracts/erc1155delayedreveal)
-- [ERC1155Drop](/solidity/base-contracts/erc1155drop)
+- [ERC721DelayedReveal](/contracts/build/base-contracts/erc-721/delayed-reveal)
+- [ERC721Drop](/contracts/build/base-contracts/erc-721/drop)
+- [ERC1155DelayedReveal](/contracts/build/base-contracts/erc-1155/delayed-reveal)
+- [ERC1155Drop](/contracts/build/base-contracts/erc-1155/drop)
 
 ## Full API Reference
 

@@ -9,7 +9,7 @@ import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
 
 Allow other wallets to **claim** NFTs that you have lazy-minted.
 
-It is recommended to use this extension alongside the [`LazyMint`](/solidity/extensions/lazymint) extension.
+It is recommended to use this extension alongside the [`LazyMint`](/contracts/build/extensions/general/LazyMint) extension.
 
 <Callout title="info" variant="info">
 
@@ -61,8 +61,8 @@ contract Contract is ERC1155, LazyMint, IClaimableERC1155 {
 
 ## Base Contracts Implementing This Extension
 
-This extension is used as part of the [ERC1155ClaimCustom](/solidity/extensions/erc1155claimcustom) extension.
+This extension is used as part of the [ERC1155ClaimCustom](/contracts/build/extensions/erc-1155/ERC1155ClaimCustom) extension.
 The base contracts which have ERC1155ClaimCustom detected on them will also implement ERC1155Claimable.
 
-- [ERC1155DelayedReveal](/solidity/base-contract/erc1155delayedreveal)
-- [ERC1155LazyMint](/solidity/base-contracts/erc1155lazymint)
+- [ERC1155DelayedReveal](/contracts/build/extensions/erc-1155/ERC1155Revealable)
+- [ERC1155LazyMint](/contracts/build/base-contracts/erc-1155/lazy-mint)

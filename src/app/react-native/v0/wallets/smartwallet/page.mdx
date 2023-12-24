@@ -24,7 +24,7 @@ const smartWalletConfig = smartWallet(walletConfig, {
 
 Provide a `WalletConfig` object to use as the personal wallet for the Smart Wallet. You can get this object by calling a wallet configurator function such as `metamaskWallet()`
 
-You can see the list of available wallet configurators for React Native [here](/react-native/v4/connecting-wallets).
+You can see the list of available wallet configurators for React Native [here](/react-native/v0/connecting-wallets).
 
 </Details>
 
@@ -49,7 +49,7 @@ Must be a `boolean`.
 
 ## Usage with ConnectWallet
 
-To allow users to connect to this wallet using the [ConnectWallet](/references/react-native/v4/ConnectWallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/v4/connecting-wallets#supported-wallets) prop.
+To allow users to connect to this wallet using the [ConnectWallet](/references/react-native/v0/ConnectWallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) prop.
 
 ```tsx
 import {
@@ -76,9 +76,9 @@ const config = {
 
 ## Usage with `useSmartWallet`
 
-you can use the [`useSmartWallet`](/references/react-native/v4/useSmartWallet) hook to programmatically connect to the smart wallet without using the [ConnectWallet](/references/react-native/v4/ConnectWallet) component.
+you can use the [`useSmartWallet`](/references/react-native/v0/useSmartWallet) hook to programmatically connect to the smart wallet without using the [ConnectWallet](/references/react-native/v0/ConnectWallet) component.
 
-`smartWallet()` also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v4/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
+`smartWallet()` also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
 ```tsx
 import { useSmartWallet, metamaskWallet } from "@thirdweb-dev/react-native";

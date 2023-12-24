@@ -5,7 +5,7 @@ import Image from "next/image";
 
 In this guide, we'll walk through the process of adding Auth to a simple full-stack application to enable wallet-based authentication.
 
-Specifically, we'll be integrating Auth with a [Next.js](https://nextjs.org) app, which has it's own build in API, as well as a [React](https://reactjs.org) frontend. With this setup we can add [Auth API](/wallets/auth/hoa-it-works/api) endpoints to our app to handle authentication and authorization, and then we can build a simple frontend to login, display the user, and logout.
+Specifically, we'll be integrating Auth with a [Next.js](https://nextjs.org) app, which has it's own build in API, as well as a [React](https://reactjs.org) frontend. With this setup we can add [Auth API](/wallets/auth/how-it-works/api) endpoints to our app to handle authentication and authorization, and then we can build a simple frontend to login, display the user, and logout.
 
 If you want to see the follow along with the full code for this guide, we'll be using the following example repository:
 
@@ -67,7 +67,7 @@ export default ThirdwebAuthHandler();
 
 This file is a Next.js catch all route, which will catch any requests to `/api/auth/*` endpoints. The `ThirdwebAuth` function takes in configuration for your Auth API. It has many optional parameters that aren't used here (you can read more about them on the [Auth Next.js page](/wallets/auth/server-frameworks/next)), but the two mandatory parameters are `domain` and `wallet`.
 
-`domain` is used to prevent phishing attacks on your users - you can learn more about it in the [how auth works section](/wallets/auth/hoa-it-works/siwe), but the important thing is that this `domain` matches the `domain` we will later configure on the frontend.
+`domain` is used to prevent phishing attacks on your users - you can learn more about it in the [how auth works section](/wallets/auth/how-it-works/siwe), but the important thing is that this `domain` matches the `domain` we will later configure on the frontend.
 
 `wallet` lets you configure the admin wallet that will issue and verify JWTs for your users. In this example, we're using a simple private key wallet, but you can also use more advanced wallets, as laid out in the wallet configuration section:
 
@@ -77,7 +77,7 @@ This file is a Next.js catch all route, which will catch any requests to `/api/a
 	icon="educate"
 />
 
-The `ThirdwebAuth` function returns us a `ThirdwebAuthHandler`, which automatically sets up multiple authentication endpoints for us to use that handle logins, authentication, and logouts (as laid out in the [Auth API overview](/wallets/auth/hoa-it-works/api)). It also returns a `getUser` function, which we can use on other endpoints to authenticate the user that sent a request.
+The `ThirdwebAuth` function returns us a `ThirdwebAuthHandler`, which automatically sets up multiple authentication endpoints for us to use that handle logins, authentication, and logouts (as laid out in the [Auth API overview](/wallets/auth/how-it-works/api)). It also returns a `getUser` function, which we can use on other endpoints to authenticate the user that sent a request.
 
 This is exactly what we'll use on the `/api/secret` endpoint, which is a simple endpoint that returns a secret message if the user is authenticated. We can see that we use the `getUser` function to get the user from the request, and then return the secret message if the user is authenticated:
 

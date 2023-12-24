@@ -7,7 +7,7 @@ import { GithubButtonLink } from "@/components/Document";
 import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
 ```
 
-The `ContractMetadata` smart contract is an extension usable with any smart contract. It lets you define metadata for your smart contract. Additionally, `ContractMetadata` is necessary to enable [royalties](/solidity/extensions/royalty) on NFT contracts on OpenSea.
+The `ContractMetadata` smart contract is an extension usable with any smart contract. It lets you define metadata for your smart contract. Additionally, `ContractMetadata` is necessary to enable [royalties](/contracts/build/extensions/general/Royalty) on NFT contracts on OpenSea.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/ContractMetadata.sol" />
 
@@ -15,9 +15,9 @@ The `ContractMetadata` smart contract is an extension usable with any smart cont
 
 The `ContractMetadata` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                             | Type                    | Returns | Description                                                                                                                             |
-| -------------------------------------------------------------------------------- | ----------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetContractURI`](/solidity/extensions/contractmetadata#_cansetcontracturi) | internal view _virtual_ | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
+| Name                                                                                            | Type                    | Returns | Description                                                                                                                             |
+| ----------------------------------------------------------------------------------------------- | ----------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetContractURI`](/contracts/build/extensions/general/ContractMetadata#_cansetcontracturi) | internal view _virtual_ | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality.
 

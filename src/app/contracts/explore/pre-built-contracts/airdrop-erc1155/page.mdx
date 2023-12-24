@@ -1,6 +1,5 @@
 # Airdrop ERC1155
 
-
 Airdrop ERC1155 NFTs to a list of recipients.
 
 The `AirdropERC1155` contract is suitable to use when you want to transfer ERC1155 NFTs to a list of recipient addresses, where these recipients are not expected to individually claim their airdrop; they just receive it in a transfer.
@@ -12,16 +11,16 @@ When airdropping tokens with this contract, you specify:
 
 ```typescript
 [
-  {
-    recipient: "0x123...",
-    tokenId: 1,
-    amount: 5,
-  },
-  {
-    recipient: "0xabc...",
-    tokenId: 1,
-    amount: 5,
-  },
+	{
+		recipient: "0x123...",
+		tokenId: 1,
+		amount: 5,
+	},
+	{
+		recipient: "0xabc...",
+		tokenId: 1,
+		amount: 5,
+	},
 ];
 ```
 
@@ -32,8 +31,8 @@ Cost of airdropping `1` ERC1155 token: ~`51,571` gas. Cost of airdropping each a
 
 ## Extensions
 
-- [Permissions](/solidity/extensions/permissions)
-- [PermissionsEnumerable](/solidity/extensions/permissionsenumerable)
-- [ContractMetadata](/solidity/extensions/contractmetadata)
-- [Gasless](/solidity/extensions/)
-- [AirdropERC1155](/solidity/extensions/)
+- [Permissions](/contracts/build/extensions/general/Permissions)
+- [PermissionsEnumerable](/contracts/build/extensions/general/Permissionsenumerable)
+- [ContractMetadata](/contracts/build/extensions/general/ContractMetadata)
+- [Gasless](/contracts/build/extensions)
+- [AirdropERC1155](/contracts/build/extensions)

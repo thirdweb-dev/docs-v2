@@ -9,8 +9,8 @@ import "@thirdweb-dev/contracts/base/ERC721Drop.sol";
 
 The `ERC721Drop` base contract allows you to create an NFT Drop that other wallets can claim.
 
-It implements the [ERC721A standard](/solidity/erc721) with the [Lazy Mint](/solidity/extensions/lazymint),
-[Delayed Reveal](/solidity/extensions/delayedreveal) and [Drop](/solidity/extensions/dropsinglephase) extensions;
+It implements the [ERC721A standard](/solidity/erc721) with the [Lazy Mint](/contracts/build/extensions/general/LazyMint),
+[Delayed Reveal](/contracts/build/extensions/general/DelayedReveal) and [Drop](/contracts/build/extensions/general/DropSinglePhase) extensions;
 allowing you to batch lazy-mint NFTs and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Drop.sol" />
@@ -53,15 +53,14 @@ Once deployed, you can use the features made available by these extensions on th
 Click on each feature to learn more about what functions are available.
 
 - [ERC721](/contracts/build/extensions/erc-721/ERC721)
-- [ERC721Burnable](/solidity/extensions/erc721burnable)
+- [ERC721Burnable](/contracts/build/extensions/erc-721/ERC721Burnable)
 - [ERC721ClaimConditionsV2](/solidity/extensions/erc721claimconditions)
-- [ERC721LazyMintable](/solidity/extensions/erc721lazymintable)
-- [ERC721Revealable](/solidity/extensions/delayedreveal)
-- [ERC721Supply](/solidity/extensions/erc721supply)
-- [Royalty](/solidity/extensions/royalty)
-- [PrimarySale](/solidity/extensions/primarysale)
-- [ContractMetadata](/solidity/extensions/contractmetadata)
-- [Ownable](/solidity/extensions/ownable)
+- [ERC721Revealable](/contracts/build/extensions/general/DelayedReveal)
+- [ERC721Supply](/contracts/build/extensions/erc-721/ERC721Supply)
+- [Royalty](/contracts/build/extensions/general/Royalty)
+- [PrimarySale](/contracts/build/extensions/general/PrimarySale)
+- [ContractMetadata](/contracts/build/extensions/general/ContractMetadata)
+- [Ownable](/contracts/build/extensions/general/Ownable)
 
 ## Functions to Override
 
