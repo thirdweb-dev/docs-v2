@@ -214,6 +214,10 @@ const solidityRedirects = {
 	"/solidity/extensions/drop": "/contracts/build/extensions/general/Drop",
 	"/solidity/extensions/erc721claimable": "/contracts/build/extensions/erc-721/ERC721Claimable",
 	"/solidity/base-contract/erc1155delayedreveal": "/contracts/build/extensions/erc-1155/ERC1155Revealable",
+	"/solidity/extensions/erc721claimconditions": "/contracts/build/extensions/erc-721/ERC721ClaimConditions",
+	"/solidity/extensions/erc721signaturemint": "/contracts/build/extensions/erc-721/ERC721SignatureMint",
+	"/solidity/extensions/contract-metadata": "/contracts/build/extensions/general/ContractMetadata",
+	"/solidity/extensions/erc1155claimphases": "/contracts/build/extensions/erc-1155/ERC1155ClaimPhases",
 };
 
 /**
