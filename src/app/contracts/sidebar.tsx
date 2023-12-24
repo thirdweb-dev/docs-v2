@@ -280,6 +280,7 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "ERC-4337",
+							href: `${baseContractsSlug}/erc-4337`,
 							links: [
 								{
 									name: "Account",

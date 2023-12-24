@@ -194,7 +194,7 @@ const solidityRedirects = {
 	"/solidity/extensions/erc20batchmintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
 	"/solidity/base-contracts/erc20base": "/contracts/build/base-contracts/erc-20/base",
 	"/solidity/extensions/erc20": "/contracts/build/extensions/erc-20/ERC20",
-	"/solidity/base-contracts/erc20vote": "/contracts/build/base-contracts/erc-20/base",
+	"/solidity/base-contracts/erc20vote": "/contracts/build/base-contracts/erc-20/vote",
 	"/solidity/extensions/base-account": "/contracts/build/extensions/erc-4337/SmartWallet",
 	"/solidity/base-contracts/account-factory": "/contracts/build/base-contracts/erc-4337/account-factory",
 	"/solidity/base-contracts/account": "/contracts/build/base-contracts/erc-4337/account",
