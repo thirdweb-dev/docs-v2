@@ -209,6 +209,7 @@ const solidityRedirects = {
 	"/solidity/base-contracts/erc20signaturemint": "/contracts/build/base-contracts/erc-20/signature-mint",
 	"/solidity/extensions/erc1155supply": "/contracts/build/extensions/erc-1155/ERC1155Supply",
 	"/solidity/extensions/erc1155claimable": "/contracts/build/extensions/erc-1155/ERC1155Claimable",
+	"/solidity/extensions/platformfee": "/contracts/build/extensions/general/PlatformFee",
 };
 
 /**
