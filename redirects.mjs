@@ -221,6 +221,8 @@ const solidityRedirects = {
 	"/solidity/base-contracts/staking/staking1155base": "/contracts/build/base-contracts/erc-1155/staking",
 	"/solidity/base-contracts/staking/staking20base": "/contracts/build/base-contracts/erc-20/staking",
 	"/solidity/base-contracts/staking/staking721base": "/contracts/build/base-contracts/erc-721/staking",
+	"/solidity/base-contract/erc721delayedreveal": "/contracts/build/base-contracts/erc-721/delayed-reveal",
+	"/solidity/base-contracts/smart-accounts": "/contracts/build/base-contracts/erc-4337",
 };
 
 /**
