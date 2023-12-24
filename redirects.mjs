@@ -205,6 +205,7 @@ const solidityRedirects = {
 	"/solidity/extensions/erc721claimcustom": "/contracts/build/extensions/erc-721/ERC721ClaimCustom",
 	"/solidity/extensions/permissions": "/contracts/build/extensions/general/Permissions",
 	"/solidity/base-contracts/erc1155drop": "/contracts/build/base-contracts/erc-1155/drop",
+	"/solidity/base-contracts/erc1155signaturemint": "/contracts/build/base-contracts/erc-1155/signature-mint",
 };
 
 /**
