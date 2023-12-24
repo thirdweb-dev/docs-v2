@@ -210,6 +210,8 @@ const solidityRedirects = {
 	"/solidity/extensions/erc1155supply": "/contracts/build/extensions/erc-1155/ERC1155Supply",
 	"/solidity/extensions/erc1155claimable": "/contracts/build/extensions/erc-1155/ERC1155Claimable",
 	"/solidity/extensions/platformfee": "/contracts/build/extensions/general/PlatformFee",
+	"/solidity/base-contracts/erc1155delayedreveal": "/contracts/build/base-contracts/erc-1155/delayed-reveal",
+	"/solidity/extensions/drop": "/contracts/build/extensions/general/Drop",
 };
 
 /**
