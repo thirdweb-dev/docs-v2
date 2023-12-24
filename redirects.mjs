@@ -244,7 +244,7 @@ export const redirects = async () => {
 		latestSDK("react-native", "v0"),
 		latestSDK("typescript", "v4"),
 		latestSDK("wallet-sdk", "v2"),
-		latestSDK("storage", "v2"),
+		latestSDK("storage-sdk", "v2"),
 	];
 };
 

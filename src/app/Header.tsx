@@ -75,28 +75,9 @@ const sdkLinks = [
 		name: "Wallets",
 		href: "/wallet-sdk/latest",
 	},
-];
-
-const referenceLinks = [
-	{
-		name: "TypeScript",
-		href: "/references/typescript/latest",
-	},
-	{
-		name: "React",
-		href: "/references/react/latest",
-	},
-	{
-		name: "React Native",
-		href: "/references/react-native/latest",
-	},
 	{
 		name: "Storage",
-		href: "/references/storage/latest",
-	},
-	{
-		name: "Wallets",
-		href: "/references/wallets/latest",
+		href: "/storage-sdk/latest",
 	},
 ];
 
@@ -181,12 +162,6 @@ export function Header() {
 						</div>
 
 						<div className="flex flex-col gap-5 xl:flex-row xl:gap-1">
-							<DropdownLinks
-								links={referenceLinks}
-								onLinkClick={() => setShowBurgerMenu(false)}
-								category="References"
-							/>
-
 							<DropdownLinks
 								links={supportLinks}
 								onLinkClick={() => setShowBurgerMenu(false)}
