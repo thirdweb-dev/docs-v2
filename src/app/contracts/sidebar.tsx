@@ -214,6 +214,10 @@ export const sidebar: SideBar = {
 									name: "Vote",
 									href: `${baseContractsSlug}/erc-20/vote`,
 								},
+								{
+									name: "Staking",
+									href: `${baseContractsSlug}/erc-20/staking`,
+								},
 							],
 						},
 						{
@@ -239,6 +243,10 @@ export const sidebar: SideBar = {
 									name: "Signature Mint",
 									href: `${baseContractsSlug}/erc-721/signature-mint`,
 								},
+								{
+									name: "Staking",
+									href: `${baseContractsSlug}/erc-721/staking`,
+								},
 							],
 						},
 						{
@@ -263,6 +271,10 @@ export const sidebar: SideBar = {
 								{
 									name: "Signature Mint",
 									href: `${baseContractsSlug}/erc-1155/signature-mint`,
+								},
+								{
+									name: "Staking",
+									href: `${baseContractsSlug}/erc-1155/staking`,
 								},
 							],
 						},
@@ -292,23 +304,6 @@ export const sidebar: SideBar = {
 								{
 									name: "Managed Account Factory",
 									href: `${baseContractsSlug}/erc-4337/managed-account-factory`,
-								},
-							],
-						},
-						{
-							name: "Staking",
-							links: [
-								{
-									name: "Staking ERC-20",
-									href: `${baseContractsSlug}/staking/erc-20`,
-								},
-								{
-									name: "Staking ERC-721",
-									href: `${baseContractsSlug}/staking/erc-721`,
-								},
-								{
-									name: "Staking ERC-1155",
-									href: `${baseContractsSlug}/staking/erc-1155`,
 								},
 							],
 						},

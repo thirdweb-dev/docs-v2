@@ -218,6 +218,9 @@ const solidityRedirects = {
 	"/solidity/extensions/erc721signaturemint": "/contracts/build/extensions/erc-721/ERC721SignatureMint",
 	"/solidity/extensions/contract-metadata": "/contracts/build/extensions/general/ContractMetadata",
 	"/solidity/extensions/erc1155claimphases": "/contracts/build/extensions/erc-1155/ERC1155ClaimPhases",
+	"/solidity/base-contracts/staking/staking1155base": "/contracts/build/base-contracts/erc-1155/staking",
+	"/solidity/base-contracts/staking/staking20base": "/contracts/build/base-contracts/erc-20/staking",
+	"/solidity/base-contracts/staking/staking721base": "/contracts/build/base-contracts/erc-721/staking",
 };
 
 /**
