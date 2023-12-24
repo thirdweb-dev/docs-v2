@@ -4,6 +4,10 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
 import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/Posthog";
+import {
+	ContextAIBotButton,
+	ContextAIBotScript,
+} from "@/components/others/ContextAIButton";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -30,6 +34,7 @@ export default function RootLayout({
 		<html lang="en">
 			<head>
 				<PosthogHeadSetup />
+				<ContextAIBotScript />
 			</head>
 			<body className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
 				<NextTopLoader
@@ -39,6 +44,9 @@ export default function RootLayout({
 					showSpinner={false}
 				/>
 				<PosthogPageView />
+				<div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
+					<ContextAIBotButton />
+				</div>
 				<div className="relative flex min-h-screen flex-col">
 					<Header />
 					{children}
