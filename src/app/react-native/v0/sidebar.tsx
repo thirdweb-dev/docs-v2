@@ -99,7 +99,7 @@ export const sidebar: SideBar = {
 		},
 		{
 			name: "FAQ",
-			href: `${sdkSlug}faq`,
+			href: `${sdkSlug}/faq`,
 		},
 		{
 			name: "Full Reference",

@@ -12,7 +12,7 @@ The short version is that you need to tell the Android OS that your application 
 
 Open your `AndroidManifest.xml` and add the following code inside your main `<activity>` block:
 
-```
+```xml
 <activity
     android:name="com.example.android.GizmosActivity"
     <intent-filter>
@@ -30,7 +30,7 @@ To understand how this works, please refer to the [Android's developer official 
 
 Open your `Info.plist` file and add a new `CFBundleURLTypes` key:
 
-```
+```xml
 <key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -44,7 +44,7 @@ Open your `Info.plist` file and add a new `CFBundleURLTypes` key:
 
 Next, open your `AppDelegate.mm` file and import the `RCTLinkingManager` header file and add the following method:
 
-```
+```mm
 #import <React/RCTLinkingManager.h>
 
 ...

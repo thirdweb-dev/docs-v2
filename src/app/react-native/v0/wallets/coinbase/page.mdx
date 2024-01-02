@@ -25,7 +25,7 @@ const coinbaseConfig = coinbaseWallet(options);
 <Details summary='callbackURL' id='callbackURL'>
 
 The Coinbase Wallet Mobile SDK uses Universal Links to communicate between Coinbase Wallet and your application.
-We wrote [a short guide](/react-native/faq/deeplinks) to help you enable deep links support in your mobile app or
+We wrote [a short guide](/react-native/v0/faq#how-to-enable-deep-links-in-your-apps) to help you enable deep links support in your mobile app or
 you can check the [Coinbase setup](https://docs.cloud.coinbase.com/wallet-sdk/docs/ios-setup).
 
 ```ts
@@ -65,7 +65,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react-native
 
 ## Usage with useConnect
 
-you can use the [`useConnect`](/references/react-native/useConnect) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
+you can use the [`useConnect`](/references/react-native/v0/useConnect) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
 
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
