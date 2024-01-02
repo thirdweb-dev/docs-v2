@@ -6,12 +6,18 @@ export function DocImage(props: {
 	src: React.ComponentProps<typeof Image>["src"];
 	alt?: string;
 	className?: string;
+	containerClassName?: string;
 }) {
 	const { alt, src } = props;
 	const cls = cn("rounded-lg", props.className);
 
 	return (
-		<div className="my-6 flex justify-center rounded-lg border p-4">
+		<div
+			className={cn(
+				"my-6 flex justify-center rounded-lg border p-4",
+				props.containerClassName,
+			)}
+		>
 			{typeof src === "string" ? (
 				<img className={cls} alt={alt || ""} src={src} />
 			) : (

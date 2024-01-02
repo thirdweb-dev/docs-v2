@@ -1,6 +1,5 @@
-import Image from "next/image";
 import ExportKey from "./export-priv-key.png";
-import { Callout } from "@/components/Document";
+import { Callout, DocImage } from "@/components/Document";
 
 # Export private key
 
@@ -14,7 +13,7 @@ Allow your users to export the private key for their embedded wallet embedding t
 
 The user will be presented with a form to sign in to reveal their private key:
 
-<Image src={ExportKey} />
+<DocImage src={ExportKey} className="max-w-[550px]" />
 
 ## Use cases
 
