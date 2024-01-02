@@ -102,15 +102,15 @@ export function Header() {
 					"container flex items-center justify-between gap-6 p-4 xl:justify-start"
 				}
 			>
-				<Link className="flex items-center gap-2" href="/">
+				<Link className="flex items-end gap-2" href="/">
 					<Image
 						src="/icons/thirdweb-logo.svg"
 						alt=""
 						width={150}
 						height={25}
 					/>
-					<span className="mt-1 font-semibold leading-none text-f-300">
-						DOCS
+					<span className="text-[24px] font-bold leading-none tracking-tighter text-f-100">
+						Docs
 					</span>
 				</Link>
 
