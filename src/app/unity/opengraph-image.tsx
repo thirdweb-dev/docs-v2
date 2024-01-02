@@ -4,7 +4,7 @@ export const runtime = "edge";
 
 export default function Image() {
 	return openGraphImg({
-		title: "thirdweb Solidity SDK",
-		icon: "solidity",
+		title: "thirdweb Unity SDK",
+		icon: "unity",
 	});
 }

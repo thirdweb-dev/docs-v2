@@ -32,7 +32,8 @@ export async function openGraphImg(options: {
 		| "payment"
 		| "infra"
 		| "rpc"
-		| "storage";
+		| "storage"
+		| "changelog";
 }) {
 	// Font
 	const inter600 = await fetch(
@@ -149,7 +150,7 @@ export async function openGraphImg(options: {
 					style={{
 						display: "flex",
 						position: "absolute",
-						right: width / 6.7,
+						right: width / 6.6,
 						top: height / 2 - iconSize / 2 + 10,
 					}}
 				/>
