@@ -33,9 +33,7 @@ It ensures the following criteria before attempting to call the contract functio
 
 1. There is a **connected wallet**
    (if there is not, it renders a [ConnectWallet Button](/react/v4/components/ConnectWallet) instead).
-2. The connected wallet is on the **correct network**
-   as specified in the [ThirdwebProvider](/react/v4/ThirdwebProvider#activeChain)'s
-   `activeChain` prop (if it is not, it renders a switch network button instead).
+2. The connected wallet is on the **correct network** which is specified in the `activeChain` prop of [ThirdwebProvider](/react/v4/ThirdwebProvider#activeChain) component. if wallet is connected to any other network, it renders a switch network button instead.
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
