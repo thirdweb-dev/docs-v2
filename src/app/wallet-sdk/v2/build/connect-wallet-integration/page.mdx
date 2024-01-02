@@ -379,7 +379,7 @@ There are two ways to connect your wallet in `connectUI`
 
 <Details id="useConnect" summary="Using useConnect hook" tags={["Simple"]}>
 
-The recommended way to connect your wallet is to use the [useConnect](/react/react.useconnect) hook.
+The recommended way to connect your wallet is to use the [useConnect](/references/react/v4/useConnect) hook.
 
 ```tsx
 import { ConnectUIProps } from "@thirdweb-dev/react";
@@ -415,11 +415,11 @@ You should only use this method if you need access to the wallet instance before
 
 There are 3 steps to connect your wallet manually:
 
-- create an instance of your wallet using [useCreateWalletInstance](/react/react.usecreatewalletinstance)
+- create an instance of your wallet using [useCreateWalletInstance](/references/react/v4/useCreateWalletInstance)
 - connect your wallet using the `connect` method of your wallet
-- once the wallet is connected, set the wallet instance as connected using [useSetConnectedWallet](/react/react.usesetconnectedwallet)
+- once the wallet is connected, set the wallet instance as connected using [useSetConnectedWallet](/references/react/v4/useSetConnectedWallet)
 
-Make sure to update the `connectionStatus` using [useSetConnectionStatus](/react/react.usesetconnectionstatus) to `"connecting"` before connecting your wallet and `"disconnected"` if the connection fails.
+Make sure to update the `connectionStatus` using [useSetConnectionStatus](/references/react/v4/useSetConnectionStatus) to `"connecting"` before connecting your wallet and `"disconnected"` if the connection fails.
 
 ```tsx
 import {

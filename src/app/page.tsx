@@ -1,6 +1,6 @@
 import Image from "next/image";
 import DocsHero from "./_images/docs-hero.svg";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Heading, Grid } from "@/components/Document";
 
@@ -63,7 +63,7 @@ function Hero() {
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
-					<div className="flex flex-wrap gap-4">
+					{/* <div className="flex flex-wrap gap-4">
 						<Button
 							asChild
 							variant="accent"
@@ -83,7 +83,7 @@ function Hero() {
 						>
 							<Link href="/#wallets">Explore Products</Link>
 						</Button>
-					</div>
+					</div> */}
 				</div>
 			</div>
 
@@ -243,7 +243,7 @@ function Hero() {
 
 function WalletsSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="wallets" title="Wallets" />
 
 			<Grid>
@@ -278,7 +278,7 @@ function WalletsSection() {
 
 function ContractsSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="contracts" title="Contracts" />
 
 			<Grid>
@@ -319,7 +319,7 @@ function ContractsSection() {
 
 function PaymentSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="payments" title="Payments" />
 
 			<Grid>
@@ -336,10 +336,16 @@ function PaymentSection() {
 
 function InfraSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="infra" title="Infrastructure" />
 
 			<Grid>
+				<ArticleCardIndex
+					href="/infrastructure/engine/overview"
+					title="Engine"
+					description="HTTP server with contract APIs and backend wallets"
+					icon={InfraEngineIcon}
+				/>
 				<ArticleCardIndex
 					href="/infrastructure/storage/overview"
 					title="Storage"
@@ -352,12 +358,6 @@ function InfraSection() {
 					description="Enterprise-grade RPCs, for free"
 					icon={InfraRPCIcon}
 				/>
-				<ArticleCardIndex
-					href="/infrastructure/engine/overview"
-					title="Engine"
-					description="HTTP server with contract APIs and backend wallets"
-					icon={InfraEngineIcon}
-				/>
 			</Grid>
 		</section>
 	);
@@ -365,7 +365,7 @@ function InfraSection() {
 
 function SDKSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="sdk" title="SDKs" />
 
 			<Grid>
@@ -395,7 +395,7 @@ function SDKSection() {
 
 function SectionTitle(props: { title: string; id: string }) {
 	return (
-		<Heading id={props.id} level={2} anchorClassName="mb-5">
+		<Heading id={props.id} level={2} anchorClassName="mb-4 mt-0">
 			{props.title}
 		</Heading>
 	);

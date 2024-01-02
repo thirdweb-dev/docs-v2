@@ -34,7 +34,7 @@ your app's `redirectUrl` (more on this below).
 `redirectUrl`: The `redirectUrl` must be a deeplink your app supports. This
 is going to be used to redirect back from the browser when using socials sign in options (Google, Apple, etc).
 
-We wrote [a short guide](/react-native/faq) to help you enable deep links support in your mobile app.
+We wrote [a short guide](/react-native/v0/faq) to help you enable deep links support in your mobile app.
 
 ```ts
 embeddedWallet({
@@ -119,7 +119,7 @@ To allow users to connect to this wallet using the [ConnectWallet](/react-native
 
 ## Usage with useEmbeddedWallet
 
-You can use the [`useEmbeddedWallet`](/references/react-native/useEmbeddedWallet) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
+You can use the [`useEmbeddedWallet`](/references/react-native/v0/useEmbeddedWallet) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
 
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
