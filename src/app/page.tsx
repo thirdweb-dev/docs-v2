@@ -243,7 +243,7 @@ function Hero() {
 
 function WalletsSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="wallets" title="Wallets" />
 
 			<Grid>
@@ -278,7 +278,7 @@ function WalletsSection() {
 
 function ContractsSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="contracts" title="Contracts" />
 
 			<Grid>
@@ -319,7 +319,7 @@ function ContractsSection() {
 
 function PaymentSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="payments" title="Payments" />
 
 			<Grid>
@@ -336,7 +336,7 @@ function PaymentSection() {
 
 function InfraSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="infra" title="Infrastructure" />
 
 			<Grid>
@@ -365,7 +365,7 @@ function InfraSection() {
 
 function SDKSection() {
 	return (
-		<section className="py-10">
+		<section className="my-12">
 			<SectionTitle id="sdk" title="SDKs" />
 
 			<Grid>
@@ -395,7 +395,7 @@ function SDKSection() {
 
 function SectionTitle(props: { title: string; id: string }) {
 	return (
-		<Heading id={props.id} level={2} anchorClassName="mb-5">
+		<Heading id={props.id} level={2} anchorClassName="mb-4 mt-0">
 			{props.title}
 		</Heading>
 	);
