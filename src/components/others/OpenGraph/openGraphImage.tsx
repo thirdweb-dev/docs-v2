@@ -21,18 +21,25 @@ const iconSize = 300;
 // Image generation
 export async function openGraphImg(options: {
 	title: string;
-	icon: "react" | "typescript" | "unity" | "solidity";
+	icon:
+		| "react"
+		| "typescript"
+		| "unity"
+		| "solidity"
+		| "wallets"
+		| "auth"
+		| "contract"
+		| "payment"
+		| "infra"
+		| "rpc"
+		| "storage";
 }) {
 	// Font
 	const inter600 = await fetch(
 		new URL("./inter/700.ttf", import.meta.url),
 	).then((res) => res.arrayBuffer());
 
-	let iconUrl = "";
-
-	if (options.icon === "react") {
-		iconUrl = `${getBaseUrl()}/og/icons/react.svg`;
-	}
+	const iconUrl = `${getBaseUrl()}/og/icons/${options.icon || ""}.svg`;
 
 	return new ImageResponse(
 		(
