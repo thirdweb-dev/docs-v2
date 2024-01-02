@@ -1,6 +1,6 @@
 import Image from "next/image";
 import DocsHero from "./_images/docs-hero.svg";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Heading, Grid } from "@/components/Document";
 
@@ -63,7 +63,7 @@ function Hero() {
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
-					<div className="flex flex-wrap gap-4">
+					{/* <div className="flex flex-wrap gap-4">
 						<Button
 							asChild
 							variant="accent"
@@ -83,7 +83,7 @@ function Hero() {
 						>
 							<Link href="/#wallets">Explore Products</Link>
 						</Button>
-					</div>
+					</div> */}
 				</div>
 			</div>
 
