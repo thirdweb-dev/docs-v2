@@ -21,7 +21,7 @@ By using the [wallet SDK](/references/wallets/latest) alongside the [TypeScript 
 The wallet SDK with the TypeScript SDK is primarily used when creating a backend for your application or when creating a node script.
 In this guide, we will be using the wallet SDK to create a Node script but the logic for creating a backend is the same.
 
-If you are working in a React environment, you are recommended to follow [this guide](/wallets/smart-wallet/guides/react/latest).
+If you are working in a React environment, you are recommended to follow [this guide](/wallets/smart-wallet/guides/react).
 
 <Steps>
     <Step title="Deploy an Account Factory">
@@ -48,7 +48,7 @@ Choose the right smart wallet setup for your app. thirdweb offers the following 
 	/>
 </Grid>
 
-Read about the differences between the three smart wallet types [here](/smart-wallet/how-it-works#smart-wallet-factories).
+Read about the differences between the three smart wallet types [here](/wallets/smart-wallet/how-it-works).
 
 </Step>
 <Step title="Create an API key">
@@ -94,7 +94,7 @@ Open the `index.ts` file and delete the starter script, we won't need it.
 <Step title="Creating the Personal Wallet Key">
 
 This smart wallet is unlocked by a 'key' - a personal wallet.
-This key can be anything from a [MetaMask wallet](/references/wallets/MetaMaskWallet) or even a [Local Wallet](/references/wallets/LocalWallet) and is used as a way to 'sign in' to the wallet.
+This key can be anything from a [MetaMask wallet](/references/wallets/latest/MetaMaskWallet) or even a [Local Wallet](/references/wallets/latest/LocalWallet) and is used as a way to 'sign in' to the wallet.
 
 First install the wallets package if you haven't already:
 
@@ -102,7 +102,7 @@ First install the wallets package if you haven't already:
 yarn add @thirdweb-dev/wallets
 ```
 
-To create a personal wallet key, we are going to use the [Local Wallet](/references/wallets/LocalWallet), which we need to import from the `@thirdweb-dev/wallets` package, and store it in an ecrypted JSON file.
+To create a personal wallet key, we are going to use the [Local Wallet](/references/wallets/latest/LocalWallet), which we need to import from the `@thirdweb-dev/wallets` package, and store it in an ecrypted JSON file.
 
 ```typescript
 import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-node";
@@ -121,7 +121,7 @@ console.log("Personal wallet address:", personalWalletAddress);
 </Step>
 <Step title="Creating the Smart Wallet">
 
-Now, let's create a smart wallet using the [SmartWallet](/wallet/smart-wallet) class from the `@thirdweb-dev/wallets` package.
+Now, let's create a smart wallet using the [SmartWallet](/wallets/smart-wallet) class from the `@thirdweb-dev/wallets` package.
 To do this, we need to pass a `SmartWalletConfig` object to the constructor. This object contains the following properties:
 
 - `chain`: the chain that the smart wallet will be deployed on.
@@ -147,7 +147,7 @@ await smartWallet.connect({
 });
 ```
 
-To view all of the methods on the `SmartWallet` class, [view the Wallet SDK documentation](/wallet/smart-wallet).
+To view all of the methods on the `SmartWallet` class, [view the Wallet SDK documentation](/wallets/smart-wallet).
 
 </Step>
 <Step title="Instantiate the thirdweb SDK">
@@ -174,7 +174,7 @@ We have also added some helpful logs to view the smart wallet address and balanc
 In order to follow this specific example, you will need the following setup:
 
 - [Deploy a token drop contract](https://thirdweb.com/thirdweb.eth/DropERC20) deployed on Goerli.
-- [Claim conditions](/dashboard/claim-conditions) set so that tokens can be claimed
+- Claim conditions set so that tokens can be claimed
 
 Now let's use this smart wallet to claim an ERC20 token from a token drop contract!
 
