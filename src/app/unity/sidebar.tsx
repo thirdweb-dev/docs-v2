@@ -302,6 +302,10 @@ export const sidebar: SideBar = {
 			href: "/unity/getting-started",
 		},
 		{
+			name: "ThirdwebSDK",
+			href: "/unity/ThirdwebSDK",
+		},
+		{
 			name: "Thirdweb Manager",
 			href: "/unity/thirdwebmanager",
 		},
