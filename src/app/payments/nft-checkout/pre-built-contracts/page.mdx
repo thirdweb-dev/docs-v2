@@ -8,30 +8,6 @@ import { DocImage } from "@/components/Document";
 
 For some thirdweb contracts, set `contractArgs` when creating [Shareable Checkout Links](/payments/nft-checkout/checkout-link), [One-Time Checkout Links](/payments/nft-checkout/one-time-checkout-link), or [Checkout Elements](/payments/nft-checkout/elements).
 
-### Signature Drop
-
-This is an ERC-721A contract where the NFT metadata is unique but the claim configuration can be modified for each buyer by creating a _signature_ on your backend. If you don't plan to use signatures, you should consider using the [NFT Drop](/contracts/explore/pre-built-contracts/nft-drop) contract.
-
-To customize the NFT metadata, allow dynamic pricing, or enforce an off-chain allowlist, generate a signature on your backend and set `contractArgs`:
-
-```typescript
-const signatureDrop = thirdwebSdk.getContract("signature-drop");
-
-// Generate a signature from a payload that provides some configuration override.
-const payload = {
-	to: buyerWalletAddress,
-	price: "0.01",
-	mintStartTime: new Date(0),
-};
-const signature = await signatureDrop.signature.generate(payload);
-
-// Set contractArgs with the payload and signature.
-contractArgs = {
-	payload,
-	signature,
-};
-```
-
 See guide: [Create an ERC721A NFT Drop with Signature-Based Minting](https://blog.thirdweb.com/guides/signature-drop/)
 
 ### NFT Drop

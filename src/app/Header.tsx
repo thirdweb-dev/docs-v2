@@ -109,7 +109,7 @@ export function Header() {
 						width={150}
 						height={25}
 					/>
-					<span className="text-[24px] font-bold leading-none tracking-tighter text-f-100">
+					<span className="text-[23px] font-bold leading-none tracking-tight text-f-100">
 						Docs
 					</span>
 				</Link>
