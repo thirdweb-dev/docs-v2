@@ -43,12 +43,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 function MyApp() {
 	return (
-		<ThirdwebProvider
-			activeChain="ethereum"
-			// highlight-start
-			clientId="your-client-id"
-			// highlight-end
-		>
+		<ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
 			<YourApp />
 		</ThirdwebProvider>
 	);
