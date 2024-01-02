@@ -23,7 +23,8 @@
 			"@/*": ["./src/*"],
 			"@public/*": ["./public/*"],
 			"flexsearch": ["./node_modules/@types/flexsearch"],
-			"@root/*": ["./*"]
+			"@root/*": ["./*"],
+			"@og": ["./src/components/others/OpenGraph/openGraphImage"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
