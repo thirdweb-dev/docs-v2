@@ -310,7 +310,7 @@ const paymentRedirects = {
 	"/checkouts/one-time-checkout-link": "/payments/nft-checkout/one-time-checkout-link",
 	"/checkouts/custom-contracts": "/payments/nft-checkout/custom-contracts",
 	"/checkouts/pre-built-contracts": "/payments/nft-checkout/pre-built-contracts",
-	"checkouts/erc20-pricing": "/payments/nft-checkout/erc20-pricing",
+	"/checkouts/erc20-pricing": "/payments/nft-checkout/erc20-pricing",
 	"/checkouts/api-reference": "/payments/nft-checkout/api-reference",
 	"/checkouts/faq": "/payments/nft-checkout/faq",
 };
