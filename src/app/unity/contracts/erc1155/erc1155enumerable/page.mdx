@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC1155Enumerable
 
 Metadata for each NFT is fetched from the NFT&rsquo;s `uri` property.
@@ -15,9 +17,7 @@ By default, returns the first `100` NFTs (in order of token ID). Use [`queryPara
 var data = await contract.ERC1155.GetAll();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### queryParams (optional)
 
@@ -53,8 +53,7 @@ Returns a list of `NFT` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetOwned
 
@@ -64,9 +63,7 @@ Get all the data associated with the NFTs owned by a specific wallet.
 var data = await contract.ERC1155.GetOwned();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### address
 
@@ -96,5 +93,4 @@ Returns a list of `NFT` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>

@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC20SignatureMintable
 
 Allows you to utilize [signature-based minting](/glossary/signature-based-minting) of new tokens.
@@ -13,9 +15,7 @@ var payload = new ERC20MintPayload("{{wallet_address}}", "{{quantity}}");
 var signedPayload = await contract.ERC20.signature.Generate(payload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 The information you provide to the `generate` function outlines what the signature can be used for.
 
@@ -35,8 +35,7 @@ The number of tokens this signature can be used to mint.
 
 Must be a `string`
 
-</div>
-</details>
+</Details>
 
 ## Mint
 
@@ -49,9 +48,7 @@ var signedPayload = await contract.ERC20.signature.Generate(payload);
 var data = await contract.ERC20.signature.Mint(signedPayload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### signedPayload
 
@@ -59,8 +56,7 @@ The signature created by the [`generate`](#generate) function.
 
 The typical pattern is the **admin** generates a signature, and the **user** uses it to mint the tokens, under the conditions specified in the signature.
 
-</div>
-</details>
+</Details>
 
 ## Verify
 
@@ -80,9 +76,7 @@ var signedPayload = await contract.ERC20.signature.Generate(payload);
 var data = await contract.ERC20.signature.Verify(signedPayload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### signedPayload
 
@@ -90,5 +84,4 @@ The payload to verify.
 
 See [`generate`](#generate) for details.
 
-</div>
-</details>
+</Details>

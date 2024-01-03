@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC1155ClaimConditions
 
 Enables wallets to claim (mint) NFTs from the contract under specific conditions.
@@ -10,9 +12,7 @@ Claim a specified number of tokens to the **connected wallet**.
 var data = await contract.ERC1155.Claim("{{token_id}}", 1);
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### tokenId (required)
 
@@ -26,8 +26,7 @@ The number of tokens to claim.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## ClaimTo
 
@@ -38,9 +37,7 @@ address rather than using the connected wallet.
 var data = await contract.ERC1155.ClaimTo("{{wallet_address}}", "{{token_id}}", 1);
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### recipient (required)
 
@@ -60,8 +57,7 @@ The number of tokens to claim.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## CanClaim
 
@@ -72,9 +68,7 @@ address can claim.
 var data = await contract.ERC1155.claimConditions.CanClaim("{{token_id}}", 1, "{{wallet_address}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### tokenId (required)
 
@@ -109,8 +103,7 @@ Returns a `bool` indicating if the specified amount of tokens can be claimed or 
 bool
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetActive
 
@@ -120,9 +113,7 @@ Retrieve the currently active claim phase for a specific token ID, if any.
 var data = await contract.ERC1155.claimConditions.GetActive("{{token_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary='Configuration'>
 
 #### tokenId (required)
 
@@ -146,8 +137,7 @@ If a claim condition is active, returns a `ClaimConditions` struct containing th
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetIneligibilityReasons
 
@@ -157,9 +147,7 @@ Get a list of reasons why a specific wallet address is not eligible to claim tok
 var data = await contract.ERC1155.claimConditions.GetIneligibilityReasons("{{token_id}}", 1, "{{wallet_address}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### tokenId (required)
 
@@ -202,8 +190,7 @@ string[]
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetClaimerProofs
 
@@ -213,9 +200,7 @@ Returns allowlist information and merkle proofs for a given wallet address.
 var data = await contract.ERC1155.claimConditions.GetClaimerProofs("{{token_id}}", "{{wallet_address}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### tokenId (required)
 
@@ -235,5 +220,4 @@ Must be a `string`.
 bool
 ```
 
-</div>
-</details>
+</Details>

@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC1155Burnable
 
 Allows you to burn NFTs (transfer them to a null address) to take them out of circulation.
@@ -10,9 +12,7 @@ Burn the specified NFTs from the **connected wallet**.
 var data = await contract.ERC1155.Burn("{{token_id}}", 1);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -26,5 +26,4 @@ The amount of the NFT you want to burn of the specified token ID.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
