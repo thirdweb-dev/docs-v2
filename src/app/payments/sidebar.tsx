@@ -17,8 +17,8 @@ export const sidebar: SideBar = {
 			isCollapsible: false,
 			links: [
 				{
-					name: "Getting Started",
-					href: `${checkoutSlug}/getting-started`,
+					name: "Get Started",
+					href: `${checkoutSlug}/get-started`,
 					links: [
 						{
 							name: "Enable Contract for Payments",

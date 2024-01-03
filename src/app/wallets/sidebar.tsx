@@ -143,8 +143,8 @@ export const sidebar: SideBar = {
 					href: `${smartWalletSlug}/how-it-works`,
 				},
 				{
-					name: "Getting Started",
-					href: `${smartWalletSlug}/getting-started`,
+					name: "Get Started",
+					href: `${smartWalletSlug}/get-started`,
 				},
 				{
 					name: "Bundler & Paymaster",
@@ -233,8 +233,8 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "Getting Started",
-					href: `${authSlug}/getting-started`,
+					name: "Get Started",
+					href: `${authSlug}/get-started`,
 				},
 				{
 					name: "Client Frameworks",
