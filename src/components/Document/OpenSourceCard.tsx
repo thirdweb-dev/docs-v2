@@ -7,7 +7,7 @@ export function OpenSourceCard(props: {
 	href: string;
 }) {
 	return (
-		<div className="my-6 rounded-lg border bg-b-800 p-4">
+		<div className="my-4 rounded-lg border bg-b-800 p-4">
 			<div className="mb-2 text-lg font-semibold ">
 				{props.title || "Open Source"}
 			</div>

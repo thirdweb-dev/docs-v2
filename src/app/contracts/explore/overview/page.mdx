@@ -1,5 +1,4 @@
-import { Carousel, ArticleCard, OpenSourceCard } from "@/components/Document";
-import testImage from "./assets/test.jpg";
+import { ArticleCard, GithubTemplateCard, Grid } from "@/components/Document";
 
 # Explore (Pre-built Contracts)
 
@@ -15,58 +14,24 @@ Pre-built contracts are proxy contracts created by the thirdweb team to cover mo
 
 ### Guides
 
-<Carousel slidesToShow={{
-	lg: 3,
-	md: 2,
-	sm: 1
-}}>
+<Grid>
 
 <ArticleCard
 	title="Account Factory"
 	description="Learn how to deploy an NFT Factory contract."
-	href="/"
-	image={testImage}
+	href="/contracts/explore/pre-built-contracts/account-factory"
 />
 
 <ArticleCard
 	title="Token"
 	description="Learn how to deploy a Token contract."
-	href="/"
-	image={testImage}
+	href="/contracts/explore/pre-built-contracts/token"
 />
 
 <ArticleCard
 	title="NFT Drop"
 	description="Learn how to deploy an NFT Drop contract."
-	href="/"
-	image={testImage}
+	href="/contracts/explore/pre-built-contracts/nft-drop"
 />
 
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-</Carousel>
-
-### Templates
-
-<OpenSourceCard
-	title="Marketplace"
-	description="Create an NFT Marketplace using Marketplace contract."
-	href="/"
-/>
-
-<OpenSourceCard
-	title="NFT Drop"
-	description="Create a claim page for NFTs using the NFT Drop contract."
-	href="/"
-/>
-
-<OpenSourceCard
-	title="NFT Gallery"
-	description="Create an NFT Gallery to view and display metadata from any NFT contract."
-	href="/"
-/>
+</Grid>

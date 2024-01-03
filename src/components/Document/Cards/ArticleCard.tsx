@@ -5,25 +5,14 @@ import Link from "next/link";
 export function ArticleCard(props: {
 	title: string;
 	description: string;
-	image?: StaticImport;
 	href: string;
 }) {
 	return (
 		<Link href={props.href} className="flex cursor-default bg-b-800">
-			<article className="group/article overflow-hidden rounded-lg border transition-colors duration-300 hover:border-accent-500">
-				{props.image && (
-					<div className="h-40 overflow-hidden">
-						<Image
-							src={props.image}
-							alt={""}
-							className="h-full w-full object-cover transition-transform duration-300 group-hover/article:scale-125"
-						/>
-					</div>
-				)}
-
+			<article className="group/article w-full overflow-hidden rounded-lg border-2 transition-colors duration-300 hover:border-accent-500 hover:bg-accent-900">
 				<div className="p-4">
-					<h3 className="mb-4 text-lg font-semibold">{props.title}</h3>
-					<p className="text-f-300">{props.description}</p>
+					<h3 className="mb-2 text-base font-semibold">{props.title}</h3>
+					<p className="text-sm text-f-300">{props.description}</p>
 				</div>
 			</article>
 		</Link>

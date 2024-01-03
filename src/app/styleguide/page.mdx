@@ -1,27 +1,9 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import Image from "next/image";
-import {
-	Steps,
-	Step,
-	Carousel,
-	ArticleCard,
-	Callout,
-	EditPage,
-} from "@/components/Document";
+import { DocImage } from "@/components/Document";
 import testImage from "./test.jpg";
-import test2Image from "./test2.jpg";
 
 export const metadata = {
 	robots: "noindex, nofollow",
 };
-
-export default function Page({ children }) {
-	return (
-		<main className="container max-w-4xl py-10" data-noindex>
-			{children}
-		</main>
-	);
-}
 
 # Heading 1
 
@@ -49,84 +31,25 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ---
 
-this is normal, **this is bold**, _this is italic_
+this is normal, **this is bold**, _this is italic_, [this is a link](#)
 
 ---
 
-### Python
-
-```python
-msg = "Hello World"
-```
-
-### Go
-
-```python
-msg := "Hello World"
-```
-
-### Bash
-
-```bash
-npm i @thirdweb-dev/react
-```
-
-### Diff
-
-```diff
-- npm i @thirdweb-dev/react
-+ yarn add @thirdweb-dev/react
-```
-
-### JS
-
-```python
-const msg = "Hello World"
-```
-
-### JSX
-
-```jsx
-const Msg = ({ text }) => {
-	return <div>{text}</div>;
-};
-
-<Msg text="hello world" />;
-```
-
-### TS
-
-```ts
-const msg: string = "Hello World";
-```
-
-### TSX
-
-```jsx
-const Msg: React.FC<{ text: string }> = ({text }) => {
-	return <div>{text}</div>;
-}
-
-<Msg text="hello world" />
-```
-
----
-
-### Unordered List
+## Unordered List
 
 - The function to execute the mutation (e.g. mint a new NFT).
 - `mutateAsync` - The function to execute the mutation, but returns a promise (allowing `await` to be used).
 - `isLoading` - Whether the mutation is currently executing.
 - `error` - The error returned from the mutation, if any.
 
-### Ordered List
+## Ordered List
 
 1. The function to execute the mutation (e.g. mint a new NFT).
 2. `mutateAsync` - The function to execute the mutation, but returns a promise (allowing `await` to be used).
 3. `isLoading` - Whether the mutation is currently executing.
 4. `error` - The error returned from the mutation, if any.
 
-### Nested List
+## Nested List
 
 1. Nested lists are rarely a good idea
 
@@ -140,178 +63,6 @@ const Msg: React.FC<{ text: string }> = ({text }) => {
    - Nested navigation in UIs is a bad idea too, keep things as flat as possible.
    - Nesting tons of folders in your source code is also not helpful.
 
-<div className="h-20" />
+## Image
 
-<Tabs defaultValue="account">
-	<TabsList>
-		<TabsTrigger value="account">Account</TabsTrigger>
-		<TabsTrigger value="password">Password</TabsTrigger>
-	</TabsList>
-	<TabsContent value="account">Make changes to your account here.</TabsContent>
-	<TabsContent value="password">Change your password here.</TabsContent>
-</Tabs>
-
-<br />
-<br />
-
-<Image src={testImage} alt="" className="my-10" />
-
-<br />
-<br />
-
-<Image
-	src={testImage}
-	alt=""
-	className="rounded-lg w-auto"
-	style={{
-		height: "300px",
-	}}
-/>
-
-<br />
-<br />
-
-<div className="flex justify-center border py-8 rounded-lg">
-	<Image
-		src={testImage}
-		alt=""
-		className="rounded-lg w-auto"
-		style={{
-			height: "300px",
-		}}
-	/>
-</div>
-
-<br />
-<br />
-
-<Steps>
-
-<Step title="Step 1" >
-
-Content for step 1.
-
-</Step>
-
-<Step title="Step 2" >
-
-content for step 2
-
-</Step>
-
-<Step title="Step 3" >
-
-content for step 3
-
-</Step>
-
-</Steps>
-
-<br />
-<br />
-
-<Carousel slidesToShow={{
-	lg: 2,
-	md: 2,
-	sm: 1
-}}>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={test2Image}
-/>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-</Carousel>
-
-<Carousel slidesToShow={{
-	lg: 3,
-	md: 2,
-	sm: 1
-}}>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
-/>
-
-</Carousel>
-
-<br />
-
-<Callout variant='info' title="This is info variant">
-
-lorem ipsum dolor sit amet, consectetur adipiscing elit. [foo bar](https://www.google.com/search?q=foo+bar&rlz=1C5CHFA_enIN1037IN1041&oq=foo+bar&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzczMmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8). `SomeInlineCode` and **bold** and _italic_
-
-```ts
-console.log("hello world");
-```
-
-</Callout>
-
-<Callout variant='warning' title="This is warning variant">
-
-lorem ipsum dolor sit amet, consectetur adipiscing elit. [foo bar](https://www.google.com/search?q=foo+bar&rlz=1C5CHFA_enIN1037IN1041&oq=foo+bar&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzczMmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8). `SomeInlineCode` and **bold** and _italic_
-
-```ts
-console.log("hello world");
-```
-
-</Callout>
-
-<Callout variant='danger' title="This is danger variant">
-
-lorem ipsum dolor sit amet, consectetur adipiscing elit. [foo bar](https://www.google.com/search?q=foo+bar&rlz=1C5CHFA_enIN1037IN1041&oq=foo+bar&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBBzczMmowajGoAgCwAgA&sourceid=chrome&ie=UTF-8). `SomeInlineCode` and **bold** and _italic_
-
-```ts
-console.log("hello world");
-```
-
-</Callout>
-
-<EditPage path="styleguide/page.mdx" />
+<DocImage src={testImage} alt="" />
