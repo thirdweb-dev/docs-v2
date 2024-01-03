@@ -408,6 +408,8 @@ export const redirects = async () => {
 		...createRedirects(solidityRedirects),
 		...createRedirects(walletRedirects),
 		...createRedirects(paymentRedirects),
+		...createRedirects(infrastructureRedirects),
+		...createRedirects(contractRedirects),
 		// references docs
 		latestReference("react", "v4"),
 		latestReference("react-native", "v0"),
