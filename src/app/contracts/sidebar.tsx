@@ -214,10 +214,6 @@ export const sidebar: SideBar = {
 									name: "Vote",
 									href: `${baseContractsSlug}/erc-20/vote`,
 								},
-								{
-									name: "Staking",
-									href: `${baseContractsSlug}/erc-20/staking`,
-								},
 							],
 						},
 						{
@@ -243,10 +239,6 @@ export const sidebar: SideBar = {
 									name: "Signature Mint",
 									href: `${baseContractsSlug}/erc-721/signature-mint`,
 								},
-								{
-									name: "Staking",
-									href: `${baseContractsSlug}/erc-721/staking`,
-								},
 							],
 						},
 						{
@@ -271,10 +263,6 @@ export const sidebar: SideBar = {
 								{
 									name: "Signature Mint",
 									href: `${baseContractsSlug}/erc-1155/signature-mint`,
-								},
-								{
-									name: "Staking",
-									href: `${baseContractsSlug}/erc-1155/staking`,
 								},
 							],
 						},

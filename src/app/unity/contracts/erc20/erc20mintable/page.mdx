@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC20Mintable
 
 Allows the minting of new tokens into the contract.
@@ -10,9 +12,7 @@ Mint tokens to the **connected wallet**.
 var data = await contract.ERC20.Mint("{{amount}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### amount
 
@@ -20,8 +20,7 @@ The amount of tokens to mint.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## MintTo
 
@@ -31,9 +30,7 @@ The same as [`mint`](#mint), but allows you to specify the address to mint the t
 var data = await contract.ERC20.MintTo("{{wallet_address}}", "{{amount}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### to
 
@@ -47,5 +44,4 @@ The number of tokens to mint.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>

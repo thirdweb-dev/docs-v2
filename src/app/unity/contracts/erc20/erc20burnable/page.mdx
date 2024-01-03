@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC20Burnable
 
 Allows you to burn tokens (take them out of circulation).
@@ -10,9 +12,7 @@ Burn tokens held by the **connected wallet**.
 var data = await contract.ERC20.Burn("{{amount}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### amount
 
@@ -20,5 +20,4 @@ The amount of this token you want to burn.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>

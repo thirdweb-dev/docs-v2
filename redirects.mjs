@@ -1,7 +1,5 @@
 // @ts-check
 
-import { create } from "domain";
-
 const reactRedirects = {
 	// providers
 	"/react/react.thirdwebprovider": "/react/v4/ThirdwebProvider",
@@ -227,6 +225,108 @@ const solidityRedirects = {
 	"/solidity/base-contracts/smart-accounts": "/contracts/build/base-contracts/erc-4337",
 };
 
+const extensionsTable = "/typescript/v4/extensions#all-available-extensions";
+
+const typescriptRedirects = {
+	"/typescript": "/typescript/v4",
+	"/typescript/getting-started": "/typescript/v4/getting-started",
+	"/typescript/sdk.thirdwebsdk": "/typescript/v4/getting-started",
+	"/typescript/sdk.thirdwebsdk.fromprivatekey": "/references/typescript/v4/ThirdwebSDK#fromPrivateKey",
+	"/typescript/sdk.thirdwebsdk.fromwallet": "/references/typescript/v4/ThirdwebSDK#fromWallet",
+	"/typescript/sdk.thirdwebsdk.fromsigner": "/references/typescript/v4/ThirdwebSDK#fromSigner",
+	"/typescript/sdk.contractdeployer": "/typescript/v4/deploy",
+	"/typescript/sdk.contractverifier": "/typescript/v4/utilities#contract-verification",
+	"/typescript/extensions": "/typescript/v4/extensions",
+	"/typescript/sdk.thirdwebsdk.smartcontract": "/typescript/v4/extensions",
+	"/typescript/sdk.smartcontract.call": "/typescript/v4/extensions",
+	"/typescript/sdk.smartcontract.prepare": "/typescript/v4/extensions#preparing-transactions",
+	"/typescript/sdk.thirdwebsdk.detectextensions": "/v4/extensions#detecting-avilable-extensions",
+	// extensions
+	"/typescript/sdk.erc721": "/references/typescript/v4/Erc721",
+	"/typescript/sdk.erc1155": "/references/typescript/v4/Erc1155",
+	"/typescript/sdk.erc20": "/references/typescript/v4/Erc20",
+	// extensions path*
+	"/typescript/sdk:path*": extensionsTable,
+};
+
+const reactNativeRedirects = {
+	"/react-native": "/react-native/v0",
+	"/react-native/getting-started": "/react-native/v0/getting-started",
+	// wallets
+	"/react-native/react-native.embeddedwallet": "/react-native/v0/wallets/embedded-wallet",
+	"/react-native/react-native.smartwallet": "/react-native/v0/wallets/smartwallet",
+	"/react-native/react-native.walletconnect": "/react-native/v0/wallets/walletconnect",
+	"/react-native/react-native.metamask": "/react-native/v0/wallets/metamask",
+	"/react-native/react-native.magic": "/react-native/v0/wallets/magiclink",
+	"/react-native/react-native.rainbow": "/react-native/v0/wallets/rainbow",
+	"/react-native/react-native.trust": "/react-native/v0/wallets/trust",
+	"/react-native/react-native.coinbase": "/react-native/v0/wallets/coinbase",
+	"/react-native/react-native.localwallet": "/react-native/v0/wallets/local-wallet",
+	// components
+	"/react-native/react-native.connectwallet": "/react-native/v0/components/ConnectWallet",
+	"/react-native/react-native.web3button": "/react-native/v0/components/Web3Button",
+	// others
+	"/react-native/available-hooks": "/references/react-native/v0#hooks",
+	"/react-native/react-native.uselogin": "/references/react-native/v0/useLogin",
+	"/react-native/react-native.uselogout": "/references/react-native/v0/useLogout",
+	"/react-native/react-native.useuser": "/references/react-native/v0/useUser",
+	"/react-native/storage": "/references/react-native/v0#hooks-storage",
+	"/react-native/faq/deeplinks": "/react-native/v0/faq",
+};
+
+const unityRedirects = {
+	// wlalets
+	"/unity/wallet/metamask": "/unity/wallets/providers/metamask",
+	"/unity/wallet/coinbase": "/unity/wallets/providers/coinbase",
+	"/unity/wallet/walletconnect": "/unity/wallets/providers/walletconnect",
+	"/unity/wallet/injected": "/unity/wallets/providers/metamask",
+	"/unity/wallet/localwallet": "/unity/wallets/providers/local-wallet",
+	"/unity/wallet/smartwallet": "/unity/wallets/providers/smart-wallet",
+	"/unity/wallet/hyperplay": "/unity/wallets/providers/hyperplay",
+	"/unity/wallet/embeddedwallet": "/unity/wallets/providers/embedded-wallet",
+	// wallet actions
+	"/unity/wallet/:path*": "/unity/wallets/actions/:path*",
+	"/unity/connectwallet": "/unity/wallets/prefab",
+	// contract actions
+	"/unity/extensions": "/unity/contracts",
+	"/unity/contract": "/unity/contracts/get",
+	"/unity/smartcontract.read": "/unity/contracts/read",
+	"/unity/contract.write": "/unity/contracts/write",
+	"/unity/contract.prepare": "/unity/contracts/prepare",
+	// extensions
+	// erc721
+	"/unity/erc721": "/unity/contracts/erc721/erc721",
+	"/unity/erc721burnable": "/unity/contracts/erc721/erc721burnable",
+	"/unity/erc721claimconditions": "/unity/contracts/erc721/erc721claimconditions",
+	"/unity/erc721enumerable": "/unity/contracts/erc721/erc721enumerable",
+	"/unity/erc721lazymintable": "/unity/contracts/erc721/erc721lazymintable",
+	"/unity/erc721mintable": "/unity/contracts/erc721/erc721mintable",
+	"/unity/erc721signaturemint": "/unity/contracts/erc721/erc721signaturemintable",
+	"/unity/erc721supply": "/unity/contracts/erc721/erc721supply",
+	"/unity/erc721tiereddrop": "/unity/contracts/erc721/erc721tiereddrop",
+	// erc1155
+	"/unity/erc1155": "/unity/contracts/erc1155/erc1155",
+	"/unity/erc1155burnable": "/unity/contracts/erc1155/erc1155burnable",
+	"/unity/erc1155claimconditions": "/unity/contracts/erc1155/erc1155claimconditions",
+	"/unity/erc1155enumerable": "/unity/contracts/erc1155/erc1155enumerable",
+	"/unity/erc1155mintable": "/unity/contracts/erc1155/erc1155mintable",
+	"/unity/delayedreveal1155": "/unity/contracts/erc1155/erc1155",
+	"/unity/erc1155signaturemintable": "/unity/contracts/erc1155/erc1155signaturemintable",
+	// erc20
+	"/unity/erc20": "/unity/contracts/erc20/erc20",
+	"/unity/erc20burnable": "/unity/contracts/erc20/erc20burnable",
+	"/unity/erc20claimconditions": "/unity/contracts/erc20/erc20claimconditions",
+	"/unity/erc20mintable": "/unity/contracts/erc20/erc20mintable",
+	"/unity/erc20signaturemintable": "/unity/contracts/erc20/erc20signaturemintable",
+	// other extensions
+	"/unity/marketplace": "/unity/contracts/marketplace",
+	"/unity/pack": "/unity/contracts/pack",
+	// contract events
+	"/unity/events/:path*": "/unity/contracts/events/:path*",
+	// others
+	"/unity/submit-wallet": "/unity/wallets/submission",
+};
+
 const walletRedirects = {
 	//connect
 	"/connect": "/wallets/connect",
@@ -323,6 +423,9 @@ export const redirects = async () => {
 		// old portal redirects
 		...createRedirects(reactRedirects),
 		...createRedirects(solidityRedirects),
+		...createRedirects(typescriptRedirects),
+		...createRedirects(reactNativeRedirects),
+		...createRedirects(unityRedirects),
 		...createRedirects(walletRedirects),
 		...createRedirects(paymentRedirects),
 		// references docs

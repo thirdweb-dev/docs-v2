@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # Pack
 
 When using the [Pack](https://thirdweb.com/thirdweb.eth/Pack) smart contract, additional top-level functionality is available to use.
@@ -38,9 +40,7 @@ packRewards.erc1155Rewards = new List<ERC1155Reward>() { erc1155Reward };
 var data = await pack.AddPackContents("{{token_id}}", packRewards);
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### packId
 
@@ -56,8 +56,7 @@ Must be a `string`.
 
 An instance of the `PackRewards` class containing the tokens you want to add to the pack.
 
-</div>
-</details>
+</Details>
 
 ## Create
 
@@ -121,9 +120,7 @@ var newPackInput = new NewPackInput
 var data = await pack.Create(newPackInput);
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### packMetadata
 
@@ -155,8 +152,7 @@ The number of rewards in each pack.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## CreateTo
 
@@ -212,9 +208,7 @@ var newPackInput = new NewPackInput
 var data = await pack.CreateTo("{{wallet_address}}", newPackInput);
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### to
 
@@ -224,8 +218,7 @@ Must be a `string`.
 
 See [`Create`](#Create) for more information on the rest of the configuration options.
 
-</div>
-</details>
+</Details>
 
 ## GetPackContents
 
@@ -235,9 +228,7 @@ Get all the tokens that were "wrapped up" in the pack NFTs when they were create
 var data = await pack.GetPackContents("{{pack_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### packId
 
@@ -257,8 +248,7 @@ Returns all the tokens that were included in the rewards when the packs were cre
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Open
 
@@ -270,9 +260,7 @@ To open a pack, the wallet that initiates this transaction must have sufficient 
 var data = await pack.Open("{{pack_id}}", "{{amount}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### packId
 
@@ -288,8 +276,7 @@ Optional. Defaults to `"1"`.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## Balance
 
@@ -299,9 +286,7 @@ Get the quantity of a specific NFT owned by the connected wallet.
 var data = await contract.ERC1155.Balance("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -317,8 +302,7 @@ A `string` representing the quantity of the NFT owned by the wallet.
 string
 ```
 
-</div>
-</details>
+</Details>
 
 ## BalanceOf
 
@@ -328,9 +312,7 @@ Get the quantity of a specific NFT owned by a wallet.
 var data = await contract.ERC1155.BalanceOf("{{wallet_address}}", "{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### address
 
@@ -352,8 +334,7 @@ A `string` representing the quantity of the NFT owned by the wallet.
 string
 ```
 
-</div>
-</details>
+</Details>
 
 ## Get
 
@@ -368,9 +349,7 @@ The object&rsquo;s `image` property will be a URL that is available through the 
 
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -400,8 +379,7 @@ Returns an `NFT` struct containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Transfer
 
@@ -411,9 +389,7 @@ Transfer an NFT from the connected wallet to another wallet.
 var data = await contract.ERC1155.Transfer("{{wallet_address}}", "{{token_id}}", 1);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### to
 
@@ -433,8 +409,7 @@ The quantity of the NFT to transfer.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## IsApprovedForAll
 
@@ -446,9 +421,7 @@ This means that the operator can transfer NFTs on behalf of this wallet.
 var data = await contract.ERC1155.IsApprovedForAll("{{owner_address}}", "{{operator_address}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### owner
 
@@ -462,8 +435,7 @@ The wallet address of the operator to check (i.e. the wallet that does/does not 
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## SetApprovalForAll
 
@@ -473,9 +445,7 @@ Give another address approval (or remove approval) to transfer all of your NFTs 
 var data = await contract.ERC1155.SetApprovalForAll("{{operator_address}}", true);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### operator
 
@@ -489,8 +459,7 @@ Whether to grant approval (true) or remove approval (false).
 
 Must be a `bool`.
 
-</div>
-</details>
+</Details>
 
 ## TotalCount
 
@@ -500,9 +469,7 @@ Get the total number of unique NFTs in the collection.
 var data = await contract.ERC1155.TotalCount();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -512,8 +479,7 @@ Returns an `int` representing the total number of unique NFTs in the collection.
 int
 ```
 
-</div>
-</details>
+</Details>
 
 ## TotalSupply
 
@@ -523,9 +489,7 @@ Returns the total supply of a token in the collection, including burned tokens.
 var data = await contract.ERC1155.TotalSupply("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -541,8 +505,7 @@ Returns an `int` representing the total supply of the token.
 int
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetAll
 
@@ -554,9 +517,7 @@ By default, returns the first `100` NFTs (in order of token ID). Use [`queryPara
 var data = await contract.ERC1155.GetAll();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### queryParams (optional)
 
@@ -592,8 +553,7 @@ Returns a list of `NFT` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetOwned
 
@@ -603,9 +563,7 @@ Get all the data associated with the NFTs owned by a specific wallet.
 var data = await contract.ERC1155.GetOwned();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### address
 
@@ -635,5 +593,4 @@ Returns a list of `NFT` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>

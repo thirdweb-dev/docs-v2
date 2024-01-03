@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # Transaction Builder
 
 By default, all transactions initiated using the SDK perform every step of the process for a transaction; From preparing and building the transaction all the way to waiting until it has been mined, and the data is available to be read from the blockchain.
@@ -46,7 +48,6 @@ catch (System.Exception e)
 {
     Debugger.Instance.Log("[Custom Call] Send Error", e.ToString());
 }
-}
 ```
 
 ## EstimateGasCost
@@ -57,9 +58,7 @@ Estimate the gas cost for a transaction.
 var gasCost = await tx.EstimateGasCosts();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -69,8 +68,7 @@ Returns the gas cost for this transaction in both `ether` and `wei`.
 GasCosts;
 ```
 
-</div>
-</details>
+</Details>
 
 ## EstimateGasLimit
 
@@ -80,9 +78,7 @@ Estimate the gas limit for a transaction.
 var gasLimit = await tx.EstimateGasLimit();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -92,8 +88,7 @@ Returns the gas limit for this transaction.
 BigInteger;
 ```
 
-</div>
-</details>
+</Details>
 
 ## Send
 
@@ -103,9 +98,7 @@ Send the transaction without waiting for it to be mined. This is useful for when
 string txHash = await tx.Send();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -115,8 +108,7 @@ Returns the transaction hash as a `string`.
 string;
 ```
 
-</div>
-</details>
+</Details>
 
 ## Execute
 
@@ -126,9 +118,7 @@ Send the transaction and wait for it to be mined. This is useful for when you wa
 TransactionResult result = await tx.SendAndWaitForTransactionResult();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -138,8 +128,7 @@ Returns the transaction result as a <see cref="TransactionResult"/> object.
 TransactionResult;
 ```
 
-</div>
-</details>
+</Details>
 
 ## Static Methods
 
@@ -150,9 +139,7 @@ string txHash = "your_tx_hash";
 TransactionResult result = await Transaction.WaitForTransactionResult(txHash);
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -162,5 +149,4 @@ Returns the transaction result as a <see cref="TransactionResult"/> object.
 TransactionResult;
 ```
 
-</div>
-</details>
+</Details>

@@ -5,7 +5,7 @@ import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
 
 # Coinbase Wallet
 
-A wallet configurator for [Coinbase Wallet](/wallet/coinbase-wallet) which allows integrating the wallet with React Native
+A wallet configurator for [Coinbase Wallet](/references/wallets/v2/CoinbaseWallet) which allows integrating the wallet with React Native
 
 ```tsx
 import { coinbaseWallet } from "@thirdweb-dev/react-native";
@@ -30,9 +30,7 @@ you can check the [Coinbase setup](https://docs.cloud.coinbase.com/wallet-sdk/do
 
 ```ts
 coinbaseWallet({
-	// highlight-start
 	callbackURL: new URL("your.scheme://"),
-	// highlight-end
 });
 ```
 

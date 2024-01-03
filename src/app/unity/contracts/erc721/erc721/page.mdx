@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC721
 
 Functionality available for contracts that implement the `IERC721` interface.
@@ -10,9 +12,7 @@ Get the NFT balance of the **connected wallet** (number of NFTs in this contract
 var data = await contract.ERC721.Balance();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -22,8 +22,7 @@ Returns a `string` representing the number of NFTs owned by the connected wallet
 string;
 ```
 
-</div>
-</details>
+</Details>
 
 ## BalanceOf
 
@@ -33,9 +32,7 @@ Get a wallet&rsquo;s NFT balance (number of NFTs in this contract owned by the w
 var data = await contract.ERC721.BalanceOf("{{wallet_address}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### walletAddress
 
@@ -51,8 +48,7 @@ Returns a `string` representing the number of NFTs owned by the wallet.
 string;
 ```
 
-</div>
-</details>
+</Details>
 
 ## Get
 
@@ -67,9 +63,7 @@ The object&rsquo;s `image` property will be a URL that is available through the 
 var data = await contract.ERC721.Get("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -99,8 +93,7 @@ Returns an `NFT` struct containing the NFT metadata.
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## IsApprovedForAll
 
@@ -112,9 +105,7 @@ This means that the operator can transfer NFTs on behalf of this wallet.
 var data = await contract.ERC721.IsApprovedForAll("{{owner_address}}", "{{operator_address}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### owner
 
@@ -128,8 +119,7 @@ The wallet address of the operator to check (i.e. the wallet that does/does not 
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## OwnerOf
 
@@ -139,9 +129,7 @@ Get the wallet address of the owner of an NFT.
 var data = await contract.ERC721.OwnerOf("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -157,8 +145,7 @@ Returns a `string` representing the wallet address of the owner of the NFT.
 string;
 ```
 
-</div>
-</details>
+</Details>
 
 ## SetApprovalForAll
 
@@ -168,9 +155,7 @@ Give another address approval (or remove approval) to transfer any of your NFTs 
 var data = await contract.ERC721.SetApprovalForAll("{{address_to_approve}}", true);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### operator
 
@@ -184,8 +169,7 @@ Whether to approve (true) or remove approval (false).
 
 Must be a `boolean`.
 
-</div>
-</details>
+</Details>
 
 ## Transfer
 
@@ -195,9 +179,7 @@ Transfer an NFT from the **connected wallet** to another wallet.
 var data = await contract.ERC721.Transfer("{{wallet_address}}", "{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### walletAddress
 
@@ -211,5 +193,4 @@ The token ID of the NFT to transfer.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>

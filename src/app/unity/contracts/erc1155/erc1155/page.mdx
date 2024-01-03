@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC1155
 
 Functionality available for contracts that implement the `IERC1155` interface.
@@ -10,9 +12,7 @@ Get the quantity of a specific NFT owned by the connected wallet.
 var data = await contract.ERC1155.Balance("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -28,8 +28,7 @@ A `string` representing the quantity of the NFT owned by the wallet.
 string
 ```
 
-</div>
-</details>
+</Details>
 
 ## BalanceOf
 
@@ -39,9 +38,7 @@ Get the quantity of a specific NFT owned by a wallet.
 var data = await contract.ERC1155.BalanceOf("{{wallet_address}}", "{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### address
 
@@ -63,8 +60,7 @@ A `string` representing the quantity of the NFT owned by the wallet.
 string
 ```
 
-</div>
-</details>
+</Details>
 
 ## Get
 
@@ -79,9 +75,7 @@ The object&rsquo;s `image` property will be a URL that is available through the 
 var data = await contract.ERC1155.Get("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -111,8 +105,7 @@ Returns an `NFT` struct containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Transfer
 
@@ -122,9 +115,7 @@ Transfer an NFT from the connected wallet to another wallet.
 var data = await contract.ERC1155.Transfer("{{wallet_address}}", "{{token_id}}", 1);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### to
 
@@ -144,8 +135,7 @@ The quantity of the NFT to transfer.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## IsApprovedForAll
 
@@ -157,9 +147,7 @@ This means that the operator can transfer NFTs on behalf of this wallet.
 var data = await contract.ERC1155.IsApprovedForAll("{{owner_address}}", "{{operator_address}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### owner
 
@@ -173,8 +161,7 @@ The wallet address of the operator to check (i.e. the wallet that does/does not 
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## SetApprovalForAll
 
@@ -184,9 +171,7 @@ Give another address approval (or remove approval) to transfer all of your NFTs 
 var data = await contract.ERC1155.SetApprovalForAll("{{operator_address}}", true);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### operator
 
@@ -200,8 +185,7 @@ Whether to grant approval (true) or remove approval (false).
 
 Must be a `bool`.
 
-</div>
-</details>
+</Details>
 
 ## TotalCount
 
@@ -211,9 +195,7 @@ Get the total number of unique NFTs in the collection.
 var data = await contract.ERC1155.TotalCount();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -223,8 +205,7 @@ Returns an `int` representing the total number of unique NFTs in the collection.
 int
 ```
 
-</div>
-</details>
+</Details>
 
 ## TotalSupply
 
@@ -234,9 +215,7 @@ Returns the total supply of a token in the collection, including burned tokens.
 var data = await contract.ERC1155.TotalSupply("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -252,5 +231,4 @@ Returns an `int` representing the total supply of the token.
 int
 ```
 
-</div>
-</details>
+</Details>

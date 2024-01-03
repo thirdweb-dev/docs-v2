@@ -1,0 +1,45 @@
+import { DocImage } from "@/components/Document";
+import smartWalletAPIKeyImage from "./smart-wallet-api-key.png";
+
+# Services
+
+## Storage
+
+By default, Storage services are enabled upon creation of the API Key.
+
+Storage provides two sub-settings enabled by default on API Key creation.
+
+- Upload - Enable uploading to Storage
+- Download - Enable downloading from Storage
+
+To disable Upload or Download:
+
+1. Navigate to Settings > API Keys
+2. Toggle the checkboxes in the Services > Storage settings
+
+## RPC Edge
+
+By default, RPC Edge services are enabled upon creation of the API Key.
+
+To use RPC Edge in your application, see our [RPC Edge QuickStart](/infrastructure/rpc-edge/get-started) article.
+
+## Smart Wallets
+
+By default, Smart Wallet services are enabled upon creation of the API Key.
+
+**Smart Wallet Destination Address**
+A smart wallet destination address is allowed to send transactions to or interact with. These addresses can be smart contracts, EOAs (Externally Owned Accounts), or other smart wallet addresses. This feature is useful for restricting the smart wallet to only send transactions to your own contracts.
+
+To restrict the contracts that Smart Wallet can interact with:
+
+1. Navigate to Settings > API Keys
+2. Locate Smart Wallet under Services
+3. Input the contract address(es) into the 'Allowed Contract Addresses' field.
+
+   <DocImage src={smartWalletAPIKeyImage} />
+
+4. Save your new settings by selecting `Save`
+
+## Embedded Wallets
+
+By default, Embedded Wallet services are enabled upon creation of the API Key.

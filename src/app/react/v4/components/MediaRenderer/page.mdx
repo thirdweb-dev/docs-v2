@@ -58,10 +58,7 @@ import { MediaRenderer } from "@thirdweb-dev/react";
 
 function Home() {
 	return (
-		<MediaRenderer
-			// highlight-next-line
-			src="ipfs://QmV4HC9fNrPJQeYpbW55NLLuSBMyzE11zS1L4HmL6Lbk7X"
-		/>
+		<MediaRenderer src="ipfs://QmV4HC9fNrPJQeYpbW55NLLuSBMyzE11zS1L4HmL6Lbk7X" />
 	);
 }
 ```
@@ -82,7 +79,6 @@ function Home() {
 		// Any URL that points to media (IPFS URI, HTTP URL, etc.)
 		<MediaRenderer
 			src="ipfs://QmV4HC9fNrPJQeYpbW55NLLuSBMyzE11zS1L4HmL6Lbk7X"
-			// highlight-next-line
 			alt="A red circle"
 		/>
 	);
@@ -106,7 +102,6 @@ function Home() {
 		// Any URL that points to media (IPFS URI, HTTP URL, etc.)
 		<MediaRenderer
 			src="ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
-			// highlight-next-line
 			poster="ipfs://QmV4HC9fNrPJQeYpbW55NLLuSBMyzE11zS1L4HmL6Lbk7X"
 		/>
 	);
@@ -125,13 +120,7 @@ import { ThirdwebNftMedia } from "@thirdweb-dev/react";
 function Home() {
 	// ... Get the NFT metadata
 
-	return (
-		<ThirdwebNftMedia
-			metadata={metadata}
-			// highlight-next-line
-			controls={true}
-		/>
-	);
+	return <ThirdwebNftMedia metadata={metadata} controls={true} />;
 }
 ```
 
@@ -147,13 +136,7 @@ import { ThirdwebNftMedia } from "@thirdweb-dev/react";
 function Home() {
 	// ... Get the NFT metadata
 
-	return (
-		<ThirdwebNftMedia
-			metadata={metadata}
-			// highlight-next-line
-			height={500}
-		/>
-	);
+	return <ThirdwebNftMedia metadata={metadata} height={500} />;
 }
 ```
 
@@ -169,13 +152,7 @@ import { ThirdwebNftMedia } from "@thirdweb-dev/react";
 function Home() {
 	// ... Get the NFT metadata
 
-	return (
-		<ThirdwebNftMedia
-			metadata={metadata}
-			// highlight-next-line
-			width={500}
-		/>
-	);
+	return <ThirdwebNftMedia metadata={metadata} width={500} />;
 }
 ```
 
@@ -191,13 +168,7 @@ import { ThirdwebNftMedia } from "@thirdweb-dev/react";
 function Home() {
 	// ... Get the NFT metadata
 
-	return (
-		<ThirdwebNftMedia
-			metadata={metadata}
-			// highlight-next-line
-			requireInteraction={true}
-		/>
-	);
+	return <ThirdwebNftMedia metadata={metadata} requireInteraction={true} />;
 }
 ```
 
@@ -211,13 +182,7 @@ import { ThirdwebNftMedia } from "@thirdweb-dev/react";
 function Home() {
 	// ... Get the NFT metadata
 
-	return (
-		<ThirdwebNftMedia
-			metadata={metadata}
-			// highlight-next-line
-			className="my-custom-class"
-		/>
-	);
+	return <ThirdwebNftMedia metadata={metadata} className="my-custom-class" />;
 }
 ```
 
@@ -232,11 +197,7 @@ function Home() {
 	// ... Get the NFT metadata
 
 	return (
-		<ThirdwebNftMedia
-			metadata={metadata}
-			// highlight-next-line
-			style={{ backgroundColor: "red" }}
-		/>
+		<ThirdwebNftMedia metadata={metadata} style={{ backgroundColor: "red" }} />
 	);
 }
 ```
