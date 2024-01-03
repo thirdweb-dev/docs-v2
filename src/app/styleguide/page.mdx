@@ -3,13 +3,11 @@ import Image from "next/image";
 import {
 	Steps,
 	Step,
-	Carousel,
 	ArticleCard,
 	Callout,
 	EditPage,
 } from "@/components/Document";
 import testImage from "./test.jpg";
-import test2Image from "./test2.jpg";
 
 export const metadata = {
 	robots: "noindex, nofollow",
@@ -210,77 +208,53 @@ content for step 3
 <br />
 <br />
 
-<Carousel slidesToShow={{
-	lg: 2,
-	md: 2,
-	sm: 1
-}}>
-
 <ArticleCard
 	title="Some Title"
 	description="This is a short description about this card and its properties."
 	href="/"
-	image={testImage}
 />
 
 <ArticleCard
 	title="Some Title"
 	description="This is a short description about this card and its properties."
 	href="/"
-	image={test2Image}
 />
 
 <ArticleCard
 	title="Some Title"
 	description="This is a short description about this card and its properties."
 	href="/"
-	image={testImage}
 />
 
 <ArticleCard
 	title="Some Title"
 	description="This is a short description about this card and its properties."
 	href="/"
-	image={testImage}
-/>
-
-</Carousel>
-
-<Carousel slidesToShow={{
-	lg: 3,
-	md: 2,
-	sm: 1
-}}>
-
-<ArticleCard
-	title="Some Title"
-	description="This is a short description about this card and its properties."
-	href="/"
-	image={testImage}
 />
 
 <ArticleCard
 	title="Some Title"
 	description="This is a short description about this card and its properties."
 	href="/"
-	image={testImage}
 />
 
 <ArticleCard
 	title="Some Title"
 	description="This is a short description about this card and its properties."
 	href="/"
-	image={testImage}
 />
 
 <ArticleCard
 	title="Some Title"
 	description="This is a short description about this card and its properties."
 	href="/"
-	image={testImage}
 />
 
-</Carousel>
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+/>
 
 <br />
 

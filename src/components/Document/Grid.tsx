@@ -1,6 +1,13 @@
-export function Grid(props: { children: React.ReactNode }) {
+import { cn } from "@/lib/utils";
+
+export function Grid(props: { children: React.ReactNode; className?: string }) {
 	return (
-		<div className="my-5 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+		<div
+			className={cn(
+				"my-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3",
+				props.className,
+			)}
+		>
 			{props.children}
 		</div>
 	);

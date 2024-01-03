@@ -5,6 +5,7 @@ import React, { useState, useRef, useEffect } from "react";
 export function DynamicHeight(props: {
 	children: React.ReactNode;
 	maxHeight?: string;
+	transition?: string;
 }) {
 	const { height, elementRef } = useHeightObserver();
 
@@ -12,7 +13,9 @@ export function DynamicHeight(props: {
 		<div
 			style={{
 				height: height ? `${height}px` : "auto",
-				transition: "height 210ms cubic-bezier(0.175, 0.885, 0.32, 1.1)",
+				transition:
+					props.transition ||
+					"height 210ms cubic-bezier(0.175, 0.885, 0.32, 1.1)",
 				overflow: "hidden",
 				boxSizing: "border-box",
 			}}
