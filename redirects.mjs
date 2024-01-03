@@ -381,7 +381,7 @@ const infrastructureRedirects = {
 	"/engine/smart-wallets": "/infrastructure/engine/features/smart-wallets",
 	"/engine/gasless-transactions": "/infrastructure/engine/features/gasless-transactions",
 	"/engine/webhooks": "/infrastructure/engine/features/webhooks",
-	"guides/engine/airdrop-nfts": "/infrastructure/engine/guides/airdrop-nfts",
+	"/guides/engine/airdrop-nfts": "/infrastructure/engine/guides/airdrop-nfts",
 	"/guides/engine/nft-checkout": "/infrastructure/engine/guides/nft-checkout",
 	"/guides/engine/smart-wallets": "/infrastructure/engine/guides/smart-wallets",
 	"/guides/engine/relayer": "/infrastructure/engine/guides/relayer",
@@ -392,6 +392,7 @@ const infrastructureRedirects = {
 	"/storage/how-storage-works": "/infrastructure/storage/how-storage-works",
 	"/storage/upload-to-ipfs": "/infrastructure/storage/how-to-use-storage/upload-files-to-ipfs",
 	"/storage/host-web-app": "/infrastructure/storage/how-to-use-storage/host-web-app",
+	//rpc-edge
 	"/rpc-edge": "/infrastructure/rpc-edge/overview",
 	"/rpc-edge/get-started": "/infrastructure/rpc-edge/get-started",
 	"/rpc-edge/faqs": "/infrastructure/rpc-edge/overview",
