@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC20ClaimConditions
 
 Enables wallets to claim (mint) tokens from the contract under specific conditions.
@@ -10,9 +12,7 @@ Claim a specified number of tokens to the **connected wallet**.
 var data = await contract.ERC20.Claim("{{amount}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### amount (required)
 
@@ -20,8 +20,7 @@ The amount of tokens to claim.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## ClaimTo
 
@@ -31,9 +30,7 @@ The same as [`claim`](#claim), but allows specifying the recipient address rathe
 var data = await contract.ERC20.ClaimTo("{{wallet_address}}", "{{amount}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### recipient (required)
 
@@ -47,8 +44,7 @@ The amount of tokens to claim.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## CanClaim
 
@@ -59,9 +55,7 @@ address can claim.
 var data = await contract.ERC20.claimConditions.CanClaim("{{quantity}}", "{{wallet_address}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### quantity (required)
 
@@ -90,8 +84,7 @@ Returns a `bool` indicating if the specified amount of tokens can be claimed or 
 bool
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetActive
 
@@ -101,9 +94,7 @@ Retrieve the currently active claim phase, if any.
 var data = await contract.ERC20.claimConditions.GetActive();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -121,8 +112,7 @@ If a claim condition is active, returns a `ClaimConditions` struct containing th
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetIneligibilityReasons
 
@@ -132,9 +122,7 @@ Get an array of reasons why a specific wallet address is not eligible to claim t
 
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### quantity (required)
 
@@ -171,8 +159,7 @@ string[]
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetClaimerProofs
 
@@ -182,9 +169,7 @@ Returns allowlist information and merkle proofs for a given wallet address.
 var data = await contract.ERC20.claimConditions.GetClaimerProofs("{{wallet_address}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### walletAddress (required)
 
@@ -198,5 +183,4 @@ Must be a `string`.
 bool
 ```
 
-</div>
-</details>
+</Details>

@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC721Supply
 
 Allows you to get the total supply of an ERC721 contract.
@@ -12,9 +14,7 @@ By default, returns the first `100` NFTs (in order of token ID). Use [`queryPara
 var data = await contract.ERC721.GetAll();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### queryParams (optional)
 
@@ -50,8 +50,7 @@ Returns a `List` of `NFT` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## TotalCount
 
@@ -61,9 +60,7 @@ Get the total number of NFTs minted in this contract.
 var data = await contract.ERC721.TotalCount();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -73,5 +70,4 @@ Returns an `int`.
 int
 ```
 
-</div>
-</details>
+</Details>

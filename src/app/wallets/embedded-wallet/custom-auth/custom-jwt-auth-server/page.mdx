@@ -3,6 +3,7 @@ import { Steps, Step } from "@/components/Document";
 import EWCreateKey from "../images/ew-create-key.png";
 import EWConfig from "../images/ew-configuration.png";
 import EWConfigOpt from "../images/ew-configuration-opt.png";
+import EWJWKCreatorTool from "../images/jwk-creator-tool.png";
 
 import Image from "next/image";
 
@@ -71,7 +72,7 @@ This guide is simplified for demonstration purposes and is not ready for product
 
    1. Paste the public key, set Key ID as `0` (arbitrary string, must match when signing JWT), and then note down the generated JWK.
 
-      {/* ![JWK Creator tool by Russel Davies showing key id of 0](../assets/jwk-creator-tool.png) */}
+   <Image src={EWJWKCreatorTool} />
 
 4. Create a `jwks.json` in the project root and place the generated JWK in a `keys` array.
 

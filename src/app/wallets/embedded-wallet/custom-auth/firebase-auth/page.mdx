@@ -1,6 +1,9 @@
 import { Callout, DocImage } from "@/components/Document";
 import { Steps, Step } from "@/components/Document";
+import Image from "next/image";
 import ewCreateKey from "../images/ew-create-key.png";
+import configurationView from "../images/configuration-view.png";
+import customJsonFirebase from "../images/custom-json-firebase.png";
 
 # Integrate Firebase Auth
 
@@ -53,7 +56,7 @@ To skip over initialization steps, we will use the React Native TypeScript start
 
 3. In the configuration view, enable **Custom JSON Web Token.**
 
-   {/* ![Enable Custom JSON Web Token](../assets/configuration-view.png) */}
+   <Image src={configurationView} />
 
 4. Set the **JWKS URI** as the following URL:
 
@@ -63,7 +66,7 @@ To skip over initialization steps, we will use the React Native TypeScript start
 
 5. Set the AUD Value as the Firebase projectId. (Example, `custom-auth-53169`)
 
-   {/* ![Custom JSON web token fields set up](../assets/custom-json-firebase.png) */}
+   <Image src={customJsonFirebase} />
 
 6. Select **Save changes**.
 

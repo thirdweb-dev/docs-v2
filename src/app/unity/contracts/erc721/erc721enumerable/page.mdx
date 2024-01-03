@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC721Enumerable
 
 Allows you to enumerate through owned tokens faster. ERC721AQueryable also supported.
@@ -10,9 +12,7 @@ Get the metadata of all NFTs a wallet owns from this contract.
 var data = await contract.ERC721.GetOwned();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### address (optional)
 
@@ -46,5 +46,4 @@ Returns a List of `NFT` structs, containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>

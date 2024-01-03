@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC721Burnable
 
 Allows you to burn an NFT (transfer it to a **null address** that is unrecoverable).
@@ -10,9 +12,7 @@ Burn an NFT from the **connected wallet**.
 var data = await contract.ERC721.Burn("{{token_id}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -20,5 +20,4 @@ The token ID of the NFT to burn.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>

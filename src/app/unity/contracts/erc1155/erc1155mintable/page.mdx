@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC1155Mintable
 
 Allows you to mint new NFTs on the contract.
@@ -20,9 +22,7 @@ var data = await contract.ERC1155.Mint(new NFTMetadataWithSupply() {
 });
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### metadataWithSupply
 
@@ -35,8 +35,7 @@ the NFT(s) are minted.
 
 The `image` property can be an IPFS URI, or a URL to an image.
 
-</div>
-</details>
+</Details>
 
 ## MintTo
 
@@ -53,9 +52,7 @@ var data = await contract.ERC1155.MintTo("{{wallet_address}}", new NFTMetadataWi
 });
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### to
 
@@ -67,8 +64,7 @@ Must be a `string`.
 
 Same as [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) method.
 
-</div>
-</details>
+</Details>
 
 ## MintAdditionalSupply
 
@@ -78,9 +74,7 @@ Mint additional quantity of an NFT that already exists on the contract.
 var data = await contract.ERC1155.MintAdditionalSupply("{{token_id}}", 1);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### tokenId
 
@@ -94,8 +88,7 @@ How much additional supply you want to mint.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## MintAdditionalSupplyTo
 
@@ -105,9 +98,7 @@ The same as [`mintAdditionalSupply`](#mintadditionalsupply), but allows you to s
 var data = await contract.ERC1155.MintAdditionalSupplyTo("{{wallet_address", "{{token_id}}", 1);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### to
 
@@ -127,5 +118,4 @@ How much additional supply you want to mint.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>

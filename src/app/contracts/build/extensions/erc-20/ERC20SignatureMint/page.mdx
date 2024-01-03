@@ -1,5 +1,4 @@
-import { Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, GithubButtonLink } from "@/components/Document";
 
 # ERC20SignatureMint
 
@@ -110,13 +109,11 @@ contract ERC20SignatureMint is ERC20Base, SignatureMintERC20 {
 ## Base Contracts Implementing This Extension
 
 - [ERC20SignatureMint](/contracts/build/base-contracts/erc-20/signature-mint)
-- [ERC20SignatureMintVote](/contracts/build/base-contracts/erc-20/signature-mintvote)
+- [ERC20SignatureMintVote](/contracts/build/base-contracts/erc-20/signature-mint-vote)
 
 ## Full API reference
 
-<details>
-<summary>verify</summary>
-<div>
+<Details summary="verify">
 
 ```solidity
 struct MintRequest {
@@ -148,12 +145,9 @@ function verify(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
-</details>
+</Details>
 
-<details>
-<summary>mintWithSignature</summary>
-<div>
+<Details summary="mintWithSignature">
 
 ```solidity
 struct MintRequest {
@@ -185,12 +179,9 @@ function mintWithSignature(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
-</details>
+</Details>
 
-<details>
-<summary>_processRequest</summary>
-<div>
+<Details summary="_processRequest">
 
 ```solidity
 struct MintRequest {
@@ -221,12 +212,9 @@ function _processRequest(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
-</details>
+</Details>
 
-<details>
-<summary>_recoverAddress</summary>
-<div>
+<Details summary="_recoverAddress">
 
 ```solidity
 struct MintRequest {
@@ -258,12 +246,9 @@ function _recoverAddress(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
-</details>
+</Details>
 
-<details>
-<summary>_canSignMintRequest</summary>
-<div>
+<Details summary="_canSignMintRequest">
 
 ```solidity
 function _canSignMintRequest(address signer) internal view virtual returns (bool);
@@ -272,5 +257,4 @@ function _canSignMintRequest(address signer) internal view virtual returns (bool
 - Returns whether a given address is authorized to sign mint requests.
 - Parameter `signer`: the address that the contract checks is eligible to sign mint requests, or not.
 
-</div>
-</details>
+</Details>
