@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # Storage
 
 ## DownloadImage
@@ -8,9 +10,7 @@ Download an image from a URL or IPFS URI into a `Sprite` object.
 var data = await sdk.storage.DownloadImage("{{image_url}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### imageUri
 
@@ -22,8 +22,7 @@ Must be a `string`.
 
 Returns a [Sprite](https://docs.unity3d.com/Manual/Sprites.html).
 
-</div>
-</details>
+</Details>
 
 ## DownloadText
 
@@ -33,9 +32,7 @@ Download text data such as JSON from a URL or IPFS URI.
 var data = await sdk.storage.DownloadText<string>("{{text_uri}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### Data type (generic type)
 
@@ -51,8 +48,7 @@ Must be a `string`.
 
 Returns the data as the specified type.
 
-</div>
-</details>
+</Details>
 
 ## UploadFromPath
 
@@ -62,9 +58,7 @@ Upload and pin data in IPFS using the path to a file.
 var data = await sdk.storage.UploadFromPath("{{path/to-file}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### path
 
@@ -72,8 +66,7 @@ The path to the file to upload.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## UploadText
 
@@ -83,9 +76,7 @@ Upload raw data to IPFS.
 var data = await sdk.storage.UploadText("Hello world!");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### text
 
@@ -93,5 +84,4 @@ The text to upload.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>

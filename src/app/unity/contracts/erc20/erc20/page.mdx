@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC20
 
 Functionality available for contracts that implement the `IERC20` interface.
@@ -12,9 +14,7 @@ Get the allowance of another wallet address over the **connected wallet's** fund
 var data = await contract.ERC20.Allowance("{{spender_address}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### spender
 
@@ -36,8 +36,7 @@ A `CurrencyValue` struct is returned with the allowance available in the `value`
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## AllowanceOf
 
@@ -47,9 +46,7 @@ The same as [`allowance`](#allowance), but allows you to specify the owner walle
 var data = await contract.ERC20.AllowanceOf("{{owner_address}}", "{{spender_address}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### owner
 
@@ -77,8 +74,7 @@ A `CurrencyValue` struct is returned with the allowance available in the `value`
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Balance
 
@@ -88,9 +84,7 @@ View the balance (i.e. number of tokens) the **connected wallet** has in their w
 var data = await contract.ERC20.Balance();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -106,8 +100,7 @@ A `CurrencyValue` struct is returned with the allowance available in the `value`
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## BalanceOf
 
@@ -117,9 +110,7 @@ The same as [`balance`](#balance), but allows you to specify the wallet address 
 var data = await contract.ERC20.BalanceOf("{{wallet_address}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### address
 
@@ -141,8 +132,7 @@ A `CurrencyValue` struct is returned with the allowance available in the `value`
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Get
 
@@ -152,9 +142,7 @@ Get the metadata of the token smart contract, such as the name, symbol, and deci
 var data = await contract.ERC20.Get();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -166,8 +154,7 @@ var data = await contract.ERC20.Get();
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## SetAllowance
 
@@ -177,9 +164,7 @@ Grant allowance to another wallet address to spend the **connected wallet's** fu
 var data = await contract.ERC20.SetAllowance("{{spender_address}}", 1);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### spender
 
@@ -193,8 +178,7 @@ The number of tokens to give as allowance.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## TotalSupply
 
@@ -204,9 +188,7 @@ Get the number of tokens in circulation for this contract.
 var data = await contract.ERC20.TotalSupply();
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 ### Return Value
 
@@ -220,8 +202,7 @@ A `CurrencyValue` struct is returned with the allowance available in the `value`
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Transfer
 
@@ -231,9 +212,7 @@ Transfer tokens from the **connected wallet** to another wallet.
 var data = await contract.ERC20.Transfer("{{wallet_address}}", "{{amount}}");
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### to
 
@@ -247,5 +226,4 @@ The amount of tokens to send.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>

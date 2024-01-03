@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # Marketplace
 
 When using the `Marketplace` smart contract, additional top-level functionality is available to use.
@@ -19,9 +21,7 @@ Note: Auction listings cannot be canceled if a bid has been made.
 var data = await marketplace.auction.CancelListing("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -29,8 +29,7 @@ The ID of the listing to cancel.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## Auction - CreateListing
 
@@ -47,9 +46,7 @@ var data = await marketplace.auction.CreateListing(new NewAuctionListing() {
 });
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### assetContractAddress
 
@@ -103,8 +100,7 @@ Bids below this amount cannot be placed on the auction.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## Auction - ExecuteSale
 
@@ -116,9 +112,7 @@ This means that the NFT is transferred to the buyer, and the seller is paid the 
 var data = await marketplace.auction.ExecuteSale("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -126,8 +120,7 @@ The ID of the listing to execute the sale for.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## Auction - GetListing
 
@@ -137,9 +130,7 @@ Get the details of a listing using the listing ID.
 var data = await marketplace.auction.GetListing("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -170,8 +161,7 @@ Returns an `AuctionListing` struct, containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Auction - GetMinimumNextBid
 
@@ -184,9 +174,7 @@ Get the value that the next bid must be in order to be accepted.
 var data = await marketplace.auction.GetMinimumNextBid("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -208,8 +196,7 @@ The minimum next bid for the listing.
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Auction - GetWinner
 
@@ -219,9 +206,7 @@ Get the address that won an auction _after_ an auction has ended.
 var data = await marketplace.auction.GetWinner("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -237,8 +222,7 @@ The wallet address of the winner.
 string
 ```
 
-</div>
-</details>
+</Details>
 
 ## Auction - GetWinningBid
 
@@ -248,9 +232,7 @@ Get the current highest bid of an active auction.
 var data = await marketplace.auction.GetWinningBid("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -273,8 +255,7 @@ The current highest bid of the auction.
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Direct - CancelListing
 
@@ -286,9 +267,7 @@ Direct listings can be canceled at any time, unless a buyout has already occurre
 var data = await marketplace.direct.CancelListing("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -296,8 +275,7 @@ The ID of the listing to cancel.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## Direct - CreateListing
 
@@ -317,9 +295,7 @@ var data = await marketplace.direct.CreateListing(new NewDirectListing()
 });
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### assetContractAddress
 
@@ -373,8 +349,7 @@ The minimum price that users can bid for the NFT.
 
 Must be a `string`.
 
-</div>
-</details>
+</Details>
 
 ## Direct - GetActiveOffer
 
@@ -384,9 +359,7 @@ Get an active offer on a listing from a specific wallet address, if there is one
 var data = await marketplace.direct.GetActiveOffer("{{listing_id}}", "{{wallet_address}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -415,8 +388,7 @@ Returns an `Offer` struct with the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## Direct - GetListing
 
@@ -426,9 +398,7 @@ Get a direct listing by its ID.
 var data = await marketplace.direct.GetListing("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -457,8 +427,7 @@ Returns a `DirectListing` object containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetActiveListings
 
@@ -470,9 +439,7 @@ An active listing means it can be bought or bid on.
 var data = await marketplace.GetActiveListings();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### filter (optional)
 
@@ -508,8 +475,7 @@ Returns a list of `Listing` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetAllListings
 
@@ -519,9 +485,7 @@ Get all the listings on the marketplace, including inactive ones.
 var data = await marketplace.GetAllListings();
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### filter (optional)
 
@@ -557,8 +521,7 @@ Returns a list of `Listing` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## GetOffers
 
@@ -568,9 +531,7 @@ Get all the offers made on a listing.
 var data = await marketplace.GetOffers("{{listing_id}}");
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -593,8 +554,7 @@ Returns a list of `Offer` structs, each containing the following properties:
 }
 ```
 
-</div>
-</details>
+</Details>
 
 ## MakeOffer
 
@@ -604,9 +564,7 @@ Create a new bid on an auction listing or a new offer on a direct listing.
 var data = await marketplace.MakeOffer("{{listing_id}}", "{{price}}", 1);
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### listingId
 
@@ -626,5 +584,4 @@ The quantity of tokens to offer/bid on.
 
 Optional, defaults to `1`. Must be an int.
 
-</div>
-</details>
+</Details>

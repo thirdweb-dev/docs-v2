@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC721SignatureMint
 
 Allows you to utilize [signature-based minting](/glossary/signature-based-minting) of NFTs.
@@ -21,9 +23,7 @@ var payload = new ERC721MintPayload(receiverAddress, meta);
 var signedPayload = await contract.ERC721.signature.Generate(payload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 The information you provide to the `generate` method outlines what the signature can be used for.
 
@@ -48,8 +48,7 @@ the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadat
 The metadata is uploaded and pinned to IPFS before
 the NFT(s) are minted.
 
-</div>
-</details>
+</Details>
 
 ## Mint
 
@@ -69,16 +68,13 @@ var signedPayload = await contract.ERC721.signature.Generate(payload);
 var data = await contract.ERC721.signature.Mint(signedPayload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### signature (required)
 
 The signature created by the [`generate`](#generate) function.
 
-</div>
-</details>
+</Details>
 
 ## Verify
 
@@ -95,9 +91,7 @@ if you want to show a more user-friendly error message.
 
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### payload (required)
 
@@ -121,5 +115,4 @@ var signedPayload = await contract.ERC721.signature.Generate(payload);
 var data = await contract.ERC721.signature.Verify(signedPayload);
 ```
 
-</div>
-</details>
+</Details>

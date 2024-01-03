@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC1155SignatureMintable
 
 Allows you to utilize [signature-based minting](/glossary/signature-based-minting) of NFTs.
@@ -21,9 +23,7 @@ var payload = new ERC1155MintPayload(receiverAddress, meta, 1000);
 var signedPayload = await contract.ERC1155.signature.Generate(payload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 The information you provide to the `generate` method outlines what the signature can be used for.
 
@@ -54,8 +54,7 @@ The number of tokens this signature can be used to mint.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## GenerateFromTokenId
 
@@ -77,9 +76,7 @@ var payload = new ERC1155MintAdditionalPayload(receiverAddress, "{{token_id}}", 
 var signedPayload = await contract.ERC1155.signature.GenerateFromTokenId(payload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### receiverAddress
 
@@ -101,8 +98,7 @@ The number of tokens this signature can be used to mint.
 
 Must be an `int`.
 
-</div>
-</details>
+</Details>
 
 ## Mint
 
@@ -122,9 +118,7 @@ var signedPayload = await contract.ERC1155.signature.GenerateFromTokenId(payload
 var data = await contract.ERC1155.signature.Mint(signedPayload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### signedPayload
 
@@ -132,8 +126,7 @@ The payload created by the [`generate`](#generate) function.
 
 The typical pattern is the **admin** generates a signature, and the **user** uses it to mint the tokens, under the conditions specified in the signature.
 
-</div>
-</details>
+</Details>
 
 ## Verify
 
@@ -160,9 +153,7 @@ var signedPayload = await contract.ERC1155.signature.GenerateFromTokenId(payload
 var data = await contract.ERC1155.signature.Verify(signedPayload);
 ```
 
-<details>
-  <summary>Configuration</summary>
-  <div>
+<Details summary="Configuration">
 
 #### signedPayload
 
@@ -176,5 +167,4 @@ Returns `true` if the payload is valid, `false` otherwise.
 bool
 ```
 
-</div>
-</details>
+</Details>

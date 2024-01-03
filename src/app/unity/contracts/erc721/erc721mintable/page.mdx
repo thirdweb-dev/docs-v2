@@ -1,3 +1,5 @@
+import { Details } from "@/components/Document";
+
 # ERC721Mintable
 
 Allows you to mint new NFTs on the contract.
@@ -18,9 +20,7 @@ var data = await contract.ERC721.Mint(new NFTMetadata()
 });
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### metadata
 
@@ -32,8 +32,7 @@ the NFT(s) are minted.
 
 The `image` property can be an IPFS URI, or a URL to an image.
 
-</div>
-</details>
+</Details>
 
 ## MintTo
 
@@ -49,9 +48,7 @@ var data = await contract.ERC721.MintTo("{{wallet_address}}", new NFTMetadata()
 });
 ```
 
-<details>
-    <summary>Configuration</summary>
-    <div>
+<Details summary="Configuration">
 
 #### walletAddress
 
@@ -63,5 +60,4 @@ Must be a `string`.
 
 See [`metadata`](#metadata) configuration above.
 
-</div>
-</details>
+</Details>
