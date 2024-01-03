@@ -1,5 +1,7 @@
 // @ts-check
 
+import { create } from "domain";
+
 const reactRedirects = {
 	// providers
 	"/react/react.thirdwebprovider": "/react/v4/ThirdwebProvider",
@@ -287,10 +289,30 @@ const walletRedirects = {
 	"/auth/server-frameworks/next": "/wallets/auth/server-frameworks/next",
 	"/auth/server-frameworks/express": "/wallets/auth/server-frameworks/express",
 	"/auth/integrations/next-auth": "/wallets/auth/integrations/next-auth",
-	"auth/integrations/supabase": "/wallets/auth/integrations/supabase",
+	"/auth/integrations/supabase": "/wallets/auth/integrations/supabase",
 	"/auth/integrations/firebase": "/wallets/auth/integrations/firebase",
 	"/auth/wallet-configuration": "/wallets/auth/wallet-configuration",
 	"/auth/faqs": "/wallets/auth/faq",
+};
+
+const paymentRedirects = {
+	"/checkouts": "/payments",
+	"/checkouts/getting-started": "/payments/nft-checkout/getting-started",
+	"/checkouts/enable-contract": "/payments/nft-checkout/enable-contract",
+	"/checkouts/checkout-link": "/payments/nft-checkout/checkout-link",
+	"/checkouts/go-live-checklist": "/payments/nft-checkout/go-live-checklist",
+	"/checkouts/elements": "/payments/nft-checkout/elements",
+	"/checkouts/checkout-with-card": "/payments/nft-checkout/checkout-with-card",
+	"/checkouts/checkout-with-eth": "/payments/nft-checkout/checkout-with-eth",
+	"/checkouts/webhooks": "/payments/nft-checkout/webhooks",
+	"/checkouts/translations": "/payments/nft-checkout/translations",
+	"/checkouts/marketplaces": "/payments/nft-checkout/marketplaces",
+	"/checkouts/one-time-checkout-link": "/payments/nft-checkout/one-time-checkout-link",
+	"/checkouts/custom-contracts": "/payments/nft-checkout/custom-contracts",
+	"/checkouts/pre-built-contracts": "/payments/nft-checkout/pre-built-contracts",
+	"checkouts/erc20-pricing": "/payments/nft-checkout/erc20-pricing",
+	"/checkouts/api-reference": "/payments/nft-checkout/api-reference",
+	"/checkouts/faq": "/payments/nft-checkout/faq",
 };
 
 /**
@@ -302,6 +324,7 @@ export const redirects = async () => {
 		...createRedirects(reactRedirects),
 		...createRedirects(solidityRedirects),
 		...createRedirects(walletRedirects),
+		...createRedirects(paymentRedirects),
 		// references docs
 		latestReference("react", "v4"),
 		latestReference("react-native", "v0"),
