@@ -225,6 +225,74 @@ const solidityRedirects = {
 	"/solidity/base-contracts/smart-accounts": "/contracts/build/base-contracts/erc-4337",
 };
 
+const walletRedirects = {
+	//connect
+	"/connect": "/wallets/connect",
+	"/connect/architecture": "/wallets/connect",
+	"/connect/usage-with-react-sdk": "/wallets/connect/ConnectWallet",
+	"/connect/usage-with-react-native-sdk": "/wallets/connect/ConnectWallet",
+	"/connect/usage-with-typescript-sdk": "/wallets/connect/ConnectWallet",
+	"/connect/usage-with-unity-sdk": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet": "/wallets/connect",
+	"/connect/supported-wallets": "/wallets/connect",
+	"/connect/connect-wallet/wallet-providers": "/wallets/connect",
+	"/connect/connect-wallet/theme": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/button-title": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/modal-title": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/modal-size": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/welcome-screen": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/custom-button": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/class-name": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/drop-down-positions": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/hide-testnet-faucet": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/auth": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/switch-chain": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/privacy-policy": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/terms-of-service": "/wallets/connect/ConnectWallet",
+	"/connect/connect-wallet/custom-ui": "/wallets/connect/custom",
+	"/connect/faqs": "/wallets/connect",
+	//embedded wallet
+	"/embedded-wallet": "/wallets/embedded-wallet/overview",
+	"/embedded-wallet/how-it-works": "/wallets/embedded-wallet/how-it-works",
+	"/embedded-wallet/getting-started": "/wallets/embedded-wallet/get-started",
+	"/embedded-wallet/connect": "/wallets/embedded-wallet/how-to/connect-users",
+	"/embedded-wallet/custom": "/wallets/embedded-wallet/how-to/build-your-own-ui",
+	"/embedded-wallet/use": "/wallets/embedded-wallet/how-to/interact-with-wallets",
+	"/embedded-wallet/interact": "/wallets/embedded-wallet/how-to/interact-blockchain",
+	"/embedded-wallet/smart-wallet-and-embedded-wallet": "/wallets/embedded-wallet/how-to/enable-gasless",
+	"/embedded-wallet/export-private-key": "/wallets/embedded-wallet/how-to/export-private-key",
+	"/embedded-wallet/custom-auth": "/wallets/embedded-wallet/custom-auth/configuration",
+	"/embedded-wallet/custom-auth-server": "/wallets/embedded-wallet/custom-auth/custom-auth-server",
+	"/embedded-wallet/integrate-firebase": "/wallets/embedded-wallet/custom-auth/firebase-auth",
+	"/embedded-wallet/custom-jwt-auth-server": "/wallets/embedded-wallet/custom-auth/custom-jwt-auth-server",
+	"/embedded-wallet/faqs": "/wallets/embedded-wallet/faqs",
+	//smart wallet
+	"/smart-wallet": "/wallets/smart-wallet",
+	"/smart-wallet/how-it-works": "/wallets/smart-wallet/how-it-works",
+	"/smart-wallet/getting-started": "/wallets/smart-wallet/get-started",
+	"/smart-wallet/infrastructure": "wallets/smart-wallet/infrastructure",
+	"/smart-wallet/permissions": "/wallets/smart-wallet/permissions",
+	"/smart-wallet/guides/react": "/wallets/smart-wallet/guides/react",
+	"/smart-wallet/guides/typescript": "/wallets/smart-wallet/guides/typescript",
+	"/smart-wallet/faqs": "/wallets/smart-wallet/faq",
+	//auth
+	"/auth": "/wallets/auth",
+	"/auth/how-auth-works": "/wallets/auth/how-it-works",
+	"/auth/how-auth-works/sign-in-with-wallet": "/wallets/auth/how-it-works/siwe",
+	"/auth/how-auth-works/json-web-tokens": "/wallets/auth/how-it-works/jwt",
+	"/auth/how-auth-works/auth-api": "/wallets/auth/how-it-works/api",
+	"/auth/getting-started": "/wallets/auth/get-started",
+	"/auth/client-frameworks/react": "/wallets/auth/client-frameworks/react",
+	"/auth/client-frameworks/react-native": "/auth/client-frameworks/react-native",
+	"/auth/server-frameworks/next": "/wallets/auth/server-frameworks/next",
+	"/auth/server-frameworks/express": "/wallets/auth/server-frameworks/express",
+	"/auth/integrations/next-auth": "/wallets/auth/integrations/next-auth",
+	"auth/integrations/supabase": "/wallets/auth/integrations/supabase",
+	"/auth/integrations/firebase": "/wallets/auth/integrations/firebase",
+	"/auth/wallet-configuration": "/wallets/auth/wallet-configuration",
+	"/auth/faqs": "/wallets/auth/faq",
+};
+
 /**
  * @type {import('next').NextConfig['redirects']}
  */
@@ -233,6 +301,7 @@ export const redirects = async () => {
 		// old portal redirects
 		...createRedirects(reactRedirects),
 		...createRedirects(solidityRedirects),
+		...createRedirects(walletRedirects),
 		// references docs
 		latestReference("react", "v4"),
 		latestReference("react-native", "v0"),
