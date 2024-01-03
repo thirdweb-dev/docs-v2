@@ -415,6 +415,89 @@ const paymentRedirects = {
 	"/checkouts/faq": "/payments/nft-checkout/faq",
 };
 
+const contractRedirects = {
+	//pre-built contracts
+	"/pre-built-contracts": "/contracts",
+	"/pre-built-contracts/how-it-works": "/contracts",
+	"/explore/faqs": "/contracts",
+	"/pre-built-contracts/account-factory": "/contracts/explore/pre-built-contracts/account-factory",
+	"/pre-built-contracts/airdrop-erc1155-claimable": "/explore/pre-built-contracts/airdrop-erc1155-claimable",
+	"/pre-built-contracts/airdrop-erc1155": "/contracts/explore/pre-built-contracts/airdrop-erc1155",
+	"/pre-built-contracts/airdrop-erc20-claimable": "/contracts/explore/pre-built-contracts/airdrop-erc20-claimable",
+	"/pre-built-contracts/airdrop-erc20": "/contracts/explore/pre-built-contracts/airdrop-erc20",
+	"/pre-built-contracts/airdrop-erc721-claimable": "/contracts/explore/pre-built-contracts/airdrop-erc721-claimable",
+	"/pre-built-contracts/airdrop-erc721": "/contracts/explore/pre-built-contracts/airdrop-erc721",
+	"/pre-built-contracts/dynamic-account-factory": "/contracts/explore/pre-built-contracts/dynamic-account-factory",
+	"/pre-built-contracts/edition-drop": "/contracts/explore/pre-built-contracts/edition-drop",
+	"/pre-built-contracts/edition": "/contracts/explore/pre-built-contracts/edition",
+	"/pre-built-contracts/loyalty-card": "/contracts/explore/pre-built-contracts/loyalty-card",
+	"/pre-built-contracts/managed-account-factory": "/contracts/explore/pre-built-contracts/managed-account-factory",
+	"/pre-built-contracts/marketplace": "/contracts/explore/pre-built-contracts/marketplace",
+	"/pre-built-contracts/multiwrap": "/contracts/explore/pre-built-contracts/multiwrap",
+	"/pre-built-contracts/nft-collection": "/contracts/explore/pre-built-contracts/nft-collection",
+	"/pre-built-contracts/nft-drop": "/contracts/explore/pre-built-contracts/nft-drop",
+	"/pre-built-contracts/open-edition-erc721": "/contracts/explore/pre-built-contracts/open-edition",
+	"/pre-built-contracts/pack": "/contracts/explore/pre-built-contracts/pack",
+	"/pre-built-contracts/signature-drop": "/contracts",
+	"/pre-built-contracts/split": "/contracts/explore/pre-built-contracts/split",
+	"/pre-built-contracts/stake-erc1155": "/contracts/explore/pre-built-contracts/stake-erc1155",
+	"/pre-built-contracts/stake-erc20": "/contracts/explore/pre-built-contracts/stake-erc20",
+	"/pre-built-contracts/stake-erc721": "/contracts/explore/pre-built-contracts/stake-erc721",
+	"/pre-built-contracts/token-drop": "/contracts/explore/pre-built-contracts/token-drop",
+	"/pre-built-contracts/token": "/contracts/explore/pre-built-contracts/token",
+	"/pre-built-contracts/vote": "/contracts/explore/pre-built-contracts/vote",
+	//deploy
+	"/deploy": "contracts/deploy/overview",
+	"/deploy/how-it-works": "/contracts/deploy/overview",
+	"/deploy/getting-started": "/contracts/deploy/deploy-contract",
+	"/deploy/faqs": "/contracts/deploy/overview",
+	//publish
+	"/publish": "/contracts/publish/overview",
+	"/publish/getting-started": "/contracts/publish/publish-contract",
+	"/publish/deployment-options": "/contracts/publish/publish-options",
+	"/publish/get-featured-on-explore": "/contracts/publish/overview",
+	"/sdk": "/contracts/interact/overview",
+	"/sdk/how-it-works": "/contracts/interact/overview",
+	"/sdk/getting-started": "/contracts/interact/overview",
+	//design documentation
+	"/contracts/design/Drop": "/contracts/design-docs/drop",
+	"/contracts/design/Marketplace": "/contracts/design-docs/marketplace",
+	"/contracts/design/SignatureMint": "/contracts/design-docs/signature-mint",
+	"/contracts/design/Multiwrap": "/contracts/design-docs/multiwrap",
+	"/contracts/design/Pack": "/contracts/design-docs/pack",
+	"/contracts/design/SignatureDrop": "/contracts",
+};
+
+const infrastructureRedirects = {
+	//engine
+	"/engine": "/infrastructure/engine/overview",
+	"/engine/getting-started": "/infrastructure/engine/get-started",
+	"/engine/production-checklist": "/infrastructure/engine/production-checklist",
+	"/engine/security": "/infrastructure/engine/security",
+	"/engine/faq": "/infrastructure/engine/faq",
+	"/engine/backend-wallets": "/infrastructure/engine/features/backend-wallets",
+	"/engine/authentication": "/infrastructure/engine/features/authentication",
+	"/engine/contracts": "/infrastructure/engine/features/contracts",
+	"/engine/smart-wallets": "/infrastructure/engine/features/smart-wallets",
+	"/engine/gasless-transactions": "/infrastructure/engine/features/gasless-transactions",
+	"/engine/webhooks": "/infrastructure/engine/features/webhooks",
+	"/guides/engine/airdrop-nfts": "/infrastructure/engine/guides/airdrop-nfts",
+	"/guides/engine/nft-checkout": "/infrastructure/engine/guides/nft-checkout",
+	"/guides/engine/smart-wallets": "/infrastructure/engine/guides/smart-wallets",
+	"/guides/engine/relayer": "/infrastructure/engine/guides/relayer",
+	"/engine/references/api": "/infrastructure/engine/references/api-reference",
+	"/engine/references/typescript-sdk": "/infrastructure/engine/references/typescript",
+	//storage
+	"/storage": "/infrastructure/storage/overview",
+	"/storage/how-storage-works": "/infrastructure/storage/how-storage-works",
+	"/storage/upload-to-ipfs": "/infrastructure/storage/how-to-use-storage/upload-files-to-ipfs",
+	"/storage/host-web-app": "/infrastructure/storage/how-to-use-storage/host-web-app",
+	//rpc-edge
+	"/rpc-edge": "/infrastructure/rpc-edge/overview",
+	"/rpc-edge/get-started": "/infrastructure/rpc-edge/get-started",
+	"/rpc-edge/faqs": "/infrastructure/rpc-edge/overview",
+};
+
 /**
  * @type {import('next').NextConfig['redirects']}
  */
@@ -428,6 +511,8 @@ export const redirects = async () => {
 		...createRedirects(unityRedirects),
 		...createRedirects(walletRedirects),
 		...createRedirects(paymentRedirects),
+		...createRedirects(infrastructureRedirects),
+		...createRedirects(contractRedirects),
 		// references docs
 		latestReference("react", "v4"),
 		latestReference("react-native", "v0"),
