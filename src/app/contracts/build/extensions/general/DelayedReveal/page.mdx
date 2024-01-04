@@ -1,5 +1,4 @@
-import { Details, Callout } from "@doc";
-import { GithubButtonLink } from "@doc";
+import { Details, Callout, GithubButtonLink } from "@doc";
 
 # DelayedReveal
 
@@ -121,7 +120,6 @@ contract MyContract is ERC721LazyMint, DelayedReveal {
 ## Full API Reference
 
 <Details summary="_setEncryptedData">
-<div>
 
 ```solidity
 function _setEncryptedData(uint256 batchId, bytes memory encryptedData) internal;
@@ -131,11 +129,9 @@ function _setEncryptedData(uint256 batchId, bytes memory encryptedData) internal
 - Parameter `batchId`: The identifier for the batch of delayed reveal NFTs.
 - Parameter `encryptedData`: The encrypted metadata to store for the given batch of NFTs.
 
-</div>
 </Details>
 
 <Details summary="getRevealURI">
-<div>
 
 ```solidity
 function getRevealURI(uint256 batchId, bytes calldata key) public view returns (string memory revealedURI);
@@ -145,11 +141,9 @@ function getRevealURI(uint256 batchId, bytes calldata key) public view returns (
 - Parameter `batchId`: The identifier for the batch of delayed reveal NFTs whose true metadata URI is being retrieved.
 - Parameter `key`: Secure key used by caller/admin for initially encrypting the metadata of the relevant batch of NFTs.
 
-</div>
 </Details>
 
 <Details summary="encryptDecrypt">
-<div>
 
 ```solidity
 function encryptDecrypt(bytes memory data, bytes calldata key) public pure override returns (bytes memory result);
@@ -158,11 +152,9 @@ function encryptDecrypt(bytes memory data, bytes calldata key) public pure overr
 - Standard XOR encryption implementation in Solidity. Used to encrypt the metadata of NFTs.
 - Learn more about the usage of this function in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
 
-</div>
 </Details>
 
 <Details summary="isEncryptedBatch">
-<div>
 
 ```solidity
 function isEncryptedBatch(uint256 batchId) public view returns (bool);
@@ -171,11 +163,9 @@ function isEncryptedBatch(uint256 batchId) public view returns (bool);
 - Returns whether the relevant batch of NFTs is subject to a delayed reveal.
 - Parameter `batchId`: The identifier for a batch of NFTs.
 
-</div>
 </Details>
 
 <Details summary="reveal">
-<div>
 
 ```solidity
 function reveal(uint256 batchId, bytes calldata key) external returns (string memory revealedURI);
@@ -185,5 +175,4 @@ function reveal(uint256 batchId, bytes calldata key) external returns (string me
 - Parameter `batchId`: The ID for the batch of delayed-reveal NFTs to reveal.
 - Parameter `key`: The key with which the base URI for the relevant batch of NFTs was encrypted.
 
-</div>
 </Details>

@@ -1,5 +1,4 @@
-import { Details, Callout } from "@doc";
-import { GithubButtonLink } from "@doc";
+import { Details, GithubButtonLink } from "@doc";
 
 # ERC1155Drop
 
@@ -130,7 +129,6 @@ None of the base contracts implement this extension.
 ## Full API reference
 
 <Details summary="claim">
-<div>
 
 ```solidity
 function claim(
@@ -153,11 +151,9 @@ function claim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-</div>
 </Details>
 
 <Details summary="setClaimConditions">
-<div>
 
 ```solidity
 struct ClaimCondition {
@@ -188,11 +184,9 @@ function setClaimConditions(uint256 tokenId, ClaimCondition[] calldata phases, b
 - Parameter `resetClaimEligibility`: Whether to carry over the restrictions active for wallets that claimed tokens in the incumbent claim condition (e.g. next valid claim timestamp for a given wallet).
 - The `_canSetClaimConditions` function is run on every call to this function. If the return value of `_canSetClaimConditions` is `false`, the `setClaimConditions` call will revert.
 
-</div>
 </Details>
 
 <Details summary="verifyClaim">
-<div>
 
 ```solidity
 struct AllowlistProof {
@@ -226,11 +220,9 @@ function verifyClaim(
   - `pricePerToken`: The price per token the allowlisted wallet must pay to claim tokens.
   - `currency`: The currency in which the allowlisted wallet must pay the price for claiming tokens.
 
-</div>
 </Details>
 
 <Details summary="getActiveClaimConditionId">
-<div>
 
 ```solidity
 function getActiveClaimConditionId(uint256 tokenId) public view returns (uint256);
@@ -239,11 +231,9 @@ function getActiveClaimConditionId(uint256 tokenId) public view returns (uint256
 - Returns the Id of currently active claim condition.
 - Parameter `tokenId`: The token ID for which to check active claim condition.
 
-</div>
 </Details>
 
 <Details summary="getClaimConditionById">
-<div>
 
 ```solidity
 function getClaimConditionById(uint256 tokenId, uint256 conditionId) external view returns (ClaimCondition memory);
@@ -253,11 +243,9 @@ function getClaimConditionById(uint256 tokenId, uint256 conditionId) external vi
 - Parameter `tokenId`: The token ID for which check claim condition.
 - Parameter `conditionId`: Id of the claim condition being viewed.
 
-</div>
 </Details>
 
 <Details summary="getSupplyClaimedByWallet">
-<div>
 
 ```solidity
 function getSupplyClaimedByWallet(uint256 tokenId, uint256 conditionId, address claimer) public view returns (uint256);
@@ -268,11 +256,9 @@ function getSupplyClaimedByWallet(uint256 tokenId, uint256 conditionId, address 
 - Parameter `conditionId`: Id of the claim condition under which to check the supply claimed.
 - Parameter `claimer`: The wallet claiming tokens.
 
-</div>
 </Details>
 
 <Details summary="_dropMsgSender">
-<div>
 
 ```solidity
 function _dropMsgSender() internal virtual returns (address);
@@ -280,11 +266,9 @@ function _dropMsgSender() internal virtual returns (address);
 
 - Exposes the ability to override the msg sender.
 
-</div>
 </Details>
 
 <Details summary="_beforeClaim">
-<div>
 
 ```solidity
 function _beforeClaim(
@@ -307,11 +291,9 @@ function _beforeClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-</div>
 </Details>
 
 <Details summary="_afterClaim">
-<div>
 
 ```solidity
 function _afterClaim(
@@ -334,11 +316,9 @@ function _afterClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-</div>
 </Details>
 
 <Details summary="_collectPriceOnClaim">
-<div>
 
 ```solidity
 function _collectPriceOnClaim(
@@ -357,11 +337,9 @@ function _collectPriceOnClaim(
 - Parameter `currency`: The currency used to pay for the claim.
 - Parameter `pricePerToken`: The price per token to pay for the claim.
 
-</div>
 </Details>
 
 <Details summary="_transferTokensOnClaim">
-<div>
 
 ```solidity
 function _transferTokensOnClaim(address to, uint256 tokenId, uint256 quantityBeingClaimed)
@@ -374,11 +352,9 @@ function _transferTokensOnClaim(address to, uint256 tokenId, uint256 quantityBei
 - Parameter `tokenId`: The tokenId of the NFTs to claim.
 - Parameter `quantityBeingClaimed`: The quantity of tokens being claimed.
 
-</div>
 </Details>
 
 <Details summary="_canSetClaimConditions">
-<div>
 
 ```solidity
 function _canSetClaimConditions() internal view virtual returns (bool);
@@ -388,5 +364,4 @@ function _canSetClaimConditions() internal view virtual returns (bool);
 - Returns whether the claim condition can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setClaimConditions` is the contract owner, and enforce that only the owner should be able to successfully call `setClaimConditions`.
 
-</div>
 </Details>

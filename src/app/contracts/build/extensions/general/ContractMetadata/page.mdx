@@ -1,5 +1,4 @@
-import { Details, Callout } from "@doc";
-import { GithubButtonLink } from "@doc";
+import { Details, GithubButtonLink } from "@doc";
 
 # ContractMetadata
 
@@ -61,7 +60,6 @@ All of the base contracts implement this extension.
 ## Full API reference
 
 <Details summary="contractURI">
-<div>
 
 ```solidity
 function contractURI() external view returns (string memory);
@@ -70,11 +68,9 @@ function contractURI() external view returns (string memory);
 - Returns the URI for the metadata associated with the smart contract. Generally, an IPFS URI.
 - Set this value using the `setContractURI` function.
 
-</div>
 </Details>
 
 <Details summary="setContractURI">
-<div>
 
 ```solidity
 function setContractURI(string calldata _uri) external;
@@ -84,11 +80,9 @@ function setContractURI(string calldata _uri) external;
 - Parameter `_uri`: The URI of the metadata to associate with the contract.
 - The `_canSetContractURI` function is run on every call to this function. If the return value of `_canSetContractURI` is `false`, the `setContractURI` call will revert.
 
-</div>
 </Details>
 
 <Details summary="_setupContractURI">
-<div>
 
 ```solidity
 function _setupContractURI(string memory _uri) internal;
@@ -98,11 +92,9 @@ function _setupContractURI(string memory _uri) internal;
 - Parameter `_uri`: The URI of the metadata to associate with the contract.
 - The `_canSetContractURI` function is _not_ run on a call to this function.
 
-</div>
 </Details>
 
 <Details summary="_canSetContractURI">
-<div>
 
 ```solidity
 function _canSetContractURI() internal view virtual returns (bool);
@@ -112,5 +104,4 @@ function _canSetContractURI() internal view virtual returns (bool);
 - Returns whether contract metadata can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setContractURI` is the contract owner, and enforce that only the owner should be able to successfully call `setContractURI`.
 
-</div>
 </Details>

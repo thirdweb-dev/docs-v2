@@ -1,5 +1,4 @@
-import { Details, Callout } from "@doc";
-import { GithubButtonLink } from "@doc";
+import { Details, GithubButtonLink } from "@doc";
 
 # ERC721SignatureMint
 
@@ -117,7 +116,6 @@ contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
 ## Full API reference
 
 <Details summary="verify">
-<div>
 
 ```solidity
 struct MintRequest {
@@ -155,11 +153,9 @@ function verify(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
 </Details>
 
 <Details summary="mintWithSignature">
-<div>
 
 ```solidity
 struct MintRequest {
@@ -197,11 +193,9 @@ function mintWithSignature(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
 </Details>
 
 <Details summary="_processRequest">
-<div>
 
 ```solidity
 struct MintRequest {
@@ -238,11 +232,9 @@ function _processRequest(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
 </Details>
 
 <Details summary="_recoverAddress">
-<div>
 
 ```solidity
 struct MintRequest {
@@ -280,11 +272,9 @@ function _recoverAddress(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-</div>
 </Details>
 
 <Details summary="_canSignMintRequest">
-<div>
 
 ```solidity
 function _canSignMintRequest(address signer) internal view virtual returns (bool);
@@ -293,5 +283,4 @@ function _canSignMintRequest(address signer) internal view virtual returns (bool
 - Returns whether a given address is authorized to sign mint requests.
 - Parameter `signer`: the address that the contract checks is eligible to sign mint requests, or not.
 
-</div>
 </Details>

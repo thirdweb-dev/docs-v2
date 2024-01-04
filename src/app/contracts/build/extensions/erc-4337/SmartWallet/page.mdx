@@ -1,5 +1,4 @@
-import { Details, Callout } from "@doc";
-import { GithubButtonLink } from "@doc";
+import { Details, Callout, GithubButtonLink } from "@doc";
 
 # BaseAccount
 
@@ -58,7 +57,6 @@ This extension unlocks the use of the [smart wallet](wallet/smart-wallet) in the
 ## Full API reference
 
 <Details summary="getNonce">
-<div>
 
 This method returns the next sequential nonce.
 
@@ -68,11 +66,9 @@ function getNonce() public view virtual returns (uint256) {
 }
 ```
 
-</div>
 </Details>
 
 <Details summary="entryPoint">
-<div>
 
 Subclass should return the current entryPoint used by this account.
 
@@ -80,11 +76,9 @@ Subclass should return the current entryPoint used by this account.
 function entryPoint() public view virtual returns (IEntryPoint);
 ```
 
-</div>
 </Details>
 
 <Details summary="validateUserOp">
-<div>
 
 Validate user's signature and nonce.
 
@@ -103,11 +97,9 @@ function validateUserOp(
 }
 ```
 
-</div>
 </Details>
 
 <Details summary="_requireFromEntryPoint">
-<div>
 
 Ensure the request comes from the known entrypoint.
 
@@ -117,11 +109,9 @@ function _requireFromEntryPoint() internal view virtual {
 }
 ```
 
-</div>
 </Details>
 
 <Details summary="_validateSignature">
-<div>
 
 Validate the signature is valid for this message.
 
@@ -148,7 +138,6 @@ signature and time-range of this operation:
 - `validUntil` - last timestamp this operation is valid. 0 for "indefinite"
 - `validAfter` - first timestamp this operation is valid.
 
-</div>
 </Details>
 
 <Details summary="_validateNonce">
