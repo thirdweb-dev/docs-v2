@@ -1,3 +1,5 @@
+import { Callout } from "@doc";
+
 # Wallet Configuration
 
 Auth makes use of a server-side wallet to sign and verify JWTs, as covered in the [how auth works section](/wallets/auth/how-it-works/jwt). You can configure this wallet using a variety of wallet management options, giving you the freedom to choose the most convenient and secure setup for your project.
@@ -18,11 +20,11 @@ npm install @thirdweb-dev/auth ethers@5
 
 You can use an EVM private key (a 64 character hex-string) as your wallet by using the `PrivateKeyWallet` class from the `@thirdweb-dev/auth/evm` entrypoint.
 
-:::warning
+<Callout variant='warning'>
 
 Never hardcode your private key into your codebase or commit it to version control! Instead, use an environment variable or other secure method to pass your private key in indirectly.
 
-:::
+</Callout>
 
 ```typescript
 import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
