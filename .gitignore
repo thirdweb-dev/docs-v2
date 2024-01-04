@@ -41,3 +41,4 @@ next-env.d.ts
 searchIndex.json
 
 .env
+public/sitemap*.xml
