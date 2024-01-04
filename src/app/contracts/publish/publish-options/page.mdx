@@ -24,11 +24,11 @@ Choose this option if you would like users to deploy proxies of your implementat
 
 ### 2(a). Default Factory
 
-Publishing your contract using the [thirdweb default factory](https://github.com/thirdweb-dev/contracts/blob/main/contracts/TWStatelessFactory.sol) allows users to deploy a proxy contract.
+Publishing your contract using the [thirdweb default factory](https://github.com/thirdweb-dev/contracts/blob/main/contracts/infra/TWStatelessFactory.sol) allows users to deploy a proxy contract.
 
 - Allows users to deploy to **any EVM compatible network**.
 - Users will deploy an [EIP-1167](https://eips.ethereum.org/EIPS/eip-1167) minimal proxy contract, containing the state, which will refer to your implementation contract for the logic. This makes the deployment cheaper for your users.
-- The [thirdweb default factory](https://github.com/thirdweb-dev/contracts/blob/main/contracts/TWStatelessFactory.sol) is open-source, permissionless, and does not alter contract ownership - contract deployers have 100% ownership.
+- The [thirdweb default factory](https://github.com/thirdweb-dev/contracts/blob/main/contracts/infra/TWStatelessFactory.sol) is open-source, permissionless, and does not alter contract ownership - contract deployers have 100% ownership.
 
 #### Requirements
 

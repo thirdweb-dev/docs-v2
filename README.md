@@ -33,5 +33,5 @@ yarn
 ### Start local development server
 
 ```bash
-yarn start
+yarn dev
 ```
