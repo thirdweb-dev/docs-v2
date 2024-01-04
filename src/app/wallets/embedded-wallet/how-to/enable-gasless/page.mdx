@@ -1,6 +1,7 @@
-import { OpenSourceCard, DocImage, CardLink } from "@doc";
+import { OpenSourceCard, DocImage, ArticleIconCard, Stack } from "@doc";
 import ConnectCompat from "./connect-wallet-embedded-compact.png";
 import ConnectDropdown from "./connect-wallet-smart-dropdown.png";
+import { Layers2Icon } from "lucide-react";
 
 # Enable Gasless Transactions
 
@@ -26,12 +27,10 @@ When the user connects a wallet by entering their email, they will be able to vi
 
 View a fully functioning project on GitHub:
 
-<div className="col col--12" style={{ padding: 8 }}>
-	<OpenSourceCard
-		title="Source Code"
-		href="https://github.com/thirdweb-example/embedded-smart-wallet"
-	/>
-</div>
+<OpenSourceCard
+	title="Source Code"
+	href="https://github.com/thirdweb-example/embedded-smart-wallet"
+/>
 
 ## 1. Deploy an Account Factory
 
@@ -39,23 +38,27 @@ Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or 
 
 Select the appropriate thirdweb smart wallet type for your app:
 
-<CardLink
-	icon="contract"
-	label="Account Factory"
+<Stack>
+
+<ArticleIconCard
+	icon={Layers2Icon}
+	title="Account Factory"
 	href={"https://thirdweb.com/thirdweb.eth/AccountFactory"}
 />
 
-<CardLink
-	icon="contract"
-	label="Managed Account Factory"
+<ArticleIconCard
+	icon={Layers2Icon}
+	title="Managed Account Factory"
 	href={"https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"}
 />
 
-<CardLink
-	icon="contract"
-	label="Dynamic Account Factory"
+<ArticleIconCard
+	icon={Layers2Icon}
+	title="Dynamic Account Factory"
 	href={"https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"}
 />
+
+</Stack>
 
 [Learn more about Smart Wallets](/wallets/smart-wallet)
 

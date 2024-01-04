@@ -1,4 +1,11 @@
-import { OpenSourceCard, CardLink, Callout, DocImage } from "@doc";
+import {
+	OpenSourceCard,
+	ArticleIconCard,
+	Callout,
+	DocImage,
+	Stack,
+} from "@doc";
+import { GraduationCap } from "lucide-react";
 
 # Getting Started
 
@@ -70,11 +77,13 @@ This file is a Next.js catch all route, which will catch any requests to `/api/a
 
 `wallet` lets you configure the admin wallet that will issue and verify JWTs for your users. In this example, we're using a simple private key wallet, but you can also use more advanced wallets, as laid out in the wallet configuration section:
 
-<CardLink
-	label="Wallet Configuration"
-	href="/wallets/auth/wallet-configuration"
-	icon="educate"
-/>
+<Stack>
+	<ArticleIconCard
+		title="Wallet Configuration"
+		href="/wallets/auth/wallet-configuration"
+		icon={GraduationCap}
+	/>
+</Stack>
 
 The `ThirdwebAuth` function returns us a `ThirdwebAuthHandler`, which automatically sets up multiple authentication endpoints for us to use that handle logins, authentication, and logouts (as laid out in the [Auth API overview](/wallets/auth/how-it-works/api)). It also returns a `getUser` function, which we can use on other endpoints to authenticate the user that sent a request.
 

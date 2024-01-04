@@ -1,4 +1,5 @@
-import { OpenSourceCard, CardLink, Callout } from "@doc";
+import { OpenSourceCard, ArticleIconCard, Callout, Stack } from "@doc";
+import { GraduationCap } from "lucide-react";
 
 # Next
 
@@ -6,11 +7,13 @@ This page will focus mainly on integrating Auth on the server-side with [Next.js
 
 To learn more about how to implement Auth on the client-side with Next.js (which you will likely need after implementing the server-side), see the Auth [React page](/wallets/auth/client-frameworks/react) as Next uses React for the frontend:
 
-<CardLink
-	label="Auth & React integration"
-	href="/wallets/auth/client-frameworks/react"
-	icon="educate"
-/>
+<Stack>
+	<ArticleIconCard
+		title="Auth & React integration"
+		href="/wallets/auth/client-frameworks/react"
+		icon={GraduationCap}
+	/>
+</Stack>
 
 If you want to interact with a working version of the Auth + Next integration that we'll be building in this guide, you can checkout the following GitHub repository, or clone it with the command below:
 
@@ -54,11 +57,13 @@ export default ThirdwebAuthHandler();
 
 Here, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entrypoint, but there are a number of other supported wallet setups, which you can learn more about on the wallet configuration page:
 
-<CardLink
-	label="Wallet Configuration"
-	href="/wallets/auth/wallet-configuration"
-	description="Learn more about how to configure your wallet for Auth."
-/>
+<Stack>
+	<ArticleIconCard
+		title="Wallet Configuration"
+		href="/wallets/auth/wallet-configuration"
+		description="Learn more about how to configure your wallet for Auth."
+	/>
+</Stack>
 
 Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to setup a full Auth API on our Next.js backend!
 

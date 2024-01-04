@@ -1,6 +1,5 @@
 export { Breadcrumb } from "./Breadcrumb";
 export { Callout } from "./Callout";
-export { CardLink } from "./CardLink";
 export { CodeBlock, InlineCode } from "./Code";
 export { Details } from "./Details";
 export { DocLink } from "./DocLink";
@@ -21,3 +20,4 @@ export { SDKCard } from "./SDKCard";
 export { DocImage } from "./DocImage";
 export { GithubTemplateCard } from "./Cards/GithubTemplateCard";
 export { ExpandableGrid } from "./ExpandableGrid";
+export { Stack } from "./Stack";
