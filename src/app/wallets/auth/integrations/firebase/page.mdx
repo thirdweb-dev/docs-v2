@@ -1,5 +1,4 @@
-import { OpenSourceCard, CardLink, Callout } from "@/components/Document";
-import Image from "next/image";
+import { DocImage, OpenSourceCard } from "@doc";
 
 # Firebase
 
@@ -7,15 +6,15 @@ This guide will show you how to integrate Auth as a custom authentication provid
 
 If you want to interact with the code for the Auth + Firebase integration that we'll be building in this guide, you can checkout the following GitHub repository, or clone it with the command below:
 
-```
-npx thirdweb create app --template firebase-auth
-```
-
 <OpenSourceCard
 	title="firebase-auth"
 	href="https://github.com/thirdweb-example/firebase-auth"
 	description="A working example of Auth + Firebase"
 />
+
+```bash
+npx thirdweb create app --template firebase-auth
+```
 
 ## Prerequisites
 
@@ -43,7 +42,7 @@ We'll use environment variables to store our Firebase configuration.
 
 Create a `.env.local` file in the root of your project and add the corresponding values from your Firebase project:
 
-```sh
+```bash
 NEXT_PUBLIC_API_KEY=<firebase-app-api-key>
 NEXT_PUBLIC_AUTH_DOMAIN=<firebase-app-auth-domain>
 NEXT_PUBLIC_PROJECT_ID=<firebase-app-project-id>
@@ -106,7 +105,7 @@ The process of creating users in Firebase by authenticating them with their wall
 
 On the homepage (`pages/index.tsx`), we'll allow the user to connect their wallet and then sign in with Ethereum.
 
-```tsx title="pages/index.tsx"
+```tsx
 import React from "react";
 import { ConnectWallet, useAddress, useAuth } from "@thirdweb-dev/react";
 import { doc, serverTimestamp, setDoc, getDoc } from "firebase/firestore";
@@ -243,18 +242,10 @@ service cloud.firestore {
 
 When you click the "Sign in with Ethereum" button and successfully sign in, you'll be signed up as a user in Firebase:
 
-<Image
-	className="mb-4"
-	src={require("../../assets/firebase-users.png")}
-	alt="firebase users"
-/>
+<DocImage src={require("../../assets/firebase-users.png")} />
 
 And a new document will be created in your `users` collection in Firestore:
 
-<Image
-	className="mb-4"
-	src={require("../../assets/firebase-db.png")}
-	alt="firebase db"
-/>
+<DocImage src={require("../../assets/firebase-db.png")} />
 
 You can now use all the functionality of Firebase Authentication and Firestore to build your app!

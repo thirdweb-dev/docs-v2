@@ -1,11 +1,8 @@
-import { Callout } from "@/components/Document";
-import { Steps, Step } from "@/components/Document";
+import { Callout, Steps, Step, DocImage } from "@doc";
 import EWCreateKey from "../images/ew-create-key.png";
 import EWConfig from "../images/ew-configuration.png";
 import EWConfigOpt from "../images/ew-configuration-opt.png";
 import EWJWKCreatorTool from "../images/jwk-creator-tool.png";
-
-import Image from "next/image";
 
 # Create a Custom JWT Auth Server
 
@@ -72,7 +69,7 @@ This guide is simplified for demonstration purposes and is not ready for product
 
    1. Paste the public key, set Key ID as `0` (arbitrary string, must match when signing JWT), and then note down the generated JWK.
 
-   <Image src={EWJWKCreatorTool} />
+   <DocImage src={EWJWKCreatorTool} />
 
 4. Create a `jwks.json` in the project root and place the generated JWK in a `keys` array.
 
@@ -179,17 +176,17 @@ Once deployed, replace `http://localhost:3000` in the JWT payload with your actu
 1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
 2. Create a thirdweb API key if you don’t have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
 
-   <Image src={EWCreateKey} />
+   <DocImage src={EWCreateKey} />
 
 3. Allowlist domain or bundle ids in Access Restrictions.
 4. Navigate to the Configuration view and enable **Custom JSON Web Token**
 
-   <Image src={EWConfig} />
+   <DocImage src={EWConfig} />
 
 5. Set the JWKS URI to `your-domain/.well-known/jwks.json`
 6. Set the AUD to `EpicGame` or the value you set as the aud in the `server.js` file.
 
-   <Image src={EWConfigOpt} />
+   <DocImage src={EWConfigOpt} />
 
 7. Copy the client ID.
 8. In your preferred thirdweb client SDK, pass the JWT you retrieved from logging in to the server.

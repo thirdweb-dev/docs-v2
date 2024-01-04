@@ -1,11 +1,4 @@
-import {
-	Details,
-	Breadcrumb,
-	Callout,
-	Steps,
-	Step,
-} from "@/components/Document";
-import Image from "next/image";
+import { Details, Breadcrumb, Callout, Steps, Step, DocImage } from "@doc";
 // images
 import ConnectWalletHeroImage from "./images/connect-wallet-hero.webp";
 // mdx
@@ -48,7 +41,7 @@ See the ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.
 </Callout>
 
 <div className="border rounded-lg p-6">
-	<Image src={ConnectWalletHeroImage} />
+	<DocImage src={ConnectWalletHeroImage} />
 </div>
 
 ## Usage

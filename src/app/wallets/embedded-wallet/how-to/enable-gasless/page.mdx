@@ -1,9 +1,6 @@
-import { OpenSourceCard } from "@/components/Document/OpenSourceCard";
-import Image from "next/image";
-import Link from "next/link";
+import { OpenSourceCard, DocImage, CardLink } from "@doc";
 import ConnectCompat from "./connect-wallet-embedded-compact.png";
 import ConnectDropdown from "./connect-wallet-smart-dropdown.png";
-import SmartWalletIcon from "./smart-wallet.svg";
 
 # Enable Gasless Transactions
 
@@ -13,17 +10,17 @@ By combining [Smart Wallet](/wallets/smart-wallet) and [Embedded Wallet](/wallet
 - Batched transactions
 - Full account recovery for both the embedded wallet “key” and the smart wallet
 
-Let’s create an app that creates smart wallets for our users.
+Let's create an app that creates smart wallets for our users.
 
 These smart wallets will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an embedded wallet.
 
 From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart wallet is created and initialized using the embedded wallet.
 
-<Image src={ConnectCompat} />
+<DocImage src={ConnectCompat} />
 
 When the user connects a wallet by entering their email, they will be able to view & interact with their smart wallet:
 
-<Image src={ConnectDropdown} />
+<DocImage src={ConnectDropdown} />
 
 ## Example Repo
 
@@ -42,34 +39,23 @@ Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or 
 
 Select the appropriate thirdweb smart wallet type for your app:
 
-<div className="grid gap-3 md:grid-cols-2">
-	<Link
-		href={"https://thirdweb.com/thirdweb.eth/AccountFactory"}
-		className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-	>
-		<Image src={SmartWalletIcon} className="h-10 w-10 shrink-0"/>
-		<h3 className="text-lg font-semibold text-f-100">Account Factory</h3>
-	</Link>
+<CardLink
+	icon="contract"
+	label="Account Factory"
+	href={"https://thirdweb.com/thirdweb.eth/AccountFactory"}
+/>
 
-    <Link
-    	href={"https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"}
-    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-    >
-    	<Image src={SmartWalletIcon} className="h-10 w-10 shrink-0"/>
-    	<h3 className="text-lg font-semibold text-f-100">Managed Account Factory</h3>
-    </Link>
+<CardLink
+	icon="contract"
+	label="Managed Account Factory"
+	href={"https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"}
+/>
 
-    <Link
-    	href={"https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"}
-    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-    >
-    	<Image src={SmartWalletIcon} className="h-10 w-10 shrink-0"/>
-    	<h3 className="text-lg font-semibold text-f-100">Dynamic Account Factory</h3>
-    </Link>
-
-</div>
-
-<br />
+<CardLink
+	icon="contract"
+	label="Dynamic Account Factory"
+	href={"https://thirdweb.com/thirdweb.eth/DynamicAccountFactory"}
+/>
 
 [Learn more about Smart Wallets](/wallets/smart-wallet)
 

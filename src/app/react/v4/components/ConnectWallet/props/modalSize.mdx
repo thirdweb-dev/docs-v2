@@ -1,10 +1,4 @@
-import {
-	Tabs,
-	TabsList,
-	TabsContent,
-	TabsTrigger,
-} from "@/components/Document";
-import Image from "next/image";
+import { Tabs, TabsList, TabsContent, TabsTrigger, DocImage } from "@doc";
 // images
 import ConnectWalletDarkCompactImage from "../images/connect-wallet-dark-compact.png";
 import ConnectWalletDarkWideImage from "../images/connect-wallet-dark-wide.png";
@@ -29,7 +23,7 @@ Note that it is always `"compact"` on mobile even if you set it as `"wide"` beca
 
 The wide modal shows a Welcome Screen on the right side of the Modal which is fully customize via the `welcomeScreen` prop.
 
-<Image src={ConnectWalletDarkWideImage} className="rounded-lg border" />
+<DocImage src={ConnectWalletDarkWideImage} />
 
 </TabsContent>
 
@@ -39,7 +33,7 @@ The wide modal shows a Welcome Screen on the right side of the Modal which is fu
 <ConnecWallet modalSize="compact" />
 ```
 
-<Image src={ConnectWalletDarkCompactImage} className="rounded-lg border" />
+<DocImage src={ConnectWalletDarkCompactImage} />
 
 </TabsContent>
 </Tabs>

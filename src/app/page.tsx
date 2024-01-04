@@ -296,7 +296,7 @@ function ContractsSection() {
 				/>
 				<ArticleCardIndex
 					title="Interact"
-					description="Integrate smart contract interactions directly into your app"
+					description="Add smart contract interactions in your app"
 					icon={ContractInteractIcon}
 					href="/contracts/interact/overview"
 				/>
@@ -343,7 +343,7 @@ function InfraSection() {
 				<ArticleCardIndex
 					href="/infrastructure/engine/overview"
 					title="Engine"
-					description="HTTP server with contract APIs and backend wallets"
+					description="server with contract APIs & backend wallets"
 					icon={InfraEngineIcon}
 				/>
 				<ArticleCardIndex
@@ -413,7 +413,7 @@ function ArticleCardIndex(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex min-h-[120px] items-center gap-4 rounded-lg border bg-b-800 px-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex items-center gap-4 rounded-lg border bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
 			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
 			<div className="flex flex-col gap-1">

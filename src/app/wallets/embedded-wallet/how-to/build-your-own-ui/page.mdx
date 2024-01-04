@@ -1,7 +1,10 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Callout } from "@/components/Document";
-import Image from "next/image";
-import EmbeddedWallet from "../../images/embedded-wallet.svg";
+import {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+	TabsContent,
+	GithubTemplateCard,
+} from "@doc";
 
 # Build your own UI
 
@@ -13,25 +16,19 @@ You have full control with the connection hooks and functions to build your own 
 
 View a fully functioning example of an embedded wallet with a custom UI:
 
-<Callout variant='info' title="Embedded Wallets with Custom UI - React">
+<div className='flex flex-col gap-3'>
 
-<div className="flex flex-row items-center gap-x-2">
-	<Image src={EmbeddedWallet} />
-	[Embedded Wallets with Custom UI - React](https://github.com/thirdweb-example/embedded-wallet-custom-ui)
+<GithubTemplateCard
+	title="Embedded Wallets with Custom UI - React"
+	href="https://github.com/thirdweb-example/embedded-wallet-custom-ui"
+/>
+
+<GithubTemplateCard
+	title="Embedded Wallets with Custom UI - React Native"
+	href="https://github.com/thirdweb-example/embedded-wallet-custom-ui-react-native"
+/>
+
 </div>
-
-</Callout>
-
-<br />
-
-<Callout variant='info' title="Embedded Wallets with Custom UI - React Native">
-
-<div className="flex flex-row items-center gap-x-2">
-	<Image src={EmbeddedWallet} />
-	[Embedded Wallets with Custom UI - React Native](https://github.com/thirdweb-example/embedded-wallet-custom-ui-react-native)
-</div>
-
-</Callout>
 
 ## Setup the ThirdwebProvider
 

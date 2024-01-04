@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { DocImage } from "@doc";
 import OverviewImage from "../../assets/nft-checkout-overview.png";
 import NftCheckout1 from "../../assets/nft-checkout-1.png";
 import NftCheckout2 from "../../assets/nft-checkout-2.png";
@@ -16,11 +16,7 @@ The buyer receives the NFT without requiring wallet signatures or gas funds.
 
 > This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
 
-<Image
-	src={OverviewImage}
-	alt="NFT checkout overview"
-	className="max-w-[600px] mx-auto"
-/>
+<DocImage src={OverviewImage} alt="NFT checkout overview" />
 
 ## Prerequisites
 
@@ -36,16 +32,17 @@ The buyer receives the NFT without requiring wallet signatures or gas funds.
 Use [`<ConnectWallet>`](/react/latest/components/ConnectWallet) to prompt the buyer for their wallet address. The buyer provides their credit card details and selects **Pay now** to send payment details directly to Stripe.
 
 ```tsx
-// src/app/page.tsx
-
-export default function Home() {
+function Home() {
 	return (
 		<ThirdwebProvider activeChain="mumbai" clientId="<thirdweb_client_id>">
 			<PurchasePage />
 		</ThirdwebProvider>
 	);
 }
+```
 
+```tsx
+// src/app/page.tsx
 function PurchasePage() {
 	const buyerWalletAddress = useAddress();
 	const [clientSecret, setClientSecret] = useState("");
@@ -77,7 +74,9 @@ function PurchasePage() {
 		</main>
 	);
 }
+```
 
+```tsx
 const CreditCardForm = () => {
 	const elements = useElements();
 	const stripe = useStripe();
@@ -196,29 +195,21 @@ Here’s what the user flow looks like.
 
 The buyer is prompted to provide their credit card.
 
-<Image
-	src={NftCheckout1}
-	alt="Initial page load"
-	className="max-w-[600px] mx-auto"
-/>
+<DocImage src={NftCheckout1} alt="Initial page load" className="w-[550px]" />
 
 They provide their card details.
 
 > _Tip: Stripe testmode accepts `4242 4242 4242 4242` as a valid credit card._
 
-<Image
+<DocImage
 	src={NftCheckout2}
 	alt="Prompted for card details"
-	className="max-w-[600px] mx-auto"
+	className="w-[550px]"
 />
 
 They are informed when their payment is submitted.
 
-<Image
-	src={NftCheckout3}
-	alt="Successful payment"
-	className="max-w-[600px] mx-auto"
-/>
+<DocImage src={NftCheckout3} alt="Successful payment" className="w-[550px]" />
 
 ## Full code example
 

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { DocImage } from "@doc";
 import OverviewImage from "../../assets/airdrop-overview.png";
 import DemoImage1 from "../../assets/airdrop-nfts-1.png";
 import DemoImage2 from "../../assets/airdrop-nfts-2.png";
@@ -11,7 +11,7 @@ Engine makes it effortless for any developer to airdrop NFTs at scale. You spons
 
 > This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
 
-<Image
+<DocImage
 	src={OverviewImage}
 	alt="Airdrop overview"
 	className="max-w-[600px] mx-auto"
@@ -29,14 +29,6 @@ Engine makes it effortless for any developer to airdrop NFTs at scale. You spons
 Use [`<ConnectWallet>`](/react/latest/components/ConnectWallet) to prompt the user for their wallet. The **Claim** button calls `POST /api/claim`.
 
 ```tsx
-export default function Home() {
-	return (
-		<ThirdwebProvider activeChain="mumbai" clientId="<thirdweb_client_id>">
-			<ClaimPage />
-		</ThirdwebProvider>
-	);
-}
-
 function ClaimPage() {
 	const userWalletAddress = useAddress();
 
@@ -54,6 +46,14 @@ function ClaimPage() {
 			<ConnectWallet />
 			{userWalletAddress && <button onClick={onClick}>Claim my reward</button>}
 		</main>
+	);
+}
+
+function Example() {
+	return (
+		<ThirdwebProvider activeChain="mumbai" clientId="<thirdweb_client_id>">
+			<ClaimPage />
+		</ThirdwebProvider>
 	);
 }
 ```
@@ -102,32 +102,22 @@ Here’s what the user flow looks like.
 
 The app prompts the user to connect their wallet.
 
-<Image
-	src={DemoImage1}
-	alt="Initial page load"
-	className="max-w-[600px] mx-auto"
-/>
+<DocImage src={DemoImage1} alt="Initial page load" />
 
-<Image
+<DocImage
 	src={DemoImage2}
 	alt="The app prompts the user to connect their wallet"
-	className="max-w-[600px] mx-auto"
 />
 
 A user presses claim.
 
-<Image
-	src={DemoImage3}
-	alt="A user presses claim"
-	className="max-w-[600px] mx-auto"
-/>
+<DocImage src={DemoImage3} alt="A user presses claim" />
 
 They'll receive the NFT in their wallet shortly!
 
-<Image
-	src={DemoImage3}
+<DocImage
+	src={DemoImage4}
 	alt="They'll receive the NFT in their wallet shortly"
-	className="max-w-[600px] mx-auto"
 />
 
 ## Full code example

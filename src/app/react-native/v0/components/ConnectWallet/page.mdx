@@ -1,21 +1,15 @@
-import { Details, Breadcrumb, Callout, Tabs } from "@/components/Document";
-import Image from "next/image";
+import { Details, Breadcrumb, Callout, DocImage } from "@doc";
 // images
 import ConnectWalletHeroImage from "./images/connect-wallet-hero.webp";
 // mdx
-import ModalSizeMDX from "./props/modalSize.mdx";
 import ThemeMDX from "./props/theme.mdx";
 import BtnTitleMDX from "./props/btnTitle.mdx";
-import WelcomeScreenMDX from "./props/welcomeScreen.mdx";
 import ModalTitleMdx from "./props/modalTitle.mdx";
 import DetailsBtnMDX from "./props/detailsBtn.mdx";
-import ClassNameMDX from "./props/className.mdx";
-import DropdownPositionMDX from "./props/dropdownPosition.mdx";
 import HideTestnetFaucetMDX from "./props/hideTestnetFaucet.mdx";
 import TOSMDX from "./props/tos.mdx";
 import SupportedTokensMDX from "./props/supportedTokens.mdx";
 import DisplayBalanceTokenMDX from "./props/displayBalanceToken.mdx";
-import AuthMDX from "./props/auth.mdx";
 import SwitchToActiveChainMDX from "./props/switchToActiveChain.mdx";
 
 <Breadcrumb
@@ -42,9 +36,7 @@ If `supportedWallets` is not configured in the [`ThirdwebProvider`](/react-nativ
 - [Rainbow](/react-native/v0/wallets/rainbow)
 - [Trust Wallet](/react-native/v0/wallets/trust)
 
-<div className="border rounded-lg p-6">
-	<Image src={ConnectWalletHeroImage} />
-</div>
+<DocImage src={ConnectWalletHeroImage} />
 
 ## Usage
 

@@ -1,5 +1,4 @@
-import { Steps, Step } from "@/components/Document";
-import Image from "next/image";
+import { Steps, Step, DocImage } from "@doc";
 
 # CheckoutWithCard
 
@@ -12,7 +11,10 @@ This component also handles:
 - 3D Secure (if necessary)
 - Buyer KYC (if necessary)
 
----
+<DocImage
+	src={require("./assets/checkout-with-card-demo.png")}
+	alt="CheckoutWithCard Embed Demo"
+/>
 
 ## React Integration
 
@@ -33,12 +35,7 @@ This component also handles:
   </Step>
 </Steps>
 
-<Image
-	src={require("./assets/checkout-with-card-demo.png")}
-	alt="CheckoutWithCard Embed Demo"
-/>
-
-### Example code
+### Example
 
 ```typescript
 import { CheckoutWithCard } from "@thirdweb-dev/react";
@@ -165,7 +162,7 @@ Here's an example component with the following props:
 }
 ```
 
-<Image
+<DocImage
 	src={require("./assets/checkout-with-card-customization-demo.png")}
 	alt="CheckoutWithCard Embed Demo"
 />

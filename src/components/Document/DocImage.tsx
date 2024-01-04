@@ -9,12 +9,12 @@ export function DocImage(props: {
 	containerClassName?: string;
 }) {
 	const { alt, src } = props;
-	const cls = cn("rounded-lg", props.className);
+	const cls = cn("rounded-lg w-full", props.className);
 
 	return (
 		<div
 			className={cn(
-				"my-6 flex justify-center rounded-lg border p-4",
+				"my-4 flex justify-center rounded-lg border-2 p-4",
 				props.containerClassName,
 			)}
 		>

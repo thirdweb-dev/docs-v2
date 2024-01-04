@@ -1,6 +1,13 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Steps, Step } from "@/components/Document";
-import Image from "next/image";
+import {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+	TabsContent,
+	Steps,
+	Step,
+	DocImage,
+	Callout,
+} from "@doc";
 import EWCreateKey from "../images/ew-create-key.png";
 import EWCustomAuthConfig from "../images/ew-custom-auth-config.png";
 import EWCustomAuthFlow from "../images/ew-custom-auth-flow.png";
@@ -11,9 +18,12 @@ Learn how to integrate your auth backend with our embedded wallets solution so y
 
 This guide will show you how to create your own Auth Server that is compatible with the `auth_endpoint` strategy. By doing so, you can have full control over user authentication and data security. This allows you to ensure that your application meets specific compliance requirements while also providing a customized sign-in experience.
 
-:::caution
-This guide is simplified for demonstration purposes and is not ready for production use. When modifying it for production, secure your endpoints and avoid hard-coding secrets or sensitive information. We recommend using environment variables and secret managers.
-:::
+<Callout variant="warning" title="Security">
+	This guide is simplified for demonstration purposes and is not ready for
+	production use. When modifying it for production, secure your endpoints and
+	avoid hard-coding secrets or sensitive information. We recommend using
+	environment variables and secret managers.
+</Callout>
 
 ## 5 minute quickstart
 
@@ -30,7 +40,7 @@ This guide is simplified for demonstration purposes and is not ready for product
 	use for this project. [Learn more about API
 	keys.](/api-keys)
 
-    <Image src={EWCreateKey} />
+    <DocImage src={EWCreateKey} />
 
 </Step>
 
@@ -41,7 +51,7 @@ This guide is simplified for demonstration purposes and is not ready for product
 <Step title="Step 4">
 	Navigate to the Configuration view and enable **Custom Auth Endpoint**
 
-    <Image src={EWCustomAuthConfig} />
+    <DocImage src={EWCustomAuthConfig} />
 
 </Step>
 
@@ -137,7 +147,7 @@ The endpoint in step 3 is what your register as your auth endpoint on the thirdw
 
 Here's a high level diagram:
 
-<Image src={EWCustomAuthFlow} />
+<DocImage src={EWCustomAuthFlow} />
 
 <Steps>
 
@@ -153,11 +163,15 @@ cd custom-auth-server
 </Step>
 
 <Step title="Step 2">
-	Initialize a new Node.js application
+Initialize a new Node.js application
 
 ```bash
 npm init -y
+```
 
+OR
+
+```bash
 yarn init -y
 ````
 

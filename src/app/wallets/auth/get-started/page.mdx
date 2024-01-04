@@ -1,5 +1,4 @@
-import { OpenSourceCard, CardLink, Callout } from "@/components/Document";
-import Image from "next/image";
+import { OpenSourceCard, CardLink, Callout, DocImage } from "@doc";
 
 # Getting Started
 
@@ -184,34 +183,30 @@ yarn dev
 
 If your run the app and navigate to `http://localhost:3000`, or wherever the app is running for you locally, you should see a simple connect wallet button. If you click on it an connect your MetaMask, you'll see a screen like this:
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-1.png")}
-	alt="Getting Started"
 />
 
 So you can see that we've connected our wallet but there's no logged in user. If you try getting the secret, you'll see that you aren't yet authorized to access the backend:
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-2.png")}
-	alt="Getting Started"
 />
 
 However, if we click login and sign the message that pops up, we can then login to the backend. Now if we click the get secret button, we can see that we are authorized to access the backend:
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-3.png")}
-	alt="Getting Started"
 />
 
 Finally, if you logout and get the secret again, you should see that you're no longer logged in.
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-2.png")}
-	alt="Getting Started"
 />
 
 So at this point, we've implemented a fully functional authentication system using Auth! We can login, access protected endpoints, and logout, just like a traditional authentication flow, but using just our wallet!

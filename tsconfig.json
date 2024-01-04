@@ -24,7 +24,8 @@
 			"@public/*": ["./public/*"],
 			"flexsearch": ["./node_modules/@types/flexsearch"],
 			"@root/*": ["./*"],
-			"@og": ["./src/components/others/OpenGraph/openGraphImage"]
+			"@og": ["./src/components/others/OpenGraph/openGraphImage"],
+			"@doc": ["./src/components/Document"]
 		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

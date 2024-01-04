@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { DocImage } from "@doc";
 
 # How Auth Works
 
@@ -14,7 +14,7 @@ Being able to authenticate and authorize users is a critical part of any web app
 
 A common web2 authentication method involves using JSON Web Tokens (JWTs) to send authentication data between clients and servers. A standard JWT flow looks like the following:
 
-<Image
+<DocImage
 	src={require("../assets/web2auth-diagram.svg")}
 	alt="web2-auth-diagram"
 />
@@ -57,7 +57,7 @@ This is exactly the pattern specified in the Sign-in with Ethereum ([EIP4361](ht
 
 So with this information, we can update the first the simplified diagram we made above to clarify how Auth works:
 
-<Image
+<DocImage
 	src={require("../assets/web3auth-diagram.svg")}
 	alt="web3-auth-diagram"
 />
@@ -72,7 +72,7 @@ However, Auth eliminates this dependence on third-parties by using web3 wallets 
 
 This enables a truly **self-custodied** authentication flow with no external dependencies. With this information, we can now visualized the Auth flow most accurately:
 
-<Image src={require("../assets/auth-diagram.svg")} alt="auth-diagram" />
+<DocImage src={require("../assets/auth-diagram.svg")} alt="auth-diagram" />
 
 ## Putting it all together
 
