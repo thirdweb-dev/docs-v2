@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 import { DocSearch } from "@/components/others/DocSearch";
+import { ContextAIBotButton } from "@/components/others/ContextAIButton";
 
 const links = [
 	{
@@ -157,6 +158,10 @@ export function Header() {
 					</ul>
 
 					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">
+						<div className="hidden xl:flex">
+							<ContextAIBotButton />
+						</div>
+
 						<div className="hidden xl:block">
 							<DocSearch variant="search" />
 						</div>

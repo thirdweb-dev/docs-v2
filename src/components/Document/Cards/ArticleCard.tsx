@@ -38,7 +38,9 @@ export function ArticleIconCard(props: {
 				<Image src={props.image} alt={""} className="h-8 w-8 shrink-0" />
 			)}
 			<div className="flex flex-col gap-2">
-				<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
+				<h3 className="text-base font-semibold text-f-100 lg:text-lg">
+					{props.title}
+				</h3>
 				{props.description && <p className="text-f-300">{props.description}</p>}
 			</div>
 		</Link>
