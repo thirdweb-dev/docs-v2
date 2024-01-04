@@ -18,7 +18,7 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Get Started",
-					href: `${checkoutSlug}/get-started`,
+					href: `${checkoutSlug}/getting-started`,
 					links: [
 						{
 							name: "Enable Contract for Payments",

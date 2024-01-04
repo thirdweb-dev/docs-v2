@@ -1,9 +1,13 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { ReactIcon, TypeScriptIcon } from "@/icons";
-import UnityIcon from "../../images/unity.webp";
+import {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+	TabsContent,
+	ArticleIconCard,
+	Grid,
+} from "@doc";
+import { ReactIcon, UnityIcon } from "@/icons";
 import WalletIcon from "../../images/wallet.png";
-import Link from "next/link";
-import Image from "next/image";
 
 # Interact with the blockchain
 
@@ -71,37 +75,20 @@ await contract.erc721.claim(1);
 
 View everything you can do in the Contract SDK once you have connected your wallet:
 
-<div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-	<Link
-		href={"/wallets"}
-		className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-	>
-		<Image src={WalletIcon} className="h-10 w-10 shrink-0"/>
-		<h3 className="text-lg font-semibold text-f-100">Wallet SDK</h3>
-	</Link>
+<Grid className="lg:grid-cols-2">
 
-    <Link
-    	href={"/react/latest"}
-    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-    >
-    	{ReactIcon({className: "h-10 w-10 shrink-0"})}
-    	<h3 className="text-lg font-semibold text-f-100">React SDK</h3>
-    </Link>
+<ArticleIconCard href={"/wallets"} image={WalletIcon} title="Wallet SDK" />
+<ArticleIconCard href={"/react/latest"} icon={ReactIcon} title="React SDK" />
+<ArticleIconCard
+	href={"/react-native/latest"}
+	icon={ReactIcon}
+	title="React Native SDK"
+/>
 
-    <Link
-    	href={"/react-native/latest"}
-    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-    >
-    	{ReactIcon({className: "h-10 w-10 shrink-0"})}
-    	<h3 className="text-lg font-semibold text-f-100">React Native SDK</h3>
-    </Link>
+<ArticleIconCard
+	href={"/react-native/latest"}
+	icon={UnityIcon}
+	title="Unity SDK"
+/>
 
-    <Link
-    	href={"/unity"}
-    	className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
-    >
-    	<Image src={UnityIcon} className="h-10 w-10 shrink-0"/>
-    	<h3 className="text-lg font-semibold text-f-100">Unity SDK</h3>
-    </Link>
-
-</div>
+</Grid>

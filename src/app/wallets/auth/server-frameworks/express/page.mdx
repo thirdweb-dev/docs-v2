@@ -1,4 +1,5 @@
-import { OpenSourceCard, CardLink, Callout } from "@/components/Document";
+import { OpenSourceCard, Stack, ArticleIconCard } from "@doc";
+import { GraduationCap } from "lucide-react";
 
 # Express
 
@@ -6,7 +7,7 @@ This page will help you get started with Auth using the [Express.js](https://exp
 
 If you want to interact with a working version of the Auth + Express integration that we'll be building in this guide, you can checkout the following GitHub repository, or clone it with the command below:
 
-```
+```bash
 npx thirdweb create app --template thirdweb-auth-express
 ```
 
@@ -52,11 +53,14 @@ app.listen(PORT, () => {
 
 Here, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entrypoint, but there are a number of other supported wallet setups, which you can learn more about on the wallet configuration page:
 
-<CardLink
-	label="Wallet Configuration"
-	href="/wallets/auth/wallet-configuration"
-	description="Learn more about how to configure your wallet for Auth."
-/>
+<Stack>
+	<ArticleIconCard
+		title="Wallet Configuration"
+		href="/wallets/auth/wallet-configuration"
+		icon={GraduationCap}
+		description="Learn more about how to configure your wallet for Auth."
+	/>
+</Stack>
 
 Finally, we add the `authRouter` to our app with the `app.use("/auth", authRouter)` line to set up all the `/auth/*` endpoints automatically. We'll also need to add the `authMiddleware` to any routes that we want to protect with Auth.
 

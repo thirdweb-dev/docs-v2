@@ -1,6 +1,5 @@
-import Image from "next/image";
+import { DocImage, Callout } from "@doc";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Callout } from "@/components/Document";
 
 # Add RPC Edge to your application
 
@@ -8,7 +7,7 @@ To enable RPC Edge usage in an application, obtain a thirdweb Client ID & Secret
 
 Obtain a Client ID & Secret Key by navigating to Settings > API Keys > `Create API Key`.
 
-<Image
+<DocImage
 	src={require("./assets/api-key.png")}
 	alt="Screenshot of API key creation page on thirdweb's dashboard"
 />
@@ -43,7 +42,7 @@ function MyApp() {
 <TabsContent value="react-native">
 
 ```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider } from "@thirdweb-dev/react-native";
 
 function MyApp() {
 	return (
@@ -92,12 +91,12 @@ When using the GO SDK, you can use the secret key to instantiate the SDK:
 
 ```go
 func main() {
-    // Your secret key from the thirdweb api keys dashboard
-    secretKey := "<your_secret_key"
-    sdk, err := thirdweb.NewThirdwebSDK("<chain_id>", &thirdweb.SDKOptions{
-      SecretKey: <your_secret_key>,
-    })
-  }
+	// Your secret key from the thirdweb api keys dashboard
+	secretKey := "<your_secret_key"
+	sdk, err := thirdweb.NewThirdwebSDK("<chain_id>", &thirdweb.SDKOptions{
+		SecretKey: <your_secret_key>,
+	})
+}
 ```
 
 </TabsContent>
@@ -117,9 +116,7 @@ ThirdwebSDK sdk = new ThirdwebSDK("<chain_id>", 5, new ThirdwebSDK.Options()
 
 </Tabs>
 
----
-
-### Override default RPC
+## Override default RPC
 
 To override the default RPC for any given chain:
 
@@ -169,8 +166,8 @@ const sdk = new ThirdwebSDK({
 	page](https://thirdweb.com/dashboard/infrastructure/rpc-edge).
 </Callout>
 
-### View RPC usage
+## View RPC usage
 
 [View RPC request usage](https://thirdweb.com/dashboard/settings/usage) in the dashboard settings.
 
-<Image src={require("./assets/usage-dashboard.png")} alt="Usage dashboard" />
+<DocImage src={require("./assets/usage-dashboard.png")} alt="Usage dashboard" />

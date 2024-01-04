@@ -6,8 +6,8 @@ import {
 	TabsContent,
 	TabsList,
 	TabsTrigger,
-} from "@/components/Document";
-import Image from "next/image";
+	DocImage,
+} from "@doc";
 
 # Overview
 
@@ -52,7 +52,7 @@ Learn how to deploy and manage an NFT Drop contract using dashboard.
 
 Select `Deploy now`
 
-<Image
+<DocImage
 	src={require("./assets/deploy-now.png")}
 	alt="Deploy a contract view from Explore"
 />
@@ -68,7 +68,7 @@ A modal will appear to set Contract Metadata or settings to organize and disting
 - **Description (optional)** - description of contract to
 - **Image (optional)** - image or icon of contract
 
-<Image
+<DocImage
 	src={require("./assets/contract-metadata.png")}
 	alt="Contract metadata settings"
 />
@@ -83,11 +83,14 @@ Set fund distribution recipients for Primary Sales and Secondary Sales by passin
 
 - **Royalties / Secondary Sales** - The recipient that will receive funds from any secondary sales or re-sales of the NFT.
 
-  <Image src={require("./assets/funds.png")} alt="Fund distribution settings" />
+  <DocImage
+  	src={require("./assets/funds.png")}
+  	alt="Fund distribution settings"
+  />
 
 - **(Optional) Platform fees** - Recipient that will receive additional fees for all primary sales that happen on this contract. (This is useful if you are deploying this contract for a 3rd party and want to take fees for your service).
 
-  <Image
+  <DocImage
   	src={require("./assets/advanced-configuration.png")}
   	alt="Screenshot of advanced configuration"
   />
@@ -98,7 +101,7 @@ Set fund distribution recipients for Primary Sales and Secondary Sales by passin
 
 Choose a Network / Chain to Deploy to. [View list of available Networks.](https://thirdweb.com/chainlist)
 
-<Image
+<DocImage
 	src={require("./assets/choose-network.png")}
 	alt="Choose network screen"
 />
@@ -116,13 +119,13 @@ Choose a Network / Chain to Deploy to. [View list of available Networks.](https:
 
 **Single Upload**
 
-- Single upload is a preferred option for users uploading few NFTs at a time. 
+- Single upload is a preferred option for users uploading few NFTs at a time.
 
 **Batch Upload**
 
 - Batch upload is a method that allows you to upload large amounts of NFTs in one click.
 
-<Image
+<DocImage
 	src={require("./assets/upload-types.png")}
 	alt="NFT settings page highlighting NFT Upload types"
 />
@@ -131,7 +134,7 @@ Choose a Network / Chain to Deploy to. [View list of available Networks.](https:
 
 Optionally, users may choose to hide their NFT image and metadata from users before minting.
 
-<Image
+<DocImage
 	src={require("./assets/delayed-reveal.png")}
 	alt="Screenshot of delayed reveal page"
 />

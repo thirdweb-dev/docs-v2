@@ -1,6 +1,5 @@
-import { OpenSourceCard } from "@/components/Document/OpenSourceCard";
-import { CardLink } from "@/components/Document/CardLink";
-import { InstallTabs } from "@/components/Document/InstallTabs";
+import { OpenSourceCard, ArticleIconCard, InstallTabs } from "@doc";
+import { GraduationCap } from "lucide-react";
 
 # thirdweb TypeScript SDK
 
@@ -24,17 +23,18 @@ Connect to user's wallets, interact with smart contracts, sign messages, and uti
 
 <div className="flex gap-3">
 	[Starter Kits](https://github.com/thirdweb-example#starter-kits) •
-	[Templates](https://thirdweb.com/templates) • [GitHub](https://github.com/thirdweb-dev/js)
+	[Templates](https://thirdweb.com/templates) •
+	[GitHub](https://github.com/thirdweb-dev/js)
 </div>
 
 ## Get Started
 
 Check out the [getting started](/typescript/v4/getting-started) guide to learn how to use the SDK in less than 2 minutes.
 
-<CardLink
+<ArticleIconCard
 	href="/typescript/v4/getting-started"
-	icon="educate"
-	label="Get started with the TypeScript SDK"
+	icon={GraduationCap}
+	title="Get started with the TypeScript SDK"
 />
 
 ## How It Works

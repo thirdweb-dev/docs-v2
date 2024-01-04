@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, Callout, GithubButtonLink } from "@doc";
 
 # Lazy Mint
 
@@ -79,7 +78,6 @@ contract MyContract is LazyMint {
 ## Full API Reference
 
 <Details summary="lazyMint">
-<div>
 
 ```solidity
 function lazyMint(
@@ -94,11 +92,9 @@ function lazyMint(
 - Parameter `baseURIForTokens`: The base URI for the 'n' number of NFTs being lazy minted, where the metadata for each of those NFTs is `baseURIForTokens/tokenId`.
 - Parameter `extraData`: Additional bytes data to be used at the discretion of the contract.
 
-</div>
 </Details>
 
 <Details summary="_canLazyMint">
-<div>
 
 ```solidity
 function _canLazyMint() internal view virtual returns (bool);
@@ -108,5 +104,4 @@ function _canLazyMint() internal view virtual returns (bool);
 - Returns whether NFTs can be lazy minted in the given execution context.
 - For example, this function can check whether the wallet calling `lazyMint` is the contract owner, and enforce that only the owner should be able to successfully call `lazyMint`.
 
-</div>
 </Details>

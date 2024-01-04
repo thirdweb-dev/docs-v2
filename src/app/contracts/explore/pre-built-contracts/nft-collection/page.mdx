@@ -1,5 +1,7 @@
-import { Callout } from "@/components/Document";
-import Image from "next/image";
+import { Callout, DocImage } from "@doc";
+import mintNFTCollectionImage from "./assets/mint-nft-collection.png";
+import nftCollectionSettingsImage from "./assets/nft-collection-settings.png";
+import moreSettingsImage from "./assets/more-settings.png";
 
 # NFT Collection
 
@@ -38,19 +40,13 @@ Deploy the NFT collection contract to any EVM network using the button below.
 
 Click **Mint** to create a single NFT.
 
-<Image
-	src={require("./assets/mint-nft-collection.png")}
-	alt="Minting an NFT collection"
-/>
+<DocImage src={mintNFTCollectionImage} alt="Minting an NFT collection" />
 
 ### Contract Metadata
 
 To configure the image, name, and description of the contract, click the **Settings** tab:
 
-<Image
-	src={require("./assets/nft-collection-settings.png")}
-	alt="NFT Collection settings"
-/>
+<DocImage src={nftCollectionSettingsImage} alt="NFT Collection settings" />
 
 ### Royalty & Platform Fees
 
@@ -58,7 +54,4 @@ From the **Settings** tab, you also configure the royalty fee,
 primary sales recipient,
 and platform fee.
 
-<Image
-	src={require("./assets/more-settings.png")}
-	alt="Royalty and Platform Fee"
-/>
+<DocImage src={moreSettingsImage} alt="Royalty and Platform Fee" />

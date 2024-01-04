@@ -1,6 +1,5 @@
-import { OpenSourceCard } from "@/components/Document/OpenSourceCard";
-import { CardLink } from "@/components/Document/CardLink";
-import { InstallTabs } from "@/components/Document/InstallTabs";
+import { OpenSourceCard, ArticleIconCard, InstallTabs } from "@doc";
+import { GraduationCap } from "lucide-react";
 
 # thirdweb React SDK
 
@@ -25,17 +24,18 @@ messages, and utilize common standards such as tokens, NFTs, marketplaces; all w
 
 <div className="flex gap-3">
 	[Starter Kits](https://github.com/thirdweb-example#starter-kits) •
-	[Templates](https://thirdweb.com/templates) • [GitHub](https://github.com/thirdweb-dev/js)
+	[Templates](https://thirdweb.com/templates) •
+	[GitHub](https://github.com/thirdweb-dev/js)
 </div>
 
 ## Get Started
 
 Check out the [getting started](/react/v4/getting-started) guide to learn how to use the SDK in less than 2 minutes.
 
-<CardLink
+<ArticleIconCard
 	href="/react/v4/getting-started"
-	icon="educate"
-	label="Get started with the React SDK"
+	icon={GraduationCap}
+	title="Get started with the React SDK"
 />
 
 ## How It Works

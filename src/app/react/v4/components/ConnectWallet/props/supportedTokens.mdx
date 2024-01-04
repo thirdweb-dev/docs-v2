@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { DocImage } from "@doc";
 import SelectTokenImage from "../images/select-token-dark.png";
 import CustomTokenList from "../images/custom-token-list-dark.png";
 
@@ -6,7 +6,7 @@ Customize the tokens shown in the "Send Funds" screen for various networks.
 
 By default, The "Send Funds" screen shows a few popular tokens for default chains and the native token. For other chains it only shows the native token.
 
-<Image src={SelectTokenImage} className="border rounded-lg" />
+<DocImage src={SelectTokenImage} />
 
 `supportedTokens` prop allows you to customize this list as shown below.
 
@@ -32,4 +32,4 @@ function Example() {
 }
 ```
 
-<Image src={CustomTokenList} className="border rounded-lg" />
+<DocImage src={CustomTokenList} />

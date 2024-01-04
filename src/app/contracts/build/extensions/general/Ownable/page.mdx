@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, GithubButtonLink } from "@doc";
 
 # Ownable
 
@@ -48,7 +47,6 @@ All of the base contracts implement this extension.
 ## Full API reference
 
 <Details summary="owner">
-<div>
 
 ```solidity
 function owner() public view override returns (address);
@@ -57,11 +55,9 @@ function owner() public view override returns (address);
 - Returns the owner of the contract.
 - Set this value using the `setOwner` function.
 
-</div>
 </Details>
 
 <Details summary="setOwner">
-<div>
 
 ```solidity
 function setOwner(address _newOwner) external;
@@ -71,11 +67,9 @@ function setOwner(address _newOwner) external;
 - Parameter `_newOwner`: The address to make the owner of the contract.
 - The `_canSetOwner` function is run on every call to this function. If the return value of `_canSetOwner` is `false`, the `setOwner` call will revert.
 
-</div>
 </Details>
 
 <Details summary="_setupOwner">
-<div>
 
 ```solidity
 function _setupOwner(address _newOwner) internal;
@@ -85,11 +79,9 @@ function _setupOwner(address _newOwner) internal;
 - Parameter `_newOwner`: The address to make the owner of the contract.
 - The `_canSetOwner` function is _not_ run on a call to this function.
 
-</div>
 </Details>
 
 <Details summary="_canSetOwner">
-<div>
 
 ```solidity
 function _canSetOwner() internal view virtual returns (bool);
@@ -99,5 +91,4 @@ function _canSetOwner() internal view virtual returns (bool);
 - Returns whether a new owner can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setOwner` is the contract owner, and enforce that only the current owner should be able to successfully call `setOwner`.
 
-</div>
 </Details>

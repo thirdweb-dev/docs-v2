@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { DocImage } from "@doc";
 
 # CheckoutWithEth
 
@@ -10,9 +10,7 @@ This component also handles:
 - Prompting the payment wallet to switch chain, if necessary
 - Informing the payment wallet they have insufficient funds
 
----
-
-<Image
+<DocImage
 	src={require("./assets/checkout-with-eth-demo.png")}
 	alt="CheckoutWithEth Embed Demo"
 />
@@ -27,7 +25,7 @@ This component also handles:
 4. Instantiate a `PaperSDKProvider` provider to store Paper-specific properties.
 5. Within the provider, instantiate the `CheckoutWithEth` component to render this component. Pass the SDK Client Secret to this component.
 
-### Example code
+### Example
 
 ```typescript
 import { CheckoutWithEth } from "@paperxyz/react-client-sdk-checkout-with-eth";

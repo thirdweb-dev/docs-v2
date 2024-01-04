@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, GithubButtonLink } from "@doc";
 
 # Royalty
 
@@ -76,7 +75,6 @@ All NFT contracts ([`ERC721`](/contracts/build/extensions/erc-721/ERC721) or [`E
 ## Full API Reference
 
 <Details summary="royaltyInfo">
-<div>
 
 ```solidity
 function royaltyInfo(uint256 tokenId, uint256 salePrice)
@@ -90,11 +88,9 @@ returns (address receiver, uint256 royaltyAmount)
 - Parameter `tokenId`: The tokenID of the NFT for which to query royalty info.
 - Parameter `salePrice`: Sale price of the NFT.
 
-</div>
 </Details>
 
 <Details summary="getRoyaltyInfoForToken">
-<div>
 
 ```solidity
 function getRoyaltyInfoForToken(uint256 tokenId) public view override returns (address, uint16);
@@ -103,11 +99,9 @@ function getRoyaltyInfoForToken(uint256 tokenId) public view override returns (a
 - Returns the royalty recipient and BPS for a given NFT.
 - Parameter `tokenId`: The tokenID of the NFT for which to query royalty info.
 
-</div>
 </Details>
 
 <Details summary="getDefaultRoyaltyInfo">
-<div>
 
 ```solidity
 function getDefaultRoyaltyInfo() external view override returns (address, uint16);
@@ -115,11 +109,9 @@ function getDefaultRoyaltyInfo() external view override returns (address, uint16
 
 - Returns the default royalty recipient and BPS for the contract's NFTs.
 
-</div>
 </Details>
 
 <Details summary="setDefaultRoyaltyInfo">
-<div>
 
 ```solidity
 function setDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) external;
@@ -130,11 +122,9 @@ function setDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) ext
 - Parameter `royaltyBps`: The value to set as the new default royalty BPS.
 - The `_canSetRoyaltyInfo` function is run on every call to this function. If the return value of `_canSetRoyaltyInfo` is `false`, the `setDefaultRoyaltyInfo` call will revert.
 
-</div>
 </Details>
 
 <Details summary="setRoyaltyInfoForToken">
-<div>
 
 ```solidity
 function setRoyaltyInfoForToken(
@@ -150,11 +140,9 @@ function setRoyaltyInfoForToken(
 - Parameter `bps`: The value to set as the new royalty BPS for the NFT.
 - The `_canSetRoyaltyInfo` function is run on every call to this function. If the return value of `_canSetRoyaltyInfo` is `false`, the `setRoyaltyInfoForToken` call will revert.
 
-</div>
 </Details>
 
 <Details summary="_setupDefaultRoyaltyInfo">
-<div>
 
 ```solidity
 function _setupDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) internal;
@@ -165,11 +153,9 @@ function _setupDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) 
 - Parameter `royaltyBps`: The value to set as the new default royalty BPS.
 - The `_canSetRoyaltyInfo` function is _not_ run on a call to this function.
 
-</div>
 </Details>
 
 <Details summary="_setupRoyaltyInfoForToken">
-<div>
 
 ```solidity
 function _setupDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) internal;
@@ -181,11 +167,9 @@ function _setupDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) 
 - Parameter `bps`: The value to set as the new royalty BPS for the NFT.
 - The `_canSetRoyaltyInfo` function is _not_ run on a call to this function.
 
-</div>
 </Details>
 
 <Details summary="_canSetRoyaltyInfo">
-<div>
 
 ```solidity
 function _canSetRoyaltyInfo() internal view virtual returns (bool);
@@ -195,5 +179,4 @@ function _canSetRoyaltyInfo() internal view virtual returns (bool);
 - Returns whether the relevant royalty info can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setDefaultRoyaltyInfo` is the contract owner, and enforce that only the owner should be able to successfully call `setDefaultRoyaltyInfo`.
 
-</div>
 </Details>

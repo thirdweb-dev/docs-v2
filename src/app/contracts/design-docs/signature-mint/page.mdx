@@ -1,12 +1,11 @@
-import Image from "next/image";
+import { DocImage } from "@doc";
+import diagram1 from "./assets/signature-drop-diagram.png";
 
 # Signature minting design document.
 
 This is a live document that explains the 'signature minting' mechanism used in [thirdweb](https://thirdweb.com/) `Token` smart contracts.
 
 The document is written for technical and non-technical readers. To ask further questions about any of thirdweb's `Drop`, please join the [thirdweb discord](https://discord.gg/thirdweb) or create a github issue.
-
----
 
 ## Background
 
@@ -19,10 +18,7 @@ Any external party can then present a smart contract implementing the 'signature
 
 The following diagram illustrates how the 'signature minting' flow looks like. For example, consider a webapp like [wombo.art](https://www.wombo.art/) which lets a user generate artwork on its website. Once a user has generated artwork on the wombo website, wombo can allow the user to mint their generated artwork as an NFT on wombo's own contract, where wombo can ensure that what the user will mint on wombo's contract is the intended generated artwork.
 
-<Image
-	src={require("./assets/signature-drop-diagram.png")}
-	alt="Signature Drop diagram"
-/>
+<DocImage src={diagram1} />
 
 ### Why we're developing `Signature Minting`
 

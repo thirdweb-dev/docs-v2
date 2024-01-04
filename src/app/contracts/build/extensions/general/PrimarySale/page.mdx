@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, GithubButtonLink } from "@doc";
 
 # PrimarySale
 
@@ -72,7 +71,6 @@ contract MyContract is PrimarySale {
 ## Full API Reference
 
 <Details summary="primarySaleRecipient">
-<div>
 
 ```solidity
 function primarySaleRecipient() public view returns (address);
@@ -81,11 +79,9 @@ function primarySaleRecipient() public view returns (address);
 - Returns the primary sale recipient address stored in the contract.
 - Set this value using the `setPrimarySaleRecipient` function.
 
-</div>
 </Details>
 
 <Details summary="setPrimarySaleRecipient">
-<div>
 
 ```solidity
 function setPrimarySaleRecipient(address saleRecipient) external;
@@ -95,11 +91,9 @@ function setPrimarySaleRecipient(address saleRecipient) external;
 - Parameter `saleRecipient`: The address to set as the new primary sale recipient.
 - The `_canSetPrimarySaleRecipient` function is run on every call to this function. If the return value of `_canSetPrimarySaleRecipient` is `false`, the `setPrimarySaleRecipient` call will revert.
 
-</div>
 </Details>
 
 <Details summary="_setupPrimarySaleRecipient">
-<div>
 
 ```solidity
 function _setupPrimarySaleRecipient(address saleRecipient) internal;
@@ -109,11 +103,9 @@ function _setupPrimarySaleRecipient(address saleRecipient) internal;
 - Parameter `saleRecipient`: The address to set as the new primary sale recipient.
 - The `_canSetPrimarySaleRecipient` function is _not_ run on a call to this function.
 
-</div>
 </Details>
 
 <Details summary="_canSetPrimarySaleRecipient">
-<div>
 
 ```solidity
 function _canSetPrimarySaleRecipient() internal view virtual returns (bool);
@@ -123,5 +115,4 @@ function _canSetPrimarySaleRecipient() internal view virtual returns (bool);
 - Returns whether a new primary sale recipient can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setPrimarySaleRecipient` is the contract owner, and enforce that only the current owner should be able to successfully call `setPrimarySaleRecipient`.
 
-</div>
 </Details>

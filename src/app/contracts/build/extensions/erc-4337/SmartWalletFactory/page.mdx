@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, Callout, GithubButtonLink } from "@doc";
 
 # BaseAccountFactory
 
@@ -51,7 +50,6 @@ This extension unlocks the use of the [smart wallet](wallet/smart-wallet) in the
 ## Full API reference
 
 <Details summary="createAccount">
-<div>
 
 Deploys a new Account for admin.
 
@@ -79,11 +77,9 @@ The address to be set as default admin role for the contract. Must be of type `a
 If extra storage variables are required in your account contract, override this function, abi encode the variables,
 pass them to this function as a `bytes` type.
 
-</div>
 </Details>
 
 <Details summary="addSigner">
-<div>
 
 Callback function for an Account to register its signers.
 
@@ -103,11 +99,9 @@ function addSigner(address _signer) external {
 
 The address of the signer to add to the account.
 
-</div>
 </Details>
 
 <Details summary="removeSigner">
-<div>
 
 Callback function for an Account to un-register its signers.
 
@@ -127,11 +121,9 @@ function removeSigner(address _signer) external {
 
 The address of the signer to remove from the account.
 
-</div>
 </Details>
 
 <Details summary="getAddress">
-<div>
 
 Returns the address of an Account that would be deployed with the given admin signer.
 
@@ -146,11 +138,9 @@ function getAddress(address _adminSigner) public view returns (address) {
 
 The admin signer for the account.
 
-</div>
 </Details>
 
 <Details summary="getSignersOfAccount">
-<div>
 
 Returns all signers of an account.
 
@@ -164,11 +154,9 @@ function getSignersOfAccount(address account) external view returns (address[] m
 
 The address of the account to get the signers of.
 
-</div>
 </Details>
 
 <Details summary="getAccountsOfSigner">
-<div>
 
 Returns all accounts that the given address is a signer of.
 
@@ -182,11 +170,9 @@ function getAccountsOfSigner(address signer) external view returns (address[] me
 
 The address of the signer to get the accounts of.
 
-</div>
 </Details>
 
 <Details summary="_initializeAccount">
-<div>
 
 Called in `createAccount`. Initializes the account contract created in `createAccount`.
 
@@ -223,5 +209,4 @@ function initializeAccount(
 }
 ```
 
-</div>
 </Details>

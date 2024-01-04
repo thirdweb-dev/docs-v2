@@ -1,4 +1,5 @@
-import { CardLink, Callout } from "@/components/Document";
+import { ArticleIconCard, Callout, Stack } from "@doc";
+import { GraduationCap } from "lucide-react";
 
 # Gasless Transactions
 
@@ -16,21 +17,21 @@ allowing you to cover the gas fees for your users' transactions.
 
 View our step-by-step guides below to learn how to integrate gasless transactions into your dApp using the SDK.
 
-<div className='grid md:grid-cols-2 gap-x-4 my-8'>
+<Stack>
 
-<CardLink
-	label="Integrate the SDK with Biconomy"
+<ArticleIconCard
+	title="Integrate the SDK with Biconomy"
 	href="https://blog.thirdweb.com/guides/biconomy-gasless-guide/"
-	icon="educate"
+	icon={GraduationCap}
 />
 
-<CardLink
-	label="Integrate the SDK with Open Zeppelin"
+<ArticleIconCard
+	title="Integrate the SDK with Open Zeppelin"
 	href="https://blog.thirdweb.com/guides/create-gasless-nft-drop/"
-	icon="educate"
+	icon={GraduationCap}
 />
 
-</div>
+</Stack>
 
 <Callout variant='info' title='Forwarder Contract'>
 

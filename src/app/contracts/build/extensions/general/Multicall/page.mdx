@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, Callout, GithubButtonLink } from "@doc";
 
 # Multicall
 
@@ -47,7 +46,6 @@ contract MyContract is Multicall { ... }
 ## Full API reference
 
 <Details summary="multicall">
-<div>
 
 ```solidity
 function multicall(bytes[] calldata data) external virtual override returns (bytes[] memory results);
@@ -57,5 +55,4 @@ function multicall(bytes[] calldata data) external virtual override returns (byt
 - Parameter `data`: The bytes data that makes up the batch of function calls to execute.
 - Return value `results`: The bytes data that makes up the result of the batch of function calls executed.
 
-</div>
 </Details>

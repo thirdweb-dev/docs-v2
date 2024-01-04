@@ -1,5 +1,5 @@
 import balanceTokenImage from "../images/balance-btc-dark.png";
-import Image from "next/image";
+import { DocImage } from "@doc";
 
 Display the balance of a token instead of the native token in ConnectWallet details button.
 
@@ -23,6 +23,4 @@ function Example() {
 }
 ```
 
-<div className="flex justify-center border rounded-lg overflow-hidden">
-	<Image src={balanceTokenImage} width="700" />
-</div>
+<DocImage src={balanceTokenImage} />

@@ -1,9 +1,4 @@
-import {
-	CardLink,
-	OpenSourceCard,
-	ArticleIconCard,
-	InstallTabs,
-} from "@/components/Document";
+import { OpenSourceCard, ArticleIconCard, InstallTabs, Stack } from "@doc";
 import next from "@/icons/frameworks/nextjs.png";
 import express from "@/icons/frameworks/javascript.png";
 import react from "@/icons/frameworks/react.png";
@@ -11,6 +6,7 @@ import reactNative from "@/icons/frameworks/react-native.png";
 import nextauth from "@/icons/frameworks/nextauth.png";
 import firebase from "@/icons/frameworks/firebase.png";
 import supabase from "@/icons/frameworks/supabase.png";
+import { GraduationCap } from "lucide-react";
 
 # Overview
 
@@ -35,16 +31,21 @@ With Auth, developers can build applications that have secure, self-custodied, w
 
 ## Resources
 
-<CardLink
-	label="Getting Started"
+<Stack>
+
+<ArticleIconCard
+	title="Getting Started"
 	href="/wallets/auth/getting-started"
-	icon="educate"
+	icon={GraduationCap}
 />
-<CardLink
-	label="How Auth Works"
+
+<ArticleIconCard
+	title="How Auth Works"
 	href="/wallets/auth/getting-started"
-	icon="educate"
+	icon={GraduationCap}
 />
+
+</Stack>
 
 ## Applications
 
@@ -65,7 +66,8 @@ Auth integrates with a variety of server-side and client-side development framew
 
 ### Server Frameworks
 
-<div className="flex flex-col gap-4">
+<Stack>
+
 <ArticleIconCard
 	title="Next.js"
 	href="/wallets/auth/server-frameworks/next"
@@ -79,11 +81,13 @@ Auth integrates with a variety of server-side and client-side development framew
 	description="Integrates Auth in Express applications."
 	image={express}
 />
-</div>
+
+</Stack>
 
 ### Client Frameworks
 
-<div className="flex flex-col gap-4">
+<Stack>
+
 <ArticleIconCard
 	title="React"
 	href="/wallets/auth/client-frameworks/react"
@@ -97,27 +101,32 @@ Auth integrates with a variety of server-side and client-side development framew
 	description="Integrate Auth in React Native applications."
 	image={reactNative}
 />
-</div>
+
+</Stack>
 
 ### Integrations
 
-<div className="flex flex-col gap-4">
-	<ArticleIconCard
-		title="Next Auth"
-		href="/wallets/auth/integrations/next-auth"
-		description="Add Auth to existing Next Auth applications."
-		image={nextauth}
-	/>
-	<ArticleIconCard
-		title="Supabase"
-		href="/wallets/auth/integrations/supabase"
-		description="Add Auth to existing Supabase applications."
-		image={supabase}
-	/>
-	<ArticleIconCard
-		title="Firebase"
-		href="/wallets/auth/integrations/firebase"
-		description="Add Auth to existing Firebase applications."
-		image={firebase}
-	/>
-</div>
+<Stack>
+
+<ArticleIconCard
+	title="Next Auth"
+	href="/wallets/auth/integrations/next-auth"
+	description="Add Auth to existing Next Auth applications."
+	image={nextauth}
+/>
+
+<ArticleIconCard
+	title="Supabase"
+	href="/wallets/auth/integrations/supabase"
+	description="Add Auth to existing Supabase applications."
+	image={supabase}
+/>
+
+<ArticleIconCard
+	title="Firebase"
+	href="/wallets/auth/integrations/firebase"
+	description="Add Auth to existing Firebase applications."
+	image={firebase}
+/>
+
+</Stack>

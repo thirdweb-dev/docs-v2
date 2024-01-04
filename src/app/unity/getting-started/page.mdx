@@ -1,7 +1,7 @@
-import { Callout, Steps, Step, CardLink } from "@/components/Document";
-import Image from "next/image";
+import { Callout, Steps, Step, DocImage, ArticleIconCard } from "@doc";
 import prefabScene from "./scene-prefabs.png";
 import sdkInstaller from "./thirdweb-unity-sdk-setup.png";
+import { GraduationCap } from "lucide-react";
 
 # Getting Started
 
@@ -35,7 +35,7 @@ Drag and drop the package into your Unity project. Feel free to deselect common 
 
 Play around in our example `Scene_Prefabs` to test out the SDK!
 
-<Image src={prefabScene} alt="prefabScene" />
+<DocImage src={prefabScene} />
 
 </Step>
 
@@ -51,26 +51,26 @@ We support all platforms.
 
 ## Thirdweb Manager
 
-Now you’re ready to use the SDK in your own scene!
+Now you're ready to use the SDK in your own scene!
 
-The only requirement is to have a [ThirdwebManager](./thirdwebmanager) prefab present in your scene.
+The only requirement is to have a [ThirdwebManager](/unity/thirdwebmanager) prefab present in your scene.
 
 Navigate to `Thirdweb` > `Core` > `Prefabs` > `ThirdwebManager` drag it into your scene.
 
 Alternatively, use our handy quickstart installer from the top level `Tools > Thirdweb` menu.
 
-<Image src={sdkInstaller} alt="sdkInstaller" />
+<DocImage src={sdkInstaller} className="w-96" />
 
 <Callout variant='info' title="How It Works">
 
-The [ThirdwebManager](./thirdwebmanager) represents your Thirdweb SDK singleton, providing a convenient interface for setting up and controlling SDK parameters directly from inspector.
+The [ThirdwebManager](/unity/thirdwebmanager) represents your Thirdweb SDK singleton, providing a convenient interface for setting up and controlling SDK parameters directly from inspector.
 
 Access the SDK from anywhere in your code using `ThirdwebManager.Instance.SDK`.
 
 </Callout>
 
-<CardLink
+<ArticleIconCard
 	href="/unity/thirdwebmanager"
-	icon="educate"
-	label="Learn more about the ThirdwebManager"
+	icon={GraduationCap}
+	title="Learn more about the ThirdwebManager"
 />

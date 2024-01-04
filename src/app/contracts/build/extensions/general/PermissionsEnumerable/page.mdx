@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, GithubButtonLink } from "@doc";
 
 # PermissionsEnumerable
 
@@ -60,7 +59,6 @@ None of the base contracts implement this extension.
 all of the functions in that extension. It also includes the following functions:
 
 <Details summary="getRoleMember">
-<div>
 
 ```solidity
 function getRoleMember(bytes32 role, uint256 index) external view returns (address member);
@@ -71,11 +69,9 @@ function getRoleMember(bytes32 role, uint256 index) external view returns (addre
   - `role`: keccak256 hash of the role. e.g. keccak256("TRANSFER_ROLE")
   - `index`: Index in list of current members for the role.
 
-</div>
 </Details>
 
 <Details summary="getRoleMemberCount">
-<div>
 
 ```solidity
 function getRoleMemberCount(bytes32 role) external view returns (uint256 count);
@@ -85,5 +81,4 @@ function getRoleMemberCount(bytes32 role) external view returns (uint256 count);
 - Parameters:
   - `role`: keccak256 hash of the role. e.g. keccak256("TRANSFER_ROLE")
 
-</div>
 </Details>

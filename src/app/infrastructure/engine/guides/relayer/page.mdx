@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { DocImage } from "@doc";
 import Relayer1 from "../../assets/relayer-1.png";
 
 # Meta-transaction Relayer
@@ -29,7 +29,7 @@ Here, you'll need to specify:
 4. Optionally, the `name` of your relayer
 5. Optionally, the `allowedForwarders` the relayer is allowed to forward transactions with
 
-<Image src={Relayer1} alt="Relayer setup" className="max-w-[600px] mx-auto" />
+<DocImage src={Relayer1} alt="Relayer setup" />
 
 Once you create the endpoint, you'll get back a `uuid` which is the unique ID of your relayer endpoint.
 

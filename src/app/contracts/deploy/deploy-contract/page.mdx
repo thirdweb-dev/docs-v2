@@ -2,9 +2,9 @@ import deployCLI from "./assets/deploy-cli.png";
 import linkDevice from "./assets/link-device.png";
 import detectedExtensions from "./assets/detected-extensions.png";
 import deployContract from "./assets/deploy-contract.png";
-import Image from "next/image";
+import { DocImage } from "@doc";
 
-import { Steps, Step } from "@/components/Document";
+import { Steps, Step } from "@doc";
 
 # Deploy Contract
 
@@ -16,7 +16,7 @@ To deploy a contract using Deploy:
 
 Navigate to the root of the smart contract repository using the CLI. Then, run the command `npx thirdweb deploy`.
 
-<Image src={deployCLI} alt="Screenshot of CLI deployment output text" />
+<DocImage src={deployCLI} alt="Screenshot of CLI deployment output text" />
 
 </Step>
 
@@ -24,7 +24,7 @@ Navigate to the root of the smart contract repository using the CLI. Then, run t
 
 To deploy from a desired wallet in the browser, connect and authorize the device.
 
-<Image src={linkDevice} alt="Screenshot to link Device" />
+<DocImage src={linkDevice} alt="Screenshot to link Device" />
 
 </Step>
 
@@ -32,7 +32,7 @@ To deploy from a desired wallet in the browser, connect and authorize the device
 
 Once completed, a user interface will open in the browser that allows filling out the parameters of the contract.
 
-<Image
+<DocImage
 	src={detectedExtensions}
 	alt="Screenshot to detected extensions when deploying contracts"
 />
@@ -43,7 +43,7 @@ Once completed, a user interface will open in the browser that allows filling ou
 
 Fill in the necessary fields, then find the Network / Chain drop-down menu to select a network for deployment. Choose the `Add to dashboard` option if managing this contract from the dashboard and select Deploy Now. This will require signing a transaction in the connected wallet.
 
-<Image
+<DocImage
 	src={deployContract}
 	alt="Screenshot of contract deployment confirmation"
 />

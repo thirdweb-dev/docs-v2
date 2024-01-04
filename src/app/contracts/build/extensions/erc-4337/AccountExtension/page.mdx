@@ -1,5 +1,4 @@
-import { Details } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, GithubButtonLink } from "@doc";
 
 # AccountExtension
 
@@ -49,7 +48,6 @@ This extension inherits from the following extensions:
 ## Full API reference
 
 <Details summary="execute">
-<div>
 
 Executes a transaction (called directly from an admin, or by entryPoint)
 
@@ -75,11 +73,9 @@ The amount of native tokens to send to the target contract.
 
 The `bytes` calldata to send to the target contract.
 
-</div>
 </Details>
 
 <Details summary="executeBatch">
-<div>
 
 Executes a sequence transaction (called directly from an admin, or by entryPoint)
 
@@ -108,11 +104,9 @@ The amounts of native tokens to send to the target contracts.
 
 The `bytes` calldata to send to the target contracts.
 
-</div>
 </Details>
 
 <Details summary="_call">
-<div>
 
 Calls a target contract and reverts if it fails.
 
@@ -143,11 +137,9 @@ The amount of native tokens to send to the target contract.
 
 The `bytes` calldata to send to the target contract.
 
-</div>
 </Details>
 
 <Details summary="_canSetContractURI">
-<div>
 
 Returns whether contract metadata can be set in the given execution context.
 
@@ -157,11 +149,9 @@ function _canSetContractURI() internal view virtual override returns (bool) {
 }
 ```
 
-</div>
 </Details>
 
 <Details summary="_setupRole">
-<div>
 
 Registers a signer in the factory.
 
@@ -182,11 +172,9 @@ The role to set up. Must be of type `bytes32`.
 
 The address of the account to register for the role.
 
-</div>
 </Details>
 
 <Details summary="_revokeRole">
-<div>
 
 Un-registers a signer in the factory.
 
@@ -207,5 +195,4 @@ The role to revoke. Must be of type `bytes32`.
 
 The address of the account to un-register for the role.
 
-</div>
 </Details>

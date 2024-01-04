@@ -1,5 +1,11 @@
-import { OpenSourceCard, CardLink, Callout } from "@/components/Document";
-import Image from "next/image";
+import {
+	OpenSourceCard,
+	ArticleIconCard,
+	Callout,
+	DocImage,
+	Stack,
+} from "@doc";
+import { GraduationCap } from "lucide-react";
 
 # Getting Started
 
@@ -71,11 +77,13 @@ This file is a Next.js catch all route, which will catch any requests to `/api/a
 
 `wallet` lets you configure the admin wallet that will issue and verify JWTs for your users. In this example, we're using a simple private key wallet, but you can also use more advanced wallets, as laid out in the wallet configuration section:
 
-<CardLink
-	label="Wallet Configuration"
-	href="/wallets/auth/wallet-configuration"
-	icon="educate"
-/>
+<Stack>
+	<ArticleIconCard
+		title="Wallet Configuration"
+		href="/wallets/auth/wallet-configuration"
+		icon={GraduationCap}
+	/>
+</Stack>
 
 The `ThirdwebAuth` function returns us a `ThirdwebAuthHandler`, which automatically sets up multiple authentication endpoints for us to use that handle logins, authentication, and logouts (as laid out in the [Auth API overview](/wallets/auth/how-it-works/api)). It also returns a `getUser` function, which we can use on other endpoints to authenticate the user that sent a request.
 
@@ -184,34 +192,30 @@ yarn dev
 
 If your run the app and navigate to `http://localhost:3000`, or wherever the app is running for you locally, you should see a simple connect wallet button. If you click on it an connect your MetaMask, you'll see a screen like this:
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-1.png")}
-	alt="Getting Started"
 />
 
 So you can see that we've connected our wallet but there's no logged in user. If you try getting the secret, you'll see that you aren't yet authorized to access the backend:
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-2.png")}
-	alt="Getting Started"
 />
 
 However, if we click login and sign the message that pops up, we can then login to the backend. Now if we click the get secret button, we can see that we are authorized to access the backend:
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-3.png")}
-	alt="Getting Started"
 />
 
 Finally, if you logout and get the secret again, you should see that you're no longer logged in.
 
-<Image
-	className="mb-4"
+<DocImage
+	className="w-[550px]"
 	src={require("./../assets/getting-started-2.png")}
-	alt="Getting Started"
 />
 
 So at this point, we've implemented a fully functional authentication system using Auth! We can login, access protected endpoints, and logout, just like a traditional authentication flow, but using just our wallet!

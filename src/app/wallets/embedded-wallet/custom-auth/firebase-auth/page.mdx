@@ -1,6 +1,4 @@
-import { Callout, DocImage } from "@/components/Document";
-import { Steps, Step } from "@/components/Document";
-import Image from "next/image";
+import { Callout, DocImage, Steps, Step } from "@doc";
 import ewCreateKey from "../images/ew-create-key.png";
 import configurationView from "../images/configuration-view.png";
 import customJsonFirebase from "../images/custom-json-firebase.png";
@@ -27,7 +25,7 @@ To skip over initialization steps, we will use the React Native TypeScript start
 
 1. Create the template from the CLI:
 
-   ```jsx
+   ```bash
    npx thirdweb create --template react-native-typescript-starter
    ```
 
@@ -56,17 +54,13 @@ To skip over initialization steps, we will use the React Native TypeScript start
 
 3. In the configuration view, enable **Custom JSON Web Token.**
 
-   <Image src={configurationView} />
+   <DocImage src={configurationView} />
 
-4. Set the **JWKS URI** as the following URL:
-
-   ```jsx
-   [https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com](https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com)
-   ```
+4. Set the [JWKS URI from here](https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com)
 
 5. Set the AUD Value as the Firebase projectId. (Example, `custom-auth-53169`)
 
-   <Image src={customJsonFirebase} />
+   <DocImage src={customJsonFirebase} />
 
 6. Select **Save changes**.
 
@@ -77,7 +71,7 @@ Firebase auth depends on the `firebase/app` and `firebase/auth` packages.
 
 To add the packages, run the following command in the project:
 
-```jsx
+```bash
 yarn add @react-native-firebase/app @react-native-firebase/auth
 ```
 
@@ -89,21 +83,19 @@ Add the code snippet below to handle email authentication with Firebase. Note th
 To handle email authentication with Firebase
 
 ```jsx
-import auth from '@react-native-firebase/auth';
+import auth from "@react-native-firebase/auth";
 
-...
 async function signInWithEmail(email, password) {
-  try {
-    await auth().createUserWithEmailAndPassword(email, password);
-  } catch (error) {
-    console.error(error);
-  }
+	try {
+		await auth().createUserWithEmailAndPassword(email, password);
+	} catch (error) {
+		console.error(error);
+	}
 }
 
-return <Button
-					title="Sign In"
-					onPress={() => signInWithEmail(email, password)}/>
-...
+return (
+	<Button title="Sign In" onPress={() => signInWithEmail(email, password)} />
+);
 ```
 
 Note: You may add a UI to allow users to input email and password fields.
@@ -143,16 +135,14 @@ async function getFirebaseJWT() {
 Pass the JWT to the Embedded Wallet config in your `App.tsx` file:
 
 ```jsx
-import { useEmbeddedWallet } from '@thirdweb-dev/react-native';
+import { useEmbeddedWallet } from "@thirdweb-dev/react-native";
 
 const connectEmbedded = useEmbeddedWallet();
 
-...
 await connectEmbedded({
-  strategy: 'jwt',
-  jwt: await getFirebaseJWT()
+	strategy: "jwt",
+	jwt: await getFirebaseJWT(),
 });
-...
 ```
 
 After the connectEmbedded function returns, the ThirdwebProvider will have connected a wallet thereby granting access to all hooks and functionalities.

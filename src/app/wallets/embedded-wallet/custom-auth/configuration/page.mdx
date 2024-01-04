@@ -1,10 +1,7 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import Image from "next/image";
+import { Tabs, TabsList, TabsTrigger, TabsContent, DocImage } from "@doc";
 import EWCustomAuth from "../images/customauth.png";
 import EWCustomAuthdb from "../images/customauthdb.png";
 import EWCustomAuthdb2 from "../images/customauthdb2.png";
-
-
 
 # Configuration
 
@@ -13,6 +10,7 @@ We offer two options to setup embedded wallets with custom auth, one that is bas
 #### Setting up OIDC compatible auth
 
 An OIDC auth system has a public-private keypair, where the private key is used to sign auth tokens
+
 - The public key is uploaded to a public URL in JWKS format. The standard location is `https://{domain}.com/.well-known/jwks.json`
 - When a user logs in, a JWT token called the idToken is generated and signed by the private key. The OIDC spec provides an interface for fields that are used in this token.
 - This JWT is then passed to the embedded wallet to generate a wallet for the user.
@@ -20,53 +18,43 @@ An OIDC auth system has a public-private keypair, where the private key is used 
 
 To setup an OIDC compatible auth, enable the first option in the configuration tab of the embedded wallet dashboard
 
-   <div className="border rounded-lg p-6">
-   	<Image src={EWCustomAuthdb} />
-   </div>
+<DocImage src={EWCustomAuthdb} />
 
 You will be asked to enter the following values
+
 - The URL of the JWKS file (public key): This is used to verify the token was signed by you.
 - The `aud` value of the idToken: This is used to verify that thirdweb is the intended user of the token
-
 
 #### Setting up generic auth
 
 Generic auth is a lower level option that can be used when you have your own auth server that you use to authenticate users
+
 - When a user logs in, you are able to generate a public identifier that allows you to identify the user.
 - You can pass this identifier to the embedded wallet to generate a wallet for the user.
 - When verifying the user, we will hit an endopint that you provide to verify the user's identity.
 - We will then generate a wallet for the user if the provided payload is valid.
 
-   <div className="border rounded-lg p-6">
-   	<Image src={EWCustomAuth} />
-   </div>
-
+<DocImage src={EWCustomAuth} />
 
 To use generic auth, enable the second option in the configuration tab of the embedded wallet dashboard
 
-
-   <div className="border rounded-lg p-6">
-   	<Image src={EWCustomAuthdb2} />
-   </div>
-
+<DocImage src={EWCustomAuthdb2} />
 
 You will be asked to enter an endpoint that we can hit to verify the user's identity. This endpoint should accept a POST request with a JSON body containing the following fields:
+
 - `payload`: This will correspont to the public identifier that was generated for your user.
 
 The endpoint should return a JSON body containing the following fields:
-  - `userId`: A uid for the user. Note that you can only create one wallet per `userId` at this point
-  - `email` (optional): If provided, the user will be able to access the same account outside of the platform for things like private key export // using with wallet connect etc.
-  - `exp` (optional): An expiration date for the user's wallet session. By default a session is 7 days long.
 
+- `userId`: A uid for the user. Note that you can only create one wallet per `userId` at this point
+- `email` (optional): If provided, the user will be able to access the same account outside of the platform for things like private key export // using with wallet connect etc.
+- `exp` (optional): An expiration date for the user's wallet session. By default a session is 7 days long.
 
 You can also pass a list of headers. These headers will be sent with every request to your verification endpoint. You can use these to authenticate the request.
-
-
 
 ## Authenticating a user
 
 #### OIDC auth
-
 
 <Tabs defaultValue="react">
 <TabsList>
@@ -119,7 +107,6 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 
 #### Generic auth
 
-
 Once you've logged in with your own auth, you can pass the user's JWT to the embedded wallet to authenticate and connect.
 
 <Tabs defaultValue="react">
@@ -170,4 +157,3 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 
 </TabsContent>
 </Tabs>
-

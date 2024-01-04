@@ -1,5 +1,4 @@
-import { Details, Callout } from "@/components/Document";
-import { GithubButtonLink } from "@/components/Document";
+import { Details, GithubButtonLink } from "@doc";
 
 # PlatformFee
 
@@ -60,7 +59,6 @@ None of the base contracts implement this extension.
 ## Full API reference
 
 <Details summary="getPlatformFeeInfo">
-<div>
 
 ```solidity
 function getPlatformFeeInfo() public view returns (address, uint16);
@@ -69,11 +67,9 @@ function getPlatformFeeInfo() public view returns (address, uint16);
 - Returns the platform fee recipient and bps.
 - Set this value using the `setPlatformFeeInfo` function.
 
-</div>
 </Details>
 
 <Details summary="setPlatformFeeInfo">
-<div>
 
 ```solidity
 function setPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps) external;
@@ -84,11 +80,9 @@ function setPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps
 - Parameter `platformFeeBps`: The value to set as the new platform fee BPS.
 - The `_canSetPlatformFeeInfo` function is run on every call to this function. If the return value of `_canSetPlatformFeeInfo` is `false`, the `setPlatformFeeInfo` call will revert.
 
-</div>
 </Details>
 
 <Details summary="_setupPlatformFeeInfo">
-<div>
 
 ```solidity
 function _setupPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps) internal;
@@ -99,11 +93,9 @@ function _setupPlatformFeeInfo(address platformFeeRecipient, uint256 platformFee
 - Parameter `platformFeeBps`: The value to set as the new platform fee BPS.
 - The `_canSetPlatformFeeInfo` function is _not_ run on a call to this function.
 
-</div>
 </Details>
 
 <Details summary="_canSetPlatformFeeInfo">
-<div>
 
 ```solidity
 function _canSetPlatformFeeInfo() internal view virtual returns (bool);
@@ -113,5 +105,4 @@ function _canSetPlatformFeeInfo() internal view virtual returns (bool);
 - Returns whether a new platform fee recipient or bps can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setPlatformFeeInfo` is the contract owner, and enforce that only the current owner should be able to successfully call `setPlatformFeeInfo`.
 
-</div>
 </Details>

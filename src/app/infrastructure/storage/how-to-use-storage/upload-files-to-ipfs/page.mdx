@@ -1,11 +1,4 @@
-import {
-	Steps,
-	Step,
-	Callout,
-} from "@/components/Document";
-import Image from "next/image";
-
-
+import { Steps, Step, Callout, DocImage } from "@doc";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 # Upload Files to IPFS
@@ -19,15 +12,15 @@ To upload files using dashboard:
 <Steps>
 
 <Step title="Connect Wallet">
-To authenticate to your account, connect your wallet.
+	To authenticate to your account, connect your wallet.
 </Step>
 
 <Step title="Storage Dashboard">
 Navigate to the [storage dashboard](https://thirdweb.com/dashboard/infrastructure/storage)
 
-<Image
-src={require("./assets/storage-dashboard.png")}
-alt="storage diagram"
+<DocImage
+	src={require("./assets/storage-dashboard.png")}
+	alt="storage diagram"
 />
 
 </Step>
@@ -35,14 +28,10 @@ alt="storage diagram"
 <Step title="Select files">
 Select your files or drag them into the upload box. Confirm that your files are correct, and then select "Start Upload.”
 
-<Image
-src={require("./assets/storage-upload.png")}
-alt="storage diagram"
-/>
-
+<DocImage src={require("./assets/storage-upload.png")} alt="storage diagram" />
 
 <Callout title="Info" variant="info">
-The duration of this process will depend on the amount of data uploaded.
+	The duration of this process will depend on the amount of data uploaded.
 </Callout>
 
 </Step>
@@ -50,20 +39,20 @@ The duration of this process will depend on the amount of data uploaded.
 <Step title="Access via Gateway">
 Upon completion, the corresponding IPFS addresses refers to where your content is stored on the IPFS Network. You may access these files using your unique gateway URL.
 
-<Image
+<DocImage
 src={require("./assets/storage-urls.png")}
 alt="storage diagram"
 />
 </Step>
 </Steps>
 
-<hr/>
+<hr />
 
 ## Upload files to IPFS using CLI
 
 To upload files using the CLI, use the `upload` command and specify the relative path to the file name.
 
-```json
+```bash
 npx thirdweb@latest upload path/to/file.extension
 ```
 
@@ -71,7 +60,7 @@ npx thirdweb@latest upload path/to/file.extension
 
 To upload multiple files, specify all the file names separated with spaces:
 
-```json
+```bash
 npx thirdweb upload image1.png image2.png image3.png
 ```
 
@@ -79,11 +68,11 @@ npx thirdweb upload image1.png image2.png image3.png
 
 To upload an entire directory, specify the relative directory name:
 
-```json
+```bash
 npx thirdweb upload directory_name
 ```
 
-<hr/>
+<hr />
 ## Upload files to IPFS using SDKs
 
 <Tabs defaultValue="react">
@@ -137,7 +126,7 @@ npx thirdweb upload directory_name
         }
     ```
     </TabsContent>
-	<TabsContent value="react-native">    
+    <TabsContent value="react-native">
     ```jsx
         // Initialize your provider
         import { ThirdwebProvider } from "@thirdweb-dev/react";
@@ -213,6 +202,7 @@ npx thirdweb upload directory_name
         }
         uri = sdk.storage.upload(metadata)
     ```
+
 </TabsContent>
       <TabsContent value="go">
       ```go
@@ -233,8 +223,7 @@ npx thirdweb upload directory_name
             uri, _ := sdk.Storage.Upload(context.Background(), metadata, "", "")
         }
     ```
+
 </TabsContent>
 
 </Tabs>
-
-
