@@ -77,7 +77,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 	const pathname = usePathname();
 
 	if ("separator" in props.link) {
-		return <hr className="mb-2 border-t-2 border-border" />;
+		return <hr className="my-2 border-t" />;
 	}
 
 	const isActive = pathname === props.link.href;

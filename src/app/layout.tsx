@@ -44,7 +44,7 @@ export default function RootLayout({
 					showSpinner={false}
 				/>
 				<PosthogPageView />
-				<div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
+				<div className="fixed bottom-4 right-4 z-50 lg:hidden">
 					<ContextAIBotButton />
 				</div>
 				<div className="relative flex min-h-screen flex-col">
