@@ -158,7 +158,7 @@ export function Header() {
 					</ul>
 
 					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">
-						<div className="hidden lg:flex">
+						<div className="hidden xl:flex">
 							<ContextAIBotButton />
 						</div>
 
