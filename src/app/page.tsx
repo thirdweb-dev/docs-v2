@@ -343,7 +343,7 @@ function InfraSection() {
 				<ArticleCardIndex
 					href="/infrastructure/engine/overview"
 					title="Engine"
-					description="server with contract APIs & backend wallets"
+					description="Backend server to reliably call smart contracts"
 					icon={InfraEngineIcon}
 				/>
 				<ArticleCardIndex

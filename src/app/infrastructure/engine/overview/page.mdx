@@ -1,5 +1,6 @@
 import { DocImage } from "@doc";
 import OverviewImage from "../assets/engine-overview.png";
+import { ArticleCard, Grid, OpenSourceCard } from "@doc";
 
 # Engine
 
@@ -14,7 +15,22 @@ Engine is a backend HTTP server that calls smart contracts using your managed ba
 - <strong>Get a complete web3 infrastructure</strong> already set up with RPC, IPFS,
   and account abstraction infrastructure.
 
-Engine is fully [open-sourced](https://github.com/thirdweb-dev/engine) and [self-hosted](/infrastructure/engine/get-started). We're improving it daily and welcome your feedback in our [Discord](https://discord.gg/thirdweb)!
+<Grid>
+
+<ArticleCard
+	title="Cloud-host for $99/month"
+	description="Host Engine on thirdweb with no setup or maintenance."
+	href="https://share.hsforms.com/1k5tu00ueS5OYMaxHK6De-gea58c"
+	isExternal
+/>
+
+<ArticleCard
+	title="Self-host for free"
+	description="Host Engine on your own infrastructure with minimal setup."
+	href="/infrastructure/engine/get-started"
+/>
+
+</Grid>
 
 <DocImage
 	src={OverviewImage}
@@ -57,4 +73,8 @@ Engine is beneficial if your app:
 
 ## Get in touch
 
-For get dedicated support or feature requests, [contact Sales](https://thirdweb.com/contact-us).
+We're always improving Engine and welcome your feedback in [Discord](https://discord.gg/thirdweb).
+
+For dedicated support and feature requests, [contact Sales](https://thirdweb.com/contact-us).
+
+<OpenSourceCard title="Engine" href="https://github.com/thirdweb-dev/engine" />
