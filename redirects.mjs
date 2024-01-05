@@ -585,20 +585,20 @@ const otherRedirects = {
 	"/contracts/drops": "/contracts",
 	"/contracts/governance": "/contracts",
 	// others
-	"/pre-built-contracts/*path:": "/contracts",
-	"/thirdweb-deploy/*path:": "/contracts/deploy/overview",
+	"/pre-built-contracts/:path*": "/contracts",
+	"/thirdweb-deploy/:path*": "/contracts/deploy/overview",
 	"/thirdweb-cli": "/cli",
 	"/smart-contracts": "/contracts",
-	"/contracts-sdk/*path*": "/contracts/build",
+	"/contracts-sdk/:path*": "/contracts/build",
 	"/unity/connectwalletnative": "/unity/wallets/prefab",
 	"/unity/prefabs/thirdwebmanager": "/unity/thirdwebmanager",
-	"/gamingkit/*path:": "/unity",
-	"/gaming-kit/*path:": "/unity",
+	"/gamingkit/:path*": "/unity",
+	"/gaming-kit/:path*": "/unity",
 	"/contractkit/:path*": "/contracts",
-	"/extensions/*path:": "/contracts/build/extensions",
+	"/extensions/:path*": "/contracts/build/extensions",
 	"/release/:match*": "/contracts/publish/overview",
-	"/sdk/*path:": "/typescript/v4",
-	"/web3-api/*path:": "/infrastructure/engine/overview",
+	"/sdk/:path*": "/typescript/v4",
+	"/web3-api/:path*": "/infrastructure/engine/overview",
 };
 
 /**
