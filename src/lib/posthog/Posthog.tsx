@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import posthog from "posthog-js";
 
 const posthogHost = "https://a.thirdweb.com";
-const apiKey = "1d9ebc991c049c913bedcf3d50916922";
+const apiKey = "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV";
 
 // Check that PostHog is client-side (used to handle Next.js SSR)
 if (typeof window !== "undefined") {
