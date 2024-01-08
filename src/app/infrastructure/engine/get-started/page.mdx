@@ -48,6 +48,7 @@ docker run \
 | `ADMIN_WALLET_ADDRESS`<span style={{color:'red'}}>\*</span>    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.      |
 | `POSTGRES_CONNECTION_URL`<span style={{color:'red'}}>\*</span> | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                     |
 | `ENABLE_HTTPS`                                                 | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`)    |
+| `ACCESS_CONTROL_ALLOW_ORIGIN`                                  | `,` delimited list of allowed domains. Supports `*.domain.com` wildcard, `https:thirdweb.com` must be included for Dashboard|
 
 <span style={{ color: "red" }}>*</span> Required
 
