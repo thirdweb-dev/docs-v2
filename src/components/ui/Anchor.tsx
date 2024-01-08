@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { Link as LinkIcon } from "lucide-react";
 
@@ -20,6 +22,9 @@ export function Anchor(props: {
 					aria-hidden
 					href={`#${props.id}`}
 					className="text-accent-500 no-underline opacity-0 transition-opacity group-hover/anchor:opacity-100"
+					onClick={(e) => {
+						e.stopPropagation();
+					}}
 				>
 					<LinkIcon className="h-4 w-4" />
 				</a>
