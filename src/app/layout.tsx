@@ -8,6 +8,7 @@ import {
 	ContextAIBotButton,
 	ContextAIBotScript,
 } from "@/components/others/ContextAIButton";
+import Script from "next/script";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -34,6 +35,12 @@ export default function RootLayout({
 		<html lang="en">
 			<head>
 				<PosthogHeadSetup />
+				<Script
+					src="https://thirdweb.com/js/pl.js"
+					defer
+					data-domain="portal.thirdweb.com"
+					data-api="https://pl.thirdweb.com/api/event"
+				/>
 				<ContextAIBotScript />
 			</head>
 			<body className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
