@@ -71,6 +71,7 @@ export async function ClassTDoc(props: { doc: ClassDoc }) {
 							tag: "@prepare",
 						});
 					});
+					m.source = property.source;
 					methods?.push(m);
 					isMethod = true;
 					return true;
