@@ -6,13 +6,13 @@ export function ArticleCard(props: {
 	title: string;
 	description: string;
 	href: string;
-	isExternal?: boolean;
 }) {
+	const isExternal = props.href.startsWith("http");
 	return (
 		<Link
 			href={props.href}
 			className="flex cursor-default bg-b-800"
-			target={props.isExternal ? "_blank" : undefined}
+			target={isExternal ? "_blank" : undefined}
 		>
 			<article className="group/article w-full overflow-hidden rounded-lg border-2 transition-colors duration-300 hover:border-accent-500 hover:bg-accent-900">
 				<div className="p-4">
@@ -30,13 +30,13 @@ export function ArticleIconCard(props: {
 	href: string;
 	image?: StaticImport;
 	icon?: React.FC<{ className?: string }>;
-	isExternal?: boolean;
 }) {
+	const isExternal = props.href.startsWith("http");
 	return (
 		<Link
 			href={props.href}
 			className="flex items-center gap-4 rounded-lg border-2 bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
-			target={props.isExternal ? "_blank" : undefined}
+			target={isExternal ? "_blank" : undefined}
 		>
 			{props.icon && (
 				<props.icon className="h-8 w-8 shrink-0 text-accent-500" />
