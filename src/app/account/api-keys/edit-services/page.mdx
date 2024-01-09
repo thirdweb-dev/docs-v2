@@ -1,9 +1,48 @@
-import { DocImage } from "@doc";
-import smartWalletAPIKeyImage from "./smart-wallet-api-key.png";
+import { DocImage, Steps, Step } from "@doc";
+import chooseKeyImage from "../assets/choose-key.png";
+import selectEditImage from "../assets/select-edit.png";
+import allServicesImage from "../assets/all-services.png";
+import smartWalletAPIKeyImage from "../assets/smart-wallet-api-key.png";
 
-# Services
+# Edit enabled services on API Keys
 
-## Storage
+All services on API keys are enabled by default. If you want to disable any services or edit settings for each service:
+
+<Steps>
+
+<Step title="Go to Dashboard">
+
+Navigate to **[Settings > API Keys](https://thirdweb.com/dashboard/settings/api-keys)** on the dashboard.
+
+</Step>
+
+<Step title="Choose API key">
+
+Choose the API Key from which you want to enable or disable a Service.
+
+<DocImage src={chooseKeyImage} />
+
+</Step>
+
+<Step title="Edit">
+Select `Edit` to enter the editor view.
+
+<DocImage src={selectEditImage} />
+</Step>
+
+<Step title="Modify services">
+Navigate to the Services section and enable the service and modify any services as needed.
+
+<DocImage src={allServicesImage} />
+</Step>
+
+<Step title="Save Changes">
+</Step>
+</Steps>
+
+### Services
+
+#### Storage
 
 By default, Storage services are enabled upon creation of the API Key.
 
@@ -17,13 +56,13 @@ To disable Upload or Download:
 1. Navigate to Settings > API Keys
 2. Toggle the checkboxes in the Services > Storage settings
 
-## RPC Edge
+#### RPC Edge
 
 By default, RPC Edge services are enabled upon creation of the API Key.
 
 To use RPC Edge in your application, see our [RPC Edge QuickStart](/infrastructure/rpc-edge/get-started) article.
 
-## Smart Wallets
+#### Smart Wallets
 
 By default, Smart Wallet services are enabled upon creation of the API Key.
 
@@ -40,6 +79,7 @@ To restrict the contracts that Smart Wallet can interact with:
 
 4. Save your new settings by selecting `Save`
 
-## Embedded Wallets
+#### Embedded Wallets
 
 By default, Embedded Wallet services are enabled upon creation of the API Key.
+
