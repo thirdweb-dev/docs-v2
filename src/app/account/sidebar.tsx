@@ -8,6 +8,10 @@ export const sidebar: SideBar = {
 			name: "Billing",
 			links: [
 				{
+					name: "Account Info",
+					href: `${accountSlug}/billing/account-info`,
+				},
+				{
 					name: "Upgrade Plan",
 					href: `${accountSlug}/billing/upgrade-plan`,
 				},
