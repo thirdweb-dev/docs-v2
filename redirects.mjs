@@ -1,6 +1,7 @@
 // @ts-check
 
 const reactRedirects = {
+	"/react": "/react/v4",
 	"/react/connecting-wallets": "/react/v4/connecting-wallets",
 	// providers
 	"/react/react.thirdwebprovider": "/react/v4/ThirdwebProvider",
@@ -156,10 +157,12 @@ const reactRedirects = {
 	"/react/react.useuser": "/references/react/v4/useUser",
 	"/react/react.usestorage": "/references/react/v4/useStorage",
 	"/react/react.usestorageupload": "/references/react/v4/useStorageUpload",
+	"/ui-components/web3button": "/react/v4/components/Web3Button",
 };
 
 const solidityRedirects = {
-	"/solidity/extensions/": "/contracts/build/extensions/",
+	"/solidity": "/contracts/build",
+	"/solidity/extensions": "/contracts/build/extensions",
 	"/solidity/extensions/erc721": "/contracts/build/extensions/erc-721/ERC721",
 	"/solidity/extensions/erc1155": "/contracts/build/extensions/erc-1155/ERC1155",
 	"/solidity/extensions/erc20mintable": "/contracts/build/extensions/erc-20/ERC20BatchMintable",
@@ -201,6 +204,8 @@ const solidityRedirects = {
 	"/solidity/extensions/erc20": "/contracts/build/extensions/erc-20/ERC20",
 	"/solidity/base-contracts/erc20vote": "/contracts/build/base-contracts/erc-20/vote",
 	"/solidity/extensions/base-account": "/contracts/build/extensions/erc-4337/SmartWallet",
+	"/solidity/extensions/base-account-factory": "/contracts/build/extensions/erc-4337/SmartWalletFactory",
+	"/solidity/base-contracts": "/contracts/build/base-contracts",
 	"/solidity/base-contracts/account-factory": "/contracts/build/base-contracts/erc-4337/account-factory",
 	"/solidity/base-contracts/account": "/contracts/build/base-contracts/erc-4337/account",
 	"/solidity/base-contracts/dynamic-account-factory": "/contracts/build/base-contracts/erc-4337/dynamic-account-factory",
@@ -423,6 +428,7 @@ const walletRedirects = {
 	"/wallet/trust-wallet": "/references/wallets/v2/TrustWallet",
 	"/wallet/zerion-wallet": "/references/wallets/v2/ZerionWallet",
 	"/wallet/magic": "/references/wallets/v2/MagicLink",
+	"/wallet/rainbow": "/references/wallets/v2/RainbowWallet",
 	"/wallet/safe": "/references/wallets/v2/SafeWallet",
 	"/wallet/blocto": "/references/wallets/v2/BloctoWallet",
 	"/wallet/frame": "/references/wallets/v2/FrameWallet",
@@ -599,6 +605,15 @@ const otherRedirects = {
 	"/release/:match*": "/contracts/publish/overview",
 	"/sdk/:path*": "/typescript/v4",
 	"/web3-api/:path*": "/infrastructure/engine/overview",
+	"/api-keys": "/account/api-keys",
+	"/python": "/infrastructure/engine/overview",
+	"/go": "/infrastructure/engine/overview",
+	"/ui-components/connectwalletbutton": "/react/v4/components/ConnectWallet",
+	"/ui-components/nft-renderer": "/react/v4/components/ThirdwebNftMedia",
+	"/ui-components/ipfs-media-renderer": "/react/v4/components/MediaRenderer",
+	"/templates": "https://thirdweb.com/templates",
+	"/gaming": "/unity", // TODO: remove this when /gaming is added
+	"/signature-minting": "/contracts/design-docs/signature-mint",
 };
 
 /**
