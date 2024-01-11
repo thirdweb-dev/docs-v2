@@ -16,6 +16,9 @@ const sdkOptions = {
 	},
 	gasless: {
 		// By specifying a gasless configuration - all transactions will get forwarded to enable gasless transactions
+		engine: {
+            		relayerUrl:"<engine-relayer-url>", // your thirdweb Engine relayer URL
+          	},
 		openzeppelin: {
 			relayerUrl: "<open-zeppelin-relayer-url>", // your OZ Defender relayer URL
 			relayerForwarderAddress: "<open-zeppelin-forwarder-address>", // the OZ defender relayer address (defaults to the standard one)
