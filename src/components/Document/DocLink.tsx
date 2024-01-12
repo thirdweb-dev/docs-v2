@@ -13,7 +13,11 @@ export function DocLink(props: {
 				"text-accent-500 hover:text-f-100 transition-colors",
 				props.className,
 			)}
-			target={props.href.startsWith("http") ? "_blank" : undefined}
+			target={
+				props.href.startsWith("http") || props.href.includes(".pdf")
+					? "_blank"
+					: undefined
+			}
 		>
 			{props.children}
 		</Link>
