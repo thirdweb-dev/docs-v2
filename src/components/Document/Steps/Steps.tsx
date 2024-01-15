@@ -11,11 +11,15 @@ export function Steps(props: { children: React.ReactNode }) {
 	);
 }
 
-export function Step(props: { title: string; children: React.ReactNode }) {
+export function Step(props: {
+	title: string;
+	children: React.ReactNode;
+	id?: string;
+}) {
 	return (
 		<li>
 			<div data-step>
-				<Heading level={3} id={props.title}>
+				<Heading level={3} id={props.id || props.title}>
 					{props.title}
 				</Heading>
 			</div>
