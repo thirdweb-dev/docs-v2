@@ -88,6 +88,10 @@ export const sidebar: SideBar = {
 					href: `${componentsSlug}/ConnectWallet`,
 				},
 				{
+					name: "ConnectEmbed",
+					href: `${componentsSlug}/ConnectEmbed`,
+				},
+				{
 					name: "Web3Button",
 					href: `${componentsSlug}/Web3Button`,
 				},
