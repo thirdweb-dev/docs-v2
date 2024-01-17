@@ -23,3 +23,5 @@ export { WalletsAuthIcon } from "./products/wallets/WalletsAuthIcon";
 export { WalletsConnectIcon } from "./products/wallets/WalletsConnectIcon";
 export { WalletsEmbeddedIcon } from "./products/wallets/WalletsEmbeddedIcon";
 export { WalletsSmartIcon } from "./products/wallets/WalletsSmartIcon";
+// solutions
+export { GamingIcon } from "./solutions/GamingIcon";
