@@ -612,7 +612,7 @@ const otherRedirects = {
 	"/ui-components/nft-renderer": "/react/v4/components/ThirdwebNftMedia",
 	"/ui-components/ipfs-media-renderer": "/react/v4/components/MediaRenderer",
 	"/templates": "https://thirdweb.com/templates",
-	"/gaming": "/unity", // TODO: remove this when /gaming is added
+	"/gaming": "/solutions/gaming/overview",
 	"/signature-minting": "/contracts/design-docs/signature-mint",
 };
 
