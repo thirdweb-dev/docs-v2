@@ -22,6 +22,7 @@ const iconSize = 300;
 export async function openGraphImg(options: {
 	title: string;
 	icon:
+		| "thirdweb"
 		| "react"
 		| "typescript"
 		| "unity"
