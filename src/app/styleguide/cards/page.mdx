@@ -4,9 +4,26 @@ import {
 	ExpandableGrid,
 	GithubTemplateCard,
 	OpenSourceCard,
+	Stack,
 } from "@doc";
 
 # Cards
+
+## Stack of ArticleCard
+
+<Stack>
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+/>
+
+<ArticleCard
+	title="Some Title"
+	description="This is a short description about this card and its properties."
+	href="/"
+/>
+</Stack>
 
 ## Grid of ArticleCard
 
@@ -140,17 +157,26 @@ import {
 
 ## OpenSourceCard
 
-<OpenSourceCard title="LoremIpsum" href="#" />
+<OpenSourceCard title="LoremIpsum" href="/" />
+
+## Stack of GithubTemplateCard
+
+<Stack>
+
+<GithubTemplateCard title="SomeTitle" href="/" />
+<GithubTemplateCard title="SomeTitle" href="/" />
+
+</Stack>
 
 ## Grid of GithubTemplateCard
 
 <Grid>
 
-<GithubTemplateCard title="SomeTitle" href="#" />
-<GithubTemplateCard title="SomeTitle" href="#" />
-<GithubTemplateCard title="SomeTitle" href="#" />
-<GithubTemplateCard title="SomeTitle" href="#" />
-<GithubTemplateCard title="SomeTitle" href="#" />
-<GithubTemplateCard title="SomeTitle" href="#" />
+<GithubTemplateCard title="SomeTitle" href="/" />
+<GithubTemplateCard title="SomeTitle" href="/" />
+<GithubTemplateCard title="SomeTitle" href="/" />
+<GithubTemplateCard title="SomeTitle" href="/" />
+<GithubTemplateCard title="SomeTitle" href="/" />
+<GithubTemplateCard title="SomeTitle" href="/" />
 
 </Grid>
