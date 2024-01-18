@@ -52,7 +52,7 @@ export async function VariableTDoc(props: {
 
 			<CodeBlock
 				lang="ts"
-				code={signatureCode}
+				code={`let ${doc.name}: ${signatureCode}`}
 				tokenLinks={tokens ? await getTokenLinks(tokens) : undefined}
 			/>
 
