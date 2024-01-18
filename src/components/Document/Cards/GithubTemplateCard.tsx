@@ -4,7 +4,7 @@ import { BsGithub } from "react-icons/bs";
 
 export function GithubTemplateCard(props: { title: string; href: string }) {
 	return (
-		<Link href={props.href} className="flex cursor-default">
+		<Link href={props.href} target="_blank" className="flex cursor-default">
 			<article className="group/article flex w-full items-center overflow-hidden rounded-lg border-2 bg-b-800 transition-colors duration-300 hover:border-accent-500 hover:bg-accent-900">
 				<div className="flex w-full items-center gap-3 p-4">
 					<BsGithub className="h-5 w-5 shrink-0" />

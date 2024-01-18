@@ -20,7 +20,7 @@ export const sidebar: SideBar = {
 			href: "/styleguide/steps",
 		},
 		{
-			name: "Cards & Grids",
+			name: "Cards",
 			href: "/styleguide/cards",
 		},
 		{
