@@ -1,4 +1,4 @@
-import { Details, Breadcrumb, Callout, DocImage } from "@doc";
+import { Details, Breadcrumb, Callout, DocImage, createMetadata } from "@doc";
 // images
 import ConnectWalletHeroImage from "./images/connect-wallet-hero.webp";
 // mdx
@@ -11,6 +11,11 @@ import TOSMDX from "./props/tos.mdx";
 import SupportedTokensMDX from "./props/supportedTokens.mdx";
 import DisplayBalanceTokenMDX from "./props/displayBalanceToken.mdx";
 import SwitchToActiveChainMDX from "./props/switchToActiveChain.mdx";
+
+export const metadata = createMetadata({
+	title: "ConnectWallet | thirdweb React Native SDK",
+	description: "API Reference for the ConnectWallet component",
+});
 
 <Breadcrumb
 	crumbs={[

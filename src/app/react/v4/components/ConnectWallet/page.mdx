@@ -1,4 +1,12 @@
-import { Details, Breadcrumb, Callout, Steps, Step, DocImage } from "@doc";
+import {
+	Details,
+	Breadcrumb,
+	Callout,
+	Steps,
+	Step,
+	DocImage,
+	createMetadata,
+} from "@doc";
 // images
 import ConnectWalletHeroImage from "./images/connect-wallet-hero.webp";
 // mdx
@@ -16,6 +24,11 @@ import SupportedTokensMDX from "./props/supportedTokens.mdx";
 import DisplayBalanceTokenMDX from "./props/displayBalanceToken.mdx";
 import AuthMDX from "./props/auth.mdx";
 import SwitchToActiveChainMDX from "./props/switchToActiveChain.mdx";
+
+export const metadata = createMetadata({
+	title: "ConnectWallet | thirdweb React SDK",
+	description: "API Reference for the ConnectWallet component",
+});
 
 <Breadcrumb
 	crumbs={[
