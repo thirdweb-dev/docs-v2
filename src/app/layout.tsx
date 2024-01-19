@@ -24,6 +24,7 @@ const monoFont = Roboto_Mono({
 
 export const metadata: Metadata = {
 	title: "thirdweb docs",
+	metadataBase: new URL("https://portal.thirdweb.com"),
 };
 
 export default function RootLayout({
