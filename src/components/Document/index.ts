@@ -21,3 +21,4 @@ export { DocImage } from "./DocImage";
 export { GithubTemplateCard } from "./Cards/GithubTemplateCard";
 export { ExpandableGrid } from "./ExpandableGrid";
 export { Stack } from "./Stack";
+export { createMetadata } from "./metadata";
