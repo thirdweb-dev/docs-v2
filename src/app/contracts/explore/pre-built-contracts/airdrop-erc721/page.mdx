@@ -1,5 +1,11 @@
-# Airdrop ERC-721
+import { createMetadata } from "@doc";
 
+export const metadata = createMetadata({
+	title: "Airdrop ERC-721 | thirdweb",
+	description: `AirdropERC721 contract is suitable to use when you want to transfer ERC721 NFTs to a list of recipient addresses, where these recipients are not expected to individually claim their airdrop; they just receive it in a transfer`,
+});
+
+# Airdrop ERC-721
 
 Airdrop ERC721 NFTs to a list of recipients.
 
@@ -12,14 +18,14 @@ When airdropping NFTs with this contract, you specify:
 
 ```typescript
 [
-  {
-    recipient: "0x123...",
-    tokenId: 1,
-  },
-  {
-    recipient: "0xabc...",
-    tokenId: 2,
-  },
+	{
+		recipient: "0x123...",
+		tokenId: 1,
+	},
+	{
+		recipient: "0xabc...",
+		tokenId: 2,
+	},
 ];
 ```
 
