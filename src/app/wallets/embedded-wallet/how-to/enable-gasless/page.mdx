@@ -1,7 +1,19 @@
-import { OpenSourceCard, DocImage, ArticleIconCard, Stack } from "@doc";
+import {
+	OpenSourceCard,
+	DocImage,
+	ArticleIconCard,
+	Stack,
+	createMetadata,
+} from "@doc";
 import ConnectCompat from "./connect-wallet-embedded-compact.png";
 import ConnectDropdown from "./connect-wallet-smart-dropdown.png";
 import { Layers2Icon } from "lucide-react";
+
+export const metadata = createMetadata({
+	title: "Enable Gasless Transactions | thirdweb Embedded Wallet",
+	description:
+		"By combining Smart Wallet and Embedded Wallet, you can create a truly seamless user experience with gasless transactions, batched transactions, and full account recovery for both the embedded wallet “key” and the smart wallet.",
+});
 
 # Enable Gasless Transactions
 

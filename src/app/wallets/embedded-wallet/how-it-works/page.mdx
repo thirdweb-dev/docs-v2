@@ -1,6 +1,12 @@
 import AppScoped from "./assets/app-scoped.svg";
 import EmbedCreation from "./assets/embed-creation.svg";
-import { DocImage, Callout } from "@doc";
+import { DocImage, Callout, createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "How Embedded Wallet works",
+	description:
+		"When a user signs into an application using their email or social logins for the first time, a wallet is generated on the user's device. The corresponding wallet key for this wallet is securely split into three shards using Shamir's Secret Sharing algorithm",
+});
 
 # How it works
 

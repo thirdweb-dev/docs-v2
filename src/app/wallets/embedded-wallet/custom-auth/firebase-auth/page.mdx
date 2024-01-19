@@ -1,7 +1,13 @@
-import { Callout, DocImage, Steps, Step } from "@doc";
+import { Callout, DocImage, Steps, Step, createMetadata } from "@doc";
 import ewCreateKey from "../images/ew-create-key.png";
 import configurationView from "../images/configuration-view.png";
 import customJsonFirebase from "../images/custom-json-firebase.png";
+
+export const metadata = createMetadata({
+	title: "Integrate Firebase Auth | EmbeddedWallet",
+	description:
+		"Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with Embedded Wallet.",
+});
 
 # Integrate Firebase Auth
 
