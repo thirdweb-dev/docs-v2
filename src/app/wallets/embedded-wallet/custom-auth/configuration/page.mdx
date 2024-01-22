@@ -1,7 +1,20 @@
-import { Tabs, TabsList, TabsTrigger, TabsContent, DocImage } from "@doc";
+import {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+	TabsContent,
+	DocImage,
+	createMetadata,
+} from "@doc";
 import EWCustomAuth from "../images/customauth.png";
 import EWCustomAuthdb from "../images/customauthdb.png";
 import EWCustomAuthdb2 from "../images/customauthdb2.png";
+
+export const metadata = createMetadata({
+	title: "Configure Authentication Embedded Wallet | thirdweb",
+	description:
+		"Configure Authentication with OIDC standard, OR a generic option that lets you bring your own auth server",
+});
 
 # Configuration
 

@@ -1,6 +1,19 @@
-import { SDKCard, Grid, DocImage, GithubTemplateCard, Stack } from "@doc";
+import {
+	SDKCard,
+	Grid,
+	DocImage,
+	GithubTemplateCard,
+	Stack,
+	createMetadata,
+} from "@doc";
 import { ReactIcon } from "@/icons";
 import connectHeroImage from "../assets/ConnectEmbed-embedded.png";
+
+export const metadata = createMetadata({
+	title: "thirdweb ConnectEmbed",
+	description:
+		"ConnectEmbed component renders a UI to connect to various wallets",
+});
 
 # ConnectEmbed
 

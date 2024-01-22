@@ -1,5 +1,10 @@
-import { Details, Breadcrumb } from "@doc";
+import { Details, createMetadata } from "@doc";
 import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
+
+export const metadata = createMetadata({
+	title: "Coinbase Wallet | thirdweb React Native SDK",
+	description: "API reference for coinbaseWallet function",
+});
 
 <WalletsBreadcrumb name="Coinbase Wallet" slug="coinbase" />
 

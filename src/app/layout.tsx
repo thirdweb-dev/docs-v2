@@ -1,5 +1,4 @@
 import "./globals.css";
-import type { Metadata } from "next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
@@ -9,6 +8,7 @@ import {
 	ContextAIBotScript,
 } from "@/components/others/ContextAIButton";
 import Script from "next/script";
+import { createMetadata } from "@/components/Document";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -22,10 +22,10 @@ const monoFont = Roboto_Mono({
 	weight: "variable",
 });
 
-export const metadata: Metadata = {
+export const metadata = createMetadata({
 	title: "thirdweb docs",
-	metadataBase: new URL("https://portal.thirdweb.com"),
-};
+	description: "thirdweb developer portal",
+});
 
 export default function RootLayout({
 	children,

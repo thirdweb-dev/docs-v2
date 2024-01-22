@@ -1,8 +1,14 @@
-import { Callout, Steps, Step, DocImage } from "@doc";
+import { Callout, Steps, Step, DocImage, createMetadata } from "@doc";
 import EWCreateKey from "../images/ew-create-key.png";
 import EWConfig from "../images/ew-configuration.png";
 import EWConfigOpt from "../images/ew-configuration-opt.png";
 import EWJWKCreatorTool from "../images/jwk-creator-tool.png";
+
+export const metadata = createMetadata({
+	title: "Create a Custom JWT Auth Server | EmbeddedWallet",
+	description:
+		"Learn how to integrate your auth backend with our embedded wallets solution so you can onboard your users into web3 seamlessly.",
+});
 
 # Create a Custom JWT Auth Server
 

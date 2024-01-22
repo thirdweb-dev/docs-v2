@@ -6,12 +6,18 @@ import {
 	Step,
 	DocImage,
 	GithubTemplateCard,
+	createMetadata,
 } from "@doc";
 import ConnectEmbedDefaultImg from "./_assets/ConnectEmbed-default.png";
 import ConnectEmbedSigninImg from "./_assets/ConnectEmbed-signin.png";
 import ConnectEmbedLight from "./_assets/ConnectEmbed-light.png";
 import ConnectEmbedTOS from "./_assets/ConnectEmbed-tos.png";
 import ConnectEmbedPrivacy from "./_assets/ConnectEmbed-privacy.png";
+
+export const metadata = createMetadata({
+	title: "ConnectEmbed | thirdweb React SDK",
+	description: "API Reference for the ConnectEmbed component",
+});
 
 <Breadcrumb
 	crumbs={[

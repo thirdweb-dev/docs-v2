@@ -1,3 +1,4 @@
+import { createMetadata } from "@/components/Document";
 import { DocLayout } from "@/components/Layouts/DocLayout";
 
 export default async function Layout(props: { children: React.ReactNode }) {
@@ -22,3 +23,8 @@ export default async function Layout(props: { children: React.ReactNode }) {
 		</DocLayout>
 	);
 }
+
+export const metadata = createMetadata({
+	title: "thirdweb Storage SDK",
+	description: "Reference documentation for the thirdweb Storage SDK",
+});
