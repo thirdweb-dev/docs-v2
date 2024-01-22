@@ -10,6 +10,9 @@ export function createMetadata(obj: {
 		twitter: {
 			title: obj.title,
 			description: obj.description,
+			creator: "@thirdweb",
+			site: "@thirdweb",
+			card: "summary_large_image",
 		},
 		openGraph: {
 			title: obj.title,
