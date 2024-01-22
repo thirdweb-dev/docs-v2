@@ -42,7 +42,7 @@ export const AccordionTrigger: React.FC<AccordionTriggerProps> = ({
 			style={style}
 			{...props}
 		>
-			<ChevronDown className="ease h-4 w-4 shrink-0 transition-transform duration-300" />
+			<ChevronDown className="ease size-4 shrink-0 transition-transform duration-300" />
 			{props.id ? <Anchor id={props.id}> {children} </Anchor> : children}
 		</Trigger>
 	);

@@ -27,7 +27,7 @@ export function Feedback() {
 						}}
 					>
 						Yes
-						<ThumbsUpIcon className="h-4 w-4 text-f-300" />
+						<ThumbsUpIcon className="size-4 text-f-300" />
 					</Button>
 
 					<Dialog>
@@ -41,7 +41,7 @@ export function Feedback() {
 								}}
 							>
 								No
-								<ThumbsDownIcon className="h-4 w-4 text-f-300" />
+								<ThumbsDownIcon className="size-4 text-f-300" />
 							</Button>
 						</DialogTrigger>
 
@@ -50,7 +50,7 @@ export function Feedback() {
 								{" "}
 								Apologies for any confusion.{" "}
 							</h3>
-							<p className="mb-3 text-f-300" placeholder="Your feedback...">
+							<p className="mb-3 text-f-300">
 								Please provide details about the issue you encountered to help
 								us improve our documentation.
 							</p>

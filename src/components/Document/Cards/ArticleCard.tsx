@@ -38,11 +38,9 @@ export function ArticleIconCard(props: {
 			className="flex items-center gap-4 rounded-lg border-2 bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
 			target={isExternal ? "_blank" : undefined}
 		>
-			{props.icon && (
-				<props.icon className="h-8 w-8 shrink-0 text-accent-500" />
-			)}
+			{props.icon && <props.icon className="size-8 shrink-0 text-accent-500" />}
 			{props.image && (
-				<Image src={props.image} alt={""} className="h-8 w-8 shrink-0" />
+				<Image src={props.image} alt={""} className="size-8 shrink-0" />
 			)}
 			<div className="flex flex-col gap-2">
 				<h3 className="text-base font-semibold text-f-100 lg:text-lg">

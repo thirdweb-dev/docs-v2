@@ -24,14 +24,22 @@ We have a collection of Components that you can import and use in your MDX files
 
 ### Installation
 
-We use `yarn`
+We use `bun`, If you don't have it installed, Visit [bun.sh](https://bun.sh/) on how to install it.
 
 ```bash
-yarn
+bun
 ```
 
-### Start local development server
+### Start the local development server
 
 ```bash
-yarn dev
+bun dev
+```
+
+### Build for production
+
+Run this command locally to check if the website builds successfully
+
+```bash
+bun run build
 ```
