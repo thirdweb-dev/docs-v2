@@ -1,5 +1,10 @@
-import { Details, Callout } from "@doc";
-import { GithubButtonLink } from "@doc";
+import { Details, createMetadata, GithubButtonLink } from "@doc";
+
+export const metadata = createMetadata({
+	title: "BatchMintMetadata | thirdweb contract",
+	description:
+		"The BatchMintMetadata smart contract is an extension for any NFT contract. It lets the smart contract using this extension set the metadata for n number of NFTs in one transaction",
+});
 
 # BatchMintMetadata (ERC1155 & ERC721)
 
