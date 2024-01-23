@@ -1,12 +1,9 @@
+import { fetchJSON } from "@/lib/fetchJSON";
 import { transform } from "typedoc-better-json";
 
 export async function fetchTypeScriptDoc() {
-	const res = await fetch(
+	const doc = await fetchJSON(
 		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/sdk/typedoc/documentation.json",
-		{
-			cache: "no-store",
-		},
 	);
-	const doc = await res.json();
 	return transform(doc as any);
 }
