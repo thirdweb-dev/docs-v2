@@ -7,8 +7,6 @@ export async function fetchJSON(url: string) {
 		return fetchCache.get(url);
 	}
 
-	console.log(`Fetching ${url}`);
-
 	const fetchPromise = nodeFetch(url).then((res) => res.json());
 	fetchCache.set(url, fetchPromise);
 
