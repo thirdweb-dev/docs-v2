@@ -1,5 +1,4 @@
-import { Details } from "@doc";
-import DefaultChainsMDX from "../common/defaultChains.mdx";
+import { Details, createMetadata } from "@doc";
 import SignerMDX from "./props/signer.mdx";
 import ClientIDMDX from "./props/clientId.mdx";
 import ActiveChainMDX from "./props/activeChain.mdx";
@@ -7,6 +6,11 @@ import AuthConfigMDX from "./props/authConfig.mdx";
 import SDKOptionsMDX from "./props/sdkOptions.mdx";
 import StorageInterfaceMDX from "./props/storageInterface.mdx";
 import QueyrClientMDX from "./props/queryClient.mdx";
+
+export const metadata = createMetadata({
+	title: "ThirdwebSDKProvider | thirdweb React SDK",
+	description: "API Reference for the ThirdwebSDKProvider component",
+});
 
 # ThirdwebSDKProvider
 

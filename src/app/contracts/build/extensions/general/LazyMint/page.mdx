@@ -1,6 +1,12 @@
-import { Details, Callout, GithubButtonLink } from "@doc";
+import { Details, Callout, GithubButtonLink, createMetadata } from "@doc";
 
-# Lazy Mint
+export const metadata = createMetadata({
+	title: "LazyMint | thirdweb contract",
+	description:
+		"The LazyMint smart contract is an extension for any base NFT contract. It lets you 'lazy mint' any number of NFTs at once.",
+});
+
+# LazyMint
 
 ```solidity
 import "@thirdweb-dev/contracts/extension/LazyMint.sol";

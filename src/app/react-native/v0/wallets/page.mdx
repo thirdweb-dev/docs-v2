@@ -1,4 +1,4 @@
-import { Breadcrumb } from "@doc";
+import { Breadcrumb, createMetadata } from "@doc";
 import { WalletCard, WalletCardGrid } from "@/components/others/WalletCard";
 // icons
 import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
@@ -9,6 +9,11 @@ import EmbeddedWalletIcon from "@public/icons/wallets/embeddedwallet.svg";
 import LocalWalletIcon from "@public/icons/wallets/localwallet.svg";
 import MagicLinkIcon from "@public/icons/wallets/magiclink.svg";
 import RainbowIcon from "@public/icons/wallets/rainbow.svg";
+
+export const metadata = createMetadata({
+	title: "Supported wallets | thirdweb React Native SDK",
+	description: "List of supported wallets for thirdweb React Native SDK",
+});
 
 <Breadcrumb
 	crumbs={[

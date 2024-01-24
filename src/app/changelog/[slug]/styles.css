@@ -1,3 +1,16 @@
-.kg-video-player-container {
+.changelog-page .kg-video-player-container {
 	display: none;
+}
+
+.changelog-page a {
+	color: var(--accent-500);
+}
+
+.changelog-page a:hover {
+	color: var(--f-100);
+}
+
+.changelog-page figcaption {
+	text-align: center;
+	color: var(--f-300);
 }

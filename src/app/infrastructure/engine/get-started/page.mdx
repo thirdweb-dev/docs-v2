@@ -1,4 +1,11 @@
 import { Callout } from "@doc";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Getting started with Engine | thirdweb Infrastructure",
+	description:
+		"Learn how to use Engine to manage your backend wallets and call contract methods",
+});
 
 # Getting Started
 
@@ -75,7 +82,7 @@ To manage your Engine instance from the dashboard:
 
 1. Navigate to the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
 1. Sign in with the `<admin_wallet_address>` wallet.
-1. Select **Set Engine instance URL to get started.**
+1. Select **Import**
 1. Add your publicly accessible Engine URL.
    - If Engine is running locally, provide the URL `https://localhost:3005`.
 
