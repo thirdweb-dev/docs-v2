@@ -37,7 +37,7 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "Engine API",
-							href: "/engine/references/api-reference",
+							href: "/infrastructure/engine/references/api-reference",
 						},
 					],
 				},
