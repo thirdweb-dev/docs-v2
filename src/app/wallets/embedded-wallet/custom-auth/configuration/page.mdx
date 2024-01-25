@@ -88,6 +88,7 @@ const handlePostLogin = async (jwt: string) => {
 	await embeddedWallet.connect({
 		strategy: "jwt",
 		jwt,
+		encryptionKey: "your-encryption-key",
 	});
 };
 ```
@@ -110,6 +111,7 @@ const embeddedWallet = new EmbeddedWallet({
 const authResult = await embeddedWallet.authenticate({
 	strategy: "jwt",
 	jwt,
+	encryptionKey: "your-encryption-key",
 });
 
 const walletAddress = await embeddedWallet.connect({ authResult });
@@ -117,6 +119,24 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 
 </TabsContent>
 </Tabs>
+
+You can use the following function to generate your `encryptionKey`:
+
+```jsx
+export function getEncryptionKey(jwt: string): string {
+  const parts = jwt.split(".");
+  if (parts.length !== 3) {
+    throw new Error("Invalid JWT format.");
+  }
+
+  const encodedPayload = parts[1];
+  if (!encodedPayload) {
+    throw new Error("Invalid JWT format.");
+  }
+  const decodePayload = JSON.parse(Buffer.from(encodedPayload, "base64").toString("utf8"))
+  return decodedPayload.sub;
+}
+```
 
 #### Generic auth
 
