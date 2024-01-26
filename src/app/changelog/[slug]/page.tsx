@@ -21,7 +21,7 @@ export default async function Page(props: {
 	}
 
 	return (
-		<div>
+		<div className="changelog-page">
 			{data.updated_at && (
 				<div className="mb-10">
 					<RenderDate iso={data.updated_at} />

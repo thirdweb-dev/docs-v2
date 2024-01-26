@@ -1,4 +1,4 @@
-import { OpenSourceCard, Heading } from "@doc";
+import { OpenSourceCard, Heading, createMetadata } from "@doc";
 import { WalletCard, WalletCardGrid } from "@/components/others/WalletCard";
 // icons
 import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
@@ -24,6 +24,12 @@ import AWSKMSIcon from "@public/icons/wallets/aws-kms.png";
 import AWSSecretsManager from "@public/icons/wallets/aws-secrets-manager.png";
 import EthersWallet from "@public/icons/wallets/ethers.png";
 import PrivateKeyIcon from "@public/icons/wallets/privateKey.svg";
+
+export const metadata = createMetadata({
+	title: "thirdweb Wallet SDK",
+	description:
+		"The Wallet SDK allows you to build a fully featured wallet solution or integrate an existing wallet provider with thirdweb's React, React Native, and Unity SDKs.",
+});
 
 # Wallet SDK
 

@@ -1,4 +1,4 @@
-import { Breadcrumb, Callout, Details } from "@doc";
+import { Breadcrumb, Callout, Details, createMetadata } from "@doc";
 // props
 import ActionMDX from "./props/action.mdx";
 import ContractAddressMDX from "./props/contractAddress.mdx";
@@ -11,6 +11,11 @@ import OnSubmitMDX from "./props/onSubmit.mdx";
 import IsDisabledMDX from "./props/isDisabled.mdx";
 import ClassNameMDX from "./props/className.mdx";
 import StyleMDX from "./props/style.mdx";
+
+export const metadata = createMetadata({
+	title: "Web3Button | thirdweb React SDK",
+	description: "API Reference for the Web3Button component",
+});
 
 <Breadcrumb
 	crumbs={[

@@ -1,7 +1,20 @@
-import { Callout, Steps, Step, DocImage, ArticleIconCard } from "@doc";
+import {
+	Callout,
+	Steps,
+	Step,
+	DocImage,
+	ArticleIconCard,
+	createMetadata,
+} from "@doc";
 import prefabScene from "./scene-prefabs.png";
 import sdkInstaller from "./thirdweb-unity-sdk-setup.png";
 import { GraduationCap } from "lucide-react";
+
+export const metadata = createMetadata({
+	title: "Interacting with Contracts | thirdweb Unity SDK",
+	description:
+		"Learn how to interact with smart contracts using the thirdweb Unity SDK.",
+});
 
 # Getting Started
 

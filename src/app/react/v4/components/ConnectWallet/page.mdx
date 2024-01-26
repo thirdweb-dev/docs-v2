@@ -1,4 +1,12 @@
-import { Details, Breadcrumb, Callout, Steps, Step, DocImage } from "@doc";
+import {
+	Details,
+	Breadcrumb,
+	Callout,
+	Steps,
+	Step,
+	DocImage,
+	createMetadata,
+} from "@doc";
 // images
 import ConnectWalletHeroImage from "./images/connect-wallet-hero.webp";
 // mdx
@@ -9,13 +17,18 @@ import WelcomeScreenMDX from "./props/welcomeScreen.mdx";
 import ModalTitleMdx from "./props/modalTitle.mdx";
 import DetailsBtnMDX from "./props/detailsBtn.mdx";
 import ClassNameMDX from "./props/className.mdx";
-import DropdownPositionMDX from "./props/dropdownPosition.mdx";
 import HideTestnetFaucetMDX from "./props/hideTestnetFaucet.mdx";
 import TOSMDX from "./props/tos.mdx";
 import SupportedTokensMDX from "./props/supportedTokens.mdx";
 import DisplayBalanceTokenMDX from "./props/displayBalanceToken.mdx";
 import AuthMDX from "./props/auth.mdx";
 import SwitchToActiveChainMDX from "./props/switchToActiveChain.mdx";
+import HideSwitchToPersonalWalletMDX from "./props/hideSwitchToPersonalWallet.mdx";
+
+export const metadata = createMetadata({
+	title: "ConnectWallet | thirdweb React SDK",
+	description: "API Reference for the ConnectWallet component",
+});
 
 <Breadcrumb
 	crumbs={[
@@ -143,10 +156,6 @@ function Example() {
 	<ClassNameMDX />
 </Details>
 
-<Details id="dropdownPosition" summary="dropdownPosition">
-	<DropdownPositionMDX />
-</Details>
-
 <Details id="hideTestnetFaucet" summary="hideTestnetFaucet">
 	<HideTestnetFaucetMDX />
 </Details>
@@ -169,6 +178,10 @@ function Example() {
 
 <Details id="switchToActiveChain" summary="switchToActiveChain">
 	<SwitchToActiveChainMDX />
+</Details>
+
+<Details id="hideSwitchToPersonalWallet" summary="hideSwitchToPersonalWallet">
+	<HideSwitchToPersonalWalletMDX />
 </Details>
 
 ## Localization

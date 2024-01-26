@@ -1,5 +1,10 @@
-import { Details, InstallTabs } from "@doc";
+import { Details, InstallTabs, createMetadata } from "@doc";
 import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
+
+export const metadata = createMetadata({
+	title: "Embedded Wallet | thirdweb React Native SDK",
+	description: "API reference for embeddedWallet function",
+});
 
 <WalletsBreadcrumb name="Embedded Wallet" slug="embedded-wallet" />
 

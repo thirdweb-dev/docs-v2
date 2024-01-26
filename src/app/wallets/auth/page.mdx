@@ -1,4 +1,10 @@
-import { OpenSourceCard, ArticleIconCard, InstallTabs, Stack } from "@doc";
+import {
+	OpenSourceCard,
+	ArticleIconCard,
+	InstallTabs,
+	Stack,
+	createMetadata,
+} from "@doc";
 import next from "@/icons/frameworks/nextjs.png";
 import express from "@/icons/frameworks/javascript.png";
 import react from "@/icons/frameworks/react.png";
@@ -7,6 +13,12 @@ import nextauth from "@/icons/frameworks/nextauth.png";
 import firebase from "@/icons/frameworks/firebase.png";
 import supabase from "@/icons/frameworks/supabase.png";
 import { GraduationCap } from "lucide-react";
+
+export const metadata = createMetadata({
+	title: "thirdweb Auth",
+	description:
+		"Auth is a developer SDK that lets you integrate passwordless web3-native authentication and authorization into your applications.",
+});
 
 # Overview
 

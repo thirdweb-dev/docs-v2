@@ -1,4 +1,4 @@
-import { Details, Callout } from "@doc";
+import { Details, Callout, createMetadata } from "@doc";
 import ActiveChainMDX from "./props/activeChain.mdx";
 import ClientIdMDX from "./props/clientId.mdx";
 import AuthConfigMDX from "./props/authConfig.mdx";
@@ -11,6 +11,11 @@ import DappMetaMDX from "./props/dAppMeta.mdx";
 import SDKOptionsMDX from "./props/sdkOptions.mdx";
 import StorageInterfaceMDX from "./props/storageInterface.mdx";
 import QueryClientMDX from "./props/queryClient.mdx";
+
+export const metadata = createMetadata({
+	title: "ThirdwebProvider | thirdweb React Native SDK",
+	description: "API references for the ThirdwebProvider component",
+});
 
 # ThirdwebProvider
 

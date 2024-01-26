@@ -1,4 +1,4 @@
-import { Breadcrumb, Callout } from "@doc";
+import { Breadcrumb, createMetadata } from "@doc";
 import { WalletCard, WalletCardGrid } from "@/components/others/WalletCard";
 // icons
 import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
@@ -20,6 +20,11 @@ import CryptoDefiIcon from "@public/icons/wallets/cryptoDefi.png";
 import OKXIcon from "@public/icons/wallets/okx.svg";
 import OneKeyIcon from "@public/icons/wallets/oneKey.png";
 import RabbyIcon from "@public/icons/wallets/rabby.svg";
+
+export const metadata = createMetadata({
+	title: "Supported Wallets | thirdweb React SDK",
+	description: "List of all the supported wallets in thirdweb React SDK.",
+});
 
 <Breadcrumb
 	crumbs={[

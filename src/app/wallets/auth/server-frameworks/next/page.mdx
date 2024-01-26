@@ -1,5 +1,16 @@
-import { OpenSourceCard, ArticleIconCard, Callout, Stack } from "@doc";
+import {
+	OpenSourceCard,
+	ArticleIconCard,
+	Callout,
+	Stack,
+	createMetadata,
+} from "@doc";
 import { GraduationCap } from "lucide-react";
+
+export const metadata = createMetadata({
+	title: "Auth in Next.js with thirdweb SDK",
+	description: "Add support for Auth to your Next apps",
+});
 
 # Next
 
@@ -29,19 +40,17 @@ npx thirdweb create app --template thirdweb-auth-next
 
 ## Getting Started
 
-<Callout variant="info">
-
-The `@thirdweb-dev/auth/next` entrypoint is currently built for Next.js apps using the `pages` directory. If you are using the beta `app` directory implemented in Next.js 13, the package may not work as expected in all cases.
-
-</Callout>
-
 To add support for Auth to your Next backend, you'll need to install the `@thirdweb-dev/auth` package (as well as any other packages you'll need for your [wallet configuration](/wallets/auth/wallet-configuration), we'll need the `ethers` package for this example as we'll be using the `PrivateKeyWallet`):
 
 ```bash npm2yarn
 npm install @thirdweb-dev/auth ethers@5
 ```
 
-Now we can setup our Next.js server by using the `@thirdweb-dev/auth/next` entrypoint. First, we need to setup our [Auth API](/wallets/auth/how-it-works/api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:
+Now we can setup our server with Auth using either the standard `pages` directory, or the Next 13 `app` directory. We'll explore how to use both setups below.
+
+### Pages Directory Setup
+
+We can setup the server with the `pages` directory by using the `@thirdweb-dev/auth/next` entrypoint. First, we need to setup our [Auth API](/wallets/auth/how-it-works/api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
@@ -56,6 +65,35 @@ export default ThirdwebAuthHandler();
 ```
 
 Here, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entrypoint, but there are a number of other supported wallet setups, which you can learn more about on the wallet configuration page:
+
+<Stack>
+	<ArticleIconCard
+		title="Wallet Configuration"
+		href="/wallets/auth/wallet-configuration"
+		description="Learn more about how to configure your wallet for Auth."
+	/>
+</Stack>
+
+Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to setup a full Auth API on our Next.js backend!
+
+
+### App Router Setup
+
+Alternatively, we can setup auth using the app router. We can setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `app/api/auth/[...thirdweb]/route.ts` as follows:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+import { ThirdwebAuthAppRouter } from "@thirdweb-dev/auth/next";
+import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
+
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuthAppRouter({
+  domain: "example.com",
+  wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+});
+
+export { ThirdwebAuthHandler as GET, ThirdwebAuthHandler as POST };
+```
+
+Like above, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entrypoint, but there are a number of other supported wallet setups, which you can learn more about on the wallet configuration page:
 
 <Stack>
 	<ArticleIconCard

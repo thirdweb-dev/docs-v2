@@ -1,3 +1,11 @@
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "thirdweb Storage",
+	description:
+		"Storage is a decentralized file management solution that allows for the storage and retrieval of information off-chain using IPFS",
+});
+
 # Storage
 
 Storage is a decentralized file management solution that allows for the storage and retrieval of information "off-chain" using [IPFS](/glossary/ipfs). With Storage, you can upload and pin files to IPFS and retrieve them at any time using IPFS gateway.
@@ -21,6 +29,6 @@ A gateway is a server that acts as an intermediary between a client and a decent
 
 #### Pricing & Billing
 
-Storage offers usage-based pricing based on the amount of data uploaded and pinned per account. The first 50 GB is free, and each additional gigabyte incurs a charge of $0.10 per billing cycle.
+Storage offers usage-based pricing based on the amount of data uploaded and pinned per account. The first 1 GB is free, and each additional gigabyte incurs a charge of $0.10 per billing cycle.
 
 If you're interested in upgrading your storage limits, you can find more information on the different tiers by visiting [thirdweb's pricing page](https://thirdweb.com/pricing).

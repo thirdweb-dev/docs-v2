@@ -30,6 +30,10 @@ export const sidebar: SideBar = {
 					href: "/wallets/connect/ConnectWallet",
 				},
 				{
+					name: "ConnectEmbed",
+					href: "/wallets/connect/ConnectEmbed",
+				},
+				{
 					name: "Build Custom Experience",
 					href: "/wallets/connect/custom",
 				},
@@ -294,12 +298,6 @@ export const sidebar: SideBar = {
 					href: `${authSlug}/faq`,
 				},
 			],
-		},
-		// Wallet SDK
-		{ separator: true },
-		{
-			name: "Wallet SDK",
-			href: "/wallet-sdk/latest",
 		},
 	],
 };
