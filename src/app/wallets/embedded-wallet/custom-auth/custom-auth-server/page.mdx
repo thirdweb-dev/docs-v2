@@ -95,7 +95,7 @@ const handlePostLogin = async () => {
 		strategy: "auth_endpoint",
 		// in production this would be your public identifier for the user
 		payload: JSON.stringify({ userId: "ANY_RANDOM_ID_HERE" }),
-		encryptionKey: "ANY_RANDOM_STRING_HERE",
+		encryptionKey: "your-encryption-key",
 	});
 };
 ```
@@ -111,14 +111,14 @@ import { EmbeddedWallet } from "@thirdweb-dev/wallets";
 import { Goerli } from "@thirdweb-dev/chains";
 
 const embeddedWallet = new EmbeddedWallet({
-  chain: Goerli, //  chain to connect to
-  clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+	chain: Goerli, //  chain to connect to
+	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
 
 const authResult = await embeddedWallet.authenticate({
-  strategy: "auth_endpoint",
-  payload: JSON.stringify({ userId:"ANY_RANDOM_ID_HERE" }),
-  encryptionKey: "ANY_RANDOM_STRING_HERE"=
+	strategy: "auth_endpoint",
+	payload: JSON.stringify({ userId: "ANY_RANDOM_ID_HERE" }),
+	encryptionKey: "your-encryption-key",
 });
 
 const walletAddress = await embeddedWallet.connect({ authResult });
@@ -126,6 +126,10 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 
 </TabsContent>
 </Tabs>
+
+You can set your encryptionKey in either a secret env variable or ask the user to enter a password for it.
+
+** Do not hardcode the encryptionKey in your code. **
 
 A persistent, cross-platform wallet is now created for your user!
 

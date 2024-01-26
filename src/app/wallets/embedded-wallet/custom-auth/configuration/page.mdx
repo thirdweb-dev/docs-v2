@@ -107,23 +107,9 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 </TabsContent>
 </Tabs>
 
-You can use the following function to generate your `encryptionKey`:
+You can set your encryptionKey in either a secret env variable or ask the user to enter a password for it.
 
-```jsx
-export function getEncryptionKey(jwt: string): string {
-  const parts = jwt.split(".");
-  if (parts.length !== 3) {
-    throw new Error("Invalid JWT format.");
-  }
-
-  const encodedPayload = parts[1];
-  if (!encodedPayload) {
-    throw new Error("Invalid JWT format.");
-  }
-  const decodePayload = JSON.parse(Buffer.from(encodedPayload, "base64").toString("utf8"))
-  return decodedPayload.sub;
-}
-```
+** Do not hardcode the encryptionKey in your code. **
 
 #### Generic auth
 
@@ -148,6 +134,7 @@ const handlePostLogin = async (jwt: string) => {
 	await embeddedWallet.connect({
 		strategy: "auth_endpoint",
 		payload,
+		encryptionKey: "your-encryption-key",
 	});
 };
 ```
@@ -170,6 +157,7 @@ const embeddedWallet = new EmbeddedWallet({
 const authResult = await embeddedWallet.authenticate({
 	strategy: "auth_endpoint",
 	payload,
+	encryptionKey: "your-encryption-key",
 });
 
 const walletAddress = await embeddedWallet.connect({ authResult });
@@ -177,3 +165,7 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 
 </TabsContent>
 </Tabs>
+
+You can set your encryptionKey in either a secret env variable or ask the user to enter a password for it.
+
+** Do not hardcode the encryptionKey in your code. **
