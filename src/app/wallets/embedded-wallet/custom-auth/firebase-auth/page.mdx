@@ -152,23 +152,9 @@ await connectEmbedded({
 });
 ```
 
-You can use the following function to extract your encryption key:
+You can set your encryptionKey in either a secret env variable or ask the user to enter a password for it.
 
-```jsx
-export function getEncryptionKey(jwt: string): string {
-  const parts = jwt.split(".");
-  if (parts.length !== 3) {
-    throw new Error("Invalid JWT format.");
-  }
-
-  const encodedPayload = parts[1];
-  if (!encodedPayload) {
-    throw new Error("Invalid JWT format.");
-  }
-  const decodePayload = JSON.parse(Buffer.from(encodedPayload, "base64").toString("utf8"))
-  return decodedPayload.sub;
-}
-```
+** Do not hardcode the encryptionKey in your code. **
 
 After the connectEmbedded function returns, the ThirdwebProvider will have connected a wallet thereby granting access to all hooks and functionalities.
 
