@@ -101,11 +101,7 @@ export function getTDocPage(options: {
 	}
 
 	async function generateMetadata(props: PageProps): Promise<Metadata> {
-		const version = await getVersions();
 		const docName = props.params.slug ? props.params.slug[0] : undefined;
-
-		const docs = await Promise.all(version.map((v) => getDoc(v)));
-		const slugToDocs = docs.map((doc) => getSlugToDocMap(doc));
 
 		if (!docName) {
 			return {
@@ -113,14 +109,8 @@ export function getTDocPage(options: {
 			};
 		}
 
-		const selectedDoc = docName && slugToDocs.find((doc) => doc[docName]);
-
-		if (!selectedDoc) {
-			notFound();
-		}
-
 		return {
-			title: `${selectedDoc.name} - ${sdkTitle}`,
+			title: `${docName} - ${sdkTitle}`,
 		};
 	}
 
