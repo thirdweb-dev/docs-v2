@@ -19,7 +19,7 @@ export async function getAllTSReferencesLinks() {
 
 	const [typescriptDoc, reactCode, reactNativeDoc, walletsDoc, storageDoc] =
 		await Promise.all([
-			fetchTypeScriptDoc(),
+			fetchTypeScriptDoc("v4"),
 			fetchReactDoc(),
 			fetchReactNativeDoc(),
 			fetchWalletsDoc(),

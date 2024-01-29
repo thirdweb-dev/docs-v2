@@ -1,0 +1,19 @@
+# Contract
+
+A "contract" is a wrapper around a smart contract that is deployed on a chain. It is what you use to create transactions and read contract state
+
+```ts
+import { createClient, contract } from "thirdweb";
+
+const client = createClient({...})
+const myContract = contract({
+  // pass in the client
+  client,
+  // pass the contract address
+  address: "0x123...",
+  // and the chainId
+  chainId: 5,
+  // OPTIONALLY the contract's abi
+  abi: [...],
+})
+```

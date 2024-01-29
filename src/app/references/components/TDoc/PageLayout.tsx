@@ -20,9 +20,9 @@ export function getTDocPage(options: {
 	getDoc: (version: string) => Promise<TransformedDoc>;
 	sdkTitle: string;
 	packageSlug: string;
-	getLatestVersion: () => Promise<string>;
+	getVersions: () => Promise<string[]>;
 }) {
-	const { getDoc, sdkTitle, packageSlug, getLatestVersion } = options;
+	const { getDoc, sdkTitle, packageSlug, getVersions } = options;
 
 	async function Page(props: PageProps) {
 		const version = props.params.version;
@@ -76,28 +76,36 @@ export function getTDocPage(options: {
 
 	// statically generate pages for latest version
 	async function generateStaticParams(): Promise<PageProps["params"][]> {
-		const version = await getLatestVersion();
-		const slugs = fetchAllSlugs(await getDoc(version));
+		const versions = await getVersions();
 
-		return [
-			...slugs.map((slug) => {
-				return {
-					slug: [slug] as [docName: string],
-					version: version,
-				};
+		const returnVal = await Promise.all(
+			versions.map(async (version) => {
+				const slugs = fetchAllSlugs(await getDoc(version));
+
+				return [
+					...slugs.map((slug) => {
+						return {
+							slug: [slug] as [docName: string],
+							version: version,
+						};
+					}),
+					{
+						slug: undefined,
+						version: version,
+					},
+				];
 			}),
-			{
-				slug: undefined,
-				version: version,
-			},
-		];
+		);
+
+		return returnVal.flat();
 	}
 
 	async function generateMetadata(props: PageProps): Promise<Metadata> {
-		const version = await getLatestVersion();
+		const version = await getVersions();
 		const docName = props.params.slug ? props.params.slug[0] : undefined;
-		const doc = await getDoc(version);
-		const slugToDoc = getSlugToDocMap(doc);
+
+		const docs = await Promise.all(version.map((v) => getDoc(v)));
+		const slugToDocs = docs.map((doc) => getSlugToDocMap(doc));
 
 		if (!docName) {
 			return {
@@ -105,7 +113,7 @@ export function getTDocPage(options: {
 			};
 		}
 
-		const selectedDoc = docName && slugToDoc[docName];
+		const selectedDoc = docName && slugToDocs.find((doc) => doc[docName]);
 
 		if (!selectedDoc) {
 			notFound();

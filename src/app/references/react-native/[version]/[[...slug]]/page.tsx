@@ -5,8 +5,8 @@ const config = getTDocPage({
 	sdkTitle: "React Native SDK",
 	getDoc: fetchReactNativeDoc,
 	packageSlug: "react-native",
-	async getLatestVersion() {
-		return "v0";
+	async getVersions() {
+		return ["v0"];
 	},
 });
 

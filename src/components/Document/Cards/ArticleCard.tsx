@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,16 +27,20 @@ export function ArticleCard(props: {
 
 export function ArticleIconCard(props: {
 	title: string;
-	description: string;
+	description?: string;
 	href: string;
 	image?: StaticImport;
 	icon?: React.FC<{ className?: string }>;
+	className?: string;
 }) {
 	const isExternal = props.href.startsWith("http");
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border-2 bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className={cn(
+				"flex items-center gap-4 rounded-lg border-2 bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900",
+				props.className,
+			)}
 			target={isExternal ? "_blank" : undefined}
 		>
 			{props.icon && (
@@ -44,7 +49,7 @@ export function ArticleIconCard(props: {
 			{props.image && (
 				<Image src={props.image} alt={""} className="h-8 w-8 shrink-0" />
 			)}
-			<div className="flex flex-col gap-2">
+			<div className="flex flex-col gap-1">
 				<h3 className="text-base font-semibold text-f-100 lg:text-lg">
 					{props.title}
 				</h3>

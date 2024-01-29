@@ -1,0 +1,14 @@
+# Client
+
+A client is the entry point to the thirdweb SDK. It is required for all other actions.
+
+```ts
+import { createClient } from "thirdweb";
+
+const client = createClient({
+	// one of these is required to initialize a client - create a free api key at https://thirdweb.com/dashboard
+	secretKey: "<you secret key>",
+	// or
+	clientId: "<your client id>",
+});
+```
