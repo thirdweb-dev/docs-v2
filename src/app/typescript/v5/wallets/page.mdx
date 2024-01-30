@@ -9,7 +9,7 @@ Currently available:
 For usage in browsers.
 
 ```ts
-import { metamaskWallet } from "thirdweb/wallets/metamask";
+import { metamaskWallet } from "thirdweb/wallets";
 
 const wallet = await metamaskWallet();
 ```
@@ -19,7 +19,7 @@ const wallet = await metamaskWallet();
 For usage in backend environments.
 
 ```ts
-import { privateKeyWallet } from "thirdweb/wallets/private-key";
+import { privateKeyWallet } from "thirdweb/wallets";
 
 const wallet = privateKeyWallet({ client, privateKey: "<your private key>" });
 ```
