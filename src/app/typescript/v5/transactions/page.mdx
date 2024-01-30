@@ -1,10 +1,16 @@
+import { Details } from "@doc";
+
 # Transactions
 
-Transactions are the primary way to interact with smart contracts. They are created using the `transaction` function.
+Transactions are the primary way to interact with smart contracts.
+
+## Prepare a transaction
+
+Transactions are created using the `prepareTransaction` function.
 
 There are 4 ways to create a transaction, all of these return the same transaction object.
 
-## Method Signature
+<Details summary="Method Signature" id='method-signature'>
 
 ```ts
 import { prepareTransaction } from "thirdweb";
@@ -19,7 +25,9 @@ const tx = prepareTransaction({
 });
 ```
 
-## 1. Automatic ABI Resolution
+</Details>
+
+<Details summary="Automatic ABI Resolution" id='automatic-abi-resolution'>
 
 ```ts
 import { prepareTransaction } from "thirdweb";
@@ -32,13 +40,16 @@ const tx = prepareTransaction({
 });
 ```
 
-## 2. Explicit Contract ABI
+</Details>
+
+<Details summary="Explicit Contract ABI" id='explicit-abi'>
 
 ```ts
 import { getContract, prepareTransaction } from "thirdweb";
 
 const contract = getContract({
-  {...}
+  client,
+	chainId,
   // the abi for the contract is defined here
   abi: [
     ...
@@ -69,13 +80,16 @@ const tx = prepareTransaction({
 });
 ```
 
-## 3. ABI Snippet
+</Details>
+
+<Details summary="ABI snippet" id='abi-snippet'>
 
 ```ts
 import { prepareTransaction } from "thirdweb";
+
 const tx = prepareTransaction({
 	contract,
-	// in this case we pass the piece of the abi for the method we want to call
+	// Pass a snippet of the ABI for the method you want to call.
 	abi: {
 		name: "mintTo",
 		inputs: [
@@ -90,46 +104,56 @@ const tx = prepareTransaction({
 		],
 		type: "function",
 	},
-	// types are automatically inferred based on the ABI inputs
+	// The Types of `params` are automatically inferred based on the ABI inputs.
 	params: ["0x123...", 100n * 10n ** 18n],
 });
 ```
 
-## 4. Actions
+</Details>
+
+## Calling actions on a transaction
 
 Transactions have a variety of actions that can be called on them, in all cases this is done by calling the action on the transaction object itself.
 
-### `read` - reading contract state
+<Details summary='readTransaction'>
 
 For reading contract state, there is a shortcut function called `read` that can be used instead of `transaction`:
 
 ```ts
 import { readContract } from "thirdweb";
 
-// output type is automatically inferred based on the method signature
 const balance = await readContract({
-	//    ^ bigint
 	contract: contract,
 	method: "function balanceOf(address) view returns (uint256)",
 	params: ["0x123..."],
 });
+
+// output type is automatically inferred based on the method signature
+// here, balance is inferred to be a bigint
 ```
 
-Which is the equivalent of doing:
+This is the equivalent of doing the following:
 
 ```ts
-import { transaction, readTransaction } from "thirdweb";
+import { prepareTransaction, readTransaction } from "thirdweb";
 
-const tx = transaction({
+const tx = prepareTransaction({
 	contract,
 	method: "function balanceOf(address) view returns (uint256)",
 	params: ["0x123..."],
 });
 
 const balance = await readTransaction(tx);
+
+// output type is automatically inferred based on the method signature
+// here, balance is inferred to be a bigint
 ```
 
-### `estimateGas` - estimating gas cost for a tx
+</Details>
+
+<Details summary='estimateGas'>
+
+Estimating gas cost for a transaction
 
 ```ts
 import { estimateGas } from "thirdweb";
@@ -137,9 +161,13 @@ import { estimateGas } from "thirdweb";
 const gasEstimate = await estimateGas({ transaction });
 ```
 
-### `sendTransaction` - sending a transaction
+</Details>
 
-See [Wallets](#wallets) for more information on how to send a transaction.
+<Details summary='sendTransaction'>
+
+Send the prepared transaction to the blockchain. Sending a transaction requires a wallet.
+
+See [Wallets](/typescript/v5/wallets) for more information on how to create a wallet.
 
 ```ts
 import { sendTransaction } from "thirdweb";
@@ -153,12 +181,23 @@ const transactionResult = await sendTransaction({
 });
 ```
 
-### `waitForReceipt` - waiting for a transaction to be mined
+</Details>
+
+<Details summary="waitForReceipt">
+
+Wait for a transaction to be mined and get the transaction receipt.
 
 ```ts
 import { waitForReceipt } from "thirdweb";
 
-// get the result from "sendTransaction()"
+const wallet = privateKeyWallet({ client });
+
+const transactionResult = await sendTransaction({
+	transaction,
+	wallet,
+});
 
 const receipt = await waitForReceipt(transactionResult);
 ```
+
+</Details>
