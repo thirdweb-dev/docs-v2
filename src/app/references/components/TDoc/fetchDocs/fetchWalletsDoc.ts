@@ -3,7 +3,7 @@ import { transform } from "typedoc-better-json";
 
 export async function fetchWalletsDoc() {
 	const doc = await fetchJSON(
-		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/wallets/typedoc/documentation.json",
+		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/wallets/typedoc/documentation.json.gz",
 	);
 	return transform(doc as any);
 }
