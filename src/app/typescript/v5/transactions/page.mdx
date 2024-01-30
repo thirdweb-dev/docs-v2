@@ -7,10 +7,10 @@ There are 4 ways to create a transaction, all of these return the same transacti
 ## Method Signature
 
 ```ts
-import { transaction } from "thirdweb/transaction";
+import { prepareTransaction } from "thirdweb";
 
-const tx = transaction({
-	client: myContract,
+const tx = prepareTransaction({
+	contract,
 	// pass the method signature that you want to call
 	method: "function mintTo(address to, uint256 amount)",
 	// and the params for that method
@@ -22,9 +22,9 @@ const tx = transaction({
 ## 1. Automatic ABI Resolution
 
 ```ts
-import { transaction } from "thirdweb/transaction";
-const tx = transaction({
-	client: myContract,
+import { prepareTransaction } from "thirdweb";
+const tx = prepareTransaction({
+	contract,
 	// in this case we only pass the name of the method we want to call
 	method: "mintTo",
 	// however using this method we lose type safety for our params
@@ -35,10 +35,9 @@ const tx = transaction({
 ## 2. Explicit Contract ABI
 
 ```ts
-import { contract } from "thirdweb";
-import { transaction } from "thirdweb/transaction";
+import { getContract, prepareTransaction } from "thirdweb";
 
-const myContract = contract({
+const contract = getContract({
   {...}
   // the abi for the contract is defined here
   abi: [
@@ -61,8 +60,8 @@ const myContract = contract({
   ],
 });
 
-const tx = transaction({
-  client: myContract,
+const tx = prepareTransaction({
+  contract,
   // we get auto-completion for all the available functions on the contract ABI
   method: "mintTo",
   // including full type-safety for the params
@@ -73,9 +72,9 @@ const tx = transaction({
 ## 3. ABI Snippet
 
 ```ts
-import { transaction } from "thirdweb/transaction";
-const tx = transaction({
-	client: myContract,
+import { prepareTransaction } from "thirdweb";
+const tx = prepareTransaction({
+	contract,
 	// in this case we pass the piece of the abi for the method we want to call
 	abi: {
 		name: "mintTo",
