@@ -104,12 +104,12 @@ Transactions have a variety of actions that can be called on them, in all cases 
 For reading contract state, there is a shortcut function called `read` that can be used instead of `transaction`:
 
 ```ts
-import { read } from "thirdweb/transaction";
+import { readContract } from "thirdweb";
 
 // output type is automatically inferred based on the method signature
-const balance = await read({
+const balance = await readContract({
 	//    ^ bigint
-	client: myContract,
+	contract: contract,
 	method: "function balanceOf(address) view returns (uint256)",
 	params: ["0x123..."],
 });
@@ -118,23 +118,23 @@ const balance = await read({
 Which is the equivalent of doing:
 
 ```ts
-import { transaction, readTx } from "thirdweb/transaction";
+import { transaction, readTransaction } from "thirdweb";
 
 const tx = transaction({
-	client: myContract,
+	contract,
 	method: "function balanceOf(address) view returns (uint256)",
 	params: ["0x123..."],
 });
 
-const balance = await readTx(tx);
+const balance = await readTransaction(tx);
 ```
 
 ### `estimateGas` - estimating gas cost for a tx
 
 ```ts
-import { estimateGas } from "thirdweb/transaction";
+import { estimateGas } from "thirdweb";
 
-const gasEstimate = await estimateGas(tx);
+const gasEstimate = await estimateGas({ transaction });
 ```
 
 ### `sendTransaction` - sending a transaction
@@ -142,17 +142,23 @@ const gasEstimate = await estimateGas(tx);
 See [Wallets](#wallets) for more information on how to send a transaction.
 
 ```ts
-import { privateKeyWallet } from "thirdweb/wallets/private-key";
+import { sendTransaction } from "thirdweb";
+import { privateKeyWallet } from "thirdweb/wallets";
 
 const wallet = privateKeyWallet({ client });
 
-const { transactionHash } = await wallet.sendTransaction(tx);
+const transactionResult = await sendTransaction({
+	transaction,
+	wallet,
+});
 ```
 
 ### `waitForReceipt` - waiting for a transaction to be mined
 
 ```ts
-import { waitForReceipt } from "thirdweb/transaction";
+import { waitForReceipt } from "thirdweb";
 
-const receipt = await waitForReceipt(tx);
+// get the result from "sendTransaction()"
+
+const receipt = await waitForReceipt(transactionResult);
 ```
