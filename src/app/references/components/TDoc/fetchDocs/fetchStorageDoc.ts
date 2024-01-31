@@ -3,7 +3,7 @@ import { transform } from "typedoc-better-json";
 
 export async function fetchStorageDoc() {
 	const doc = await fetchJSON(
-		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/storage/typedoc/documentation.json",
+		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/storage/typedoc/documentation.json.gz",
 	);
 	return transform(doc as any);
 }

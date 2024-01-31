@@ -20,24 +20,15 @@ export const sidebar: SideBar = {
 					href: `${solutionsSlug}/gaming/overview`,
 				},
 				{
+					name: "Unity",
+					href: "/unity",
+				},
+				{
 					name: "Unreal Engine",
 					links: [
 						{
 							name: "Quickstart",
 							href: `${solutionsSlug}/gaming/unreal-engine/quickstart`,
-						},
-					],
-				},
-				{
-					name: "Full Reference",
-					links: [
-						{
-							name: "Unity",
-							href: "/unity",
-						},
-						{
-							name: "Engine API",
-							href: "/infrastructure/engine/references/api-reference",
 						},
 					],
 				},

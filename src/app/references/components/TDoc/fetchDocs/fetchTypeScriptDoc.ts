@@ -3,11 +3,11 @@ import { transform } from "typedoc-better-json";
 
 export async function fetchTypeScriptDoc(version: string) {
 	let src =
-		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/sdk/typedoc/documentation.json";
+		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/sdk/typedoc/documentation.json.gz";
 
 	if (version === "v5") {
 		src =
-			"https://raw.githubusercontent.com/thirdweb-dev/js/alpha/packages/thirdweb/typedoc/documentation.json";
+			"https://raw.githubusercontent.com/thirdweb-dev/js/alpha/packages/thirdweb/typedoc/documentation.json.gz";
 	}
 
 	const doc = await fetchJSON(src);
