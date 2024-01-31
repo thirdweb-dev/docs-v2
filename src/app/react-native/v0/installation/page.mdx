@@ -26,9 +26,9 @@ import { InstallTabs, Tabs, TabsList, TabsTrigger, TabsContent } from "@doc";
 <TabsContent value="cli_project">
 	<InstallTabs
 		thirdwebInstallSupported
-		npm="npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-		yarn="yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-		pnpm="pnpm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
+		npm="npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values 'react-native-svg@^13.9.0' react-native-mmkv @react-native-async-storage/async-storage"
+		yarn="yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values 'react-native-svg@^13.9.0' react-native-mmkv @react-native-async-storage/async-storage"
+		pnpm="pnpm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values 'react-native-svg@^13.9.0' react-native-mmkv @react-native-async-storage/async-storage"
 	/>
 
 Our wallets package uses the Expo Modules API, please [configure it](https://docs.expo.dev/modules/overview/) in your app:
@@ -61,26 +61,24 @@ In your `metro.config.js` (please, create one if you don’t have it) add the fo
 <TabsContent value="rn_cli">
 
 ```javascript
+const { getDefaultConfig } = require("expo/metro-config");
+const { mergeConfig } = require("@react-native/metro-config");
+
 /**
- * Metro configuration for React Native
- * https://github.com/facebook/react-native
+ * Metro configuration
+ * https://facebook.github.io/metro/docs/configuration
  *
- * @format
+ * @type {import('metro-config').MetroConfig}
  */
 const extraNodeModules = require("node-libs-browser");
-module.exports = {
+
+const config = {
 	resolver: {
-		extraNodeModules,
-	},
-	transformer: {
-		getTransformOptions: async () => ({
-			transform: {
-				experimentalImportSupport: false,
-				inlineRequires: true,
-			},
-		}),
+		extraNodeModules: extraNodeModules,
 	},
 };
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
 ```
 
 </TabsContent>
@@ -122,9 +120,9 @@ Now, we can add the dependencies:
 
 <InstallTabs
 	thirdwebInstallSupported
-	npm="npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-	yarn="yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
-	pnpm="pnpm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage"
+	npm="npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values 'react-native-svg@^13.9.0' react-native-mmkv @react-native-async-storage/async-storage"
+	yarn="yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values 'react-native-svg@^13.9.0' react-native-mmkv @react-native-async-storage/async-storage"
+	pnpm="pnpm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values 'react-native-svg@^13.9.0' react-native-mmkv @react-native-async-storage/async-storage"
 />
 
 Our wallets package uses the Expo Modules API, please [configure it](https://docs.expo.dev/modules/overview/) in your app:
