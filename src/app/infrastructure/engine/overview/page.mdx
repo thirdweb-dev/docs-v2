@@ -1,6 +1,5 @@
-import { DocImage } from "@doc";
 import OverviewImage from "../assets/engine-overview.png";
-import { ArticleCard, Grid, OpenSourceCard } from "@doc";
+import { Callout, DocImage, OpenSourceCard } from "@doc";
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
@@ -22,21 +21,16 @@ Engine is a backend HTTP server that calls smart contracts using your managed ba
 - <strong>Get a complete web3 infrastructure</strong> already set up with RPC, IPFS,
   and account abstraction infrastructure.
 
-<Grid className='lg:grid-cols-2'>
+<Callout
+	title="Get started 🚀"
+	variant="info"
+>
 
-<ArticleCard
-	title="Cloud-host for $99/month"
-	description="Host Engine on thirdweb with no setup or maintenance."
-	href="https://share.hsforms.com/1k5tu00ueS5OYMaxHK6De-gea58c"
-/>
+**[Get Engine hosted by thirdweb.](https://thirdweb.com/dashboard/engine?requestCloudHosted)**
 
-<ArticleCard
-	title="Self-host for free"
-	description="Host Engine on your own infrastructure with minimal setup."
-	href="/infrastructure/engine/get-started"
-/>
+Or [self-host](/infrastructure/engine/self-host) for free.
 
-</Grid>
+</Callout>
 
 <DocImage
 	src={OverviewImage}

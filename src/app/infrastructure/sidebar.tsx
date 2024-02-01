@@ -32,6 +32,10 @@ export const sidebar: SideBar = {
 					href: `${engineSlug}/production-checklist`,
 				},
 				{
+					name: "Self-Host",
+					href: `${engineSlug}/self-host`,
+				},
+				{
 					name: "Features",
 					links: [
 						{
@@ -43,8 +47,8 @@ export const sidebar: SideBar = {
 							href: `${engineSlug}/features/contracts`,
 						},
 						{
-							name: "Authentication",
-							href: `${engineSlug}/features/authentication`,
+							name: "Permissions",
+							href: `${engineSlug}/features/permissions`,
 						},
 						{
 							name: "Webhooks",
@@ -98,7 +102,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		//Storage
+		// Storage
 		{ separator: true },
 		{
 			name: "Storage",
