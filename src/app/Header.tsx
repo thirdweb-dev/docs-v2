@@ -89,7 +89,7 @@ const supportLinks = [
 	},
 	{
 		name: "Contact Us",
-		href: "https://thirdweb.com/contact-us",
+		href: "https://thirdweb.com/support",
 	},
 ];
 
