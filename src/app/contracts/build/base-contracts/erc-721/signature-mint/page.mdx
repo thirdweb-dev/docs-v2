@@ -1,7 +1,14 @@
 import { Details } from "@doc";
 import { GithubButtonLink } from "@doc";
+import { createMetadata } from "@doc";
 
-# ERC721 Signature Mint
+export const metadata = createMetadata({
+	title: "ERC721SignatureMint | thirdweb contracts",
+	description:
+		"The ERC721SignatureMint smart contract uses the ERC721Base base contract along with the SignatureMintERC721 contract extension",
+});
+
+# ERC721SignatureMint
 
 ```solidity
 import "@thirdweb-dev/contracts/base/ERC721SignatureMint.sol";
