@@ -192,3 +192,24 @@ type JwtAuthParams = {
 	encryptionKey: string;
 };
 ```
+
+## Deleting an Account
+
+You can delete an account by calling, `deleteActiveAccount` from the EmbeddedWallet instance:
+
+```tsx
+function App() {
+	const activeWallet = useWallet();
+
+	const deleteAccount = async () => {
+		await (activeWallet as EmbeddedWallet).deleteActiveAccount();
+	};
+
+	return <View> ... </View>;
+}
+```
+
+### Apple App Store Guidelines
+
+If you want to publish your app to the App Store you will need to allow users to delete their account. You
+can use the `deleteActiveAccount` method for this purpose.
