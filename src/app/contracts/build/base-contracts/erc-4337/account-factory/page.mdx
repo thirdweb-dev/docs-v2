@@ -1,7 +1,14 @@
 import { Details, Callout } from "@doc";
 import { GithubButtonLink } from "@doc";
+import { createMetadata } from "@doc";
 
-# Account Factory
+export const metadata = createMetadata({
+	title: "AccountFactory | thirdweb contracts",
+	description:
+		"This factory smart contract is intended to be used to distribute 'Accounts` programmatically",
+});
+
+# AccountFactory
 
 ```solidity
 import "@thirdweb-dev/contracts/smart-wallet/non-upgradeable/AccountFactory.sol";
