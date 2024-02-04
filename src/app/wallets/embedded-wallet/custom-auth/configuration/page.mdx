@@ -44,7 +44,7 @@ Generic auth is a lower level option that can be used when you have your own aut
 
 - When a user logs in, you are able to generate a public identifier that allows you to identify the user.
 - You can pass this identifier to the embedded wallet to generate a wallet for the user.
-- When verifying the user, we will hit an endopint that you provide to verify the user's identity.
+- When verifying the user, we will hit an endpoint that you provide to verify the user's identity.
 - We will then generate a wallet for the user if the provided payload is valid.
 
 <DocImage src={EWCustomAuth} />
@@ -55,7 +55,7 @@ To use generic auth, enable the second option in the configuration tab of the em
 
 You will be asked to enter an endpoint that we can hit to verify the user's identity. This endpoint should accept a POST request with a JSON body containing the following fields:
 
-- `payload`: This will correspont to the public identifier that was generated for your user.
+- `payload`: This will correspond to the public identifier that was generated for your user.
 
 The endpoint should return a JSON body containing the following fields:
 
