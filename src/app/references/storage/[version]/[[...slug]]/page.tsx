@@ -5,8 +5,8 @@ const config = getTDocPage({
 	sdkTitle: "Storage SDK",
 	getDoc: fetchStorageDoc,
 	packageSlug: "storage",
-	async getLatestVersion() {
-		return "v2";
+	async getVersions() {
+		return ["v2"];
 	},
 });
 

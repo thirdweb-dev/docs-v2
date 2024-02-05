@@ -1,0 +1,25 @@
+# Wallets
+
+_TODO: add more info._
+
+Currently available:
+
+## Metamask
+
+For usage in browsers.
+
+```ts
+import { metamaskWallet } from "thirdweb/wallets";
+
+const wallet = await metamaskWallet();
+```
+
+## Private Key
+
+For usage in backend environments.
+
+```ts
+import { privateKeyWallet } from "thirdweb/wallets";
+
+const wallet = privateKeyWallet({ client, privateKey: "<your private key>" });
+```
