@@ -1,5 +1,6 @@
 import { DocImage } from "@doc";
 import { createMetadata } from "@doc";
+import checkoutWithEthImage from "./assets/checkout-with-eth-demo.png";
 
 export const metadata = createMetadata({
 	title: "CheckoutWithEth | thirdweb Embedded Elements",
@@ -17,10 +18,7 @@ This component also handles:
 - Prompting the payment wallet to switch chain, if necessary
 - Informing the payment wallet they have insufficient funds
 
-<DocImage
-	src={require("./assets/checkout-with-eth-demo.png")}
-	alt="CheckoutWithEth Embed Demo"
-/>
+<DocImage src={checkoutWithEthImage} alt="CheckoutWithEth Embed Demo" />
 
 ## React Integration
 
