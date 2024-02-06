@@ -1,0 +1,10 @@
+# Extensions
+
+Extensions are "pre-compiled" [transactions](#transactions) for common actions. Their API is generally same as for transactions / reading contract state.
+
+They are namespaced by ERC standard, meaning you can import them like this:
+
+```ts
+// import the `balanceOf` and `mintTo` extensions for the ERC20 standard
+import { balanceOf, mintTo } from "thirdweb/extensions/erc20";
+```

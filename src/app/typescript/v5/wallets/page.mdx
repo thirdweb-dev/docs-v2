@@ -1,0 +1,47 @@
+# Wallets
+
+## Client Side Wallets
+
+### Metamask
+
+```ts
+import { metamaskWallet } from "thirdweb/wallets";
+
+const wallet = await metamaskWallet().connect();
+```
+
+### Coinbase Wallet
+
+```ts
+import { coinbaseWallet } from "thirdweb/wallets";
+
+const wallet = await coinbaseWallet().connect();
+```
+
+### Coinbase Wallet
+
+```ts
+import { coinbaseWallet } from "thirdweb/wallets";
+
+const wallet = await coinbaseWallet().connect();
+```
+
+### Rainbow Wallet
+
+```ts
+import { rainbowWallet } from "thirdweb/wallets";
+
+const wallet = await rainbowWallet().connect();
+```
+
+## Server Side Wallets
+
+### Private Key
+
+For usage in backend environments.
+
+```ts
+import { privateKeyWallet } from "thirdweb/wallets";
+
+const wallet = privateKeyWallet({ client, privateKey: "<your private key>" });
+```

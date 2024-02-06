@@ -1,0 +1,29 @@
+import { Details } from "@doc";
+
+# React
+
+If you are building a react app you can use the `/react` export.
+
+## Basic Setup
+
+```jsx
+import { createClient } from "thirdweb";
+import { ThirdwebProvider, ConnectWallet } from "thirdweb/react";
+
+const client = createClient({
+	clientId: "<your-client-id>",
+});
+
+function App() {
+	return (
+		<ThirdwebProvider client={client}>
+			<ConnectWallet />
+			<YourApp />
+		</ThirdwebProvider>
+	);
+}
+```
+
+[Available Components](/references/typescript/v5#components)
+
+[Available Hooks](/references/typescript/v5#hooks)

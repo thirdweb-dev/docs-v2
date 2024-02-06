@@ -27,7 +27,7 @@ export function Feedback() {
 						}}
 					>
 						Yes
-						<ThumbsUpIcon className="h-4 w-4 text-f-300" />
+						<ThumbsUpIcon className="size-4 text-f-300" />
 					</Button>
 
 					<Dialog>
@@ -41,22 +41,22 @@ export function Feedback() {
 								}}
 							>
 								No
-								<ThumbsDownIcon className="h-4 w-4 text-f-300" />
+								<ThumbsDownIcon className="size-4 text-f-300" />
 							</Button>
 						</DialogTrigger>
 
 						<DialogContent className="p-5">
 							<h3 className="mb-3 text-lg text-f-100">
-								{" "}
-								Apologies for any confusion.{" "}
+								Apologies for any confusion.
 							</h3>
-							<p className="mb-3 text-f-300" placeholder="Your feedback...">
+							<p className="mb-3 text-f-300">
 								Please provide details about the issue you encountered to help
 								us improve our documentation.
 							</p>
 							<textarea
 								className="mb-2 h-32 w-full rounded-sm border bg-b-700 p-2 text-f-300 outline-none"
 								value={feedback}
+								placeholder="Your feedback..."
 								onChange={(e) => {
 									setFeedback(e.target.value);
 								}}

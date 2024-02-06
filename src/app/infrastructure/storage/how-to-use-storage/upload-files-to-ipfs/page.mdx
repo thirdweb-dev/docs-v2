@@ -1,6 +1,9 @@
 import { Steps, Step, Callout, DocImage } from "@doc";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { createMetadata } from "@doc";
+import storageDashboardImage from "./assets/storage-dashboard.png";
+import stroageUploadImage from "./assets/storage-upload.png";
+import storageUrlsImage from "./assets/storage-urls.png";
 
 export const metadata = createMetadata({
 	title: "Upload Files to IPFS | thirdweb Storage",
@@ -25,17 +28,14 @@ To upload files using dashboard:
 <Step title="Storage Dashboard">
 Navigate to the [storage dashboard](https://thirdweb.com/dashboard/infrastructure/storage)
 
-<DocImage
-	src={require("./assets/storage-dashboard.png")}
-	alt="storage diagram"
-/>
+<DocImage src={storageDashboardImage} alt="storage diagram" />
 
 </Step>
 
 <Step title="Select files">
 Select your files or drag them into the upload box. Confirm that your files are correct, and then select "Start Upload.”
 
-<DocImage src={require("./assets/storage-upload.png")} alt="storage diagram" />
+<DocImage src={stroageUploadImage} alt="storage diagram" />
 
 <Callout title="Info" variant="info">
 	The duration of this process will depend on the amount of data uploaded.
@@ -47,7 +47,7 @@ Select your files or drag them into the upload box. Confirm that your files are 
 Upon completion, the corresponding IPFS addresses refers to where your content is stored on the IPFS Network. You may access these files using your unique gateway URL.
 
 <DocImage
-src={require("./assets/storage-urls.png")}
+src={storageUrlsImage}
 alt="storage diagram"
 />
 </Step>

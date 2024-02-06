@@ -1,4 +1,6 @@
 import { DocImage, OpenSourceCard, createMetadata } from "@doc";
+import firebaseUsersImage from "../../assets/firebase-users.png";
+import firebaseDBImage from "../../assets/firebase-db.png";
 
 export const metadata = createMetadata({
 	title: "Firebase | thirdweb",
@@ -248,10 +250,10 @@ service cloud.firestore {
 
 When you click the "Sign in with Ethereum" button and successfully sign in, you'll be signed up as a user in Firebase:
 
-<DocImage src={require("../../assets/firebase-users.png")} />
+<DocImage src={firebaseUsersImage} />
 
 And a new document will be created in your `users` collection in Firestore:
 
-<DocImage src={require("../../assets/firebase-db.png")} />
+<DocImage src={firebaseDBImage} />
 
 You can now use all the functionality of Firebase Authentication and Firestore to build your app!

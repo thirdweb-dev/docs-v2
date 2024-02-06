@@ -1,37 +1,30 @@
 import { gunzip } from "node:zlib";
 import { promisify } from "node:util";
 
-const fetchCache = new Map<string, Promise<any>>();
-
 export async function fetchJSON(url: string) {
-	if (fetchCache.has(url)) {
-		return fetchCache.get(url);
+	const response = await fetch(url, { cache: "no-store" });
+
+	if (!response.ok) {
+		throw new Error(response.statusText);
 	}
 
-	const fetchPromise = new Promise(async (resolve, reject) => {
-		const response = await fetch(url, { cache: "no-cache" });
-		if (!response.ok) {
-			reject(response);
+	if (url.endsWith(".json")) {
+		try {
+			return await response.json();
+		} catch (e) {
+			throw e;
 		}
-
-		if (url.endsWith(".json")) {
-			try {
-				resolve(await response.json());
-			} catch (e) {
-				reject(e);
-			}
-		} else if (url.endsWith(".json.gz")) {
-			try {
-				const arrayBuffer = await response.arrayBuffer();
-				const json = await promisify(gunzip)(arrayBuffer);
-				resolve(JSON.parse(json.toString()));
-			} catch (e) {
-				reject(e);
-			}
+	} else if (url.endsWith(".json.gz")) {
+		try {
+			const arrayBuffer = await response.arrayBuffer();
+			const json = await promisify(gunzip)(arrayBuffer);
+			return JSON.parse(json.toString());
+		} catch (e) {
+			throw e;
 		}
-		reject(new Error(`Unknown file type for ${url}`));
-	});
-	fetchCache.set(url, fetchPromise);
-
-	return fetchPromise;
+	}
+	if (!response.bodyUsed) {
+		await response.body?.cancel();
+	}
+	throw new Error("Unknown file type");
 }

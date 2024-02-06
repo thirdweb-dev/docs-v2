@@ -1,5 +1,6 @@
 import { Details, InstallTabs, createMetadata } from "@doc";
 import { WalletsBreadcrumb, CustomizeWalletConfigurator } from "../_components";
+import { DocLink } from "@/components/Document";
 
 export const metadata = createMetadata({
 	title: "Embedded Wallet | thirdweb React Native SDK",
@@ -192,3 +193,30 @@ type JwtAuthParams = {
 	encryptionKey: string;
 };
 ```
+
+## Deleting an Account
+
+You can delete an account by calling, `deleteActiveAccount` from the EmbeddedWallet instance:
+
+```tsx
+function App() {
+	const activeWallet = useWallet();
+
+	const deleteAccount = async () => {
+		await (activeWallet as EmbeddedWallet).deleteActiveAccount();
+	};
+
+	return <View> ... </View>;
+}
+```
+
+### Apple App Store Guidelines
+
+If you want to publish your app to the App Store you will need to allow users to delete their account as per [Apple's Guidelines](https://developer.apple.com/support/offering-account-deletion-in-your-app).
+You can use the `deleteActiveAccount` method for this purpose.
+
+### Try it out in our published apps
+
+[Android Google Play](https://play.google.com/store/search?q=thirdweb&c=apps&hl=en_US&gl=US)
+
+[Apple App Store](https://apps.apple.com/us/app/thirdweb-connect/id6471451064)

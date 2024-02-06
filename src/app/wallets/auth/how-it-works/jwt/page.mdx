@@ -1,4 +1,5 @@
 import { DocImage, createMetadata } from "@doc";
+import jsonWebTokensImage from "../../assets/json-web-tokens-1.png";
 
 export const metadata = createMetadata({
 	title: "JSON Web Tokens | thirdweb",
@@ -73,6 +74,6 @@ eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIweDllMWI4QTg2ZkZFRTRhNzE3NURBRTR
 
 You can verify that this is a valid JWT fully compatible with JWT standards by pasting it into a tool like the JWT visualizer on [jwt.io](https://jwt.io), where you'll see a screen like the following:
 
-<DocImage src={require("../../assets/json-web-tokens-1.png")} />
+<DocImage src={jsonWebTokensImage} />
 
 As you can see, the correct header and body data is picked up from our JWT and rendered on the right side of the screen!

@@ -13,7 +13,7 @@ export function WalletCard(props: WalletInfo) {
 					<Image
 						src={props.icon}
 						alt=""
-						className="h-20 w-20 rounded-[16px] border-2 bg-b-900 p-2 transition-transform duration-300 group-hover/wallet-card:scale-110 group-hover/wallet-card:border-accent-500 group-hover/wallet-card:bg-accent-900"
+						className="size-20 rounded-[16px] border-2 bg-b-900 p-2 transition-transform duration-300 group-hover/wallet-card:scale-110 group-hover/wallet-card:border-accent-500 group-hover/wallet-card:bg-accent-900"
 					/>
 					<Heading
 						id={props.label}

@@ -130,9 +130,9 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			{/* Search  */}
 			<div className="flex items-center gap-4 border-b px-4">
 				{searchQuery.isFetching ? (
-					<Spinner className="h-5 w-5" />
+					<Spinner className="size-5" />
 				) : (
-					<SearchIcon className="h-5 w-5 shrink-0 text-f-300" />
+					<SearchIcon className="size-5 shrink-0 text-f-300" />
 				)}
 
 				<Input
@@ -357,7 +357,7 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 						>
 							Search Docs
 							<div className="flex items-center gap-1 rounded-sm border bg-b-900 px-2 py-1 text-xs text-f-300">
-								<CommandIcon className="h-3 w-3" />K
+								<CommandIcon className="size-3" />K
 							</div>
 						</Button>
 					</DialogTrigger>
@@ -366,7 +366,7 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 				{!forDesktop && (
 					<DialogTrigger asChild>
 						<Button variant="ghost" className="px-3">
-							<SearchIcon className="h-5 w-5 text-f-300" />
+							<SearchIcon className="size-5 text-f-300" />
 						</Button>
 					</DialogTrigger>
 				)}
@@ -428,14 +428,14 @@ function SearchResultItem(props: {
 			onClick={props.onClick}
 		>
 			{props.type === "section" && (
-				<SectionIcon className="h-5 w-5 text-f-300" />
+				<SectionIcon className="size-5 text-f-300" />
 			)}
 
 			<div className="flex w-full flex-col gap-1">
 				<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
 					<div className="flex items-center gap-2">
 						{props.type === "page" && (
-							<FileTextIcon className="h-5 w-5 text-f-300" />
+							<FileTextIcon className="size-5 text-f-300" />
 						)}
 
 						{props.title}

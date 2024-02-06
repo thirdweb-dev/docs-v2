@@ -46,24 +46,8 @@ const links = [
 const sdkLinks = [
 	{
 		name: "TypeScript",
-		href: "/typescript/latest",
+		href: "/typescript-sdks",
 	},
-	{
-		name: "React",
-		href: "/react/latest",
-	},
-	{
-		name: "React Native",
-		href: "/react-native/latest",
-	},
-	// {
-	// 	name: "Python",
-	// 	href: "/python",
-	// },
-	// {
-	// 	name: "Go",
-	// 	href: "/go",
-	// },
 	{
 		name: "Unity",
 		href: "/unity",
@@ -71,14 +55,6 @@ const sdkLinks = [
 	{
 		name: "Solidity",
 		href: "/contracts/build/overview",
-	},
-	{
-		name: "Wallets",
-		href: "/wallet-sdk/latest",
-	},
-	{
-		name: "Storage",
-		href: "/storage-sdk/latest",
 	},
 ];
 
@@ -89,7 +65,7 @@ const supportLinks = [
 	},
 	{
 		name: "Contact Us",
-		href: "https://thirdweb.com/contact-us",
+		href: "https://thirdweb.com/support",
 	},
 ];
 
@@ -124,7 +100,7 @@ export function Header() {
 						className="p-2"
 						onClick={() => setShowBurgerMenu(!showBurgerMenu)}
 					>
-						<Menu className="h-7 w-7" />
+						<Menu className="size-7" />
 					</Button>
 				</div>
 

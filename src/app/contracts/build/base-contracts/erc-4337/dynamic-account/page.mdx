@@ -1,7 +1,14 @@
 import { Details, Callout } from "@doc";
 import { GithubButtonLink } from "@doc";
+import { createMetadata } from "@doc";
 
-# Dynamic Account
+export const metadata = createMetadata({
+	title: "DynamicAccount | thirdweb contracts",
+	description:
+		"App developers can issue DynamicAccount smart wallets programmatically by deploying a DynamicAccountFactory smart contract",
+});
+
+# DynamicAccount
 
 ```solidity
 import "@thirdweb-dev/contracts/smart-wallet/dynamic/DynamicAccount.sol";
