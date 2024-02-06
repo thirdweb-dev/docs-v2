@@ -34,7 +34,7 @@
 		"highlightjs-solidity": "^2.0.6",
 		"html-to-react": "^1.7.0",
 		"lucide-react": "^0.286.0",
-		"next": "~13.4",
+		"next": "~14.1.0",
 		"nextjs-toploader": "^1.5.3",
 		"posthog-js": "^1.96.1",
 		"prettier": "^3.0.3",

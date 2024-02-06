@@ -1,21 +1,30 @@
 import { fetchJSON } from "@/lib/fetchJSON";
 import { transform } from "typedoc-better-json";
-import { withCache } from "../../../../../lib/withCache";
+
+import { unstable_cache } from "next/cache";
+
+const URLv4 =
+	"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/sdk/typedoc/documentation.json.gz";
+const getv4Doc = unstable_cache(() => fetchJSON(URLv4), [URLv4], {
+	// revalidate at most every 15 minutes
+	revalidate: 15 * 60 * 1000,
+});
+
+const URLv5 =
+	"https://raw.githubusercontent.com/thirdweb-dev/js/alpha/packages/thirdweb/typedoc/documentation.json.gz";
+
+const getv5Doc = unstable_cache(() => fetchJSON(URLv5), [URLv5], {
+	// revalidate at most every 15 minutes
+	revalidate: 15 * 60 * 1000,
+});
 
 export async function fetchTypeScriptDoc(version: string) {
-	let URL =
-		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/sdk/typedoc/documentation.json.gz";
-
+	let doc;
 	if (version === "v5") {
-		URL =
-			"https://raw.githubusercontent.com/thirdweb-dev/js/alpha/packages/thirdweb/typedoc/documentation.json.gz";
+		doc = await getv5Doc();
+	} else {
+		doc = await getv4Doc();
 	}
-
-	const doc = await withCache(() => fetchJSON(URL), {
-		cacheKey: URL,
-		// cache for 10min
-		cacheTime: 10 * 60 * 1000,
-	});
 
 	return transform(doc as any);
 }
