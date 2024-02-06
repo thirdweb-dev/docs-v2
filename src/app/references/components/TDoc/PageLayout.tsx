@@ -28,7 +28,7 @@ export function getTDocPage(options: {
 		const version = props.params.version;
 		const doc = await getDoc(version);
 		const slugToDoc = getSlugToDocMap(doc);
-		const docSlug = props.params.slug ? props.params.slug[0] : undefined;
+		const docSlug = props.params.slug?.join("/");
 
 		if (!version) {
 			notFound();
@@ -85,7 +85,7 @@ export function getTDocPage(options: {
 				return [
 					...slugs.map((slug) => {
 						return {
-							slug: [slug] as [docName: string],
+							slug: slug.split("/") as [docName: string],
 							version: version,
 						};
 					}),
