@@ -55,6 +55,7 @@ export default async function Page(props: {
 			<div className="mb-8 border-t-2"></div>
 
 			{ReactHtmlParser(data.html || "", {
+				// @ts-expect-error - TODO: fix this
 				transform,
 			})}
 		</div>

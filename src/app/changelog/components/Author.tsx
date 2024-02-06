@@ -6,7 +6,7 @@ export function Author(props: { name: string; profileImage?: string | null }) {
 			{props.profileImage && (
 				<img
 					src={props.profileImage}
-					className="h-8 w-8 rounded-[50%]"
+					className="size-8 rounded-[50%]"
 					alt=""
 				/>
 			)}

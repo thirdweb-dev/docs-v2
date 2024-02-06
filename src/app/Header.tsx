@@ -100,7 +100,7 @@ export function Header() {
 						className="p-2"
 						onClick={() => setShowBurgerMenu(!showBurgerMenu)}
 					>
-						<Menu className="h-7 w-7" />
+						<Menu className="size-7" />
 					</Button>
 				</div>
 

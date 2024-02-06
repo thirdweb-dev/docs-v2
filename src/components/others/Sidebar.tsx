@@ -254,7 +254,7 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 					{props.name}
 					<ChevronDown
 						className={clsx(
-							"h-5 w-5 text-f-300 transition-transform",
+							"size-5 text-f-300 transition-transform",
 							open && "rotate-180",
 						)}
 					/>
@@ -301,7 +301,7 @@ function containsActiveHref(
 
 function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
 	if (isStaticImport(props.icon)) {
-		return <Image src={props.icon} alt="" className="h-5 w-5" />;
+		return <Image src={props.icon} alt="" className="size-5" />;
 	}
-	return <div className="[&>*]:h-5 [&>*]:w-5">{props.icon}</div>;
+	return <div className="[&>*]:size-5">{props.icon}</div>;
 }

@@ -9,7 +9,7 @@ import * as parserBabel from "prettier/plugins/babel";
 import * as estree from "prettier/plugins/estree";
 // html-to-react
 import { Parser, ProcessNodeDefinitions } from "html-to-react";
-import { ChildNode } from "domhandler";
+import type { DomElement } from "domhandler";
 // others
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -73,7 +73,7 @@ export async function CodeBlock(props: {
 	if (tokenLinks) {
 		const processingInstructions = [
 			{
-				shouldProcessNode: function (node: ChildNode) {
+				shouldProcessNode: function (node: DomElement) {
 					if (node.type === "text") return true;
 				},
 				processNode: function (node: Text) {

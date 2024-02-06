@@ -1,15 +1,21 @@
 import { fetchJSON } from "@/lib/fetchJSON";
 import { transform } from "typedoc-better-json";
+import { withCache } from "../../../../../lib/withCache";
 
 export async function fetchTypeScriptDoc(version: string) {
-	let src =
+	let URL =
 		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/sdk/typedoc/documentation.json.gz";
 
 	if (version === "v5") {
-		src =
+		URL =
 			"https://raw.githubusercontent.com/thirdweb-dev/js/alpha/packages/thirdweb/typedoc/documentation.json.gz";
 	}
 
-	const doc = await fetchJSON(src);
+	const doc = await withCache(() => fetchJSON(URL), {
+		cacheKey: URL,
+		// cache for 10min
+		cacheTime: 10 * 60 * 1000,
+	});
+
 	return transform(doc as any);
 }
