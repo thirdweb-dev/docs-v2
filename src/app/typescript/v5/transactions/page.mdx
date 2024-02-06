@@ -4,7 +4,28 @@ import { Details } from "@doc";
 
 Transactions are the primary way to interact with smart contracts.
 
-## Prepare a transaction
+## Reading contract state
+
+<Details summary='readContract' startExpanded>
+
+You can read contract state directly using the `readContract` function.
+
+```ts
+import { readContract } from "thirdweb";
+
+const balance = await readContract({
+	//  ^? const balance: bigint
+	contract: contract,
+	method: "function balanceOf(address) view returns (uint256)",
+	params: ["0x123..."],
+});
+```
+
+</Details>
+
+## Writing contract state
+
+### Prepare a transaction
 
 Transactions are created using the `prepareTransaction` function.
 
@@ -90,7 +111,7 @@ import { prepareTransaction } from "thirdweb";
 const tx = prepareTransaction({
 	contract,
 	// Pass a snippet of the ABI for the method you want to call.
-	abi: {
+	method: {
 		name: "mintTo",
 		inputs: [
 			{
@@ -111,45 +132,9 @@ const tx = prepareTransaction({
 
 </Details>
 
-## Calling actions on a transaction
+### Acting on a prepared transaction
 
 Transactions have a variety of actions that can be called on them, in all cases this is done by calling the action on the transaction object itself.
-
-<Details summary='readTransaction'>
-
-For reading contract state, there is a shortcut function called `read` that can be used instead of `transaction`:
-
-```ts
-import { readContract } from "thirdweb";
-
-const balance = await readContract({
-	contract: contract,
-	method: "function balanceOf(address) view returns (uint256)",
-	params: ["0x123..."],
-});
-
-// output type is automatically inferred based on the method signature
-// here, balance is inferred to be a bigint
-```
-
-This is the equivalent of doing the following:
-
-```ts
-import { prepareTransaction, readTransaction } from "thirdweb";
-
-const tx = prepareTransaction({
-	contract,
-	method: "function balanceOf(address) view returns (uint256)",
-	params: ["0x123..."],
-});
-
-const balance = await readTransaction(tx);
-
-// output type is automatically inferred based on the method signature
-// here, balance is inferred to be a bigint
-```
-
-</Details>
 
 <Details summary='estimateGas'>
 
@@ -198,6 +183,25 @@ const transactionResult = await sendTransaction({
 });
 
 const receipt = await waitForReceipt(transactionResult);
+```
+
+</Details>
+
+<Details summary='readContract'>
+
+Reading contract state using a transaction.
+
+```ts
+import { prepareTransaction, readTransaction } from "thirdweb";
+
+const tx = prepareTransaction({
+	contract,
+	method: "function balanceOf(address) view returns (uint256)",
+	params: ["0x123..."],
+});
+
+const balance = await readTransaction(tx);
+//    ^? const balance: bigint
 ```
 
 </Details>

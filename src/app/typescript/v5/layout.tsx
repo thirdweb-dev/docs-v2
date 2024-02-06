@@ -34,6 +34,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
 						href: `${slug}/extensions`,
 					},
 					{
+						name: "React",
+						href: `${slug}/react`,
+					},
+					{
 						name: "Full Reference",
 						href: "/references/typescript/v5",
 					},
