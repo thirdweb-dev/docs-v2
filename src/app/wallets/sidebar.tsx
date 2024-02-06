@@ -151,12 +151,16 @@ export const sidebar: SideBar = {
 					href: `${smartWalletSlug}/get-started`,
 				},
 				{
+					name: "Permissions & Session Keys",
+					href: `${smartWalletSlug}/permissions`,
+				},
+				{
 					name: "Bundler & Paymaster",
 					href: `${smartWalletSlug}/infrastructure`,
 				},
 				{
-					name: "Permissions & Session Keys",
-					href: `${smartWalletSlug}/permissions`,
+					name: "Sponsorship rules",
+					href: `${smartWalletSlug}/sponsorship-rules`,
 				},
 				{
 					name: "Guides",

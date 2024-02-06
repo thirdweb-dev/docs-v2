@@ -1,0 +1,52 @@
+import SponsorshipRulesImg from  "./sponsorship-rules.png";
+import { Callout, DocImage, createMetadata } from "@doc";
+
+
+export const metadata = createMetadata({
+	title: "Sponsorship rules| thirdweb",
+	description:
+		"Set rules around which smart wallet transactions (User Ops) the paymaster should sponsor",
+});
+
+# Sponsorship rules
+
+You can easily define rules around which transactions (User Ops) the paymaster should sponsor. This can be used to prevent abuse, progressively onboard users, and incentivize specific in-app actions. 
+
+
+You can set the following sponsorship rules
+
+- **Global spend limits**: Maximum gas cost (in USD) that you want to sponsor. This applies for the duration of the billing period (monthly).
+- **Contract address restrictions**: Use this if you want to sponsor transactions sent only to a specific set of contracts. Transactions sent to contracts outside this allowlist will remain unsponsored.
+- **Chain restrictions**: Use this if you want to sponsor transactions only on certain chains. If this is not set, transactions on all [supported chains](https://portal.thirdweb.com/wallets/smart-wallet/infrastructure#supported-chains) will be sponsored.
+- **Server verifier**: This is a general purpose check that can be used to define custom rules. Before a transaction is sent, it checks with an endpoint that you specify on whether it should be sponsored or not.
+
+We highly recommended that you set sponsorship rules before your app goes live to prevent malicious actors from abusing your paymaster, which could lead to unexpectedly large bills.
+
+### Setting Sponsorship rules
+
+To set sponsorship rules, all you need to do is to go to the [configuration tab in the Smart Wallet dashboard.](https://thirdweb.com/dashboard/wallets/smart-wallet#:~:text=Account%20Factories-,Configuration,-Sponsorship%20policies)
+
+<DocImage src={SponsorshipRulesImg} />
+
+#### Setting up a server verifier
+tbd
+
+### FAQs
+
+**What happens if a limit is hit? Does the transaction fail or does it go unsponsored?**
+
+If a limit is hit the transaction will go unsponsored. If you are spinning up fresh accounts for users in your app, it is unlikely the the user accounts will hold any funds. You can catch the following out of funds error to gracefully handle this within your app  `AA21 didn't pay prefund`. You will also be notified via email when a limit is hit.
+
+
+**What networks are sponsorship rules available in?**
+
+Sponsorship rules apply across all the [networks that we support smart wallets in](https://portal.thirdweb.com/wallets/smart-wallet/infrastructure#supported-chains). You don't need to specify different rules for each network or each account factory as long as they use the same client ID. 
+However, you can restrict sponsored transactions to specific networks if you choose to.
+
+**Will sponsorship rules work with third-party paymasters?**
+
+No, sponsorship rules will apply on if you are using thirdweb's paymaster.
+
+### Pricing
+
+Setting a server verifier requires your account to be on the growth plan. The other policies are free to use. There is no usage based pricing for policies. 
