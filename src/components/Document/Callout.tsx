@@ -25,15 +25,15 @@ export function Callout(props: {
 					{!props.disableIcon && (
 						<>
 							{props.variant === "danger" && (
-								<AlertTriangle className="h-6 w-6 shrink-0 text-danger-500" />
+								<AlertTriangle className="size-6 shrink-0 text-danger-500" />
 							)}
 
 							{props.variant === "warning" && (
-								<AlertCircle className="h-6 w-6 shrink-0 text-warning-500" />
+								<AlertCircle className="size-6 shrink-0 text-warning-500" />
 							)}
 
 							{props.variant === "info" && (
-								<Info className="h-6 w-6 shrink-0 text-accent-500" />
+								<Info className="size-6 shrink-0 text-accent-500" />
 							)}
 						</>
 					)}

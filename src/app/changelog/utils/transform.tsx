@@ -49,6 +49,7 @@ export function transform(node: TransformerNode, index: number) {
 
 	const getChildren = () => {
 		return node.children.map((n, i) => (
+			// @ts-expect-error - TODO: fix this
 			<Fragment key={i}>{convertNodeToElement(n, index, transform)}</Fragment>
 		));
 	};
@@ -85,6 +86,7 @@ export function transform(node: TransformerNode, index: number) {
 		node.attribs.class = "rounded-lg";
 		return (
 			<div className="my-5 flex justify-center rounded-lg border p-4">
+				{/* @ts-expect-error - TODO: fix this */}
 				{convertNodeToElement(node, index, transform)}
 			</div>
 		);

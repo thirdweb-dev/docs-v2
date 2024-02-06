@@ -21,7 +21,7 @@ export function CopyButton(props: { text: string }) {
 			onClick={copyToClipboard}
 			className="bg-b-900 p-2"
 		>
-			<Icon className="h-3 w-3 text-f-300" />
+			<Icon className="size-3 text-f-300" />
 		</Button>
 	);
 }
