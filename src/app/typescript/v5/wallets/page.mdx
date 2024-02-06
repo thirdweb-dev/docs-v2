@@ -1,20 +1,42 @@
 # Wallets
 
-_TODO: add more info._
+## Client Side Wallets
 
-Currently available:
-
-## Metamask
-
-For usage in browsers.
+### Metamask
 
 ```ts
 import { metamaskWallet } from "thirdweb/wallets";
 
-const wallet = await metamaskWallet();
+const wallet = await metamaskWallet().connect();
 ```
 
-## Private Key
+### Coinbase Wallet
+
+```ts
+import { coinbaseWallet } from "thirdweb/wallets";
+
+const wallet = await coinbaseWallet().connect();
+```
+
+### Coinbase Wallet
+
+```ts
+import { coinbaseWallet } from "thirdweb/wallets";
+
+const wallet = await coinbaseWallet().connect();
+```
+
+### Rainbow Wallet
+
+```ts
+import { rainbowWallet } from "thirdweb/wallets";
+
+const wallet = await rainbowWallet().connect();
+```
+
+## Server Side Wallets
+
+### Private Key
 
 For usage in backend environments.
 

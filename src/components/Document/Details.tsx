@@ -18,8 +18,9 @@ export function Details(props: {
 	id?: string;
 	tags?: string[];
 	noIndex?: boolean;
+	startExpanded?: boolean;
 }) {
-	const [isExpanded, setIsExpanded] = useState(false);
+	const [isExpanded, setIsExpanded] = useState(props.startExpanded ?? false);
 	const id =
 		props.id || (typeof props.summary === "string" ? props.summary : "");
 
