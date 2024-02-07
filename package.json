@@ -3,13 +3,10 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
-		"predev": "bun run scripts/createEmptySearchIndex.ts",
-		"prebuild": "bun run scripts/createEmptySearchIndex.ts",
-		"build": "next build",
+		"dev": "bun run scripts/createEmptySearchIndex.ts && next dev",
+		"build": "bun run scripts/createEmptySearchIndex.ts && next lint && next build && bun run extract-search-data && next-sitemap",
 		"start": "next start",
 		"lint": "next lint",
-		"postbuild": "pnpm extract-search-data && next-sitemap",
 		"extract-search-data": "bun run scripts/extractSearchData.ts"
 	},
 	"dependencies": {
