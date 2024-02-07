@@ -284,7 +284,7 @@ export function getExtensionName(
 	}
 }
 
-const EXTENSION_NAMES = ["ERC721", "ERC20", "ERC155"] as const;
+const EXTENSION_NAMES = ["ERC721", "ERC20", "ERC1155"] as const;
 type ExtensionName = (typeof EXTENSION_NAMES)[number];
 
 function isValidExtensionString(
