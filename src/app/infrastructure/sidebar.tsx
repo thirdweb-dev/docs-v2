@@ -59,6 +59,10 @@ export const sidebar: SideBar = {
 							href: `${engineSlug}/features/smart-wallets`,
 						},
 						{
+							name: "Relayers",
+							href: `${engineSlug}/features/relayers`,
+						},
+						{
 							name: "Gasless Transactions",
 							href: `${engineSlug}/features/gasless-transactions`,
 						},
@@ -72,10 +76,6 @@ export const sidebar: SideBar = {
 						{
 							name: "Smart Wallets & Session Keys",
 							href: `${engineSlug}/guides/smart-wallets`,
-						},
-						{
-							name: "Meta-transaction Relayer",
-							href: `${engineSlug}/guides/relayer`,
 						},
 					],
 				},
