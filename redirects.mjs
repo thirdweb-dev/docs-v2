@@ -537,6 +537,7 @@ const infrastructureRedirects = {
 	"/guides/engine/relayer": "/infrastructure/engine/guides/relayer",
 	"/engine/references/api": "/infrastructure/engine/references/api-reference",
 	"/engine/references/typescript-sdk": "/infrastructure/engine/references/typescript",
+	"/infrastructure/engine/guides/relayer": "/infrastructure/engine/features/relayers",
 	//storage
 	"/storage": "/infrastructure/storage/overview",
 	"/storage/how-storage-works": "/infrastructure/storage/how-storage-works",

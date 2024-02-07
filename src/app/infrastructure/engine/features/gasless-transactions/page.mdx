@@ -22,12 +22,21 @@ Here are several ways to offer gasless transactions to your users.
 
 ### Send transactions with backend wallets
 
-If a transaction does not require the user to send it, a simple solution is sending the transaction from a backend wallet.
+If a contract method can be called on behalf of a user, the simplest approach is to send the transaction from a backend wallet.
 
-Example:
+Examples:
 
-- A user purchases an NFT with fiat from your checkout or marketplace. Your application accepts the payment and calls Engine to claim the NFT to the buyer's wallet.
+- An NFT contract that can be claimed _by_ a wallet and _sent to_ another wallet.
+- An oracle where state can be updated by any wallet.
+
+### Send meta-transactions with relayers
+
+If your contract supports meta-transactions, use Engine as a relayer to send meta-transactions that are signed by your users' wallets.
+
+[Learn more about relayers in Engine.](/infrastructure/engine/features/relayers)
 
 ### Send transactions with smart wallets
 
-Coming soon.
+If your users have smart wallets, use Engine backend wallets to transact on behalf of smart wallets.
+
+[Learn more about smart wallets in Engine.](infrastructure/engine/features/smart-wallets)

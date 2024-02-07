@@ -73,3 +73,10 @@ Call `POST /backend-wallet/import` or import a wallet from the [Engine dashboard
 Backend wallets are listed in the **Backend Wallets** table on the [Engine dashboard page](https://thirdweb.com/dashboard/engine).
 
 Or call `GET /backend-wallet/get-all` to list all backend wallets.
+
+## Best practices
+
+- It is recommend to use AWS or Google Cloud KMS wallets for production use. Private keys are not exposed and the wallet is backed up securely by the cloud provider.
+- Use labels and multiple backend wallets to organize and track usage.
+  - Example: Use one wallet to pay out creators on your platform and another to airdrop NFTs to users.
+- If your wallets require topping up gas or ERC20 tokens regularly, consider a separate "funds storage" backend wallet that transfers funds to other wallets via the dashboard UI or API.
