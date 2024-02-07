@@ -34,7 +34,7 @@ There are 4 ways to create a transaction, all of these return the same transacti
 <Details summary="Method Signature" id='method-signature'>
 
 ```ts
-import { prepareTransaction } from "thirdweb";
+import { prepareTransaction, parseEther } from "thirdweb";
 
 const tx = prepareTransaction({
 	contract,
@@ -42,7 +42,7 @@ const tx = prepareTransaction({
 	method: "function mintTo(address to, uint256 amount)",
 	// and the params for that method
 	// their types are automatically inferred based on the method signature
-	params: ["0x123...", 100n * 10n ** 18n],
+	params: ["0x123...", parseEther("100")],
 });
 ```
 
@@ -51,13 +51,13 @@ const tx = prepareTransaction({
 <Details summary="Automatic ABI Resolution" id='automatic-abi-resolution'>
 
 ```ts
-import { prepareTransaction } from "thirdweb";
+import { prepareTransaction, parseEther } from "thirdweb";
 const tx = prepareTransaction({
 	contract,
 	// in this case we only pass the name of the method we want to call
 	method: "mintTo",
 	// however using this method we lose type safety for our params
-	params: ["0x123...", 100n * 10n ** 18n],
+	params: ["0x123...", parseEther("100")],
 });
 ```
 
@@ -66,7 +66,7 @@ const tx = prepareTransaction({
 <Details summary="Explicit Contract ABI" id='explicit-abi'>
 
 ```ts
-import { getContract, prepareTransaction } from "thirdweb";
+import { getContract, prepareTransaction, parseEther } from "thirdweb";
 
 const contract = getContract({
   client,
@@ -97,7 +97,7 @@ const tx = prepareTransaction({
   // we get auto-completion for all the available functions on the contract ABI
   method: "mintTo",
   // including full type-safety for the params
-  params: ["0x123...", 100n * 10n ** 18n],
+  params: ["0x123...", parseEther("100")],
 });
 ```
 
@@ -106,7 +106,7 @@ const tx = prepareTransaction({
 <Details summary="ABI snippet" id='abi-snippet'>
 
 ```ts
-import { prepareTransaction } from "thirdweb";
+import { prepareTransaction, parseEther } from "thirdweb";
 
 const tx = prepareTransaction({
 	contract,
@@ -126,7 +126,7 @@ const tx = prepareTransaction({
 		type: "function",
 	},
 	// The Types of `params` are automatically inferred based on the ABI inputs.
-	params: ["0x123...", 100n * 10n ** 18n],
+	params: ["0x123...", parseEther("100")],
 });
 ```
 
