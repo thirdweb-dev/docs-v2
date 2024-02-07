@@ -12,3 +12,5 @@ export const metadata = createMetadata({
 	title: "References | thirdweb React Native SDK ",
 	description: "Full Reference for thirdweb React Native SDK.",
 });
+
+export const revalidate = 3600; // revalidate at most every hour

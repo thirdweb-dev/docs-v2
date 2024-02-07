@@ -12,3 +12,5 @@ export const metadata = createMetadata({
 	title: "References | thirdweb TypeScript SDK ",
 	description: "Full Reference for thirdweb TypeScript SDK.",
 });
+
+export const revalidate = 3600; // revalidate at most every hour
