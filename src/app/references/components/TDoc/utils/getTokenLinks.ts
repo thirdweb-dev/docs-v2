@@ -30,7 +30,12 @@ export async function getTokenLinks(
 				}
 
 				case "@thirdweb-dev/sdk": {
-					setLink(token.name, `/references/typescript/latest/${token.name}`);
+					setLink(token.name, `/references/typescript/v4/${token.name}`);
+					break;
+				}
+
+				case "thirdweb": {
+					setLink(token.name, `/references/typescript/v5/${token.name}`);
 					break;
 				}
 
