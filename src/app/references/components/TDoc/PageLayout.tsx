@@ -12,7 +12,7 @@ import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import GithubSlugger from "github-slugger";
 
-type PageProps = { params: { version: string; slug?: [docName: string] } };
+type PageProps = { params: { version: string; slug?: string[] } };
 type LayoutProps = { params: { version: string }; children: React.ReactNode };
 
 // make sure getTDocPage() is used in .../[version]/[...slug]/page.tsx file
@@ -28,7 +28,7 @@ export function getTDocPage(options: {
 		const version = props.params.version;
 		const doc = await getDoc(version);
 		const slugToDoc = getSlugToDocMap(doc);
-		const docSlug = props.params.slug ? props.params.slug[0] : undefined;
+		const docSlug = props.params.slug?.join("/");
 
 		if (!version) {
 			notFound();
@@ -79,21 +79,20 @@ export function getTDocPage(options: {
 		const versions = await getVersions();
 
 		const returnVal = await Promise.all(
-			versions.map(async (version) => {
-				const slugs = fetchAllSlugs(await getDoc(version));
-
-				return [
-					...slugs.map((slug) => {
-						return {
-							slug: [slug] as [docName: string],
-							version: version,
-						};
-					}),
-					{
-						slug: undefined,
-						version: version,
-					},
-				];
+			versions.map((version) => {
+				return getDoc(version)
+					.then((doc) => fetchAllSlugs(doc))
+					.then((slugs) => {
+						return [
+							...slugs.map((slug) => {
+								return {
+									slug: slug.split("/") as string[],
+									version: version,
+								};
+							}),
+							{ version, slug: [] },
+						];
+					});
 			}),
 		);
 
@@ -101,12 +100,16 @@ export function getTDocPage(options: {
 	}
 
 	async function generateMetadata(props: PageProps): Promise<Metadata> {
-		const docName = props.params.slug ? props.params.slug[0] : undefined;
+		let docName = props.params.slug ? props.params.slug[0] : undefined;
 
 		if (!docName) {
 			return {
 				title: sdkTitle + " | thirdweb docs",
 			};
+		}
+		const extensionName = props.params.slug ? props.params.slug[1] : undefined;
+		if (extensionName) {
+			docName = `${extensionName} - ${docName}`;
 		}
 
 		return {

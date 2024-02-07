@@ -28,6 +28,9 @@ const tagsToGroup = {
 	"@theme": "Theme",
 	"@locale": "Locale",
 	"@abstractWallet": "Abstract Wallets",
+	"@extension": "Extensions",
+	"@rpc": "RPC",
+	"@transaction": "Transactions",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
@@ -54,22 +57,29 @@ const sidebarGroupOrder: TagKey[] = [
 	"@smartWallet",
 	"@connectWallet",
 	"@appURI",
+	"@extension",
+	"@transaction",
+	"@rpc",
 	"@others",
 ];
 
-function getCustomTag(doc: SomeDoc): TagKey | undefined {
-	function findTag(blockTags?: BlockTag[]): TagKey | undefined {
-		if (!blockTags) {
-			return;
-		}
-
-		for (const blockTag of blockTags) {
-			if (blockTag.tag in tagsToGroup) {
-				return blockTag.tag as TagKey;
-			}
-		}
+function findTag(
+	blockTags?: BlockTag[],
+): [TagKey, ExtensionName | undefined] | undefined {
+	if (!blockTags) {
+		return;
 	}
 
+	for (const blockTag of blockTags) {
+		if (blockTag.tag in tagsToGroup) {
+			return [blockTag.tag as TagKey, getExtensionName(blockTag)];
+		}
+	}
+}
+
+function getCustomTag(
+	doc: SomeDoc,
+): [TagKey, ExtensionName | undefined] | undefined {
 	switch (doc.kind) {
 		case "class": {
 			return findTag(doc.blockTags);
@@ -110,9 +120,57 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 
 		const ungroupedLinks: SomeDoc[] = [];
 
+		const extensions = docs.filter((d) => {
+			const [tag] = getCustomTag(d) || [];
+			return tag === "@extension";
+		});
+		// sort extensions into their own groups
+		if (extensions.length) {
+			const extensionGroups = extensions.reduce(
+				(acc, d) => {
+					const [, extensionName] = getCustomTag(d) || [];
+					if (extensionName) {
+						if (!acc[extensionName]) {
+							acc[extensionName] = [];
+						}
+						acc[extensionName]!.push(d);
+					}
+					return acc;
+				},
+				{} as Record<ExtensionName, SomeDoc[]>,
+			);
+			const extensionLinkGroups = Object.entries(extensionGroups).map(
+				([extensionName, docs]) => {
+					const links = docs.map((d) => ({
+						name: d.name,
+						href: `${path}/${extensionName.toLowerCase()}/${d.name}`,
+					}));
+					return {
+						name: extensionName,
+						links,
+					};
+				},
+			);
+			if (!linkGroups.find((group) => group.name === name)) {
+				linkGroups.push({
+					name: name,
+					links: [{ name: "Extensions", links: extensionLinkGroups }],
+				});
+			} else {
+				linkGroups
+					.find((group) => group.name === name)!
+					.links.push({ name: "Extensions", links: extensionLinkGroups });
+			}
+		}
+
+		const nonExtensions = docs.filter((d) => {
+			const [tag] = getCustomTag(d) || [];
+			return tag !== "@extension";
+		});
+
 		// sort into groups
-		docs.forEach((d) => {
-			const tag = getCustomTag(d);
+		nonExtensions.forEach((d) => {
+			const [tag] = getCustomTag(d) || [];
 
 			if (tag) {
 				if (!groups[tag]) {
@@ -169,10 +227,14 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			});
 		});
 
-		linkGroups.push({
-			name: name,
-			links: links,
-		});
+		if (!linkGroups.find((group) => group.name === name)) {
+			linkGroups.push({
+				name: name,
+				links: links,
+			});
+		} else {
+			linkGroups.find((group) => group.name === name)!.links.push(...links);
+		}
 	}
 
 	if (doc.components) {
@@ -204,4 +266,30 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 	}
 
 	return linkGroups;
+}
+
+export function getExtensionName(
+	extensionBlockTag: BlockTag,
+): ExtensionName | undefined {
+	try {
+		const extensionNameString = (
+			extensionBlockTag?.summary?.[0]?.children?.[0]?.value as string
+		).toUpperCase();
+		if (isValidExtensionString(extensionNameString)) {
+			return extensionNameString;
+		}
+		return undefined;
+	} catch {
+		return undefined;
+	}
+}
+
+const EXTENSION_NAMES = ["ERC721", "ERC20", "ERC1155"] as const;
+type ExtensionName = (typeof EXTENSION_NAMES)[number];
+
+function isValidExtensionString(
+	extensionName: string,
+): extensionName is ExtensionName {
+	// @ts-expect-error - this is what we're trying to check here TS...
+	return EXTENSION_NAMES.includes(extensionName.toUpperCase());
 }
