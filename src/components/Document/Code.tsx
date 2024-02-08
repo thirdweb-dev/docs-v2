@@ -50,13 +50,11 @@ export async function CodeBlock(props: {
 	return (
 		<div className="group/code relative mb-5">
 			<div
-				className="![&_pre]:bg-b-900 relative block rounded-md border bg-b-800 font-mono text-sm leading-7"
+				className="relative block rounded-md border bg-b-800 font-mono text-sm leading-7"
 				lang={lang}
 			>
 				<ScrollShadow scrollableClassName="p-4" className="">
-					<pre>
-						<RenderCode code={code} lang={lang} tokenLinks={tokenLinks} />
-					</pre>
+					<RenderCode code={code} lang={lang} tokenLinks={tokenLinks} />
 				</ScrollShadow>
 			</div>
 
