@@ -5,7 +5,6 @@ import { redirects } from "./redirects.mjs";
 const withMDX = createMDX({
 	options: {
 		remarkPlugins: [remarkGfm],
-		rehypePlugins: [],
 	},
 });
 
