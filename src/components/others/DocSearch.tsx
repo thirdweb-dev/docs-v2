@@ -396,12 +396,8 @@ function getTagFromHref(href: string): Tag | undefined {
 		return "Storage";
 	} else if (href.includes("/wallets")) {
 		return "Wallets";
-	} else if (href.includes("/python")) {
-		return "Python";
 	} else if (href.includes("/infrastructure")) {
 		return "Infra";
-	} else if (href.includes("/go")) {
-		return "Go";
 	} else if (href.includes("/solidity")) {
 		return "Solidity";
 	} else if (href.includes("/contracts")) {
