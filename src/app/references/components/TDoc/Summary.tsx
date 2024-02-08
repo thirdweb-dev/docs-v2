@@ -2,7 +2,6 @@ import { FunctionSignature } from "typedoc-better-json";
 import { CodeBlock, InlineCode } from "../../../../components/Document/Code";
 import { Paragraph } from "../../../../components/Document/Paragraph";
 import { DocLink } from "../../../../components/Document/DocLink";
-import { Lang } from "shiki";
 import {
 	OrderedList,
 	UnorderedList,
@@ -17,7 +16,7 @@ export function TypedocSummary(props: {
 			{props.summary.map((s) => {
 				switch (s.type) {
 					case "code": {
-						return <CodeBlock lang={s.lang as Lang} code={s.value} />;
+						return <CodeBlock lang={s.lang} code={s.value} />;
 					}
 
 					case "html":
