@@ -10,6 +10,7 @@ import {
 } from "@/components/Document";
 import { convertNodeToElement } from "react-html-parser";
 import { Fragment } from "react";
+import { BundledLanguage, SpecialLanguage } from "shiki";
 
 const headingTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6"]);
 
@@ -102,14 +103,14 @@ export function transform(node: TransformerNode, index: number) {
 
 		const className = node.attribs?.class;
 		const code = node.children[0]?.data;
-		let lang = "text";
+		let lang: BundledLanguage | SpecialLanguage = "plaintext";
 		if (className) {
 			const specifiedLang = className
 				.toLowerCase()
 				.replace("language-", "")
 				.trim();
 			if (knownLangs.has(specifiedLang)) {
-				lang = specifiedLang;
+				lang = specifiedLang as BundledLanguage | SpecialLanguage;
 			}
 			// else {
 			// 	console.warn(
