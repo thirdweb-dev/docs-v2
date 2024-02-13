@@ -1,8 +1,20 @@
-import { Details } from "@doc";
+import { Details, Callout } from "@doc";
 
 # Transactions
 
-Transactions are the primary way to interact with smart contracts.
+Transactions are the primary way to read and write to the blockchain.
+
+## Creating a transaction
+
+```ts
+import { prepareTransaction, parseEther } from "thirdweb";
+const transaction = prepareTransaction({
+	// the account that will be the receiver
+	to: "0x456...",
+	// the value is the amount of ether you want to send with the transaction
+	value: parseEther("1"),
+});
+```
 
 ## Reading contract state
 
@@ -25,18 +37,14 @@ const balance = await readContract({
 
 ## Writing contract state
 
-### Prepare a transaction
-
-Transactions are created using the `prepareTransaction` function.
-
-There are 4 ways to create a transaction, all of these return the same transaction object.
+There are 4 ways to prepare a contract call, all of these return the same transaction object.
 
 <Details summary="Method Signature" id='method-signature'>
 
 ```ts
-import { prepareTransaction, parseEther } from "thirdweb";
+import { prepareContractCall, parseEther } from "thirdweb";
 
-const tx = prepareTransaction({
+const tx = prepareContractCall({
 	contract,
 	// pass the method signature that you want to call
 	method: "function mintTo(address to, uint256 amount)",
@@ -48,25 +56,10 @@ const tx = prepareTransaction({
 
 </Details>
 
-<Details summary="Automatic ABI Resolution" id='automatic-abi-resolution'>
-
-```ts
-import { prepareTransaction, parseEther } from "thirdweb";
-const tx = prepareTransaction({
-	contract,
-	// in this case we only pass the name of the method we want to call
-	method: "mintTo",
-	// however using this method we lose type safety for our params
-	params: ["0x123...", parseEther("100")],
-});
-```
-
-</Details>
-
 <Details summary="Explicit Contract ABI" id='explicit-abi'>
 
 ```ts
-import { getContract, prepareTransaction, parseEther } from "thirdweb";
+import { getContract, prepareContractCall, parseEther } from "thirdweb";
 
 const contract = getContract({
   client,
@@ -92,7 +85,7 @@ const contract = getContract({
   ],
 });
 
-const tx = prepareTransaction({
+const tx = prepareContractCall({
   contract,
   // we get auto-completion for all the available functions on the contract ABI
   method: "mintTo",
@@ -106,9 +99,9 @@ const tx = prepareTransaction({
 <Details summary="ABI snippet" id='abi-snippet'>
 
 ```ts
-import { prepareTransaction, parseEther } from "thirdweb";
+import { prepareContractCall, parseEther } from "thirdweb";
 
-const tx = prepareTransaction({
+const tx = prepareContractCall({
 	contract,
 	// Pass a snippet of the ABI for the method you want to call.
 	method: {
@@ -132,7 +125,33 @@ const tx = prepareTransaction({
 
 </Details>
 
-### Acting on a prepared transaction
+<Details summary="Automatic ABI Resolution" id='automatic-abi-resolution'>
+
+<Callout title="Please note" variant="warning">
+
+This method is convenient, however it is also:
+
+- the least performant at runtime (it has to resolve the ABI of the contract and then match the method name you provide)
+- the least type-safe (you lose type safety for your params)
+
+There are cases where you specifically _need_ to be able to resolve methods dynamically at runtime, in which case this method is useful.
+
+</Callout>
+
+```ts
+import { prepareContractCall, resolveMethod, parseEther } from "thirdweb";
+const tx = prepareContractCall({
+	contract,
+	// in this case we only pass the name of the method we want to call
+	method: resolveMethod("mintTo"),
+	// however using this method we lose type safety for our params
+	params: ["0x123...", parseEther("100")],
+});
+```
+
+</Details>
+
+## Acting on a prepared transaction
 
 Transactions have a variety of actions that can be called on them, in all cases this is done by calling the action on the transaction object itself.
 
@@ -192,9 +211,9 @@ const receipt = await waitForReceipt(transactionResult);
 Reading contract state using a transaction.
 
 ```ts
-import { prepareTransaction, readTransaction } from "thirdweb";
+import { prepareContractCall, readTransaction } from "thirdweb";
 
-const tx = prepareTransaction({
+const tx = prepareContractCall({
 	contract,
 	method: "function balanceOf(address) view returns (uint256)",
 	params: ["0x123..."],
