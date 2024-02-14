@@ -206,12 +206,12 @@ const receipt = await waitForReceipt(transactionResult);
 
 </Details>
 
-<Details summary='readContract'>
+<Details summary='simulateTransaction'>
 
-Reading contract state using a transaction.
+Simulate a transaction to see if it would be successful.
 
 ```ts
-import { prepareContractCall, readTransaction } from "thirdweb";
+import { prepareContractCall, simulateTransaction } from "thirdweb";
 
 const tx = prepareContractCall({
 	contract,
@@ -219,8 +219,7 @@ const tx = prepareContractCall({
 	params: ["0x123..."],
 });
 
-const balance = await readTransaction(tx);
-//    ^? const balance: bigint
+const result = await simulateTransaction(tx);
 ```
 
 </Details>
