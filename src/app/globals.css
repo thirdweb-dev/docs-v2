@@ -13,7 +13,8 @@ html {
 }
 
 @layer base {
-	:root {
+	:root,
+	[data-theme="dark"] {
 		/* 100 - lightest, 900 - darkest */
 
 		/* neutral background colors */
@@ -48,6 +49,38 @@ html {
 
 		--radius: 0.5rem;
 		--header-height: 70px;
+	}
+
+	[data-theme="light"] {
+		/* neutral background colors */
+		--b-900: #fafafa;
+		--b-800: #f5f5f5;
+		--b-700: #e5e5e5;
+		--b-600: #d4d4d4;
+
+		--overlay: hsl(240deg 5% 5% / 0.5);
+		--border: #64748b;
+		--code-bg: #020617;
+
+		/* neutral foreground colors */
+		--f-100: #020617;
+		--f-200: #0f172a;
+		--f-300: #1e293b;
+
+		/* others */
+		--accent-500: #1d4ed8;
+		--accent-600: #2563eb;
+		--accent-700: #3b82f6;
+		--accent-800: #60a5fa;
+		--accent-900: #93c5fd;
+
+		--danger-500: #fee2e2;
+		--danger-800: #fecaca;
+		--danger-900: #fca5a5;
+
+		--warning-500: #fef3c7;
+		--warning-800: #fef08a;
+		--warning-900: #fde047;
 	}
 }
 

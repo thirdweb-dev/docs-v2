@@ -9,6 +9,7 @@ import {
 } from "@/components/others/ContextAIButton";
 import Script from "next/script";
 import { createMetadata } from "@/components/Document";
+import { SetStoredTheme } from "../components/ui/theme";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
 					data-api="https://pl.thirdweb.com/api/event"
 				/>
 				<ContextAIBotScript />
+				<SetStoredTheme />
 			</head>
 			<body className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
 				<NextTopLoader

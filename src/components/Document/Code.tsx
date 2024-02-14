@@ -50,7 +50,7 @@ export async function CodeBlock(props: {
 	return (
 		<div className="group/code relative mb-5">
 			<div
-				className="relative block rounded-md border bg-b-800 font-mono text-sm leading-7"
+				className="relative block rounded-md border bg-code-bg font-mono text-sm leading-7"
 				lang={lang}
 			>
 				<ScrollShadow scrollableClassName="p-4" className="">
