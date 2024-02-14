@@ -4,7 +4,7 @@ export const runtime = "edge";
 
 export default function Image() {
 	return openGraphImg({
-		title: "Sponsorship rules",
-		icon: "thirdweb",
+		title: "Interact with the blockchain with Embedded Wallet",
+		icon: "wallets",
 	});
 }

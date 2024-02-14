@@ -4,7 +4,7 @@ export const runtime = "edge";
 
 export default function Image() {
 	return openGraphImg({
-		title: "Sponsorship rules",
-		icon: "thirdweb",
+		title: "Enable Gasless Transactions with Embedded Wallet",
+		icon: "wallets",
 	});
 }
