@@ -4,7 +4,7 @@ export const runtime = "edge";
 
 export default function Image() {
 	return openGraphImg({
-		title: "Sponsorship rules",
+		title: "Bundler & Paymaster Infrastructure",
 		icon: "thirdweb",
 	});
 }
