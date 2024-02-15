@@ -9,6 +9,10 @@ export default getTDocLayout({
 });
 
 export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Wallet SDK Reference",
+		icon: "wallets",
+	},
 	title: "References | thirdweb Wallet SDK ",
 	description: "Full Reference for thirdweb Wallet SDK.",
 });

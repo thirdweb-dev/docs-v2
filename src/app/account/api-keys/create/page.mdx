@@ -2,6 +2,17 @@ import { DocImage, Callout, Steps, Step } from "@doc";
 import createKeyImage from "../assets/create-key.png";
 import credentialsImage from "../assets/credentials.png";
 import descriptiveNameImage from "../assets/descriptive-name.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Create an API Key",
+	description:
+		"Log in to the dashboard and navigate to Settings > API Keys view",
+	image: {
+		title: "Create thirdweb API Key",
+		icon: "thirdweb",
+	},
+});
 
 # Create an API Key
 

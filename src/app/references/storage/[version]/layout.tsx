@@ -9,6 +9,10 @@ export default getTDocLayout({
 });
 
 export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Storage SDK Reference",
+		icon: "storage",
+	},
 	title: "References | thirdweb storage SDK ",
 	description: "Full Reference for thirdweb storage SDK.",
 });
