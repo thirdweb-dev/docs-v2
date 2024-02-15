@@ -38,6 +38,10 @@ const links = [
 		href: "/payments",
 	},
 	{
+		name: "Engine",
+		href: "/engine",
+	},
+	{
 		name: "Infrastructure",
 		href: "/infrastructure",
 	},
