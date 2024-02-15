@@ -24,10 +24,10 @@ We have a collection of Components that you can import and use in your MDX files
 
 ### Installation
 
-We use `pnpm` and `bun`. Make sure you have them installed on your machine to run the project locally.
+We use `bun`. Make sure you have them installed on your machine to run the project locally.
 
 ```bash
-pnpm i
+bun i
 ```
 
 ### Start local development server
