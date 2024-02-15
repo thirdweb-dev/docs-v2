@@ -24,7 +24,6 @@
 			"@public/*": ["./public/*"],
 			"flexsearch": ["./node_modules/@types/flexsearch"],
 			"@root/*": ["./*"],
-			"@og": ["./src/components/others/OpenGraph/openGraphImage"],
 			"@doc": ["./src/components/Document"]
 		}
 	},

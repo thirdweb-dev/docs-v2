@@ -1,6 +1,17 @@
 import { DocImage, Steps, Step } from "@doc";
 import chooseKeyImage from "../assets/choose-key.png";
 import confirmDeleteImage from "../assets/confirm-delete.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Delete API Key",
+	description:
+		"Deleting an API key will invalidate it, making it no longer usable.",
+	image: {
+		title: "Delete thirdweb API Key",
+		icon: "thirdweb",
+	},
+});
 
 # Delete API Key
 
