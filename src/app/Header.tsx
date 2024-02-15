@@ -73,7 +73,7 @@ export function Header() {
 	const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
 	return (
-		<header className="sticky top-0 z-[1000] flex h-header-height w-full items-center border-b bg-b-900">
+		<header className="flex h-header-height w-full items-center border-b bg-b-900">
 			<div
 				className={
 					"container flex items-center justify-between gap-6 p-4 xl:justify-start"
