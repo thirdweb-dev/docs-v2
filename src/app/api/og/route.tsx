@@ -1,47 +1,33 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/server";
+import { getBaseUrl } from "../../../lib/getBaseUrl";
 
-const getBaseUrl = () => {
-	const vercelUrl =
-		process.env.VERCEL_URL || process.env.NEXT_PUBLIC_VERCEL_URL;
+export const runtime = "edge";
 
-	// if on vercel, use the vercel url
-	if (vercelUrl) {
-		return `https://${vercelUrl}`;
-	}
-
-	return `http://localhost:3000`;
-};
+const BAST_URL = getBaseUrl();
 
 const width = 1200;
 const height = 630;
 
 const iconSize = 300;
 
-// Image generation
-export async function openGraphImg(options: {
-	title: string;
-	icon:
-		| "thirdweb"
-		| "react"
-		| "typescript"
-		| "unity"
-		| "solidity"
-		| "wallets"
-		| "auth"
-		| "contract"
-		| "payment"
-		| "infra"
-		| "rpc"
-		| "storage"
-		| "changelog";
-}) {
-	// Font
-	const inter600 = await fetch(
-		new URL("./inter/700.ttf", import.meta.url),
-	).then((res) => res.arrayBuffer());
+const inter600 = fetch(new URL("./inter/700.ttf", import.meta.url)).then(
+	(res) => res.arrayBuffer(),
+);
 
-	const iconUrl = `${getBaseUrl()}/og/icons/${options.icon || ""}.svg`;
+export async function GET(request: Request) {
+	const { searchParams } = new URL(request.url);
+
+	const icon = searchParams.get("icon");
+	const title = searchParams.get("title");
+
+	if (!icon || !title) {
+		return new Response(`Failed to generate the image`, {
+			status: 500,
+		});
+	}
+
+	const iconUrl = `${BAST_URL}/og/icons/${icon}.svg`;
 
 	return new ImageResponse(
 		(
@@ -56,7 +42,7 @@ export async function openGraphImg(options: {
 				}}
 			>
 				<img
-					src={`${getBaseUrl()}/og/background-1.png`}
+					src={`${BAST_URL}/og/background-1.png`}
 					alt=""
 					width={width}
 					height={height}
@@ -88,7 +74,7 @@ export async function openGraphImg(options: {
 						}}
 					>
 						<img
-							src={`${getBaseUrl()}/icons/thirdweb-logo.svg`}
+							src={`${BAST_URL}/icons/thirdweb-logo.svg`}
 							alt=""
 							width={300 / 1.7}
 							height={50 / 1.7}
@@ -119,7 +105,7 @@ export async function openGraphImg(options: {
 							marginBottom: "40px",
 						}}
 					>
-						{options.title}
+						{title}
 					</div>
 
 					<div
@@ -164,7 +150,7 @@ export async function openGraphImg(options: {
 			fonts: [
 				{
 					name: "Inter",
-					data: inter600,
+					data: await inter600,
 					style: "normal",
 					weight: 600,
 				},

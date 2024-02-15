@@ -3,6 +3,17 @@ import chooseKeyImage from "../assets/choose-key.png";
 import selectEditImage from "../assets/select-edit.png";
 import allServicesImage from "../assets/all-services.png";
 import smartWalletAPIKeyImage from "../assets/smart-wallet-api-key.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Edit thirdweb API Key",
+	description:
+		"All services on API keys are enabled by default. You can disable any services or edit settings for each service.",
+	image: {
+		title: "Edit thirdweb API Key",
+		icon: "thirdweb",
+	},
+});
 
 # Edit enabled services on API Keys
 
@@ -82,4 +93,3 @@ To restrict the contracts that Smart Wallet can interact with:
 #### Embedded Wallets
 
 By default, Embedded Wallet services are enabled upon creation of the API Key.
-
