@@ -5,8 +5,14 @@ import {
 	DocImage,
 	ArticleIconCard,
 	createMetadata,
+	ArticleCard,
+	Carousel,
 } from "@doc";
 import prefabScene from "./scene-prefabs.png";
+import blockventure from "./blockventure.jpg";
+import takeFlight from "./take-flight.png";
+import unityIAP from "./unity-iap.png";
+import web3Warriors from "./web3-warriors.png";
 import sdkInstaller from "./thirdweb-unity-sdk-setup.png";
 import { GraduationCap } from "lucide-react";
 
@@ -87,3 +93,41 @@ Access the SDK from anywhere in your code using `ThirdwebManager.Instance.SDK`.
 	icon={GraduationCap}
 	title="Learn more about the ThirdwebManager"
 />
+
+## Example Projects
+
+<Carousel slidesToShow={{
+	lg: 4,
+	md: 2,
+	sm: 1
+}}>
+
+<ArticleCard
+	title="Web3 Warriors"
+	description="Demo: Epic Onchain Survival Game Built in 3 Weeks."
+	href="https://web3warriors.thirdweb.com/"
+	image={web3Warriors}
+/>
+
+<ArticleCard
+	title="Take Flight!"
+	description="Starter Template: Seamless Onboarding and Contract Interaction."
+	href="https://github.com/thirdweb-example/take-flight/"
+	image={takeFlight}
+/>
+
+<ArticleCard
+	title="Blockventure"
+	description="Starter Template: Blockchain RPG with Gathering, Shopping and Trading."
+	href="https://github.com/thirdweb-example/blockventure"
+	image={blockventure}
+/>
+
+<ArticleCard
+	title="Unity IAP Meets Blockchain"
+	description="Guide: Enhancing Unity IAP with Blockchain Interactions."
+	href="https://blog.thirdweb.com/guides/enhancing-unity-iap-with-blockchain-interactions/"
+	image={unityIAP}
+/>
+
+</Carousel>
