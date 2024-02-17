@@ -18,9 +18,11 @@ You can easily define rules around which transactions (User Ops) the paymaster s
 You can set the following sponsorship rules
 
 - **Global spend limits**: Maximum gas cost (in USD) that you want to sponsor. This applies for the duration of the billing period (monthly).
+- **Server verifier**: This is a general purpose check that can be used to define custom rules. Before a transaction is sent, it checks with an endpoint that you specify on whether it should be sponsored or not.
 - **Contract address restrictions**: Use this if you want to sponsor transactions sent only to a specific set of contracts. Transactions sent to contracts outside this allowlist will remain unsponsored.
 - **Chain restrictions**: Use this if you want to sponsor transactions only on certain chains. If this is not set, transactions on all [supported chains](https://portal.thirdweb.com/wallets/smart-wallet/infrastructure#supported-chains) will be sponsored.
-- **Server verifier**: This is a general purpose check that can be used to define custom rules. Before a transaction is sent, it checks with an endpoint that you specify on whether it should be sponsored or not.
+- **User lists**: You can use this define allowlists or blocklists. Allowlists let you restrict sponsored transactions to transactions sent by a specific set of known accounts. Blocklists let you block bad actors from abusing your paymaster.
+- **Admin accounts**: These accounts are not subject to any sponsorship rule, all their transactions will be sponsored. Use this only with accounts that you control (eg. for testing purposes).
 
 We highly recommended that you set sponsorship rules before your app goes live to prevent malicious actors from abusing your paymaster, which could lead to unexpectedly large bills.
 
