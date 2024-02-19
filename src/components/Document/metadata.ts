@@ -21,6 +21,8 @@ type DynamicImageOptions = {
 		| "changelog";
 };
 
+export type MetadataImageIcon = DynamicImageOptions["icon"];
+
 export function createMetadata(obj: {
 	title: string;
 	description: string;
@@ -44,7 +46,7 @@ export function createMetadata(obj: {
 			images: obj.image
 				? [
 						{
-							url: `${BAST_URL}/api/og?icon=${obj.image.icon}&title=${obj.title}`,
+							url: `${BAST_URL}/api/og?icon=${obj.image.icon}&title=${obj.image.title}`,
 							width: 1200,
 							height: 630,
 						},

@@ -6,11 +6,17 @@ import type { Metadata } from "next";
 import { DocLayout } from "@/components/Layouts/DocLayout";
 import { getSidebarLinkGroups } from "./utils/getSidebarLinkgroups";
 import { Breadcrumb } from "@/components/Document/Breadcrumb";
-import { Details, DocLink, Heading } from "@/components/Document";
+import {
+	Details,
+	DocLink,
+	Heading,
+	createMetadata,
+} from "@/components/Document";
 import { LinkGroup, LinkMeta } from "@/components/others/Sidebar";
 import { sluggerContext } from "@/contexts/slugger";
 import invariant from "tiny-invariant";
 import GithubSlugger from "github-slugger";
+import { MetadataImageIcon } from "../../../../components/Document/metadata";
 
 type PageProps = { params: { version: string; slug?: string[] } };
 type LayoutProps = { params: { version: string }; children: React.ReactNode };
@@ -21,8 +27,9 @@ export function getTDocPage(options: {
 	sdkTitle: string;
 	packageSlug: string;
 	getVersions: () => Promise<string[]>;
+	metadataIcon: MetadataImageIcon;
 }) {
-	const { getDoc, sdkTitle, packageSlug, getVersions } = options;
+	const { getDoc, sdkTitle, packageSlug, getVersions, metadataIcon } = options;
 
 	async function Page(props: PageProps) {
 		const version = props.params.version;
@@ -112,9 +119,14 @@ export function getTDocPage(options: {
 			docName = `${extensionName} - ${docName}`;
 		}
 
-		return {
+		return createMetadata({
 			title: `${docName} - ${sdkTitle}`,
-		};
+			description: `${docName} API Reference - ${sdkTitle}`,
+			image: {
+				title: docName,
+				icon: metadataIcon,
+			},
+		});
 	}
 
 	return {

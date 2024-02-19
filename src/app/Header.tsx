@@ -27,8 +27,8 @@ import { ThirdwebIcon } from "../icons/thirdweb";
 
 const links = [
 	{
-		name: "Wallets",
-		href: "/wallets",
+		name: "Connect",
+		href: "/connect",
 	},
 	{
 		name: "Contracts",
@@ -42,10 +42,10 @@ const links = [
 		name: "Engine",
 		href: "/engine",
 	},
-	{
-		name: "Infrastructure",
-		href: "/infrastructure",
-	},
+	// {
+	// 	name: "Infrastructure",
+	// 	href: "/infrastructure",
+	// },
 ];
 
 const sdkLinks = [
