@@ -28,8 +28,8 @@ export default async function Page() {
 				{posts.map((post) => {
 					return (
 						<Link href={`/changelog/${post.slug}`} key={post.id}>
-							<div className="rounded-lg border bg-b-900 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900">
-								<h2 className="mb-1 text-lg">{post.title}</h2>
+							<div className="rounded-lg border-2 bg-b-900 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900">
+								<h2 className="mb-1 text-lg font-semibold">{post.title}</h2>
 								{post.published_at && <RenderDate iso={post.published_at} />}
 								<div className="mt-3 flex gap-5">
 									{post.authors?.map((author) => {
