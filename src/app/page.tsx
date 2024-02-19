@@ -59,7 +59,7 @@ function Hero() {
 					<h1 className="mb-5 text-4xl font-bold tracking-tight md:text-5xl">
 						thirdweb Documentation
 					</h1>
-					<p className="mb-8 max-w-md text-lg leading-7 text-f-300 md:text-xl">
+					<p className="mb-8 max-w-md text-lg font-medium leading-7 text-f-300 md:text-xl">
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
@@ -413,12 +413,12 @@ function ArticleCardIndex(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex items-center gap-4 rounded-lg border-2 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
 			{props.icon && <props.icon className="size-10 shrink-0" />}
 			<div className="flex flex-col gap-1">
 				<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
-				<p className="text-f-300">{props.description}</p>
+				<p className="font-medium text-f-300">{props.description}</p>
 			</div>
 		</Link>
 	);
@@ -435,7 +435,7 @@ function SDKCardIndex(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex items-center gap-4 rounded-lg border-2 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
 			{props.icon && <props.icon className="size-10 shrink-0" />}
 			<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>

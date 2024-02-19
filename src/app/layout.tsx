@@ -9,7 +9,7 @@ import {
 } from "@/components/others/ContextAIButton";
 import Script from "next/script";
 import { createMetadata } from "@/components/Document";
-import { SetStoredTheme } from "../components/ui/theme";
+import { SetStoredTheme } from "../components/others/theme/theme";
 import { Banner } from "../components/others/Banner";
 
 const sansFont = Inter({
@@ -49,11 +49,14 @@ export default function RootLayout({
 					data-api="https://pl.thirdweb.com/api/event"
 				/>
 				<ContextAIBotScript />
-				<SetStoredTheme />
 			</head>
-			<body className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
+			<body
+				className={`${sansFont.variable} ${monoFont.variable} font-sans`}
+				suppressHydrationWarning
+			>
+				<SetStoredTheme />
 				<NextTopLoader
-					color="var(--accent-600)"
+					color="var(--accent-500)"
 					height={2}
 					shadow={false}
 					showSpinner={false}

@@ -38,10 +38,9 @@ module.exports = {
 			"code-bg": "var(--code-bg)",
 			accent: {
 				500: "var(--accent-500)",
-				600: "var(--accent-600)",
-				900: "var(--accent-900)",
-				800: "var(--accent-800)",
 				700: "var(--accent-700)",
+				800: "var(--accent-800)",
+				900: "var(--accent-900)",
 			},
 			danger: {
 				500: "var(--danger-500)",

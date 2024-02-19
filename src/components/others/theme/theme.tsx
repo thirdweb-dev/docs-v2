@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 export function SetStoredTheme() {
 	function scriptCode() {
 		try {
@@ -13,8 +11,8 @@ export function SetStoredTheme() {
 	}
 
 	return (
-		<Script
-			id="sync-theme"
+		<script
+			suppressHydrationWarning
 			dangerouslySetInnerHTML={{
 				__html: `(() => { ${scriptCode.toString()}; ${scriptCode.name}(); })()`,
 			}}

@@ -1,6 +1,11 @@
 import "server-only";
 
-import { BuiltinLanguage, codeToTokens, SpecialLanguage } from "shiki";
+import {
+	BuiltinLanguage,
+	codeToTokens,
+	SpecialLanguage,
+	ThemedToken,
+} from "shiki";
 // prettier
 import { format } from "prettier/standalone";
 import * as parserBabel from "prettier/plugins/babel";
@@ -50,12 +55,14 @@ export async function CodeBlock(props: {
 	return (
 		<div className="group/code relative mb-5">
 			<div
-				className="relative block rounded-md border bg-code-bg font-mono text-sm leading-7"
+				className="relative block rounded-md font-mono text-sm leading-7"
 				lang={lang}
 			>
-				<ScrollShadow scrollableClassName="p-4" className="">
-					<RenderCode code={code} lang={lang} tokenLinks={tokenLinks} />
-				</ScrollShadow>
+				<code className="block rounded-lg border bg-b-700">
+					<ScrollShadow scrollableClassName="p-4" className="">
+						<RenderCode code={code} lang={lang} tokenLinks={tokenLinks} />
+					</ScrollShadow>
+				</code>
 			</div>
 
 			<div className="absolute right-4 top-4 z-20 opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
@@ -88,17 +95,39 @@ async function RenderCode(props: {
 	tokenLinks?: Map<string, string>;
 }) {
 	const { tokens } = await codeToTokens(props.code, {
-		theme: "github-dark",
+		// theme: "github-dark",
 		lang: props.lang,
+		themes: {
+			light: "github-light",
+			dark: "github-dark-dimmed",
+		},
 	});
 
+	const getThemeColors = (token: ThemedToken) => {
+		const styleStr = token.htmlStyle;
+		const [lightStyle, darkStyle] = styleStr?.split(";") || [];
+		const lightColor = lightStyle?.split(":")[1];
+		const darkColor = darkStyle?.split(":")[1];
+		return {
+			lightColor,
+			darkColor,
+		};
+	};
+
 	return (
-		<code>
+		<div>
 			<pre>
 				{tokens.map((line, i) => {
 					return (
 						<div key={i}>
 							{line.map((token, i) => {
+								const { lightColor, darkColor } = getThemeColors(token);
+
+								const style = {
+									"--code-light-color": lightColor,
+									"--code-dark-color": darkColor,
+								} as React.CSSProperties;
+
 								const href =
 									props.tokenLinks && props.tokenLinks.has(token.content)
 										? props.tokenLinks.get(token.content)
@@ -110,9 +139,7 @@ async function RenderCode(props: {
 											key={i}
 											href={href || "#"}
 											className="group/codelink relative py-0.5"
-											style={{
-												color: token.color,
-											}}
+											style={style}
 										>
 											{/* Token */}
 											<span className="relative z-10 transition-colors duration-200 group-hover/codelink:text-b-900">
@@ -131,12 +158,7 @@ async function RenderCode(props: {
 								}
 
 								return (
-									<span
-										key={i}
-										style={{
-											color: token.color,
-										}}
-									>
+									<span key={i} style={style}>
 										{token.content}
 									</span>
 								);
@@ -145,6 +167,6 @@ async function RenderCode(props: {
 					);
 				})}
 			</pre>
-		</code>
+		</div>
 	);
 }

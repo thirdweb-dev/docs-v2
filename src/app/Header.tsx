@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -23,6 +22,8 @@ import {
 import { useState } from "react";
 import { DocSearch } from "@/components/others/DocSearch";
 import { ContextAIBotButton } from "@/components/others/ContextAIButton";
+import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
+import { ThirdwebIcon } from "../icons/thirdweb";
 
 const links = [
 	{
@@ -83,19 +84,21 @@ export function Header() {
 					"container flex items-center justify-between gap-6 p-4 xl:justify-start"
 				}
 			>
-				<Link className="flex items-end gap-2" href="/">
-					<Image
-						src="/icons/thirdweb-logo.svg"
-						alt=""
-						width={150}
-						height={25}
-					/>
+				<Link
+					className="flex items-center gap-2"
+					href="/"
+					aria-label="thirdweb Docs"
+					title="thirdweb Docs"
+				>
+					<ThirdwebIcon className="size-8" />
 					<span className="text-[23px] font-bold leading-none tracking-tight text-f-100">
 						Docs
 					</span>
 				</Link>
 
 				<div className="flex gap-1 xl:hidden">
+					<ThemeSwitcher className="border-none bg-transparent" />
+
 					<DocSearch variant="icon" />
 
 					{/* Mobile burger menu */}
@@ -139,6 +142,10 @@ export function Header() {
 
 					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">
 						<div className="hidden xl:flex">
+							<ThemeSwitcher />
+						</div>
+
+						<div className="hidden xl:flex">
 							<ContextAIBotButton />
 						</div>
 
@@ -181,7 +188,7 @@ function DropdownLinks(props: {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="ghost"
-							className="inline-flex gap-1 pl-2 pr-1 text-f-300 hover:text-f-100"
+							className="inline-flex gap-1 pl-2 pr-1 font-medium text-f-300 hover:text-f-100"
 						>
 							{props.category}
 							<ChevronDownIcon className="w-4 text-f-300 opacity-70" />
@@ -202,7 +209,7 @@ function DropdownLinks(props: {
 										target={info.href.startsWith("http") ? "_blank" : ""}
 										prefetch={false}
 										className={clsx(
-											"flex cursor-pointer text-f-200",
+											"flex cursor-pointer font-medium text-f-200",
 											"hover:bg-b-600 hover:text-f-100",
 										)}
 									>
@@ -219,7 +226,7 @@ function DropdownLinks(props: {
 			<div className="xl:hidden">
 				<Accordion type="multiple">
 					<AccordionItem value="x" className="border-none">
-						<AccordionTrigger className="py-0 text-base text-f-300">
+						<AccordionTrigger className="py-0 text-base font-medium text-f-300">
 							{props.category}
 						</AccordionTrigger>
 						<AccordionContent>
@@ -253,7 +260,7 @@ function NavLink(props: { href: string; name: string; onClick?: () => void }) {
 			onClick={props.onClick}
 			target={props.href.startsWith("http") ? "_blank" : ""}
 			className={clsx(
-				"text-base transition-colors hover:text-f-100 xl:text-sm",
+				"text-base font-medium transition-colors hover:text-f-100 xl:text-sm",
 				pathname === props.href ? "text-f-100" : "text-f-300 ",
 			)}
 		>

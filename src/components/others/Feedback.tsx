@@ -46,24 +46,23 @@ export function Feedback() {
 						</DialogTrigger>
 
 						<DialogContent className="p-5">
-							<h3 className="mb-3 text-lg text-f-100">
+							<h3 className="mb-3 text-lg font-semibold text-f-100">
 								Apologies for any confusion.
 							</h3>
-							<p className="mb-3 text-f-300">
+							<p className="mb-5 font-medium text-f-300">
 								Please provide details about the issue you encountered to help
 								us improve our documentation.
 							</p>
 							<textarea
-								className="mb-2 h-32 w-full rounded-sm border bg-b-700 p-2 text-f-300 outline-none"
+								className="mb-2 h-32 w-full rounded-sm border bg-b-800  p-2 font-medium text-f-100 outline-none placeholder:font-semibold"
 								value={feedback}
 								placeholder="Your feedback..."
 								onChange={(e) => {
 									setFeedback(e.target.value);
 								}}
 							></textarea>
-							<div className="flex flex-row-reverse">
+							<div className="mt-3 flex flex-row-reverse">
 								<Button
-									className="mt-3"
 									onClick={() => {
 										setIsSubmitted(true);
 										posthog.capture("Portal Feedback", {
