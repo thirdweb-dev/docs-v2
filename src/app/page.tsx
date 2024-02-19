@@ -248,13 +248,13 @@ function WalletsSection() {
 
 			<Grid>
 				<ArticleCardIndex
-					href="/wallets/connect"
+					href="/connect/connect"
 					title="Connect"
 					description="Fully customizable Connect Wallet component"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
-					href="/wallets/smart-wallet"
+					href="/connect/smart-wallet"
 					title="Smart Wallet"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
@@ -262,11 +262,11 @@ function WalletsSection() {
 				<ArticleCardIndex
 					title="Embedded Wallet"
 					description="Email & social login wallets for your customers"
-					href="/wallets/embedded-wallet/overview"
+					href="/connect/embedded-wallet/overview"
 					icon={WalletsEmbeddedIcon}
 				/>
 				<ArticleCardIndex
-					href="/wallets/auth"
+					href="/connect/auth"
 					title="Auth"
 					description="Authenticate users with their wallets"
 					icon={WalletsAuthIcon}
