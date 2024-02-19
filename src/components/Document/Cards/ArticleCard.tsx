@@ -17,8 +17,8 @@ export function ArticleCard(props: {
 		>
 			<article className="group/article w-full overflow-hidden rounded-lg border-2 transition-colors duration-300 hover:border-accent-500 hover:bg-accent-900">
 				<div className="p-4">
-					<h3 className="mb-2 text-base font-semibold">{props.title}</h3>
-					<p className="text-sm text-f-300">{props.description}</p>
+					<h3 className="mb-1.5 text-base font-semibold">{props.title}</h3>
+					<p className="text-sm font-medium text-f-300">{props.description}</p>
 				</div>
 			</article>
 		</Link>
@@ -43,9 +43,7 @@ export function ArticleIconCard(props: {
 			)}
 			target={isExternal ? "_blank" : undefined}
 		>
-			{props.icon && (
-				<props.icon className="size-8 shrink-0 text-accent-500" />
-			)}
+			{props.icon && <props.icon className="size-8 shrink-0 text-accent-500" />}
 			{props.image && (
 				<Image src={props.image} alt={""} className="size-8 shrink-0" />
 			)}

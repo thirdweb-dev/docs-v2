@@ -6,7 +6,7 @@ export function GithubButtonLink(props: { href: string }) {
 		<Link
 			href={props.href}
 			target="_blank"
-			className="inline-flex items-center rounded-lg border text-sm duration-200 hover:border-f-300"
+			className="inline-flex items-center rounded-lg border-2 text-sm duration-200 hover:border-f-300"
 		>
 			<div className="p-2.5">
 				<BsGithub className="size-5" />
