@@ -140,7 +140,7 @@ export function TableOfContents(props: { nodes: TableOfContentNode[] }) {
 function TOCLink(props: { name: string; href: string }) {
 	return (
 		<Link
-			className="block overflow-hidden text-ellipsis text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500"
+			className=" block overflow-hidden text-ellipsis font-medium text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500"
 			href={props.href}
 		>
 			{props.name}

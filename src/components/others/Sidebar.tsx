@@ -106,8 +106,8 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 				href={link.href}
 				onClick={props.onLinkClick}
 				className={clsx(
-					"block overflow-hidden text-ellipsis py-2 text-base transition-colors duration-300 hover:text-f-100",
-					isActive ? "font-semibold text-accent-500" : "text-f-300",
+					"block overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+					isActive ? "font-medium text-accent-500" : "text-f-300",
 				)}
 			>
 				{link.name}
@@ -131,7 +131,7 @@ function DocSidebarNonCollapsible(props: {
 				{href ? (
 					<Link
 						className={cn(
-							"block text-base font-semibold text-f-100 hover:text-accent-500",
+							"block text-base text-f-100 hover:text-accent-500 font-medium",
 							isCategoryActive && "!text-accent-500",
 						)}
 						href={href}
@@ -190,7 +190,7 @@ function DocSidebarCategory(props: {
 				"text-f-300 hover:text-f-100",
 			)}
 		>
-			<div className="flex gap-2" ref={triggerRef}>
+			<div className="flex gap-2 font-medium" ref={triggerRef}>
 				{icon && <SidebarIcon icon={icon} />}
 				{name}
 			</div>
@@ -212,7 +212,10 @@ function DocSidebarCategory(props: {
 		>
 			<AccordionItem value="x" className="border-none">
 				{href ? (
-					<Link href={href} className={cn("block w-full text-left")}>
+					<Link
+						href={href}
+						className={cn("block w-full text-left font-medium")}
+					>
 						{trigger}
 					</Link>
 				) : (
@@ -250,7 +253,7 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 	return (
 		<DropdownMenu open={open} onOpenChange={setOpen}>
 			<DropdownMenuTrigger asChild>
-				<Button className="w-full justify-between border bg-b-800 py-4 text-left text-f-100 xl:hidden">
+				<Button className="w-full justify-between border bg-b-800 py-4 text-left font-medium text-f-100 xl:hidden">
 					{props.name}
 					<ChevronDown
 						className={clsx(

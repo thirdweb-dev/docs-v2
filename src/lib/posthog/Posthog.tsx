@@ -8,15 +8,15 @@ const posthogHost = "https://a.thirdweb.com";
 const apiKey = "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV";
 
 // Check that PostHog is client-side (used to handle Next.js SSR)
-if (typeof window !== "undefined") {
+if (typeof window !== "undefined" && process.env.NODE_ENV !== "development") {
 	posthog.init(apiKey, {
 		api_host: posthogHost,
 		// Enable debug mode in development
-		loaded: (posthog) => {
-			if (process.env.NODE_ENV === "development") {
-				posthog.debug();
-			}
-		},
+		// loaded: (posthog) => {
+		// 	if (process.env.NODE_ENV === "development") {
+		// 		posthog.debug();
+		// 	}
+		// },
 	});
 }
 

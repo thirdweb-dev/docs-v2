@@ -13,7 +13,7 @@ export function Banner(props: { text: string; href: string; id: string }) {
 		if (localStorage.getItem(bannerCancelledKey) !== "true") {
 			setShowBanner(true);
 		}
-	}, []);
+	}, [bannerCancelledKey]);
 
 	if (!showBanner) {
 		return null;
@@ -26,7 +26,13 @@ export function Banner(props: { text: string; href: string; id: string }) {
 				background: `linear-gradient(145.96deg, rgb(65, 10, 182) 5.07%, rgb(60 132 246) 100%)`,
 			}}
 		>
-			<Link href={props.href} className="font-bold text-f-100 hover:underline">
+			<Link
+				href={props.href}
+				className="font-bold hover:underline"
+				style={{
+					color: "white",
+				}}
+			>
 				{props.text}
 			</Link>
 			<Button
@@ -36,7 +42,12 @@ export function Banner(props: { text: string; href: string; id: string }) {
 					localStorage.setItem(bannerCancelledKey, "true");
 				}}
 			>
-				<XIcon className="size-5 text-f-100" />
+				<XIcon
+					className="size-5 "
+					style={{
+						color: "white",
+					}}
+				/>
 			</Button>
 		</div>
 	);

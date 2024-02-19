@@ -242,7 +242,7 @@ function RenderLinkGroup(props: { linkGroup: LinkGroup }) {
 
 function LinkGrid(props: { links: LinkMeta[] }) {
 	return (
-		<div className="grid gap-2 md:grid-cols-2  xl:grid-cols-3">
+		<div className="flex flex-wrap gap-3">
 			{props.links.map((_link, i) => {
 				const link = _link as LinkMeta;
 
@@ -250,7 +250,7 @@ function LinkGrid(props: { links: LinkMeta[] }) {
 					<DocLink
 						key={i}
 						href={link.href}
-						className="overflow-hidden text-ellipsis rounded-lg border bg-b-800 p-3 text-sm text-accent-500"
+						className="overflow-hidden text-ellipsis rounded-lg border-2 bg-b-900 px-3 py-2 text-f-200 hover:border-accent-500 hover:bg-accent-900"
 					>
 						{link.name}
 					</DocLink>
