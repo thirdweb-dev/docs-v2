@@ -8,6 +8,7 @@ const config = getTDocPage({
 	async getVersions() {
 		return ["v4", "v5"];
 	},
+	metadataIcon: "typescript",
 });
 
 export default config.default;

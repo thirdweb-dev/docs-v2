@@ -8,6 +8,7 @@ const config = getTDocPage({
 	async getVersions() {
 		return ["v0"];
 	},
+	metadataIcon: "react",
 });
 
 export default config.default;
