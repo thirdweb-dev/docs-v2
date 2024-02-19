@@ -18,13 +18,14 @@ html {
 		/* 100 - lightest, 900 - darkest */
 
 		/* neutral background colors */
-		--b-900: hsl(240deg 6.67% 5%);
-		--b-800: hsl(240deg 5% 7%);
-		--b-700: hsl(240deg 5% 9%);
-		--b-600: hsl(240deg 5% 13%);
+		--b-900: hsl(240deg 6.67% 4%);
+		--b-800: hsl(240deg 5% 6%);
+		--b-700: hsl(240deg 5% 8%);
+		--b-600: hsl(240deg 5% 12%);
+		--code-bg: var(--b-800);
 
 		--overlay: hsl(240deg 5% 5% / 0.5);
-		--border: hsla(0, 0%, 15%, 1);
+		--border: hsla(0, 0%, 14%, 1);
 
 		/* neutral foreground colors */
 		--f-100: rgba(241, 245, 249);
