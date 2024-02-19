@@ -38,8 +38,8 @@ const suggestedLinks: { title: string; href: string }[] = [
 		href: "/react/latest",
 	},
 	{
-		title: "Wallets",
-		href: "/wallets",
+		title: "Connect",
+		href: "/connect",
 	},
 	{
 		title: "Contracts",
@@ -61,7 +61,7 @@ type Tag =
 	| "Unity"
 	| "TypeScript"
 	| "Storage"
-	| "Wallets"
+	| "Connect"
 	| "Python"
 	| "Contracts"
 	| "Go"
@@ -394,8 +394,8 @@ function getTagFromHref(href: string): Tag | undefined {
 		return "TypeScript";
 	} else if (href.includes("/storage")) {
 		return "Storage";
-	} else if (href.includes("/wallets")) {
-		return "Wallets";
+	} else if (href.includes("/connect")) {
+		return "Connect";
 	} else if (href.includes("/infrastructure")) {
 		return "Infra";
 	} else if (href.includes("/solidity")) {
