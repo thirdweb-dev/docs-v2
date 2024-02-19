@@ -15,17 +15,6 @@ import { Transform } from "react-html-parser";
 
 const headingTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6"]);
 
-// type TransformerNode = {
-// 	type: string | undefined;
-// 	name: string;
-// 	data: string;
-// 	children: TransformerNode[];
-// 	next?: TransformerNode;
-// 	prev?: TransformerNode;
-// 	parent?: TransformerNode;
-// 	attribs?: Record<string, string>;
-// };
-
 const knownLangs = new Set([
 	"js",
 	"jsx",
