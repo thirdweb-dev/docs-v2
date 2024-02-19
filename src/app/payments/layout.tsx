@@ -11,6 +11,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
 }
 
 export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Payments",
+		icon: "payment",
+	},
 	title: "thirdweb Payments",
 	description:
 		"thirdweb payments delivers the easiest NFT payments experience for you and your buyers",

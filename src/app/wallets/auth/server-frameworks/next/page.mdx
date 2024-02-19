@@ -8,6 +8,10 @@ import {
 import { GraduationCap } from "lucide-react";
 
 export const metadata = createMetadata({
+	image: {
+		title: "Integrate thirdweb Auth with Next.js",
+		icon: "react",
+	},
 	title: "Auth in Next.js with thirdweb SDK",
 	description: "Add support for Auth to your Next apps",
 });
@@ -76,7 +80,6 @@ Here, we first configure our `ThirdwebAuth` instance with the `domain` of our ap
 
 Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to setup a full Auth API on our Next.js backend!
 
-
 ### App Router Setup
 
 Alternatively, we can setup auth using the app router. We can setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `app/api/auth/[...thirdweb]/route.ts` as follows:
@@ -86,8 +89,8 @@ import { ThirdwebAuthAppRouter } from "@thirdweb-dev/auth/next";
 import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
 
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuthAppRouter({
-  domain: "example.com",
-  wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+	domain: "example.com",
+	wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
 });
 
 export { ThirdwebAuthHandler as GET, ThirdwebAuthHandler as POST };

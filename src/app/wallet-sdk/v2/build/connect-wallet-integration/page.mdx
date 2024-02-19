@@ -1,6 +1,16 @@
 import { Details, GithubButtonLink, Callout, DocImage } from "@doc";
 import connectWalletDarkCompactImage from "./_assets/connect-wallet-dark-compact.png";
 import connectWalletEmbeddedCompact from "./_assets/connect-wallet-embedded-compact.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Integrate with ConnectWallet",
+		icon: "wallets",
+	},
+	title: "Integrate with ConnectWallet",
+	description: "Integrate your wallet with ConnectWallet",
+});
 
 # Integrate with ConnectWallet
 

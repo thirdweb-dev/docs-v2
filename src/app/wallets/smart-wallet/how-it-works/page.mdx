@@ -3,6 +3,10 @@ import { createMetadata } from "@doc";
 # What is a Smart Wallet?
 
 export const metadata = createMetadata({
+	image: {
+		title: "How Smart Wallet works",
+		icon: "wallets",
+	},
 	title: "What is a Smart Wallet? | thirdweb",
 	description:
 		"Smart Wallet is a wallet that is controlled by a smart contract following the ERC-4337 specification",
@@ -111,4 +115,4 @@ It allows you to send transactions with smart wallet accounts.
 A paymaster is a smart contract that relays transactions. It provides a service that enables a third party to pay
 the transaction fee on behalf of the user by funding the paymaster contract in advance. The paymaster acts as a gas reserve which then
 can be used during the call execution via the `EntryPoint` contract. The thirdweb [Smart Wallet](/wallets/smart-wallet) paymaster is initially paid for by thirdweb. By using an API key,
-the usage is tracked and billed. you can easily define ["sponsorship rules"](/wallets/smart-wallet/sponsorship-rules) that determine whether a transaction will be sponsored.
+the usage is tracked and billed. You can easily define [sponsorship rules](/wallets/smart-wallet/sponsorship-rules) that determine whether a transaction will be sponsored.

@@ -3,6 +3,17 @@ import { fetchChangeLogs } from "./ghost";
 import { Author } from "./components/Author";
 import Link from "next/link";
 import { RenderDate } from "./components/RenderData";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Changelog",
+	description:
+		"View the latest updates and changes in thirdweb SDKs and services",
+	image: {
+		title: "thirdweb Changelog",
+		icon: "changelog",
+	},
+});
 
 export default async function Page() {
 	const posts = await fetchChangeLogs();

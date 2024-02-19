@@ -10,6 +10,7 @@ import {
 import Script from "next/script";
 import { createMetadata } from "@/components/Document";
 import { SetStoredTheme } from "../components/ui/theme";
+import { Banner } from "../components/others/Banner";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -26,6 +27,10 @@ const monoFont = Roboto_Mono({
 export const metadata = createMetadata({
 	title: "thirdweb docs",
 	description: "thirdweb developer portal",
+	image: {
+		title: "Build apps and games on any EVM chain",
+		icon: "thirdweb",
+	},
 });
 
 export default function RootLayout({
@@ -57,8 +62,16 @@ export default function RootLayout({
 				<div className="fixed bottom-4 right-4 z-50 xl:hidden">
 					<ContextAIBotButton />
 				</div>
+
 				<div className="relative flex min-h-screen flex-col">
-					<Header />
+					<div className="sticky top-0 z-[1000]">
+						<Banner
+							id="v5-alpha-sdk"
+							text="Step into the cutting-edge of web3 development with our new SDK in alpha!"
+							href="/typescript/v5"
+						/>
+						<Header />
+					</div>
 					{children}
 				</div>
 			</body>

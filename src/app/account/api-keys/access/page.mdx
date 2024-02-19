@@ -2,7 +2,16 @@ import { DocImage, Steps, Step } from "@doc";
 import chooseKeyImage from "../assets/choose-key.png";
 import allowedDomainsImage from "../assets/allowed-domains.png";
 import selectEditImage from "../assets/select-edit.png";
+import { createMetadata } from "@doc";
 
+export const metadata = createMetadata({
+	title: "Access Restrictions",
+	description: "Set access restrictions on API keys",
+	image: {
+		title: "Access Restrictions on API Keys",
+		icon: "thirdweb",
+	},
+});
 
 # Access Restrictions
 

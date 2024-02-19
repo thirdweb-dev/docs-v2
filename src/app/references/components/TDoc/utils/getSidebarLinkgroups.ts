@@ -273,8 +273,9 @@ export function getExtensionName(
 ): ExtensionName | undefined {
 	try {
 		const extensionNameString = (
-			extensionBlockTag?.summary?.[0]?.children?.[0]?.value as string
+			extensionBlockTag?.summary?.[0]?.children?.[0]?.value || "COMMON"
 		).toUpperCase();
+
 		if (isValidExtensionString(extensionNameString)) {
 			return extensionNameString;
 		}
@@ -284,7 +285,7 @@ export function getExtensionName(
 	}
 }
 
-const EXTENSION_NAMES = ["ERC721", "ERC20", "ERC1155"] as const;
+const EXTENSION_NAMES = ["ERC721", "ERC20", "ERC1155", "COMMON"] as const;
 type ExtensionName = (typeof EXTENSION_NAMES)[number];
 
 function isValidExtensionString(

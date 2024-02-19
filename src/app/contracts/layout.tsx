@@ -14,4 +14,8 @@ export const metadata = createMetadata({
 	title: "thirdweb Contracts",
 	description:
 		"Easily create, deploy, and manage smart contracts on any EVM compatible blockchain",
+	image: {
+		title: "thirdweb contracts",
+		icon: "contract",
+	},
 });

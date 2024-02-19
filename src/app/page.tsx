@@ -341,7 +341,7 @@ function InfraSection() {
 
 			<Grid>
 				<ArticleCardIndex
-					href="/infrastructure/engine/overview"
+					href="/engine"
 					title="Engine"
 					description="Backend server to reliably call smart contracts"
 					icon={InfraEngineIcon}

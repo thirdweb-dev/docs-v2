@@ -18,9 +18,9 @@ A client is the entry point to the thirdweb SDK. It is required for all other ac
 #### For "client-side" usage
 
 ```ts
-import { createClient } from "thirdweb";
+import { createThirdwebClient } from "thirdweb";
 
-const client = createClient({
+const client = createThirdwebClient({
 	clientId: "<your_client_id>",
 });
 ```
@@ -28,9 +28,9 @@ const client = createClient({
 #### For "server-side" usage
 
 ```ts
-import { createClient } from "thirdweb";
+import { createThirdwebClient } from "thirdweb";
 
-const client = createClient({
+const client = createThirdwebClient({
 	secretKey: "<your_secret_key>",
 });
 ```
