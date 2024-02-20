@@ -26,14 +26,14 @@ import { rainbowWallet } from "thirdweb/wallets";
 const wallet = await rainbowWallet().connect();
 ```
 
-## Server Side Wallets
+## Server Side Usage
 
 ### Private Key
 
 For usage in backend environments.
 
 ```ts
-import { privateKeyWallet } from "thirdweb/wallets";
+import { privateKeyAccount } from "thirdweb/wallets";
 
-const wallet = privateKeyWallet({ client, privateKey: "<your_private_key>" });
+const account = privateKeyAccount({ client, privateKey: "<your_private_key>" });
 ```
