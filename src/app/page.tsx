@@ -27,8 +27,6 @@ import {
 	ContractDeployIcon,
 	ContractPublishIcon,
 	InfraEngineIcon,
-	InfraRPCIcon,
-	InfraStorageIcon,
 	WalletsAuthIcon,
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
@@ -43,8 +41,8 @@ export default function Page() {
 			{/* <TutorialsSection /> */}
 			<WalletsSection />
 			<ContractsSection />
+			<EngineSection />
 			<PaymentSection />
-			<InfraSection />
 			<SDKSection />
 		</main>
 	);
@@ -52,7 +50,7 @@ export default function Page() {
 
 function Hero() {
 	return (
-		<section className="grid py-10 lg:grid-cols-2  xl:py-2 ">
+		<section className="grid py-10 lg:grid-cols-2 xl:py-2">
 			{/* Left */}
 			<div className="flex flex-col justify-center">
 				<div>
@@ -244,7 +242,7 @@ function Hero() {
 function WalletsSection() {
 	return (
 		<section className="my-12">
-			<SectionTitle id="wallets" title="Wallets" />
+			<SectionTitle id="connect" title="Connect" />
 
 			<Grid>
 				<ArticleCardIndex
@@ -334,10 +332,10 @@ function PaymentSection() {
 	);
 }
 
-function InfraSection() {
+function EngineSection() {
 	return (
 		<section className="my-12">
-			<SectionTitle id="infra" title="Infrastructure" />
+			<SectionTitle id="engine" title="Engine" />
 
 			<Grid>
 				<ArticleCardIndex
@@ -345,18 +343,6 @@ function InfraSection() {
 					title="Engine"
 					description="Backend server to reliably call smart contracts"
 					icon={InfraEngineIcon}
-				/>
-				<ArticleCardIndex
-					href="/infrastructure/storage/overview"
-					title="Storage"
-					description="Secure, fast, decentralized storage"
-					icon={InfraStorageIcon}
-				/>
-				<ArticleCardIndex
-					href="/infrastructure/rpc-edge/overview"
-					title="RPC Edge"
-					description="Enterprise-grade RPCs, for free"
-					icon={InfraRPCIcon}
 				/>
 			</Grid>
 		</section>

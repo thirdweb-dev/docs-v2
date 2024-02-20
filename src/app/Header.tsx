@@ -35,17 +35,13 @@ const links = [
 		href: "/contracts",
 	},
 	{
-		name: "Payments",
-		href: "/payments",
-	},
-	{
 		name: "Engine",
 		href: "/engine",
 	},
-	// {
-	// 	name: "Infrastructure",
-	// 	href: "/infrastructure",
-	// },
+	{
+		name: "Payments",
+		href: "/payments",
+	},
 ];
 
 const sdkLinks = [
