@@ -10,19 +10,19 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { Button } from "../ui/button";
 
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import { Input } from "../ui/input";
-import {
-	Search as SearchIcon,
-	FileText as FileTextIcon,
-	AlignLeft as SectionIcon,
-	Command as CommandIcon,
-} from "lucide-react";
-import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { DynamicHeight } from "./DynamicHeight";
 import { SearchResult } from "@/app/api/search/types";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
+import {
+	Command as CommandIcon,
+	FileText as FileTextIcon,
+	Search as SearchIcon,
+	AlignLeft as SectionIcon,
+} from "lucide-react";
+import Link from "next/link";
 import { Spinner } from "../ui/Spinner/Spinner";
+import { Input } from "../ui/input";
+import { DynamicHeight } from "./DynamicHeight";
 
 const suggestedLinks: { title: string; href: string }[] = [
 	{
@@ -305,8 +305,17 @@ function useDebounce(value: string, delay: number) {
 
 const queryClient = new QueryClient();
 
-export function DocSearch(props: { variant: "icon" | "search" }) {
+export function DocSearch(props: {
+	onOpen?: (open: boolean) => void;
+	variant: "icon" | "search";
+}) {
 	const [open, setOpen] = useState(false);
+	const onOpenChange = (open: boolean) => {
+		if (props.onOpen) {
+			props.onOpen(open);
+		}
+		setOpen(open);
+	};
 
 	const forDesktop = props.variant === "search";
 	useEffect(() => {
@@ -346,7 +355,7 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<Dialog open={open} onOpenChange={setOpen}>
+			<Dialog open={open} onOpenChange={onOpenChange}>
 				{/* Desktop */}
 
 				{forDesktop && (

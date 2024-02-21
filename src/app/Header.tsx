@@ -1,18 +1,20 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ChevronDownIcon, Menu } from "lucide-react";
 import clsx from "clsx";
+import { ChevronDownIcon, Menu } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
+	Accordion,
 	AccordionContent,
 	AccordionItem,
 	AccordionTrigger,
-	Accordion,
 } from "@/components/ui/accordion";
 
+import { ContextAIBotButton } from "@/components/others/ContextAIButton";
+import { DocSearch } from "@/components/others/DocSearch";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -20,8 +22,6 @@ import {
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
-import { DocSearch } from "@/components/others/DocSearch";
-import { ContextAIBotButton } from "@/components/others/ContextAIButton";
 import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
 import { ThirdwebIcon } from "../icons/thirdweb";
 
@@ -95,7 +95,7 @@ export function Header() {
 				<div className="flex gap-1 xl:hidden">
 					<ThemeSwitcher className="border-none bg-transparent" />
 
-					<DocSearch variant="icon" />
+					<DocSearch variant="icon" onOpen={() => setShowBurgerMenu(false)} />
 
 					{/* Mobile burger menu */}
 					<Button
