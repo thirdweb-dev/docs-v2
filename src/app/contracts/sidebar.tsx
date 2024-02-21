@@ -128,10 +128,6 @@ export const sidebar: SideBar = {
 									href: `${prebuiltSlug}/account-factory`,
 								},
 								{
-									name: "Dynamic Account Factory",
-									href: `${prebuiltSlug}/dynamic-account-factory`,
-								},
-								{
 									name: "Managed Account Factory",
 									href: `${prebuiltSlug}/managed-account-factory`,
 								},
@@ -277,14 +273,6 @@ export const sidebar: SideBar = {
 								{
 									name: "Account Factory",
 									href: `${baseContractsSlug}/erc-4337/account-factory`,
-								},
-								{
-									name: "Dynamic Account",
-									href: `${baseContractsSlug}/erc-4337/dynamic-account`,
-								},
-								{
-									name: "Dynamic Account Factory",
-									href: `${baseContractsSlug}/erc-4337/dynamic-account-factory`,
 								},
 								{
 									name: "Managed Account",

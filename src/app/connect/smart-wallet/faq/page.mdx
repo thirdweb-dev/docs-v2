@@ -32,24 +32,9 @@ Smart wallets are controlled by a smart contract following the ERC-4337 specific
 
 Local wallets are a flexible and advanced solution for building fully-featured wallet experiences. They are tied to the user's device and can be exported at a later date. Local wallets offer powerful use cases such as guest mode, invisible wallet experiences, temporary wallets that can be upgraded to EOAs, simple password flow, and more. For more information on local wallets, please refer to our [local wallet overview](/references/wallets/v2/LocalWallet).
 
-### What do smart wallets add when used with Embedded Wallets**?**
+### What do smart wallets add when used with Embedded Wallets?
 
 Embedded Wallets and Smart Wallet are a powerful combination that allows users to sign in using their email, social media accounts, or custom JWT method (Embedded Wallet), and provides a completely gasless user experience (Smart Wallet).
-
-### What is the difference between Dynamic Account Factory and Managed Account Factory smart wallets?
-
-With `DynamicAccountFactory`, updates are opt-in **for its **`DynamicAccount` smart wallets, while the admin of the `ManagedAccountFactory` contract can push upgrades to all `ManagedAccount` smart wallets that it creates. Examples of each are included on the deploy pages as follows:
-
-- Managed - https://thirdweb.com/thirdweb.eth/ManagedAccountFactory
-- Dynamic - https://thirdweb.com/thirdweb.eth/DynamicAccountFactory
-
-### What is an example use case for Dynamic Account Factory smart wallets? and Managed Account Factory smart wallets?
-
-`DynamicAccountFactory` updates are opt-in **for its **`DynamicAccount` smart wallets, meaning the developer cannot \*\*\*\*push upgrades to its users’ wallets, the users will need to upgrade themselves.
-
-A game with in-game NFT items wants to offer its players the ability to store their NFT items in a staking vault as soon as their wallets receive these NFTs. This would be an upgrade to the smart wallet contract’s `onERC721Received` and `onERC1155Received` transfer hooks.
-
-The game can provide this upgrade as an opt-in upgrade to their players.
 
 ### Are smart wallets custodial or non-custodial?
 
