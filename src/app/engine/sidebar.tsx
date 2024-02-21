@@ -49,6 +49,10 @@ export const sidebar: SideBar = {
 							href: `${engineSlug}/features/webhooks`,
 						},
 						{
+							name: "Cancelling Transactions",
+							href: `${engineSlug}/features/cancelling-transactions`,
+						},
+						{
 							name: "Smart Wallets",
 							href: `${engineSlug}/features/smart-wallets`,
 						},

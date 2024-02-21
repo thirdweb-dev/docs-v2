@@ -49,13 +49,18 @@ Here are three ways to determine when the job is mined:
 
 ### How do I cancel a transaction?
 
-If a transaction is has not yet been mined or failed, cancel the transaction with `POST /transaction/cancel`.
+Cancel a transaction with [`POST /transaction/cancel`](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Transaction/operation/cancel).
+
+If a transaction is queued, this will remove it from the queue.
+If a transaction is already submitted to mempool, this will send a null transaction with aggressive gas options to "replace" the original transaction.
+This will submit a null tx
+If a transaction is has not yet been mined or failed, cancel the
 
 Or to cancel a transaction in the Engine dashboard, select the **Cancel transaction** button next to the status in the **Transactions** table.
 
 <DocImage src={cancelTxImage} />
 
-### How do I customize RPC URLs?
+### How do I customize my RPC?
 
 Set the `CHAIN_OVERRIDES` environment variable to the path to a JSON file or internet-accessible URL. The default value is `./chain-overrides.json` if found. See <a href="https://github.com/thirdweb-dev/engine/blob/main/chain-overrides.example.json" target="_blank">the example format</a>.
 
