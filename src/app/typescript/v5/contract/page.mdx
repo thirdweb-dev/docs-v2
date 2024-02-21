@@ -4,6 +4,7 @@ A "contract" is a wrapper around a smart contract that is deployed on a chain. I
 
 ```ts
 import { getContract } from "thirdweb";
+import { ethereum } from "thirdweb/chains";
 
 // get a contract
 const contract = getContract({
@@ -11,8 +12,8 @@ const contract = getContract({
   client,
   // the contract's address
   address: "0x123...",
-  // the chain id
-  chainId: 1,
+  // the chain the contract is deployed on
+  chain: ethereum,
   // OPTIONAL: the contract's abi
   abi: [...],
 });
