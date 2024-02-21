@@ -37,27 +37,26 @@ This smart wallet is unlocked by a 'key' - a personal account. This key can be a
 ## Smart Wallet Factories
 
 In order to issue smart wallet account contracts for users, an account factory contract must be deployed.
-This factory contract is responsible for deploying individual user contracts when required, and comes in three different flavours.
+This factory contract is responsible for deploying individual user contracts when required, and comes in two different flavours.
 
 #### Types of Account and Account Factory
 
 | Factory Type                                                         | Upgradeability                                              | Expected Usage                                                                                                                                                                                |
 | -------------------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`Simple`](https://thirdweb.com/thirdweb.eth/AccountFactory)         | Non-upgradeable                                             | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades.                                                       |
-| [`Dynamic`](https://thirdweb.com/thirdweb.eth/DynamicAccountFactory) | Account upgrades controlled locally by each account.        | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets but do not want to push upgrades to user wallets without consent.                  |
 | [`Managed`](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) | Account upgrades controlled centrally by the app developer. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
 
 ### Account Type Feature Comparison
 
-|                                                     | Simple                     | Dynamic                                  | Managed                                  |
-| --------------------------------------------------- | -------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Contracts                                           | `AccountFactory` `Account` | `DynamicAccountFactory` `DynamicAccount` | `ManagedAccountFactory` `ManagedAccount` |
-| ERC-4337 Compatible                                 | ✅                         | ✅                                       | ✅                                       |
-| Can hold native ERC-20, ERC-721 and ERC-1155 Tokens | ✅                         | ✅                                       | ✅                                       |
-| Multi-signer                                        | ✅                         | ✅                                       | ✅                                       |
-| Execute transactions in Batches                     | ✅                         | ✅                                       | ✅                                       |
-| Is the Account Upgradeable                          | ❌                         | ✅                                       | ✅                                       |
-| Who controls upgrades (?)                           | n/a                        | Admin of the account.                    | Admin of the account factory.            |
+|                                                     | Simple                     | Managed                                  |
+| --------------------------------------------------- | -------------------------- | ---------------------------------------- |
+| Contracts                                           | `AccountFactory` `Account` | `ManagedAccountFactory` `ManagedAccount` |
+| ERC-4337 Compatible                                 | ✅                         | ✅                                       |
+| Can hold native ERC-20, ERC-721 and ERC-1155 Tokens | ✅                         | ✅                                       |
+| Multi-signer                                        | ✅                         | ✅                                       |
+| Execute transactions in Batches                     | ✅                         | ✅                                       |
+| Is the Account Upgradeable                          | ❌                         | ✅                                       |
+| Who controls upgrades (?)                           | n/a                        | Admin of the account factory.            |
 
 To learn more about each factory and their respective account implementations, read our [smart contract deep dive](https://blog.thirdweb.com/smart-contract-deep-dive-building-smart-wallets-for-individuals-and-teams/).
 
