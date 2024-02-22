@@ -1,5 +1,4 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
-import { InfraEngineIcon } from "@/icons";
 
 const engineSlug = "/engine";
 
