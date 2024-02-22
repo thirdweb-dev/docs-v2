@@ -156,11 +156,13 @@ async function RenderCode(props: {
 								}
 
 								return (
-									<span key={i} style={style}>
+									<span key={i} style={style} data-token={token.content}>
 										{token.content}
 									</span>
 								);
 							})}
+
+							{line.length === 0 && i !== tokens.length - 1 && " "}
 						</div>
 					);
 				})}
