@@ -399,7 +399,7 @@ function ArticleCardIndex(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border-2 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex items-center gap-4 rounded-lg border p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
 			{props.icon && <props.icon className="size-10 shrink-0" />}
 			<div className="flex flex-col gap-1">
@@ -421,7 +421,7 @@ function SDKCardIndex(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border-2 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex items-center gap-4 rounded-lg border p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
 			{props.icon && <props.icon className="size-10 shrink-0" />}
 			<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>

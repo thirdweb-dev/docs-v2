@@ -262,7 +262,7 @@ function LinkGrid(props: { links: LinkMeta[] }) {
 					<DocLink
 						key={i}
 						href={link.href}
-						className="overflow-hidden text-ellipsis rounded-lg border-2 bg-b-900 px-3 py-2 text-f-200 hover:border-accent-500 hover:bg-accent-900"
+						className="overflow-hidden text-ellipsis rounded-lg border bg-b-900 px-3 py-2 text-f-200 hover:border-accent-500 hover:bg-accent-900"
 					>
 						{link.name}
 					</DocLink>

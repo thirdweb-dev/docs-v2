@@ -10,6 +10,9 @@ html {
 		"calt" 0;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
+	font-variation-settings: normal;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
 }
 
 @layer base {
@@ -20,7 +23,7 @@ html {
 		/* neutral background colors */
 		--b-900: hsl(240deg 6.67% 4%);
 		--b-800: hsl(240deg 5% 6%);
-		--b-700: hsl(240deg 5% 8%);
+		--b-700: hsl(240deg 5% 9%);
 		--b-600: hsl(240deg 5% 12%);
 		--code-bg: var(--b-800);
 
@@ -49,24 +52,23 @@ html {
 		--warning-900: hsl(30.73deg 50.62% 10%);
 
 		--radius: 0.5rem;
-		--header-height: 70px;
 	}
 
 	[data-theme="light"] {
 		/* neutral background colors */
-		--b-900: #fafafa;
-		--b-800: #f5f5f5;
-		--b-700: #e5e5e5;
-		--b-600: #d4d4d8;
+		--b-900: #f9fafb;
+		--b-800: hsl(216deg 12.2% 96%);
+		--b-700: hsl(222deg, 14%, 94%);
+		--b-600: hsl(222deg, 14%, 90%);
 
-		--overlay: hsl(240deg 5% 5% / 0.5);
-		--border: hsla(0, 0%, 83%, 1);
+		--overlay: hsl(222deg 5% 30% / 0.5);
+		--border: hsl(216deg 12.2% 82%);
 		--code-bg: white;
 
 		/* neutral foreground colors */
 		--f-100: hsla(222, 14%, 14%, 1);
-		--f-200: hsla(240, 2%, 25%, 1);
-		--f-300: hsla(215, 10%, 44%, 1);
+		--f-200: hsl(215.29deg 25% 26.67%);
+		--f-300: hsl(215.38deg 16.32% 46.86%);
 
 		/* others */
 		--accent-500: #2563eb;
@@ -132,8 +134,8 @@ button {
 }
 
 ::selection {
-	background: var(--accent-800);
-	color: var(--f-100);
+	background: var(--f-100);
+	color: var(--b-900);
 }
 
 .hide-scrollbar {

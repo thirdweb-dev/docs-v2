@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Fira_Code } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
 import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/Posthog";
@@ -11,6 +11,8 @@ import Script from "next/script";
 import { createMetadata } from "@/components/Document";
 import { SetStoredTheme } from "../components/others/theme/theme";
 import { Banner } from "../components/others/Banner";
+import { StickyTopContainer } from "../components/Document/StickyTopContainer";
+import { EnableSmoothScroll } from "../components/others/SmoothScroll";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -18,7 +20,7 @@ const sansFont = Inter({
 	weight: "variable",
 });
 
-const monoFont = Roboto_Mono({
+const monoFont = Fira_Code({
 	subsets: ["latin"],
 	variable: "--font-mono",
 	weight: "variable",
@@ -62,19 +64,20 @@ export default function RootLayout({
 					showSpinner={false}
 				/>
 				<PosthogPageView />
-				<div className="fixed bottom-4 right-4 z-50 xl:hidden">
+				<EnableSmoothScroll />
+				<div className="fixed bottom-4 right-4 z-floatingButton xl:hidden">
 					<ContextAIBotButton />
 				</div>
 
 				<div className="relative flex min-h-screen flex-col">
-					<div className="sticky top-0 z-[1000]">
+					<StickyTopContainer>
 						<Banner
 							id="v5-alpha-sdk"
 							text="Step into the cutting-edge of web3 development with our new SDK in alpha!"
 							href="/typescript/v5"
 						/>
 						<Header />
-					</div>
+					</StickyTopContainer>
 					{children}
 				</div>
 			</body>

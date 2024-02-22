@@ -54,18 +54,16 @@ export async function CodeBlock(props: {
 
 	return (
 		<div className="group/code relative mb-5">
-			<div
-				className="relative block rounded-md font-mono text-sm leading-7"
+			<code
+				className="relative block rounded-lg border bg-code-bg font-mono text-sm leading-6"
 				lang={lang}
 			>
-				<code className="block rounded-lg border bg-code-bg">
-					<ScrollShadow scrollableClassName="p-4" className="">
-						<RenderCode code={code} lang={lang} tokenLinks={tokenLinks} />
-					</ScrollShadow>
-				</code>
-			</div>
+				<ScrollShadow scrollableClassName="p-4" className="">
+					<RenderCode code={code} lang={lang} tokenLinks={tokenLinks} />
+				</ScrollShadow>
+			</code>
 
-			<div className="absolute right-4 top-4 z-20 opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
+			<div className="absolute right-4 top-4 z-copyCodeButton opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
 				<CopyButton text={code} />
 			</div>
 		</div>
@@ -76,7 +74,7 @@ export function InlineCode(props: { code: string; className?: string }) {
 	return (
 		<code
 			className={cn(
-				"max-h-20 rounded-md border bg-b-700 px-1.5 py-0.5 text-[0.875em]",
+				"max-h-20 rounded-md border bg-b-700 px-1.5 py-0.5 text-[0.875em] text-f-100",
 				props.className,
 			)}
 			style={{
@@ -142,13 +140,13 @@ async function RenderCode(props: {
 											style={style}
 										>
 											{/* Token */}
-											<span className="relative z-10 transition-colors duration-200 group-hover/codelink:text-b-900">
+											<span className="relative z-codeToken transition-colors duration-200 group-hover/codelink:text-b-900">
 												{token.content}
 											</span>
 											{/* Line */}
 											<span
 												className={cn(
-													"absolute bottom-0 left-0 right-0 z-0 inline-block h-[3px] scale-105 translate-y-[2px]",
+													"absolute bottom-0 left-0 right-0 z-codeTokenHighlight inline-block h-[3px] scale-105 translate-y-[2px]",
 													"rounded-sm bg-current opacity-20",
 													"transition-all duration-200 group-hover/codelink:opacity-100 group-hover/codelink:h-full group-hover/codelink:translate-y-0",
 												)}
