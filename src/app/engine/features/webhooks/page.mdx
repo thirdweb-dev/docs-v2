@@ -1,4 +1,5 @@
-import { createMetadata } from "@doc";
+import webhooksImage from "../../assets/engine-webhooks.webp";
+import { createMetadata, DocImage } from "@doc";
 
 export const metadata = createMetadata({
 	title: "Webhooks | thirdweb Engine",
@@ -12,16 +13,27 @@ Configure webhooks in Engine to notify your backend server of transaction or bac
 
 ## Supported events
 
-| Event                    | Description                                                                  |
-| ------------------------ | ---------------------------------------------------------------------------- |
-| `all_transaction`        | Subscribe to all transaction events (queued, sent, mined, errored, retried). |
-| `queued_transaction`     | A transaction was queued by Engine.                                          |
-| `sent_transaction`       | A transaction was sent to an RPC provider.                                   |
-| `mined_transaction`      | A transaction was mined on the blockchain                                    |
-| `errored_transaction`    | A transaction was errored out.                                               |
-| `retried_transaction`    | A transaction was retried.                                                   |
-| `cancelled_transaction`  | A transaction was cancelled.                                                 |
-| `backend_wallet_balance` | The backend wallet's balance dropped below `minWalletBalance`.               |
+### Transactions
+
+| Event                 | Description                                                                                                          |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `queued_transaction`  | A transaction is added to the Engine queue.                                                                          |
+| `sent_transaction`    | A transaction is submitted to an RPC provider. A transaction hash is provided, but it may not be mined onchain yet.  |
+| `mined_transaction`   | A transaction is mined on the blockchain. A transaction hash is provided, and it is mined onchain.                   |
+| `errored_transaction` | A transaction is unable to be submitted. There may be an error in the transaction params, backend wallet, or server. |
+| `all_transaction`     | All the above events. The `status` field will be one of: `queued`, `sent`, `mined`, `errored`.                       |
+
+<DocImage
+	src={webhooksImage}
+	alt="Webhooks lifecycle"
+	className="max-w-[500px] mx-auto"
+/>
+
+### Wallets
+
+| Event                    | Description                                             |
+| ------------------------ | ------------------------------------------------------- |
+| `backend_wallet_balance` | A backend wallet's balance is below `minWalletBalance`. |
 
 ## Setup
 
