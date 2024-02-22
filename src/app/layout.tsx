@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Fira_Code } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
 import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/Posthog";
@@ -12,6 +12,7 @@ import { createMetadata } from "@/components/Document";
 import { SetStoredTheme } from "../components/others/theme/theme";
 import { Banner } from "../components/others/Banner";
 import { StickyTopContainer } from "../components/Document/StickyTopContainer";
+import { EnableSmoothScroll } from "../components/others/SmoothScroll";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -19,7 +20,7 @@ const sansFont = Inter({
 	weight: "variable",
 });
 
-const monoFont = Roboto_Mono({
+const monoFont = Fira_Code({
 	subsets: ["latin"],
 	variable: "--font-mono",
 	weight: "variable",
@@ -63,6 +64,7 @@ export default function RootLayout({
 					showSpinner={false}
 				/>
 				<PosthogPageView />
+				<EnableSmoothScroll />
 				<div className="fixed bottom-4 right-4 z-floatingButton xl:hidden">
 					<ContextAIBotButton />
 				</div>

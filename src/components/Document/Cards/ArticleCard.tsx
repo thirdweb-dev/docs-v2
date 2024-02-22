@@ -15,7 +15,7 @@ export function ArticleCard(props: {
 			className="flex cursor-default bg-b-800"
 			target={isExternal ? "_blank" : undefined}
 		>
-			<article className="group/article w-full overflow-hidden rounded-lg border-2 transition-colors duration-300 hover:border-accent-500 hover:bg-accent-900">
+			<article className="group/article w-full overflow-hidden rounded-lg border transition-colors duration-300 hover:border-accent-500 hover:bg-accent-900">
 				<div className="p-4">
 					<h3 className="mb-1.5 text-base font-semibold">{props.title}</h3>
 					<p className="text-sm font-medium text-f-300">{props.description}</p>
@@ -38,7 +38,7 @@ export function ArticleIconCard(props: {
 		<Link
 			href={props.href}
 			className={cn(
-				"flex items-center gap-4 rounded-lg border-2 bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900",
+				"flex items-center gap-4 rounded-lg border bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900",
 				props.className,
 			)}
 			target={isExternal ? "_blank" : undefined}

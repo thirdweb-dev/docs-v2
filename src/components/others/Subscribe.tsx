@@ -40,7 +40,7 @@ export function Subscribe() {
 			</p>
 			<div className="flex">
 				<Input
-					className="h-12 border-2 border-b-600 bg-b-900 font-semibold duration-200 placeholder:font-semibold focus-visible:outline-none focus-visible:ring-offset-0 group-focus-within:border-f-100 md:w-[230px]"
+					className="h-12 border border-b-600 bg-b-900 font-semibold duration-200 placeholder:font-semibold focus-visible:outline-none focus-visible:ring-offset-0 group-focus-within:border-f-100 md:w-[230px]"
 					placeholder="Email"
 					type="email"
 					value={email}

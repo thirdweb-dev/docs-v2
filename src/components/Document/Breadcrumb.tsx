@@ -15,7 +15,7 @@ export function Breadcrumb(props: { crumbs: Crumb[] }) {
 						<li key={crumb.name} className="flex items-center gap-1">
 							<Link
 								href={crumb.href}
-								className="text-f-300 transition-colors hover:text-f-100"
+								className="font-medium text-f-300 transition-colors hover:text-f-100"
 							>
 								{crumb.name}
 							</Link>
