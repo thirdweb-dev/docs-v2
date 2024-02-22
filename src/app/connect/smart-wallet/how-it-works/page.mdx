@@ -83,7 +83,7 @@ This is the data structure for the "pseudo-transaction" that the user wants to p
 
 - `sender`: The account making the operation.
 - `nonce`: Anti-replay parameter; also used as the salt for first-time account creation.
-- `initCode`: The initialization code needed to create the account (needed if and only if the account is not yet on-chain).
+- `initCode`: The initialization code needed to create the account (needed if and only if the account is not yet onchain).
 - `callData`: The data to pass to the `sender` during the operation.
 - `callGasLimit`: The amount of gas to allocate for the operation.
 - `verificationGasLimit`: The amount of gas to allocate for the verification step.
