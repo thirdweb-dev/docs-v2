@@ -74,7 +74,7 @@ export function Header() {
 	const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
 	return (
-		<header className="flex h-header-height w-full items-center border-b bg-b-900">
+		<header className="flex w-full items-center border-b bg-b-900">
 			<div
 				className={
 					"container flex items-center justify-between gap-6 p-4 xl:justify-start"
@@ -111,7 +111,7 @@ export function Header() {
 					className={clsx(
 						"grow gap-5",
 						!showBurgerMenu ? "hidden xl:flex" : "flex",
-						"fixed inset-0 top-header-height flex-col bg-b-800 p-6 animate-in fade-in-20 slide-in-from-top-3 ",
+						"fixed inset-0 top-sticky-top-height flex-col bg-b-800 p-6 animate-in fade-in-20 slide-in-from-top-3 ",
 						"xl:static xl:animate-none xl:flex-row xl:justify-between xl:bg-transparent xl:p-0",
 					)}
 				>

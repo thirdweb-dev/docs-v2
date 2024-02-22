@@ -95,7 +95,7 @@ export function TableOfContentsSideBar() {
 		<nav
 			className={cn(
 				"hidden hrink-0 pt-6 xl:block text-sm",
-				"sticky top-header-height h-sidebar-height flex-col overflow-y-auto styled-scrollbar",
+				"sticky top-sticky-top-height h-sidebar-height flex-col overflow-y-auto styled-scrollbar",
 			)}
 		>
 			<div className="mb-5 text-base font-semibold ">On this page</div>

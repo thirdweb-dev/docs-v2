@@ -65,7 +65,7 @@ export async function CodeBlock(props: {
 				</code>
 			</div>
 
-			<div className="absolute right-4 top-4 z-20 opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
+			<div className="absolute right-4 top-4 z-copyCodeButton opacity-0 transition-opacity duration-300 group-hover/code:opacity-100">
 				<CopyButton text={code} />
 			</div>
 		</div>
@@ -142,13 +142,13 @@ async function RenderCode(props: {
 											style={style}
 										>
 											{/* Token */}
-											<span className="relative z-10 transition-colors duration-200 group-hover/codelink:text-b-900">
+											<span className="relative z-codeToken transition-colors duration-200 group-hover/codelink:text-b-900">
 												{token.content}
 											</span>
 											{/* Line */}
 											<span
 												className={cn(
-													"absolute bottom-0 left-0 right-0 z-0 inline-block h-[3px] scale-105 translate-y-[2px]",
+													"absolute bottom-0 left-0 right-0 z-codeTokenHighlight inline-block h-[3px] scale-105 translate-y-[2px]",
 													"rounded-sm bg-current opacity-20",
 													"transition-all duration-200 group-hover/codelink:opacity-100 group-hover/codelink:h-full group-hover/codelink:translate-y-0",
 												)}

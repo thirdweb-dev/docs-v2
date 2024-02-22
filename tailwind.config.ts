@@ -53,6 +53,23 @@ module.exports = {
 				800: "var(--warning-800)",
 			},
 		},
+		zIndex: {
+			modal: 1400,
+			modalOverlay: 1300,
+			dropdownMenu: 1200,
+			menu: 1100,
+			//
+			stickyTop: 1000,
+			floatingButton: 1000,
+			stickyMobileSidebar: 500,
+			//
+			copyCodeButton: 20,
+			//
+			codeToken: 5,
+			codeTokenHighlight: 1,
+			// base
+			base: 0,
+		},
 		borderRadius: {
 			lg: "var(--radius)",
 			md: "calc(var(--radius) - 2px)",
@@ -64,10 +81,10 @@ module.exports = {
 		},
 		extend: {
 			spacing: {
-				"header-height": "var(--header-height)",
-				"sidebar-height": "calc(100vh - var(--header-height))",
-				"offset-top": "calc(var(--header-height) + 18px)",
-				"offset-top-mobile": "calc(var(--header-height) + 100px)",
+				"sticky-top-height": "var(--sticky-top-height)",
+				"sidebar-height": "calc(100vh - var(--sticky-top-height))",
+				"offset-top": "calc(var(--sticky-top-height) + 18px)",
+				"offset-top-mobile": "calc(var(--sticky-top-height) + 100px)",
 			},
 			keyframes: {
 				"accordion-down": {

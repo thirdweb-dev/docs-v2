@@ -49,7 +49,6 @@ html {
 		--warning-900: hsl(30.73deg 50.62% 10%);
 
 		--radius: 0.5rem;
-		--header-height: 70px;
 	}
 
 	[data-theme="light"] {

@@ -11,6 +11,7 @@ import Script from "next/script";
 import { createMetadata } from "@/components/Document";
 import { SetStoredTheme } from "../components/others/theme/theme";
 import { Banner } from "../components/others/Banner";
+import { StickyTopContainer } from "../components/Document/StickyTopContainer";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -62,19 +63,19 @@ export default function RootLayout({
 					showSpinner={false}
 				/>
 				<PosthogPageView />
-				<div className="fixed bottom-4 right-4 z-50 xl:hidden">
+				<div className="fixed bottom-4 right-4 z-floatingButton xl:hidden">
 					<ContextAIBotButton />
 				</div>
 
 				<div className="relative flex min-h-screen flex-col">
-					<div className="sticky top-0 z-[1000]">
+					<StickyTopContainer>
 						<Banner
 							id="v5-alpha-sdk"
 							text="Step into the cutting-edge of web3 development with our new SDK in alpha!"
 							href="/typescript/v5"
 						/>
 						<Header />
-					</div>
+					</StickyTopContainer>
 					{children}
 				</div>
 			</body>
