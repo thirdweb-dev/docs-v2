@@ -80,7 +80,7 @@ This is an arbitrary statement displayed as the user is logging in, an is often 
 
 ### `chainId`
 
-This field specifies the `chainId` of the wallet that's logging in, which is especially important for users logging in with smart contract wallets. Since smart contract wallets exist on only on chain, it's important that the user specifies which chain their wallet exists on, so that the server then knows where to interact with the smart contract wallet to verify the signature.
+This field specifies the `chainId` of the wallet that's logging in, which is especially important for users logging in with smart contract wallets. Since smart contract wallets exist on only onchain, it's important that the user specifies which chain their wallet exists on, so that the server then knows where to interact with the smart contract wallet to verify the signature.
 
 ### `nonce`
 
@@ -110,4 +110,4 @@ Next, we check that the payload is currently valid. This includes checking that 
 
 Finally, we check that the user attempting to login actually signed the login payload. This ensures that the user is the one who is attempting to login, and not a malicious third-party.
 
-However, there is one nuance at this step. If a user is signing in with a smart contract wallet ([EIP1271](https://eips.ethereum.org/EIPS/eip-1271)), then we need to make a smart contract call to the `isValidSignature` function to check if the signature is valid - and this requires that the `chainId` on the login payload is correct. This is because smart contract wallets exist on only on chain, so we need to know which chain the wallet exists on in order to interact with the smart contract.
+However, there is one nuance at this step. If a user is signing in with a smart contract wallet ([EIP1271](https://eips.ethereum.org/EIPS/eip-1271)), then we need to make a smart contract call to the `isValidSignature` function to check if the signature is valid - and this requires that the `chainId` on the login payload is correct. This is because smart contract wallets exist on only onchain, so we need to know which chain the wallet exists on in order to interact with the smart contract.

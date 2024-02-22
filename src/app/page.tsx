@@ -149,7 +149,7 @@ function Hero() {
 // 							href: "/",
 // 						},
 // 						{
-// 							name: "On-chain voting",
+// 							name: "Onchain voting",
 // 							href: "/",
 // 						},
 // 						{
@@ -307,7 +307,7 @@ function ContractsSection() {
 				<ArticleCardIndex
 					href="/contracts/publish/overview"
 					title="Publish"
-					description="Publish your contracts on-chain"
+					description="Publish your contracts onchain"
 					icon={ContractPublishIcon}
 				/>
 			</Grid>
