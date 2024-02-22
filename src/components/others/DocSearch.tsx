@@ -69,7 +69,9 @@ type Tag =
 	| "Infra"
 	| "Solidity"
 	| "Payments"
-	| "Glossary";
+	| "Glossary"
+	| "Unified SDK"
+	| "Engine";
 
 function SearchModalContent(props: { closeModal: () => void }) {
 	const [input, setInput] = useState("");
@@ -230,23 +232,30 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											tag={tag}
 											onClick={handleLinkClick}
 										/>
-										{/*
+
 										{result.sections && (
 											<div className="flex flex-col gap-2 border-l pl-3">
-												{result.sections?.map((sectionData) => {
-													return (
-														<SearchResultItem
-															type="section"
-															href={result.pageHref + sectionData.href}
-															key={sectionData.href}
-															title={sectionData.title}
-															content={sectionData.content}
-															onClick={handleLinkClick}
-														/>
-													);
-												})}
+												{result.sections
+													?.filter((d) => d.content.length > 50)
+													.slice(0, 2)
+													.map((sectionData) => {
+														return (
+															<SearchResultItem
+																type="section"
+																href={result.pageHref + sectionData.href}
+																key={sectionData.href}
+																title={sectionData.title}
+																content={
+																	sectionData.content.length < 100
+																		? sectionData.content
+																		: sectionData.content.slice(0, 100) + " ..."
+																}
+																onClick={handleLinkClick}
+															/>
+														);
+													})}
 											</div>
-										)} */}
+										)}
 									</div>
 								);
 							})}
@@ -390,12 +399,16 @@ function getTagFromHref(href: string): Tag | undefined {
 		return "React";
 	} else if (href.includes("/unity")) {
 		return "Unity";
+	} else if (href.includes("/typescript/v5")) {
+		return "Unified SDK";
 	} else if (href.includes("/typescript")) {
 		return "TypeScript";
 	} else if (href.includes("/storage")) {
 		return "Storage";
 	} else if (href.includes("/connect")) {
 		return "Connect";
+	} else if (href.includes("/engine")) {
+		return "Engine";
 	} else if (href.includes("/infrastructure")) {
 		return "Infra";
 	} else if (href.includes("/solidity")) {
@@ -424,30 +437,37 @@ function SearchResultItem(props: {
 			onClick={props.onClick}
 		>
 			{props.type === "section" && (
-				<SectionIcon className="size-5 text-f-300" />
+				<SectionIcon className="mt-1 size-5 text-f-300" />
 			)}
 
 			<div className="flex w-full flex-col gap-1">
-				<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
-					<div className="flex items-center gap-2">
-						{props.type === "page" && (
-							<FileTextIcon className="size-5 text-f-300" />
-						)}
-
-						{props.title}
-					</div>
-
-					{props.tag && (
-						<span
-							key={props.tag}
+				{props.title && (
+					<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
+						<div
 							className={cn(
-								"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
+								"flex items-center gap-2",
+								props.type === "page" ? "text-f-100" : "text-f-200",
 							)}
 						>
-							{props.tag}
-						</span>
-					)}
-				</div>
+							{props.type === "page" && (
+								<FileTextIcon className="size-5 text-f-300" />
+							)}
+
+							{props.title}
+						</div>
+
+						{props.tag && (
+							<span
+								key={props.tag}
+								className={cn(
+									"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
+								)}
+							>
+								{props.tag}
+							</span>
+						)}
+					</div>
+				)}
 				{props.content && (
 					<div className="break-all text-sm">{props.content}</div>
 				)}
