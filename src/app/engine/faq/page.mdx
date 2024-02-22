@@ -1,6 +1,3 @@
-import cancelTxImage from "../assets/cancel-transaction-button.png";
-import { DocImage } from "@doc";
-
 # FAQ
 
 ## About Engine
@@ -47,32 +44,45 @@ Here are three ways to determine when the job is mined:
   };
   ```
 
-### How do I cancel a transaction?
-
-Cancel a transaction with [`POST /transaction/cancel`](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Transaction/operation/cancel).
-
-If a transaction is queued, this will remove it from the queue.
-If a transaction is already submitted to mempool, this will send a null transaction with aggressive gas options to "replace" the original transaction.
-This will submit a null tx
-If a transaction is has not yet been mined or failed, cancel the
-
-Or to cancel a transaction in the Engine dashboard, select the **Cancel transaction** button next to the status in the **Transactions** table.
-
-<DocImage src={cancelTxImage} />
-
 ### How do I customize my RPC?
 
-Set the `CHAIN_OVERRIDES` environment variable to the path to a JSON file or internet-accessible URL. The default value is `./chain-overrides.json` if found. See <a href="https://github.com/thirdweb-dev/engine/blob/main/chain-overrides.example.json" target="_blank">the example format</a>.
+Use [Update Chain Configuration](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Configuration/operation/updateChainsConfiguration) to override a chain's settings.
+
+Here's an example snippet to provide your own RPC on Polygon.
+
+Endpoint
+
+```text
+POST /configuration/chains
+```
+
+Headers
+
+```text
+Content-Type: application/json
+Authorization: Bearer <access_token>
+```
+
+Body
+
+```json
+[
+	{
+		"name": "Polygon Mainnet",
+		"chain": "Polygon",
+		"slug": "polygon",
+		"chainId": 137,
+		"rpc": ["https://<custom_rpc_url>"],
+		"nativeCurrency": {
+			"name": "MATIC",
+			"symbol": "MATIC",
+			"decimals": 18
+		}
+	}
+]
+```
 
 ## Troubleshooting
-
-### How do I resolve an "invalid password" error?
-
-As of v0.0.7, an `ENCRYPTION_PASSWORD` is used to encrypt sensitive data stored in DB. Prior versions used the `THIRDWEB_API_SECRET_KEY` by default.
-
-To resolve this error, set `ENCRYPTION_PASSWORD` to the `THIRDWEB_API_SECRET_KEY` used during setup.
-
-Afterward you may change `THIRDWEB_API_SECRET_KEY` if needed. Do _not_ change `ENCRYPTION_PASSWORD` since all sensitive data is encrypted with this password.
 
 ### How do I resolve issues connecting to Postgres DB?
 

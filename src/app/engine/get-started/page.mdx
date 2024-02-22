@@ -1,5 +1,6 @@
 import { Callout } from "@doc";
-import { createMetadata } from "@doc";
+import { createMetadata, DocImage } from "@doc";
+import lifecycleImage from "../assets/tx-lifecycle.webp";
 
 export const metadata = createMetadata({
 	title: "Getting started with Engine | thirdweb Infrastructure",
@@ -9,15 +10,36 @@ export const metadata = createMetadata({
 
 # Get Started
 
-Learn the basics on using Engine.
+Once you have Engine set up, learn the basics of Engine.
+
+## Learn how transactions work
+
+Blockchain **read** calls (e.g. get token balance) are synchronous and will return the value read.
+
+Blockchain **write** calls (e.g. transfer tokens) are asynchronous:
+
+- Your app backend sends a write transaction to Engine.
+- Engine enqueues the job and returns a reference to the job: `queueId`.
+  - If `queueId` is returned, this transaction will be attempted.
+  - If `queueId` is not returned, this transaction failed to be added to the queue and will not be attempted.
+- Engine will attempt to submit the transaction from your specified backend wallet.
+  - If there is an error (failed simulation, out of gas), the transaction is set to `errored` and will not be re-attempted.
+- Engine polls to check if the transaction is mined. If it is, the transaction is set to `mined`.
+- If the transaction is not mined after some duration, Engine re-submits the transaction with aggressive gas settings. This transaction is sent with the same nonce and will be mined at most once.
+
+<DocImage
+	src={lifecycleImage}
+	alt="Transaction lifecycle"
+	className="max-w-[800px] mx-auto"
+/>
+
+## Manage Engine from the dashboard
 
 <Callout variant='info' title="Check if Engine is set up">
 
 Tip: Navigate to your Engine URL. You should see the following response: `Engine is set up successfully.`
 
 </Callout>
-
-## Manage Engine from the dashboard
 
 Navigate to the [thirdweb Engine dashboard](https://thirdweb.com/dashboard/engine) to manage your Engine instances.
 
