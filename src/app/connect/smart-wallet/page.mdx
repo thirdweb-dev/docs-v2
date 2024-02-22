@@ -3,27 +3,27 @@ import { ReactIcon, TypeScriptIcon, UnityIcon } from "@/icons";
 
 export const metadata = createMetadata({
 	image: {
-		title: "thirdweb Smart Wallet",
+		title: "thirdweb Account Abstraction",
 		icon: "wallets",
 	},
-	title: "Smart Wallet | thirdweb",
+	title: "Account Abstraction | thirdweb",
 	description:
-		"Everything you need to build ERC-4337 Smart Wallets for your users",
+		"Everything you need to leverage account abstraction technology to enable seamless user experiences",
 });
 
-# Smart Wallet
+# Smart Abstraction
 
-Everything you need to build [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) Smart Wallets for your users.
+Everything you need to leverage account abstraction technology to enable seamless user experiences for your users. This will deploy [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) compatible smart accounts for users.
 
 ## Features
 
-thirdweb's smart wallets have the following features by default:
+thirdweb's smart accounts have the following features by default:
 
 - The ability to have multiple owners on the same wallet.
 - Give access to scoped session keys with restrictions.
 - Execute transactions (single and batched).
-- Send and receive native tokens to and from the smart wallet.
-- Send and receive [ERC-721](/contracts/build/extensions/erc-721/ERC721) and [ERC-1155](/contracts/build/extensions/erc-1155/ERC1155) NFTs from the smart wallet.
+- Send and receive native tokens to and from the smart account.
+- Send and receive [ERC-721](/contracts/build/extensions/erc-721/ERC721) and [ERC-1155](/contracts/build/extensions/erc-1155/ERC1155) NFTs from the smart account.
 - Store contract metadata.
 - Pay for its own gas via a [paymaster](/connect/smart-wallet/how-it-works#paymaster).
 - Assign roles and permissions such as signers and admins.
@@ -31,7 +31,7 @@ thirdweb's smart wallets have the following features by default:
 
 And more!
 
-Smart Wallets can be deployed via the [explore page](https://thirdweb.com/explore) or customized to each application's needs using the [Solidity SDK](/contracts/build/overview).
+Account factories (contracts that let you spin up smart accounts for your users) can be deployed via the [explore page](https://thirdweb.com/explore) or customized to each application's needs using the [Solidity SDK](/contracts/build/overview).
 
 The `SmartWallet` API is **composable** - you can use with your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract and you can also use your own bundler or paymaster services.
 
@@ -41,18 +41,18 @@ Get started quickly with these fully functional templates:
 
 <OpenSourceCard
 	title="Node.js Script"
-	description="A Node.js script to create and interact with smart wallets."
+	description="A Node.js script to create and interact with smart accounts."
 	href={"https://github.com/thirdweb-example/smart-wallet-script"}
 />
 <OpenSourceCard
 	title="React App"
-	description="A React app to create and interact with smart wallets."
+	description="A React app to create and interact with smart accounts."
 	href={"https://github.com/thirdweb-example/smart-wallet-react"}
 />
 
 ## References
 
-By using the thirdweb SDKs, you can easily create and manage smart wallets for your users:
+By using the thirdweb SDKs, you can easily create and manage smart accounts for your users:
 
 <Grid>
 	<SDKCard href="/react/latest" title="React" icon={ReactIcon} />

@@ -4,42 +4,31 @@ import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	image: {
-		title: "FAQs about Smart Wallets",
+		title: "FAQs about Account abstraction",
 		icon: "wallets",
 	},
 	title: "FAQs | thirdweb",
 	description:
-		"Find answers to frequently asked questions about smart wallets.",
+		"Find answers to frequently asked questions about account abstraction and smart accounts.",
 });
 
-### Can users have the same smart wallet address on all EVM chains?
+### Can users have the same smart account contract address on all EVM chains?
 
-Yes, by using our Smart Wallet contracts, it is possible to enable predictable addresses per user across all EVM chains. To do this, ensure that your **account factory** has the same address on every chain. You can accomplish this from the dashboard by enabling "Deterministic address" when deploying the account factory.
+Yes, by using our Account factory contracts, it is possible to enable predictable addresses per user across all EVM chains. To do this, ensure that your **account factory** has the same address on every chain. You can accomplish this from the dashboard by enabling "Deterministic address" when deploying the account factory.
 
-### Can I sign transactions with my smart wallet?
+### Can I sign transactions with my smart account?
 
-Smart contract wallets cannot sign transactions themselves, only the 'owners' of the smart wallet can. The way to achieve this is to follow [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) which requires to ask the smart contract wallet if the recovered address is indeed an owner.
+Smart contract wallets cannot sign transactions themselves, only the 'owners' of the smart account can. The way to achieve this is to follow [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) which requires to ask the smart contract wallet if the recovered address is indeed an owner.
 
-### How do I sign transactions with my smart wallet?
+### How do I sign transactions with my smart account?
 
 Transactions are signed by the 'owners' of the smart contract wallet, where the owner is an EOA that acts as we key for the smart contract wallet.
 
-### What are the differences between smart wallet and local wallet?
+### Can I use Embedded Wallets with account abstraction?
 
-Smart wallets and local wallets are both types of wallets with different features and functionalities.
+Embedded Wallets with account abstraction is a powerful combination that allows users to sign in using their email, social media accounts, or custom JWT method (Embedded Wallet), and provides a completely gasless user experience.
 
-Smart wallets are controlled by a smart contract following the ERC-4337 specification. Smart wallets are powered by account abstraction and enable powerful gasless experiences for users. They are managed by a contract account instead of an externally owned account (EOA). For more information on smart wallets, please refer to our [smart wallet overview](/connect/smart-wallet).
+### Are smart accountscustodial or non-custodial?
 
-Local wallets are a flexible and advanced solution for building fully-featured wallet experiences. They are tied to the user's device and can be exported at a later date. Local wallets offer powerful use cases such as guest mode, invisible wallet experiences, temporary wallets that can be upgraded to EOAs, simple password flow, and more. For more information on local wallets, please refer to our [local wallet overview](/references/wallets/v2/LocalWallet).
+Smart accounts are non-custodial. It uses a smart contracts to operate and manage assets via an admin wallet that signs on behalf of the smart account  
 
-### What do smart wallets add when used with Embedded Wallets?
-
-Embedded Wallets and Smart Wallet are a powerful combination that allows users to sign in using their email, social media accounts, or custom JWT method (Embedded Wallet), and provides a completely gasless user experience (Smart Wallet).
-
-### Are smart wallets custodial or non-custodial?
-
-Smart wallets are non-custodial. A smart contract wallet is a type of non-custodial web3 wallet that uses smart contracts to operate and manage assets via an admin wallet that signs on behalf of the smart wallet
-
-### When should I choose smart wallets over Embedded Wallets?
-
-Embedded Wallets and Smart Wallet are powerful when used in combination, but there are certain applications that will benefit more from just one of the wallet options. Smart wallets are powerful for enabling a seamless web3 experience on the backend (i.e. gasless transactions) and Embedded Wallets allow users to create a wallet with just their email, social, or custom Auth logins.
