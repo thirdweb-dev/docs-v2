@@ -8,7 +8,7 @@ import {
 
 const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
-const smartWalletSlug = "/connect/smart-wallet";
+const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
 
 export const sidebar: SideBar = {
@@ -134,33 +134,33 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		//Smart Wallets
+		//Account abstraction
 		{ separator: true },
 		{
-			name: "Smart Wallet",
+			name: "Account abstraction",
 			icon: <WalletsSmartIcon />,
 			isCollapsible: true,
-			href: `${smartWalletSlug}`,
+			href: `${aAslug}`,
 			links: [
 				{
 					name: "How it Works",
-					href: `${smartWalletSlug}/how-it-works`,
+					href: `${aAslug}/how-it-works`,
 				},
 				{
 					name: "Get Started",
-					href: `${smartWalletSlug}/get-started`,
+					href: `${aAslug}/get-started`,
 				},
 				{
 					name: "Permissions & Session Keys",
-					href: `${smartWalletSlug}/permissions`,
+					href: `${aAslug}/permissions`,
 				},
 				{
 					name: "Bundler & Paymaster",
-					href: `${smartWalletSlug}/infrastructure`,
+					href: `${aAslug}/infrastructure`,
 				},
 				{
 					name: "Sponsorship rules",
-					href: `${smartWalletSlug}/sponsorship-rules`,
+					href: `${aAslug}/sponsorship-rules`,
 				},
 				{
 					name: "Guides",
@@ -169,11 +169,11 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "Usage in React",
-							href: `${smartWalletSlug}/guides/react`,
+							href: `${aAslug}/guides/react`,
 						},
 						{
 							name: "Usage in Typescript",
-							href: `${smartWalletSlug}/guides/typescript`,
+							href: `${aAslug}/guides/typescript`,
 						},
 					],
 				},
@@ -202,7 +202,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "FAQs",
-					href: `${smartWalletSlug}/faq`,
+					href: `${aAslug}/faq`,
 				},
 			],
 		},
