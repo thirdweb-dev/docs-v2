@@ -17,6 +17,7 @@ const tagsToGroup = {
 	"@delayedReveal": "Delayed Reveal",
 	"@marketplace": "Marketplace",
 	"@walletConnection": "Wallet Connection",
+	"@walletUtils": "Wallet Utilities",
 	"@token": "Tokens",
 	"@auth": "Auth",
 	"@smartWallet": "Smart Wallet",
@@ -25,6 +26,7 @@ const tagsToGroup = {
 	"@storage": "Storage",
 	"@others": "Others",
 	"@wallet": "Wallets",
+	"@walletConfig": "WalletConfig",
 	"@theme": "Theme",
 	"@locale": "Locale",
 	"@abstractWallet": "Abstract Wallets",
@@ -43,6 +45,7 @@ const sidebarGroupOrder: TagKey[] = [
 	"@contract",
 	"@networkConnection",
 	"@walletConnection",
+	"@walletUtils",
 	"@nft",
 	"@nftDrop",
 	"@claimConditions",
@@ -60,6 +63,7 @@ const sidebarGroupOrder: TagKey[] = [
 	"@extension",
 	"@transaction",
 	"@rpc",
+	"@walletConfig",
 	"@others",
 ];
 

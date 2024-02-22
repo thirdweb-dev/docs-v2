@@ -1,0 +1,24 @@
+import { ArticleIconCard, createMetadata } from "@doc";
+import { Wallet2Icon } from "lucide-react";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Connecting Wallets",
+		icon: "react",
+	},
+	title: "Connecting Wallets in thirdweb React SDK",
+	description:
+		"Connect wallets using ConnectButton, ConnectEmbed or useConnect hook",
+});
+
+# Connecting Wallets
+
+## Using Components
+
+You can use [`ConnectButton`](/typescript/v5/react/components/ConnectButton) or [`ConnectEmbed`](/typescript/v5/react/components/ConnectButton) component for a quick, easy and customizable UI.
+
+These components provide a beautiful UI for connecting various wallets and takes care of a lot of wallet specific edge cases - so you can focus on building your app.
+
+## Creating a custom UI
+
+You can build a completely custom UI for connecting the wallet using the [`useConnect`](/references/typescript/v5/useConnect) hook to connect any of [support wallets](/typescript/v5/wallets)

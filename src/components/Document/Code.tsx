@@ -45,7 +45,7 @@ export async function CodeBlock(props: {
 			code = await format(code, {
 				parser: "babel-ts",
 				plugins: [parserBabel, estree],
-				printWidth: 80,
+				printWidth: 70,
 			});
 		} catch (e) {
 			// ignore
@@ -74,7 +74,7 @@ export function InlineCode(props: { code: string; className?: string }) {
 	return (
 		<code
 			className={cn(
-				"max-h-20 rounded-md border bg-b-700 px-1.5 py-0.5 text-[0.875em] text-f-100",
+				"max-h-20 rounded-md border bg-b-700 px-1.5 py-0.5 text-[0.875em]",
 				props.className,
 			)}
 			style={{
@@ -156,11 +156,13 @@ async function RenderCode(props: {
 								}
 
 								return (
-									<span key={i} style={style}>
+									<span key={i} style={style} data-token={token.content}>
 										{token.content}
 									</span>
 								);
 							})}
+
+							{line.length === 0 && i !== tokens.length - 1 && " "}
 						</div>
 					);
 				})}
