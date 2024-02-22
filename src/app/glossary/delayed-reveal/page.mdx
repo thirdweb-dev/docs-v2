@@ -6,7 +6,7 @@ The owner of the smart contract (or a wallet with the appropriate permissions) c
 Until the NFTs are revealed using this password, the metadata of the NFTs will be the placeholder metadata, and the "real" metadata is not visible to external parties.
 
 This is achieved by using the password as an encryption/decryption key to encrypt the URI containing the "real" metadata.
-The encrypted URI is stored on-chain, and the password is stored off-chain, only known by the owner.
+The encrypted URI is stored onchain, and the password is stored off-chain, only known by the owner.
 
 When the NFTs are revealed, the owner of the smart contract (or a wallet with the appropriate permissions)
 can decrypt the URI using the password, and the "real" metadata is revealed.

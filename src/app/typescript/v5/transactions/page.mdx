@@ -7,12 +7,12 @@ Transactions are the primary way to read and write to the blockchain.
 ## Creating a transaction
 
 ```ts
-import { prepareTransaction, parseEther } from "thirdweb";
+import { prepareTransaction, toWei } from "thirdweb";
 const transaction = prepareTransaction({
 	// the account that will be the receiver
 	to: "0x456...",
 	// the value is the amount of ether you want to send with the transaction
-	value: parseEther("1"),
+	value: toWei("1"),
 });
 ```
 
@@ -42,7 +42,7 @@ There are 4 ways to prepare a contract call, all of these return the same transa
 <Details summary="Method Signature" id='method-signature'>
 
 ```ts
-import { prepareContractCall, parseEther } from "thirdweb";
+import { prepareContractCall, toWei } from "thirdweb";
 
 const tx = prepareContractCall({
 	contract,
@@ -50,7 +50,7 @@ const tx = prepareContractCall({
 	method: "function mintTo(address to, uint256 amount)",
 	// and the params for that method
 	// their types are automatically inferred based on the method signature
-	params: ["0x123...", parseEther("100")],
+	params: ["0x123...", toWei("100")],
 });
 ```
 
@@ -59,7 +59,7 @@ const tx = prepareContractCall({
 <Details summary="Explicit Contract ABI" id='explicit-abi'>
 
 ```ts
-import { getContract, prepareContractCall, parseEther } from "thirdweb";
+import { getContract, prepareContractCall, toWei } from "thirdweb";
 
 const contract = getContract({
   client,
@@ -90,7 +90,7 @@ const tx = prepareContractCall({
   // we get auto-completion for all the available functions on the contract ABI
   method: "mintTo",
   // including full type-safety for the params
-  params: ["0x123...", parseEther("100")],
+  params: ["0x123...", toWei("100")],
 });
 ```
 
@@ -99,7 +99,7 @@ const tx = prepareContractCall({
 <Details summary="ABI snippet" id='abi-snippet'>
 
 ```ts
-import { prepareContractCall, parseEther } from "thirdweb";
+import { prepareContractCall, toWei } from "thirdweb";
 
 const tx = prepareContractCall({
 	contract,
@@ -119,7 +119,7 @@ const tx = prepareContractCall({
 		type: "function",
 	},
 	// The Types of `params` are automatically inferred based on the ABI inputs.
-	params: ["0x123...", parseEther("100")],
+	params: ["0x123...", toWei("100")],
 });
 ```
 
@@ -139,13 +139,13 @@ There are cases where you specifically _need_ to be able to resolve methods dyna
 </Callout>
 
 ```ts
-import { prepareContractCall, resolveMethod, parseEther } from "thirdweb";
+import { prepareContractCall, resolveMethod, toWei } from "thirdweb";
 const tx = prepareContractCall({
 	contract,
 	// in this case we only pass the name of the method we want to call
 	method: resolveMethod("mintTo"),
 	// however using this method we lose type safety for our params
-	params: ["0x123...", parseEther("100")],
+	params: ["0x123...", toWei("100")],
 });
 ```
 
