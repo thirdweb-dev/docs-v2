@@ -122,7 +122,7 @@ To use generic auth, enable the second option in the configuration tab of the em
 
 You will be asked to enter an endpoint that we can hit to verify the user's identity. This endpoint should accept a POST request with a JSON body containing the following fields:
 
-- `payload`: This will correspond to the public identifier that was generated for your user.
+- `payload`: This will correspond to the public identifier that was generated for your user. Note that this is passed in from the client side via the SDK. See below for an example of how this is used.
 
 The endpoint should return a JSON body containing the following fields:
 
@@ -156,6 +156,7 @@ const embeddedWallet = useEmbeddedWallet();
 const handlePostLogin = async (jwt: string) => {
 	await embeddedWallet.connect({
 		strategy: "auth_endpoint",
+		// This is the payload that is sent to the auth endpoint
 		payload,
 		encryptionKey: "your-encryption-key",
 	});
@@ -179,6 +180,7 @@ const embeddedWallet = new EmbeddedWallet({
 
 const authResult = await embeddedWallet.authenticate({
 	strategy: "auth_endpoint",
+	// This is the payload that is sent to the auth endpoint
 	payload,
 	encryptionKey: "your-encryption-key",
 });
