@@ -84,7 +84,9 @@ Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*`
 
 Alternatively, we can setup auth using the app router. We can setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `app/api/auth/[...thirdweb]/route.ts` as follows:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+Create a separate file named like `thirdwebAuth.ts`:
+
+```ts title="app/api/auth/[...thirdweb]/thirdwebAuth.ts"
 import { ThirdwebAuthAppRouter } from "@thirdweb-dev/auth/next";
 import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
 
@@ -92,6 +94,12 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuthAppRouter({
 	domain: "example.com",
 	wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
 });
+```
+
+Import `thirdwebAuth.ts` in your `app/api/auth/[...thirdweb]/route.ts` file:
+
+```ts title="app/api/auth/[...thirdweb]/route.ts"
+import { ThirdwebAuthHandler } from "./thirdwebAuth";
 
 export { ThirdwebAuthHandler as GET, ThirdwebAuthHandler as POST };
 ```
