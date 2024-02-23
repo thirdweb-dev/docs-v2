@@ -67,12 +67,12 @@ function AppWithProviders() {
 	return (
 		<ThirdwebProvider
 			client={client}
-			supportedWallets={[
-				metamaskWallet({
+			wallets={[
+				metamaskConfig({
 					recommended: true,
 				}),
-				coinbaseWallet(),
-				walletConnect(),
+				coinbaseConfig(),
+				walletConnectConfig(),
 			]}
 		>
 			<App />
