@@ -22,7 +22,7 @@ By using the [wallet SDK](/references/wallets/latest) alongside the [React SDK](
 
 Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/contracts/build/overview).
 
-C thirdweb offers the following three different kinds of account factories:
+thirdweb offers the following three different kinds of account factories:
 
 <Grid>
 	<ArticleIconCard
@@ -37,7 +37,7 @@ C thirdweb offers the following three different kinds of account factories:
 	/>
 </Grid>
 
-Read about the differences between the three account factory types [here](/smart-wallet/how-it-works).
+Read about the differences between the three smart account types [here](/account-abstraction/how-it-works).
 
 </Step>
 <Step title="Create an API key">
@@ -50,7 +50,7 @@ To create an API Key:
 - Click on **Create API Key**:
 - Follow the steps to create your API key.
 
-To use account abstraction infrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
+To use account abstraction nfrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
 
 </Step>
 
@@ -200,7 +200,7 @@ export default function MyComponent() {
 </Step>
 <Step title="Bonus: Add a Session Key">
 
-To add a session key to your smart account, you can use the [`useCreateSessionKey`](/references/react/v4/useCreateSessionKey) hook to add a session key to the currently connected smart account:
+To add a session key to your smart wallet, you can use the [`useCreateSessionKey`](/references/react/v4/useCreateSessionKey) hook to add a session key to the currently connected smart wallet:
 
 ```tsx
 import { useCreateSessionKey } from "@thirdweb-dev/react";
@@ -251,7 +251,7 @@ Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart
 
 <OpenSourceCard
 	title="React App"
-	description="A React app to create and interact with smart accounts."
+	description="A React app to create and interact with smart wallets."
 	href={"https://github.com/thirdweb-example/smart-wallet-react"}
 />
 </Step>

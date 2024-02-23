@@ -11,8 +11,8 @@ const walletProviders: SidebarLink = (() => {
 				href: `${parentSlug}/embedded-wallet`,
 			},
 			{
-				name: "Smart Wallet",
-				href: `${parentSlug}/smart-wallet`,
+				name: "Account Abstraction",
+				href: `${parentSlug}/account-abstraction`,
 			},
 			{
 				name: "Local Wallet",

@@ -45,8 +45,8 @@ export const sidebar: SideBar = {
 					href: `${engineSlug}/features/cancelling-transactions`,
 				},
 				{
-					name: "Smart Wallets",
-					href: `${engineSlug}/features/smart-wallets`,
+					name: "Account Abstraction",
+					href: `${engineSlug}/features/account-abstraction`,
 				},
 				{
 					name: "Relayers",
@@ -64,8 +64,8 @@ export const sidebar: SideBar = {
 				{ name: "Airdrop NFTs", href: `${engineSlug}/guides/airdrop-nfts` },
 				{ name: "NFT Checkout", href: `${engineSlug}/guides/nft-checkout` },
 				{
-					name: "Smart Wallets & Session Keys",
-					href: `${engineSlug}/guides/smart-wallets`,
+					name: "Account Abstraction - Smart accounts & Session Keys",
+					href: `${engineSlug}/guides/account-abstraction`,
 				},
 			],
 		},
