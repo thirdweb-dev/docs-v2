@@ -12,7 +12,7 @@ const smartWalletSlug = "/connect/smart-wallet";
 const authSlug = "/connect/auth";
 
 export const sidebar: SideBar = {
-	name: "Wallets",
+	name: "Connect",
 	links: [
 		{
 			name: "Overview",
