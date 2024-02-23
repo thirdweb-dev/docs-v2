@@ -55,6 +55,7 @@ import {
 	ThirdwebProvider,
 	metamaskWallet,
 	coinbaseWallet,
+	xdefiWallet,
 	walletConnect,
 } from "@thirdweb-dev/react-native";
 
@@ -66,6 +67,7 @@ function AppWithProviders() {
 					recommended: true,
 				}),
 				coinbaseWallet(),
+				xdefiWallet(),
 				walletConnect(),
 			]}
 			clientId="<your_client_id>"
@@ -83,6 +85,7 @@ If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWa
 - [MetaMask](/references/react-native/v0/metamaskWallet)
 - [Rainbow](/references/react-native/v0/rainbowWallet)
 - [Trust Wallet](/references/react-native/v0/trustWallet)
+- [XDEFI](/references/react-native/v0/xdefiWallet)
 
 </Details>
 

@@ -73,6 +73,7 @@ import {
 	ThirdwebProvider,
 	metamaskWallet,
 	coinbaseWallet,
+	xdefiWallet,
 	walletConnect,
 } from "@thirdweb-dev/react";
 
@@ -84,6 +85,7 @@ function AppWithProviders() {
 					recommended: true,
 				}),
 				coinbaseWallet(),
+				xdefiWallet(),
 				walletConnect(),
 			]}
 			clientId="<your_client_id>"
@@ -100,6 +102,7 @@ If `supportedWallets` is not configured in the `ThirdwebProvider`, the ConnectWa
 
 - [MetaMask](/references/react/v4/metamaskWallet)
 - [Coinbase Wallet](/references/react/v4/coinbaseWallet)
+- [XDEFI](/references/react/v4/xdefiWallet)
 - [WalletConnect](/references/react/v4/walletConnect)
 - [Rainbow](/references/react/v4/rainbowWallet)
 - [Trust Wallet](/references/react/v4/trustWallet)
