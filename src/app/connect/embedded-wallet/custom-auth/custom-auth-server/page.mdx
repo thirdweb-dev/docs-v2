@@ -218,7 +218,7 @@ app.post("/login", (req, res) => {
 	res.send({ payload: user.id });
 });
 // This is a sample endpoint that yuou would register on the thirdweb dashboard for us to verify the payload
-app.get("/thirdweb-will-call-this", (req, res) => {
+app.post("/thirdweb-will-call-this", (req, res) => {
 	const { payload } = req.body;
 	if (!payload) return res.status(401).send({ message: "Invalid credentials" });
 
