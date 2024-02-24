@@ -14,6 +14,8 @@ import { Banner } from "../components/others/Banner";
 import { StickyTopContainer } from "../components/Document/StickyTopContainer";
 import { EnableSmoothScroll } from "../components/others/SmoothScroll";
 
+export const runtime = "edge";
+
 const sansFont = Inter({
 	subsets: ["latin"],
 	variable: "--font-sans",
