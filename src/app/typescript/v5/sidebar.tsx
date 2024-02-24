@@ -37,7 +37,7 @@ export const sidebar: SideBar = {
 		{
 			// isCollapsible: false,
 			icon: <ReactIcon className="size-4" />,
-			name: "React SDK",
+			name: "React",
 			links: [
 				{
 					name: "Overview",
