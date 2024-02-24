@@ -4,6 +4,7 @@ import {
 	LinkGroup,
 	SidebarLink,
 } from "../../../../../components/others/Sidebar";
+import { subgroups } from "./subgroups";
 
 const tagsToGroup = {
 	"@contract": "Contract",
@@ -117,7 +118,9 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 	const linkGroups: LinkGroup[] = [];
 
 	// group links by tags
-	function createSubGroups(name: string, docs: SomeDoc[]) {
+	function createSubGroups(key: keyof typeof subgroups, docs: SomeDoc[]) {
+		const name = subgroups[key];
+
 		const groups: {
 			[K in TagKey]?: SomeDoc[];
 		} = {};
@@ -128,6 +131,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			const [tag] = getCustomTag(d) || [];
 			return tag === "@extension";
 		});
+
 		// sort extensions into their own groups
 		if (extensions.length) {
 			const extensionGroups = extensions.reduce(
@@ -158,6 +162,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			if (!linkGroups.find((group) => group.name === name)) {
 				linkGroups.push({
 					name: name,
+					href: `${path}/${key}`,
 					links: [{ name: "Extensions", links: extensionLinkGroups }],
 				});
 			} else {
@@ -231,42 +236,48 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			});
 		});
 
-		if (!linkGroups.find((group) => group.name === name)) {
+		const target = linkGroups.find((group) => group.name === name);
+
+		// push links to existing group
+		if (target) {
+			target.links.push(...links);
+		}
+		// create new group
+		else {
 			linkGroups.push({
 				name: name,
 				links: links,
+				href: `${path}/${key}`,
 			});
-		} else {
-			linkGroups.find((group) => group.name === name)!.links.push(...links);
 		}
 	}
 
 	if (doc.components) {
-		createSubGroups("Components", doc.components);
+		createSubGroups("components", doc.components);
 	}
 
 	if (doc.hooks) {
-		createSubGroups("Hooks", doc.hooks);
+		createSubGroups("hooks", doc.hooks);
 	}
 
 	if (doc.classes) {
-		createSubGroups("Classes", doc.classes);
+		createSubGroups("classes", doc.classes);
 	}
 
 	if (doc.functions) {
-		createSubGroups("Functions", doc.functions);
+		createSubGroups("functions", doc.functions);
 	}
 
 	if (doc.variables) {
-		createSubGroups("Variables", doc.variables);
+		createSubGroups("variables", doc.variables);
 	}
 
 	if (doc.types) {
-		createSubGroups("Types", doc.types);
+		createSubGroups("types", doc.types);
 	}
 
 	if (doc.enums) {
-		createSubGroups("Enums", doc.enums);
+		createSubGroups("enums", doc.enums);
 	}
 
 	return linkGroups;

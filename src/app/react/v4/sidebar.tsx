@@ -64,7 +64,7 @@ export const sidebar: SideBar = {
 		},
 		{
 			name: "Hooks",
-			href: `${referenceSlug}/#hooks`,
+			href: `${referenceSlug}/hooks`,
 		},
 		{
 			name: "Full Reference",

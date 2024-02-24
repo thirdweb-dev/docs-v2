@@ -274,11 +274,11 @@ const reactNativeRedirects = {
 	"/react-native/react-native.connectwallet": "/react-native/v0/components/ConnectWallet",
 	"/react-native/react-native.web3button": "/react-native/v0/components/Web3Button",
 	// others
-	"/react-native/available-hooks": "/references/react-native/v0#hooks",
+	"/react-native/available-hooks": "/references/react-native/v0/hooks",
 	"/react-native/react-native.uselogin": "/references/react-native/v0/useLogin",
 	"/react-native/react-native.uselogout": "/references/react-native/v0/useLogout",
 	"/react-native/react-native.useuser": "/references/react-native/v0/useUser",
-	"/react-native/storage": "/references/react-native/v0#hooks-storage",
+	"/react-native/storage": "/references/react-native/v0/hooks#storage",
 	"/react-native/faq/deeplinks": "/react-native/v0/faq",
 };
 
