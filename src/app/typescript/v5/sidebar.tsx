@@ -75,7 +75,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Hooks",
-					href: `/references/typescript/v5#hooks`,
+					href: `/references/typescript/v5/hooks`,
 				},
 			],
 		},

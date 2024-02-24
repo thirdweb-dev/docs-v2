@@ -28,6 +28,7 @@ export function TableOfContentsSideBar() {
 	const [nodes, setNodes] = useState<TableOfContentNode[]>([]);
 	const tocRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
+	const [hideNav, setHideNav] = useState(false);
 
 	useEffect(() => {
 		const anchorNodes: AnchorNode[] = [];
@@ -45,6 +46,11 @@ export function TableOfContentsSideBar() {
 		const anchors = anchorsAll.filter((anchor) => {
 			return anchor.closest("[data-collapsible]") === null;
 		});
+
+		if (anchors.length === 0) {
+			setHideNav(true);
+			return;
+		}
 
 		// when heading's intersection changes, update corresponding link's data-active attribute to true/false
 		const observer = new IntersectionObserver(
@@ -97,8 +103,11 @@ export function TableOfContentsSideBar() {
 				"hidden hrink-0 pt-6 xl:block text-sm",
 				"sticky top-sticky-top-height h-sidebar-height flex-col overflow-y-auto styled-scrollbar",
 			)}
+			style={{
+				visibility: hideNav ? "hidden" : "visible",
+			}}
 		>
-			<div className="mb-5 text-base font-semibold ">On this page</div>
+			<div className="mb-5 text-base font-semibold">On this page</div>
 			<div
 				ref={tocRef}
 				style={{
