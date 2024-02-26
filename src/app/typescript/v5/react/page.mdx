@@ -1,29 +1,53 @@
-import { Details } from "@doc";
+import { Details, ArticleIconCard, Stack } from "@doc";
+import {
+	ZapIcon,
+	ScrollTextIcon,
+	ArrowRightLeftIcon,
+	WalletIcon,
+	BlocksIcon,
+	CodeIcon,
+	FolderTreeIcon,
+	PlugZapIcon,
+	ComponentIcon,
+	CableIcon,
+} from "lucide-react";
 
-# React
+# React SDK
 
-If you are building a react app you can use the `/react` export.
+`thirdweb/react` exports various Components and Hooks to easily connect wallets & interact with smart contracts
 
-## Basic Setup
+## Get Started
 
-```jsx
-import { createThirdwebClient } from "thirdweb";
-import { ThirdwebProvider, ConnectWallet } from "thirdweb/react";
+<Stack>
 
-const client = createThirdwebClient({
-	clientId: "<your-client-id>",
-});
+<ArticleIconCard
+	title="Setup ThirdwebProvider"
+	icon={FolderTreeIcon}
+	href="/typescript/v5/react/ThirdwebProvider"
+/>
 
-function App() {
-	return (
-		<ThirdwebProvider client={client}>
-			<ConnectWallet />
-			<YourApp />
-		</ThirdwebProvider>
-	);
-}
-```
+<ArticleIconCard
+	title="Connecting Wallets"
+	icon={PlugZapIcon}
+	href="/typescript/v5/react/connecting-wallets"
+/>
 
-[Available Components](/references/typescript/v5#components)
+<ArticleIconCard
+	title="Supported Wallets"
+	icon={WalletIcon}
+	href="/typescript/v5/react/wallets"
+/>
 
-[Available Hooks](/references/typescript/v5#hooks)
+<ArticleIconCard
+	title="UI Components"
+	icon={ComponentIcon}
+	href="/typescript/v5/react/components"
+/>
+
+<ArticleIconCard
+	title="Hooks"
+	icon={CableIcon}
+	href="/references/typescript/v5/hooks"
+/>
+
+</Stack>

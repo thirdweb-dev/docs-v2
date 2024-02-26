@@ -1,0 +1,249 @@
+import { createMetadata, Callout, Details } from "@doc";
+
+export const metadata = createMetadata({
+	title: "ThirdwebProvider | thirdweb React SDK",
+	description: "API Reference for the ThirdwebProvider component",
+});
+
+# ThirdwebProvider
+
+To use thirdweb's Components and Hooks, you need to wrap your app in the `ThirdwebProvider` component.
+
+The only required prop is `client`. Refer to the [Client](/typescript/v5/client) to learn more about creating a client.
+
+```tsx
+import { ThirdwebProvider } from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
+
+const client = createThirdwebClient({
+	clientId: "<your_client_id>",
+});
+
+function AppWithProvider() {
+	return (
+		<ThirdwebProvider client={client}>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+## Props
+
+<Details id='client' summary='client' tags={['Required']}>
+
+A client is the entry point to the thirdweb SDK.
+It is required for all other actions.
+
+You can create a client using the `createThirdwebClient` function. Refer to the [Creating a Client](/typescript/v5/client) documentation for more information.
+
+```ts
+import { createThirdwebClient } from "thirdweb";
+
+const client = createThirdwebClient({
+	clientId: "<your_client_id>",
+});
+```
+
+</Details>
+
+<Details summary="dappMetadata" tags={['Recommended']}>
+
+Metadata of your app. This metadata will be passed to connected wallets. Some wallets may display this information to the user.
+
+```tsx
+<ThirdwebProvider
+	client={client}
+	dappMetadata={{
+		name: "My App",
+		url: "https://my-website.com",
+		description: "Some description of my app",
+		logoUrl: "https://path/to/logo.png",
+	}}
+>
+	<App />
+</ThirdwebProvider>
+```
+
+It is highly recommended to provide this information. If this is not provided below default metadata will be used:
+
+```ts
+{
+  name: "thirdweb powered dApp",
+  url: "https://thirdweb.com",
+  description: "thirdweb powered dApp",
+  logoUrl: "https://thirdweb.com/favicon.ico",
+};
+```
+
+</Details>
+
+<Details id='wallets' summary='wallets' >
+
+List of wallets to show in [`ConnectButton`](/typescript/v5/react/components/ConnectButton) or [`ConnectEmbed`](<(/typescript/v5/react/components/ConnectEmbed)>) 's UI.
+
+Refer to the [Wallets](/typescript/v5/react/wallets) to see all available wallets in React
+
+```tsx
+import {
+	ThirdwebProvider,
+	metamaskConfig,
+	coinbaseConfig,
+	walletConnectConfig,
+} from "thirdweb/react";
+
+const wallets = [metamaskConfig(), coinbaseConfig(), walletConnectConfig()];
+
+export function AppWithProvider() {
+	return (
+		<ThirdwebProvider client={client} wallets={wallets}>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+If no wallets are specified. Below wallets will be used by default:
+
+<Details summary='Default wallets'>
+
+- [Embedded Wallet](/references/typescript/v5/embeddedWalletConfig)
+- [MataMask Wallet](/references/typescript/v5/metamaskConfig)
+- [Coinbase Wallet](/references/typescript/v5/coinbaseConfig)
+- [WalletConnect](/references/typescript/v5/walletConnectConfig)
+- [Rainbow Wallet](/references/typescript/v5/rainbowConfig)
+- [Zerion Wallet](/references/typescript/v5/zerionConfig)
+
+This is equivalent to:
+
+```tsx
+import {
+	ThirdwebProvider,
+	embeddedWalletConfig,
+	metamaskConfig,
+	coinbaseConfig,
+	walletConnectConfig,
+	rainbowConfig,
+	zerionConfig,
+} from "thirdweb/react";
+
+export function AppWithProvider() {
+	return (
+		<ThirdwebProvider
+			client={client}
+			wallets={[
+				embeddedWalletConfig(),
+				metamaskConfig(),
+				coinbaseConfig(),
+				walletConnectConfig(),
+				rainbowConfig(),
+				zerionConfig(),
+			]}
+		>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</Details>
+
+</Details>
+
+<Details id='autoConnect' summary="autoConnect" >
+
+When the user has connected their wallet to your site, this flag determines whether or not you want to automatically connect to the last connected wallet when user visits your site again in the future.
+
+By default it is set to `true`. You can set it to `false` if you want to stop auto connecting to the last connected wallet.
+
+```tsx
+export function AppWithProvider() {
+	return (
+		<ThirdwebProvider client={client} autoConnect={false}>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</Details>
+
+<Details id='locale' summary="locale" >
+
+`locale` prop allows you to change the language used in UI components or override the texts used in various thirdweb UI components.
+
+Below locale functions are available out of the box, but you can add support for any language you want by passing an object of type [`ThirdwebLocale`](/references/typescript/v5/ThirdwebLocale)
+
+- English - [`en`](/references/typescript/v5/en)
+- Spanish - [`es`](/references/typescript/v5/es)
+- Japanese - [`ja`](/references/typescript/v5/ja)
+- Tagalog - [`tl`](/references/typescript/v5/tl)
+
+<Details summary='Using Built-in Locales'>
+
+```tsx
+import { ThirdwebProvider, es } from "thirdweb/react";
+
+const spanish = es();
+
+function Example() {
+	return (
+		<ThirdwebProvider locale={spanish}>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</Details>
+
+<Details summary='Overriding the locale object' >
+
+```tsx
+import { ThirdwebProvider, en } from "thirdweb/react";
+
+// override some texts
+const english = en({
+	connectWallet: {
+		confirmInWallet: "Confirm in your wallet",
+	},
+	wallets: {
+		metamaskWallet: {
+			connectionScreen: {
+				inProgress: "Awaiting Confirmation",
+				instruction: "Accept connection request in your MetaMask wallet",
+			},
+		},
+	},
+});
+
+function Example() {
+	return (
+		<ThirdwebProvider locale={spanish}>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</Details>
+
+<Details summary='Custom locale object'>
+
+You can create a custom object of type [`ThirdwebLocale`](/references/typescript/v5/ThirdwebLocale) and pass it to the `locale` prop. This allows you to add support for any language you want.
+
+```tsx
+import { ThirdwebProvider } from "thirdweb/react";
+
+function Example() {
+	return (
+		<ThirdwebProvider locale={customObject}>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</Details>
+
+</Details>

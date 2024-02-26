@@ -179,7 +179,7 @@ async function RenderFunctionSignature(props: {
 								noIndex
 							>
 								<CodeBlock
-									code={`${signature.returns.type.code}`}
+									code={`let returnType: ${signature.returns.type.code}`}
 									lang="ts"
 									tokenLinks={
 										signature.returns.type.tokens
@@ -259,7 +259,7 @@ async function ParameterTDoc(props: {
 							</Heading>
 
 							<CodeBlock
-								code={param.type.code || ""}
+								code={`let ${param.name}: ${param.type.code}`}
 								tokenLinks={
 									param.type.tokens
 										? await getTokenLinks(param.type.tokens)

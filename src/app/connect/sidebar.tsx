@@ -12,7 +12,7 @@ const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
 
 export const sidebar: SideBar = {
-	name: "Wallets",
+	name: "Connect",
 	links: [
 		{
 			name: "Overview",

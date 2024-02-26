@@ -34,3 +34,10 @@ const client = createThirdwebClient({
 	secretKey: "<your_secret_key>",
 });
 ```
+
+You will need to pass this client to other methods in the SDK. This will allow you to
+
+- get performant RPC to all chains
+- download/upload to IPFS
+- access Account Abstraction infrastructure (bundler, paymaster)
+- access other thirdweb services

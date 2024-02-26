@@ -52,6 +52,7 @@ html {
 		--warning-900: hsl(30.73deg 50.62% 10%);
 
 		--radius: 0.5rem;
+		--sticky-top-height: 70px;
 	}
 
 	[data-theme="light"] {

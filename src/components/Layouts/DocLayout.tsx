@@ -12,6 +12,7 @@ export type DocLayoutProps = {
 	sideBar: SideBar;
 	children?: React.ReactNode;
 	editPageButton?: true;
+	showTableOfContents?: boolean;
 };
 
 export function DocLayout(props: DocLayoutProps) {
@@ -41,7 +42,7 @@ export function DocLayout(props: DocLayoutProps) {
 					<PageFooter editPageButton={props.editPageButton} />
 				</div>
 			</main>
-			<TableOfContentsSideBar />
+			{props.showTableOfContents !== false && <TableOfContentsSideBar />}
 		</div>
 	);
 }

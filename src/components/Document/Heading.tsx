@@ -12,20 +12,15 @@ export function Heading(props: {
 	switch (props.level) {
 		case 1: {
 			return (
-				<Anchor
-					id={props.id}
-					className={cn("mb-5", props.anchorClassName)}
+				<h1
+					className={cn(
+						"mb-7 text-3xl md:text-4xl font-bold tracking-tight text-f-100 break-words",
+						props.className,
+					)}
 					data-noindex={props.noIndex}
 				>
-					<h1
-						className={cn(
-							"text-3xl md:text-4xl font-bold tracking-tight text-f-100 break-words",
-							props.className,
-						)}
-					>
-						{props.children}
-					</h1>
-				</Anchor>
+					{props.children}
+				</h1>
 			);
 		}
 

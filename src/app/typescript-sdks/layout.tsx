@@ -1,10 +1,39 @@
 import { createMetadata } from "@doc";
+import { DocLayout } from "../../components/Layouts/DocLayout";
 
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
-		<main className="container grow py-10" data-noindex>
+		<DocLayout
+			sideBar={{
+				name: "TypeScript SDKs",
+				links: [
+					{
+						name: "TypeScript SDK",
+						href: "/typescript/v4",
+					},
+					{
+						name: "React SDK",
+						href: "/react/v4",
+					},
+					{
+						name: "React Native SDK",
+						href: "/react-native/v0",
+					},
+					{
+						name: "Wallet SDK",
+						href: "/wallet-sdk/v2",
+					},
+					{
+						name: "Storage SDK",
+						href: "/storage-sdk/v2",
+					},
+				],
+			}}
+			showTableOfContents={false}
+		>
+			{" "}
 			{props.children}
-		</main>
+		</DocLayout>
 	);
 }
 

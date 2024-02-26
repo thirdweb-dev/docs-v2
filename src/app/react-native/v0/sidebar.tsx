@@ -99,7 +99,7 @@ export const sidebar: SideBar = {
 		},
 		{
 			name: "Hooks",
-			href: `${referencesSlug}#hooks`,
+			href: `${referencesSlug}/hooks`,
 		},
 		{
 			name: "FAQ",
