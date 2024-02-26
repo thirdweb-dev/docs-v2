@@ -20,15 +20,10 @@ Yes, by using our Account factory contracts, it is possible to enable predictabl
 
 Smart contract wallets cannot sign transactions themselves, only the 'owners' of the smart account can. The way to achieve this is to follow [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) which requires to ask the smart contract wallet if the recovered address is indeed an owner.
 
-### How do I sign transactions with my smart account?
-
-Transactions are signed by the 'owners' of the smart contract wallet, where the owner is an EOA that acts as we key for the smart contract wallet.
-
 ### Can I use Embedded Wallets with account abstraction?
 
-Embedded Wallets with account abstraction is a powerful combination that allows users to sign in using their email, social media accounts, or custom JWT method (Embedded Wallet), and provides a completely gasless user experience.
+Yes! Embedded Wallets with account abstraction is a powerful combination that allows users to sign in using their email, social media accounts, or custom JWT method (Embedded Wallet), and provides a completely gasless user experience.
 
 ### Are smart accounts custodial or non-custodial?
 
-Smart accounts are non-custodial. It uses a smart contracts to operate and manage assets via an admin wallet that signs on behalf of the smart account  
-
+Smart accounts are non-custodial. It uses a smart contracts to operate and manage assets via an admin wallet that signs on behalf of the smart account
