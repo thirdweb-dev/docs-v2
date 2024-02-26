@@ -1,0 +1,35 @@
+# Migration from SDK v4
+
+### Progressive migration
+
+If you're currently using the `@thirdweb-dev/sdk`, you can progressively migrate to the new `thirdweb` unified SDK. Both SDKs can be used side by side and are interoperable with each other.
+
+### High level changes
+
+- All imports from `@thirdweb-dev/*` should be replaced with `thirdweb` unified SDK with sub-exports.
+- The unified SDK is `function` based rather than `class` based for better tree shaking and performance.
+- All contract call are now prepared using `prepareContractCall` and sent using the `sendTransaction` function.
+- Transactions are submitted without waiting for receipt by default. You can call the `waitForReceipt` function to wait for the transaction to be mined.
+
+### TypeScript Cheat sheet
+
+| Task       | `@thirdweb-dev/sdk`                                      | `thirdweb` unified SDK                              |
+| ---------- | -------------------------------------------------------- | --------------------------------------------------- |
+| Chains     | `import { Sepolia } from "@thirdweb-dev/chains"`         | `import { sepolia } from "thirdweb/chains"`         |
+| Wallets    | `import { MetaMaskWallet } from "@thirdweb-dev/wallets"` | `import { metamaskWallet } from "thirdweb/wallets"` |
+| Initialize | `new ThirdwebSDK(...)`                                   | `createThirdwebClient({ ... })`                     |
+| Contract   | `await sdk.getContract(...)`                             | `getContract(...) // no await`                      |
+| Read       | `await contract.call(...)`                               | `await readContract(...)`                           |
+| Prepare    | `await contract.prepare(...)`                            | `prepareContractCall(...) // no await`              |
+| Send       | `await contract.call(...)`                               | `await sendTransaction(...)`                        |
+| Extensions | `await contract.erc721.getAll()`                         | `await getNFTs(...)`                                |
+
+### React Cheat sheet
+
+| Task       | `@thirdweb-dev/react`                                 | `thirdweb` unified SDK                              |
+| ---------- | ----------------------------------------------------- | --------------------------------------------------- |
+| Provider   | `import { ThirdwebProvider} from @thirdweb-dev/react` | `import { ThirdwebProvider } from "thirdweb/react"` |
+| Contract   | `useContract(...)`                                    | `getContract(...) // not a hook`                    |
+| Read       | `useContractRead(...)`                                | `useReadContract(...)`                              |
+| Write      | `useContractWrite(...)`                               | `useSendTransaction()`                              |
+| Extensions | `useNFTs(...)`                                        | `useReadContract(getNFTs, { ... })`                 |
