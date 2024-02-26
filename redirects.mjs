@@ -553,7 +553,8 @@ const otherRedirects = {
 	"/wallets": "/connect",
 	"/wallets/connect/:path*": "/connect/connect/:path*",
 	"/wallets/embedded-wallet/:path*": "/connect/embedded-wallet/:path*",
-	"/wallets/smart-wallet/:path*": "/connect/smart-wallet/:path*",
+	"/wallets/smart-wallet/:path*": "/connect/account-abstraction/:path*",
+	"/connect/smart-wallet/:path*": "/connect/account-abstraction/:path*",
 	"/wallets/auth/:path*": "/connect/auth/:path*",
 	// guides
 	"/solana/:match*": "https://blog.thirdweb.com/discontinuing-solana-support/",
