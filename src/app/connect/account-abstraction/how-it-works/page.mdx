@@ -1,28 +1,28 @@
 import { createMetadata } from "@doc";
 
-# What is a Smart Wallet?
+# What is a Smart Account?
 
 export const metadata = createMetadata({
 	image: {
-		title: "How Smart Wallet works",
+		title: "How Smart Accounts works",
 		icon: "wallets",
 	},
-	title: "What is a Smart Wallet? | thirdweb",
+	title: "What is a Smart Account? | thirdweb",
 	description:
-		"Smart Wallet is a wallet that is controlled by a smart contract following the ERC-4337 specification",
+		"Smart Account is a wallet that is controlled by a smart contract following the ERC-4337 specification",
 });
 
-A Smart Wallet is a wallet that is controlled by a smart contract following the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
+A Smart account is a smart contract wallet that follows the [ERC-4337 specification](https://eips.ethereum.org/EIPS/eip-4337).
 
-Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and Contract Accounts. A smart contract wallet is a wallet managed by a contract account
-instead of an EOA. A smart wallet is a wallet type requiring **no private keys or seed phrases**.
-Smart contract wallets rely on code instead of private keys to secure and recover wallet information.
+Ethereum has 2 types of accounts to transfer and receive tokens: EOAs (Externally Owned Accounts) and Contract Accounts. A smart account is a wallet managed by a contract account
+instead of an EOA. A smart account is a wallet type requiring **no private keys or seed phrases**.
+Smart accounts rely on code instead of private keys to secure and recover wallet information.
 
-**A smart contract wallet is a type of Web3 wallet powered by smart contracts.**
+**A smart account is a type of Web3 wallet powered by smart contracts.**
 
-This smart wallet is unlocked by a 'key' - a personal account. This key can be anything from a [MetaMask](/references/wallets/v2/MetaMaskWallet) wallet or even a [Local Wallet](/references/wallets/v2/LocalWallet) and is used as a way to 'sign in' to the wallet.
+This smart account is unlocked by a 'key' - a personal account. This key can be anything from a [MetaMask](/references/wallets/v2/MetaMaskWallet) wallet or even a [Embedded Wallet](../connect/embedded-wallet) and is used as a way to 'sign in' to the wallet.
 
-## Benefits of Smart Wallets
+## Benefits of Smart Accounts
 
 1. Optimized transaction efficiency & batch transactions
    - Combine multiple transactions into a single atomic transaction
@@ -31,20 +31,20 @@ This smart wallet is unlocked by a 'key' - a personal account. This key can be a
    - Recover a wallet without seed phrases/passwords
    - Nominate a trusted person to recover your wallet in the case of an emergency
 4. Programmability
-   - Smart wallets can be programmed to do anything a smart contract can do
-   - Smart wallets can be upgraded to add new features
+   - Smart accounts can be programmed to do anything a smart contract can do
+   - Smart accounts can be upgraded to add new features
 
-## Smart Wallet Factories
+## Account Factories
 
-In order to issue smart wallet account contracts for users, an account factory contract must be deployed.
+In order to issue smart accounts for users, an account factory contract must be deployed.
 This factory contract is responsible for deploying individual user contracts when required, and comes in two different flavours.
 
 #### Types of Account and Account Factory
 
 | Factory Type                                                         | Upgradeability                                              | Expected Usage                                                                                                                                                                                |
 | -------------------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`Simple`](https://thirdweb.com/thirdweb.eth/AccountFactory)         | Non-upgradeable                                             | Developer wants to issue simple smart wallets to their users. They do not anticipate that users wallets will need any feature upgrades.                                                       |
-| [`Managed`](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) | Account upgrades controlled centrally by the app developer. | Developer wants to issue smart wallets to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
+| [`Simple`](https://thirdweb.com/thirdweb.eth/AccountFactory)         | Non-upgradeable                                             | Developer wants to issue simple smart accounts to their users. They do not anticipate that users wallets will need any feature upgrades.                                                       |
+| [`Managed`](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) | Account upgrades controlled centrally by the app developer. | Developer wants to issue smart accounts to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
 
 ### Account Type Feature Comparison
 
@@ -71,15 +71,12 @@ This wallet is the primary way to access and interact with the account.
 
 ### Account
 
-In the context of smart wallets, the account is the ERC-4337 compatible smart contract which holds all of the assets.
+The account is the ERC-4337 compatible smart contract which holds all of the assets.
 
-### Smart Wallet
-
-The smart wallet is the combination of your personal wallet "key" plus the account smart contract with all of it's assets.
 
 ### UserOperations
 
-This is the data structure for the "pseudo-transaction" that the user wants to perform. The transaction is pseudo as Smart Wallets cannot initiate transactions on EVM chains as they are not supported natively. It contains the following fields:
+This is the data structure for the "pseudo-transaction" that the user wants to perform. The transaction is pseudo as Smart Accounts cannot initiate transactions on EVM chains as they are not supported natively. It contains the following fields:
 
 - `sender`: The account making the operation.
 - `nonce`: Anti-replay parameter; also used as the salt for first-time account creation.
@@ -105,13 +102,13 @@ These `UserOps` can be sent from different accounts and are bundled and sent to 
 
 The bundler is controlled by its own EOA which initially pays for the gas fees upfront and is then repaid by either the sender or a paymaster if the transaction is sponsored.
 
-The entry point contract then uses the `validateOp` and `executeOp` functions on the smart wallet account contract to verify and execute the `UserOps` on behalf of the users.
+The entry point contract then uses the `validateOp` and `executeOp` functions on the smart account contract to verify and execute the `UserOps` on behalf of the users.
 
-It allows you to send transactions with smart wallet accounts.
+It allows you to send transactions with smart accounts.
 
 ### Paymaster
 
 A paymaster is a smart contract that relays transactions. It provides a service that enables a third party to pay
 the transaction fee on behalf of the user by funding the paymaster contract in advance. The paymaster acts as a gas reserve which then
-can be used during the call execution via the `EntryPoint` contract. The thirdweb [Smart Wallet](/connect/smart-wallet) paymaster is initially paid for by thirdweb. By using an API key,
-the usage is tracked and billed. You can easily define [sponsorship rules](/connect/smart-wallet/sponsorship-rules) that determine whether a transaction will be sponsored.
+can be used during the call execution via the `EntryPoint` contract. The thirdweb [Account abstraction](/connect/account-abstraction) paymaster is initially paid for by thirdweb. By using an API key,
+the usage is tracked and billed. You can easily define [sponsorship rules](/connect/account-abstraction/sponsorship-rules) that determine whether a transaction will be sponsored.

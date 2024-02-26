@@ -49,15 +49,15 @@ Embedded wallets are billed based on "monthly active wallets". An active wallet 
 
 ### Do you support gasless transactions?
 
-Yes. Our Smart Wallet product, used in combination of Embedded Wallet, allows for a fully gasless experience.
+Yes, you can easily use account abstraction with embedded wallets to enable sponsored (gasless) transactions.
 
 ### Is there a way to display the logged-in email address in the Connect component, similar to the wallet address?
 
 Yes, we show the email by default in the details modal after you connect. To display the email anywhere else using React or React Native, [check out the code snippets for all platforms](/connect/embedded-wallet/how-to/interact-with-wallets#get-the-user-email).
 
-### Does the Embedded Wallet product use Smart Wallets?
+### Does the Embedded Wallet product use smart contract wallets?
 
-No, the Embedded Wallet that is created does not use a smart contract wallet. However, Embedded Wallets can work great in combination with smart wallets. This combination allows users to sign in with only their email (Embedded Wallet) and receive a completely gasless user experience (Smart Wallet).
+The embedded wallet can be sued as a signer to a smart contract account (account abstraction), but it can also be used as a standalone EOA.
 
 ### What happens if thirdweb ceases to exist? Will my users be able to access their wallets?
 

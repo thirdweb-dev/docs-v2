@@ -7,16 +7,16 @@ export const metadata = createMetadata({
 	},
 	title: "Account Factory Contract | thirdweb",
 	description:
-		"Account Factory contract is used to deploy immutable ERC-4337 smart wallets with role based permission control",
+		"Account Factory contract is used to deploy immutable ERC-4337 smart accounts with role based permission control",
 });
 
 # Account Factory
 
-The **Account Factory** contract is used to deploy immutable [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) smart wallets with role based permission control.
-The `Account` smart wallet is a simple smart wallet that comes with all the basic benefits of account abstraction, along with the mentioned default features. App developers can issue `Account` smart wallets programmatically by deploying an `AccountFactory` smart contract.
+The **Account Factory** contract is used to deploy immutable [ERC-4337](https://eips.ethereum.org/EIPS/eip-4337) smart accounts with role based permission control.
+The `Account` contract is a simple smart account contract that comes with all the basic benefits of account abstraction, along with the mentioned default features. App developers can issue `Account` smart accounts programmatically by deploying an `AccountFactory` smart contract.
 The `Account` smart contract is non-upgradeable. Developers should use this wallet if they do not anticipate making any future upgrades to their users' wallets.
 
-thirdweb’s smart wallets have the following features by default:
+thirdweb’s smart accounts have the following features by default:
 
 - Have multiple signers with different permissions
 - Execute transactions (single and batched).
@@ -36,7 +36,7 @@ This contract includes the following extensions:
 
 ## Use Cases & Examples
 
-Use the `AccountFactory` contract alongside the [`SmartWallet`](/connect/smart-wallet) connector or [`ConnectWallet`](/react/latest/components/ConnectWallet) to easily use account abstraction in your projects:
+Use the `AccountFactory` contract alongside the [`SmartWallet`](/connect/account-abstraction) connector or [`ConnectWallet`](/react/latest/components/ConnectWallet) to easily use account abstraction in your projects:
 
 ### Connect Wallet
 

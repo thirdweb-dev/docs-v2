@@ -1,14 +1,14 @@
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
-	title: "Smart wallet | thirdweb Unity SDK",
-	description: "Connect to Smart wallet with thirdweb Unity SDK",
+	title: "Account Abstraction | thirdweb Unity SDK",
+	description: "Connect to Smart account with thirdweb Unity SDK",
 });
 
-# Smart Wallet
+# Account Abstraction
 
-Deploys a Smart Wallet for the user to interact with your app. The specified personal wallet will be the admin signer.
-For more information about Smart Wallets, see [glossary](/glossary/smart-wallet).
+Deploys a smart account for the user to interact with your app. The specified personal wallet will be the admin signer.
+For more information about Account Abstration, see the [glossary](/glossary/smart-account).
 
 ## Usage
 
@@ -38,25 +38,25 @@ public async void ConnectWallet()
 
 ### WebGL
 
-Goes through the specified `personalWallet` login flow, then generates or connects a Smart Wallet based on that EOA address.
+Goes through the specified `personalWallet` login flow, then generates or connects a smart account based on that EOA address.
 
 ### Standalone
 
-Goes through the specified `personalWallet` login flow, then generates or connects a Smart Wallet based on that EOA address.
+Goes through the specified `personalWallet` login flow, then generates or connects a smart account based on that EOA address.
 
 ### Mobile
 
-Goes through the specified `personalWallet` login flow, then generates or connects a Smart Wallet based on that EOA address.
+Goes through the specified `personalWallet` login flow, then generates or connects a smart account based on that EOA address.
 
 ## Miscellaneous
 
-The ultimate goal of a Smart Wallet is to be able to sponsor gas fees for your users, while providing a signless and gasless experience.
+The ultimate goal of a smart account is to be able to sponsor gas fees for your users, while providing a signless and gasless experience.
 
 They also work with any wallet provider as the EOA, but it is recommended to use a signless wallet, like Embedded Wallets, for the best experience.
 
-You would then be able to login to the exact same persistent EOA and smart wallet address across your apps, and even across different platforms.
+You would then be able to login to the exact same persistent EOA and smart account address across your apps, and even across different platforms.
 
-You can also create session keys (revokable), allowing new signers to interact with the smart wallet without being the admin.
+You can also create session keys (revokable), allowing new signers to interact with the smart account without being the admin.
 You may also add/remove admins.
 
 ```csharp
@@ -106,8 +106,8 @@ var address = await sdk.wallet.Connect(connection);
 
 ## Additional Options
 
-Smart wallets, through paymasters, can be seen as a "plugin" to your user wallets, whereby all gas fees can be sponsored onchain.
-To enable this, simply set the `gasless` smart wallet option to true in your [ThirdwebManager](/unity/thirdwebmanager) prefab.
+Smart accounts, through paymasters, can be seen as a "plugin" to your user wallets, whereby all gas fees can be sponsored onchain.
+To enable this, simply set the `gasless` option to true in your [ThirdwebManager](/unity/thirdwebmanager) prefab.
 
-All Smart Wallets are deployed through an [Account Factory](https://thirdweb.com/thirdweb.eth/AccountFactory), which is a contract that deploys Smart Wallets on behalf of your users.
-You would need to set this address in your [ThirdwebManager](/unity/thirdwebmanager) prefab's Smart Wallet settings as well.
+All smart accounts are deployed through an [Account Factory](https://thirdweb.com/thirdweb.eth/AccountFactory), which is a contract that deploys smart accounts on behalf of your users.
+You would need to set this address in your [ThirdwebManager](/unity/thirdwebmanager) prefab's settings as well.

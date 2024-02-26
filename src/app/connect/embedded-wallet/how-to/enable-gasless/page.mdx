@@ -16,26 +16,26 @@ export const metadata = createMetadata({
 	},
 	title: "Enable Gasless Transactions | thirdweb Embedded Wallet",
 	description:
-		"By combining Smart Wallet and Embedded Wallet, you can create a truly seamless user experience with gasless transactions, batched transactions, and full account recovery for both the embedded wallet “key” and the smart wallet.",
+		"By using account abstraction you can create a truly seamless user experience with gasless transactions, batched transactions, and full account recovery.",
 });
 
 # Enable Gasless Transactions
 
-By combining [Smart Wallet](/connect/smart-wallet) and [Embedded Wallet](/connect/embedded-wallet/overview), you can create a truly seamless user experience:
+By combining [Account abstraction](/connect/account-abstraction) and [Embedded Wallet](/connect/embedded-wallet/overview), you can create a truly seamless user experience:
 
 - Gasless transactions
 - Batched transactions
-- Full account recovery for both the embedded wallet “key” and the smart wallet
+- Full account recovery the user "account"
 
-Let's create an app that creates smart wallets for our users.
+Let's create an app that creates smart accounts for our users.
 
-These smart wallets will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an embedded wallet.
+These smart accounts will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an embedded wallet.
 
-From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart wallet is created and initialized using the embedded wallet.
+From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart account is created and initialized using the embedded wallet.
 
 <DocImage src={ConnectCompat} />
 
-When the user connects a wallet by entering their email, they will be able to view & interact with their smart wallet:
+When the user connects a wallet by entering their email, they will be able to view & interact with their smart account:
 
 <DocImage src={ConnectDropdown} />
 
@@ -52,7 +52,7 @@ View a fully functioning project on GitHub:
 
 Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/contracts/build/base-contracts/erc-4337).
 
-Select the appropriate thirdweb smart wallet type for your app:
+Select the appropriate thirdweb account factory type for your app:
 
 <Stack>
 
@@ -70,11 +70,11 @@ Select the appropriate thirdweb smart wallet type for your app:
 
 </Stack>
 
-[Learn more about Smart Wallets](/connect/smart-wallet)
+[Learn more about Account abstraction here](/connect/account-abstraction)
 
-## 2. Enable smart wallets in your app
+## 2. Enable account abstraction in your app
 
-To enable smart wallets in your app, you need to add `smartWallet()` to the list of supported wallets in the `ThirdwebProvider`:
+To enable account abstraction in your app, you need to add `smartWallet()` to the list of supported wallets in the `ThirdwebProvider`:
 
 ```jsx
 import {
@@ -101,8 +101,8 @@ export default function App() {
 }
 ```
 
-This will create an embedded wallet and a smart wallet for the user. The smart wallet will be initialized with the embedded wallet as the owner.
+This will create an embedded wallet and a smart account for the user. The smart account will be initialized with the embedded wallet as the owner.
 
-Pass your deployed `factoryAddress` to the `smartWallet()` function. This will allow the smart wallet to be be deployed only when the user sends their first transaction.
+Pass your deployed `factoryAddress` to the `smartWallet()` function. This will allow the smart account to be be deployed only when the user sends their first transaction.
 
-You can sponsor transactions simply by passing `gasless: true` to the `smartWallet()` function. This will allow the smart wallet to send transactions without the user needing to hold any ETH.
+You can sponsor transactions simply by passing `gasless: true` to the `smartWallet()` function. This will allow the smart account to send transactions without the user needing to hold any ETH.

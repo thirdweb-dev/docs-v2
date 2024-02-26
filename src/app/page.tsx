@@ -252,8 +252,8 @@ function WalletsSection() {
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
-					href="/connect/smart-wallet"
-					title="Smart Wallet"
+					href="/connect/account-abstraction"
+					title="Account abstraction"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
 				/>
