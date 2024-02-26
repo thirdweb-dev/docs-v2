@@ -16,6 +16,10 @@ export const sidebar: SideBar = {
 			href: `${slug}/client`,
 		},
 		{
+			name: "Chain",
+			href: `${slug}/chain`,
+		},
+		{
 			name: "Contract",
 			href: `${slug}/contract`,
 		},
@@ -78,6 +82,13 @@ export const sidebar: SideBar = {
 					href: `/references/typescript/v5/hooks`,
 				},
 			],
+		},
+		{
+			separator: true,
+		},
+		{
+			name: "Migration guide",
+			href: `${slug}/migrate`,
 		},
 		{
 			separator: true,
