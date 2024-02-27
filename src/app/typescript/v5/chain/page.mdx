@@ -20,13 +20,12 @@ const myChain = polygon;
 
 ### Configuring chains (Advanced)
 
-You can also configure chains with custom RPC endpoints, block explorers, and more.
+You can also configure chains with custom RPC endpoints, native currency, block explorers, and more.
 
 ```ts
 const myChain = defineChain({
-	chainId: myChainId,
-	rpc: "https://my-custom-rpc.com",
-	explorer: "https://my-custom-explorer.com",
-    ...
-});
+  id: myChainId,
+  rpc: "https://my-custom-rpc.com",
+  ...
+})
 ```
