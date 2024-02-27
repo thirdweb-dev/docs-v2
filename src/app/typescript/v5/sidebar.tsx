@@ -36,6 +36,10 @@ export const sidebar: SideBar = {
 			href: `${slug}/extensions`,
 		},
 		{
+			name: "Adapters",
+			href: `${slug}/adapters`,
+		},
+		{
 			separator: true,
 		},
 		{
