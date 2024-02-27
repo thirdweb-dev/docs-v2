@@ -1,3 +1,5 @@
+import { Details } from "@doc";
+
 # Extensions
 
 Extensions let interact with common standards (such as ERC20, ERC721, ERC1155, etc.) in a more convenient way. You can use the built-in extensions or create your own.
@@ -57,7 +59,7 @@ const transactionResult = await sendTransaction({
 
 You can create your own extensions. They are just regular functions that pre-define the behavior of a `prepareContractCall()` or `readContract()` function.
 
-### Example: `balanceOf()` extension for ERC20 tokens
+<Details id="example-balance-of" summary={`Example: Creating the "balanceOf" extension for ERC20 tokens`}>
 
 ```typescript
 import { readContract, type BaseTransactionOptions } from "thirdweb";
@@ -78,7 +80,9 @@ export function balanceOf(
 }
 ```
 
-### Example: `transfer()` extension for ERC20 tokens
+</Details>
+
+<Details id="example-transfer" summary={`Example: Creating the "transfer" extension for ERC20 tokens`}>
 
 ```typescript
 import { prepareContractCall, type BaseTransactionOptions } from "thirdweb";
@@ -98,3 +102,5 @@ export function transfer(
 	});
 }
 ```
+
+</Details>
