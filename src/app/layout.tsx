@@ -73,8 +73,8 @@ export default function RootLayout({
 					<StickyTopContainer>
 						<Banner
 							id="v5-alpha-sdk"
-							text="Step into the cutting-edge of web3 development with our new SDK in alpha!"
-							href="/typescript/v5"
+							text="Beta version of unified SDK officially open to everyone. Learn more"
+							href="https://blog.thirdweb.com/changelog/introducing-the-unified-thirdweb-sdk/"
 						/>
 						<Header />
 					</StickyTopContainer>
