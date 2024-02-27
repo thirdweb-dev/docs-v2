@@ -1,0 +1,85 @@
+# Adapters
+
+The unified thirdweb SDK can work side by side with:
+
+- ethers.js v5
+- ethers.js v6
+- viem
+- older versions of the @thirdweb-dev/sdk (using the ethers.js v5 adapter)
+
+Adapters allow you to use contracts, providers and wallets from these libraries with the thirdweb SDK and vice versa.
+
+## Ethers v6
+
+You can use an existing ethers.js v6 Signer with the thirdweb SDK by converting it using the `ethers6Adapter`:
+
+```ts
+import { ethers6Adapter } from "thirdweb/adapters/ethers6";
+import { sendTransaction } from "thirdweb";
+
+// convert a ethers signer
+const ethersSigner: ethers.Signer = ...;
+const account = await ethers6Adapter.signer.fromEthers(ethersSigner);
+
+// use it with the thirdweb SDK
+await sendTransaction({
+  transaction,
+  account,
+});
+```
+
+Similarly, you can use any wallets created with the thirdweb SDK with ethers.js v6 by converting them using the `ethers6Adapter`:
+
+```ts
+import { ethers6Adapter } from "thirdweb/adapters/ethers6";
+import { createThirdwebClient, metamaskWallet } from "thirdweb/wallets";
+
+const client = createThirdwebClient({ clientId });
+const wallet = metamaskWallet();
+await wallet.connect();
+
+// convert a thirdweb wallet to ethers signer
+const ethersSigner = await ethers6Adapter.signer.toEthers(client, wallet);
+```
+
+You can also convert ethers.js providers and contracts from and to the thirdweb SDK.
+
+View the [ethers6Adapter](/references/typescript/v5/ethers6Adapter) reference for more details.
+
+## Ethers v5
+
+You can use an existing ethers.js v5 Signer with the thirdweb SDK by converting it using the `ethers5Adapter`:
+
+```ts
+import { ethers5Adapter } from "thirdweb/adapters/ethers5";
+
+// convert a ethers signer
+const ethersSigner: ethers.Signer = ...;
+const account = await ethers5Adapter.signer.fromEthers(ethersSigner);
+
+// convert a thirdweb wallet to ethers signer
+const ethersSigner = await ethers6Adapter.signer.toEthers(client, wallet);
+```
+
+You can also convert ethers.js providers and contracts from and to the thirdweb SDK.
+
+View the [ethers5Adapter](/references/typescript/v5/ethers5Adapter) reference for more details.
+
+## viem
+
+You can use an existing wallet client from viem with the thirdweb SDK by converting it using the `viemAdapter`:
+
+```ts
+import { viemAdapter } from "thirdweb/adapters/viem";
+
+// convert a viem wallet client
+const viemClientWallet: viem.WalletClient = ...;
+const account = await viemAdapter.walletClient.fromViem(viemSigner);
+
+// convert a thirdweb wallet to viem wallet client
+const viemClientWallet = await viemAdapter.walletClient.toViem({ client, chain, wallet });
+```
+
+You can also convert viem public clients and contracts from and to the thirdweb SDK.
+
+View the [viemAdapter](/references/typescript/v5/viemAdapter) reference for more details.
