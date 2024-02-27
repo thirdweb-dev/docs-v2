@@ -67,8 +67,9 @@ These settings are required to set up a smart account. Adjust the following:
 
 - `Factory Contract Address`: The address of your account factory contract.
 - `Thirdweb API Key`: Your API key for Thirdweb.
-- `Gasless`: Whether or not you want to use gasless transactions.
-- `Deploy On Sign`: Whether or not you want to force deploy a smart account upon signing a message or typed data.
+- `Gasless`: Whether or not you want to use gasless transactions. Note that deployment and approval step when using ERC20Paymasters will be gasless as well if this is on.
+- `ERC20 Paymaster Address`: If you want to use an ERC20 Paymaster, you must provide the paymaster contract address here.
+- `ERC20 Token Address`: If using an ERC20 Paymaster, you must provide the associated ERC20 Token Address here.
 - `Bundler Url`, `Paymaster Url`, `EntryPoint Address`: Optional overrides for setting up your smart account.
 
 ### Native Prefabs (Danger Zone)
