@@ -553,8 +553,6 @@ const otherRedirects = {
 	"/wallets": "/connect",
 	"/wallets/connect/:path*": "/connect/connect/:path*",
 	"/wallets/embedded-wallet/:path*": "/connect/embedded-wallet/:path*",
-	"/wallets/smart-wallet/:path*": "/connect/account-abstraction/:path*",
-	"/connect/smart-wallet/:path*": "/connect/account-abstraction/:path*",
 	"/wallets/auth/:path*": "/connect/auth/:path*",
 	// guides
 	"/solana/:match*": "https://blog.thirdweb.com/discontinuing-solana-support/",
@@ -597,6 +595,10 @@ const otherRedirects = {
 	"/contracts/nfts-and-tokens": "/contracts",
 	"/contracts/drops": "/contracts",
 	"/contracts/governance": "/contracts",
+	// account abstraction rename
+	"/wallets/smart-wallet/:path*": "/connect/account-abstraction/:path*",
+	"/connect/smart-wallet/:path*": "/connect/account-abstraction/:path*",
+	"/unity/wallets/providers/smart-wallet": "/unity/wallets/providers/account-abstraction",
 	// others
 	"/pre-built-contracts/:path*": "/contracts",
 	"/thirdweb-deploy/:path*": "/contracts/deploy/overview",
