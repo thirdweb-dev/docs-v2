@@ -40,6 +40,10 @@ export const sidebar: SideBar = {
 			href: `${slug}/adapters`,
 		},
 		{
+			name: "Storage",
+			href: `${slug}/storage`,
+		},
+		{
 			separator: true,
 		},
 		{
