@@ -599,6 +599,7 @@ const otherRedirects = {
 	"/wallets/smart-wallet/:path*": "/connect/account-abstraction/:path*",
 	"/connect/smart-wallet/:path*": "/connect/account-abstraction/:path*",
 	"/unity/wallets/providers/smart-wallet": "/unity/wallets/providers/account-abstraction",
+	"/engine/features/smart-wallets": "/engine/features/account-abstraction",
 	// others
 	"/pre-built-contracts/:path*": "/contracts",
 	"/thirdweb-deploy/:path*": "/contracts/deploy/overview",
