@@ -100,6 +100,25 @@ const receipt = await waitForReceipt(transactionResult);
 
 </Details>
 
+<Details summary="sendAndConfirmTransaction">
+
+Send a transaction and wait for it to be mined. Useful when you want to block until the transaction is fully confirmed onchain before proceeding to the next step.
+
+```ts
+import { sendAndConfirmTransaction } from "thirdweb";
+import { metamaskWallet } from "thirdweb/wallets";
+
+const wallet = metamaskWallet();
+await wallet.connect();
+
+const receipt = await sendAndConfirmTransaction({
+	transaction,
+	wallet,
+});
+```
+
+</Details>
+
 <Details summary='estimateGas'>
 
 Estimating gas cost for a transaction
