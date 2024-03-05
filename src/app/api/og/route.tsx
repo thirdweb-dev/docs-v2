@@ -103,6 +103,7 @@ export async function GET(request: Request) {
 							fontWeight: 600,
 							display: "flex",
 							marginBottom: "40px",
+							wordBreak: title.includes(" ") ? "break-word" : "break-all",
 						}}
 					>
 						{title}
