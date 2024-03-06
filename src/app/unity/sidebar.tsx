@@ -91,6 +91,38 @@ const walletActions: SidebarLink = (() => {
 				name: "Transfer",
 				href: `${parentSlug}/transfer`,
 			},
+			{
+				name: "AddAdmin",
+				href: `${parentSlug}/addadmin`,
+			},
+			{
+				name: "RemoveAdmin",
+				href: `${parentSlug}/removeadmin`,
+			},
+			{
+				name: "CreateSessionKey",
+				href: `${parentSlug}/createsessionkey`,
+			},
+			{
+				name: "RevokeSessionKey",
+				href: `${parentSlug}/revokesessionkey`,
+			},
+			{
+				name: "GetAllActiveSigners",
+				href: `${parentSlug}/getallactivesigners`,
+			},
+			{
+				name: "GetEmail",
+				href: `${parentSlug}/getemail`,
+			},
+			{
+				name: "GetSignerAddress",
+				href: `${parentSlug}/getsigneraddress`,
+			},
+			{
+				name: "SignTypedDataV4",
+				href: `${parentSlug}/signtypeddatav4`,
+			},
 		],
 	};
 })();
