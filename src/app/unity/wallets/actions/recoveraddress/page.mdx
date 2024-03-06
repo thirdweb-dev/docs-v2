@@ -11,8 +11,10 @@ Recover the signing address from a signed message.
 
 ## Usage
 
-After a message has been signed using [sign](/unity/wallet/sign),
+After a message has been signed using [sign](/unity/wallets/actions/sign),
 you can then pass the message and the signature to this method to recover the signing address.
+
+Uses EIP-1271 to verify the address when using compatible Smart Wallets.
 
 ```csharp
 var data = await sdk.wallet.RecoverAddress("{{message}}", "{{signature}}");
