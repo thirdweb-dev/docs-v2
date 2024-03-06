@@ -469,7 +469,7 @@ Returns the signed transaction or hexified UserOperation as a `string`.
 
 ### Send
 
-Sends the transaction without waiting for a receiveMessageOnPort.
+Sends the transaction without waiting for it to be mined. Returns a transaction hash instead of the typical transaction receipt object.
 
 ```csharp
 var transactionHash = await tx.Send();
