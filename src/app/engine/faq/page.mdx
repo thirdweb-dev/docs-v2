@@ -103,11 +103,11 @@ Example:
 LOG_LEVEL="error"
 ```
 
-### How to Prevent `SIGSEGV` Errors with the Engine Docker Image?
+### How to prevent `SIGSEGV` errors with the Engine docker image?
 
 To ensure stable operation of the Engine docker image and avoid encountering a `SIGSEGV` (Segmentation Fault) error, it is crucial to allocate sufficient computational resources to your container. Specifically, ensure that at least `0.5 vCPU & 1 GB memory` is dedicated to the container running the docker image. Adequate resource allocation plays a vital role in preventing SIGSEGV errors, which typically arise from issues in memory access or insufficient computational capacity.
 
-### How to Mitigate Prisma Errors Related Connections and/or Transactions?
+### How to mitigate Prisma errors related connections and/or prisma transactions?
 
 To enhance the stability and performance of transactions and database connections when utilizing Engine, it's recommended to explicitly define the `connection_limit` parameter within your `POSTGRES_CONNECTION_URL` environment variable. This adjustment permits Engine to establish up to 10 simultaneous connections to the PostgreSQL database, addressing potential limitations set by Prisma on concurrent connections. Such configuration ensures that Engine can efficiently manage database interactions without encountering connection-related errors.
 
