@@ -1,0 +1,107 @@
+import {
+	OpenSourceCard,
+	ArticleIconCard,
+	Callout,
+	DocImage,
+	Stack,
+	createMetadata,
+} from "@doc";
+import { GraduationCap } from "lucide-react";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Get started with thirdweb Swap",
+		icon: "wallets",
+	},
+	title: "Get started with Swap | thirdweb",
+	description: "Learn how to get a quote and send a swap with the thirdweb SDK",
+});
+
+# Getting Started
+
+In this guide, we’ll walk you through getting a quote and sending a swap. Once set up, your app will be able to provide cross-chain swapping and bridging for users.
+
+<OpenSourceCard
+	title="Swap + Next.js Example"
+	href="https://github.com/thirdweb-dev/pay-sdk-example"
+	description="See swaps in action with our demo app."
+/>
+
+## Starting from existing project
+
+Install the required packages:
+
+```bash
+npm install thirdweb
+```
+
+## Get your client ID
+
+To start swapping in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+## Getting a Quote
+
+A quote is an object that contains the details around a swap’s route, price, and approval status. Receiving a quote requires the following parameters:
+
+- **fromAddress:** The address of the wallet initiating the swap
+- **fromTokenAddress:** The contract address of the source token.
+- **fromChainId**: The chain id of the source token.
+- **toTokenAddress:** The contract address of the destination token.
+- **toChainId:** The chain id of the destination token.
+- **client**: A thirdweb client instance instantiated with your client ID.
+
+```ts
+import { getSwapRoute } from "thirdweb";
+
+const getQuote = async ({
+	fromAddress,
+	fromChainId,
+	toChainId,
+	fromTokenAddress,
+	toTokenAddress,
+}) => {
+	const quote = await getSwapRoute({
+		fromAddress,
+		fromChainId,
+		toChainId,
+		fromTokenAddress,
+		toTokenAddress,
+		client,
+	});
+	return quote;
+};
+```
+
+## Sending a Transaction
+
+Once you’ve retrieved the quote for your transaction, you can utilize the `sendSwap` function to initiate the swap with the provided quote parameter:
+
+```ts
+import { sendSwap } from "thirdweb";
+import { useActiveAccount } from "thirdweb/react";
+
+const onSendTransaction = async (quote) => {
+	// Retrieves connected wallet if it exists
+	const { activeAccount } = useActiveAccount();
+
+	// Ensure that a quote exists and your wallet is connected.
+	if (quote && activeAccount) {
+		try {
+			// Execute swap based on passed quote
+			const swapStatusParams = await sendSwap(activeAccount, quote);
+		} catch (error) {
+			console.error("Error sending transaction:", error);
+		}
+	}
+};
+```
+
+And those are the basics! You’re ready to start sending swaps with thirdweb.
+
+## Next Steps
+
+Head on over to our advanced guides to learn more about handling swap and bridge transactions:
+
+- [**Poll For Transaction Status**](/connect/swap/poll-for-transaction-status)
+
+(Will add more guides as we write them.)

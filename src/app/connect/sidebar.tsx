@@ -10,6 +10,7 @@ const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
+const swapSlug = "/connect/swap";
 
 export const sidebar: SideBar = {
 	name: "Connect",
@@ -300,6 +301,40 @@ export const sidebar: SideBar = {
 				{
 					name: "FAQs",
 					href: `${authSlug}/faq`,
+				},
+			],
+		},
+		{ separator: true },
+		// Swap
+		{
+			name: "Swap",
+			icon: <WalletsConnectIcon />,
+			href: `${swapSlug}`,
+			isCollapsible: true,
+			links: [
+				{
+					name: "Overview",
+					href: `${swapSlug}`,
+				},
+				{
+					name: "Get Started",
+					href: `${swapSlug}/get-started`,
+				},
+				{
+					name: "How It Works",
+					href: `${swapSlug}/how-it-works`,
+				},
+				{
+					name: "Poll for Transaction Status",
+					href: `${swapSlug}/poll-for-transaction-status`,
+				},
+				{
+					name: "Supported Chains",
+					href: `${swapSlug}/supported-chains`,
+				},
+				{
+					name: "FAQs",
+					href: `${swapSlug}/faqs`,
 				},
 			],
 		},

@@ -1,0 +1,50 @@
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Swap - Poll for Transaction Status",
+		icon: "wallets",
+	},
+	title: "Poll for Transaction Status | thirdweb",
+	description:
+		"How to check for pending, successful, and failed transaciton states after sending a transaction.",
+});
+
+# Poll for Transaction Status
+
+Once a transaction has been initiated, you’ll want to communicate with your users and inform them when a transaction is still pending, has completed, or has failed. You can utilize the `getSwapStatus` function to achieve this. You’ll need the following parameters to retrieve a swap’s status:
+
+- **transactionId:** The transaction id of the initiated swap.
+- **transactionHash**: The transaction hash of the initiated swap.
+- **client**: A thirdweb client instance instantiated with your client ID.
+
+```ts
+import { getSwapStatus } from "thirdweb";
+
+const pollStatus = async ({ quote, swapStatusParams }) => {
+	if (quote && quote.transactionId && swapStatusParams) {
+		try {
+			const status = await getSwapStatus(swapStatusParams);
+			if (status.status === "DONE") {
+				stopPolling();
+			}
+		} catch (error) {
+			console.log("Failed to get status", error);
+			stopPolling();
+		}
+	}
+};
+
+const startPolling = () => {
+	stopPolling();
+	const interval = setInterval(pollStatus, 10000);
+	setPolling(interval);
+};
+
+const stopPolling = () => {
+	if (polling) {
+		clearInterval(polling);
+		setPolling(null);
+	}
+};
+```
