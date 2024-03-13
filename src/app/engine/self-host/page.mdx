@@ -124,16 +124,12 @@ Engine recommends a minimum DB connections limit of `8` PER HOST. Please set the
 DB Error:
 
 ```bash
-ERROR: [Worker] Failed to update mined transactions - Transaction API error: Unable to start a transaction in the given time.
-ERROR: [Worker] Failed to update receipts - Transaction API error: Unable to start a transaction in the given time.
 ERROR: [Worker] Failed to process batch of transactions -
 Invalid `prisma.configuration.findUnique()` invocation in
 /app/dist/src/db/configuration/getConfiguration.ts:164:43
 
-  161 };
-  162
-  163 export const getConfiguration = async (): Promise<Config> => {
-  164   let config = await prisma.configuration.findUnique(
+  export const getConfiguration = async (): Promise<Config> => {
+   let config = await prisma.configuration.findUnique(
 Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 3)
 ```
 
