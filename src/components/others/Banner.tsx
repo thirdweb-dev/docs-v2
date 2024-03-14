@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export function Banner(props: { text: string; href: string; id: string }) {
 	const [showBanner, setShowBanner] = useState(false);
 
-	const bannerCancelledKey = "banner-cancelled" + props.id;
+	const bannerCancelledKey = "banner-cancelled" + props.href;
 
 	useEffect(() => {
 		if (localStorage.getItem(bannerCancelledKey) !== "true") {
