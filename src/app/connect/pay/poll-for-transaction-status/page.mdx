@@ -2,10 +2,10 @@ import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Swap - Poll for Transaction Status",
+		title: "Buy With Crypto - Poll for Transaction Status",
 		icon: "wallets",
 	},
-	title: "Poll for Transaction Status | thirdweb",
+	title: "Buy With Crypto - Poll for Transaction Status | thirdweb",
 	description:
 		"How to check for pending, successful, and failed transaciton states after sending a transaction.",
 });
@@ -14,8 +14,8 @@ export const metadata = createMetadata({
 
 Once a transaction has been initiated, you’ll want to communicate with your users and inform them when a transaction is still pending, has completed, or has failed. You can utilize the `getSwapStatus` function to achieve this. You’ll need the following parameters to retrieve a swap’s status:
 
-- **transactionId:** The transaction id of the initiated swap.
-- **transactionHash**: The transaction hash of the initiated swap.
+- **transactionId:** The transaction id of the initiated transaction.
+- **transactionHash**: The transaction hash of the initiated transaction.
 - **client**: A thirdweb client instance instantiated with your client ID.
 
 ```ts

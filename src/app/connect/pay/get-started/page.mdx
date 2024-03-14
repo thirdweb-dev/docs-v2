@@ -10,21 +10,22 @@ import { GraduationCap } from "lucide-react";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Get started with thirdweb Swap",
-		icon: "wallets",
+		title: "Get started with Pay - Buy With Crypto",
+		icon: "pay",
 	},
-	title: "Get started with Swap | thirdweb",
-	description: "Learn how to get a quote and send a swap with the thirdweb SDK",
+	title: "Get started with Pay - Buy With Crypto | thirdweb",
+	description:
+		"Learn how to get a quote and send a transaction with the thirdweb SDK",
 });
 
 # Getting Started
 
-In this guide, we’ll walk you through getting a quote and sending a swap. Once set up, your app will be able to provide cross-chain swapping and bridging for users.
+In this guide, we’ll walk you through getting a quote and sending a transaction. Once set up, your app will be able to provide cross-chain routing for users.
 
 <OpenSourceCard
-	title="Swap + Next.js Example"
+	title="Buy With Crypto + Next.js Example"
 	href="https://github.com/thirdweb-dev/pay-sdk-example"
-	description="See swaps in action with our demo app."
+	description="See crypto purchases in action with our demo app."
 />
 
 ## Starting from existing project
@@ -37,13 +38,13 @@ npm install thirdweb
 
 ## Get your client ID
 
-To start swapping in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
+To start enabling buy with crypto in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
 
 ## Getting a Quote
 
-A quote is an object that contains the details around a swap’s route, price, and approval status. Receiving a quote requires the following parameters:
+A quote is an object that contains the details around a transaction’s route, price, and approval status. Receiving a quote requires the following parameters:
 
-- **fromAddress:** The address of the wallet initiating the swap
+- **fromAddress:** The address of the wallet initiating the transaction.
 - **fromTokenAddress:** The contract address of the source token.
 - **fromChainId**: The chain id of the source token.
 - **toTokenAddress:** The contract address of the destination token.
@@ -74,7 +75,7 @@ const getQuote = async ({
 
 ## Sending a Transaction
 
-Once you’ve retrieved the quote for your transaction, you can utilize the `sendSwap` function to initiate the swap with the provided quote parameter:
+Once you’ve retrieved the quote for your transaction, you can utilize the `sendSwap` function to initiate the transaction with the provided quote parameter:
 
 ```ts
 import { sendSwap } from "thirdweb";
@@ -96,12 +97,12 @@ const onSendTransaction = async (quote) => {
 };
 ```
 
-And those are the basics! You’re ready to start sending swaps with thirdweb.
+And those are the basics! You’re ready to start buying with crypto.
 
 ## Next Steps
 
-Head on over to our advanced guides to learn more about handling swap and bridge transactions:
+Head on over to our advanced guides to learn more about handling Pay transactions:
 
-- [**Poll For Transaction Status**](/connect/swap/poll-for-transaction-status)
+- [**Poll For Transaction Status**](/connect/pay/poll-for-transaction-status)
 
 (Will add more guides as we write them.)

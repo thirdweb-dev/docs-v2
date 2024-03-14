@@ -4,13 +4,14 @@ import {
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
+	PayIcon,
 } from "@/icons";
 
 const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
-const swapSlug = "/connect/swap";
+const paySlug = "/connect/pay";
 
 export const sidebar: SideBar = {
 	name: "Connect",
@@ -307,34 +308,33 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Swap
 		{
-			name: "Swap",
-			icon: <WalletsConnectIcon />,
-			href: `${swapSlug}`,
+			name: "Pay",
+			icon: <PayIcon />,
 			isCollapsible: true,
 			links: [
 				{
-					name: "Overview",
-					href: `${swapSlug}`,
-				},
-				{
-					name: "Get Started",
-					href: `${swapSlug}/get-started`,
-				},
-				{
-					name: "How It Works",
-					href: `${swapSlug}/how-it-works`,
-				},
-				{
-					name: "Poll for Transaction Status",
-					href: `${swapSlug}/poll-for-transaction-status`,
-				},
-				{
-					name: "Supported Chains",
-					href: `${swapSlug}/supported-chains`,
-				},
-				{
-					name: "FAQs",
-					href: `${swapSlug}/faqs`,
+					name: "Buy With Crypto",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Overview",
+							href: `${paySlug}/buy-with-crypto`,
+						},
+						{
+							name: "Get Started",
+							href: `${paySlug}/get-started`,
+						},
+
+						{
+							name: "Poll for Transaction Status",
+							href: `${paySlug}/poll-for-transaction-status`,
+						},
+						{
+							name: "Supported Chains",
+							href: `${paySlug}/supported-chains`,
+						},
+					],
 				},
 			],
 		},
