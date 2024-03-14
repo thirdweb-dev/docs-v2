@@ -19,11 +19,12 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DocSearch } from "@/components/others/DocSearch";
 import { ContextAIBotButton } from "@/components/others/ContextAIButton";
 import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
 import { ThirdwebIcon } from "../icons/thirdweb";
+import { FaGithub } from "react-icons/fa";
 
 const links = [
 	{
@@ -73,6 +74,14 @@ const supportLinks = [
 export function Header() {
 	const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
+	useEffect(() => {
+		if (showBurgerMenu) {
+			document.body.style.overflow = "hidden";
+		} else {
+			document.body.style.overflow = "auto";
+		}
+	}, [showBurgerMenu]);
+
 	return (
 		<header className="flex w-full items-center border-b bg-b-900">
 			<div
@@ -92,10 +101,18 @@ export function Header() {
 					</span>
 				</Link>
 
-				<div className="flex gap-1 xl:hidden">
+				<div className="flex items-center gap-1 xl:hidden">
 					<ThemeSwitcher className="border-none bg-transparent" />
 
 					<DocSearch variant="icon" />
+
+					<Link
+						href="https://github.com/thirdweb-dev"
+						target="_blank"
+						className="text-f-100"
+					>
+						<FaGithub className="mx-3 size-6" />
+					</Link>
 
 					{/* Mobile burger menu */}
 					<Button
@@ -136,7 +153,7 @@ export function Header() {
 						/>
 					</ul>
 
-					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">
+					<div className="flex flex-col justify-start gap-5 xl:flex-row xl:items-center xl:gap-3">
 						<div className="hidden xl:flex">
 							<ThemeSwitcher />
 						</div>
@@ -164,6 +181,14 @@ export function Header() {
 								setShowBurgerMenu(false);
 							}}
 						/>
+
+						<Link
+							href="https://github.com/thirdweb-dev"
+							target="_blank"
+							className="hidden text-f-300 transition-colors hover:text-f-100 xl:block"
+						>
+							<FaGithub className="mx-2 size-6" />
+						</Link>
 					</div>
 				</nav>
 			</div>
