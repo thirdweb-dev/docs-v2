@@ -33,6 +33,7 @@ import {
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
 } from "@/icons";
+import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
 	return (
@@ -61,27 +62,7 @@ function Hero() {
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
-					{/* <div className="flex flex-wrap gap-4">
-						<Button
-							asChild
-							variant="accent"
-							className="text-lg lg:min-w-[150px] lg:px-10"
-						>
-							<Link
-								href="https://www.youtube.com/watch?v=jYEqoIeAoBg"
-								target="_blank"
-							>
-								Learn
-							</Link>
-						</Button>
-						<Button
-							variant="outline"
-							className="text-lg lg:min-w-[150px] lg:px-10"
-							asChild
-						>
-							<Link href="/#wallets">Explore Products</Link>
-						</Button>
-					</div> */}
+					<LandingPageCTAs />
 				</div>
 			</div>
 
