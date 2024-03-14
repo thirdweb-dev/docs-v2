@@ -10,7 +10,7 @@ export function LandingPageCTAs() {
 			<Button
 				asChild
 				variant="default"
-				className="py-3 text-lg lg:min-w-[150px] lg:px-5"
+				className="py-3 text-lg md:py-2 lg:min-w-[150px] lg:px-5"
 				onClick={() => {
 					posthog.capture("unified-sdk-cta.click");
 				}}
@@ -19,7 +19,7 @@ export function LandingPageCTAs() {
 			</Button>
 			<Button
 				variant="outline"
-				className="py-3 text-lg lg:min-w-[150px] lg:px-7"
+				className="py-3 text-lg md:py-2 lg:min-w-[150px] lg:px-7"
 				asChild
 				onClick={() => {
 					posthog.capture("learn-more-cta.click");
