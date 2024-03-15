@@ -62,7 +62,7 @@ function Hero() {
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
-					<LandingPageCTAs />
+					{/* <LandingPageCTAs /> */}
 				</div>
 			</div>
 
