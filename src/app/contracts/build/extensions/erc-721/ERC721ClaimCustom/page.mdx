@@ -37,9 +37,9 @@ pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/eip/ERC721A.sol";
 import "@thirdweb-dev/contracts/extension/LazyMint.sol";
-import "@thirdweb-dev/contracts/extension/interface/IClaimableERC1155.sol";
+import "@thirdweb-dev/contracts/extension/interface/IClaimableERC721.sol";
 
-contract Contract is ERC721A, LazyMint, IClaimableERC1155 {
+contract Contract is ERC721A, LazyMint, IClaimableERC721 {
     constructor(
         string memory _name,
         string memory _symbol
