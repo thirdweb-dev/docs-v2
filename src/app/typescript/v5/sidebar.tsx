@@ -3,6 +3,7 @@ import { ReactIcon } from "../../../icons";
 
 const slug = "/typescript/v5";
 const reactSlug = `${slug}/react`;
+const reactNativeSlug = `${slug}/react-native`;
 
 export const sidebar: SideBar = {
 	name: "TypeScript Unified SDK",
@@ -84,6 +85,28 @@ export const sidebar: SideBar = {
 							href: `${reactSlug}/components/TransactionButton`,
 						},
 					],
+				},
+				{
+					name: "Hooks",
+					href: `/references/typescript/v5/hooks`,
+				},
+			],
+		},
+		{
+			separator: true,
+		},
+		{
+			// isCollapsible: false,
+			icon: <ReactIcon className="size-4" />,
+			name: "React Native",
+			links: [
+				{
+					name: "Overview",
+					href: reactNativeSlug,
+				},
+				{
+					name: "Installation",
+					href: `${reactNativeSlug}/Installation`,
 				},
 				{
 					name: "Hooks",
