@@ -1,0 +1,35 @@
+import { SDKCard, Grid, DocImage, createMetadata } from "@doc";
+import { UnityIcon, ReactIcon } from "@/icons";
+import connectHeroImage from "../assets/connect-modal.png";
+
+export const metadata = createMetadata({
+	image: {
+		title: "ConnectWallet",
+		icon: "react",
+	},
+	title: "thirdweb ConnectWallet",
+	description:
+		"ConnectWallet is available in React, React Native as a component and in Unity as a prefab",
+});
+
+# ConnectWallet
+
+ConnectWallet is available in React, React Native as a component and in Unity as a prefab.
+
+<Grid>
+	<SDKCard
+		title="React"
+		href="/react/latest/components/ConnectWallet"
+		icon={ReactIcon}
+	/>
+	<SDKCard
+		title="React Native"
+		href="/react-native/latest/components/ConnectWallet"
+		icon={ReactIcon}
+	/>
+	<SDKCard title="Unity" href="/unity/wallets/prefab" icon={UnityIcon} />
+</Grid>
+
+<br />
+
+<DocImage src={connectHeroImage} />

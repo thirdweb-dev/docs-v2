@@ -1,0 +1,106 @@
+import { Details } from "@doc";
+
+# Extensions
+
+Extensions let interact with common standards (such as ERC20, ERC721, ERC1155, etc.) in a more convenient way. You can use the built-in extensions or create your own.
+
+## Built-in extensions
+
+| Standard | Import Path                   | Description                       |
+| -------- | ----------------------------- | --------------------------------- |
+| ERC20    | `thirdweb/extensions/erc20`   | ERC20 token standard extensions   |
+| ERC721   | `thirdweb/extensions/erc721`  | ERC721 token standard extensions  |
+| ERC1155  | `thirdweb/extensions/erc1155` | ERC1155 token standard extensions |
+
+## Using extensions
+
+To use an extension, you just need to import it and call it with the necessary parameters.
+
+### Example: `balanceOf()` extension for ERC20 tokens
+
+```typescript
+import { getContract } from "thirdweb";
+import { balanceOf } from "thirdweb/extensions/erc20";
+
+// get the contract
+const contract = getContract({...});
+
+// call the extension function
+const balance = await balanceOf({
+	contract,
+	address: "0x5678...",
+});
+```
+
+### Example: `transfer()` extension for ERC20 tokens
+
+```typescript
+import { getContract, sendTransaction } from "thirdweb";
+import { transfer } from "thirdweb/extensions/erc20";
+
+// get the contract
+const contract = getContract({...});
+
+// call the extension function to prepare the transaction
+const transaction = transfer({
+  contract,
+  to: "0x1234...",
+  amount: "1",
+});
+
+// send the transaction
+const transactionResult = await sendTransaction({
+  transaction,
+  wallet,
+});
+```
+
+## Creating your own extensions
+
+You can create your own extensions. They are just regular functions that pre-define the behavior of a `prepareContractCall()` or `readContract()` function.
+
+<Details id="example-balance-of" summary={`Example: Creating the "balanceOf" extension for ERC20 tokens`}>
+
+```typescript
+import { readContract, type BaseTransactionOptions } from "thirdweb";
+
+// define your extension function
+export function balanceOf(
+	// the base options include everything that is needed to interact with the contract, *except* the specific params for your function, in this case "address"
+	options: BaseTransactionOptions<{ address: string }>,
+) {
+	return readContract({
+		// pass the contract from the options
+		contract: options.contract,
+		// pre-define the function that `balanceOf()` will call on the smart contract
+		method: "function balanceOf(address) returns (uint256)",
+		// pass the params from the options
+		params: [options.address],
+	});
+}
+```
+
+</Details>
+
+<Details id="example-transfer" summary={`Example: Creating the "transfer" extension for ERC20 tokens`}>
+
+```typescript
+import { prepareContractCall, type BaseTransactionOptions } from "thirdweb";
+
+// define your extension function
+export function transfer(
+	// the base options include everything that is needed to interact with the contract, *except* the specific params for your function, in this case "to" and "amount"
+	options: BaseTransactionOptions<{ to: string; amount: bigint }>,
+) {
+	return prepareContractCall({
+		// pass the contract from the options
+		contract: options.contract,
+		// pre-define the function that `transfer()` will call on the smart contract
+		method: "function transfer(address, uint256)",
+		// pass the params from the options
+		params: [options.to, options.amount],
+	});
+}
+```
+
+</Details>

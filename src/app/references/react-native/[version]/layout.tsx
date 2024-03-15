@@ -9,6 +9,12 @@ export default getTDocLayout({
 });
 
 export const metadata = createMetadata({
+	image: {
+		title: "thirdweb React Native SDK Reference",
+		icon: "react",
+	},
 	title: "References | thirdweb React Native SDK ",
 	description: "Full Reference for thirdweb React Native SDK.",
 });
+
+export const revalidate = 3600; // revalidate at most every hour

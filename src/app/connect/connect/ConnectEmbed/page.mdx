@@ -1,0 +1,59 @@
+import {
+	SDKCard,
+	Grid,
+	DocImage,
+	GithubTemplateCard,
+	Stack,
+	createMetadata,
+} from "@doc";
+import { ReactIcon } from "@/icons";
+import connectHeroImage from "../assets/ConnectEmbed-embedded.png";
+
+export const metadata = createMetadata({
+	image: {
+		title: "ConnectEmbed",
+		icon: "react",
+	},
+	title: "thirdweb ConnectEmbed",
+	description:
+		"ConnectEmbed component renders a UI to connect to various wallets",
+});
+
+# ConnectEmbed
+
+ConnectEmbed component renders a UI to connect to various wallets.
+
+It renders the same UI as the [ConnectWallet](/connect/connect/ConnectWallet) component's Modal UI. This is really useful for Implementing a "Sign in" page.
+
+<Grid>
+	<SDKCard
+		title="React"
+		href="/react/latest/components/ConnectEmbed"
+		icon={ReactIcon}
+	/>
+	<SDKCard
+		title="React Native"
+		href="/react-native/latest/components/ConnectEmbed"
+		icon={ReactIcon}
+	/>
+</Grid>
+
+<br />
+
+<DocImage src={connectHeroImage} />
+
+## Templates
+
+<Stack>
+
+<GithubTemplateCard
+	title="Using ConnectEmbed to create sign-in page in Next.js"
+	href="https://github.com/thirdweb-example/connect-embed-next"
+/>
+
+<GithubTemplateCard
+	title="ConnectEmbed usage in React Native"
+	href="https://github.com/thirdweb-example/react-native-connect-embed"
+/>
+
+</Stack>

@@ -1,0 +1,140 @@
+import { Callout, DocImage } from "@doc";
+import Relayer1 from "../../assets/relayer-1.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Relayers | thirdweb Engine",
+	description:
+		"Use Engine to deploy, manage, and transact with smart accounts on behalf of your users",
+});
+
+# Relayers
+
+Use Engine as a relayer to submit meta-transactions on behalf of your users. Relayers allow your users to send blockchain transactions and have [gas fees](/glossary/gas) paid by your backend wallets.
+
+For example, your users can transfer or list NFTs in their wallet without having gas funds.
+
+[Learn more about gasless transactions.](/glossary/gasless-transactions)
+
+## Requirements
+
+- The contract you are calling must support a standard meta-transaction format:
+  - [EIP-2771 Native Meta-transactions](https://eips.ethereum.org/EIPS/eip-2771)
+  - [EIP-2612 Permit Approval](https://eips.ethereum.org/EIPS/eip-2612)
+  - [Polygon Native Meta-transactions](https://wiki.polygon.technology/docs/pos/design/transactions/meta-transactions/meta-transactions/)
+- Your Engine instance has a [backend wallet](/engine/features/backend-wallets) with funds.
+
+## Create a relayer
+
+1. Navigate to the **Explorer** section in the [Engine dashboard](https://thirdweb.com/dashboard/engine).
+1. Select **Add relayer**.
+1. Provide the following details:
+   - **Chain**: The chain where contracts will be called.
+   - **Backend Wallet**: The backend wallet that will submit meta-transactions to the forwarder. Ensure this wallet has sufficient gas funds.
+   - **Label**: A descriptive name for this relayer.
+   - **Allowed Contracts**: (Optional) A list of contract addresses this relayer is allowed to submit transactions to.
+   - **Allowed Forwarders**: (Optional) A list of forwarder addresses this relayer is allowed to submit transactions to.
+
+The relayer will be assigned an ID.
+The relayer URL to submit transactions to will look like this: `https://<your_engine_url>/relayer/<relayer_id>`
+
+## Submit to a relayer from your app frontend
+
+First, update the CORS policy on Engine to allow your webapp to call Engine.
+
+- URL: `POST /configuration/cors`
+- Header
+  - `Authorization: Bearer <access_token>`
+  - `Content-Type: application/json`
+- Body (example)
+  ```json
+  {
+  	"urlsToAdd": [
+  		"http://localhost:8000",
+  		"https://dev.my-app.com",
+  		"https://my-app.com"
+  	]
+  }
+  ```
+
+<Callout variant='info' title="Security note">
+
+Relayer endpoints can be called by frontend clients without authentication. Set **Allowed Contracts** and **Allowed Forwarders** to restrict the meta-transactions your relayer will handle.
+
+All other Engine endpoints are authenticated by access token.
+
+</Callout>
+
+Next, use the [thirdweb React SDK](/react) to allow users to sign transactions with their wallet and send it to your Engine relayer.
+
+Pass the relayer URL to the SDK provider.
+
+```tsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export default function App() {
+	return (
+		<ThirdwebProvider
+			activeChain="polygon"
+			sdkOptions={{
+				gasless: {
+					engine: {
+						relayerUrl: <engine_relayer_url>,
+					},
+				},
+			}}
+		>
+			<ConnectWallet/>
+			<MintComponent />
+		</ThirdwebProvider>
+	);
+}
+```
+
+Enable users to connect their wallet with the [`ConnectWallet`](/react/v4/components/ConnectWallet) component.
+
+```tsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+export function Connect() {
+	return <ConnectWallet />;
+}
+```
+
+Create a button that sends a blockchain transaction.
+
+```tsx
+import { useContract } from "@thirdweb-dev/react";
+
+export default function MintComponent() {
+	const contract = useContract("0x7A0CE8524bea337f0beE853B68fAbDE145dAC0A0");
+
+	return (
+		<Button
+			onClick={() => {
+				// This mint transaction will be submitted by your Engine relayer.
+				await contract.erc20.mint(1);
+			}}
+		>
+			Claim
+		</Button>
+	);
+}
+```
+
+## Submit to a relayer from your app backend
+
+Alternatively, submit transactions to your Engine relayer from your app backend.
+
+1. Prompt the user to _sign_ a transaction, such as transferring an NFT or minting a token.
+   - This step does not require gas in the user's wallet.
+   - Ensure the signature matches the format that the forwarder expects.
+1. Pass the signature from your app frontend to your app backend.
+1. Call Engine from your app backend.
+   - Method: `POST https://<engine_url>/relayer/{relayer_id}`
+   - Body:
+     - `type`: "forward", "permit", or "execute-meta-transaction"
+     - `request`: The transaction request details
+     - `signature`: The `request` signed by the user's wallet
+     - `forwarderAddress`: A forwarder address that is trusted by the contract, if `type` = "forward"
+     - See the [API reference](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Relayer/operation/relay) for details.

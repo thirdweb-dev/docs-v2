@@ -3,6 +3,17 @@ import chooseKeyImage from "../assets/choose-key.png";
 import selectEditImage from "../assets/select-edit.png";
 import allServicesImage from "../assets/all-services.png";
 import smartWalletAPIKeyImage from "../assets/smart-wallet-api-key.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Edit thirdweb API Key",
+	description:
+		"All services on API keys are enabled by default. You can disable any services or edit settings for each service.",
+	image: {
+		title: "Edit thirdweb API Key",
+		icon: "thirdweb",
+	},
+});
 
 # Edit enabled services on API Keys
 
@@ -62,24 +73,10 @@ By default, RPC Edge services are enabled upon creation of the API Key.
 
 To use RPC Edge in your application, see our [RPC Edge QuickStart](/infrastructure/rpc-edge/get-started) article.
 
-#### Smart Wallets
+#### Account abstraction services
 
-By default, Smart Wallet services are enabled upon creation of the API Key.
-
-**Smart Wallet Destination Address**
-A smart wallet destination address is allowed to send transactions to or interact with. These addresses can be smart contracts, EOAs (Externally Owned Accounts), or other smart wallet addresses. This feature is useful for restricting the smart wallet to only send transactions to your own contracts.
-
-To restrict the contracts that Smart Wallet can interact with:
-
-1. Navigate to Settings > API Keys
-2. Locate Smart Wallet under Services
-3. Input the contract address(es) into the 'Allowed Contract Addresses' field.
-
-   <DocImage src={smartWalletAPIKeyImage} />
-
-4. Save your new settings by selecting `Save`
+By default, Account abstraction services services are enabled upon creation of the API Key. To set additional rules on which transactions you want to sponsor, head to the configuration tab in your [account abstraction dashboard](https://thirdweb.com/dashboard/connect/account-abstraction)
 
 #### Embedded Wallets
 
-By default, Embedded Wallet services are enabled upon creation of the API Key.
-
+By default, Embedded Wallet services are enabled upon creation of the API Key. You can view your embedded wallet's settings in the configuration tab of the [embedded wallet dashboard](https://thirdweb.com/dashboard/connect/embedded-wallets)

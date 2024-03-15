@@ -8,6 +8,9 @@ import "./styles.css";
 import { Author } from "../components/Author";
 import { RenderDate } from "../components/RenderData";
 import { transform } from "../utils/transform";
+import { Button } from "../../../components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default async function Page(props: {
 	params: {
@@ -22,6 +25,15 @@ export default async function Page(props: {
 
 	return (
 		<div className="changelog-page">
+			<Button asChild>
+				<Link
+					href="/changelog"
+					className="mb-4 translate-x-[-25%] bg-transparent !p-2 !text-f-300 hover:!text-accent-500"
+				>
+					<ArrowLeft className="size-6" />
+				</Link>
+			</Button>
+
 			{data.updated_at && (
 				<div className="mb-10">
 					<RenderDate iso={data.updated_at} />

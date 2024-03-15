@@ -1,10 +1,20 @@
 import { Details, GithubButtonLink, Callout, DocImage } from "@doc";
 import connectWalletDarkCompactImage from "./_assets/connect-wallet-dark-compact.png";
 import connectWalletEmbeddedCompact from "./_assets/connect-wallet-embedded-compact.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Integrate with ConnectWallet",
+		icon: "wallets",
+	},
+	title: "Integrate with ConnectWallet",
+	description: "Integrate your wallet with ConnectWallet",
+});
 
 # Integrate with ConnectWallet
 
-If you also want to integrate this wallet with [`ConnectWallet`](/wallets/connect/ConnectWallet) component in [React SDK](/react/v4) or [React Native SDK](/react-native/v0), You have to create a Wallet Configurator function which can be passed to `ThirdwebProvider` component
+If you also want to integrate this wallet with [`ConnectWallet`](/connect/connect/ConnectWallet) component in [React SDK](/react/v4) or [React Native SDK](/react-native/v0), You have to create a Wallet Configurator function which can be passed to `ThirdwebProvider` component
 
 ```tsx
 import { WalletConfig } from '@thirdweb-dev/react'
@@ -538,7 +548,7 @@ You can look at how `thirdweb-dev/react` package's built-in wallets are implemen
 - [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/safe/safeWallet.tsx)
 - [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embedded-wallet.tsx)
 - [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/localWallet/localWallet.tsx)
-- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx)
+- [Smart Account](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx)
 - [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/magic/magicLink.tsx)
 
 ## Contributing to the Wallets package

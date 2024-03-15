@@ -24,14 +24,14 @@ We have a collection of Components that you can import and use in your MDX files
 
 ### Installation
 
-We use `yarn`
+We use `pnpm` and `bun`. Make sure you have them installed on your machine to run the project locally.
 
 ```bash
-yarn
+pnpm i
 ```
 
 ### Start local development server
 
 ```bash
-yarn dev
+pnpm dev
 ```

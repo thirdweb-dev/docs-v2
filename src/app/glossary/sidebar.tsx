@@ -88,8 +88,8 @@ export const sidebar: SideBar = {
 			href: "/glossary/smart-contract",
 		},
 		{
-			name: "Smart Wallet",
-			href: "/glossary/smart-wallet",
+			name: "Smart Account",
+			href: "/glossary/smart-account",
 		},
 		{
 			name: "Soulbound tokens",

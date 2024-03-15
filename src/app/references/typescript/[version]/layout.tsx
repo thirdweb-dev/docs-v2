@@ -9,6 +9,12 @@ export default getTDocLayout({
 });
 
 export const metadata = createMetadata({
+	image: {
+		title: "thirdweb TypeScript SDK Reference",
+		icon: "typescript",
+	},
 	title: "References | thirdweb TypeScript SDK ",
 	description: "Full Reference for thirdweb TypeScript SDK.",
 });
+
+export const revalidate = 3600; // revalidate at most every hour

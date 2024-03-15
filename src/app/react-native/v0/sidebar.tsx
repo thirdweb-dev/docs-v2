@@ -67,7 +67,7 @@ export const sidebar: SideBar = {
 					href: `${walletsSlug}/rainbow`,
 				},
 				{
-					name: "Smart Wallet",
+					name: "Smart Account (Account Abstraction)",
 					href: `${walletsSlug}/smartwallet`,
 				},
 				{
@@ -99,7 +99,7 @@ export const sidebar: SideBar = {
 		},
 		{
 			name: "Hooks",
-			href: `${referencesSlug}#hooks`,
+			href: `${referencesSlug}/hooks`,
 		},
 		{
 			name: "FAQ",

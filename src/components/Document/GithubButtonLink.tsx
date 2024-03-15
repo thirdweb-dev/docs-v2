@@ -9,7 +9,7 @@ export function GithubButtonLink(props: { href: string }) {
 			className="inline-flex items-center rounded-lg border text-sm duration-200 hover:border-f-300"
 		>
 			<div className="p-2.5">
-				<BsGithub className="h-5 w-5" />
+				<BsGithub className="size-5" />
 			</div>
 			<div className="border-l-2 p-2.5 font-semibold">View on GitHub</div>
 		</Link>

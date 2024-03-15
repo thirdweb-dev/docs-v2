@@ -35,24 +35,40 @@ module.exports = {
 				200: "var(--f-200)",
 				300: "var(--f-300)",
 			},
+			"code-bg": "var(--code-bg)",
 			accent: {
 				500: "var(--accent-500)",
-				600: "var(--accent-600)",
-				900: "var(--accent-900)",
-				800: "var(--accent-800)",
 				700: "var(--accent-700)",
+				800: "var(--accent-800)",
+				900: "var(--accent-900)",
 			},
 			danger: {
 				500: "var(--danger-500)",
-				900: "var(--danger-900)",
 				800: "var(--danger-800)",
+				900: "var(--danger-900)",
 			},
 			warning: {
 				500: "var(--warning-500)",
-				600: "var(--warning-600)",
 				900: "var(--warning-900)",
 				800: "var(--warning-800)",
 			},
+		},
+		zIndex: {
+			modal: 1400,
+			modalOverlay: 1300,
+			dropdownMenu: 1200,
+			menu: 1100,
+			//
+			stickyTop: 1000,
+			floatingButton: 1000,
+			stickyMobileSidebar: 500,
+			//
+			copyCodeButton: 20,
+			//
+			codeToken: 5,
+			codeTokenHighlight: 1,
+			// base
+			base: 0,
 		},
 		borderRadius: {
 			lg: "var(--radius)",
@@ -65,10 +81,10 @@ module.exports = {
 		},
 		extend: {
 			spacing: {
-				"header-height": "var(--header-height)",
-				"sidebar-height": "calc(100vh - var(--header-height))",
-				"offset-top": "calc(var(--header-height) + 18px)",
-				"offset-top-mobile": "calc(var(--header-height) + 100px)",
+				"sticky-top-height": "var(--sticky-top-height)",
+				"sidebar-height": "calc(100vh - var(--sticky-top-height))",
+				"offset-top": "calc(var(--sticky-top-height) + 18px)",
+				"offset-top-mobile": "calc(var(--sticky-top-height) + 100px)",
 			},
 			keyframes: {
 				"accordion-down": {

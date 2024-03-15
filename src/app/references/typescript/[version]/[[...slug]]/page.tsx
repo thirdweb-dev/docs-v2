@@ -5,9 +5,10 @@ const config = getTDocPage({
 	sdkTitle: "TypeScript SDK",
 	getDoc: fetchTypeScriptDoc,
 	packageSlug: "typescript",
-	async getLatestVersion() {
-		return "v4";
+	async getVersions() {
+		return ["v4", "v5"];
 	},
+	metadataIcon: "typescript",
 });
 
 export default config.default;

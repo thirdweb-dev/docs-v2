@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Inter, Fira_Code } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
 import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/Posthog";
@@ -9,6 +9,10 @@ import {
 } from "@/components/others/ContextAIButton";
 import Script from "next/script";
 import { createMetadata } from "@/components/Document";
+import { SetStoredTheme } from "../components/others/theme/theme";
+import { Banner } from "../components/others/Banner";
+import { StickyTopContainer } from "../components/Document/StickyTopContainer";
+import { EnableSmoothScroll } from "../components/others/SmoothScroll";
 
 const sansFont = Inter({
 	subsets: ["latin"],
@@ -16,7 +20,7 @@ const sansFont = Inter({
 	weight: "variable",
 });
 
-const monoFont = Roboto_Mono({
+const monoFont = Fira_Code({
 	subsets: ["latin"],
 	variable: "--font-mono",
 	weight: "variable",
@@ -25,6 +29,10 @@ const monoFont = Roboto_Mono({
 export const metadata = createMetadata({
 	title: "thirdweb docs",
 	description: "thirdweb developer portal",
+	image: {
+		title: "Build apps and games on any EVM chain",
+		icon: "thirdweb",
+	},
 });
 
 export default function RootLayout({
@@ -44,19 +52,33 @@ export default function RootLayout({
 				/>
 				<ContextAIBotScript />
 			</head>
-			<body className={`${sansFont.variable} ${monoFont.variable} font-sans`}>
+			<body
+				className={`${sansFont.variable} ${monoFont.variable} font-sans`}
+				suppressHydrationWarning
+			>
+				<SetStoredTheme />
 				<NextTopLoader
-					color="var(--accent-600)"
+					color="var(--accent-500)"
 					height={2}
 					shadow={false}
 					showSpinner={false}
 				/>
 				<PosthogPageView />
-				<div className="fixed bottom-4 right-4 z-50 xl:hidden">
+				<EnableSmoothScroll />
+				<div className="fixed bottom-4 right-4 z-floatingButton xl:hidden">
 					<ContextAIBotButton />
 				</div>
+
 				<div className="relative flex min-h-screen flex-col">
-					<Header />
+					<StickyTopContainer>
+						{/* Note: Please change id as well when changing text or href so that new banner is shown to user even if user dismissed the older one  */}
+						<Banner
+							id="v5-alpha-sdk"
+							text="Try out our new unified client SDK."
+							href="https://portal.thirdweb.com/typescript/v5"
+						/>
+						<Header />
+					</StickyTopContainer>
 					{children}
 				</div>
 			</body>

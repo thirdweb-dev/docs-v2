@@ -1,4 +1,12 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: { title: "Get Started with thirdweb Solidity SDK", icon: "solidity" },
+	title: "Get Started with thirdweb Solidity SDK",
+	description:
+		"To get started with the Solidity SDK, run the following command to create a new project:",
+});
 
 # Getting Started
 
@@ -37,7 +45,7 @@ All functions in the [base contracts](/contracts/build/base-contracts) and [exte
 
 ### Using Base Contracts
 
-The Solidity SDK includes [**base contracts**](/contracts/build/base-contracts) that are fully complete smart contracts that can be customized by overriding functions OR by adding extensions.
+The Solidity SDK includes [base contracts](/contracts/build/base-contracts) that are fully complete smart contracts that can be customized by overriding functions OR by adding extensions.
 
 **1.** To start, import and inherit the base contract. You can find the list of all available base contracts [here](/contracts/build/base-contracts).
 
@@ -67,7 +75,7 @@ contract MyNFT is ERC721Base {
 
 Extensions are to be used via inheritance - your project's smart contract will inherit from them.
 
-Additional [**extensions**](/contracts/build/extensions) can be added to existing smart contracts or to the [**base contracts**](/contracts/build/base-contracts) to add extra functionality and unlocking features in the SDKs and Dashboard.
+Additional [extensions](/contracts/build/extensions) can be added to existing smart contracts or to the [base contracts](/contracts/build/base-contracts) to add extra functionality and unlocking features in the SDKs and Dashboard.
 
 **1.** To start, import and inherit the extension. You can find the list of all available extensions [here](/contracts/build/extensions).
 

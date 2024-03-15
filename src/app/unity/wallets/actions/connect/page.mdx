@@ -43,9 +43,9 @@ Available providers:
 - `WalletProvider.Injected`: [Injected](/unity/wallets/providers/injected)
 - `WalletProvider.Coinbase`: [Coinbase Wallet](/unity/wallets/providers/coinbase)
 - `WalletProvider.MetaMask`: [MetaMask](/unity/wallets/providers/metamask)
-- `WalletProvider.WalletConnectV1`: [WalletConnect](/unity/wallets/providers/walletconnect)
+- `WalletProvider.WalletConnect`: [WalletConnect](/unity/wallets/providers/walletconnect)
 - `WalletProvider.LocalWallet`: [Local Wallet](/unity/wallets/providers/localwallet)
-- `WalletProvider.SmartWallet`: [Smart Wallet](/unity/wallets/providers/smartwallet)
+- `WalletProvider.SmartWallet`: [Smart Wallet](/unity/wallets/providers/account-abstraction)
 - `WalletProvider.Hyperplay`: [Hyperplay](/unity/wallets/providers/hyperplay)
 - `WalletProvider.EmbeddedWallet`: [Embedded Wallet](/unity/wallets/providers/embeddedwallet)
 
@@ -57,19 +57,19 @@ Must be a `BigInteger` (or `int`).
 
 #### password
 
-Optional password for encrypted [Local Wallet](/unity/wallet/localwallet) account, uses auto-generated password if left empty.
+Optional password for encrypted [Local Wallet](/unity/wallets/providers/localwallet) account, uses auto-generated password if left empty.
 
 Must be a `string`.
 
 #### email
 
-Optional email for default [Embedded Wallet](/unity/wallet/embeddedwallet) email flow.
+Optional email for default [Embedded Wallet](/unity/wallets/providers/embeddedwallet) email flow.
 
 Must be a `string`.
 
 #### personalWallet
 
-Admin signer to use with [Smart Wallet](/unity/wallets/providers/smart-wallet) as your main provider.
+Admin signer to use with [Smart Account](/unity/wallets/providers/smart-wallet) as your main provider.
 
 Must be a `WalletProvider`.
 
@@ -81,7 +81,7 @@ Must be a `string`.
 
 #### authOptions
 
-[Embedded Wallet](/unity/wallet/embeddedwallet) Authentication Options.
+[Embedded Wallet](/unity/wallets/providers/embeddedwallet) Authentication Options.
 
 Must be an `AuthOptions` object.
 

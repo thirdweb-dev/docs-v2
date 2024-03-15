@@ -27,14 +27,13 @@ import {
 	ContractDeployIcon,
 	ContractPublishIcon,
 	InfraEngineIcon,
-	InfraRPCIcon,
-	InfraStorageIcon,
 	WalletsAuthIcon,
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
 } from "@/icons";
+import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
 	return (
@@ -43,8 +42,8 @@ export default function Page() {
 			{/* <TutorialsSection /> */}
 			<WalletsSection />
 			<ContractsSection />
+			<EngineSection />
 			<PaymentSection />
-			<InfraSection />
 			<SDKSection />
 		</main>
 	);
@@ -52,38 +51,18 @@ export default function Page() {
 
 function Hero() {
 	return (
-		<section className="grid py-10 lg:grid-cols-2  xl:py-2 ">
+		<section className="grid py-10 lg:grid-cols-2 xl:py-2">
 			{/* Left */}
 			<div className="flex flex-col justify-center">
 				<div>
 					<h1 className="mb-5 text-4xl font-bold tracking-tight md:text-5xl">
 						thirdweb Documentation
 					</h1>
-					<p className="mb-8 max-w-md text-lg leading-7 text-f-300 md:text-xl">
+					<p className="mb-8 max-w-md text-lg font-medium leading-7 text-f-300 md:text-xl">
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
-					{/* <div className="flex flex-wrap gap-4">
-						<Button
-							asChild
-							variant="accent"
-							className="text-lg lg:min-w-[150px] lg:px-10"
-						>
-							<Link
-								href="https://www.youtube.com/watch?v=jYEqoIeAoBg"
-								target="_blank"
-							>
-								Learn
-							</Link>
-						</Button>
-						<Button
-							variant="outline"
-							className="text-lg lg:min-w-[150px] lg:px-10"
-							asChild
-						>
-							<Link href="/#wallets">Explore Products</Link>
-						</Button>
-					</div> */}
+					<LandingPageCTAs />
 				</div>
 			</div>
 
@@ -151,7 +130,7 @@ function Hero() {
 // 							href: "/",
 // 						},
 // 						{
-// 							name: "On-chain voting",
+// 							name: "Onchain voting",
 // 							href: "/",
 // 						},
 // 						{
@@ -244,29 +223,29 @@ function Hero() {
 function WalletsSection() {
 	return (
 		<section className="my-12">
-			<SectionTitle id="wallets" title="Wallets" />
+			<SectionTitle id="connect" title="Connect" />
 
 			<Grid>
 				<ArticleCardIndex
-					href="/wallets/connect"
+					href="/connect/connect"
 					title="Connect"
 					description="Fully customizable Connect Wallet component"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
-					href="/wallets/smart-wallet"
-					title="Smart Wallet"
+					href="/connect/account-abstraction"
+					title="Account abstraction"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
 				/>
 				<ArticleCardIndex
 					title="Embedded Wallet"
 					description="Email & social login wallets for your customers"
-					href="/wallets/embedded-wallet/overview"
+					href="/connect/embedded-wallet/overview"
 					icon={WalletsEmbeddedIcon}
 				/>
 				<ArticleCardIndex
-					href="/wallets/auth"
+					href="/connect/auth"
 					title="Auth"
 					description="Authenticate users with their wallets"
 					icon={WalletsAuthIcon}
@@ -309,7 +288,7 @@ function ContractsSection() {
 				<ArticleCardIndex
 					href="/contracts/publish/overview"
 					title="Publish"
-					description="Publish your contracts on-chain"
+					description="Publish your contracts onchain"
 					icon={ContractPublishIcon}
 				/>
 			</Grid>
@@ -334,29 +313,17 @@ function PaymentSection() {
 	);
 }
 
-function InfraSection() {
+function EngineSection() {
 	return (
 		<section className="my-12">
-			<SectionTitle id="infra" title="Infrastructure" />
+			<SectionTitle id="engine" title="Engine" />
 
 			<Grid>
 				<ArticleCardIndex
-					href="/infrastructure/engine/overview"
+					href="/engine"
 					title="Engine"
 					description="Backend server to reliably call smart contracts"
 					icon={InfraEngineIcon}
-				/>
-				<ArticleCardIndex
-					href="/infrastructure/storage/overview"
-					title="Storage"
-					description="Secure, fast, decentralized storage"
-					icon={InfraStorageIcon}
-				/>
-				<ArticleCardIndex
-					href="/infrastructure/rpc-edge/overview"
-					title="RPC Edge"
-					description="Enterprise-grade RPCs, for free"
-					icon={InfraRPCIcon}
 				/>
 			</Grid>
 		</section>
@@ -413,12 +380,12 @@ function ArticleCardIndex(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border bg-b-800 p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex items-center gap-4 rounded-lg border p-4 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
-			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
+			{props.icon && <props.icon className="size-10 shrink-0" />}
 			<div className="flex flex-col gap-1">
 				<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
-				<p className="text-f-300">{props.description}</p>
+				<p className="font-medium text-f-300">{props.description}</p>
 			</div>
 		</Link>
 	);
@@ -435,9 +402,9 @@ function SDKCardIndex(props: {
 	return (
 		<Link
 			href={props.href}
-			className="flex items-center gap-4 rounded-lg border bg-b-800 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
+			className="flex items-center gap-4 rounded-lg border p-5 transition-colors hover:border-accent-500 hover:bg-accent-900"
 		>
-			{props.icon && <props.icon className="h-10 w-10 shrink-0" />}
+			{props.icon && <props.icon className="size-10 shrink-0" />}
 			<h3 className="text-lg font-semibold text-f-100">{props.title}</h3>
 		</Link>
 	);

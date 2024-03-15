@@ -1,14 +1,23 @@
 import { DocImage } from "@doc";
+import checkoutsOverviewImage from "./assets/checkouts-overview.png";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Payments",
+		icon: "infra",
+	},
+	title: "thirdweb Payments",
+	description:
+		"Checkout delivers the easiest NFT payments experience for you and your buyers. Sell NFTs on any one of our supported EVM chains and allow your users to pay with any supported payment option. You and your buyers can expect instant payouts and instant NFT processing - all done through your smart contract.",
+});
 
 # thirdweb Payments
 
 Checkouts delivers the easiest NFT payments experience for you and your buyers. Sell NFTs on any one of our supported EVM chains and allow your users to pay with
 any supported payment option. You and your buyers can expect instant payouts and instant NFT processing - all done through your smart contract.
 
-<DocImage
-	src={require("./assets/checkouts-overview.png")}
-	alt="Checkouts Process Diagram"
-/>
+<DocImage src={checkoutsOverviewImage} alt="Checkouts Process Diagram" />
 
 ### Accepted payment options for buyers
 
@@ -51,7 +60,7 @@ We protect you from these concerns by offering **full chargeback protection.**
 
 ### Reliable NFT Delivery
 
-thirdweb manages a fleet of funded crypto wallets to handle blockchain transactions at scale. Queues are automated to monitor for stuck transactions, failed on-chain calls, and low funds.
+thirdweb manages a fleet of funded crypto wallets to handle blockchain transactions at scale. Queues are automated to monitor for stuck transactions, failed onchain calls, and low funds.
 
 ### Conversion-optimized UX
 

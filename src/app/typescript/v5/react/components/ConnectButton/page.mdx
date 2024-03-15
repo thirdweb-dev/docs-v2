@@ -1,0 +1,124 @@
+import {
+	Details,
+	Breadcrumb,
+	Callout,
+	Steps,
+	Step,
+	DocImage,
+	createMetadata,
+	ArticleIconCard,
+	Stack,
+} from "@doc";
+import ConnectWalletHeroImage from "./images/connect-wallet-hero.webp";
+import { TablePropertiesIcon } from "lucide-react";
+
+export const metadata = createMetadata({
+	image: {
+		title: "ConnectButton",
+		icon: "react",
+	},
+	title: "ConnectButton | thirdweb React SDK",
+	description: "API Reference for the ConnectButton component",
+});
+
+# ConnectButton
+
+ConnectButton component renders a `<button>` which when clicked opens a modal and allows users to connect to various wallets. It is extremely customizable and very easy to use.
+
+<Callout variant='info' title="Playground">
+
+See the ConnectButton in action on [ConnectButton Playground!](https://thirdweb.com/dashboard/wallets/connect)
+
+</Callout>
+
+<DocImage src={ConnectWalletHeroImage} />
+
+## Usage
+
+<Steps>
+<Step title="Configure wallets in ThirdwebProvider" >
+
+To Configure which wallets to show in the ConnectButton Modal, configure the `wallets` prop in the [`ThirdwebProvider`](/typescript/v5/react/ThirdwebProvider) component which wraps your entire application.
+
+To display a `Recommended` tag below a wallet provider, pass in the `recommended: true` property in the wallet configurator function.
+
+```jsx
+import {
+	ThirdwebProvider,
+	metamaskConfig,
+	coinbaseConfig,
+	walletConnectConfig,
+} from "thirdweb-dev/react";
+
+function AppWithProviders() {
+	return (
+		<ThirdwebProvider
+			client={client}
+			wallets={[
+				metamaskConfig({
+					recommended: true,
+				}),
+				coinbaseConfig(),
+				walletConnectConfig(),
+			]}
+		>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+<Stack>
+
+<ArticleIconCard
+	title="Supported Wallets"
+	icon={TablePropertiesIcon}
+	href="/typescript/v5/react/wallets"
+/>
+
+</Stack>
+
+If `wallets` is not configured in the `ThirdwebProvider`, the ConnectButton Modal shows the default wallets:
+
+<Details summary="Default Wallets" id='default-wallets'>
+
+- [Embedded Wallet](/references/typescript/v5/embeddedWalletConfig)
+- [MataMask Wallet](/references/typescript/v5/metamaskConfig)
+- [Coinbase Wallet](/references/typescript/v5/coinbaseConfig)
+- [WalletConnect](/references/typescript/v5/walletConnectConfig)
+- [Rainbow Wallet](/references/typescript/v5/rainbowConfig)
+- [Zerion Wallet](/references/typescript/v5/zerionConfig)
+
+</Details>
+
+</Step>
+
+<Step title="Configure ConnectButton">
+
+Render the `ConnectButton` component anywhere in your application. Refer to [Props](#props) to see the configuration options available
+
+```jsx
+import { ConnectButton } from "thirdweb/react";
+
+function Example() {
+	return (
+		<div>
+			<ConnectButton />
+		</div>
+	);
+}
+```
+
+</Step>
+
+</Steps>
+
+## Props
+
+<Stack>
+	<ArticleIconCard
+		title="ConnectButtonProps"
+		icon={TablePropertiesIcon}
+		href="/references/typescript/v5/ConnectButtonProps"
+	/>
+</Stack>

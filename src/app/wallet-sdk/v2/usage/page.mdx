@@ -2,6 +2,10 @@ import { createMetadata, SDKCard, Grid } from "@doc";
 import { ReactIcon, UnityIcon } from "@/icons";
 
 export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Wallet SDK usage",
+		icon: "wallets",
+	},
 	title: "Usage | thirdweb Wallet SDK",
 	description:
 		"Using thirdweb Wallet SDK to connect to wallets in TypeScript, React, React Native, and Unity",
@@ -35,7 +39,7 @@ const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
 
 ## Usage with other SDKs
 
-thirdweb's React, React Native, and Unity SDKs uses this package internally and offers a higher level abstraction for connecting these wallets. Refer to the documetation below to see how to connect wallets in these SDKs
+thirdweb's React, React Native, and Unity SDKs uses this package internally and offers a higher level abstraction for connecting these wallets. Refer to the documentation below to see how to connect wallets in these SDKs
 
 <Grid>
 	<SDKCard title="React" href="/react/v4/connecting-wallets" icon={ReactIcon} />

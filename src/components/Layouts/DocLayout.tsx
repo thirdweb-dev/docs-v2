@@ -12,6 +12,7 @@ export type DocLayoutProps = {
 	sideBar: SideBar;
 	children?: React.ReactNode;
 	editPageButton?: true;
+	showTableOfContents?: boolean;
 };
 
 export function DocLayout(props: DocLayoutProps) {
@@ -21,18 +22,18 @@ export function DocLayout(props: DocLayoutProps) {
 				"container relative flex flex-col gap-6 xl:grid xl:grid-cols-[280px_820px_1fr]"
 			}
 			style={{
-				minHeight: "calc(100vh - var(--header-height))",
+				minHeight: "calc(100vh - var(--sticky-top-height))",
 			}}
 		>
 			<aside
 				className={clsx(
-					"sticky top-header-height h-sidebar-height flex-col overflow-y-hidden",
+					"sticky top-sticky-top-height h-sidebar-height flex-col overflow-y-hidden",
 					"hidden xl:flex",
 				)}
 			>
 				<DocSidebar {...props.sideBar} />
 			</aside>
-			<div className="sticky top-header-height z-50 border-b bg-b-900 py-4 xl:hidden">
+			<div className="sticky top-sticky-top-height z-stickyMobileSidebar border-b bg-b-900 py-4 xl:hidden">
 				<DocSidebarMobile {...props.sideBar} />
 			</div>
 			<main className="relative flex w-full flex-col overflow-hidden">
@@ -41,7 +42,7 @@ export function DocLayout(props: DocLayoutProps) {
 					<PageFooter editPageButton={props.editPageButton} />
 				</div>
 			</main>
-			<TableOfContentsSideBar />
+			{props.showTableOfContents !== false && <TableOfContentsSideBar />}
 		</div>
 	);
 }

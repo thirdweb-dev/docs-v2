@@ -1,4 +1,13 @@
-import { Details } from "@doc";
+import { Details, createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Build a Wallet interface",
+		icon: "wallets",
+	},
+	title: "Build a Wallet interface | thirdweb Wallet SDK",
+	description: "Learn how to build a Wallet interface for thirdweb Wallet SDK",
+});
 
 # Build a Wallet interface
 
@@ -166,6 +175,6 @@ You can look at how the built-in wallets in `@thirdweb-dev/wallets` package are 
 - [WalletConnect v2](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/wallet-connect.ts)
 - [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/local-wallet.ts)
 - [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/safe.ts)
-- [Smart Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/smart-wallet.ts)
+- [Smart Account](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/smart-wallet.ts)
 - [Embedded Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/embedded-wallet.ts)
 - [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/wallets/src/evm/wallets/magic.ts)

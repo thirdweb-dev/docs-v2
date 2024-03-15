@@ -1,6 +1,10 @@
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Publish",
+		icon: "contract",
+	},
 	title: "CLI | thirdweb Publish",
 	description:
 		"Use the CLI to publish your contracts directly to Any EVM compatible chain using the dashboard",
@@ -38,7 +42,7 @@ From the dashboard, provide the metadata for your smart contract including:
 Use [semantic versioning](https://semver.org/) to incrementally publish new versions of your smart contract;
 ideal for when you want to make changes to your smart contract but don't want to break existing integrations.
 
-Each version of your smart contract is stored on-chain and can be deployed by anyone. You
+Each version of your smart contract is stored onchain and can be deployed by anyone. You
 can optionally include release notes, to describe the changes you've made between versions.
 
 You can also link each version to an audit report. You can paste a link to it, or drag and drop a PDF. We will generate an IPFS link for you.
@@ -75,4 +79,4 @@ Help users trying to deploy your smart contract by changing what your contract p
 
 ### Publish Contract
 
-Finally, click the "Publish Contract" button to publish your smart contract to the on-chain registry.
+Finally, click the "Publish Contract" button to publish your smart contract to the onchain registry.

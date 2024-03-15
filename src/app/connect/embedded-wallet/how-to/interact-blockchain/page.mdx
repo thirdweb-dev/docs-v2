@@ -1,0 +1,109 @@
+import {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+	TabsContent,
+	ArticleIconCard,
+	Grid,
+	createMetadata,
+} from "@doc";
+import { ReactIcon, UnityIcon } from "@/icons";
+import WalletIcon from "../../images/wallet.png";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Interact with the blockchain with Embedded Wallet",
+		icon: "wallets",
+	},
+	title: "Interact with the blockchain | thirdweb Embedded Wallet",
+	description:
+		"One connected, embedded wallets can be used alongside the Contract SDK to interact with the blockchain",
+});
+
+# Interact with the blockchain
+
+One connected, embedded wallets can be used alongside the [Contract SDK](/contracts/interact/overview) to interact with the blockchain.
+
+## Initialize the SDK With Your Wallet
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React & React Native </TabsTrigger>
+	<TabsTrigger value="typescript">Other Frameworks</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+The `ThirdwebProvider` handles maintaining the connection state, and allows using all the hooks in the SDK to interact with the blockchain as the connected user.
+
+Here's an example using the `Web3Button` component to claim an NFT on a smart contract:
+
+```tsx
+export default function App() {
+	return (
+		<ThirdwebProvider
+			activeChain="goerli"
+			clientId="YOUR_CLIENT_ID"
+			supportedWallets={[embeddedWallet()]}
+		>
+			<Web3Button
+				contractAddress="0x..."
+				action={(contract) => contract.erc721.claim(1)}
+			>
+				Claim NFT
+			</Web3Button>
+		</ThirdwebProvider>
+	);
+}
+```
+
+</TabsContent>
+
+<TabsContent value="typescript">
+To initialize the Contract SDK with your wallet, use the [`fromWallet`](/references/typescript/latest/ThirdwebSDK#fromWallet) method:
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { EmbeddedWallet } from "@thirdweb-dev/wallet";
+
+const wallet = new EmbeddedWallet();
+await wallet.connect();
+
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
+	clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
+	secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+});
+
+const contract = await sdk.getContract("0x...");
+await contract.erc721.claim(1);
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Full Reference
+
+View everything you can do in the Contract SDK once you have connected your wallet:
+
+<Grid className="lg:grid-cols-2">
+
+<ArticleIconCard
+	href={"/wallet-sdk/latest"}
+	image={WalletIcon}
+	title="Connect SDK"
+/>
+<ArticleIconCard href={"/react/latest"} icon={ReactIcon} title="React SDK" />
+<ArticleIconCard
+	href={"/react-native/latest"}
+	icon={ReactIcon}
+	title="React Native SDK"
+/>
+
+<ArticleIconCard
+	href={"/react-native/latest"}
+	icon={UnityIcon}
+	title="Unity SDK"
+/>
+
+</Grid>

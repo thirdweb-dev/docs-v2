@@ -11,6 +11,10 @@ import MagicLinkIcon from "@public/icons/wallets/magiclink.svg";
 import RainbowIcon from "@public/icons/wallets/rainbow.svg";
 
 export const metadata = createMetadata({
+	image: {
+		title: "Supported Wallets in thirdweb React Native SDK",
+		icon: "react",
+	},
 	title: "Supported wallets | thirdweb React Native SDK",
 	description: "List of supported wallets for thirdweb React Native SDK",
 });
@@ -51,7 +55,7 @@ You can also easily integrate _any_ other wallet provider by a [Building a walle
 		icon={WalletConnectIcon}
 	/>
 	<WalletCard
-		label="Smart Wallet"
+		label="Smart Account (Account Abstraction)"
 		href="/react-native/v0/wallets/smartwallet"
 		icon={SmartWalletIcon}
 	/>

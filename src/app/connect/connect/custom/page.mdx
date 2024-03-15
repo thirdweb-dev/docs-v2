@@ -1,0 +1,29 @@
+import { SDKCard, Grid, createMetadata } from "@doc";
+import { ReactIcon } from "@/icons";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Build Custom Experiences for connecting wallet",
+		icon: "thirdweb",
+	},
+	title: "Build Custom Connect Experiences",
+	description:
+		"Using thirdweb's React or React Native SDK, you can build completely custom UI for connecting wallets using the Wallet Connection Hooks that allows you to easily connect to any wallet.",
+});
+
+# Build Custom Experiences
+
+Using thirdweb's React or React Native SDK, you can build completely custom UI for connecting wallets using the Wallet Connection Hooks that allows you to easily connect to any wallet.
+
+<Grid>
+	<SDKCard
+		title="React"
+		href="/react/latest/connecting-wallets/custom-ui"
+		icon={ReactIcon}
+	/>
+	<SDKCard
+		title="React Native"
+		href="/react-native/v0/connecting-wallets/custom-ui"
+		icon={ReactIcon}
+	/>
+</Grid>

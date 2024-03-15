@@ -26,6 +26,10 @@ import SwitchToActiveChainMDX from "./props/switchToActiveChain.mdx";
 import HideSwitchToPersonalWalletMDX from "./props/hideSwitchToPersonalWallet.mdx";
 
 export const metadata = createMetadata({
+	image: {
+		title: "ConnectWallet component",
+		icon: "react",
+	},
 	title: "ConnectWallet | thirdweb React SDK",
 	description: "API Reference for the ConnectWallet component",
 });
@@ -45,7 +49,7 @@ export const metadata = createMetadata({
 
 # ConnectWallet
 
-ConnectWallet component renders a button which when clicked opens a modal to allow users to connect to various wallets. It is extremly customizable and very easy to use.
+ConnectWallet component renders a button which when clicked opens a modal to allow users to connect to various wallets. It is extremely customizable and very easy to use.
 
 <Callout variant='info' title="Playground">
 
@@ -237,4 +241,4 @@ You can then pass the modified config to the `supportedWallets` prop in the `Thi
 
 ## Embed Modal UI in page
 
-If you want to embed the ConnectWallet Modal UI directly in page instead of opening a Modal, you can use the [`ConnectEmbed`](/react/v4/components/ConnectEmbed) component instaed.
+If you want to embed the ConnectWallet Modal UI directly in page instead of opening a Modal, you can use the [`ConnectEmbed`](/react/v4/components/ConnectEmbed) component instead.

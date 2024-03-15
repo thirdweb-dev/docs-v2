@@ -15,6 +15,10 @@ import ConnectEmbedTOS from "./_assets/ConnectEmbed-tos.png";
 import ConnectEmbedPrivacy from "./_assets/ConnectEmbed-privacy.png";
 
 export const metadata = createMetadata({
+	image: {
+		title: "ConnectEmbed component",
+		icon: "react",
+	},
 	title: "ConnectEmbed | thirdweb React SDK",
 	description: "API Reference for the ConnectEmbed component",
 });
@@ -45,7 +49,7 @@ See the ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.
 
 <DocImage src={ConnectEmbedDefaultImg} />
 
-It also renders a UI to [Sign in with wallet](/wallets/auth/how-it-works/siwe) if it is enabled by setting [`authConfig`](/react/v4/ThirdwebProvider#authConfig) in [`ThirdwebProvider`](/react/v4/ThirdwebProvider) component and `loginOptional` prop is either not provided or set to `false` in `ConnectEmbed` component
+It also renders a UI to [Sign in with wallet](/connect/auth/how-it-works/siwe) if it is enabled by setting [`authConfig`](/react/v4/ThirdwebProvider#authConfig) in [`ThirdwebProvider`](/react/v4/ThirdwebProvider) component and `loginOptional` prop is either not provided or set to `false` in `ConnectEmbed` component
 
 <DocImage src={ConnectEmbedSigninImg} />
 
@@ -242,7 +246,7 @@ function Example() {
 
 <Details summary="auth">
 
-Enforce that users must [sign in with their wallet](/wallets/auth/how-it-works/siwe) using [auth](/wallets/auth) after connecting their wallet.
+Enforce that users must [sign in with their wallet](/connect/auth/how-it-works/siwe) using [auth](/connect/auth) after connecting their wallet.
 This requires the [`authConfig`](/react/v4/ThirdwebProvider#authConfig) prop in [`ThirdwebProvider`](/react/v4/ThirdwebProvider) component
 
 <DocImage src={ConnectEmbedSigninImg} />

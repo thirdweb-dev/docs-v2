@@ -4,13 +4,9 @@ export function Author(props: { name: string; profileImage?: string | null }) {
 	return (
 		<div className="flex items-center gap-2">
 			{props.profileImage && (
-				<img
-					src={props.profileImage}
-					className="h-8 w-8 rounded-[50%]"
-					alt=""
-				/>
+				<img src={props.profileImage} className="size-8 rounded-[50%]" alt="" />
 			)}
-			<span className="text-sm">{props.name}</span>
+			<span className="text-sm font-medium text-f-200">{props.name}</span>
 		</div>
 	);
 }

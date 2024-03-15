@@ -18,8 +18,11 @@ export function Details(props: {
 	id?: string;
 	tags?: string[];
 	noIndex?: boolean;
+	startExpanded?: boolean;
+	accordionItemClassName?: string;
+	accordionTriggerClassName?: string;
 }) {
-	const [isExpanded, setIsExpanded] = useState(false);
+	const [isExpanded, setIsExpanded] = useState(props.startExpanded ?? false);
 	const id =
 		props.id || (typeof props.summary === "string" ? props.summary : "");
 
@@ -40,11 +43,17 @@ export function Details(props: {
 		>
 			<AccordionItem
 				value="x"
-				className="group/details my-4 border-b-0 border-l-2 transition-colors hover:border-accent-500"
+				className={cn(
+					"group/details my-4 border-b-0 border-l-2 transition-colors hover:border-accent-500",
+					props.accordionItemClassName,
+				)}
 			>
 				<AccordionTrigger
 					chevronPosition="left"
-					className="flex px-3 py-1 text-accent-500 hover:border-f-300 hover:bg-b-800"
+					className={cn(
+						"flex px-3 py-1 text-accent-500 hover:border-f-300 hover:bg-b-800",
+						props.accordionTriggerClassName,
+					)}
 					onClick={() => {
 						if (isExpanded) {
 							setIsExpanded(!isExpanded);

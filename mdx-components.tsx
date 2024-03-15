@@ -6,8 +6,8 @@ import { Paragraph } from "@/components/Document/Paragraph";
 import { Separator } from "@/components/Document/Separator";
 import { TBody, Table, Td, Th, Tr } from "@/components/Document/Table";
 import type { MDXComponents } from "mdx/types";
-import { Lang } from "shiki";
 import GithubSlugger from "github-slugger";
+import type { BuiltinLanguage } from "shiki";
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
 	const slugger = new GithubSlugger();
@@ -68,7 +68,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
 			return (
 				<CodeBlock
-					lang={lang as Lang}
+					lang={lang as BuiltinLanguage}
 					code={typeof code === "string" ? code : ""}
 				/>
 			);

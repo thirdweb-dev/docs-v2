@@ -1,6 +1,10 @@
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
+	image: {
+		title: "FAQs: thirdweb React Native SDK",
+		icon: "react",
+	},
 	title: "FAQs | thirdweb React Native SDK",
 	description:
 		"Get answers to frequently asked questions about the thirdweb React Native SDK.",
@@ -52,7 +56,7 @@ Open your `Info.plist` file and add a new `CFBundleURLTypes` key:
 
 Next, open your `AppDelegate.mm` file and import the `RCTLinkingManager` header file and add the following method:
 
-```mm
+```plaintext
 #import <React/RCTLinkingManager.h>
 
 ...

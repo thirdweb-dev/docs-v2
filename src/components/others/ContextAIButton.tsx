@@ -13,6 +13,7 @@ export function ContextAIBotButton() {
 	};
 
 	return (
+		// eslint-disable-next-line svg-jsx/camel-case-dash
 		<div context-launcher="true" context-bot-id={contextBotId}>
 			<Button
 				onClick={handleClick}

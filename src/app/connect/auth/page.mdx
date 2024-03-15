@@ -1,0 +1,148 @@
+import {
+	OpenSourceCard,
+	ArticleIconCard,
+	InstallTabs,
+	Stack,
+	createMetadata,
+} from "@doc";
+import next from "@/icons/frameworks/nextjs.png";
+import express from "@/icons/frameworks/javascript.png";
+import react from "@/icons/frameworks/react.png";
+import reactNative from "@/icons/frameworks/react-native.png";
+import nextauth from "@/icons/frameworks/nextauth.png";
+import firebase from "@/icons/frameworks/firebase.png";
+import supabase from "@/icons/frameworks/supabase.png";
+import { GraduationCap } from "lucide-react";
+
+export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Auth",
+		icon: "wallets",
+	},
+	title: "thirdweb Auth",
+	description:
+		"Auth is a developer SDK that lets you integrate passwordless web3-native authentication and authorization into your applications.",
+});
+
+# Overview
+
+Auth is a developer SDK that lets you integrate passwordless web3-native authentication and authorization into your applications.
+
+It enables users to sign in with their wallets, allowing apps to access rich blockchain-level data and interact with their users onchain.
+
+With Auth, developers can build applications that have secure, self-custodied, web3-first authentication.
+
+<OpenSourceCard
+	title="Auth"
+	href="https://github.com/thirdweb-dev/js/tree/main/packages/auth"
+/>
+
+## Installation
+
+<InstallTabs
+	npm="npm i @thirdweb-dev/auth"
+	yarn="yarn add @thirdweb-dev/auth"
+	pnpm="pnpm i @thirdweb-dev/auth"
+/>
+
+## Resources
+
+<Stack>
+
+<ArticleIconCard
+	title="Getting Started"
+	href="/connect/auth/get-started"
+	icon={GraduationCap}
+/>
+
+<ArticleIconCard
+	title="How Auth Works"
+	href="/connect/auth/how-it-works"
+	icon={GraduationCap}
+/>
+
+</Stack>
+
+## Applications
+
+Auth unlocks a variety of new possibilities by enabling the connection of web2 and web3 flows. Add wallet-based authentication to existing applications or build web3 experiences that utilize server-side architecture.
+
+Below are some of the applications that Auth enables:
+
+- **Passwordless Authentication:** Let users seamlessly login to your applications with just their wallets.
+- **Identity Verification:** Securely verify the onchain identities of existing users.
+- **Gated Resources:** Gate access to protected resources based on onchain criteria like NFT ownership.
+- **Onchain Interaction:** Interact with users onchain, like sending users reward NFTs.
+- **Onchain Payments:** Allow users to pay for your services with onchain assets like ETH or ERC20 tokens.
+- **Access Onchain Data:** Access rich onchain data associated with your users.
+
+## Frameworks
+
+Auth integrates with a variety of server-side and client-side development frameworks. We&apos;re always adding support for more frameworks, so if you don&apos;t see yours, [let us know](https://discord.com/invite/thirdweb), and we can explore adding support!
+
+### Server Frameworks
+
+<Stack>
+
+<ArticleIconCard
+	title="Next.js"
+	href="/connect/auth/server-frameworks/next"
+	description="Integrate Auth in Next.js applications."
+	image={next}
+/>
+
+<ArticleIconCard
+	title="Express"
+	href="/connect/auth/server-frameworks/express"
+	description="Integrates Auth in Express applications."
+	image={express}
+/>
+
+</Stack>
+
+### Client Frameworks
+
+<Stack>
+
+<ArticleIconCard
+	title="React"
+	href="/connect/auth/client-frameworks/react"
+	description="Integrate Auth in React applications."
+	image={react}
+/>
+
+<ArticleIconCard
+	title="React Native"
+	href="/connect/auth/client-frameworks/react-native"
+	description="Integrate Auth in React Native applications."
+	image={reactNative}
+/>
+
+</Stack>
+
+### Integrations
+
+<Stack>
+
+<ArticleIconCard
+	title="Next Auth"
+	href="/connect/auth/integrations/next-auth"
+	description="Add Auth to existing Next Auth applications."
+	image={nextauth}
+/>
+
+<ArticleIconCard
+	title="Supabase"
+	href="/connect/auth/integrations/supabase"
+	description="Add Auth to existing Supabase applications."
+	image={supabase}
+/>
+
+<ArticleIconCard
+	title="Firebase"
+	href="/connect/auth/integrations/firebase"
+	description="Add Auth to existing Firebase applications."
+	image={firebase}
+/>
+
+</Stack>

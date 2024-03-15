@@ -1,4 +1,15 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Using thirdweb API Key",
+	description:
+		"How to use thirdweb API key in TypeScript, React, Unity, Python, and Go.",
+	image: {
+		title: "Using thirdweb API Key",
+		icon: "thirdweb",
+	},
+});
 
 # Use API keys in your application
 
@@ -117,7 +128,7 @@ func main() {
       panic(err)
     }
 
-    fmt.Println("New SDK instance create on chain", chainId)
+    fmt.Println("New SDK instance create onchain", chainId)
 }
 ```
 

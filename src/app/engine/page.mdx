@@ -1,0 +1,73 @@
+import OverviewImage from "./assets/engine-overview.png";
+import { Callout, DocImage, OpenSourceCard } from "@doc";
+
+# Engine
+
+Engine is a backend HTTP server that calls smart contracts using your managed backend wallets.
+
+- <strong>Create & manage funded backend wallets</strong> to send blockchain transactions
+  via authenticated APIs.
+- <strong>Build scalable blockchain apps</strong> with transaction retries, wallet
+  nonce management, and gas estimation.
+- <strong>Offer the best UX</strong> by deploying & transacting with ERC-4337 compatible smart accounts,
+  enabling sign-less flows and gasless transactions.
+- <strong>Get a complete web3 infrastructure</strong> already set up with RPC, IPFS,
+  and account abstraction infrastructure.
+
+<Callout
+	title="Get started 🚀"
+	variant="info"
+>
+
+**[Get Engine hosted by thirdweb.](https://thirdweb.com/dashboard/engine?requestCloudHosted)**
+
+Or [self-host](/engine/self-host) for free.
+
+</Callout>
+
+<DocImage
+	src={OverviewImage}
+	alt="Engine overview"
+	className="max-w-[500px] mx-auto"
+/>
+
+## Features
+
+- <strong>Managed backend wallets</strong> - Create company wallets backed up locally
+  or with AWS KMS / Google KMS.
+- <strong>Any contract on any EVM chain</strong> - Engine supports contract calls
+  on all <a href="https://thirdweb.com/chainlist">1000+ EVM blockchains</a> and private
+  subnets.
+- <strong>High transaction throughput</strong> - Blockchain transactions are processed
+  in parallel with nonce management, and stuck transactions are automatically retried.
+- <strong>Smart contracts</strong> - Deploy any <a href="https://thirdweb.com/explore">
+  	published smart contract
+  </a> including tokens, NFTs, marketplaces, and smart accounts.
+- <strong>Account abstraction </strong> - Deploy and manage smart
+  accounts, use session keys for access controls, and transact on behalf of your users.
+- <strong>Gasless transactions</strong> - Sponsor user transactions with gasless
+  relayers and user operations.
+- <strong>Wallet and contract webhooks</strong> - Get notified of wallet and contract
+  events to automate sending emails, printing shipping labels, or charging customers.
+- <strong>Advanced analytics</strong> (coming soon) - View transaction history trends,
+  event logs for each transaction, a ledger of backend wallet funds, and more.
+
+## Why use Engine?
+
+Engine is beneficial if your app:
+
+- Handles multiple company app wallets.
+- Requires controlled access by multiple team members.
+- Requires transactions to be delivered reliably during traffic bursts and network congestion.
+- Sends more than one transaction per block (example: 2 Ethereum transactions within 12 seconds).
+- Sponsors gas fees for your users.
+- Deploys smart accounts for each user.
+- Triggers other actions when wallet or contract events occur.
+
+## Get in touch
+
+We're always improving Engine and welcome your feedback in [Discord](https://discord.gg/thirdweb).
+
+For dedicated support and feature requests, [contact Sales](https://thirdweb.com/contact-us).
+
+<OpenSourceCard title="Engine" href="https://github.com/thirdweb-dev/engine" />

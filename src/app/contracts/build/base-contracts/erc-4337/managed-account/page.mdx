@@ -3,9 +3,13 @@ import { GithubButtonLink } from "@doc";
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
+	image: {
+		title: "Managed Account contract",
+		icon: "contract",
+	},
 	title: "Managed Account | thirdweb contracts",
 	description:
-		"Like DynamicAccount, the ManagedAccount smart wallet is an upgradeable smart contract written in the dynamic contract pattern",
+		"The ManagedAccount contract is an upgradeable smart account contract written in the dynamic contract pattern",
 });
 
 # Managed Account
@@ -16,13 +20,13 @@ import "@thirdweb-dev/contracts/smart-wallet/managed/ManagedAccount.sol";
 
 This contract inherits from the [`BaseAccount`](/contracts/build/extensions/erc-4337/SmartWallet) contract.
 
-Like [`DynamicAccount`](/contracts/build/base-contracts/erc-4337/dynamic-account), the `ManagedAccount` smart wallet is an _upgradeable_ smart contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
+The `ManagedAccount` is an _upgradeable_ smart account contract written in the [dynamic contract pattern](https://github.com/thirdweb-dev/dynamic-contracts).
 
-App developers can issue `ManagedAccount` smart wallets programmatically by deploying a [`ManagedAccountFactory`](/contracts/build/base-contracts/erc-4337/managed-account-factory) smart contract.
+App developers can issue `ManagedAccount` smart accounts programmatically by deploying a [`ManagedAccountFactory`](/contracts/build/base-contracts/erc-4337/managed-account-factory) smart contract.
 
-The admin of the [`ManagedAccountFactory`](/contracts/build/base-contracts/erc-4337/managed-account-factory) contract can push upgrades to all `ManagedAccount` contracts that it creates. This admin does not require any permissions on the `ManagedAccount` smart wallets to do so.
+The admin of the [`ManagedAccountFactory`](/contracts/build/base-contracts/erc-4337/managed-account-factory) contract can push upgrades to all `ManagedAccount` contracts that it creates. This admin does not require any permissions on the `ManagedAccount` smart account to do so.
 
-An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccount` smart wallets created by the factory. This is the right wallet for developers who anticipate **pushing upgrades** to their users’ wallets.
+An upgrade to the features of `ManagedAccount` applies to **all** `ManagedAccount` smart accounts created by the factory. This is the right wallet for developers who anticipate **pushing upgrades** to their users’ wallets.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/managed/ManagedAccount.sol" />
 

@@ -1,5 +1,7 @@
 import { Steps, Step, DocImage } from "@doc";
 import { createMetadata } from "@doc";
+import checkoutCardDemoImage from "./assets/checkout-with-card-demo.png";
+import checkoutCardCustomizationImage from "./assets/checkout-with-card-customization-demo.png";
 
 export const metadata = createMetadata({
 	title: "CheckoutWithCard | thirdweb Embedded Elements",
@@ -18,10 +20,7 @@ This component also handles:
 - 3D Secure (if necessary)
 - Buyer KYC (if necessary)
 
-<DocImage
-	src={require("./assets/checkout-with-card-demo.png")}
-	alt="CheckoutWithCard Embed Demo"
-/>
+<DocImage src={checkoutCardDemoImage} alt="CheckoutWithCard Embed Demo" />
 
 ## React Integration
 
@@ -170,6 +169,6 @@ Here's an example component with the following props:
 ```
 
 <DocImage
-	src={require("./assets/checkout-with-card-customization-demo.png")}
+	src={checkoutCardCustomizationImage}
 	alt="CheckoutWithCard Embed Demo"
 />

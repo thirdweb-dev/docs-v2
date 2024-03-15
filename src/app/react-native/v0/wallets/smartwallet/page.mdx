@@ -2,6 +2,10 @@ import { Details, createMetadata } from "@doc";
 import { WalletsBreadcrumb } from "../_components";
 
 export const metadata = createMetadata({
+	image: {
+		title: "Smart Wallet",
+		icon: "react",
+	},
 	title: "Smart Wallet | thirdweb React Native SDK",
 	description: "API reference for smartWallet function",
 });
@@ -10,7 +14,7 @@ export const metadata = createMetadata({
 
 # SmartWallet
 
-A wallet configurator for [Smart Wallet](/wallets/smart-wallet) which allows integrating the wallet with React Native
+A wallet configurator for [Smart Accounts](/connect/acoount-abstraction) which allows integrating the wallet with React Native
 
 ```tsx
 import { smartWallet, metamaskWallet } from "@thirdweb-dev/react-native";
@@ -27,7 +31,7 @@ const smartWalletConfig = smartWallet(walletConfig, {
 
 <Details summary="walletConfig">
 
-Provide a `WalletConfig` object to use as the personal wallet for the Smart Wallet. You can get this object by calling a wallet configurator function such as `metamaskWallet()`
+Provide a `WalletConfig` object to use as the personal wallet for the Smart Account. You can get this object by calling a wallet configurator function such as `metamaskWallet()`
 
 You can see the list of available wallet configurators for React Native [here](/react-native/v0/connecting-wallets).
 
@@ -35,7 +39,7 @@ You can see the list of available wallet configurators for React Native [here](/
 
 <Details summary="factoryAddress">
 
-The address of the Smart Wallet Factory contract.
+The address of the Smart Account Factory contract.
 
 Must be a `string`.
 
@@ -46,7 +50,7 @@ Must be a `string`.
 Whether to turn on or off gasless transactions.
 
 - If set to `true`, all gas fees will be paid by a paymaster.
-- If set to `false`, all gas fees will be paid by the Smart Wallet itself (needs to be funded).
+- If set to `false`, all gas fees will be paid by the Smart Account itself (needs to be funded).
 
 Must be a `boolean`.
 

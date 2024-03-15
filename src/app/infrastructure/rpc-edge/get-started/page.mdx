@@ -1,6 +1,9 @@
 import { DocImage, Callout } from "@doc";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { createMetadata } from "@doc";
+import usageDashboardImage from "./assets/usage-dashboard.png";
+
+import apiKeyImage from "./assets/api-key.png";
 
 export const metadata = createMetadata({
 	title: "Add RPC Edge to your application | thirdweb",
@@ -15,7 +18,7 @@ To enable RPC Edge usage in an application, obtain a thirdweb Client ID & Secret
 Obtain a Client ID & Secret Key by navigating to Settings > API Keys > `Create API Key`.
 
 <DocImage
-	src={require("./assets/api-key.png")}
+	src={apiKeyImage}
 	alt="Screenshot of API key creation page on thirdweb's dashboard"
 />
 
@@ -177,4 +180,4 @@ const sdk = new ThirdwebSDK({
 
 [View RPC request usage](https://thirdweb.com/dashboard/settings/usage) in the dashboard settings.
 
-<DocImage src={require("./assets/usage-dashboard.png")} alt="Usage dashboard" />
+<DocImage src={usageDashboardImage} alt="Usage dashboard" />

@@ -1,0 +1,127 @@
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Interact with Embedded Wallet",
+		icon: "wallets",
+	},
+	title: "Interact with Embedded Wallet",
+	description:
+		"Learn how to interact with the embedded wallet using the React hooks or the EmbeddedWallet instance.",
+});
+
+# Interact with wallets
+
+Once connected, you can interact with the wallet using the `EmbeddedWallet` instance or React hooks.
+
+## Obtain the connected `EmbeddedWallet` instance
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React & React Native</TabsTrigger>
+	<TabsTrigger value="typecsript">JavaScript / TypeScript</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+In react, you can access the wallet instance using the `useWallet` hook.
+
+```typescript
+import { useWallet } from "@thirdweb-dev/react"; // or /react-native
+
+const embeddedWallet = useWallet("embeddedWallet");
+```
+
+</TabsContent>
+
+<TabsContent value="typecsript">
+create a wallet instance and use that directly
+
+```typescript
+import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { Goerli } from "@thirdweb-dev/chains";
+
+const embeddedWallet = new EmbeddedWallet({
+	chain: Goerli, //  chain to connect to
+	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
+});
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Get the user email
+
+```typescript
+const email = await embeddedWallet.getEmail();
+```
+
+## Get the user wallet address
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React & React Native</TabsTrigger>
+	<TabsTrigger value="typecsript">Other Frameworks</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+```typescript
+import { useAddress } from "@thirdweb-dev/react"; // or /react-native
+
+const address = useAddress();
+
+````
+
+</TabsContent>
+
+<TabsContent value="typecsript">
+```typescript
+const address = await embeddedWallet.getAddress();
+````
+
+</TabsContent>
+
+</Tabs>
+
+## Get the user's signer
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React & React Native</TabsTrigger>
+	<TabsTrigger value="typecsript">Other Frameworks</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+
+```typescript
+import { useSigner } from "@thirdweb-dev/react"; // or /react-native
+
+const signer = useSigner();
+```
+
+</TabsContent>
+
+<TabsContent value="typecsript">
+```typescript
+await embeddedWallet.getSigner();
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Transfer funds
+
+```typescript
+await embeddedWallet.transfer("0x...", 0.1); // amount in ETH
+```
+
+## Sign a message
+
+```typescript
+await embeddedWallet.sign("Hello World!");
+```

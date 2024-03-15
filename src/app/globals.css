@@ -10,24 +10,29 @@ html {
 		"calt" 0;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
+	font-variation-settings: normal;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: transparent;
 }
 
 @layer base {
-	:root {
+	:root,
+	[data-theme="dark"] {
 		/* 100 - lightest, 900 - darkest */
 
 		/* neutral background colors */
-		--b-900: hsl(240deg 6.67% 0%);
-		--b-800: hsl(240deg 5% 4%);
-		--b-700: hsl(240deg 5% 6%);
-		--b-600: hsl(240deg 5% 10%);
+		--b-900: hsl(240deg 6.67% 4%);
+		--b-800: hsl(240deg 5% 6%);
+		--b-700: hsl(240deg 5% 9%);
+		--b-600: hsl(240deg 5% 12%);
+		--code-bg: var(--b-800);
 
 		--overlay: hsl(240deg 5% 5% / 0.5);
-		--border: hsla(0, 0%, 12%, 1);
+		--border: hsla(0, 0%, 14%, 1);
 
 		/* neutral foreground colors */
 		--f-100: rgba(241, 245, 249);
-		--f-200: rgb(226, 232, 240);
+		--f-200: hsl(214.29deg 31.82% 85%);
 		--f-300: rgb(156, 163, 175);
 
 		/* others */
@@ -47,8 +52,47 @@ html {
 		--warning-900: hsl(30.73deg 50.62% 10%);
 
 		--radius: 0.5rem;
-		--header-height: 70px;
+		--sticky-top-height: 70px;
 	}
+
+	[data-theme="light"] {
+		/* neutral background colors */
+		--b-900: #f9fafb;
+		--b-800: hsl(216deg 12.2% 96%);
+		--b-700: hsl(222deg, 14%, 94%);
+		--b-600: hsl(222deg, 14%, 90%);
+
+		--overlay: hsl(222deg 5% 30% / 0.5);
+		--border: hsl(216deg 12.2% 82%);
+		--code-bg: white;
+
+		/* neutral foreground colors */
+		--f-100: hsla(222, 14%, 14%, 1);
+		--f-200: hsl(215.29deg 25% 26.67%);
+		--f-300: hsl(215.38deg 16.32% 46.86%);
+
+		/* others */
+		--accent-500: #2563eb;
+		--accent-700: #bfdbfe;
+		--accent-800: #dbeafe;
+		--accent-900: #eff6ff;
+
+		--danger-500: #ef4444;
+		--danger-800: #fee2e2;
+		--danger-900: #fef2f2;
+
+		--warning-500: #f97316;
+		--warning-800: #ffedd5;
+		--warning-900: #fff7ed;
+	}
+}
+
+code span {
+	color: var(--code-dark-color);
+}
+
+body[data-theme="light"] code span {
+	color: var(--code-light-color);
 }
 
 @layer base {
@@ -91,8 +135,8 @@ button {
 }
 
 ::selection {
-	background: var(--accent-600);
-	color: var(--f-100);
+	background: var(--f-100);
+	color: var(--b-900);
 }
 
 .hide-scrollbar {

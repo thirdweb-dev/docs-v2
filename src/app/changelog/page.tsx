@@ -3,6 +3,17 @@ import { fetchChangeLogs } from "./ghost";
 import { Author } from "./components/Author";
 import Link from "next/link";
 import { RenderDate } from "./components/RenderData";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Changelog",
+	description:
+		"View the latest updates and changes in thirdweb SDKs and services",
+	image: {
+		title: "thirdweb Changelog",
+		icon: "changelog",
+	},
+});
 
 export default async function Page() {
 	const posts = await fetchChangeLogs();
@@ -18,7 +29,7 @@ export default async function Page() {
 					return (
 						<Link href={`/changelog/${post.slug}`} key={post.id}>
 							<div className="rounded-lg border bg-b-900 p-5 transition-colors hover:border-accent-500 hover:bg-accent-900">
-								<h2 className="mb-1 text-lg">{post.title}</h2>
+								<h2 className="mb-1 text-lg font-semibold">{post.title}</h2>
 								{post.published_at && <RenderDate iso={post.published_at} />}
 								<div className="mt-3 flex gap-5">
 									{post.authors?.map((author) => {

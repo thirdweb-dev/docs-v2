@@ -1,0 +1,37 @@
+import ExportKey from "./export-priv-key.png";
+import { Callout, DocImage, createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Export private key of Embedded Wallet",
+		icon: "wallets",
+	},
+	title: "Export private key | thirdweb Embedded Wallet",
+	description:
+		"Allow your users to export the private key for their embedded wallet embedding this page in an iframe",
+});
+
+# Export private key
+
+Allow your users to export the private key for their embedded wallet embedding this page in an iframe:
+
+```html
+<iframe
+	src="https://embedded-wallet.thirdweb.com/sdk/2022-08-12/embedded-wallet/export?clientId=CLIENT_ID"
+/>
+```
+
+The user will be presented with a form to sign in to reveal their private key:
+
+<DocImage src={ExportKey} className="max-w-[550px]" />
+
+## Use cases
+
+- As your users gain familiarity with the blockchain, they may want to manage their wallet in another app.
+- Your users may lose access to their email (e.g. corporate account) and want to fully own their wallet.
+
+<Callout title="Note" variant="info">
+
+The export private key embed is only embeddable on sites whitelisted by your client ID in the allowed domains section. Visit the [Settings tab](https://thirdweb.com/dashboard/settings) on the Dashboard to configure your Client ID.
+
+</Callout>

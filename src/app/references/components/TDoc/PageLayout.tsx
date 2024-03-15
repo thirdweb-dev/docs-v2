@@ -6,13 +6,21 @@ import type { Metadata } from "next";
 import { DocLayout } from "@/components/Layouts/DocLayout";
 import { getSidebarLinkGroups } from "./utils/getSidebarLinkgroups";
 import { Breadcrumb } from "@/components/Document/Breadcrumb";
-import { Details, DocLink, Heading } from "@/components/Document";
-import { LinkGroup, LinkMeta } from "@/components/others/Sidebar";
+import {
+	ArticleIconCard,
+	Details,
+	Heading,
+	createMetadata,
+} from "@/components/Document";
 import { sluggerContext } from "@/contexts/slugger";
-import invariant from "tiny-invariant";
 import GithubSlugger from "github-slugger";
+import { MetadataImageIcon } from "../../../../components/Document/metadata";
+import { FileTextIcon, FolderOpenIcon } from "lucide-react";
+import { nameToSubgroupSlug, subgroups } from "./utils/subgroups";
+import { LinkGroup, LinkMeta } from "@/components/others/Sidebar";
+import invariant from "tiny-invariant";
 
-type PageProps = { params: { version: string; slug?: [docName: string] } };
+type PageProps = { params: { version: string; slug?: string[] } };
 type LayoutProps = { params: { version: string }; children: React.ReactNode };
 
 // make sure getTDocPage() is used in .../[version]/[...slug]/page.tsx file
@@ -20,15 +28,16 @@ export function getTDocPage(options: {
 	getDoc: (version: string) => Promise<TransformedDoc>;
 	sdkTitle: string;
 	packageSlug: string;
-	getLatestVersion: () => Promise<string>;
+	getVersions: () => Promise<string[]>;
+	metadataIcon: MetadataImageIcon;
 }) {
-	const { getDoc, sdkTitle, packageSlug, getLatestVersion } = options;
+	const { getDoc, sdkTitle, packageSlug, getVersions, metadataIcon } = options;
 
 	async function Page(props: PageProps) {
 		const version = props.params.version;
 		const doc = await getDoc(version);
 		const slugToDoc = getSlugToDocMap(doc);
-		const docSlug = props.params.slug ? props.params.slug[0] : undefined;
+		const docSlug = props.params.slug?.join("/");
 
 		if (!version) {
 			notFound();
@@ -36,6 +45,18 @@ export function getTDocPage(options: {
 
 		// API page
 		if (docSlug) {
+			// category pages
+			if (docSlug in subgroups) {
+				return (
+					<CategoryPage
+						slug={docSlug as keyof typeof subgroups}
+						doc={doc}
+						packageSlug={packageSlug}
+						version={version}
+					/>
+				);
+			}
+
 			const selectedDoc = docSlug && slugToDoc[docSlug];
 
 			if (!selectedDoc) {
@@ -76,44 +97,50 @@ export function getTDocPage(options: {
 
 	// statically generate pages for latest version
 	async function generateStaticParams(): Promise<PageProps["params"][]> {
-		const version = await getLatestVersion();
-		const slugs = fetchAllSlugs(await getDoc(version));
+		const versions = await getVersions();
 
-		return [
-			...slugs.map((slug) => {
-				return {
-					slug: [slug] as [docName: string],
-					version: version,
-				};
+		const returnVal = await Promise.all(
+			versions.map((version) => {
+				return getDoc(version)
+					.then((doc) => fetchAllSlugs(doc))
+					.then((slugs) => {
+						return [
+							...slugs.map((slug) => {
+								return {
+									slug: slug.split("/") as string[],
+									version: version,
+								};
+							}),
+							{ version, slug: [] },
+						];
+					});
 			}),
-			{
-				slug: undefined,
-				version: version,
-			},
-		];
+		);
+
+		return returnVal.flat();
 	}
 
 	async function generateMetadata(props: PageProps): Promise<Metadata> {
-		const version = await getLatestVersion();
-		const docName = props.params.slug ? props.params.slug[0] : undefined;
-		const doc = await getDoc(version);
-		const slugToDoc = getSlugToDocMap(doc);
+		let docName = props.params.slug ? props.params.slug[0] : undefined;
 
 		if (!docName) {
 			return {
 				title: sdkTitle + " | thirdweb docs",
 			};
 		}
-
-		const selectedDoc = docName && slugToDoc[docName];
-
-		if (!selectedDoc) {
-			notFound();
+		const extensionName = props.params.slug ? props.params.slug[1] : undefined;
+		if (extensionName) {
+			docName = `${extensionName} - ${docName}`;
 		}
 
-		return {
-			title: `${selectedDoc.name} - ${sdkTitle}`,
-		};
+		return createMetadata({
+			title: `${docName} - ${sdkTitle}`,
+			description: `${docName} API Reference - ${sdkTitle}`,
+			image: {
+				title: docName,
+				icon: metadataIcon,
+			},
+		});
 	}
 
 	return {
@@ -172,19 +199,56 @@ async function IndexContent(props: {
 				{props.sdkTitle} Reference
 			</Heading>
 
-			{linkGroups.map((linkGroup) => (
-				<div key={linkGroup.name}>
-					<Heading level={2} id={slugger.slug(linkGroup.name)}>
-						{linkGroup.name}
-					</Heading>
-					<RenderLinkGroup linkGroup={linkGroup} />
-				</div>
-			))}
+			<div className="flex flex-col gap-3">
+				{linkGroups.map((linkGroup) => {
+					const slug = nameToSubgroupSlug[linkGroup.name];
+					return (
+						<ArticleIconCard
+							key={linkGroup.name}
+							href={`/references/${props.packageSlug}/${props.version}/${slug}`}
+							title={linkGroup.name}
+							icon={FolderOpenIcon}
+						/>
+					);
+				})}
+			</div>
 		</div>
 	);
 }
 
-function RenderLinkGroup(props: { linkGroup: LinkGroup }) {
+function CategoryPage(props: {
+	slug: keyof typeof subgroups;
+	doc: TransformedDoc;
+	packageSlug: string;
+	version: string;
+}) {
+	const slugger = new GithubSlugger();
+	sluggerContext.set(slugger);
+
+	const sidebarLinkGroups = getSidebarLinkGroups(
+		props.doc,
+		`/references/${props.packageSlug}/${props.version}`,
+	);
+
+	const linkGroup = sidebarLinkGroups.find(
+		(group) => group.name === subgroups[props.slug],
+	);
+
+	if (!linkGroup) {
+		throw new Error("linkGroup not found");
+	}
+
+	return (
+		<div>
+			<Heading level={1} id={props.slug}>
+				{subgroups[props.slug]}
+			</Heading>
+			<RenderLinkGroup linkGroup={linkGroup} level={0} />
+		</div>
+	);
+}
+
+function RenderLinkGroup(props: { linkGroup: LinkGroup; level: number }) {
 	const ungroupedLinks = props.linkGroup.links.filter(
 		(link) => !("links" in link) && "href" in link,
 	) as LinkMeta[];
@@ -195,66 +259,64 @@ function RenderLinkGroup(props: { linkGroup: LinkGroup }) {
 	const allChildrenAreLinks =
 		ungroupedLinks.length === props.linkGroup.links.length;
 
-	// display links as a grid
+	// display links
 	if (allChildrenAreLinks) {
 		return (
-			<div>
-				<LinkGrid links={props.linkGroup.links as LinkMeta[]} />
+			<div className="flex flex-col gap-3">
+				{props.linkGroup.links.map((_link, i) => {
+					const link = _link as LinkMeta;
+					return (
+						<ArticleIconCard
+							title={link.name}
+							key={i}
+							href={link.href}
+							icon={FileTextIcon}
+							className="p-3"
+						/>
+					);
+				})}
 			</div>
 		);
 	}
 
 	// display links as a list
 	return (
-		<div>
+		<div className="flex flex-col gap-3">
 			{props.linkGroup.links.map((link, i) => {
 				if ("links" in link) {
 					return (
-						<Details
-							id={slugger.slug(props.linkGroup.name + "-" + link.name)}
-							summary={link.name}
-							key={i}
-						>
-							<RenderLinkGroup linkGroup={link} />
-						</Details>
+						<GroupOfLinks linkGroup={link} level={props.level + 1} key={i} />
 					);
 				}
 			})}
 
 			{ungroupedLinks.length > 0 && (
-				<Details
-					id={slugger.slug(props.linkGroup.name + "-" + "others")}
-					summary="Others"
-				>
-					<RenderLinkGroup
-						linkGroup={{
-							links: ungroupedLinks,
-							name: "Others",
-							expanded: true,
-						}}
-					/>
-				</Details>
+				<GroupOfLinks
+					level={props.level + 1}
+					linkGroup={{
+						links: ungroupedLinks,
+						name: "Others",
+						expanded: true,
+					}}
+				/>
 			)}
 		</div>
 	);
 }
 
-function LinkGrid(props: { links: LinkMeta[] }) {
-	return (
-		<div className="grid gap-2 md:grid-cols-2  xl:grid-cols-3">
-			{props.links.map((_link, i) => {
-				const link = _link as LinkMeta;
+function GroupOfLinks(props: { linkGroup: LinkGroup; level: number }) {
+	const slugger = sluggerContext.get();
+	invariant(slugger, "slugger is not defined");
 
-				return (
-					<DocLink
-						key={i}
-						href={link.href}
-						className="overflow-hidden text-ellipsis rounded-lg border bg-b-800 p-3 text-sm text-accent-500"
-					>
-						{link.name}
-					</DocLink>
-				);
-			})}
-		</div>
+	return (
+		<Details
+			id={slugger.slug(props.linkGroup.name)}
+			summary={props.linkGroup.name}
+			accordionItemClassName="m-0"
+			accordionTriggerClassName="rounded-lg"
+			headingClassName="py-2 text-xl"
+		>
+			<RenderLinkGroup linkGroup={props.linkGroup} level={props.level + 1} />
+		</Details>
 	);
 }

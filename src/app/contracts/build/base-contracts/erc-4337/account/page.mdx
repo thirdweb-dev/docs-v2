@@ -3,9 +3,13 @@ import { GithubButtonLink } from "@doc";
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
+	image: {
+		title: "Account contract",
+		icon: "contract",
+	},
 	title: "Account | thirdweb contracts",
 	description:
-		"The Account smart wallet is a non-upgradable, simple smart wallet that comes with all the basic benefits of account abstraction",
+		"The Account smart contract is a non-upgradable, simple smart account that comes with all the basic benefits of account abstraction",
 });
 
 # Account
@@ -14,9 +18,9 @@ export const metadata = createMetadata({
 import "@thirdweb-dev/contracts/smart-wallet/non-upgradeable/Account.sol";
 ```
 
-This contract inherits from the [`BaseAccount`](/contracts/build/extensions/erc-4337/SmartWallet) contract.
+This contract inherits from the [`BaseAccount`](/contracts/build/extensions/erc-4337/SmartWallet) contract
 
-The Account smart wallet is a **non-upgradable**, simple smart wallet that comes with all the basic benefits of account abstraction,
+The Account smart contract is a **non-upgradable**, simple smart account that comes with all the basic benefits of account abstraction,
 alongside the default features:
 
 - Have multiple owners
@@ -28,7 +32,7 @@ alongside the default features:
 
 Developers should use this wallet if they do not anticipate making any future upgrades to their users’ wallets.
 
-App developers can issue `Account` smart wallets programmatically by deploying an [`AccountFactory`](/contracts/build/base-contracts/erc-4337/account-factory) smart contract.
+App developers can issue `Account` smart accounts programmatically by deploying an [`AccountFactory`](/contracts/build/base-contracts/erc-4337/account-factory) smart contract.
 
 <GithubButtonLink href="https://github.com/thirdweb-dev/contracts/blob/main/contracts/prebuilts/account/non-upgradeable/Account.sol" />
 

@@ -10,7 +10,19 @@ import {
 	createMetadata,
 } from "@doc";
 
+import deployNowImage from "./assets/deploy-now.png";
+import contractMetadataImage from "./assets/contract-metadata.png";
+import fundsImage from "./assets/funds.png";
+import advancedConfigurationImage from "./assets/advanced-configuration.png";
+import chooseNetworkImage from "./assets/choose-network.png";
+import uploadTypesImage from "./assets/upload-types.png";
+import delayedRevealImage from "./assets/delayed-reveal.png";
+
 export const metadata = createMetadata({
+	image: {
+		title: "NFT Drop contract",
+		icon: "contract",
+	},
 	title: "NFT Drop contract | thirdweb",
 	description: `NFT Drop enables users to release a collection of unique NFTs using the ERC721A standard. NFT Drop uses a “drop” mechanism intended for large collections to distribute NFTs.`,
 });
@@ -58,10 +70,7 @@ Learn how to deploy and manage an NFT Drop contract using dashboard.
 
 Select `Deploy now`
 
-<DocImage
-	src={require("./assets/deploy-now.png")}
-	alt="Deploy a contract view from Explore"
-/>
+<DocImage src={deployNowImage} alt="Deploy a contract view from Explore" />
 
 </Step>
 
@@ -74,10 +83,7 @@ A modal will appear to set Contract Metadata or settings to organize and disting
 - **Description (optional)** - description of contract to
 - **Image (optional)** - image or icon of contract
 
-<DocImage
-	src={require("./assets/contract-metadata.png")}
-	alt="Contract metadata settings"
-/>
+<DocImage src={contractMetadataImage} alt="Contract metadata settings" />
 
 </Step>
 
@@ -89,15 +95,12 @@ Set fund distribution recipients for Primary Sales and Secondary Sales by passin
 
 - **Royalties / Secondary Sales** - The recipient that will receive funds from any secondary sales or re-sales of the NFT.
 
-  <DocImage
-  	src={require("./assets/funds.png")}
-  	alt="Fund distribution settings"
-  />
+  <DocImage src={fundsImage} alt="Fund distribution settings" />
 
 - **(Optional) Platform fees** - Recipient that will receive additional fees for all primary sales that happen on this contract. (This is useful if you are deploying this contract for a 3rd party and want to take fees for your service).
 
   <DocImage
-  	src={require("./assets/advanced-configuration.png")}
+  	src={advancedConfigurationImage}
   	alt="Screenshot of advanced configuration"
   />
 
@@ -107,10 +110,7 @@ Set fund distribution recipients for Primary Sales and Secondary Sales by passin
 
 Choose a Network / Chain to Deploy to. [View list of available Networks.](https://thirdweb.com/chainlist)
 
-<DocImage
-	src={require("./assets/choose-network.png")}
-	alt="Choose network screen"
-/>
+<DocImage src={chooseNetworkImage} alt="Choose network screen" />
 
 </Step>
 
@@ -132,7 +132,7 @@ Choose a Network / Chain to Deploy to. [View list of available Networks.](https:
 - Batch upload is a method that allows you to upload large amounts of NFTs in one click.
 
 <DocImage
-	src={require("./assets/upload-types.png")}
+	src={uploadTypesImage}
 	alt="NFT settings page highlighting NFT Upload types"
 />
 
@@ -140,10 +140,7 @@ Choose a Network / Chain to Deploy to. [View list of available Networks.](https:
 
 Optionally, users may choose to hide their NFT image and metadata from users before minting.
 
-<DocImage
-	src={require("./assets/delayed-reveal.png")}
-	alt="Screenshot of delayed reveal page"
-/>
+<DocImage src={delayedRevealImage} alt="Screenshot of delayed reveal page" />
 
 ## Deploy NFT Drop (CLI)
 

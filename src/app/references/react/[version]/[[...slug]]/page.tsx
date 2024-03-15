@@ -5,9 +5,10 @@ const config = getTDocPage({
 	sdkTitle: "React SDK",
 	getDoc: fetchReactDoc,
 	packageSlug: "react",
-	async getLatestVersion() {
-		return "v4";
+	async getVersions() {
+		return ["v4"];
 	},
+	metadataIcon: "react",
 });
 
 export default config.default;

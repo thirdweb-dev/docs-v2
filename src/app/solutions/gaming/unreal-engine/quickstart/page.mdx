@@ -1,5 +1,5 @@
-
 import { DocImage, createMetadata } from "@doc";
+import unrealImage from "../../assets/unreal.png";
 
 export const metadata = createMetadata({
 	title: "Unreal Engine | thirdweb",
@@ -8,25 +8,18 @@ export const metadata = createMetadata({
 
 # Quickstart
 
-In this guide, we’ll build a demo game called Speed Racer using a template. Once setup, users will be able to connect their wallet and perform on-chain actions without signing transactions or paying gas.
-
+In this guide, we'll build a demo game called Speed Racer using a template. Once setup, users will be able to connect their wallet and perform onchain actions without signing transactions or paying gas.
 
 ## Architecture
 
 We recommend the following architecture to build production-grade games on Unreal Engine.
 
-
-<DocImage
-	src={require("../../assets/unreal.png")}
-	alt="Gaming Diagram preview"
-/>
-
+<DocImage src={unrealImage} alt="Gaming Diagram preview" />
 
 There are two thirdweb tools being used here
 
 - [Connect](https://portal.thirdweb.com/connect): This is used to link user wallets to your game. This step needs to be done in a browser environment.
 - [Engine](https://portal.thirdweb.com/engine): Once you have a wallet linked to a game user, you can use engine to perform all blockchain interactions.
-
 
 ## 1. Set up Engine
 
@@ -57,10 +50,8 @@ To deploy a client/server:
 
 To simplify this part, we created a template for you with a simple script to interact with your server as per the architecture illustrated above. A level blueprint instantiates the UI, which has its own blueprint to interact with your server.
 
-
 Clone https://github.com/thirdweb-example/unreal_demo and navigate to `_Thirdweb/Scenes/Scene_Game` to start the level.
 
 You will be able to log in and see the output as the game polls and updates your balance whenever you collect an item while driving.
-
 
 All thirdweb related assets are under the `_Thirdweb` folder in your Content Browser.

@@ -5,9 +5,10 @@ const config = getTDocPage({
 	sdkTitle: "Wallets SDK",
 	getDoc: fetchWalletsDoc,
 	packageSlug: "wallets",
-	async getLatestVersion() {
-		return "v2";
+	async getVersions() {
+		return ["v2"];
 	},
+	metadataIcon: "typescript",
 });
 
 export default config.default;

@@ -1,0 +1,79 @@
+# Migration from SDK v4
+
+### High level changes
+
+- All imports from `@thirdweb-dev/*` should be replaced with `thirdweb` unified SDK with sub-exports.
+- The unified SDK is `function` based rather than `class` based for better tree shaking and performance.
+- All contract call are now prepared using `prepareContractCall` and sent using the `sendTransaction` function.
+- Transactions are submitted without waiting for receipt by default. You can call the `waitForReceipt` function to wait for the transaction to be mined.
+
+### Progressive migration
+
+If you're currently using the `@thirdweb-dev/sdk`, you can progressively migrate to the new `thirdweb` unified SDK. Both SDKs can be used side by side and are interoperable with each other.
+
+You can easily share the same wallet between the two SDKs by using the `ethers5adapter` utility, allowing you to progressively replace calls one by one.
+
+```ts
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { prepareContractCall, sendTransaction } from "thirdweb";
+import { ethers5Adapter } from "thirdweb/adapters/ethers5";
+
+const sdk = ThirdwebSDK.fromPrivateKey(pkey, chain);
+
+// convert the signer to be used with the unified SDK
+const account = await ethers5Adapter.signer.fromEthers(sdk.getSigner());
+
+// then use the unified SDK normally
+const transaction = prepareContractCall({ ... });
+await sendTransaction({
+	transaction,
+	account,
+});
+```
+
+In React, you can obtain the current signer using the `useSigner` hook, and convert it when needed using the `ethers5Adapter`:
+
+```tsx
+import { useSigner } from "@thirdweb-dev/react";
+import { ethers5Adapter } from "thirdweb/adapters/ethers5";
+
+const signer = useSigner();
+
+const onClick = async () => {
+    // convert the signer to used with the unified SDK
+	const account = await ethers5Adapter.signer.fromEthers(signer);
+    // then use the unified SDK normally
+    const transaction = prepareContractCall({ ... });
+    await sendTransaction({
+	    transaction,
+	    account,
+    });
+};
+```
+
+### TypeScript Cheat sheet
+
+| Task       | `@thirdweb-dev/sdk`                                      | `thirdweb` unified SDK                              |
+| ---------- | -------------------------------------------------------- | --------------------------------------------------- |
+| Chains     | `import { Sepolia } from "@thirdweb-dev/chains"`         | `import { sepolia } from "thirdweb/chains"`         |
+| Wallets    | `import { MetaMaskWallet } from "@thirdweb-dev/wallets"` | `import { metamaskWallet } from "thirdweb/wallets"` |
+| Initialize | `new ThirdwebSDK(...)`                                   | `createThirdwebClient({ ... })`                     |
+| Contract   | `await sdk.getContract(...)`                             | `getContract(...) // no await`                      |
+| Read       | `await contract.call(...)`                               | `await readContract(...)`                           |
+| Prepare    | `await contract.prepare(...)`                            | `prepareContractCall(...) // no await`              |
+| Send       | `await contract.call(...)`                               | `await sendTransaction(...)`                        |
+| Extensions | `await contract.erc721.getAll()`                         | `await getNFTs(...)`                                |
+
+### React Cheat sheet
+
+| Task       | `@thirdweb-dev/react`                                 | `thirdweb` unified SDK                              |
+| ---------- | ----------------------------------------------------- | --------------------------------------------------- |
+| Provider   | `import { ThirdwebProvider} from @thirdweb-dev/react` | `import { ThirdwebProvider } from "thirdweb/react"` |
+| Contract   | `useContract(...)`                                    | `getContract(...) // not a hook`                    |
+| Read       | `useContractRead(...)`                                | `useReadContract(...)`                              |
+| Write      | `useContractWrite(...)`                               | `useSendTransaction()`                              |
+| Extensions | `useNFTs(...)`                                        | `useReadContract(getNFTs, { ... })`                 |
+
+```
+
+```

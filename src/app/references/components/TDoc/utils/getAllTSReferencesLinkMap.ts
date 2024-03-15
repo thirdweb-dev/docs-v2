@@ -17,31 +17,39 @@ export async function getAllTSReferencesLinks() {
 		return validReferenceLinks;
 	}
 
-	const [typescriptDoc, reactCode, reactNativeDoc, walletsDoc, storageDoc] =
-		await Promise.all([
-			fetchTypeScriptDoc(),
-			fetchReactDoc(),
-			fetchReactNativeDoc(),
-			fetchWalletsDoc(),
-			fetchStorageDoc(),
-		]);
+	const [
+		typescriptDoc,
+		typescriptv5Doc,
+		reactCode,
+		reactNativeDoc,
+		walletsDoc,
+		storageDoc,
+	] = await Promise.all([
+		fetchTypeScriptDoc("v4"),
+		fetchTypeScriptDoc("v5"),
+		fetchReactDoc(),
+		fetchReactNativeDoc(),
+		fetchWalletsDoc(),
+		fetchStorageDoc(),
+	]);
 
-	function addLinks(path: string, doc: TransformedDoc) {
+	function addLinks(path: string, doc: TransformedDoc, version = "latest") {
 		for (const key in doc) {
 			const value = doc[key as keyof TransformedDoc];
 			if (Array.isArray(value)) {
 				value.forEach((v) => {
-					validReferenceLinks.add(`/references/${path}/latest/${v.name}`);
+					validReferenceLinks.add(`/references/${path}/${version}/${v.name}`);
 				});
 			}
 		}
 	}
 
-	addLinks("typescript", typescriptDoc);
+	addLinks("typescript", typescriptDoc, "v4");
 	addLinks("react", reactCode);
 	addLinks("react-native", reactNativeDoc);
 	addLinks("wallets", walletsDoc);
 	addLinks("storage", storageDoc);
+	addLinks("typescript", typescriptv5Doc, "v5");
 
 	return validReferenceLinks;
 }

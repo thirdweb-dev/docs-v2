@@ -38,8 +38,8 @@ const suggestedLinks: { title: string; href: string }[] = [
 		href: "/react/latest",
 	},
 	{
-		title: "Wallets",
-		href: "/wallets",
+		title: "Connect",
+		href: "/connect",
 	},
 	{
 		title: "Contracts",
@@ -61,7 +61,7 @@ type Tag =
 	| "Unity"
 	| "TypeScript"
 	| "Storage"
-	| "Wallets"
+	| "Connect"
 	| "Python"
 	| "Contracts"
 	| "Go"
@@ -69,7 +69,9 @@ type Tag =
 	| "Infra"
 	| "Solidity"
 	| "Payments"
-	| "Glossary";
+	| "Glossary"
+	| "Unified SDK"
+	| "Engine";
 
 function SearchModalContent(props: { closeModal: () => void }) {
 	const [input, setInput] = useState("");
@@ -130,9 +132,9 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			{/* Search  */}
 			<div className="flex items-center gap-4 border-b px-4">
 				{searchQuery.isFetching ? (
-					<Spinner className="h-5 w-5" />
+					<Spinner className="size-5" />
 				) : (
-					<SearchIcon className="h-5 w-5 shrink-0 text-f-300" />
+					<SearchIcon className="size-5 shrink-0 text-f-300" />
 				)}
 
 				<Input
@@ -230,23 +232,30 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											tag={tag}
 											onClick={handleLinkClick}
 										/>
-										{/*
+
 										{result.sections && (
 											<div className="flex flex-col gap-2 border-l pl-3">
-												{result.sections?.map((sectionData) => {
-													return (
-														<SearchResultItem
-															type="section"
-															href={result.pageHref + sectionData.href}
-															key={sectionData.href}
-															title={sectionData.title}
-															content={sectionData.content}
-															onClick={handleLinkClick}
-														/>
-													);
-												})}
+												{result.sections
+													?.filter((d) => d.content.length > 50)
+													.slice(0, 2)
+													.map((sectionData) => {
+														return (
+															<SearchResultItem
+																type="section"
+																href={result.pageHref + sectionData.href}
+																key={sectionData.href}
+																title={sectionData.title}
+																content={
+																	sectionData.content.length < 100
+																		? sectionData.content
+																		: sectionData.content.slice(0, 100) + " ..."
+																}
+																onClick={handleLinkClick}
+															/>
+														);
+													})}
 											</div>
-										)} */}
+										)}
 									</div>
 								);
 							})}
@@ -357,7 +366,7 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 						>
 							Search Docs
 							<div className="flex items-center gap-1 rounded-sm border bg-b-900 px-2 py-1 text-xs text-f-300">
-								<CommandIcon className="h-3 w-3" />K
+								<CommandIcon className="size-3" />K
 							</div>
 						</Button>
 					</DialogTrigger>
@@ -366,7 +375,7 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 				{!forDesktop && (
 					<DialogTrigger asChild>
 						<Button variant="ghost" className="px-3">
-							<SearchIcon className="h-5 w-5 text-f-300" />
+							<SearchIcon className="size-6 text-f-100" />
 						</Button>
 					</DialogTrigger>
 				)}
@@ -390,18 +399,18 @@ function getTagFromHref(href: string): Tag | undefined {
 		return "React";
 	} else if (href.includes("/unity")) {
 		return "Unity";
+	} else if (href.includes("/typescript/v5")) {
+		return "Unified SDK";
 	} else if (href.includes("/typescript")) {
 		return "TypeScript";
 	} else if (href.includes("/storage")) {
 		return "Storage";
-	} else if (href.includes("/wallets")) {
-		return "Wallets";
-	} else if (href.includes("/python")) {
-		return "Python";
+	} else if (href.includes("/connect")) {
+		return "Connect";
+	} else if (href.includes("/engine")) {
+		return "Engine";
 	} else if (href.includes("/infrastructure")) {
 		return "Infra";
-	} else if (href.includes("/go")) {
-		return "Go";
 	} else if (href.includes("/solidity")) {
 		return "Solidity";
 	} else if (href.includes("/contracts")) {
@@ -428,30 +437,37 @@ function SearchResultItem(props: {
 			onClick={props.onClick}
 		>
 			{props.type === "section" && (
-				<SectionIcon className="h-5 w-5 text-f-300" />
+				<SectionIcon className="mt-1 size-5 text-f-300" />
 			)}
 
 			<div className="flex w-full flex-col gap-1">
-				<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
-					<div className="flex items-center gap-2">
-						{props.type === "page" && (
-							<FileTextIcon className="h-5 w-5 text-f-300" />
-						)}
-
-						{props.title}
-					</div>
-
-					{props.tag && (
-						<span
-							key={props.tag}
+				{props.title && (
+					<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
+						<div
 							className={cn(
-								"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
+								"flex items-center gap-2",
+								props.type === "page" ? "text-f-100" : "text-f-200",
 							)}
 						>
-							{props.tag}
-						</span>
-					)}
-				</div>
+							{props.type === "page" && (
+								<FileTextIcon className="size-5 text-f-300" />
+							)}
+
+							{props.title}
+						</div>
+
+						{props.tag && (
+							<span
+								key={props.tag}
+								className={cn(
+									"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
+								)}
+							>
+								{props.tag}
+							</span>
+						)}
+					</div>
+				)}
 				{props.content && (
 					<div className="break-all text-sm">{props.content}</div>
 				)}

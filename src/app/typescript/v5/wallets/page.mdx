@@ -1,0 +1,73 @@
+import { Breadcrumb, createMetadata } from "@doc";
+import { WalletCard, WalletCardGrid } from "@/components/others/WalletCard";
+import MetaMaskIcon from "@public/icons/wallets/metamask.svg";
+import CoinbaseIcon from "@public/icons/wallets/coinbase.svg";
+import WalletConnectIcon from "@public/icons/wallets/walletconnect.svg";
+import SmartWalletIcon from "@public/icons/wallets/smartwallet.svg";
+import EmbeddedWalletIcon from "@public/icons/wallets/embeddedwallet.svg";
+import RainbowIcon from "@public/icons/wallets/rainbow.svg";
+import ZerionIcon from "@public/icons/wallets/zerion.svg";
+import PrivateKeyIcon from "@public/icons/wallets/privateKey.svg";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Supported Wallets",
+		icon: "typescript",
+	},
+	title: "Supported Wallets | thirdweb SDK",
+	description: "List of all the supported wallets in thirdweb SDK.",
+});
+
+# Wallets
+
+## Client Side Wallets
+
+<WalletCardGrid>
+	<WalletCard
+		label="MetaMask"
+		href="/references/typescript/v5/metamaskWallet"
+		icon={MetaMaskIcon}
+	/>
+	<WalletCard
+		label="Coinbase"
+		href="/references/typescript/v5/coinbaseWallet"
+		icon={CoinbaseIcon}
+	/>
+	<WalletCard
+		label="WalletConnect"
+		href="/references/typescript/v5/walletConnect"
+		icon={WalletConnectIcon}
+	/>
+	<WalletCard
+		label="Smart Wallet"
+		href="/references/typescript/v5/smartWallet"
+		icon={SmartWalletIcon}
+	/>
+	<WalletCard
+		label="Embedded Wallet"
+		href="/references/typescript/v5/embeddedWallet"
+		icon={EmbeddedWalletIcon}
+	/>
+	<WalletCard
+		label="Rainbow"
+		href="/references/typescript/v5/rainbowWallet"
+		icon={RainbowIcon}
+	/>
+	<WalletCard
+		label="Zerion"
+		href="/references/typescript/v5/zerionWallet"
+		icon={ZerionIcon}
+	/>
+</WalletCardGrid>
+
+<div className="h-10" />
+
+## Server Side Wallets
+
+<WalletCardGrid>
+	<WalletCard
+		label="Private Key"
+		href="/references/typescript/v5/privateKeyAccount"
+		icon={PrivateKeyIcon}
+	/>
+</WalletCardGrid>

@@ -60,8 +60,8 @@ function FooterLinkItem(props: {
 }) {
 	return (
 		<li className="flex items-center gap-3 text-f-300">
-			<div className="flex items-center gap-2">
-				<props.icon className="h-5 w-5" />
+			<div className="flex items-center gap-2 font-medium">
+				<props.icon className="size-5" />
 				<span>{props.prefix}</span>
 			</div>
 

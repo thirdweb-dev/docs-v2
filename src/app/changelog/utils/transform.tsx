@@ -10,19 +10,10 @@ import {
 } from "@/components/Document";
 import { convertNodeToElement } from "react-html-parser";
 import { Fragment } from "react";
+import { BundledLanguage, SpecialLanguage } from "shiki";
+import { Transform } from "react-html-parser";
 
 const headingTags = new Set(["h1", "h2", "h3", "h4", "h5", "h6"]);
-
-type TransformerNode = {
-	type: string;
-	name: string;
-	data: string;
-	children: TransformerNode[];
-	next?: TransformerNode;
-	prev?: TransformerNode;
-	parent?: TransformerNode;
-	attribs?: Record<string, string>;
-};
 
 const knownLangs = new Set([
 	"js",
@@ -42,13 +33,13 @@ const knownLangs = new Set([
 	"solidity",
 ]);
 
-export function transform(node: TransformerNode, index: number) {
-	if (node.type !== "tag") {
+export const transform: Transform = (node, index: number) => {
+	if (node.type !== "tag" || !node.name) {
 		return;
 	}
 
 	const getChildren = () => {
-		return node.children.map((n, i) => (
+		return node.children?.map((n, i) => (
 			<Fragment key={i}>{convertNodeToElement(n, index, transform)}</Fragment>
 		));
 	};
@@ -90,7 +81,7 @@ export function transform(node: TransformerNode, index: number) {
 		);
 	}
 
-	if (node.name === "code") {
+	if (node.name === "code" && node.children) {
 		if (!node.attribs?.class) {
 			const code = node.children[0]?.data;
 			if (code && code.length < 50) {
@@ -100,14 +91,14 @@ export function transform(node: TransformerNode, index: number) {
 
 		const className = node.attribs?.class;
 		const code = node.children[0]?.data;
-		let lang = "text";
+		let lang: BundledLanguage | SpecialLanguage = "plaintext";
 		if (className) {
 			const specifiedLang = className
 				.toLowerCase()
 				.replace("language-", "")
 				.trim();
 			if (knownLangs.has(specifiedLang)) {
-				lang = specifiedLang;
+				lang = specifiedLang as BundledLanguage | SpecialLanguage;
 			}
 			// else {
 			// 	console.warn(
@@ -144,4 +135,4 @@ export function transform(node: TransformerNode, index: number) {
 		node.attribs.loop = "loop";
 		node.attribs.muted = "muted";
 	}
-}
+};

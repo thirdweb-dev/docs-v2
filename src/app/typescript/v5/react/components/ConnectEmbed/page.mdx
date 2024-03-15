@@ -1,0 +1,137 @@
+import {
+	Details,
+	Breadcrumb,
+	Callout,
+	Steps,
+	Step,
+	DocImage,
+	GithubTemplateCard,
+	ArticleIconCard,
+	createMetadata,
+	Stack,
+} from "@doc";
+import ConnectEmbedDefaultImg from "./_assets/ConnectEmbed-default.png";
+import ConnectEmbedSigninImg from "./_assets/ConnectEmbed-signin.png";
+import { TablePropertiesIcon } from "lucide-react";
+
+export const metadata = createMetadata({
+	image: {
+		title: "ConnectEmbed",
+		icon: "react",
+	},
+	title: "ConnectEmbed | thirdweb React SDK",
+	description: "API Reference for the ConnectEmbed component",
+});
+
+# ConnectEmbed
+
+ConnectEmbed component renders a UI to connect to various wallets. It renders the same UI as the [`ConnectButton`](/typescript/v5/react/components/ConnectButton) component's Modal UI.
+This is really useful for Implementing a "Sign in" page.
+
+<Callout variant='info' title="Playground">
+
+See the ConnectButton in action on [ConnectButton Playground!](https://thirdweb.com/dashboard/wallets/connect)
+
+</Callout>
+
+<DocImage src={ConnectEmbedDefaultImg} />
+
+It also renders a UI to [Sign in with wallet](/connect/auth/how-it-works/siwe) if it is enabled by setting [`authConfig`](/react/v4/ThirdwebProvider#authConfig) in [`ThirdwebProvider`](/react/v4/ThirdwebProvider) component and `loginOptional` prop is either not provided or set to `false` in `ConnectEmbed` component
+
+<DocImage src={ConnectEmbedSigninImg} />
+
+Because of this use case, It only renders UI if either one of the following conditions are true:
+
+- wallet is not connected
+
+- wallet is connected but the user is not signed in and sign in is required
+
+## Usage
+
+<Steps>
+<Step title="Configure wallets in ThirdwebProvider" >
+
+To Configure which wallets to show in the ConnectButton Modal, configure the `wallets` prop in the [`ThirdwebProvider`](/typescript/v5/react/ThirdwebProvider) component which wraps your entire application.
+
+To display a `Recommended` tag below a wallet provider, pass in the `recommended: true` property in the wallet configurator function.
+
+```jsx
+import {
+	ThirdwebProvider,
+	metamaskConfig,
+	coinbaseConfig,
+	walletConnectConfig,
+} from "thirdweb-dev/react";
+
+function AppWithProviders() {
+	return (
+		<ThirdwebProvider
+			client={client}
+			wallets={[
+				metamaskConfig({
+					recommended: true,
+				}),
+				coinbaseConfig(),
+				walletConnectConfig(),
+			]}
+		>
+			<App />
+		</ThirdwebProvider>
+	);
+}
+```
+
+<Stack>
+
+<ArticleIconCard
+	title="Supported Wallets"
+	icon={TablePropertiesIcon}
+	href="/typescript/v5/react/wallets"
+/>
+
+</Stack>
+
+If `wallets` is not configured in the `ThirdwebProvider`, the ConnectButton Modal shows the default wallets:
+
+<Details summary="Default Wallets" id='default-wallets'>
+
+- [Embedded Wallet](/references/typescript/v5/embeddedWalletConfig)
+- [MataMask Wallet](/references/typescript/v5/metamaskConfig)
+- [Coinbase Wallet](/references/typescript/v5/coinbaseConfig)
+- [WalletConnect](/references/typescript/v5/walletConnectConfig)
+- [Rainbow Wallet](/references/typescript/v5/rainbowConfig)
+- [Zerion Wallet](/references/typescript/v5/zerionConfig)
+
+</Details>
+
+</Step>
+
+<Step title="Configure ConnectEmbed">
+
+Render the `ConnectEmbed` component anywhere in your application. Refer to [Props](#props) to see the configuration options available
+
+```jsx
+import { ConnectEmbed } from "thirdweb/react";
+
+function Example() {
+	return (
+		<div>
+			<ConnectEmbed />
+		</div>
+	);
+}
+```
+
+</Step>
+
+</Steps>
+
+## Props
+
+<Stack>
+	<ArticleIconCard
+		title="ConnectEmbedProps"
+		icon={TablePropertiesIcon}
+		href="/references/typescript/v5/ConnectEmbedProps"
+	/>
+</Stack>

@@ -42,3 +42,6 @@ searchIndex.json
 
 .env
 public/sitemap*.xml
+
+# prevent accidentally committing the yarn.lock file
+yarn.lock

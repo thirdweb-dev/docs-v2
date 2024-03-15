@@ -1,0 +1,125 @@
+import {
+	Tabs,
+	TabsList,
+	TabsTrigger,
+	TabsContent,
+	DocImage,
+	createMetadata,
+} from "@doc";
+import ConnectWalletHero from "./connect-wallet-hero.webp";
+
+export const metadata = createMetadata({
+	title: "Connect users with Embedded Wallet",
+	description:
+		"use the prebuilt connect UI components to authenticate users and connect embedded wallet",
+	image: {
+		title: "Connect users with Embedded Wallet",
+		icon: "wallets",
+	},
+});
+
+# Connect Users
+
+<DocImage src={ConnectWalletHero} />
+
+## Using the Connect UI components
+
+If you're building a [React website](/react/v4/components/ConnectWallet), [React Native app](/react-native/v0/components/ConnectWallet), or [Unity game](/unity/ConnectWallet) you can use the prebuilt connect UI components to authenticate users and connect their wallets.
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React </TabsTrigger>
+	<TabsTrigger value="react-native">React Native</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+```jsx
+import {
+	ThirdwebProvider,
+	ConnectWallet,
+	embeddedWallet,
+} from "@thirdweb-dev/react";
+
+export default function App() {
+	return (
+		<ThirdwebProvider
+			activeChain="goerli"
+			clientId="YOUR_CLIENT_ID"
+			supportedWallets={[embeddedWallet()]}
+		>
+			<ConnectWallet />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</TabsContent>
+
+<TabsContent value="react-native">
+
+```tsx
+import {
+	ThirdwebProvider,
+	ConnectWallet,
+	embeddedWallet,
+} from "@thirdweb-dev/react-native";
+
+export default function App() {
+	return (
+		<ThirdwebProvider
+			activeChain="goerli"
+			clientId="YOUR_CLIENT_ID"
+			supportedWallets={[embeddedWallet()]}
+		>
+			<ConnectWallet />
+		</ThirdwebProvider>
+	);
+}
+```
+
+</TabsContent>
+</Tabs>
+
+## Choose authentication methods
+
+By default, the connect UI supports Google, Apple, Facebook and email/password authentication. You can customize which authentication methods to support which will be reflected in the UI.
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React </TabsTrigger>
+	<TabsTrigger value="react-native">React Native</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+```jsx
+<ThirdwebProvider
+  supportedWallets={[
+    embeddedWallet({
+      auth: {
+        options: ["email", "facebook", "apple", "google"],
+      }
+    })
+  ]}
+>
+```
+</TabsContent>
+
+<TabsContent value="react-native">
+
+```jsx
+<ThirdwebProvider
+  supportedWallets={[
+    embeddedWallet({
+      auth: {
+        options: ["email", "facebook", "apple", "google"],
+        redirectUrl: "your_app://deeplink" // required for social logins only
+      }
+    })
+  ]}
+>
+```
+
+</TabsContent>
+</Tabs>
