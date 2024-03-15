@@ -33,7 +33,7 @@ import {
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
 } from "@/icons";
-import { LandingPageCTAs } from "./landing-page/CTAs";
+// import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
 	return (
@@ -62,7 +62,7 @@ function Hero() {
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
-					<LandingPageCTAs />
+					{/* <LandingPageCTAs /> */}
 				</div>
 			</div>
 
