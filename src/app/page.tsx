@@ -33,7 +33,7 @@ import {
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
 } from "@/icons";
-import { LandingPageCTAs } from "./landing-page/CTAs";
+// import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
 	return (
