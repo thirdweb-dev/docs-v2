@@ -6,13 +6,14 @@ export function PayIcon(props: { className?: string }) {
 			viewBox="0 0 24 24"
 			fill="none"
 			xmlns="http://www.w3.org/2000/svg"
+			className={props.className}
 		>
 			<circle cx="15.9849" cy="16" r="5" fill="url(#paint0_linear_585_2)" />
 			<g filter="url(#filter0_bi_585_2)">
 				<path
 					d="M3 4.5C3 3.67157 3.67157 3 4.5 3H17.5C18.3284 3 19 3.67157 19 4.5V13.5C19 14.3284 18.3284 15 17.5 15H4.5C3.67157 15 3 14.3284 3 13.5V4.5Z"
 					fill="#B9DDFF"
-					fill-opacity="0.8"
+					fillOpacity="0.8"
 				/>
 			</g>
 			<rect
@@ -32,9 +33,9 @@ export function PayIcon(props: { className?: string }) {
 					width="20"
 					height="16"
 					filterUnits="userSpaceOnUse"
-					color-interpolation-filters="sRGB"
+					colorInterpolationFilters="sRGB"
 				>
-					<feFlood flood-opacity="0" result="BackgroundImageFix" />
+					<feFlood floodOpacity="0" result="BackgroundImageFix" />
 					<feGaussianBlur in="BackgroundImageFix" stdDeviation="1" />
 					<feComposite
 						in2="SourceAlpha"
@@ -74,8 +75,8 @@ export function PayIcon(props: { className?: string }) {
 					y2="17.6614"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#2567FF" />
-					<stop offset="1" stop-color="#22A7FF" />
+					<stop stopColor="#2567FF" />
+					<stop offset="1" stopColor="#22A7FF" />
 				</linearGradient>
 			</defs>
 		</svg>
