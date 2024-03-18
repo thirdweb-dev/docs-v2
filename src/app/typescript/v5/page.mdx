@@ -12,15 +12,28 @@ import {
 } from "lucide-react";
 import { ReactIcon } from "@/icons";
 
-# Unified SDK (Beta)
+# TypeScript SDK (Beta)
 
 <Callout title='Beta Release' variant='warning'>
 
-You are currently viewing the documentation for the `Beta` version of the new thirdweb "unified" TypeScript SDK.
+You are currently viewing the documentation for the `Beta` version of the new thirdweb TypeScript SDK.
 
 Refer to [stable version documentation](/typescript-sdks/) for production usage.
 
 </Callout>
+
+TypeScript SDK is a type-safe library that interacts with any EVM-compatible blockchain with a browser or Node.js
+
+With TypeScript SDK, you can connect to user's wallets, interact with smart contracts, sign transactions or messages, and utilize common contract standards such as ERC-20 tokens, NFTs, and marketplaces, all with built-in support for RPC URLs, IPFS gateways, and more.
+
+### Features
+
+- **React & React-Native Support:** 100+ React & React Native hooks with UI components to use in your application.
+- **Extension-Driven Framework:** Connect SDK uses an extension-driven approach, automatically detecting and enabling functionality based on common standards such as ERC-20, ERC-721, ERC-1155, and more.
+- **Any EVM Compatibility:** Designed to operate with any EVM-compatible network without needing to specify ABIs, RPC URLs, or IPFS gateways.
+- **High-Level Abstractions:** Simplifies complex contract interactions into easy-to-use APIs.
+- **Flexibility and No Vendor Lock-in:** The SDK is modular and composable enabling customizations and replacements of the default settings and tools.
+- **Interoperable:** Works side-by-side with other popular libraries and frameworks such as ethers v5, ethers v6, and viem. 
 
 ## Installation
 
@@ -114,25 +127,3 @@ npm install thirdweb@beta
 - TypeScript 5.0.4 or higher (for TypeScript users)
 - React 18.0.0 or higher (for React users)
 
-## Library Comparison
-
-|                                           | thirdweb | Wagmi              | Viem               | Ethers@6 |
-| ----------------------------------------- | -------- | ------------------ | ------------------ | -------- |
-| Type safe contract API                    | ✅       | ✅                 | ✅                 | ✅       |
-| Type safe wallet API                      | ✅       | ✅                 | ✅                 | ✅       |
-| EVM utils                                 | ✅       | ❌                 | ✅                 | ✅       |
-| RPC for any EVM                           | ✅       | ⚠️ public RPC only | ⚠️ public RPC only | ❌       |
-| Automatic ABI Resolution                  | ✅       | ❌                 | ❌                 | ❌       |
-| IPFS Upload/Download                      | ✅       | ❌                 | ❌                 | ❌       |
-| Embedded wallet (email/ social login)     | ✅       | ⚠️ via 3rd party   | ❌                 | ❌       |
-| Account abstraction (ERC4337) support     | ✅       | ⚠️ via 3rd party   | ⚠️ via 3rd party   | ❌       |
-| Web3 wallet connectors                    | ✅       | ✅                 | ❌                 | ❌       |
-| Local wallet creation                     | ✅       | ❌                 | ✅                 | ✅       |
-| Auth (SIWE)                               | ✅       | ⚠️ via 3rd party   | ❌                 | ❌       |
-| Extensions functions for common standards | ✅       | ❌                 | ❌                 | ❌       |
-| React Hooks                               | ✅       | ✅                 | ❌                 | ❌       |
-| React UI components                       | ✅       | ❌                 | ❌                 | ❌       |
-| React Native Hooks                        | ✅       | ❌                 | ❌                 | ❌       |
-| React Native UI Components                | ✅       | ❌                 | ❌                 | ❌       |
-
-Last updated: 03-04-2024
