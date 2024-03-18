@@ -306,7 +306,7 @@ export const sidebar: SideBar = {
 			],
 		},
 		{ separator: true },
-		// Swap
+		// Pay
 		{
 			name: "Pay",
 			icon: <PayIcon />,
@@ -325,10 +325,14 @@ export const sidebar: SideBar = {
 							name: "Get Started",
 							href: `${paySlug}/get-started`,
 						},
-
 						{
 							name: "Poll for Transaction Status",
 							href: `${paySlug}/poll-for-transaction-status`,
+						},
+
+						{
+							name: "Collect Fees",
+							href: `${paySlug}/collect-fees`,
 						},
 						{
 							name: "Supported Chains",

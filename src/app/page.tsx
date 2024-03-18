@@ -32,6 +32,7 @@ import {
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
 	PaymentsNFTCheckoutIcon,
+	PayIcon,
 } from "@/icons";
 
 export default function Page() {
@@ -268,6 +269,12 @@ function WalletsSection() {
 					title="Auth"
 					description="Authenticate users with their wallets"
 					icon={WalletsAuthIcon}
+				/>
+				<ArticleCardIndex
+					href="/connect/pay/buy-with-crypto"
+					title="Pay"
+					description="Easily integrate cross-chain crypto purchases for your users"
+					icon={PayIcon}
 				/>
 			</Grid>
 		</section>

@@ -1,0 +1,20 @@
+import { createMetadata, DocImage } from "@doc";
+import paySettingsImage from "../assets/pay-settings.png";
+
+export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Pay - Buy With Crypto - Collect Fees",
+		icon: "wallets",
+	},
+	title: "thirdweb Pay - Buy With Crypto - Collect Fees | thirdweb",
+	description:
+		"How to collect fees through thirdweb Pay's Buy With Crypto feature.",
+});
+
+# Collect Fees
+
+Any developer can configure a recipient address and introduce their own fees for Buy With Crypto transactions. Configured fees will be charged to users on top of thirdweb’s processing fees.
+
+Your Recipient Address and Buy With Crypto Fee can both be configured in [your dashboard](https://www.thirdweb.com/dashboard/connect/pay) by navigating to Connect and selecting Pay in the side navigation.
+
+<DocImage src={paySettingsImage} />

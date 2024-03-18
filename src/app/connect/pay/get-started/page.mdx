@@ -7,26 +7,25 @@ import {
 	createMetadata,
 } from "@doc";
 import { GraduationCap } from "lucide-react";
+import payApiKeyImage from "../assets/pay-api-key.png";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Get started with Pay - Buy With Crypto",
+		title: "thirdweb Pay - Buy With Crypto - Get Started",
 		icon: "pay",
 	},
-	title: "Get started with Pay - Buy With Crypto | thirdweb",
+	title: "thirdweb Pay - Buy With Crypto | thirdweb",
 	description:
 		"Learn how to get a quote and send a transaction with the thirdweb SDK",
 });
 
-# Getting Started
+# Get Started
 
-In this guide, we’ll walk you through getting a quote and sending a transaction. Once set up, your app will be able to provide cross-chain routing for users.
+In this guide, we’ll walk you through getting a quote and sending a transaction. Once set up, your app will be able to provide crypto purchases for users.
 
-<OpenSourceCard
-	title="Buy With Crypto + Next.js Example"
-	href="https://github.com/thirdweb-dev/pay-sdk-example"
-	description="See crypto purchases in action with our demo app."
-/>
+## Using the Connect UI
+
+Buy With Crypto comes by default with our Connect UI component. Follow [this guide](/react/v4/components/ConnectWallet) to integrate Connect into your application.
 
 ## Starting from existing project
 
@@ -39,6 +38,12 @@ npm install thirdweb
 ## Get your client ID
 
 To start enabling buy with crypto in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
+
+## Enable Pay
+
+Once you’ve received your client ID, you will need to enable Pay. You can do this by navigating to [Settings > API Keys](https://thirdweb.com/dashboard/settings/api-keys) in your dashboard. Once there, you can edit your API Key and toggle Pay to enable it.
+
+<DocImage src={payApiKeyImage} />
 
 ## Getting a Quote
 
@@ -103,6 +108,5 @@ And those are the basics! You’re ready to start buying with crypto.
 
 Head on over to our advanced guides to learn more about handling Pay transactions:
 
+- [**Collect Fees**](/connect/pay/collect-fees)
 - [**Poll For Transaction Status**](/connect/pay/poll-for-transaction-status)
-
-(Will add more guides as we write them.)
