@@ -62,12 +62,12 @@ const sdkLinks = [
 
 const supportLinks = [
 	{
-		name: "Support Articles",
-		href: "https://support.thirdweb.com/",
+		name: "Support Site",
+		href: "https://thirdweb.com/support",
 	},
 	{
-		name: "Contact Us",
-		href: "https://thirdweb.com/support",
+		name: "Contact Sales",
+		href: "https://thirdweb.com/contact-us",
 	},
 ];
 

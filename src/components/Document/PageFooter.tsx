@@ -30,8 +30,8 @@ function Links() {
 		<ul className="flex flex-col gap-3">
 			<FooterLinkItem
 				prefix="Need help?"
-				label="Contact Support"
-				href="https://support.thirdweb.com/"
+				label="Visit our support site"
+				href="https://thirdweb.com/support"
 				icon={BadgeHelpIcon}
 			/>
 
