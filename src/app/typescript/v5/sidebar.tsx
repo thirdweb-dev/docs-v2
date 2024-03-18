@@ -12,8 +12,8 @@ export const sidebar: SideBar = {
 			href: slug,
 		},
 		{
-			name: "Why Connect?",
-			href: `${slug}/why-connect`,
+			name: "Why TypeScript SDK?",
+			href: `${slug}/why-typescript-sdk`,
 		},
 		{
 			name: "Client",
