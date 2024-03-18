@@ -74,7 +74,7 @@ export default function RootLayout({
 						{/* Note: Please change id as well when changing text or href so that new banner is shown to user even if user dismissed the older one  */}
 						<Banner
 							id="v5-alpha-sdk"
-							text="Try out our new unified client SDK."
+							text="Try out our new client SDK."
 							href="https://portal.thirdweb.com/typescript/v5"
 						/>
 						<Header />
