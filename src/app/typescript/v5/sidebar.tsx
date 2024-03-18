@@ -32,7 +32,7 @@ export const sidebar: SideBar = {
 			href: `${slug}/transactions`,
 		},
 		{
-			name: "Wallets",
+			name: "Accounts & Wallets",
 			href: `${slug}/wallets`,
 		},
 		{

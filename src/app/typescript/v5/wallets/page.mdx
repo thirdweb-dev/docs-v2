@@ -11,16 +11,56 @@ import PrivateKeyIcon from "@public/icons/wallets/privateKey.svg";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Supported Wallets",
+		title: "Accounts & Wallets",
 		icon: "typescript",
 	},
-	title: "Supported Wallets | thirdweb SDK",
-	description: "List of all the supported wallets in thirdweb SDK.",
+	title: "Accounts & Wallets | thirdweb SDK",
+	description: "Learn about accounts and wallets in the thirdweb SDK.",
 });
 
-# Wallets
+# Accounts & Wallets
 
-## Client Side Wallets
+We have decided to distinguish between "accounts" and "wallets" in the thirdweb SDK. We believe this ultimately provides a more predictable and flexible API for developers.
+
+## What is an Account?
+
+- An account always has an `address` and a way to `sign` messages, transactions, and typed data.
+- An account is always mapped to exactly one address on the blockchain.
+- An account cannot be "connected" or "disconnected" like a wallet, instead it is often the result of a wallet being connected.
+
+See also: [Account (ethereum.org)](https://ethereum.org/en/glossary/#account)
+
+## What is a Wallet?
+
+- A wallet "contains" one or more accounts.
+- A wallet can be "connected" (often prompting the user for approval) or "disconnected".
+- A wallet cannot idependently sign messages, transactions, or typed data, instead it delegates this to the account(s) it "contains".
+
+## Example: Connect a wallet and access an account to send a transaction.
+
+```ts
+import { sendTransaction } from "thirdweb";
+// metamask wallet as an example, the pattern is the same for all wallets
+import { metamaskWallet } from "thirdweb/wallets/metamask";
+
+// initialize the wallet
+const wallet = metamaskWallet();
+
+// connect the wallet, this returns a promise that resolves to the connected account
+const account = await wallet.connect();
+
+// sign & send a transaction with the account -> returns the transaction hash
+const txHash = await sendTransaction({
+	// assuming you have called `prepareTransaction()` or `prepareContractCall()` before which returns the prepared transaction to send
+	transaction,
+	// pass the account to sign the transaction with
+	account,
+});
+```
+
+## Supported Wallets
+
+### Client Side
 
 <WalletCardGrid>
 	<WalletCard
@@ -62,7 +102,7 @@ export const metadata = createMetadata({
 
 <div className="h-10" />
 
-## Server Side Wallets
+### Server Side
 
 <WalletCardGrid>
 	<WalletCard
