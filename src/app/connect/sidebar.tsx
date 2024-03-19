@@ -21,7 +21,7 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Connect
 		{
-			name: "Connect",
+			name: "Connect UI",
 			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
