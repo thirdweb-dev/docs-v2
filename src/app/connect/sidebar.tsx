@@ -326,13 +326,8 @@ export const sidebar: SideBar = {
 							href: `${paySlug}/get-started`,
 						},
 						{
-							name: "Poll for Transaction Status",
-							href: `${paySlug}/poll-for-transaction-status`,
-						},
-
-						{
-							name: "Collect Fees",
-							href: `${paySlug}/collect-fees`,
+							name: "Fee Sharing",
+							href: `${paySlug}/fee-sharing`,
 						},
 						{
 							name: "Supported Chains",

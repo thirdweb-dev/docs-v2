@@ -1,4 +1,5 @@
-import { createMetadata } from "@doc";
+import { createMetadata, DocImage } from "@doc";
+import BuyWithCryptoImage from "../assets/buy-with-crypto.png";
 
 export const metadata = createMetadata({
 	image: {
@@ -14,14 +15,15 @@ export const metadata = createMetadata({
 
 Buy With Crypto handles the complexity of cross-chain routing by leveraging several DeFi liquidity providers to find the most affordable and least complex route for any crypto to crypto transaction.
 
+<DocImage src={BuyWithCryptoImage} />
+
 ## Features
 
-- **Free To Integrate:** No upfront costs or subscriptions. Just integrate and unlock crypto purchases for your users.
-- **Cross-Chain Execution:** Use funds on any EVM source chain to execute any transaction on a destination chain (e.g. use Polygon funds to execute a transaction on Optimism).
+- **Free To Integrate:** No upfront costs or subscriptions. Just integrate and unlock crypto purchases instantly for your users.
+- **Fee Sharing**: Configure a recipient address for your application and instantly earn 30% on all transaction fees collected through your application.
 - **Liquidity Aggregation:** thirdweb aggregates several liquidity providers under the hood to ensure that every swap is possible.
-- **Collect Fees**: Configure a percentage fee and recipient address for your application to take for each transaction.
 - **Built-in Connect Support:** Buy With Crypto is enabled by default for your users through our Connect UI component.
 
 ## Pricing
 
-thirdweb collects 50 bps and 30¢ from end users per transaction.
+thirdweb collects 100 bps and 30¢ from end users per transaction.

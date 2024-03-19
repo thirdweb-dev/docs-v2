@@ -5,6 +5,8 @@ import {
 	DocImage,
 	Stack,
 	createMetadata,
+	Steps,
+	Step,
 } from "@doc";
 import { GraduationCap } from "lucide-react";
 import payApiKeyImage from "../assets/pay-api-key.png";
@@ -21,33 +23,33 @@ export const metadata = createMetadata({
 
 # Get Started
 
-In this guide, we’ll walk you through getting a quote and sending a transaction. Once set up, your app will be able to provide crypto purchases for users.
+In this guide, we’ll walk you through getting a quote and sending a transaction with our Typescript SDK. Once set up, your app will be able to provide crypto purchases for users.
 
 ## Using the Connect UI
 
-Buy With Crypto comes by default with our Connect UI component. Follow [this guide](/react/v4/components/ConnectWallet) to integrate Connect into your application.
+Buy With Crypto comes by default with our Connect UI component. Follow [this guide](/typescript/v5/react/components/ConnectButton) to integrate Connect into your application.
 
 ## Starting from existing project
 
-Install the required packages:
+<Steps>
+
+<Step title="Install the required packages">
 
 ```bash
 npm install thirdweb
 ```
 
-## Get your client ID
+</Step>
 
-To start enabling buy with crypto in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
+<Step title="Get your client ID">
 
-## Enable Pay
+To enable Buy With Crypto in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key) by creating an API key.
 
-Once you’ve received your client ID, you will need to enable Pay. You can do this by navigating to [Settings > API Keys](https://thirdweb.com/dashboard/settings/api-keys) in your dashboard. Once there, you can edit your API Key and toggle Pay to enable it.
+</Step>
 
-<DocImage src={payApiKeyImage} />
+<Step title="Get A Buy Quote">
 
-## Getting a Quote
-
-A quote is an object that contains the details around a transaction’s route, price, and approval status. Receiving a quote requires the following parameters:
+Initiaing a buy on behalf of your users involves two steps: getting a quote and sending a transaction. To get a quote, you can use the `useBuyWithCryptoQuote` hook with the following parameters:
 
 - **fromAddress:** The address of the wallet initiating the transaction.
 - **fromTokenAddress:** The contract address of the source token.
@@ -57,56 +59,48 @@ A quote is an object that contains the details around a transaction’s route, p
 - **client**: A thirdweb client instance instantiated with your client ID.
 
 ```ts
-import { getSwapRoute } from "thirdweb";
+import { useBuyWithCryptoQuote } from "thirdweb/react";
 
-const getQuote = async ({
-	fromAddress,
-	fromChainId,
-	toChainId,
-	fromTokenAddress,
-	toTokenAddress,
-}) => {
-	const quote = await getSwapRoute({
-		fromAddress,
-		fromChainId,
-		toChainId,
-		fromTokenAddress,
-		toTokenAddress,
-		client,
-	});
-	return quote;
-};
+function GetQuote(buyWithCryptoParams) {
+	const buyWithCryptoQuoteQuery = useBuyWithCryptoQuote(buyWithCryptoParams);
+
+	return buyWithCryptoQuoteQuery;
+}
 ```
 
-## Sending a Transaction
-
-Once you’ve retrieved the quote for your transaction, you can utilize the `sendSwap` function to initiate the transaction with the provided quote parameter:
+<Step title="Send a Transaction">
+Once you’ve received a quote, you can execute a buy by utilizing `useSendTransaction` hook. Note that buy with non-native ERC20s may require an extra approval request:
 
 ```ts
-import { sendSwap } from "thirdweb";
-import { useActiveAccount } from "thirdweb/react";
+import { useSendTransaction } from "thirdweb/react";
 
-const onSendTransaction = async (quote) => {
-	// Retrieves connected wallet if it exists
-	const { activeAccount } = useActiveAccount();
+function Component(buyWithCryptoQuoteQuery) {
+ const sendTransactionMutation = useSendTransaction();
 
-	// Ensure that a quote exists and your wallet is connected.
-	if (quote && activeAccount) {
-		try {
-			// Execute swap based on passed quote
-			const swapStatusParams = await sendSwap(activeAccount, quote);
-		} catch (error) {
-			console.error("Error sending transaction:", error);
-		}
-	}
-};
+ async function handleBuyWithCrypto() {
+   // if approval is required
+   if (buyWithCryptoQuoteQuery.data.approval) {
+     await sendTransactionMutation.mutateAsync(buyWithCryptoQuoteQuery.data.approval);
+   }
+   // send the transaction to buy crypto
+   // this promise is resolved when user confirms the transaction in the wallet
+   // and the transaction is sent to the blockchain
+   const buyWithCryptoTxn = await sendTransactionMutation.mutateAsync(buyWithCryptoQuoteQuery.data.transactionRequest);
+ }
+
+ return <button onClick={handleBuyWithCrypto}>Buy</button>
+}
 ```
 
-And those are the basics! You’re ready to start buying with crypto.
+</Step>
+</Step>
+</Steps>
+
+And that's it! You're ready to start buying with crypto.
 
 ## Next Steps
 
-Head on over to our advanced guides to learn more about handling Pay transactions:
+Head on over to our advanced guides to learn more about handling Buy With Crypto transactions:
 
-- [**Collect Fees**](/connect/pay/collect-fees)
-- [**Poll For Transaction Status**](/connect/pay/poll-for-transaction-status)
+- [**Fee Sharing**](/connect/pay/fee-sharing)
+- [**Get Transaction Status**](/connect/pay/get-transaction-status)
