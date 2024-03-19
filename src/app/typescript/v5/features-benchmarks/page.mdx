@@ -1,0 +1,44 @@
+import BundleSizeImage from "./assets/bundlesize-transparent.png";
+import PerformanceImage from "./assets/performance-transparent.png";
+
+import { Callout, DocImage, OpenSourceCard } from "@doc";
+
+# Features and Benchmarks
+
+### Feature Comparison
+
+|                                           | thirdweb | Wagmi              | Viem               | Ethers@6 |
+| ----------------------------------------- | -------- | ------------------ | ------------------ | -------- |
+| Type safe contract API                    | ✅       | ✅                 | ✅                 | ✅       |
+| Type safe wallet API                      | ✅       | ✅                 | ✅                 | ✅       |
+| EVM utils                                 | ✅       | ❌                 | ✅                 | ✅       |
+| RPC for any EVM                           | ✅       | ⚠️ public RPC only | ⚠️ public RPC only | ❌       |
+| Automatic ABI Resolution                  | ✅       | ❌                 | ❌                 | ❌       |
+| IPFS Upload/Download                      | ✅       | ❌                 | ❌                 | ❌       |
+| Embedded wallet (email/ social login)     | ✅       | ⚠️ via 3rd party   | ❌                 | ❌       |
+| Account abstraction (ERC4337) support     | ✅       | ⚠️ via 3rd party   | ⚠️ via 3rd party   | ❌       |
+| Web3 wallet connectors                    | ✅       | ✅                 | ❌                 | ❌       |
+| Local wallet creation                     | ✅       | ❌                 | ✅                 | ✅       |
+| Auth (SIWE)                               | ✅       | ⚠️ via 3rd party   | ❌                 | ❌       |
+| Extensions functions for common standards | ✅       | ❌                 | ❌                 | ❌       |
+| React Hooks                               | ✅       | ✅                 | ❌                 | ❌       |
+| React UI components                       | ✅       | ❌                 | ❌                 | ❌       |
+| React Native Hooks                        | ✅       | ❌                 | ❌                 | ❌       |
+| React Native UI Components                | ✅       | ❌                 | ❌                 | ❌       |
+| CLI (codegen)                             | ✅       | ✅                 | ❌                 | ❌       |
+
+### Bundle Size
+
+Imported bundle size to perform a simple RPC call on mainnet using the default API:
+
+<DocImage src={BundleSizeImage} alt="bundle size table" className="mx-auto" />
+
+### Performance Benchmarks
+
+Runtime benchmarks for encoding, RPC calls, reading contract state and sending a transaction:
+
+<DocImage src={PerformanceImage} alt="performance table" className="mx-auto" />
+
+To run your own benchmarks or see results in detail, [check out our instructions to run them.](https://github.com/thirdweb-dev/js/blob/beta/packages/thirdweb/benchmarks/README.md)
+
+_Last updated: March 14, 2024_
