@@ -43,12 +43,11 @@ npm install thirdweb
 
 <Step title="Get your client ID">
 
-To enable Buy With Crypto in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key) by creating an API key.
+To enable Buy With Crypto in your applications you will need your client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key) by creating an API key.
 
 </Step>
 
 <Step title="Get A Buy Quote">
-
 Initiaing a buy on behalf of your users involves two steps: getting a quote and sending a transaction. To get a quote, you can use the `useBuyWithCryptoQuote` hook with the following parameters:
 
 - **fromAddress:** The address of the wallet initiating the transaction.
@@ -57,43 +56,104 @@ Initiaing a buy on behalf of your users involves two steps: getting a quote and 
 - **toTokenAddress:** The contract address of the destination token.
 - **toChainId:** The chain id of the destination token.
 - **client**: A thirdweb client instance instantiated with your client ID.
+- **toAmount**: The amount of the token you owant to purchase.
 
 ```ts
-import { useBuyWithCryptoQuote } from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
+import { ThirdwebProvider, useBuyWithCryptoQuote, useActiveAccount } from "thirdweb/react";
 
-function GetQuote(buyWithCryptoParams) {
-	const buyWithCryptoQuoteQuery = useBuyWithCryptoQuote(buyWithCryptoParams);
 
-	return buyWithCryptoQuoteQuery;
+const client = createThirdwebClient({
+  clientId: "<your_client_id>",
+});
+
+// change me!
+const fromChainId = 1;
+const toChainId = 10;
+
+function Component() {
+	const account = useActiveAccount();
+	const buyWithCryptoQuoteQuery = useBuyWithCryptoQuote({
+		fromAddress: account.address,
+		fromChainId,
+		fromTokenAddress: NATIVE_TOKEN_ADDRESS,
+		toChainId,
+		toTokenAddress: NATIVE_TOKEN_ADDRESS,
+		toAmount: 1,
+	});
+
+	return <button>Buy</button>;
+}
+
+function App() {
+	return (
+		<ThirdwebProvider client={client}>
+			<ConnectButton />
+			<Component />
+		</ThirdwebProvider>
+	);
 }
 ```
+
+</Step>
 
 <Step title="Send a Transaction">
-Once you’ve received a quote, you can execute a buy by utilizing `useSendTransaction` hook. Note that buy with non-native ERC20s may require an extra approval request:
+Once you&apos;ve received a quote, you can execute a buy by utilizing `useSendTransaction` hook. Note that buy with non-native ERC20s may require an extra approval request:
 
 ```ts
-import { useSendTransaction } from "thirdweb/react";
+import { useBuyWithCryptoQuote, useActiveAccount, useSendTransaction } from "thirdweb/react";
+
+// change me!
+const fromChainId = 1;
+const toChainId = 10;
 
 function Component(buyWithCryptoQuoteQuery) {
- const sendTransactionMutation = useSendTransaction();
+	{/* From before */}
+ 	const account = useActiveAccount();
+	const buyWithCryptoQuoteQuery = useBuyWithCryptoQuote({
+		fromAddress: account.address,
+		fromChainId,
+		fromTokenAddress: NATIVE_TOKEN_ADDRESS,
+		toChainId,
+		toTokenAddress: NATIVE_TOKEN_ADDRESS,
+		toAmount: 1,
+	});
 
- async function handleBuyWithCrypto() {
-   // if approval is required
-   if (buyWithCryptoQuoteQuery.data.approval) {
-     await sendTransactionMutation.mutateAsync(buyWithCryptoQuoteQuery.data.approval);
-   }
-   // send the transaction to buy crypto
-   // this promise is resolved when user confirms the transaction in the wallet
-   // and the transaction is sent to the blockchain
-   const buyWithCryptoTxn = await sendTransactionMutation.mutateAsync(buyWithCryptoQuoteQuery.data.transactionRequest);
- }
+	{/* New! */}
+	const sendTransactionMutation = useSendTransaction();
 
- return <button onClick={handleBuyWithCrypto}>Buy</button>
+	async function handleBuyWithCrypto() {
+		// if approval is required
+		if (buyWithCryptoQuoteQuery.data.approval) {
+			await sendTransactionMutation.mutateAsync(buyWithCryptoQuoteQuery.data.approval);
+		}
+		// send the transaction to buy crypto
+		// this promise is resolved when user confirms the transaction in the wallet
+		// and the transaction is sent to the blockchain
+		const buyWithCryptoTxn = await sendTransactionMutation.mutateAsync(buyWithCryptoQuoteQuery.data.transactionRequest);
+	}
+
+	return <button onClick={handleBuyWithCrypto}>Buy</button>
 }
 ```
 
 </Step>
+
+<Step title="Listening to the transaction status">
+Once you&apos; submitted your transaction, you can listen to the transaction status using the `useBuyWithCryptoStatus` hook. This hook will update as the transaction status changes. Note that some purchase can take a while to complete, so it's best to show some sort of loading indicator.
+
+```ts
+ import { useSendTransaction, useBuyWithCryptoQuote, useBuyWithCryptoStatus, type BuyWithCryptoStatusQueryParams } from "thirdweb/react";
+
+ function Listener(props: BuyWithCryptoStatusQueryParams) {
+  const buyWithCryptoStatusQuery = useBuyWithCryptoStatus(props);
+
+  return <pre>{JSON.stringify(buyWithCryptoStatusQuery.data, null, 2)}</pre>
+ }
+```
+
 </Step>
+
 </Steps>
 
 And that's it! You're ready to start buying with crypto.
