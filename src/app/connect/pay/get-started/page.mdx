@@ -142,7 +142,7 @@ function Component(buyWithCryptoQuoteQuery) {
 Once you&apos; submitted your transaction, you can listen to the transaction status using the `useBuyWithCryptoStatus` hook. This hook will update as the transaction status changes. Note that some purchase can take a while to complete, so it's best to show some sort of loading indicator.
 
 ```ts
- import { useSendTransaction, useBuyWithCryptoQuote, useBuyWithCryptoStatus, type BuyWithCryptoStatusQueryParams } from "thirdweb/react";
+ import { useBuyWithCryptoStatus } from "thirdweb/react";
 
  function Listener(props: BuyWithCryptoStatusQueryParams) {
   const buyWithCryptoStatusQuery = useBuyWithCryptoStatus(props);
