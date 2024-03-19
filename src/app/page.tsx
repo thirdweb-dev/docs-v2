@@ -228,7 +228,7 @@ function WalletsSection() {
 			<Grid>
 				<ArticleCardIndex
 					href="/connect/connect"
-					title="Connect"
+					title="Connect UI"
 					description="Fully customizable Connect Wallet component"
 					icon={WalletsConnectIcon}
 				/>
