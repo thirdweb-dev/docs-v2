@@ -79,6 +79,10 @@ export const sidebar: SideBar = {
 							href: `${embeddedSlug}/how-to/enable-gasless`,
 						},
 						{
+							name: "Getting User Details (Server)",
+							href: `${embeddedSlug}/how-to/get-embedded-wallet-details-on-server`,
+						},
+						{
 							name: "Export private key",
 							href: `${embeddedSlug}/how-to/export-private-key`,
 						},
