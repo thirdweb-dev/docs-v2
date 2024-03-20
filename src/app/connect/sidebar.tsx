@@ -322,13 +322,14 @@ export const sidebar: SideBar = {
 							href: `${paySlug}/buy-with-crypto`,
 						},
 						{
-							name: "Get Started",
-							href: `${paySlug}/get-started`,
-						},
-						{
 							name: "Supported Chains",
 							href: `${paySlug}/supported-chains`,
 						},
+						{
+							name: "Get Started",
+							href: `${paySlug}/get-started`,
+						},
+
 						{
 							name: "Fee Sharing",
 							href: `${paySlug}/fee-sharing`,
