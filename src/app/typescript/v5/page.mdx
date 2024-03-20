@@ -1,4 +1,10 @@
-import { Callout, ArticleIconCard, Stack } from "@doc";
+import {
+	Callout,
+	ArticleIconCard,
+	Stack,
+	OpenSourceCard,
+	InstallTabs,
+} from "@doc";
 import {
 	ZapIcon,
 	ScrollTextIcon,
@@ -12,31 +18,43 @@ import {
 } from "lucide-react";
 import { ReactIcon } from "@/icons";
 
-# TypeScript SDK (Beta)
+# thirdweb SDK
 
-Open source library to interact with any EVM-compatible blockchain.
+Performant & lightweight TypeScript library to interact with any EVM blockchain.
 
-<Callout title='Beta Release' variant='warning'>
-
-You are currently viewing the documentation for the `Beta` version of the new thirdweb TypeScript SDK.
-
-Refer to [stable version documentation](/typescript-sdks/) for production usage.
-
-</Callout>
-
-## Design Principles
-
-- **Single package:** for Node, React and React Native with tree shaking for minimal footprint.
-- **Performance optimized:** focuses on speed and efficiency with single responsibility principles.
-- **Vertical integration:** direct access to all the thirdweb infrastructure from wallets to RPCs to IPFS.
-- **Developer experience:** type safe, simple to use, with repeatable and predictable patterns.
-- **Interoperable:** works with any infra provider and with other libraries like viem and ethers.
+<OpenSourceCard
+	title="thirdweb SDK"
+	href="https://github.com/thirdweb-dev/js"
+/>
 
 ## Installation
 
-```bash
-npm install thirdweb@beta
-```
+<InstallTabs
+	npm="npm i thirdweb"
+	yarn="yarn add thirdweb"
+	pnpm="pnpm i thirdweb"
+	bun="bun i thirdweb"
+/>
+
+## Features
+
+- **React and React Native UI Components**: for wallets connection, transactions and more
+- **Embedded wallets**: first class support for email and social logins
+- **Account abstraction**: first class support for ERC4337 smart accounts
+- **Type safe contract API**: fully typed with human readable ABI
+- **Code generation**: CLI to generate highly optimized contract, type safe interfaces\
+- **RPC for any EVM chain**: highly performant RPCs with just a chain id
+- **IPFS upload/download**: simple and efficient IPFS integration
+- **Auto ABI resolution**: resolve ABIs for any deployed contract with just an address
+- **Ethers / Viem Interoperability**: adapters for ethers and viem libraries
+
+## Design principles
+
+- **Single package:** for Node, React and React Native with tree shaking for minimal footprint.
+- **Performance optimized:** focuses on speed and efficiency with single responsibility principles.
+- **Out of the box infra:** direct access to all the thirdweb infrastructure from wallets to RPCs to IPFS.
+- **Developer experience:** type safe, simple to use, with repeatable and predictable patterns.
+- **Interoperable:** works with any infra provider and with other libraries like viem and ethers.
 
 ## Get Started
 

@@ -17,13 +17,23 @@ export const metadata = createMetadata({
 	description: "List of all the supported wallets in thirdweb React SDK.",
 });
 
-# Wallets (React)
+# Wallets
 
 Adding these wallets in [`ThirdwebProvider`](/typescript/v5/react/ThirdwebProvider) enables connecting to these wallets in [`ConnectButton`](/typescript/v5/react/components/ConnectButton) and [`ConnectEmbed`](/typescript/v5/react/components/ConnectEmbed) components.
 
-If you want to create a custom UI for connecting these wallets, Use the [Wallets (TypeScript)](/typescript/v5/wallets) instead.
+If you want to create a custom UI for connecting these wallets, see the [Core Wallets wallets](/typescript/v5/wallets) instead.
 
 <WalletCardGrid>
+		<WalletCard
+		label="Embedded Wallet"
+		href="/references/typescript/v5/embeddedWalletConfig"
+		icon={EmbeddedWalletIcon}
+	/>
+	<WalletCard
+		label="Smart Wallet"
+		href="/references/typescript/v5/smartWalletConfig"
+		icon={SmartWalletIcon}
+	/>
 	<WalletCard
 		label="MetaMask"
 		href="/references/typescript/v5/metamaskConfig"
@@ -39,26 +49,18 @@ If you want to create a custom UI for connecting these wallets, Use the [Wallets
 		href="/references/typescript/v5/walletConnectConfig"
 		icon={WalletConnectIcon}
 	/>
-	<WalletCard
-		label="Smart Wallet"
-		href="/references/typescript/v5/smartWalletConfig"
-		icon={SmartWalletIcon}
-	/>
-	<WalletCard
-		label="Embedded Wallet"
-		href="/references/typescript/v5/embeddedWalletConfig"
-		icon={EmbeddedWalletIcon}
-	/>
-	<WalletCard
-		label="Rainbow"
-		href="/references/typescript/v5/rainbowConfig"
-		icon={RainbowIcon}
-	/>
-	<WalletCard
-		label="Zerion"
-		href="/references/typescript/v5/zerionConfig"
-		icon={ZerionIcon}
-	/>
+
+    <WalletCard
+    	label="Rainbow"
+    	href="/references/typescript/v5/rainbowConfig"
+    	icon={RainbowIcon}
+    />
+    <WalletCard
+    	label="Zerion"
+    	href="/references/typescript/v5/zerionConfig"
+    	icon={ZerionIcon}
+    />
+
 </WalletCardGrid>
 
 <div className="h-10" />

@@ -1,59 +1,86 @@
 import type { SideBar } from "../../../components/Layouts/DocLayout";
-import { ReactIcon } from "../../../icons";
+import { TypeScriptIcon, ReactIcon } from "../../../icons";
 
 const slug = "/typescript/v5";
 const reactSlug = `${slug}/react`;
 
 export const sidebar: SideBar = {
-	name: "Connect SDK",
+	name: "thirdweb SDK",
 	links: [
 		{
 			name: "Overview",
 			href: slug,
 		},
 		{
-			name: "Features & Benchmarks",
-			href: `${slug}/features-benchmarks`,
-		},
-		{
-			name: "Client",
-			href: `${slug}/client`,
-		},
-		{
-			name: "Chain",
-			href: `${slug}/chain`,
-		},
-		{
-			name: "Contract",
-			href: `${slug}/contract`,
-		},
-		{
-			name: "Transactions",
-			href: `${slug}/transactions`,
-		},
-		{
-			name: "Accounts & Wallets",
-			href: `${slug}/wallets`,
-		},
-		{
-			name: "Extensions",
-			href: `${slug}/extensions`,
-		},
-		{
-			name: "Adapters",
-			href: `${slug}/adapters`,
-		},
-		{
-			name: "Storage",
-			href: `${slug}/storage`,
+			name: "Why thirdweb?",
+			href: `${slug}/why-thirdweb`,
 		},
 		{
 			separator: true,
 		},
 		{
-			// isCollapsible: false,
+			icon: <TypeScriptIcon className="size-4" />,
+			name: "Core",
+			isCollapsible: false,
+			links: [
+				{
+					name: "Client",
+					href: `${slug}/client`,
+				},
+				{
+					name: "Chain",
+					href: `${slug}/chain`,
+				},
+				{
+					name: "Contract",
+					href: `${slug}/contract`,
+				},
+				{
+					name: "Transactions",
+					href: `${slug}/transactions`,
+				},
+				{
+					name: "Accounts & Wallets",
+					href: `${slug}/wallets`,
+				},
+				{
+					name: "Extensions",
+					links: [
+						{
+							name: "Overview",
+							href: `${slug}/extensions/`,
+						},
+						{
+							name: "Using extensions",
+							href: `${slug}/extensions/use`,
+						},
+						{
+							name: "Generating extensions",
+							href: `${slug}/extensions/generate`,
+						},
+						{
+							name: "Writing extensions",
+							href: `${slug}/extensions/create`,
+						},
+					],
+				},
+				{
+					name: "Adapters",
+					href: `${slug}/adapters`,
+				},
+				{
+					name: "Storage",
+					href: `${slug}/storage`,
+				},
+				{
+					separator: true,
+				},
+			],
+		},
+		{
 			icon: <ReactIcon className="size-4" />,
 			name: "React",
+			isCollapsible: false,
 			links: [
 				{
 					name: "Overview",
@@ -68,7 +95,7 @@ export const sidebar: SideBar = {
 					href: `${reactSlug}/connecting-wallets`,
 				},
 				{
-					name: "Wallets (React)",
+					name: "Wallets",
 					href: `${reactSlug}/wallets`,
 				},
 				{
