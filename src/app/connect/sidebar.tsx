@@ -79,7 +79,7 @@ export const sidebar: SideBar = {
 							href: `${embeddedSlug}/how-to/enable-gasless`,
 						},
 						{
-							name: "Get Details on the Server",
+							name: "Getting User Details (Server)",
 							href: `${embeddedSlug}/how-to/get-embedded-wallet-details-on-server`,
 						},
 						{
