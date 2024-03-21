@@ -5,7 +5,9 @@ import {
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
 	PayIcon,
+	TypeScriptIcon,
 } from "@/icons";
+import { CodeIcon } from "lucide-react";
 
 const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
@@ -343,6 +345,31 @@ export const sidebar: SideBar = {
 				{
 					name: "Buy With Fiat (Coming Soon)",
 					href: "",
+				},
+			],
+		},
+		{ separator: true },
+		// SDK References
+		{
+			name: "SDK References",
+			icon: <CodeIcon />,
+			isCollapsible: true,
+			links: [
+				{
+					name: "React",
+					href: `/react/v4`,
+				},
+				{
+					name: "React Native",
+					href: `/react-native/v0`,
+				},
+				{
+					name: "TypeScript",
+					href: `/typescript/v4`,
+				},
+				{
+					name: "Unity",
+					href: `/unity`,
 				},
 			],
 		},
