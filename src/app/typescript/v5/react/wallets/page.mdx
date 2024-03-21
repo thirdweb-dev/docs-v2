@@ -19,12 +19,19 @@ export const metadata = createMetadata({
 
 # Wallets
 
-Adding these wallets in [`ThirdwebProvider`](/typescript/v5/react/ThirdwebProvider) enables connecting to these wallets in [`ConnectButton`](/typescript/v5/react/components/ConnectButton) and [`ConnectEmbed`](/typescript/v5/react/components/ConnectEmbed) components.
+These wallet config functions contains a built-in UI for connecting the wallet.
 
-If you want to create a custom UI for connecting these wallets, see the [Core Wallets wallets](/typescript/v5/wallets) instead.
+These wallets are to be used with either
+[`ConnectButton`](/typescript/v5/react/components/ConnectButton)
+or [`ConnectEmbed`](/typescript/v5/react/components/ConnectEmbed)
+components by passing it to the `wallets` prop
+
+If you want to create a custom UI, You can use the underlying [wallet connectors](/typescript/v5/wallets) instead to connect a wallet, and set it as active wallet using the [`useConnect`](/references/typescript/v5/useConnect) hook
+
+## Supported Wallets
 
 <WalletCardGrid>
-		<WalletCard
+	<WalletCard
 		label="Embedded Wallet"
 		href="/references/typescript/v5/embeddedWalletConfig"
 		icon={EmbeddedWalletIcon}
@@ -49,18 +56,16 @@ If you want to create a custom UI for connecting these wallets, see the [Core Wa
 		href="/references/typescript/v5/walletConnectConfig"
 		icon={WalletConnectIcon}
 	/>
-
-    <WalletCard
-    	label="Rainbow"
-    	href="/references/typescript/v5/rainbowConfig"
-    	icon={RainbowIcon}
-    />
-    <WalletCard
-    	label="Zerion"
-    	href="/references/typescript/v5/zerionConfig"
-    	icon={ZerionIcon}
-    />
-
+	<WalletCard
+		label="Rainbow"
+		href="/references/typescript/v5/rainbowConfig"
+		icon={RainbowIcon}
+	/>
+	<WalletCard
+		label="Zerion"
+		href="/references/typescript/v5/zerionConfig"
+		icon={ZerionIcon}
+	/>
 </WalletCardGrid>
 
 <div className="h-10" />
@@ -70,26 +75,17 @@ If you want to create a custom UI for connecting these wallets, see the [Core Wa
 ```tsx
 import { ThirdwebProvider } from "thirdweb/react";
 import { ConnectButton } from "thirdweb/react";
-
 // import the wallets you want to use
 import { metamaskConfig, coinbaseConfig } from "thirdweb/react";
 
-function Example() {
-	return (
-		<ThirdwebProvider
-			client={client}
-			wallets={[metamaskConfig(), coinbaseConfig()]}
-		>
-			<App />
-		</ThirdwebProvider>
-	);
-}
-
-// render a ConnectButton or ConnectEmbed component anywhere in your app
+// pass them to the ConnectButton component
 function App() {
 	return (
 		<div>
-			<ConnectButton />
+			<ConnectButton
+				client={client}
+				wallets={[metamaskConfig(), coinbaseConfig()]}
+			/>
 		</div>
 	);
 }

@@ -35,50 +35,43 @@ See the ConnectButton in action on [ConnectButton Playground!](https://thirdweb.
 
 ## Usage
 
-<Steps>
-<Step title="Configure wallets in ThirdwebProvider" >
+To Configure the wallets to show in the ConnectButton Modal, configure the `wallets` prop
 
-To Configure which wallets to show in the ConnectButton Modal, configure the `wallets` prop in the [`ThirdwebProvider`](/typescript/v5/react/ThirdwebProvider) component which wraps your entire application.
+To mark a wallet as `Recommended`, pass in the `recommended: true` property in the wallet config function.
 
-To display a `Recommended` tag below a wallet provider, pass in the `recommended: true` property in the wallet configurator function.
+Refer to [Props](#props) to see all the available configuration options
 
 ```jsx
+import { ConnectButton } from "thirdweb/react";
+// import the wallets you want to include
 import {
-	ThirdwebProvider,
 	metamaskConfig,
-	coinbaseConfig,
 	walletConnectConfig,
-} from "thirdweb/react";
+	coinbaseConfig,
+	embeddedWalletConfig,
+} from "thirdweb/wallets";
 
-function AppWithProviders() {
+function Example() {
 	return (
-		<ThirdwebProvider
-			client={client}
-			wallets={[
-				metamaskConfig({
-					recommended: true,
-				}),
-				coinbaseConfig(),
-				walletConnectConfig(),
-			]}
-		>
-			<App />
-		</ThirdwebProvider>
+		<div>
+			<ConnectButton
+				client={client}
+				appMetadata={appMetadata}
+				wallets={[
+					metamaskConfig({ recommended: true }),
+					coinbaseConfig(),
+					walletConnectConfig(),
+					embeddedWalletConfig(),
+				]}
+			/>
+		</div>
 	);
 }
 ```
 
-<Stack>
+### Customizing wallets
 
-<ArticleIconCard
-	title="Supported Wallets"
-	icon={TablePropertiesIcon}
-	href="/typescript/v5/react/wallets"
-/>
-
-</Stack>
-
-If `wallets` is not configured in the `ThirdwebProvider`, the ConnectButton Modal shows the default wallets:
+If `wallets` is not configured, the `ConnectButton` will use the below default wallets:
 
 <Details summary="Default Wallets" id='default-wallets'>
 
@@ -91,27 +84,15 @@ If `wallets` is not configured in the `ThirdwebProvider`, the ConnectButton Moda
 
 </Details>
 
-</Step>
+<Stack>
 
-<Step title="Configure ConnectButton">
+<ArticleIconCard
+	title="Supported Wallets"
+	icon={TablePropertiesIcon}
+	href="/typescript/v5/react/wallets"
+/>
 
-Render the `ConnectButton` component anywhere in your application. Refer to [Props](#props) to see the configuration options available
-
-```jsx
-import { ConnectButton } from "thirdweb/react";
-
-function Example() {
-	return (
-		<div>
-			<ConnectButton />
-		</div>
-	);
-}
-```
-
-</Step>
-
-</Steps>
+</Stack>
 
 ## Props
 
