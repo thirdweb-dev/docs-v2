@@ -19,27 +19,19 @@ Extensions are the most convenient way to intereact with contracts and protocols
 
 They are precompiled, type safe and highly optimized implementations of common stadanrds such as ERC20, ERC721, ERC1155, etc. They can be hand written to provide an easier API, sometimes combining multiple contract calls into one convenient function. They can also be generated from any deployed contract using a [simple CLI command](/typescript/v5/extensions/generate).
 
-## Built-in extensions for common standards
-
-| Standard  | Import Path                                                                      | Description                         |
-| --------- | -------------------------------------------------------------------------------- | ----------------------------------- |
-| Common    | [`thirdweb/extensions/common`](/references/typescript/v5/functions#common)       | Common contract extensions          |
-| ERC20     | [`thirdweb/extensions/erc20`](/references/typescript/v5/functions#erc20)         | ERC20 token standard extensions     |
-| ERC721    | [`thirdweb/extensions/erc721`](/references/typescript/v5/functions#erc721)       | ERC721 token standard extensions    |
-| ERC1155   | [`thirdweb/extensions/erc1155`](/references/typescript/v5/functions#erc1155)     | ERC1155 token standard extensions   |
-| ERC4626   | [`thirdweb/extensions/erc4626`](/references/typescript/v5/functions#erc4626)     | ERC4626 Tokenized Vaults extensions |
-| ENS       | [`thirdweb/extensions/ens`](/references/typescript/v5/functions#ens)             | ENS extensions                      |
-| Uniswap   | [`thirdweb/extensions/uniswap`](/references/typescript/v5/functions#uniswap)     | Uniswap extensions                  |
-| Farcaster | [`thirdweb/extensions/farcaster`](/references/typescript/v5/functions#farcaster) | Farcaster protocol extensions       |
-
-More extensions are being added regularly. Anyone can [create an extension](/typescript/v5/extensions/create) and contribute it back to the repository. You can also [generate extensions](/typescript/v5/extensions/generate) for any deployed contract.
-
 <Stack>
+<ArticleIconCard
+	title="Built-in Extensions"
+	icon={BlocksIcon}
+	href="/typescript/v5/extensions/built-in"
+  description="Learn how to use extensions in your application"
+/>
+
 <ArticleIconCard
 	title="Use Extensions"
 	icon={PlugZapIcon}
 	href="/typescript/v5/extensions/use"
-  description="Learn how to use extensions in your application"
+	description="Learn how to use extensions in your application"
 />
 
 <ArticleIconCard
