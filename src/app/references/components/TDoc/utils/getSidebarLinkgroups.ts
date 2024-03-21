@@ -70,7 +70,7 @@ const sidebarGroupOrder: TagKey[] = [
 
 function findTag(
 	blockTags?: BlockTag[],
-): [TagKey, ExtensionName | undefined] | undefined {
+): [TagKey, string | undefined] | undefined {
 	if (!blockTags) {
 		return;
 	}
@@ -82,9 +82,7 @@ function findTag(
 	}
 }
 
-function getCustomTag(
-	doc: SomeDoc,
-): [TagKey, ExtensionName | undefined] | undefined {
+function getCustomTag(doc: SomeDoc): [TagKey, string | undefined] | undefined {
 	switch (doc.kind) {
 		case "class": {
 			return findTag(doc.blockTags);
@@ -145,7 +143,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 					}
 					return acc;
 				},
-				{} as Record<ExtensionName, SomeDoc[]>,
+				{} as Record<string, SomeDoc[]>,
 			);
 			const extensionLinkGroups = Object.entries(extensionGroups).map(
 				([extensionName, docs]) => {
@@ -285,27 +283,16 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 
 export function getExtensionName(
 	extensionBlockTag: BlockTag,
-): ExtensionName | undefined {
+): string | undefined {
 	try {
 		const extensionNameString = (
 			extensionBlockTag?.summary?.[0]?.children?.[0]?.value || "COMMON"
 		).toUpperCase();
 
-		if (isValidExtensionString(extensionNameString)) {
+		if (typeof extensionNameString === "string" && extensionNameString) {
 			return extensionNameString;
 		}
-		return undefined;
 	} catch {
 		return undefined;
 	}
-}
-
-const EXTENSION_NAMES = ["ERC721", "ERC20", "ERC1155", "COMMON"] as const;
-type ExtensionName = (typeof EXTENSION_NAMES)[number];
-
-function isValidExtensionString(
-	extensionName: string,
-): extensionName is ExtensionName {
-	// @ts-expect-error - this is what we're trying to check here TS...
-	return EXTENSION_NAMES.includes(extensionName.toUpperCase());
 }
