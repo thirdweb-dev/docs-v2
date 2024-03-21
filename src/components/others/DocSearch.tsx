@@ -23,19 +23,12 @@ import Link from "next/link";
 import { DynamicHeight } from "./DynamicHeight";
 import { SearchResult } from "@/app/api/search/types";
 import { Spinner } from "../ui/Spinner/Spinner";
+import { usePathname } from "next/navigation";
 
 const suggestedLinks: { title: string; href: string }[] = [
 	{
-		title: "React SDK",
-		href: "/react/latest",
-	},
-	{
-		title: "React Native SDK",
-		href: "/react/latest",
-	},
-	{
-		title: "TypeScript SDK",
-		href: "/react/latest",
+		title: "thirdweb SDK",
+		href: "/typescript/v5",
 	},
 	{
 		title: "Connect",
@@ -46,12 +39,12 @@ const suggestedLinks: { title: string; href: string }[] = [
 		href: "/contracts",
 	},
 	{
-		title: "Payments",
-		href: "/payments",
+		title: "Engine",
+		href: "/engine",
 	},
 	{
-		title: "Infrastructure",
-		href: "/infrastructure",
+		title: "Payments",
+		href: "/payments",
 	},
 ];
 
@@ -60,7 +53,7 @@ type Tag =
 	| "React Native"
 	| "Unity"
 	| "TypeScript"
-	| "Storage"
+	| "Wallet SDK"
 	| "Connect"
 	| "Python"
 	| "Contracts"
@@ -70,12 +63,29 @@ type Tag =
 	| "Solidity"
 	| "Payments"
 	| "Glossary"
-	| "Unified SDK"
+	| "Connect SDK"
 	| "Engine";
 
 function SearchModalContent(props: { closeModal: () => void }) {
 	const [input, setInput] = useState("");
 	const debouncedInput = useDebounce(input, 500);
+	const pathname = usePathname();
+
+	const [showOldSDK, setShowOldSDK] = useState(false);
+
+	useEffect(() => {
+		if (
+			pathname.includes("/typescript/v4") ||
+			pathname.includes("/react/v4") ||
+			pathname.includes("/react-native/v0") ||
+			pathname.includes("/wallet-sdk/v2") ||
+			pathname.includes("/storage-sdk/v2")
+		) {
+			setShowOldSDK(true);
+		} else {
+			setShowOldSDK(false);
+		}
+	}, [pathname]);
 
 	const [selectedTags, setSelectedTags] = useState<{
 		[T in Tag]?: boolean;
@@ -88,7 +98,23 @@ function SearchModalContent(props: { closeModal: () => void }) {
 		queryKey: ["search-index", debouncedInput],
 		queryFn: async () => {
 			const res = await fetch(`/api/search?q=${encodeURI(debouncedInput)}`);
-			const { results } = (await res.json()) as SearchResult;
+			const { results: _results } = (await res.json()) as SearchResult;
+
+			const results = _results.filter((x) => {
+				const isOld = isOldSDK(x.pageHref);
+
+				// filter out old SDKs if should not be shown
+				if (isOld && !showOldSDK) {
+					return false;
+				}
+
+				// filter out new SDKs if should not be shown
+				if (!isOld && showOldSDK) {
+					return false;
+				}
+
+				return true;
+			});
 
 			const tagsSet: Set<Tag> = new Set([]);
 
@@ -214,7 +240,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 							className="styled-scrollbar flex max-h-[50vh] min-h-[200px] flex-col gap-2 overflow-y-auto p-4"
 							ref={scrollableElement}
 						>
-							{data?.map((result, i) => {
+							{data.map((result, i) => {
 								const tag = getTagFromHref(result.pageHref);
 								if (!selectedTags["All"] && tag && selectedTags[tag] !== true)
 									return null;
@@ -222,6 +248,10 @@ function SearchModalContent(props: { closeModal: () => void }) {
 								if (!tag && !selectedTags["All"]) {
 									return null;
 								}
+
+								const sections = result.sections
+									?.filter((d) => d.content.length > 50)
+									.slice(0, 2);
 
 								return (
 									<div key={i} className="flex flex-col gap-2">
@@ -233,27 +263,24 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											onClick={handleLinkClick}
 										/>
 
-										{result.sections && (
+										{sections && sections.length > 0 && (
 											<div className="flex flex-col gap-2 border-l pl-3">
-												{result.sections
-													?.filter((d) => d.content.length > 50)
-													.slice(0, 2)
-													.map((sectionData) => {
-														return (
-															<SearchResultItem
-																type="section"
-																href={result.pageHref + sectionData.href}
-																key={sectionData.href}
-																title={sectionData.title}
-																content={
-																	sectionData.content.length < 100
-																		? sectionData.content
-																		: sectionData.content.slice(0, 100) + " ..."
-																}
-																onClick={handleLinkClick}
-															/>
-														);
-													})}
+												{sections.map((sectionData) => {
+													return (
+														<SearchResultItem
+															type="section"
+															href={result.pageHref + sectionData.href}
+															key={sectionData.href}
+															title={sectionData.title}
+															content={
+																sectionData.content.length < 100
+																	? sectionData.content
+																	: sectionData.content.slice(0, 100) + " ..."
+															}
+															onClick={handleLinkClick}
+														/>
+													);
+												})}
 											</div>
 										)}
 									</div>
@@ -392,19 +419,31 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 	);
 }
 
+function isOldSDK(href: string) {
+	return (
+		href.includes("/react-native/v0") ||
+		href.includes("/typescript/v4") ||
+		href.includes("/react/v4") ||
+		href.includes("/wallet-sdk/v2") ||
+		href.includes("/wallets/v2") ||
+		href.includes("/storage-sdk/v2") ||
+		href.includes("/storage/v2")
+	);
+}
+
 function getTagFromHref(href: string): Tag | undefined {
-	if (href.includes("/react-native")) {
+	if (href.includes("/react-native/v0")) {
 		return "React Native";
-	} else if (href.includes("/react")) {
+	} else if (href.includes("/react/v4")) {
 		return "React";
+	} else if (href.includes("/typescript/v4")) {
+		return "TypeScript";
+	} else if (href.includes("/wallet-sdk/v2")) {
+		return "Wallet SDK";
 	} else if (href.includes("/unity")) {
 		return "Unity";
 	} else if (href.includes("/typescript/v5")) {
-		return "Unified SDK";
-	} else if (href.includes("/typescript")) {
-		return "TypeScript";
-	} else if (href.includes("/storage")) {
-		return "Storage";
+		return "Connect SDK";
 	} else if (href.includes("/connect")) {
 		return "Connect";
 	} else if (href.includes("/engine")) {
