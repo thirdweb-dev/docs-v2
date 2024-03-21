@@ -5,7 +5,7 @@ const slug = "/typescript/v5";
 const reactSlug = `${slug}/react`;
 
 export const sidebar: SideBar = {
-	name: "thirdweb SDK",
+	name: "Connect SDK",
 	links: [
 		{
 			name: "Overview",
@@ -37,11 +37,8 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Transactions",
+					href: `${slug}/transactions`,
 					links: [
-						{
-							name: "Overview",
-							href: `${slug}/transactions`,
-						},
 						{
 							name: "Reading state",
 							href: `${slug}/transactions/read`,
@@ -62,10 +59,11 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Extensions",
+					href: `${slug}/extensions`,
 					links: [
 						{
-							name: "Overview",
-							href: `${slug}/extensions`,
+							name: "Built-in extensions",
+							href: `${slug}/extensions/built-in`,
 						},
 						{
 							name: "Using extensions",
@@ -112,7 +110,7 @@ export const sidebar: SideBar = {
 					href: `${reactSlug}/connecting-wallets`,
 				},
 				{
-					name: "Wallets",
+					name: "Supported Wallets",
 					href: `${reactSlug}/wallets`,
 				},
 				{
