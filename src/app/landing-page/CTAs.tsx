@@ -15,7 +15,7 @@ export function LandingPageCTAs() {
 					posthog.capture("unified-sdk-cta.click");
 				}}
 			>
-				<Link href="/typescript/v5">Get started with Unified SDK</Link>
+				<Link href="/typescript/v5">Get started with thirdweb SDK</Link>
 			</Button>
 			<Button
 				variant="outline"
