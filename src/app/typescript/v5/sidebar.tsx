@@ -37,7 +37,24 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Transactions",
-					href: `${slug}/transactions`,
+					links: [
+						{
+							name: "Overview",
+							href: `${slug}/transactions`,
+						},
+						{
+							name: "Reading state",
+							href: `${slug}/transactions/read`,
+						},
+						{
+							name: "Preparing transactions",
+							href: `${slug}/transactions/prepare`,
+						},
+						{
+							name: "Sending transactions",
+							href: `${slug}/transactions/send`,
+						},
+					],
 				},
 				{
 					name: "Accounts & Wallets",
@@ -48,7 +65,7 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "Overview",
-							href: `${slug}/extensions/`,
+							href: `${slug}/extensions`,
 						},
 						{
 							name: "Using extensions",

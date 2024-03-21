@@ -36,6 +36,8 @@ export function getBalance(
 
 ### Example: Creating the `mintTo` extension for ERC721 tokens
 
+The `erc721/mintTo` extension handles uploading the NFT metadata to IPFS before minting. Here is how it is implemented in the SDK.
+
 ```typescript
 import { prepareContractCall, type BaseTransactionOptions } from "thirdweb";
 
@@ -49,13 +51,14 @@ export function mintTo(
 		contract: options.contract,
 		// pre-define the function to call on the smart contract
 		method: "function mintTo(address to, string uri)",
-		// pass the params from the options
+		// the function params can be async
 		params: async () => {
 			// upload the metadata to IPFS
 			const tokenURI = (await upload({
 				client: options.contract.client,
 				files: [options.nft],
 			})[0]) as string;
+			// return the contract params
 			return [options.to, tokenURI] as const;
 		},
 	});
