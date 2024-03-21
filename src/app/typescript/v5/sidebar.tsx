@@ -131,6 +131,10 @@ export const sidebar: SideBar = {
 							name: "TransactionButton",
 							href: `${reactSlug}/components/TransactionButton`,
 						},
+						{
+							name: "AutoConnect",
+							href: `${reactSlug}/components/AutoConnect`,
+						},
 					],
 				},
 				{

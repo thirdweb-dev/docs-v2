@@ -8,7 +8,7 @@ export async function fetchTypeScriptDoc(version: string) {
 
 	if (version === "v5") {
 		URL =
-			"https://raw.githubusercontent.com/thirdweb-dev/js/alpha/packages/thirdweb/typedoc/documentation.json.gz";
+			"https://raw.githubusercontent.com/thirdweb-dev/js/beta/packages/thirdweb/typedoc/documentation.json.gz";
 	}
 
 	const doc = await withCache(() => fetchJSON(URL), {
