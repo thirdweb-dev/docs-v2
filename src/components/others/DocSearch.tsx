@@ -74,13 +74,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 	const [showOldSDK, setShowOldSDK] = useState(false);
 
 	useEffect(() => {
-		if (
-			pathname.includes("/typescript/v4") ||
-			pathname.includes("/react/v4") ||
-			pathname.includes("/react-native/v0") ||
-			pathname.includes("/wallet-sdk/v2") ||
-			pathname.includes("/storage-sdk/v2")
-		) {
+		if (isOldSDK(pathname)) {
 			setShowOldSDK(true);
 		} else {
 			setShowOldSDK(false);
