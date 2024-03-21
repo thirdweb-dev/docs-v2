@@ -12,9 +12,15 @@ export const metadata = createMetadata({
 
 # Fee Sharing
 
-thirdweb collects a 1% base fee and 30¢ per end user transaction. We share 30% of our base fee with you.
+thirdweb collects a 1% base fee and 30¢ flat fee per end user transaction. We share 30% of our base fee with you.
 
-For example, if a user purchases $100 worth of Polygon through your application, thirdweb collects $0.70 from our base fee and sends $0.30 to you.
+| Fee Share Breakdown     |       |
+| :---------------------- | :---- |
+| thirdweb Base Fee Share | 0.07% |
+| Dev Base Fee Share      | 0.03% |
+| thirdweb Flat Fee       | $0.30 |
+
+For example, if a user purchases $100 worth of Polygon through your application, thirdweb charges a total of $1.30. thirdweb collects $0.70 from our base fee and $0.30 from our flat fee, then sends $0.30 to you.
 
 To participate in fee sharing, all you need to do is set a recipient address in your dashboard. Your recipient address can be configured in your dashboard by navigating to [Connect > Pay](https://www.thirdweb.com/dashboard/connect/pay).
 
