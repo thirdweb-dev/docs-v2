@@ -336,6 +336,10 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
+				{
+					name: "Buy With Fiat (Coming Soon)",
+					href: "",
+				},
 			],
 		},
 	],
