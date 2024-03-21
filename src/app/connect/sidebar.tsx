@@ -5,7 +5,6 @@ import {
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
 	PayIcon,
-	TypeScriptIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
 
