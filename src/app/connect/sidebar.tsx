@@ -4,12 +4,14 @@ import {
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
+	PayIcon,
 } from "@/icons";
 
 const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
+const paySlug = "/connect/pay";
 
 export const sidebar: SideBar = {
 	name: "Connect",
@@ -304,6 +306,43 @@ export const sidebar: SideBar = {
 				{
 					name: "FAQs",
 					href: `${authSlug}/faq`,
+				},
+			],
+		},
+		{ separator: true },
+		// Pay
+		{
+			name: "Pay",
+			icon: <PayIcon />,
+			isCollapsible: true,
+			links: [
+				{
+					name: "Buy With Crypto",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Overview",
+							href: `${paySlug}/buy-with-crypto`,
+						},
+						{
+							name: "Supported Chains",
+							href: `${paySlug}/supported-chains`,
+						},
+						{
+							name: "Get Started",
+							href: `${paySlug}/get-started`,
+						},
+
+						{
+							name: "Fee Sharing",
+							href: `${paySlug}/fee-sharing`,
+						},
+					],
+				},
+				{
+					name: "Buy With Fiat (Coming Soon)",
+					href: "",
 				},
 			],
 		},
