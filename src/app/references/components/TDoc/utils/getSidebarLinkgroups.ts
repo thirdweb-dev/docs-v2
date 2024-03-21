@@ -34,6 +34,7 @@ const tagsToGroup = {
 	"@extension": "Extensions",
 	"@rpc": "RPC",
 	"@transaction": "Transactions",
+	"@buyCrypto": "Buy Crypto",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
@@ -48,6 +49,7 @@ const sidebarGroupOrder: TagKey[] = [
 	"@walletConnection",
 	"@walletUtils",
 	"@nft",
+	"@buyCrypto",
 	"@nftDrop",
 	"@claimConditions",
 	"@delayedReveal",
