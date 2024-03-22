@@ -126,12 +126,16 @@ export const sidebar: SideBar = {
 							href: `${reactSlug}/components/ConnectEmbed`,
 						},
 						{
+							name: "AutoConnect",
+							href: `${reactSlug}/components/AutoConnect`,
+						},
+						{
 							name: "TransactionButton",
 							href: `${reactSlug}/components/TransactionButton`,
 						},
 						{
-							name: "AutoConnect",
-							href: `${reactSlug}/components/AutoConnect`,
+							name: "MediaRenderer",
+							href: `${reactSlug}/components/MediaRenderer`,
 						},
 					],
 				},
