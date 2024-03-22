@@ -11,11 +11,11 @@ export const metadata = createMetadata({
 
 # React Native
 
-Once you've setup an Auth API for your application, you can add Auth support to your React Native apps.
+Once you've set up an Auth API for your application, you can add Auth support to your React Native apps.
 
 ## Getting Started
 
-To add support for Auth to your React Native apps, you'll first need to setup your [React Native app](/react-native/latest).
+To add support for Auth to your React Native apps, you'll first need to set up your [React Native app](/react-native/latest).
 
 Now we'll need to wrap our app with the `ThirdwebProvider` which stores the necessary context for Auth, and we'll provide some configuration with the `authConfig` option so that our app knows how to communicate with our Auth API.
 
@@ -44,7 +44,7 @@ export default function MyApp({ Component }) {
 ```
 
 Note that in React Native auth works with JWT tokens since cookie management [is not well supported](https://github.com/facebook/react-native/issues/23185).
-For this reason you can pass a `secureStorage` prop for us to store the JWT for you, if not, it will default to using [expo-secure-store](https://docs.expo.dev/versions/latest/sdk/securestore/)
+For this reason, you can pass a `secureStorage` prop for us to store the JWT for you, if not, it will default to using [expo-secure-store](https://docs.expo.dev/versions/latest/sdk/securestore/)
 
 ### Connect wallet & login button
 
@@ -53,7 +53,7 @@ Once connected to a wallet you can call `login` to authenticate.
 
 The `login` function returns the JWT token which you can use in subsequent requests to your backend.
 
-```tsx title="AppInner.tsx"
+```tsx
 import { ConnectWallet, useLogin } from "@thirdweb-dev/react-native";
 
 export default function AppInner() {
@@ -77,7 +77,7 @@ export default function AppInner() {
 
 For a more customized setup with custom UI or logic, we can instead use the wallet connection and Auth hooks provided by the `@thirdweb-dev/react-native` package.
 
-```tsx title="AppInner.tsx"
+```tsx
 import {
 	useAddress,
 	useMetamask,
@@ -129,9 +129,9 @@ export default function AppInner() {
 	return (
 		<>
 			{isLoggedIn ? (
-				<Text>Here's some content only visible to logged in users.</Text>
+				<Text>Here's some content only visible to logged-in users.</Text>
 			) : (
-				<Text>Here's some content only visible to logged out users.</Text>
+				<Text>Here's some content only visible to logged-out users.</Text>
 			)}
 		</>
 	);

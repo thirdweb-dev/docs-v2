@@ -13,7 +13,7 @@ import getStartedImage3 from "./../assets/getting-started-3.png";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Get started with thirdweb Auth",
+		title: "Get Started with thirdweb Auth",
 		icon: "wallets",
 	},
 	title: "Get started with Auth | thirdweb",
@@ -25,9 +25,9 @@ export const metadata = createMetadata({
 
 In this guide, we'll walk through the process of adding Auth to a simple full-stack application to enable wallet-based authentication.
 
-Specifically, we'll be integrating Auth with a [Next.js](https://nextjs.org) app, which has it's own build in API, as well as a [React](https://reactjs.org) frontend. With this setup we can add [Auth API](/connect/auth/how-it-works/api) endpoints to our app to handle authentication and authorization, and then we can build a simple frontend to login, display the user, and logout.
+Specifically, we'll be integrating Auth with a [Next.js](https://nextjs.org) app, which has its own built-in API, as well as a [React](https://reactjs.org) frontend. With this setup, we can add [Auth API](/connect/auth/how-it-works/api) endpoints to our app to handle authentication and authorization, and then we can build a simple frontend to login, display the user, and logout.
 
-If you want to see the follow along with the full code for this guide, we'll be using the following example repository:
+If you want to see the follow-along with the full code for this guide, we'll be using the following example repository:
 
 <OpenSourceCard
 	title="Auth + Next.js Example"
@@ -63,13 +63,13 @@ NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN=example.com # your domain here
 THIRDWEB_AUTH_PRIVATE_KEY=... # your private key here
 ```
 
-Now that we have the repository setup, we can continue to looking through and understanding the relevant code.
+Now that we have the repository set, we can continue to looking through and understand the relevant code.
 
 ## Backend
 
 Let's first take a look at the backend code for our app. If you look into the `pages/api` folder, you'll see two files: `pages/api/secret.ts` and `pages/api/auth/[...thirdweb].ts`.
 
-`pages/api/auth/[...thirdweb].ts` is where the core of our Auth API setup lives, so we can look at it first. In the example project, there's a bit of extra configuration you can explore later that shows you how to use some of the more advanced features of Auth, but for now let's just take a look at what the core configuration of this file looks like (note that this code snippet is simplified to exclude the advanced configuration):
+`pages/api/auth/[...thirdweb].ts` is where the core of our Auth API setup lives, so we can look at it first. In the example project, there's a bit of extra configuration you can explore later that shows you how to use some of the more advanced features of Auth, but for now, let's just take a look at what the core configuration of this file looks like (note that this code snippet is simplified to exclude the advanced configuration):
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
@@ -85,7 +85,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 export default ThirdwebAuthHandler();
 ```
 
-This file is a Next.js catch all route, which will catch any requests to `/api/auth/*` endpoints. The `ThirdwebAuth` function takes in configuration for your Auth API. It has many optional parameters that aren't used here (you can read more about them on the [Auth Next.js page](/connect/auth/server-frameworks/next)), but the two mandatory parameters are `domain` and `wallet`.
+This file is a Next.js catch-all route, which will catch any requests to `/api/auth/*` endpoints. The `ThirdwebAuth` function takes in configuration for your Auth API. It has many optional parameters that aren't used here (you can read more about them on the [Auth Next.js page](/connect/auth/server-frameworks/next)), but the two mandatory parameters are `domain` and `wallet`.
 
 `domain` is used to prevent phishing attacks on your users - you can learn more about it in the [how auth works section](/connect/auth/how-it-works/siwe), but the important thing is that this `domain` matches the `domain` we will later configure on the frontend.
 
@@ -204,7 +204,7 @@ Now that we've looked through all the relevant code, we can run our app and see 
 yarn dev
 ```
 
-If your run the app and navigate to `http://localhost:3000`, or wherever the app is running for you locally, you should see a simple connect wallet button. If you click on it an connect your MetaMask, you'll see a screen like this:
+If you run the app and navigate to `http://localhost:3000`, or wherever the app is running for you locally, you should see a simple connect wallet button. If you click on it an connect your MetaMask, you'll see a screen like this:
 
 <DocImage className="w-[550px]" src={getStartedImage1} />
 

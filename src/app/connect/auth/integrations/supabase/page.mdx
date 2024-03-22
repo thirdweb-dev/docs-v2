@@ -32,13 +32,13 @@ npx thirdweb create app --template thirdweb-auth-supabase
 
 Before starting with integration, you'll need to create a new Supabase project. You can do this by heading over to the [Supabase Dashboard](https://app.supabase.com), creating an account if you don't have one, and then clicking the button to create a new project.
 
-Next, we'll need to setup an authentication provider on Supabase for our users to login. These will be the accounts that we link our user's wallet addresses to. In this guide, we're going to use the Google Authentication provider, which you can learn to setup with the [Supabase Google Auth documentation](https://supabase.com/docs/guides/auth/social-login/auth-google) - but you're free to use any of the other [authentication providers](https://supabase.com/docs/guides/auth/overview#authentication) supported by Supabase.
+Next, we'll need to set up an authentication provider on Supabase for our users to login. These will be the accounts that we link our user's wallet addresses to. In this guide, we're going to use the Google Authentication provider, which you can learn to set with the [Supabase Google Auth documentation](https://supabase.com/docs/guides/auth/social-login/auth-google) - but you're free to use any of the other [authentication providers](https://supabase.com/docs/guides/auth/overview#authentication) supported by Supabase.
 
-Note that to setup Google Authentication, you'll need to create a new project with OAuth enabled on the [Google Cloud Console](https://console.cloud.google.com/), and then add the Google OAuth credentials to your Supabase project.
+Note that to set up Google Authentication, you'll need to create a new project with OAuth enabled on the [Google Cloud Console](https://console.cloud.google.com/), and then add the Google OAuth credentials to your Supabase project.
 
 ## Setup
 
-Once you've created your Supabase app and setup Google authentication, you'll be ready to start integrating Auth into your application.
+Once you've created your Supabase app and set up Google authentication, you'll be ready to start integrating Auth into your application.
 
 To begin with, let's create a new Next.js project with thirdweb configured:
 
@@ -54,9 +54,9 @@ npm install @thirdweb-dev/auth @supabase/supabase-js
 
 ### Configure Supabase
 
-Next, you'll need to configure your application to communicate with the Supabase project you setup.
+Next, you'll need to configure your application to communicate with the Supabase project you set up.
 
-To do this, create a `.env.local` file in the root of your project, and add the following environment variables, which you can find in the settings page of your Supabase project:
+To do this, create a `.env.local` file in the root of your project, and add the following environment variables, which you can find on the settings page of your Supabase project:
 
 ```bash title=".env.local"
 NEXT_PUBLIC_SUPABASE_URL=<supabase-url>
@@ -105,7 +105,7 @@ export default function MyApp({ Component, pageProps }) {
 
 ### Sign in users
 
-Now that we've setup the provider, we can setup the initial flow to allow users to sign in using Supabase authentication. In this case, we'll use the `supabase.auth.signInWithOAuth` function with the Google provider, since we configured that provider on the Supabase dashboard.
+Now that we've set up the provider, we can set up the initial flow to allow users to sign in using Supabase authentication. In this case, we'll use the `supabase.auth.signInWithOAuth` function with the Google provider, since we configured that provider on the Supabase dashboard.
 
 ```ts title="pages/index.tsx"
 import { createSupabaseClient } from "../lib/createSupabase";
@@ -129,9 +129,9 @@ export default function Home() {
 }
 ```
 
-### Getting the user data on the client-side
+### Getting the user data on the client side
 
-Once users login, we'll want a way to identify that they have actually successfully logged in. To do this, we'll use the `supabase.auth.getUser` and `supabase.auth.getSession` functions to keep track of the logged in user whenever the user's authentication state changes.
+Once users log in, we'll want a way to identify that they have actually successfully logged in. To do this, we'll use the `supabase.auth.getUser` and `supabase.auth.getSession` functions to keep track of the logged-in user whenever the user's authentication state changes.
 
 We can bundle this functionality into a convenient hook as follows:
 
@@ -175,7 +175,7 @@ export default function useSupabaseUser() {
 
 ### Create an API to link wallets to accounts
 
-After user's login, we want to create a way for them to associate their verified wallet address to their Supabase account. We can do this by creating a new API endpoint that verifies the client-side users wallet address, and then updates their account on Supabase.
+After the user's login, we want to create a way for them to associate their verified wallet address to their Supabase account. We can do this by creating a new API endpoint that verifies the client-side user's wallet address, and then updates their account on Supabase.
 
 We can accomplish this with the following code:
 
@@ -190,7 +190,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 	// Use the Supabase service role to access the database with full permissions
 	const supabase = createSupabaseServer();
 
-	// Get the user from our database using the client side access token
+	// Get the user from our database using the client-side access token
 	const {
 		data: { user },
 	} = await supabase.auth.getUser(access_token);
@@ -212,13 +212,13 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 };
 ```
 
-Here, we use the `verifyLogin` function to ensure that the user has sent a valid, signed login payload to the backend, which we can use to securely extract the wallet address of the client-side user. Once we do this, we can update the users database entry by getting the user id from the client-side `access_token`, and then using the `supabase.auth.admin.updateUserById` function to update the user's metadata with their wallet address.
+Here, we use the `verifyLogin` function to ensure that the user has sent a valid, signed login payload to the backend, which we can use to securely extract the wallet address of the client-side user. Once we do this, we can update the user database entry by getting the user id from the client-side `access_token`, and then using the `supabase.auth.admin.updateUserById` function to update the user's metadata with their wallet address.
 
 ### Linking wallet addresses to accounts
 
-Finally, with everything setup, we're ready to actual implement the client-side flow of prompting the user to sign a sign-in with wallet message, sending it to the backend, and then linking the users wallet address to their Supabase account.
+Finally, with everything set up, we're ready to actually implement the client-side flow of prompting the user to sign a sign-in with a wallet message, sending it to the backend, and then linking the user's wallet address to their Supabase account.
 
-Here, we use the `useAuth` hook to call the `thirdwebAuth.login` function and prompt the user to sign a login message. Then, we post this payload, along with the users current session access token to the `/api/link` endpoint we created to finish linking the user's wallet address.
+Here, we use the `useAuth` hook to call the `thirdwebAuth.login` function and prompt the user to sign a login message. Then, we post this payload, along with the user's current session access token to the `/api/link` endpoint we created to finish linking the user's wallet address.
 
 ```ts title="pages/index.tsx"
 import { useAddress, useMetaMask, useAuth } from "@thirdweb-dev/react";
@@ -269,6 +269,6 @@ export default function Home() {
 
 Importantly, we now have access to the user's address via the `user.user_metadata.address` field, which we can use to make queries or policies in our database!
 
-So with these steps, we've now setup our Supabase to allow users to sign in with Supabase authentication and then link their wallets to their accounts!
+So with these steps, we've now set up our Supabase to allow users to sign in with Supabase authentication and then link their wallets to their accounts!
 
 You can now unlock all the functionality of Supabase Auth and Supabase using wallets!

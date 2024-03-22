@@ -28,7 +28,7 @@ npm install @thirdweb-dev/auth ethers@5
 
 **Private Key Wallet**
 
-You can use an EVM private key (a 64 character hex-string) as your wallet by using the `PrivateKeyWallet` class from the `@thirdweb-dev/auth/evm` entrypoint.
+You can use an EVM private key (a 64-character hex-string) as your wallet by using the `PrivateKeyWallet` class from the `@thirdweb-dev/auth/evm` entrypoint.
 
 <Callout variant='warning'>
 
@@ -97,7 +97,7 @@ const wallet = new AwsSecretsManagerWallet({
 
 If none of the above methods are suitable for your project, you can also create your own custom wallet class by implementing the `GenericAuthWallet` interface from the `@thirdweb-dev/wallets` package for a completely custom setup.
 
-Auth only requires the following simple wallet interface to facilitate signing and verification of JWTs:
+Auth only requires the following simple wallet interface to facilitate the signing and verification of JWTs:
 
 ```typescript
 interface GenericAuthWallet {
@@ -116,7 +116,7 @@ interface GenericAuthWallet {
 }
 ```
 
-You can see how this interface is chain agnostic, and can be used across different blockchain ecosystems.
+You can see how this interface is chain agnostic and can be used across different blockchain ecosystems.
 
 For example, here is a minimal implementation of the basic `SignerWallet` class from the `@thirdweb-dev/auth/evm` entry point, which follows the `GenericAuthWallet` interface:
 

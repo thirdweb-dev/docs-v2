@@ -53,7 +53,7 @@ You can use an existing ethers.js v5 Signer with the thirdweb SDK by converting 
 ```ts
 import { ethers5Adapter } from "thirdweb/adapters/ethers5";
 
-// convert a ethers signer
+// convert an ethers signer
 const ethersSigner: ethers.Signer = ...;
 const account = await ethers5Adapter.signer.fromEthers(ethersSigner);
 

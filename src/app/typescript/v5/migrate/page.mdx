@@ -1,10 +1,10 @@
 # Migration from SDK v4
 
-### High level changes
+### High-level changes
 
 - All imports from `@thirdweb-dev/*` should be replaced with `thirdweb` SDK with sub-exports.
 - The new SDK is `function` based rather than `class` based for better tree shaking and performance.
-- All contract call are now prepared using `prepareContractCall` and sent using the `sendTransaction` function.
+- All contract calls are now prepared using `prepareContractCall` and sent using the `sendTransaction` function.
 - Transactions are submitted without waiting for receipt by default. You can call the `waitForReceipt` function to wait for the transaction to be mined.
 
 ### Progressive migration
@@ -51,7 +51,7 @@ const onClick = async () => {
 };
 ```
 
-### TypeScript Cheat sheet
+### TypeScript Cheatsheet
 
 | Task       | `@thirdweb-dev/sdk`                                      | `thirdweb`                                          |
 | ---------- | -------------------------------------------------------- | --------------------------------------------------- |
@@ -64,7 +64,7 @@ const onClick = async () => {
 | Send       | `await contract.call(...)`                               | `await sendTransaction(...)`                        |
 | Extensions | `await contract.erc721.getAll()`                         | `await getNFTs(...)`                                |
 
-### React Cheat sheet
+### React Cheatsheet
 
 | Task       | `@thirdweb-dev/react`                                 | `thirdweb`                                          |
 | ---------- | ----------------------------------------------------- | --------------------------------------------------- |

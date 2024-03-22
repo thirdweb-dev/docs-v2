@@ -7,17 +7,17 @@ export const metadata = createMetadata({
 	},
 	title: "Bundler & Paymaster Infrastructure | thirdweb",
 	description:
-		"The thirdweb SDK handles all the heavy lifting of bundling operations and covering gas fees with a turn key infrastructure. The thirdweb paymaster and bundler services are stand alone and can be used with any smart account contract without using the thirdweb SDKs",
+		"The thirdweb SDK handles all the heavy lifting of bundling operations and covering gas fees with a turn-key infrastructure. The thirdweb paymaster and bundler services are stand-alone and can be used with any smart account contract without using the thirdweb SDKs",
 });
 
 # Bundler & Paymaster Infrastructure
 
-The thirdweb SDK handles all the heavy lifting of bundling operations and covering gas fees with a turn key infrastructure.
+The thirdweb SDK handles all the heavy lifting of bundling operations and covering gas fees with a turn-key infrastructure.
 The thirdweb paymaster and bundler services are **stand alone** and can be used with any smart account contract without using the thirdweb SDKs.
 
 On testnets, the only requirement is to obtain a free client id to get started.
 Once you're ready to deploy on mainnets, you will require an active [billing account](https://thirdweb.com/dashboard/settings).
-You can configure your client id to restrict interactions only with your own contracts or with any contract.
+You can configure your client ID to restrict interactions only with your own contracts or with any contract.
 
 ### Supported chains
 
@@ -66,7 +66,7 @@ class MyPaymaster extends PaymasterAPI {
   async getPaymasterAndData(
     userOp: Partial<UserOperationStruct>,
   ): Promise<string> {
-    // your implementation, must return the signed paymaster data
+    // Your implementation, must return the signed paymaster data
   }
 }
 
@@ -82,7 +82,7 @@ const config: SmartWalletConfig = {
 
 ## Pricing & Billing
 
-To use thirdweb's account abstraction infrastructure, you need to setup a billing account on the thirdweb dashboard Settings page.
+To use thirdweb's account abstraction infrastructure, you need to set up a billing account on the thirdweb dashboard Settings page.
 
 **Pricing**:
 

@@ -13,9 +13,9 @@ export const metadata = createMetadata({
 
 # JSON Web Tokens
 
-We've now seen how the user can login to the server with a sign-in with wallet request, and how the server can verify the identity of the user by using that request. But if we were to stop here, the user would have to sign a new sign-in with wallet message every time they wanted to make a request to the server, which would be very inconvenient.
+We've now seen how the user can login to the server with a sign-in with wallet request, and how the server can verify the identity of the user by using that request. But if we were to stop here, the user would have to sign a new sign-in with a wallet message every time they wanted to make a request to the server, which would be very inconvenient.
 
-To solve this problem, we need a way to remember that the user is authenticated after they sign-in once, so that they don't need sign-in on every request. As mentioned in an earlier section, this is exactly what JSON Web Tokens (JWTs) are used for.
+To solve this problem, we need a way to remember that the user is authenticated after they sign in once, so that they don't need sign-in on every request. As mentioned in an earlier section, this is exactly what JSON Web Tokens (JWTs) are used for.
 
 ## How do JWTs work?
 
@@ -51,7 +51,7 @@ The payload is the most important part of the JWT, as it contains the data that 
 	"iss": "0x...", // Address of the admin wallet generating the payload
 	"sub": "0x...", // Address of the user wallet logging in
 	"aud": "example.com", // Domain that the payload was intended for
-	"iat": 1653884584, // Unix time (epoch seconds) when payload was issued
+	"iat": 1653884584, // Unix time (epoch seconds) when the payload was issued
 	"exp": 1653884613, // Unix time (epoch seconds) when payload expires
 	"nbf": 1653884584, // Time before which payload is invalid, should default to iat
 	"jti": "82da3d83-9b7b-4cdd-a890-f4d9b25415be" // uuidv4
@@ -62,7 +62,7 @@ This payload makes use of [standard JWT claims](https://www.iana.org/assignments
 
 ### Signature
 
-Finally, when creating a JWT, the server must sign the token with the admin wallet private key. As we covered earlier, this signature is used to verify that the token was indeed created by the server, and that the token hasn't been tampered with.
+Finally, when creating a JWT, the server must sign the token with the admin wallet private key. As we covered earlier, this signature is used to verify that the token was indeed created by the server and that the token hasn't been tampered with.
 
 Having completed this signature, we can create a full JWT with the following process:
 
@@ -80,4 +80,4 @@ You can verify that this is a valid JWT fully compatible with JWT standards by p
 
 <DocImage src={jsonWebTokensImage} />
 
-As you can see, the correct header and body data is picked up from our JWT and rendered on the right side of the screen!
+As you can see, the correct header and body data are picked up from our JWT and rendered on the right side of the screen!

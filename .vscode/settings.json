@@ -1,3 +1,10 @@
 {
-	"cSpell.words": ["clsx"]
+	"cSpell.words": ["clsx"],
+	"grammarly.selectors": [
+		{
+			"language": "mdx"
+		}
+	],
+	"grammarly.config.documentDialect": "american",
+	"grammarly.config.documentDomain": "casual"
 }

@@ -24,11 +24,11 @@ export const metadata = createMetadata({
 
 Component that renders any asset stored on IPFS (or anywhere else), given the IPFS URI / URL.
 
-If an IPFS url is given, the asset is fetched from IPFS through the thirdweb IPFS gateway by default. You can also specify a custom gateway URL using the gatewayUrl prop.
+If an IPFS URL is given, the asset is fetched from IPFS through the thirdweb IPFS gateway by default. You can also specify a custom gateway URL using the gatewayUrl prop.
 
 The mime type of the asset is determined and the appropriate component is rendered on the UI.
 
-For example, if the URI points to an image, the img tag will be used. If it is a video, the video tag will be used, etc. The component currently supports:
+For example, if the URI points to an image, the `<img>` tag will be used. If it is a video, the `<video>` tag will be used, etc. The component currently supports:
 
 - Images
 - Videos

@@ -22,11 +22,11 @@ export const metadata = createMetadata({
 
 # Configuration
 
-We offer two options to setup embedded wallets with custom auth, one that is based on the [OIDC (Open ID Connect)](https://openid.net/developers/how-connect-works/) standard, and a generic option that lets you bring your own auth server. You can also use both options together if needed.
+We offer two options to set up embedded wallets with custom auth, one that is based on the [OIDC (Open ID Connect)](https://openid.net/developers/how-connect-works/) standard, and a generic option that lets you bring your own auth server. You can also use both options together if needed.
 
 ## OIDC compatible auth
 
-The OIDC auth sset-up is a good option if you use an external auth provider like `Auth0`, `firebase`, `cognito` etc. that publishes the JWK for checking the authenticity of the token.
+The OIDC auth set-up is a good option if you use an external auth provider like `Auth0`, `firebase`, `cognito` etc. that publishes the JWK for checking the authenticity of the token.
 
 An OIDC auth system has a public-private keypair, where the private key is used to sign auth tokens.
 
@@ -44,7 +44,7 @@ You will be asked to enter the following values
 - The URL of the JWKS file (public key): This is used to verify the token was signed by you.
 - The `aud` value of the idToken: This is used to verify that thirdweb is the intended user of the token
 
-### Authenticating a user via OIDC compatible auth
+### Authenticating a user via OIDC-compatible auth
 
 <Tabs defaultValue="react">
 <TabsList>
@@ -97,17 +97,17 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 </TabsContent>
 </Tabs>
 
-You can set your encryptionKey in either a secret env variable or ask the user to enter a password for it.
+You can set your `encryptionKey` in either a secret env variable or ask the user to enter a password for it.
 
-** Do not hardcode the encryptionKey in your code. **
+** Do not hardcode the `encryptionKey` in your code. **
 
 ## Generic auth
 
-Generic auth is a lower level option that can be used when you have your own auth server that you use to authenticate users.
+Generic auth is a lower-level option that can be used when you have your own auth server that you use to authenticate users.
 
-Generic auth is good for supporting other auth method that we don't support today, like discord, twitter, github etc., or something completely custom.
+Generic auth is good for supporting other auth methods that we don't support today, like Discord, Twitter, Github etc., or something completely custom.
 
-High level flow and requirement for generic auth via endpoint:
+High-level flow and requirement for generic auth via endpoint:
 
 - When a user logs in, you are able to generate a public identifier that allows you to identify the user.
 - You can pass this identifier to the embedded wallet to generate a wallet for the user.
@@ -130,7 +130,7 @@ The endpoint should return a JSON body containing the following fields:
 - `email` (optional): If provided, the user will be able to access the same account outside of the platform for things like private key export // using with wallet connect etc.
   - Note: If two different `userId` values are provided with the same email, both `userId` values will be able to access the same wallet.
   - Conversely, if the same `userId` is provided with two different emails across different login sessions, the `userId` will have two wallets associated with it. Each wallet will be tied to one of the emails.
-- `exp` (optional): An expiration date for the user's wallet session. By default a session is 7 days long.
+- `exp` (optional): An expiration date for the user's wallet session. By default, a session is 7 days long.
 
 You can also pass a list of headers. These headers will be sent with every request to your verification endpoint. You can use these to authenticate the request.
 
@@ -191,6 +191,6 @@ const walletAddress = await embeddedWallet.connect({ authResult });
 </TabsContent>
 </Tabs>
 
-You can set your encryptionKey in either a secret env variable or ask the user to enter a password for it.
+You can set your `encryptionKey` in either a secret env variable or ask the user to enter a password for it.
 
-** Do not hardcode the encryptionKey in your code. **
+** Do not hardcode the `encryptionKey` in your code. **

@@ -34,13 +34,13 @@ See also: [Account (ethereum.org)](https://ethereum.org/en/glossary/#account)
 
 - A wallet "contains" one or more accounts.
 - A wallet can be "connected" (often prompting the user for approval) or "disconnected".
-- A wallet cannot idependently sign messages, transactions, or typed data, instead it delegates this to the account(s) it "contains".
+- A wallet cannot independently sign messages, transactions, or typed data, instead, it delegates this to the account(s) it "contains".
 
 ## Example: Connect a wallet and access an account to send a transaction.
 
 ```ts
 import { sendTransaction } from "thirdweb";
-// metamask wallet as an example, the pattern is the same for all wallets
+// We use MetaMask wallet as an example, the pattern is the same for all wallets
 import { metamaskWallet } from "thirdweb/wallets/metamask";
 
 // initialize the wallet
@@ -53,7 +53,7 @@ const account = await wallet.connect();
 const txHash = await sendTransaction({
 	// assuming you have called `prepareTransaction()` or `prepareContractCall()` before which returns the prepared transaction to send
 	transaction,
-	// pass the account to sign the transaction with
+	// Pass the account to sign the transaction with
 	account,
 });
 ```
