@@ -2,21 +2,21 @@ import { Callout } from "@doc";
 
 # Preparing Transactions
 
-All transactions sent with the sdk need to be prepared first. Preparing a transaction is synchronous, lightweight and does not require any network requests. It also gives you type safe definitions for your contract calls.
+All transactions sent with the SDK need to be prepared first. Preparing a transaction is synchronous, lightweight and does not require any network requests. It also gives you type-safe definitions for your contract calls.
 
 ## Preparing a contract call
 
-The recommended way to prepare a contract call is to pass the Solidity method signature and the params. This is type safe based on the Solidity method signature you define. You can get your desired contract method signature from the solidity code directly.
+The recommended way to prepare a contract call is to pass the Solidity method signature and the params. This is type-safe based on the Solidity method signature you define. You can get your desired contract method signature from the solidity code directly.
 
 ```ts
 import { prepareContractCall, toWei } from "thirdweb";
 
 const tx = prepareContractCall({
 	contract,
-	// pass the method signature that you want to call
+	// Pass the method signature that you want to call
 	method: "function mintTo(address to, uint256 amount)",
 	// and the params for that method
-	// their types are automatically inferred based on the method signature
+	// Their types are automatically inferred based on the method signature
 	params: ["0x123...", toWei("100")],
 });
 ```
@@ -31,9 +31,9 @@ You can also create a raw transaction directly. This is useful when you want to 
 import { prepareTransaction, toWei } from "thirdweb";
 
 const transaction = prepareTransaction({
-	// the account that will be the receiver
+	// The account that will be the receiver
 	to: "0x456...",
-	// the value is the amount of ether you want to send with the transaction
+	// The value is the amount of ether you want to send with the transaction
 	value: toWei("1"),
 });
 ```
@@ -62,7 +62,7 @@ import { getContract, prepareContractCall, toWei } from "thirdweb";
 const contract = getContract({
   client,
 	chainId,
-  // the abi for the contract is defined here
+  // The ABI for the contract is defined here
   abi: [
     ...
     {
@@ -85,7 +85,7 @@ const contract = getContract({
 
 const tx = prepareContractCall({
   contract,
-  // we get auto-completion for all the available functions on the contract ABI
+  // We get auto-completion for all the available functions on the contract ABI
   method: "mintTo",
   // including full type-safety for the params
   params: ["0x123...", toWei("100")],
@@ -138,7 +138,7 @@ const tx = prepareContractCall({
 
 <Callout title="Please note" variant="info">
 
-This method is convenient, however it is also:
+This method is convenient, however, it is also:
 
 - less performant at runtime (it has to resolve the ABI of the contract and then match the method name you provide)
 - not type-safe (you lose type safety for your params)

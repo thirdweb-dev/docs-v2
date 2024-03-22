@@ -42,7 +42,7 @@ const transaction = mintTo({
     },
 });
 
-// send the transaction
+// Send the transaction
 const transactionResult = await sendTransaction({
   transaction,
   wallet,
@@ -60,14 +60,14 @@ import { transfer } from "thirdweb/extensions/erc20";
 // get the contract
 const contract = getContract({...});
 
-// call the extension function to prepare the transaction
+// Call the extension function to prepare the transaction
 const transaction = transfer({
   contract,
   to: "0x1234...",
   amount: "0.01",
 });
 
-// send the transaction
+// Send the transaction
 const transactionResult = await sendTransaction({
   transaction,
   wallet,
