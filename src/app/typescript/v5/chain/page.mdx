@@ -7,7 +7,7 @@ All you need to connect a chain is its chain id. RPC connection to the chain is 
 ```ts
 import { defineChain } from "thirdweb";
 
-const myChain = defineChain(myChainId);
+const myChain = defineChain({ id: myChainId });
 ```
 
 The SDK comes with predefined [popular chains](/references/typescript/v5/variables) like `base`, `polygon`, and more exported from the `thirdweb/chains` entrypoint.
