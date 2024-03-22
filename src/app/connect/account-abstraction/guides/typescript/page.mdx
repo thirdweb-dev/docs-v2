@@ -90,7 +90,7 @@ Open the `index.ts` file and delete the starter script, we won't need it.
 This smart account is unlocked by a 'key' - a personal wallet.
 This key can be anything from a [MetaMask wallet](/references/wallets/latest/MetaMaskWallet) or even a [Local Wallet](/references/wallets/latest/LocalWallet) and is used as a way to 'sign in' to the wallet.
 
-First install the wallets package if you haven't already:
+First, install the wallets package if you haven't already:
 
 ```bash
 yarn add @thirdweb-dev/wallets
@@ -101,8 +101,8 @@ To create a personal wallet key, we are going to use the [Local Wallet](/referen
 ```typescript
 import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-node";
 
-// Load or create personal wallet
-// here we generate LocalWallet that will be stored in wallet.json
+// Load or create a personal wallet
+// Here we generate LocalWallet that will be stored in wallet.json
 const personalWallet = new LocalWalletNode();
 await personalWallet.loadOrCreate({
 	strategy: "encryptedJson",
@@ -123,7 +123,7 @@ To do this, we need to pass a `SmartWalletConfig` object to the constructor. Thi
 - `secretKey`: the secret key that we created earlier.
 - `gasless`: whether the smart account should have sponsored transactions or not.
 
-Once we have created the config and instantiating the `SmartWallet` class, we can connect the personal wallet to the smart account using the `connect` method.
+Once we have created the config and instantiated the `SmartWallet` class, we can connect the personal wallet to the smart account using the `connect` method.
 
 ```typescript
 // Configure the smart wallet
