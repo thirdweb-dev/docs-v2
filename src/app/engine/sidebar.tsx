@@ -63,10 +63,6 @@ export const sidebar: SideBar = {
 			links: [
 				{ name: "Airdrop NFTs", href: `${engineSlug}/guides/airdrop-nfts` },
 				{ name: "NFT Checkout", href: `${engineSlug}/guides/nft-checkout` },
-				{
-					name: "Account Abstraction - Smart accounts & Session Keys",
-					href: `${engineSlug}/guides/account-abstraction`,
-				},
 			],
 		},
 		{
