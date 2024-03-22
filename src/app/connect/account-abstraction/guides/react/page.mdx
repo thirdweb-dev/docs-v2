@@ -7,7 +7,7 @@ export const metadata = createMetadata({
 		title: "Using Account Abstraction in React",
 		icon: "react",
 	},
-	title: "Using Account Abstractionin React | thirdweb",
+	title: "Using Account Abstraction React | thirdweb",
 	description:
 		"By using the wallet SDK alongside the React SDK, you can use smart accounts in your front-end applications easily.",
 });
@@ -50,7 +50,7 @@ To create an API Key:
 - Click on **Create API Key**:
 - Follow the steps to create your API key.
 
-To use account abstraction nfrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
+To use account abstraction infrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
 
 </Step>
 
@@ -126,7 +126,7 @@ function App() {
 
 Clicking on the connect button will show the following Modal which allows you to create or import a local wallet.
 
-This is the personal wallet you are using to initialize the smart account. For local wallet, you can create a new wallet with a password or import a previously created wallet.
+This is the personal wallet you are using to initialize the smart account. For a local wallet, you can create a new wallet with a password or import a previously created wallet.
 
 After connecting your personal wallet, a smart account is created for you and connected to the application.
 
@@ -138,8 +138,8 @@ The [useSmartWallet](/references/react/v4/useSmartWallet) hook allows you to pro
 import { useSmartWallet, metamaskWallet } from "@thirdweb-dev/react";
 
 function Example() {
-	// here we're using metamask as the personal wallet
-	// can be any other wallet, including localWallet(), embeddedWallet(), etc
+	// Here we're using MetaMask as the personal wallet
+	// but it can be any other wallet, including localWallet(), embeddedWallet(), etc
 	const { connect } = useSmartWallet(metamaskWallet(), {
 		factoryAddress: "your-factory-address",
 		gasless: true,
@@ -175,13 +175,13 @@ To claim an NFT, we will use the [useContract](/references/react/v4/useContract)
 ```tsx
 import { useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react";
 
-// The ThirdwebProvider setup above already handles connection to the smart wallet
+// The ThirdwebProvider setup above already handles the connection to the smart wallet
 // Within the provider, you can use the react SDK hooks to interact with the blockchain
 export default function MyComponent() {
   // Get the connected smart wallet address
   const smartWalletAddress = useAddress();
   // Fetch owned NFTs
-  const { contract } = useContract("0x..."); // your nft drop contract
+  const { contract } = useContract("0x..."); // your NFT drop contract
   const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
   // Mint a new NFT
   return (
