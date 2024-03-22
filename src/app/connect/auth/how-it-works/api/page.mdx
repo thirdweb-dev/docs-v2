@@ -17,7 +17,7 @@ export const metadata = createMetadata({
 
 # Auth API
 
-So now that we understand the high-level of how Auth works and the specifics of the building blocks that make it possible, let's put all of that information together to understand the specific of how the Auth API works. Note that although we're going to explain the basics of all the API endpoints underlying Auth, you won't need to understand how this all works in order to use Auth in your applications, as all of this is handled for you under the hood.
+So now that we understand the high level of how Auth works and the specifics of the building blocks that make it possible, let's put all of that information together to understand the specifics of how the Auth API works. Note that although we're going to explain the basics of all the API endpoints underlying Auth, you won't need to understand how this all works in order to use Auth in your applications, as all of this is handled for you under the hood.
 
 The Auth API is a set of REST endpoints that all server-side plugins of the Auth SDK implement. They enable wallet-based authentication and authorization for any API that they are added to. There are four key endpoints that the Auth API provides:
 
@@ -40,7 +40,7 @@ The reason we generate this message server-side rather than generating it on the
 
 <DocImage src={authAPIImage1} />
 
-The `/login` endpoint is the next part of the Auth flow. It's a `POST` endpoint that expects to receive the sign-in with wallet `payload` from the client. The main purpose of this endpoint is to check that the user has made a valid sign-in with wallet request, and to issue them a signed JWT if they have for them to authenticate to other endpoints.
+The `/login` endpoint is the next part of the Auth flow. It's a `POST` endpoint that expects to receive the sign-in with wallet `payload` from the client. The main purpose of this endpoint is to check that the user has made a valid sign-in with wallet request and to issue them a signed JWT if they have for them to authenticate to other endpoints.
 
 The `/login` endpoint goes through the following high-level steps to accomplish this:
 
@@ -65,13 +65,13 @@ It can accomplish this by going through the following high-level steps:
 
 <DocImage src={authAPIImage3} />
 
-The `/logout` endpoint is the simplest of all of them. It's goal is simply to invalidate the users JWT and log them out of the application. It accomplishes this by deleting any client-side cookies with the JWT, and optionally invalidating the JWT if a database setup is used.
+The `/logout` endpoint is the simplest of all of them. It's goal is simply to invalidate the user's JWT and log them out of the application. It accomplishes this by deleting any client-side cookies with the JWT, and optionally invalidating the JWT if a database setup is used.
 
 ## Protected Endpoints
 
 <DocImage src={authAPIImage4} />
 
-Now that we've gone over the core flow of Auth, we can take a look at how Auth can be used to protect additional endpoints, which is one of it's most important functions, as this comprises its **authorization** function.
+Now that we've gone over the core flow of Auth, we can take a look at how Auth can be used to protect additional endpoints, which is one of its most important functions, as this comprises its **authorization** function.
 
 Authorizing the user on an endpoint involves the following simple process:
 
@@ -82,10 +82,10 @@ In every Auth plugin, this is handled by a simple helper function that you can a
 
 ## Switching Accounts
 
-There's one additional endpoint which we didn't cover above in the core flow of Auth - that's the `POST - /switch-account` endpoint.
+There's one additional endpoint that we didn't cover above in the core flow of Auth - that's the `POST - /switch-account` endpoint.
 
-The purpose of this endpoint is to support the more advanced flow of enabling multiple accounts to be logged in with Auth at one time, and to enable the client-side user to switch which account they want to actively perform actions with (similar to a typical OAuth flow where you can swap between multiple logged-in accounts).
+The purpose of this endpoint is to support the more advanced flow of enabling multiple accounts to be logged in with Auth at one time and to enable the client-side user to switch which account they want to actively perform actions with (similar to a typical OAuth flow where you can swap between multiple logged-in accounts).
 
-The way Auth maintains multiplied logged in accounts at once is by storing the JWT for each logged in wallet in a separate cookie on the browser. In order to determine which of these cookies should be used with each request, the Auth API sends an additionally cookie that stores the "active account" that the user wants to perform actions with. Then, when the user wants to switch accounts, they can make a request to this `/switch-account` endpoint to update the active account cookie.
+The way Auth maintains multiple logged-in accounts at once is by storing the JWT for each logged-in wallet in a separate cookie on the browser. In order to determine which of these cookies should be used with each request, the Auth API sends an additional cookie that stores the "active account" that the user wants to perform actions. Then, when the user wants to switch accounts, they can make a request to this `/switch-account` endpoint to update the active account cookie.
 
-If you're using the thirdweb React SDK on the client-side, switching accounts is automatically handled for you when user's switch between logged in wallets.
+If you're using the thirdweb React SDK on the client side, switching accounts is automatically handled for you when users switch between logged-in wallets.
