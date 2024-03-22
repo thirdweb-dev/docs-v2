@@ -15,7 +15,6 @@ import { Input } from "../ui/input";
 import {
 	Search as SearchIcon,
 	FileText as FileTextIcon,
-	AlignLeft as SectionIcon,
 	Command as CommandIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -27,7 +26,7 @@ import { usePathname } from "next/navigation";
 
 const suggestedLinks: { title: string; href: string }[] = [
 	{
-		title: "thirdweb SDK",
+		title: "TypeScript SDK",
 		href: "/typescript/v5",
 	},
 	{
@@ -55,6 +54,7 @@ type Tag =
 	| "TypeScript"
 	| "Wallet SDK"
 	| "Connect"
+	| "Reference"
 	| "Python"
 	| "Contracts"
 	| "Go"
@@ -63,7 +63,6 @@ type Tag =
 	| "Solidity"
 	| "Payments"
 	| "Glossary"
-	| "Connect SDK"
 	| "Engine";
 
 function SearchModalContent(props: { closeModal: () => void }) {
@@ -120,9 +119,11 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			}
 
 			results.forEach((r) => {
-				const tag = getTagFromHref(r.pageHref);
-				if (tag) {
-					tagsSet.add(tag);
+				const tags = getTagsFromHref(r.pageHref);
+				if (tags) {
+					tags.forEach((tag) => {
+						tagsSet.add(tag);
+					});
 				}
 			});
 
@@ -235,11 +236,16 @@ function SearchModalContent(props: { closeModal: () => void }) {
 							ref={scrollableElement}
 						>
 							{data.map((result, i) => {
-								const tag = getTagFromHref(result.pageHref);
-								if (!selectedTags["All"] && tag && selectedTags[tag] !== true)
+								const tags = getTagsFromHref(result.pageHref);
+
+								if (
+									!selectedTags["All"] &&
+									tags &&
+									!tags.find((t) => selectedTags[t] === true)
+								)
 									return null;
 
-								if (!tag && !selectedTags["All"]) {
+								if (!tags && !selectedTags["All"]) {
 									return null;
 								}
 
@@ -253,7 +259,7 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											type="page"
 											href={result.pageHref}
 											title={result.pageTitle}
-											tag={tag}
+											tags={tags}
 											onClick={handleLinkClick}
 										/>
 
@@ -425,33 +431,48 @@ function isOldSDK(href: string) {
 	);
 }
 
-function getTagFromHref(href: string): Tag | undefined {
+function getTagsFromHref(href: string): Tag[] | undefined {
 	if (href.includes("/react-native/v0")) {
-		return "React Native";
+		if (href.includes("/references")) {
+			return ["Reference", "React Native"];
+		}
+		return ["React Native"];
 	} else if (href.includes("/react/v4")) {
-		return "React";
+		if (href.includes("/references")) {
+			return ["Reference", "React"];
+		}
+		return ["React"];
 	} else if (href.includes("/typescript/v4")) {
-		return "TypeScript";
+		if (href.includes("/references")) {
+			return ["Reference", "TypeScript"];
+		}
+		return ["TypeScript"];
 	} else if (href.includes("/wallet-sdk/v2")) {
-		return "Wallet SDK";
+		if (href.includes("/references")) {
+			return ["Reference", "Wallet SDK"];
+		}
+		return ["Wallet SDK"];
 	} else if (href.includes("/unity")) {
-		return "Unity";
+		return ["Unity"];
 	} else if (href.includes("/typescript/v5")) {
-		return "Connect SDK";
+		if (href.includes("/references")) {
+			return ["Reference", "TypeScript"];
+		}
+		return ["TypeScript"];
 	} else if (href.includes("/connect")) {
-		return "Connect";
+		return ["Connect"];
 	} else if (href.includes("/engine")) {
-		return "Engine";
+		return ["Engine"];
 	} else if (href.includes("/infrastructure")) {
-		return "Infra";
+		return ["Infra"];
 	} else if (href.includes("/solidity")) {
-		return "Solidity";
+		return ["Solidity"];
 	} else if (href.includes("/contracts")) {
-		return "Contracts";
+		return ["Contracts"];
 	} else if (href.includes("/payments")) {
-		return "Payments";
+		return ["Payments"];
 	} else if (href.includes("/glossary")) {
-		return "Glossary";
+		return ["Glossary"];
 	}
 }
 
@@ -459,7 +480,7 @@ function SearchResultItem(props: {
 	href: string;
 	title: string;
 	content?: string;
-	tag?: string;
+	tags?: Tag[];
 	type: "page" | "section";
 	onClick?: () => void;
 }) {
@@ -469,10 +490,6 @@ function SearchResultItem(props: {
 			href={props.href}
 			onClick={props.onClick}
 		>
-			{props.type === "section" && (
-				<SectionIcon className="mt-1 size-5 text-f-300" />
-			)}
-
 			<div className="flex w-full flex-col gap-1">
 				{props.title && (
 					<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
@@ -489,21 +506,25 @@ function SearchResultItem(props: {
 							{props.title}
 						</div>
 
-						{props.tag && (
-							<span
-								key={props.tag}
-								className={cn(
-									"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
-								)}
-							>
-								{props.tag}
-							</span>
+						{props.tags && (
+							<div className="flex gap-2">
+								{props.tags.map((tag) => {
+									return (
+										<span
+											key={tag}
+											className={cn(
+												"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
+											)}
+										>
+											{tag}
+										</span>
+									);
+								})}
+							</div>
 						)}
 					</div>
 				)}
-				{props.content && (
-					<div className="break-all text-sm">{props.content}</div>
-				)}
+				{props.content && <div className="text-sm">{props.content}</div>}
 			</div>
 		</Link>
 	);

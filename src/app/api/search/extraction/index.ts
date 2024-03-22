@@ -9,6 +9,7 @@ import {
 } from "node-html-parser";
 import { PageData, PageSectionData } from "../types";
 import { trimExtraSpace } from "./trimExtraSpace";
+import { ignoreHeadings } from "./settings";
 
 export async function extractSearchData(rootDir: string): Promise<PageData[]> {
 	const nextOutputDir = `${rootDir}/.next/server/app`;
@@ -95,7 +96,15 @@ function getPageSections(main: X_HTMLElement): PageSectionData[] {
 			}
 
 			// headings -> start new section
-			if (node.tagName.startsWith("H") && node.tagName !== "H1") {
+			if (node.tagName.startsWith("H")) {
+				if (node.tagName === "H1") {
+					return;
+				}
+
+				if (ignoreHeadings.has(node.text.toLowerCase())) {
+					return;
+				}
+
 				sectionData.push({
 					title: node.text,
 					href: node.parentNode.querySelector("a")?.getAttribute("href") || "",
