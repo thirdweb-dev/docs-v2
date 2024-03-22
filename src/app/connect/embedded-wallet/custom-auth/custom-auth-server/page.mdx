@@ -51,12 +51,12 @@ This guide will show you how to create your own Auth Server that is compatible w
 	use for this project. [Learn more about API
 	keys.](/api-keys)
 
-    <DocImage src={EWCreateKey} />
+<DocImage src={EWCreateKey} />
 
 </Step>
 
 <Step title="Step 3">
-	Allowlist domain or bundle ids in Access Restrictions.
+	Allowlist domain or bundle IDs in Access Restrictions.
 </Step>
 
 <Step title="Step 4">
@@ -104,7 +104,7 @@ const embeddedWallet = useEmbeddedWallet();
 const handlePostLogin = async () => {
 	await embeddedWallet.connect({
 		strategy: "auth_endpoint",
-		// in production this would be your public identifier for the user
+		// In production this would be your public identifier for the user
 		payload: JSON.stringify({ userId: "ANY_RANDOM_ID_HERE" }),
 		encryptionKey: "your-encryption-key",
 	});
@@ -158,7 +158,7 @@ At a high level, the auth server will:
 
 Steps 1 and 2 are up to you to implement. You can use any auth strategy you want.
 
-The endpoint in step 3 is what your register as your auth endpoint on the thirdweb dashboard.
+The endpoint in step 3 is what you register as your auth endpoint on the thirdweb dashboard.
 
 Here's a high-level diagram:
 
@@ -171,10 +171,8 @@ Here's a high-level diagram:
 Create a new directory for your project and navigate to it in your CLI
 
 ```bash
-
 mkdir custom-auth-server
 cd custom-auth-server
-
 ```
 
 </Step>
@@ -212,7 +210,7 @@ const users = [{ id: 1, email: "user@example.com", password: "password123" }];
 
 app.use(express.json());
 
-// This is what your app calls to login a user and get a public identifier for the user (otherwise known as the payload)
+// This is what your app calls to log in a user and get a public identifier for the user (otherwise known as the payload)
 app.post("/login", (req, res) => {
 	const { email, password } = req.body;
 	const user = users.find((u) => u.email === email && u.password === password);
@@ -220,19 +218,20 @@ app.post("/login", (req, res) => {
 
 	res.send({ payload: user.id });
 });
-// This is a sample endpoint that yuou would register on the thirdweb dashboard for us to verify the payload
+
+// This is a sample endpoint that you would register on the thirdweb dashboard for us to verify the payload
 app.post("/thirdweb-will-call-this", (req, res) => {
 	const { payload } = req.body;
 	if (!payload) return res.status(401).send({ message: "Invalid credentials" });
 
-	// you would write your own logic here to verify the payload here
+	// You would write your own logic here to verify the payload here
 	const user = users.find((u) => u.id === payload);
 	if (!user) return res.status(401).send({ message: "Invalid credentials" });
 
-	// once the user is successfully verified, you can return the following field
+	// Once the user is successfully verified, you can return the following field
 	return res.send({
 		userId: user.id,
-		// the last two fields here are optional
+		// The last two fields here are optional
 		email: user.email,
 		exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 30,
 	});
@@ -259,8 +258,8 @@ app.listen(PORT, () => {
 
 ### **Deploy**
 
-To deploy the server, you can use use services such as [Zeet](https://zeet.co/) or [Docker](https://www.docker.com/).
+To deploy the server, you can use services such as [Zeet](https://zeet.co/) or [Docker](https://www.docker.com/).
 
 ### **Integrate Embedded Wallets**
 
-Refer top the [quickstart above](#5-minute-quickstart) to integrate the embedded wallet into your application.
+Refer to the [quickstart above](#5-minute-quickstart) to integrate the embedded wallet into your application.

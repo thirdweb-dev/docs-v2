@@ -175,7 +175,7 @@ This guide is simplified for demonstration purposes and is not ready for product
 </Step>
 
 <Step title="Deploy">
-To deploy the server, you can use use services such as [Zeet](https://zeet.co/) or [Docker](https://www.docker.com/).
+To deploy the server, you can use services such as [Zeet](https://zeet.co/) or [Docker](https://www.docker.com/).
 
 Once deployed, replace `http://localhost:3000` in the JWT payload with your actual domain
 
@@ -184,17 +184,17 @@ Once deployed, replace `http://localhost:3000` in the JWT payload with your actu
 <Step title="Integrate Embedded Wallets">
 
 1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
-2. Create a thirdweb API key if you don’t have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
+2. Create a thirdweb API key if you don't have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
 
    <DocImage src={EWCreateKey} />
 
-3. Allowlist domain or bundle ids in Access Restrictions.
+3. Allowlist domain or bundle IDs in Access Restrictions.
 4. Navigate to the Configuration view and enable **Custom JSON Web Token**
 
    <DocImage src={EWConfig} />
 
 5. Set the JWKS URI to `your-domain/.well-known/jwks.json`
-6. Set the AUD to `EpicGame` or the value you set as the aud in the `server.js` file.
+6. Set the AUD to `EpicGame` or the value you set as the `aud` in the `server.js` file.
 
    <DocImage src={EWConfigOpt} />
 
