@@ -5,7 +5,7 @@ const slug = "/typescript/v5";
 const reactSlug = `${slug}/react`;
 
 export const sidebar: SideBar = {
-	name: "Connect SDK",
+	name: "Connect",
 	links: [
 		{
 			name: "Overview",
