@@ -45,6 +45,10 @@ export const sidebar: SideBar = {
 					href: `${engineSlug}/features/cancelling-transactions`,
 				},
 				{
+					name: "Preventing Duplicate Transactions",
+					href: `${engineSlug}/features/preventing-duplicate-transactions`,
+				},
+				{
 					name: "Account Abstraction",
 					href: `${engineSlug}/features/account-abstraction`,
 				},
