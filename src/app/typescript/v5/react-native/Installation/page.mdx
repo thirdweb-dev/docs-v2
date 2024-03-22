@@ -1,0 +1,57 @@
+import { InstallTabs, Tabs, TabsList, TabsTrigger, TabsContent } from "@doc";
+import { createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "Installation | thirdweb React Native SDK",
+	description: "Steps to install the thirdweb React Native SDK",
+});
+
+# Installation
+
+Let's explore the SDK's installation steps. Make sure to have the React Native environment setup. See React Native's [Setting up the development environment](https://reactnative.dev/docs/environment-setup) for more information.
+
+Follow the steps below to get your app web3 ready.
+
+## Requirements
+
+- Android minSdkVersion = 26
+- iOS platform >= 13
+- XCode > 14
+
+## Add shims for nodejs' libraries
+
+React Native is based on [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore?language=objc) (part of WebKit) and does not use Node.js or the common Web and DOM APIs. As such, there are many operations missing that a normal web environment or Node.js instance would provide. [[1]](https://docs.ethers.org/v5/cookbook/react-native/#cookbook-reactnative-security).
+
+For this reason we need to add shims for some of the operations not available in closed out environments like React Native:
+
+In your `metro.config.js` (please, create one if you don’t have it) add the following to shim the nodejs modules needed:
+
+```javascript
+const { getDefaultConfig } = require("expo/metro-config");
+const { mergeConfig } = require("@react-native/metro-config");
+
+/**
+ * Metro configuration
+ * https://facebook.github.io/metro/docs/configuration
+ *
+ * @type {import('metro-config').MetroConfig}
+ */
+const extraNodeModules = require("node-libs-browser");
+
+const config = {
+	resolver: {
+		extraNodeModules: extraNodeModules,
+		unstable_enablePackageExports: true,
+	},
+};
+
+module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+```
+
+You can now create a `shims.js` file and import it before other imports in
+your app. It should have the following content:
+
+```javascript
+// Shim for TextEncoder and TextDecoder
+import "fast-text-encoding";
+```
