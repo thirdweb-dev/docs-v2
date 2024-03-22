@@ -4,7 +4,7 @@ import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Get started with Account abstraction",
+		title: "Get Started with Account Abstraction",
 		icon: "typescript",
 	},
 	title: "Using Account Abstraction in Typescript | thirdweb",
@@ -27,7 +27,7 @@ If you are working in a React environment, you are recommended to follow [this g
     <Step title="Deploy an Account Factory">
 
 Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/contracts/build/base-contracts/erc-4337).
-hirdweb offers the following three different kinds of account factories:
+thirdweb offers the following three different kinds of account factories:
 
 <Grid>
 	<ArticleIconCard
@@ -42,7 +42,7 @@ hirdweb offers the following three different kinds of account factories:
 	/>
 </Grid>
 
-Read about the differences between the three factory types  [here](/connect/account-abstraction/how-it-works).
+Read about the differences between the three factory types [here](/connect/account-abstraction/how-it-works).
 
 </Step>
 <Step title="Create an API key">
@@ -60,14 +60,14 @@ To use account abstraction infrastructure on mainnet you will also need to [crea
 </Step>
 <Step title="Create a Node Script">
 
-To use smart accounts  in a node script, we are going to setup our project using the CLI [create](/cli/create) command.
+To use smart accounts in a node script, we are going to set up our project using the CLI [create](/cli/create) command.
 Open your terminal and run:
 
 ```bash
 npx thirdweb create app
 ```
 
-When promted, select/input the following options:
+When prompted, select/input the following options:
 
 - A name for the project
 - `EVM` as the blockchain
@@ -90,7 +90,7 @@ Open the `index.ts` file and delete the starter script, we won't need it.
 This smart account is unlocked by a 'key' - a personal wallet.
 This key can be anything from a [MetaMask wallet](/references/wallets/latest/MetaMaskWallet) or even a [Local Wallet](/references/wallets/latest/LocalWallet) and is used as a way to 'sign in' to the wallet.
 
-First install the wallets package if you haven't already:
+First, install the wallets package if you haven't already:
 
 ```bash
 yarn add @thirdweb-dev/wallets
@@ -101,8 +101,8 @@ To create a personal wallet key, we are going to use the [Local Wallet](/referen
 ```typescript
 import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-node";
 
-// Load or create personal wallet
-// here we generate LocalWallet that will be stored in wallet.json
+// Load or create a personal wallet
+// Here we generate LocalWallet that will be stored in wallet.json
 const personalWallet = new LocalWalletNode();
 await personalWallet.loadOrCreate({
 	strategy: "encryptedJson",
@@ -123,7 +123,7 @@ To do this, we need to pass a `SmartWalletConfig` object to the constructor. Thi
 - `secretKey`: the secret key that we created earlier.
 - `gasless`: whether the smart account should have sponsored transactions or not.
 
-Once we have created the config and instantiating the `SmartWallet` class, we can connect the personal wallet to the smart account using the `connect` method.
+Once we have created the config and instantiated the `SmartWallet` class, we can connect the personal wallet to the smart account using the `connect` method.
 
 ```typescript
 // Configure the smart wallet
@@ -165,7 +165,7 @@ We have also added some helpful logs to view the smart account address and balan
 </Step>
 <Step title="Using the Smart Account">
 
-In order to follow this specific example, you will need the following setup:
+To follow this specific example, you will need the following setup:
 
 - [Deploy a token drop contract](https://thirdweb.com/thirdweb.eth/DropERC20) deployed on Goerli.
 - Claim conditions set so that tokens can be claimed
@@ -203,7 +203,7 @@ We have successfully deployed a smart account using our factory contract and cla
 </Step>
 <Step title="Conclusion">
 
-In this guide, we have learnt how to use the wallet SDK with the TypeScript SDK to
+In this guide, we have learned how to use the wallet SDK with the TypeScript SDK to
 create a smart account and claim an ERC20 token.
 
 Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart-wallet-script) for the full source code!

@@ -71,7 +71,7 @@ Here, we first configure our `ThirdwebAuth` instance with the `domain` of our ap
 	/>
 </Stack>
 
-Finally, we add the `authRouter` to our app with the `app.use("/auth", authRouter)` line to set up all the `/auth/*` endpoints automatically. We'll also need to add the `authMiddleware` to any routes that we want to protect with Auth.
+Finally, we added the `authRouter` to our app with the `app.use("/auth", authRouter)` line to set up all the `/auth/*` endpoints automatically. We'll also need to add the `authMiddleware` to any routes that we want to protect with Auth.
 
 ## Usage
 
@@ -137,7 +137,7 @@ const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 });
 ```
 
-Note that when you enforce these checks on the server-side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/connect/auth/client-frameworks/react#customizing-the-login-message).
+Note that when you enforce these checks on the server side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/connect/auth/client-frameworks/react#customizing-the-login-message).
 
 **Prevent replay attacks**
 
@@ -182,7 +182,7 @@ As discussed above, each JWT has a validity duration for which it is valid, and 
 
 This is where the refresh token flow comes in - for users who come back to your website frequently, they can get their valid JWTs refreshed to have an extended validity duration.
 
-The `refreshIntervalInSeconds` option allows you to configure how long after a JWT has initially been issued must pass before the token can be refreshed. Ideally, you don't want the token to be refresh too frequently because you'll received an unnecessary amount of requests to your API, but you want it to be refreshed frequently enough to increase convenience for frequently returning users. The default value for the `refreshIntervalInSeconds` value is 3 hours (10800 seconds), meaning users who come back to your site after 3 hours of initially logging in will get their tokens refreshed.
+The `refreshIntervalInSeconds` option allows you to configure how long after a JWT has initially been issued must pass before the token can be refreshed. Ideally, you don't want the token to be refreshed too frequently because you'll receive an unnecessary amount of requests to your API, but you want it to be refreshed frequently enough to increase convenience for frequently returning users. The default value for the `refreshIntervalInSeconds` value is 3 hours (10800 seconds), meaning users who come back to your site after 3 hours of initially logging in will get their tokens refreshed.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
@@ -197,7 +197,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 
 The Auth API will set a cookie on the user's browser with the issued JWT token (learn more about cookie settings from the [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent)). This cookie is set to be `httpOnly` and `secure` (only sent over HTTPS), which is necessary for security purposes - and is also set to use the `domain` of your API, with a `path` of `/`, and `SameSite=None`.
 
-If you want to overwrite these, settings, you can with the `cookieOptions` configuration. For example, you may want to set your domain to be less specific - like if you have your api on `api.example.com` and a client on `client.example.com`, you may want to set your domain to `.example.com`, or you want want to set your `SameSite` setting to `strict` if your API and client are on the same domain:
+If you want to overwrite these, settings, you can with the `cookieOptions` configuration. For example, you may want to set your domain to be less specific - like if you have your API on `api.example.com` and a client on `client.example.com`, you may want to set your domain to `.example.com`, or you want to set your `SameSite` setting to `strict` if your API and client are on the same domain:
 
 ```ts title="src/index.ts"
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
@@ -230,7 +230,7 @@ export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 ### Enhancing session data
 
-When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/connect/auth/how-it-works/jwt)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
+When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/connect/auth/how-it-works/jwt)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user-level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
@@ -286,7 +286,7 @@ export const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 | `authOptions.validateNonce`            | ❌       | -        | A function to check if the nonce on a login payload is valid, used to prevent replay attacks.                                                                                                                                                                                                                |
 | `authOptions.validateTokenId`          | ❌       | -        | A function to check if the JWT uid is still valid, used to logout users when using a setup with a database.                                                                                                                                                                                                  |
 | `authOptions.tokenDurationInSeconds`   | ❌       | `259200` | The number of seconds that each JWT is valid for. Defaults to 259200 (3 days).                                                                                                                                                                                                                               |
-| `authOptions.refreshIntervalInSeconds` | ❌       | `10800`  | The number of seconds that needs to pass before a valid JWT can be refreshed. Defaults to 10800 (3 hours).                                                                                                                                                                                                   |
+| `authOptions.refreshIntervalInSeconds` | ❌       | `10800`  | The number of seconds that need to pass before a valid JWT can be refreshed. Defaults to 10800 (3 hours).                                                                                                                                                                                                    |
 | `cookieOptions`                        | ❌       | -        | Configuration used for all cookies set by the server                                                                                                                                                                                                                                                         |
 | `cookieOptions.domain`                 | ❌       | -        | The domain value set on all cookies. See [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent) for more information.                                                                                                                           |
 | `cookieOptions.path`                   | ❌       | `/`      | The path value set on all cookies. See [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent) for more information.                                                                                                                             |

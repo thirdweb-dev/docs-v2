@@ -10,12 +10,12 @@ export const metadata = createMetadata({
 	},
 	title: "Integrate Firebase Auth | EmbeddedWallet",
 	description:
-		"Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with Embedded Wallet.",
+		"Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase's email provider and integrate it with Embedded Wallet.",
 });
 
 # Integrate Firebase Auth
 
-Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with Embedded Wallet.
+Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase's email provider and integrate it with Embedded Wallet.
 
 <Callout title="Info" variant="info">
 
@@ -31,7 +31,7 @@ This article covers the steps of integrating Firebase Auth for a React Native ap
 <Steps>
 
 <Step title="Create a React Native App">
-To skip over initialization steps, we will use the React Native TypeScript starter template. You may also integrate this functionality into an existing application by installing the React Native SDK.
+To skip over the initialization steps, we will use the React Native TypeScript starter template. You may also integrate this functionality into an existing application by installing the React Native SDK.
 
 1. Create the template from the CLI:
 
@@ -68,7 +68,7 @@ To skip over initialization steps, we will use the React Native TypeScript start
 
 4. Set the [JWKS URI from here](https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com)
 
-5. Set the AUD Value as the Firebase projectId. (Example, `custom-auth-53169`)
+5. Set the AUD Value as the Firebase `projectId`. (Example, `custom-auth-53169`)
 
    <DocImage src={customJsonFirebase} />
 
@@ -156,9 +156,9 @@ await connectEmbedded({
 });
 ```
 
-You can set your encryptionKey in either a secret env variable or ask the user to enter a password for it.
+You can set your `encryptionKey` in either a secret env variable or ask the user to enter a password for it.
 
-** Do not hardcode the encryptionKey in your code. **
+** Do not hardcode the `encryptionKey` in your code. **
 
 After the connectEmbedded function returns, the ThirdwebProvider will have connected a wallet thereby granting access to all hooks and functionalities.
 

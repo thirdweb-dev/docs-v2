@@ -9,7 +9,7 @@ export const metadata = createMetadata({
 	},
 	title: "Firebase | thirdweb",
 	description:
-		"how to integrate Auth as a custom authentication provider for Firebase and automatically create a document in the users Firestore collection when a user signs up successfully",
+		"How to integrate Auth as a custom authentication provider for Firebase and automatically create a document in the user's Firestore collection when a user signs up successfully",
 });
 
 # Firebase
@@ -198,7 +198,7 @@ This API route is responsible for:
 
 1. Verifying the payload provided by the client
 2. Once the payload is verified, creating a [custom token](https://firebase.google.com/docs/auth/admin/create-custom-tokens#create_custom_tokens_using_the_firebase_admin_sdk)
-   for the user to sign in to Firebase with.
+   for the user to sign in to Firebase.
 
 ```ts title="pages/api/auth/login.ts"
 import { NextApiRequest, NextApiResponse } from "next";
@@ -223,7 +223,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
 	// Generate a JWT token for the user to be used on the client-side.
 	const token = await auth.createCustomToken(address);
 
-	// Send the token to the client-side.
+	// Send the token to the client side.
 	return res.status(200).json({ token });
 }
 ```

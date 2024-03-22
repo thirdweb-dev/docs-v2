@@ -18,9 +18,9 @@ export const metadata = createMetadata({
 
 # Next
 
-This page will focus mainly on integrating Auth on the server-side with [Next.js](https://nextjs.org) by implementing the [Auth API](/connect/auth/how-it-works/api).
+This page will focus mainly on integrating Auth on the server side with [Next.js](https://nextjs.org) by implementing the [Auth API](/connect/auth/how-it-works/api).
 
-To learn more about how to implement Auth on the client-side with Next.js (which you will likely need after implementing the server-side), see the Auth [React page](/connect/auth/client-frameworks/react) as Next uses React for the frontend:
+To learn more about how to implement Auth on the client side with Next.js (which you will likely need after implementing the server side), see the Auth [React page](/connect/auth/client-frameworks/react) as Next uses React for the frontend:
 
 <Stack>
 	<ArticleIconCard
@@ -30,7 +30,7 @@ To learn more about how to implement Auth on the client-side with Next.js (which
 	/>
 </Stack>
 
-If you want to interact with a working version of the Auth + Next integration that we'll be building in this guide, you can checkout the following GitHub repository, or clone it with the command below:
+If you want to interact with a working version of the Auth + Next integration that we'll be building in this guide, you can check the following GitHub repository, or clone it with the command below:
 
 ```
 npx thirdweb create app --template thirdweb-auth-next
@@ -50,11 +50,11 @@ To add support for Auth to your Next backend, you'll need to install the `@third
 npm install @thirdweb-dev/auth ethers@5
 ```
 
-Now we can setup our server with Auth using either the standard `pages` directory, or the Next 13 `app` directory. We'll explore how to use both setups below.
+Now we can set up our server with Auth using either the standard `pages` directory or the Next 13 `app` directory. We'll explore how to use both setups below.
 
 ### Pages Directory Setup
 
-We can setup the server with the `pages` directory by using the `@thirdweb-dev/auth/next` entrypoint. First, we need to setup our [Auth API](/connect/auth/how-it-works/api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:
+We can set up the server with the `pages` directory by using the `@thirdweb-dev/auth/next` entry point. First, we need to setup our [Auth API](/connect/auth/how-it-works/api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
@@ -68,7 +68,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 export default ThirdwebAuthHandler();
 ```
 
-Here, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entrypoint, but there are a number of other supported wallet setups, which you can learn more about on the wallet configuration page:
+Here, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entry point, but there are several other supported wallet setups, which you can learn more about on the wallet configuration page:
 
 <Stack>
 	<ArticleIconCard
@@ -78,13 +78,13 @@ Here, we first configure our `ThirdwebAuth` instance with the `domain` of our ap
 	/>
 </Stack>
 
-Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to setup a full Auth API on our Next.js backend!
+Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to set up a full Auth API on our Next.js backend!
 
 ### App Router Setup
 
-Alternatively, we can setup auth using the app router. We can setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `app/api/auth/[...thirdweb]/route.ts` as follows:
+Alternatively, we can set up auth using the app router. We can set up our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `app/api/auth/[...thirdweb]/route.ts` as follows:
 
-Create a separate file named like `thirdwebAuth.ts`:
+Create a separate file named `thirdwebAuth.ts`:
 
 ```ts title="app/api/auth/[...thirdweb]/thirdwebAuth.ts"
 import { ThirdwebAuthAppRouter } from "@thirdweb-dev/auth/next";
@@ -104,7 +104,7 @@ import { ThirdwebAuthHandler } from "./thirdwebAuth";
 export { ThirdwebAuthHandler as GET, ThirdwebAuthHandler as POST };
 ```
 
-Like above, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entrypoint, but there are a number of other supported wallet setups, which you can learn more about on the wallet configuration page:
+Like above, we first configure our `ThirdwebAuth` instance with the `domain` of our app used for anti-phishing, as well as the admin wallet used to issue and verify JWTs. In this case, we use the `PrivateKeyWallet` from the `@thirdweb-dev/auth/evm` entry point, but there are several other supported wallet setups, which you can learn more about on the wallet configuration page:
 
 <Stack>
 	<ArticleIconCard
@@ -114,7 +114,7 @@ Like above, we first configure our `ThirdwebAuth` instance with the `domain` of 
 	/>
 </Stack>
 
-Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to setup a full Auth API on our Next.js backend!
+Finally, we export the `ThirdwebAuthHandler` which sets up all the `/api/auth/*` routes for us automatically. This is all the setup we need to set up a full Auth API on our Next.js backend!
 
 ## Usage
 
@@ -164,7 +164,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 });
 ```
 
-Note that when you enforce these checks on the server-side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/connect/auth/client-frameworks/react#customizing-the-login-message).
+Note that when you enforce these checks on the server side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/connect/auth/client-frameworks/react#customizing-the-login-message).
 
 **Prevent replay attacks**
 
@@ -177,7 +177,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   ... // other config
   authOptions: {
     validateNonce: async (nonce: string) => {
-      // Check in database or storage if nonce exists
+      // Check-in database or storage if nonce exists
       const nonceExists = await dbExample.nonceExists(nonce);
       if (nonceExists) {
         throw new Error("Nonce has already been used!");
@@ -209,7 +209,7 @@ As discussed above, each JWT has a validity duration for which it is valid, and 
 
 This is where the refresh token flow comes in - for users who come back to your website frequently, they can get their valid JWTs refreshed to have an extended validity duration.
 
-The `refreshIntervalInSeconds` option allows you to configure how long after a JWT has initially been issued must pass before the token can be refreshed. Ideally, you don't want the token to be refresh too frequently because you'll received an unnecessary amount of requests to your API, but you want it to be refreshed frequently enough to increase convenience for frequently returning users. The default value for the `refreshIntervalInSeconds` value is 3 hours (10800 seconds), meaning users who come back to your site after 3 hours of initially logging in will get their tokens refreshed.
+The `refreshIntervalInSeconds` option allows you to configure how long after a JWT has initially been issued must pass before the token can be refreshed. Ideally, you don't want the token to be refreshed too frequently because you'll receive an unnecessary amount of requests to your API, but you want it to be refreshed frequently enough to increase convenience for frequently returning users. The default value for the `refreshIntervalInSeconds` value is 3 hours (10800 seconds), meaning users who come back to your site after 3 hours of initially logging in will get their tokens refreshed.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
@@ -224,7 +224,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 
 The Auth API will set a cookie on the user's browser with the issued JWT token (learn more about cookie settings from the [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent)). This cookie is set to be `httpOnly` and `secure` (only sent over HTTPS), which is necessary for security purposes - and is also set to use the `domain` of your API, with a `path` of `/`, and `SameSite=None`.
 
-If you want to overwrite these, settings, you can with the `cookieOptions` configuration. For example, you may want to set your domain to be less specific - like if you have your api on `api.example.com` and a client on `client.example.com`, you may want to set your domain to `.example.com`, or you want want to set your `SameSite` setting to `strict` if your API and client are on the same domain:
+If you want to overwrite these, settings, you can with the `cookieOptions` configuration. For example, you may want to set your domain to be less specific - like if you have your API on `api.example.com` and a client on `client.example.com`, you may want to set your domain to `.example.com`, or you want want to set your `SameSite` setting to `strict` if your API and client are on the same domain:
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
@@ -239,7 +239,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 
 ### Saving users in your database
 
-We can use the `callbacks.onLogin` function to remember users in a database whenever they login, enabling a traditional database enabled authentication flow:
+We can use the `callbacks.onLogin` function to remember users in a database whenever they login, enabling a traditional database-enabled authentication flow:
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
@@ -257,7 +257,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 
 ### Enhancing session data
 
-When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/connect/auth/how-it-works/jwt)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
+When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/connect/auth/how-it-works/jwt)). However, you may want to add additional data to the JWT claims to serve as session data that will persist on the token, such as certain user-level permissions or access information. You can do this by returning data from the `callbacks.onLogin` callback function which treats your return value as session data to store onto the JWT.
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
@@ -313,7 +313,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 | `authOptions.validateNonce`            | ❌       | -        | A function to check if the nonce on a login payload is valid, used to prevent replay attacks.                                                                                                                                                                                                                |
 | `authOptions.validateTokenId`          | ❌       | -        | A function to check if the JWT uid is still valid, used to logout users when using a setup with a database.                                                                                                                                                                                                  |
 | `authOptions.tokenDurationInSeconds`   | ❌       | `259200` | The number of seconds that each JWT is valid for. Defaults to 259200 (3 days).                                                                                                                                                                                                                               |
-| `authOptions.refreshIntervalInSeconds` | ❌       | `10800`  | The number of seconds that needs to pass before a valid JWT can be refreshed. Defaults to 10800 (3 hours).                                                                                                                                                                                                   |
+| `authOptions.refreshIntervalInSeconds` | ❌       | `10800`  | The number of seconds that need to pass before a valid JWT can be refreshed. Defaults to 10800 (3 hours).                                                                                                                                                                                                    |
 | `cookieOptions`                        | ❌       | -        | Configuration used for all cookies set by the server                                                                                                                                                                                                                                                         |
 | `cookieOptions.domain`                 | ❌       | -        | The domain value set on all cookies. See [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent) for more information.                                                                                                                           |
 | `cookieOptions.path`                   | ❌       | `/`      | The path value set on all cookies. See [Mozilla cookie reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies#define_where_cookies_are_sent) for more information.                                                                                                                             |

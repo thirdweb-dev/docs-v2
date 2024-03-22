@@ -70,9 +70,9 @@ NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN=example.com
 
 The `domain` is used to prevent phishing attacks when your users login with their wallets - you can learn more about this in the [how auth works documentation](/connect/auth/how-it-works/siwe#domain).
 
-It's important to note that we created the `authOptions` as a separate object which we exported from the file - we'll use these options later to authenticate the user on the server-side.
+It's important to note that we created the `authOptions` as a separate object which we exported from the file - we'll use these options later to authenticate the user on the server side.
 
-Additionally, we pass the `authSession` callback function to the `session` callback of NextAuth. This is used to ensure that we always extract the wallet address of the logged in user to expose it on the session object for the client and server to access. We'll discuss custom usage of this function more in later sections.
+Additionally, we pass the `authSession` callback function to the `session` callback of NextAuth. This is used to ensure that we always extract the wallet address of the logged-in user to expose it on the session object for the client and server to access. We'll discuss custom usage of this function more in later sections.
 
 Then, on the frontend, we first need to configure the necessary `SessionProvider` and `ThirdwebProvider` in our `pages/_app.tsx` file to be able to use Auth:
 
@@ -154,14 +154,14 @@ In order to use this function, we need to pass in the incoming request and respo
 
 It can be used in any server-side context, including in Next.js API routes, as well as server-side functions like `getServerSideProps` and `getStaticProps`.
 
-If the user is logged in with their wallet (via the `ThirdwebAuthProvider`), then the `session.user.address` value will be exposed to read the wallet address of the logged in user:
+If the user is logged in with their wallet (via the `ThirdwebAuthProvider`), then the `session.user.address` value will be exposed to read the wallet address of the logged-in user:
 
 ```ts title="pages/api/secret.ts"
 import { getServerSession } from "next-auth";
 import { authOptions } from "./auth/[...nextauth]";
 
 export default async (req, res) => {
-	// Get the session on the server-side by passing in our previously configured authOptions
+	// Get the session on the server side by passing in our previously configured authOptions
 	const session = await getServerSession(req, res, authOptions);
 
 	if (!session) {
@@ -204,7 +204,7 @@ export default NextAuth({
 });
 ```
 
-Note that when you enforce these checks on the server-side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/connect/auth/client-frameworks/react#customizing-the-login-message).
+Note that when you enforce these checks on the server side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/connect/auth/client-frameworks/react#customizing-the-login-message).
 
 **Prevent replay attacks**
 
@@ -220,7 +220,7 @@ export default NextAuth({
       // Enforce that the user's login message has these exact values
       authOptions: {
         validateNonce: async (nonce: string) => {
-          // Check in database or storage if nonce exists
+          // Check-in database or storage if nonce exists
           const nonceExists = await dbExample.nonceExists(nonce);
           if (nonceExists) {
             throw new Error("Nonce has already been used!");
