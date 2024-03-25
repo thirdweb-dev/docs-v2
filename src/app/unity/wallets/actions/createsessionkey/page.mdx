@@ -21,7 +21,7 @@ try
     // Create session key granting restricted smart wallet access to the local wallet for 1 day
     var contractsAllowedForInteraction = new List<string>() { "0x450b943729Ddba196Ab58b589Cea545551DF71CC" }; // contracts the local wallet is allowed to interact with
     var permissionEndTimestamp = Utils.GetUnixTimeStampNow() + 86400; // 1 day from now
-    var result = await ThirdwebManager.Instance.SDK.wallet.CreateSessionKey(
+    var result = await ThirdwebManager.Instance.SDK.Wallet.CreateSessionKey(
         signerAddress: randomAddress,
         approvedTargets: contractsAllowedForInteraction,
         nativeTokenLimitPerTransactionInWei: "0",

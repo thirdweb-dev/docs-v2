@@ -1,8 +1,8 @@
 import { Callout, createMetadata } from "@doc";
 
 export const metadata = createMetadata({
-	title: "contracts.events.Get | thirdweb Unity SDK",
-	description: "References for contracts.events.Get in thirdweb Unity SDK.",
+	title: "contracts.Events.Get | thirdweb Unity SDK",
+	description: "References for contracts.Events.Get in thirdweb Unity SDK.",
 });
 
 # Get
@@ -23,7 +23,7 @@ public struct MyEvent
 }
 
 // Get all emitted events
-var data = await contract.events.Get<MyEvent>("eventName");
+var data = await contract.Events.Get<MyEvent>("eventName");
 ```
 
 ## Configuration
@@ -46,7 +46,7 @@ emit Transfer(); // Triggering event
 To listen to this event, use the name of the event as it appears in the contract.
 
 ```csharp
-var data = await contract.events.Get<MyEvent>("Transfer");
+var data = await contract.Events.Get<MyEvent>("Transfer");
 ```
 
 ### filters (optional)
@@ -60,7 +60,7 @@ The `filters` field allows you to filter on [indexed event parameters](https://d
 The default `fromBlock` is `0` and the default `toBlock` is `latest`.
 
 ```csharp
-var data = await contract.events.Get<MyEvent>("eventName", new EventQueryOptions()
+var data = await contract.Events.Get<MyEvent>("eventName", new EventQueryOptions()
 {
   fromBlock = 0,
   toBlock = 1000000,
