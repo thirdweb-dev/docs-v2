@@ -41,10 +41,33 @@ const links = [
 	},
 ];
 
+const toolLinks = [
+	{
+		name: "Account",
+		href: "/account",
+	},
+	{
+		name: "API Keys",
+		href: "/account/api-keys",
+	},
+	{
+		name: "CLI",
+		href: "/cli",
+	},
+];
+
 const sdkLinks = [
 	{
 		name: "TypeScript",
 		href: "/typescript-sdks",
+	},
+	{
+		name: "React",
+		href: "/react/v4",
+	},
+	{
+		name: "React Native",
+		href: "/react-native/v0",
 	},
 	{
 		name: "Unity",
@@ -141,6 +164,12 @@ export function Header() {
 								</li>
 							);
 						})}
+
+						<DropdownLinks
+							links={toolLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="Tools"
+						/>
 
 						<DropdownLinks
 							links={sdkLinks}
