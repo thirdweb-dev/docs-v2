@@ -72,6 +72,12 @@ You can use an existing wallet client from viem with the thirdweb SDK by convert
 ```ts
 import { viemAdapter } from "thirdweb/adapters/viem";
 
+// convert a viewm walletClient
+const walletClient: WalletClient = createWalletClient(...};
+const account = await viemAdapter.walletClient.fromViem({
+  walletClient,
+});
+
 // convert a thirdweb wallet to viem wallet client
 const viemClientWallet = await viemAdapter.walletClient.toViem({
 	client,
