@@ -1,9 +1,9 @@
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
-	title: "contract.events.ListenToAll | thirdweb Unity SDK",
+	title: "contract.Events.ListenToAll | thirdweb Unity SDK",
 	description:
-		"References for contract.events.ListenToAll in thirdweb Unity SDK.",
+		"References for contract.Events.ListenToAll in thirdweb Unity SDK.",
 });
 
 # ListenToAll
@@ -13,7 +13,7 @@ Create a new subscription to listen to all new events on a smart contract.
 ## Usage
 
 ```csharp
-var listener = contract.events.ListenToAll((ContractEvent<object> anyEvent) => Debug.Log("Event occurred: " + anyEvent.data));
+var listener = contract.Events.ListenToAll((ContractEvent<object> anyEvent) => Debug.Log("Event occurred: " + anyEvent.data));
 ```
 
 ## Configuration
