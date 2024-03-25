@@ -45,6 +45,21 @@ const links = [
 	},
 ];
 
+const toolLinks = [
+	{
+		name: "Account",
+		href: "/account",
+	},
+	{
+		name: "API Keys",
+		href: "/account/api-keys",
+	},
+	{
+		name: "CLI",
+		href: "/cli",
+	},
+];
+
 const sdkLinks = [
 	{
 		name: "TypeScript",
@@ -145,6 +160,12 @@ export function Header() {
 								</li>
 							);
 						})}
+
+						<DropdownLinks
+							links={toolLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="Tools"
+						/>
 
 						<DropdownLinks
 							links={sdkLinks}
