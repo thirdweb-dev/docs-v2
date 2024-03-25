@@ -13,7 +13,7 @@ Transfer native or ERC20 tokens from this wallet to another wallet.
 ## Usage
 
 ```csharp
-var data = await sdk.wallet.Transfer("{{to_address}}", "{{amount}}")
+var data = await sdk.Wallet.Transfer("{{to_address}}", "{{amount}}")
 ```
 
 ## Configuration
@@ -39,5 +39,5 @@ If no address is provided, the native currency will be used.
 Must be a `string`.
 
 ```csharp
-var data = await sdk.wallet.Transfer("{{to_address}}", "{{amount}}", "{{currency_contract_address}}")
+var data = await sdk.Wallet.Transfer("{{to_address}}", "{{amount}}", "{{currency_contract_address}}")
 ```

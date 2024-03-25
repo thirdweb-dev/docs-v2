@@ -17,7 +17,7 @@ Create a `TransactionRequest` struct with the raw transaction data, and pass it 
 The method will return the transaction receipt once the transaction is mined.
 
 ```csharp
-var data = await sdk.wallet.SendRawTransaction(new TransactionRequest()
+var data = await sdk.Wallet.SendRawTransaction(new TransactionRequest()
 {
     from = "{{wallet_address}}", // The address the transaction is sent from.
     to = "{{wallet_address}}", // The address the transaction is directed to.
