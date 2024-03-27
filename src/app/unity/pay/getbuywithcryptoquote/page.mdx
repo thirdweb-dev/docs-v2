@@ -1,12 +1,12 @@
 import { Details, createMetadata } from "@doc";
 
 export const metadata = createMetadata({
-	title: "GetSwapQuote | thirdweb Unity SDK",
+	title: "GetBuyWithCryptoQuote | thirdweb Unity SDK",
 	description:
 		"Get a quote containing a TransactionRequest for swapping any token pair.",
 });
 
-# GetSwapQuote
+# GetBuyWithCryptoQuote
 
 Get a quote containing a TransactionRequest for swapping any token pair.
 
@@ -19,7 +19,7 @@ public async void GetQuote()
 {
 	string connectedAddress = await ThirdwebManager.Instance.SDK.Wallet.GetAddress();
 
-	SwapQuoteParams swapQuoteParams = new SwapQuoteParams(
+	BuyWithCryptoQuoteParams swapQuoteParams = new BuyWithCryptoQuoteParams(
 		fromAddress: connectedAddress,
 		fromChainId: 137,
 		fromTokenAddress: Utils.NativeTokenAddress; // MATIC
@@ -27,16 +27,16 @@ public async void GetQuote()
 		toAmount: "2" // I want to buy 2 WMATIC
 	);
 
-	SwapQuoteResult quote = await ThirdwebPay.GetSwapQuote(swapQuoteParams);
+	BuyWithCryptoQuoteResult quote = await ThirdwebPay.GetBuyWithCryptoQuote(swapQuoteParams);
 	ThirdwebDebug.Log($"Quote: {JsonConvert.SerializeObject(_quote, Formatting.Indented)}");
 }
 ```
 
 <Details summary="Configuration">
 
-#### SwapQuoteParams
+#### BuyWithCryptoQuoteParams
 
-A SwapQuoteParams object (with a helpful constructor) containing the following properties:
+A BuyWithCryptoQuoteParams object (with a helpful constructor) containing the following properties:
 
 ```csharp
 string fromAddress; // Address executing the swap
@@ -54,7 +54,7 @@ int? maxSlippageBPS; // Optional, maximum slippage in basis points
 
 ### Return Value
 
-A SwapQuoteResult object containing the following properties:
+A BuyWithCryptoQuoteResult object containing the following properties:
 
 ```csharp
 string quoteId; // Quote identifier

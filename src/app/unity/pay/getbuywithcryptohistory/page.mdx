@@ -1,27 +1,27 @@
 import { Details, createMetadata } from "@doc";
 
 export const metadata = createMetadata({
-	title: "GetSwapHistory | thirdweb Unity SDK",
+	title: "GetBuyWithCryptoHistory | thirdweb Unity SDK",
 	description: "Get swap history, supports cursor and pagination.",
 });
 
-# GetSwapHistory
+# GetBuyWithCryptoHistory
 
-Get swap history for a specific wallet that [executed a swap](/unity/pay/sendswap), supports cursor and pagination.
+Get swap history for a specific wallet that [executed a swap](/unity/pay/buywithcrypto), supports cursor and pagination.
 
 ## Usage
 
 ```csharp
 using Thirdweb.Pay;
 
-public async void GetSwapHistory()
+public async void GetBuyWithCryptoHistory()
 {
 	string connectedAddress = await ThirdwebManager.Instance.SDK.Wallet.GetAddress();
 
-	SwapHistoryResult history = await ThirdwebPay.GetSwapHistory(walletAddress: connectedAddress, start: 0, count: 1);
+	BuyWithCryptoHistoryResult history = await ThirdwebPay.GetBuyWithCryptoHistory(walletAddress: connectedAddress, start: 0, count: 1);
 	ThirdwebDebug.Log($"History: {JsonConvert.SerializeObject(history, Formatting.Indented)}");
 
-	SwapHistoryResult historyNext = await ThirdwebPay.GetSwapHistory(walletAddress: connectedAddress, start: 1, count: 10, cursor: history.NextCursor, pageSize: null);
+	BuyWithCryptoHistoryResult historyNext = await ThirdwebPay.GetBuyWithCryptoHistory(walletAddress: connectedAddress, start: 1, count: 10, cursor: history.NextCursor, pageSize: null);
 	ThirdwebDebug.Log($"History Next: {JsonConvert.SerializeObject(historyNext, Formatting.Indented)}");
 }
 ```
@@ -50,7 +50,7 @@ public async void GetSwapHistory()
 
 ### Return Value
 
-A SwapHistoryResult object containing the following properties:
+A BuyWithCryptoHistoryResult object containing the following properties:
 
 ```csharp
 string WalletAddress; // The wallet address.

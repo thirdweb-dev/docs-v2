@@ -326,20 +326,20 @@ const pay: SidebarLink = {
 	name: "Thirdweb Pay",
 	links: [
 		{
-			name: "Get Swap Quote",
-			href: "/unity/pay/getswapquote",
+			name: "Get Buy With Crypto Quote",
+			href: "/unity/pay/getbuywithcryptoquote",
 		},
 		{
-			name: "Send Swap",
-			href: "/unity/pay/sendswap",
+			name: "Buy With Crypto",
+			href: "/unity/pay/buywithcrypto",
 		},
 		{
-			name: "Get Swap Status",
-			href: "/unity/pay/getswapstatus",
+			name: "Get Buy With Crypto Status",
+			href: "/unity/pay/getbuywithcryptostatus",
 		},
 		{
-			name: "Get Swap History",
-			href: "/unity/pay/getswaphistory",
+			name: "Get Buy With Crypto History",
+			href: "/unity/pay/getbuywithcryptohistory",
 		},
 	],
 };
