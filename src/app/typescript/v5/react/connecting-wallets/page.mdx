@@ -20,6 +20,10 @@ You can use [`ConnectButton`](/typescript/v5/react/components/ConnectButton) or 
 
 These components provide a beautiful UI for connecting various wallets and take care of a lot of wallet-specific edge cases - so you can focus on building your app.
 
+These components support over 300+ wallets, including support embedded wallets and account abstraction.
+
+It also automatically any `EIP-6963` compliant wallets installed by the user.
+
 <DocImage src={ConnectWalletHeroImage} />
 
 ## Using Hooks
@@ -27,8 +31,11 @@ These components provide a beautiful UI for connecting various wallets and take 
 You can build a completely custom UI for connecting the wallet using the [`useConnect`](/references/typescript/v5/useConnect) hook to connect any of [support wallets](/typescript/v5/wallets)
 
 ```tsx
+import { createThirdwebClient } from "thirdweb";
 import { useConnect } from "thirdweb/react";
-import { metamaskWallet } from "thirdweb/wallets";
+import { createWallet } from "thirdweb/wallets";
+
+const client = createThirdwebClient({ clientId });
 
 function Example() {
 	const { connect, isConnecting, error } = useConnect();
@@ -37,9 +44,11 @@ function Example() {
 			onClick={() =>
 				connect(async () => {
 					// instantiate wallet
-					const wallet = metamaskWallet();
+					const wallet = createWallet("io.metamask");
 					// connect wallet
-					await wallet.connect();
+					await wallet.connect({
+						client,
+					});
 					// return the wallet
 					return wallet;
 				})
