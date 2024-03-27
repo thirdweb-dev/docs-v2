@@ -80,6 +80,10 @@ const walletActions: SidebarLink = (() => {
 				href: `${parentSlug}/sendrawtransaction`,
 			},
 			{
+				name: "ExecuteRawTransaction",
+				href: `${parentSlug}/executerawtransaction`,
+			},
+			{
 				name: "Sign",
 				href: `${parentSlug}/sign`,
 			},

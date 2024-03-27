@@ -1,23 +1,23 @@
 import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
-	title: "wallet.SendRawTransaction | thirdweb Unity SDK",
+	title: "wallet.ExecuteRawTransaction | thirdweb Unity SDK",
 	description:
-		"Sends a raw transaction to the blockchain from the connected wallet, and returns a hash",
+		"Executes a raw transaction to the blockchain from the connected wallet, and returns a receipt.",
 });
 
 # SendRawTransaction
 
-Send a raw transaction to the blockchain from the connected wallet, and returns a hash.
+Executes a raw transaction to the blockchain from the connected wallet, and returns a receipt.
 
 ## Usage
 
 Create a `TransactionRequest` struct with the raw transaction data, and pass it to this method.
 
-The method will return the transaction hash once the transaction is sent to the blockchain.
+The method will return the transaction receipt once the transaction is mined.
 
 ```csharp
-var data = await sdk.Wallet.SendRawTransaction(new TransactionRequest()
+var data = await sdk.Wallet.ExecuteRawTransaction(new TransactionRequest()
 {
     from = "{{wallet_address}}", // The address the transaction is sent from.
     to = "{{wallet_address}}", // The address the transaction is directed to.
@@ -30,4 +30,4 @@ var data = await sdk.Wallet.SendRawTransaction(new TransactionRequest()
 
 ### Returns
 
-`string`: The transaction hash.
+`TransactionReceipt`: The transaction receipt.
