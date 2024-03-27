@@ -322,6 +322,28 @@ const blocks: SidebarLink = {
 	],
 };
 
+const pay: SidebarLink = {
+	name: "Thirdweb Pay",
+	links: [
+		{
+			name: "Get Swap Quote",
+			href: "/unity/pay/getswapquote",
+		},
+		{
+			name: "Send Swap",
+			href: "/unity/pay/sendswap",
+		},
+		{
+			name: "Get Swap Status",
+			href: "/unity/pay/getswapstatus",
+		},
+		{
+			name: "Get Swap History",
+			href: "/unity/pay/getswaphistory",
+		},
+	],
+};
+
 export const sidebar: SideBar = {
 	name: "Unity SDK",
 	links: [
@@ -344,6 +366,7 @@ export const sidebar: SideBar = {
 			name: "Storage",
 			href: "/unity/storage",
 		},
+		pay,
 		// {
 		// 	name: "Full Reference",
 		// 	href: "/references/unity",
