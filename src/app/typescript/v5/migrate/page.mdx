@@ -31,7 +31,20 @@ await sendTransaction({
 });
 ```
 
-In React, you can obtain the current signer using the `useSigner` hook, and convert it when needed using the `ethers5Adapter`:
+In React, you can mix and match the v4 and v5 `ThirdwebProvider`, that gives you access to the hooks and functionality of both SDKs.
+
+```tsx
+import { ThirdwebProvider} from "@thirdweb-dev/react" }
+import { ThirdwebProvider as ThirdwebProviderV5 } from "thirdweb/react"
+
+<ThirdwebProvider activeChain={...} clientId={...}>
+  <ThirdwebProviderV5>
+     ...
+  </ThirdwebProviderV5>
+</V4TWProvider>
+```
+
+From thre, you can obtain the current signer using the `useSigner` hook, and convert it when needed using the `ethers5Adapter`:
 
 ```tsx
 import { useSigner } from "@thirdweb-dev/react";

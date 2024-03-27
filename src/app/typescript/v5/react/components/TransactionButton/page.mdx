@@ -35,7 +35,18 @@ function Example() {
 		<TransactionButton
 			transaction={() => {
 				// Create a transaction object and return it
+				const tx = prepareContractCall({
+					contract,
+					method: "mint",
+					params: [address, amount],
+				})
 				return tx;
+			}}
+			onTransactionSent={(result) =>
+				console.log("Transaction submitted", result.transactionHash);
+			}}
+			onTransactionConfirmed={(receipt) =>
+				console.log("Transaction confirmed", receipt.transactionHash);
 			}}
 			onError={(error) =>
 				console.error("Transaction error", error);

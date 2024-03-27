@@ -43,27 +43,19 @@ Refer to [Props](#props) to see all the available configuration options
 
 ```tsx
 import { ConnectButton } from "thirdweb/react";
-// Import the wallets you want to include
-import {
-	metamaskConfig,
-	walletConnectConfig,
-	coinbaseConfig,
-	embeddedWalletConfig,
-} from "thirdweb/wallets";
+import { createWallet, embeddedWallet } from "thirdweb/wallets";
+
+const wallets = [
+	embeddedWallet(),
+	createWallet("io.metamask"),
+	createWallet("com.coinbase.wallet"),
+	createWallet("me.rainbow"),
+];
 
 function Example() {
 	return (
 		<div>
-			<ConnectButton
-				client={client}
-				appMetadata={appMetadata}
-				wallets={[
-					metamaskConfig({ recommended: true }),
-					coinbaseConfig(),
-					walletConnectConfig(),
-					embeddedWalletConfig(),
-				]}
-			/>
+			<ConnectButton client={client} wallets={wallets} />
 		</div>
 	);
 }
