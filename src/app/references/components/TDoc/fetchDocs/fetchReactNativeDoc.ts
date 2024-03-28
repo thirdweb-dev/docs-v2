@@ -6,7 +6,7 @@ import { withCache } from "../../../../../lib/withCache";
 
 export async function fetchReactNativeDoc() {
 	const URL =
-		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/react-native/typedoc/documentation.json.gz";
+		"https://raw.githubusercontent.com/thirdweb-dev/js/main/legacy_packages/react-native/typedoc/documentation.json.gz";
 	const doc = await withCache(() => fetchJSON(URL), {
 		cacheKey: URL,
 		// cache for 10min

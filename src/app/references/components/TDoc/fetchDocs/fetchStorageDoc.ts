@@ -4,7 +4,7 @@ import { withCache } from "../../../../../lib/withCache";
 
 export async function fetchStorageDoc() {
 	const URL =
-		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/storage/typedoc/documentation.json.gz";
+		"https://raw.githubusercontent.com/thirdweb-dev/js/main/legacy_packages/storage/typedoc/documentation.json.gz";
 	const doc = await withCache(() => fetchJSON(URL), {
 		cacheKey: URL,
 		// cache for 10min
