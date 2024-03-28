@@ -1,0 +1,77 @@
+import { Details, createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "GetBuyWithCryptoHistory | thirdweb Unity SDK",
+	description: "Get swap history, supports cursor and pagination.",
+});
+
+# GetBuyWithCryptoHistory
+
+Get swap history for a specific wallet that [executed a swap](/unity/pay/buywithcrypto), supports cursor and pagination.
+
+## Usage
+
+```csharp
+using Thirdweb.Pay;
+
+public async void GetBuyWithCryptoHistory()
+{
+	string connectedAddress = await ThirdwebManager.Instance.SDK.Wallet.GetAddress();
+
+	BuyWithCryptoHistoryResult history = await ThirdwebPay.GetBuyWithCryptoHistory(walletAddress: connectedAddress, start: 0, count: 1);
+	ThirdwebDebug.Log($"History: {JsonConvert.SerializeObject(history, Formatting.Indented)}");
+
+	BuyWithCryptoHistoryResult historyNext = await ThirdwebPay.GetBuyWithCryptoHistory(walletAddress: connectedAddress, start: 1, count: 10, cursor: history.NextCursor, pageSize: null);
+	ThirdwebDebug.Log($"History Next: {JsonConvert.SerializeObject(historyNext, Formatting.Indented)}");
+}
+```
+
+<Details summary="Configuration">
+
+#### Wallet Address
+
+`string`: The wallet address to get the swap history for.
+
+#### Start
+
+`int`: The start index of the swap history.
+
+#### Count
+
+`int`: The number of swaps to return.
+
+#### Cursor
+
+`string`: The cursor to get the next page of swap history. (Optional)
+
+#### Page Size
+
+`int`: The page size of the swap history. (Optional)
+
+### Return Value
+
+A BuyWithCryptoHistoryResult object containing the following properties:
+
+```csharp
+string WalletAddress; // The wallet address.
+List<SwapPage> Page; // The swap history page.
+string NextCursor; // The next cursor.
+int PageSize; // The page size.
+```
+
+The `SwapPage` object contains the following properties:
+
+```csharp
+SwapQuote Quote; // The swap quote.
+string SwapType; // The swap type, see SwapType enum.
+SourceDestinationDetails Source; // The source tx details.
+SourceDestinationDetails Destination; // The destination tx details.
+string Status; // The swap status, see SwapStatus enum.
+string SubStatus; // The swap sub status, see SwapSubStatus enum.
+string FromAddress; // The executing address.
+string ToAddress; // The receiving address.
+string FailureMessage; // The failure message, if any.
+string Bridge; // The bridge used, if applicable.
+```
+
+</Details>
