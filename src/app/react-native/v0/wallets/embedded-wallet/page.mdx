@@ -8,19 +8,19 @@ export const metadata = createMetadata({
 		icon: "react",
 	},
 	title: "In-App Wallet | thirdweb React Native SDK",
-	description: "API reference for embeddedWallet function",
+	description: "API reference for inAppWallet function",
 });
 
-<WalletsBreadcrumb name="In-App Wallet" slug="embedded-wallet" />
+<WalletsBreadcrumb name="In-App Wallet" slug="in-app-wallet" />
 
-# EmbeddedWallet
+# InAppWallet
 
-A wallet configurator for [In-App Wallet](/connect/embedded-wallet/overview) which allows integrating the wallet with React Native
+A wallet configurator for [In-App Wallet](/connect/in-app-wallet/overview) which allows integrating the wallet with React Native
 
 ```tsx
-import { embeddedWallet } from "@thirdweb-dev/react-native";
+import { inAppWallet } from "@thirdweb-dev/react-native";
 
-const embeddedWalletConfig = embeddedWallet();
+const inAppWalletConfig = inAppWallet();
 ```
 
 <CustomizeWalletConfigurator
@@ -46,7 +46,7 @@ is going to be used to redirect back from the browser when using socials sign in
 We wrote [a short guide](/react-native/v0/faq) to help you enable deep links support in your mobile app.
 
 ```ts
-embeddedWallet({
+inAppWallet({
 	auth: {
 		options: ["email", "google", "apple", "facebook"],
 		redirectUrl: "deep-link-to-your-app://",
@@ -117,27 +117,24 @@ Here are the dependencies added:
 To allow users to connect to this wallet using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component, you can add it to [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) prop.
 
 ```tsx
-<ThirdwebProvider
-	clientId="your-client-id"
-	supportedWallets={[embeddedWallet()]}
->
+<ThirdwebProvider clientId="your-client-id" supportedWallets={[inAppWallet()]}>
 	<YourApp />
 </ThirdwebProvider>
 ```
 
-## Usage with useEmbeddedWallet
+## Usage with useInAppWallet
 
-You can use the [`useEmbeddedWallet`](/references/react-native/v0/useEmbeddedWallet) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
+You can use the [`useInAppWallet`](/references/react-native/v0/useInAppWallet) hook to programmatically connect to the wallet without using the [ConnectWallet](/react-native/v0/connecting-wallets#connect-wallet) component.
 
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
-The hook will return all the necessary functions you'll need to authenticate and connect to the in-app wallet.
+The hook will return all the necessary functions you'll need to authenticate and connect to the ina-- wallet.
 
 ### Connecting with Google sign in
 
 ```tsx
 function App() {
-	const { connect } = useEmbeddedWallet();
+	const { connect } = useInAppWallet();
 
 	const handleConnect = async () => {
 		await connect({
@@ -154,7 +151,7 @@ function App() {
 
 ```tsx
 function App() {
-	const { connect, sendVerificationEmail } = useEmbeddedWallet();
+	const { connect, sendVerificationEmail } = useInAppWallet();
 
 	const preLogin = async (email: string) => {
 		// send email verification code
@@ -200,14 +197,14 @@ type JwtAuthParams = {
 
 ## Deleting an Account
 
-You can delete an account by calling, `deleteActiveAccount` from the EmbeddedWallet instance:
+You can delete an account by calling, `deleteActiveAccount` from the InAppWallet instance:
 
 ```tsx
 function App() {
 	const activeWallet = useWallet();
 
 	const deleteAccount = async () => {
-		await (activeWallet as EmbeddedWallet).deleteActiveAccount();
+		await (activeWallet as InAppWallet).deleteActiveAccount();
 	};
 
 	return <View> ... </View>;
