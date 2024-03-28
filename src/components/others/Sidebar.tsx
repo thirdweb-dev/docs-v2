@@ -54,13 +54,16 @@ type ReferenceSideBarProps = {
 	links: SidebarLink[];
 	onLinkClick?: () => void;
 	name: string;
+	header?: React.ReactNode;
 };
 
 export function DocSidebar(props: ReferenceSideBarProps) {
 	return (
 		<div className="flex h-full flex-col">
 			{/* Side bar Name */}
-			<p className="py-5 text-lg font-semibold text-f-100">{props.name}</p>
+			{props.header || (
+				<p className="py-5 text-lg font-semibold text-f-100">{props.name}</p>
+			)}
 
 			<ul className="styled-scrollbar transform-gpu overflow-y-scroll pb-10 pr-3">
 				{props.links.map((link, i) => (
@@ -274,6 +277,7 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 								props.onLinkClick();
 							}
 						}}
+						header={props.header}
 					/>
 				</div>
 			</DropdownMenuContent>

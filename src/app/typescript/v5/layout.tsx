@@ -1,10 +1,15 @@
 import { DocLayout } from "@/components/Layouts/DocLayout";
 import { createMetadata } from "@doc";
 import { sidebar } from "./sidebar";
+import { TypeScriptVersionSelector } from "../../../components/others/VersionSelector";
 
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
-		<DocLayout sideBar={sidebar} editPageButton={true}>
+		<DocLayout
+			sideBar={sidebar}
+			editPageButton={true}
+			sidebarHeader={<TypeScriptVersionSelector selected="v5" />}
+		>
 			<div data-noindex>{props.children}</div>
 		</DocLayout>
 	);
