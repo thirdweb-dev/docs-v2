@@ -41,16 +41,21 @@ See also: [Account (ethereum.org)](https://ethereum.org/en/glossary/#account)
 ```ts
 import { sendTransaction } from "thirdweb";
 // We use MetaMask wallet as an example, the pattern is the same for all wallets
-import { metamaskWallet } from "thirdweb/wallets/metamask";
+import { createWallet } from "thirdweb/wallets";
 
-// initialize the wallet
-const wallet = metamaskWallet();
+// initialize the wallet, you can pick any of the 300+ wallet connectors supported
+// wallet ids are typed, let your TS editor autocomplete them for you
+// ex: "io.metamask", "com.coinbase.wallet", "me.rainbow", etc...
+const wallet = createWallet("io.metamask");
 
 // connect the wallet, this returns a promise that resolves to the connected account
-const account = await wallet.connect();
+const account = await wallet.connect({
+  // pass the client you created with `createThirdwebClient()`
+  client,
+});
 
 // sign & send a transaction with the account -> returns the transaction hash
-const txHash = await sendTransaction({
+const { transactionHash } = await sendTransaction({
 	// assuming you have called `prepareTransaction()` or `prepareContractCall()` before which returns the prepared transaction to send
 	transaction,
 	// Pass the account to sign the transaction with
@@ -60,24 +65,9 @@ const txHash = await sendTransaction({
 
 ## Supported Wallets
 
-### Client Side
+### First party wallets
 
 <WalletCardGrid>
-	<WalletCard
-		label="MetaMask"
-		href="/references/typescript/v5/metamaskWallet"
-		icon={MetaMaskIcon}
-	/>
-	<WalletCard
-		label="Coinbase"
-		href="/references/typescript/v5/coinbaseWallet"
-		icon={CoinbaseIcon}
-	/>
-	<WalletCard
-		label="WalletConnect"
-		href="/references/typescript/v5/walletConnect"
-		icon={WalletConnectIcon}
-	/>
 	<WalletCard
 		label="Smart Wallet"
 		href="/references/typescript/v5/smartWallet"
@@ -88,19 +78,13 @@ const txHash = await sendTransaction({
 		href="/references/typescript/v5/embeddedWallet"
 		icon={EmbeddedWalletIcon}
 	/>
-	<WalletCard
-		label="Rainbow"
-		href="/references/typescript/v5/rainbowWallet"
-		icon={RainbowIcon}
-	/>
-	<WalletCard
-		label="Zerion"
-		href="/references/typescript/v5/zerionWallet"
-		icon={ZerionIcon}
-	/>
 </WalletCardGrid>
 
 <div className="h-10" />
+
+### Wallet connectors
+
+The SDK supports 300+ wallets out of the box, all you need to pass is their id. Any injected or WalletConnect wallets can be accessed this way without any additional setup.
 
 ### Server Side
 

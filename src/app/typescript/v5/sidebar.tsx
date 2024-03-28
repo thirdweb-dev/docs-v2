@@ -88,6 +88,10 @@ export const sidebar: SideBar = {
 					href: `${slug}/storage`,
 				},
 				{
+					name: "Auth",
+					href: `${slug}/auth`,
+				},
+				{
 					separator: true,
 				},
 			],
