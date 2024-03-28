@@ -13,49 +13,14 @@ export const metadata = createMetadata({
 
 # Interact with wallets
 
-Once connected, you can interact with the wallet using the `EmbeddedWallet` instance or React hooks.
-
-## Obtain the connected `EmbeddedWallet` instance
-
-<Tabs defaultValue="react">
-
-<TabsList>
-	<TabsTrigger value="react">React & React Native</TabsTrigger>
-	<TabsTrigger value="typecsript">JavaScript / TypeScript</TabsTrigger>
-</TabsList>
-
-<TabsContent value="react">
-In react, you can access the wallet instance using the `useWallet` hook.
-
-```typescript
-import { useWallet } from "@thirdweb-dev/react"; // or /react-native
-
-const embeddedWallet = useWallet("embeddedWallet");
-```
-
-</TabsContent>
-
-<TabsContent value="typecsript">
-create a wallet instance and use that directly
-
-```typescript
-import { EmbeddedWallet } from "@thirdweb-dev/wallets";
-import { Goerli } from "@thirdweb-dev/chains";
-
-const embeddedWallet = new EmbeddedWallet({
-	chain: Goerli, //  chain to connect to
-	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
-});
-```
-
-</TabsContent>
-
-</Tabs>
+Once connected, you can interact with the wallet using the `thirdweb/wallets/embedded` specific methods.
 
 ## Get the user email
 
 ```typescript
-const email = await embeddedWallet.getEmail();
+import { getAuthenticatedUser } from "thirdweb/wallets/embedded";
+
+const user = await getAuthenticatedUser({ client });
 ```
 
 ## Get the user wallet address
@@ -70,9 +35,10 @@ const email = await embeddedWallet.getEmail();
 <TabsContent value="react">
 
 ```typescript
-import { useAddress } from "@thirdweb-dev/react"; // or /react-native
+import { useActiveAccount } from "thirdweb/react";
 
-const address = useAddress();
+const account = useActiveAccount();
+console.log("address", account.address);
 ```
 
 </TabsContent>
@@ -80,7 +46,8 @@ const address = useAddress();
 <TabsContent value="typecsript">
 
 ```typescript
-const address = await embeddedWallet.getAddress();
+const account = embeddedWallet.getAccount();
+const address = account.address;
 ```
 
 </TabsContent>
