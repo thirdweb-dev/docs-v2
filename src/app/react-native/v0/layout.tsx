@@ -1,9 +1,14 @@
 import { DocLayout } from "@/components/Layouts/DocLayout";
-import { sidebar } from "./sidebar";
+import { typescriptV4Sidebar } from "../../typescript/v4/sidebar";
+import { TypeScriptVersionSelector } from "../../../components/others/VersionSelector";
 
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
-		<DocLayout sideBar={sidebar} editPageButton={true}>
+		<DocLayout
+			sideBar={typescriptV4Sidebar}
+			editPageButton={true}
+			sidebarHeader={<TypeScriptVersionSelector selected="v4" />}
+		>
 			{props.children}
 		</DocLayout>
 	);

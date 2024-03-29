@@ -594,15 +594,7 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "TypeScript",
-							href: "/typescript/latest",
-						},
-						{
-							name: "React",
-							href: "/react/latest",
-						},
-						{
-							name: "React Native",
-							href: "/react-native/latest",
+							href: "/typescript/v5",
 						},
 						{
 							name: "Unity",

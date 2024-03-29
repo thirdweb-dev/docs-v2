@@ -1,5 +1,7 @@
 import { createMetadata } from "@/components/Document";
 import { DocLayout } from "@/components/Layouts/DocLayout";
+import { typescriptV4Sidebar } from "../../typescript/v4/sidebar";
+import { TypeScriptVersionSelector } from "../../../components/others/VersionSelector";
 
 export const metadata = createMetadata({
 	title: "thirdweb Wallet SDK",
@@ -10,42 +12,9 @@ export const metadata = createMetadata({
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
 		<DocLayout
-			sideBar={{
-				name: "Wallet SDK",
-				links: [
-					{
-						name: "Overview",
-						href: "/wallet-sdk/v2",
-					},
-					{
-						name: "Usage",
-						href: "/wallet-sdk/v2/usage",
-					},
-					{
-						name: "Wallets",
-						href: "/wallet-sdk/v2/wallets",
-					},
-					{
-						name: "Build a Wallet",
-						href: "/wallet-sdk/v2/build",
-						links: [
-							{
-								name: "Wallet interface",
-								href: "/wallet-sdk/v2/build/connector",
-							},
-							{
-								name: "ConnectWallet integration",
-								href: "/wallet-sdk/v2/build/connect-wallet-integration",
-							},
-						],
-					},
-					{
-						name: "Full Reference",
-						href: "/references/wallets/v2",
-					},
-				],
-			}}
+			sideBar={typescriptV4Sidebar}
 			editPageButton={true}
+			sidebarHeader={<TypeScriptVersionSelector selected="v4" />}
 		>
 			{props.children}
 		</DocLayout>
