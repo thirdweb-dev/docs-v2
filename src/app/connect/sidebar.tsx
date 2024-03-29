@@ -6,6 +6,7 @@ import {
 	WalletsSmartIcon,
 	PayIcon,
 } from "@/icons";
+import { CodeIcon } from "lucide-react";
 
 const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
@@ -28,8 +29,8 @@ export const sidebar: SideBar = {
 			href: `${connectSlug}`,
 			links: [
 				{
-					name: "ConnectWallet",
-					href: `${connectSlug}/ConnectWallet`,
+					name: "ConnectButton",
+					href: `${connectSlug}/ConnectButton`,
 				},
 				{
 					name: "ConnectEmbed",
@@ -346,30 +347,30 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		// { separator: true },
+		{ separator: true },
 		// SDK References
-		// {
-		// 	name: "SDK References",
-		// 	icon: <CodeIcon />,
-		// 	isCollapsible: true,
-		// 	links: [
-		// 		{
-		// 			name: "React",
-		// 			href: `/typescript/v5/react`,
-		// 		},
-		// 		{
-		// 			name: "React Native",
-		// 			href: `/react-native/v0`,
-		// 		},
-		// 		{
-		// 			name: "TypeScript",
-		// 			href: `/typescript/v5`,
-		// 		},
-		// 		{
-		// 			name: "Unity",
-		// 			href: `/unity`,
-		// 		},
-		// 	],
-		// },
+		{
+			name: "SDK References",
+			icon: <CodeIcon />,
+			isCollapsible: true,
+			links: [
+				{
+					name: "React",
+					href: `/typescript/v5/react`,
+				},
+				{
+					name: "React Native",
+					href: `/react-native/v0`,
+				},
+				{
+					name: "TypeScript",
+					href: `/typescript/v5`,
+				},
+				{
+					name: "Unity",
+					href: `/unity`,
+				},
+			],
+		},
 	],
 };

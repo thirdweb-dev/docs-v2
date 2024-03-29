@@ -187,7 +187,7 @@ export function Header() {
 							<DocSearch variant="search" />
 						</div>
 
-						<div className="flex flex-col gap-5 xl:flex-row xl:gap-1">
+						<div className="px-2">
 							<DropdownLinks
 								links={supportLinks}
 								onLinkClick={() => setShowBurgerMenu(false)}
@@ -230,7 +230,7 @@ function DropdownLinks(props: {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="ghost"
-							className="inline-flex gap-1 pl-2 pr-1 font-medium text-f-300 hover:text-f-100"
+							className="inline-flex gap-1 px-0 font-medium text-f-300 hover:bg-transparent hover:text-f-100"
 						>
 							{props.category}
 							<ChevronDownIcon className="w-4 text-f-300 opacity-70" />
