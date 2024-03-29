@@ -6,6 +6,7 @@ import {
 	WalletsSmartIcon,
 	PayIcon,
 } from "@/icons";
+import { CodeIcon } from "lucide-react";
 
 const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
@@ -23,12 +24,12 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Connect
 		{
-			name: "Connect UI",
+			name: "UI Components",
 			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
 				{
-					name: "ConnectWallet",
+					name: "ConnectButton",
 					href: `${connectSlug}/ConnectWallet`,
 				},
 				{
@@ -143,7 +144,7 @@ export const sidebar: SideBar = {
 		//Account abstraction
 		{ separator: true },
 		{
-			name: "Account abstraction",
+			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
 			isCollapsible: true,
 			href: `${aAslug}`,
@@ -346,30 +347,30 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		// { separator: true },
-		// SDK References
-		// {
-		// 	name: "SDK References",
-		// 	icon: <CodeIcon />,
-		// 	isCollapsible: true,
-		// 	links: [
-		// 		{
-		// 			name: "React",
-		// 			href: `/typescript/v5/react`,
-		// 		},
-		// 		{
-		// 			name: "React Native",
-		// 			href: `/react-native/v0`,
-		// 		},
-		// 		{
-		// 			name: "TypeScript",
-		// 			href: `/typescript/v5`,
-		// 		},
-		// 		{
-		// 			name: "Unity",
-		// 			href: `/unity`,
-		// 		},
-		// 	],
-		// },
+		{ separator: true },
+		{
+			name: "Blockchain API",
+			href: "/connect/blockchain-api",
+			icon: <CodeIcon />,
+			isCollapsible: true,
+			links: [
+				{
+					name: "TypeScript",
+					href: `/typescript/v5`,
+				},
+				{
+					name: "React",
+					href: `/typescript/v5/react`,
+				},
+				{
+					name: "React Native",
+					href: `/react-native/v0`,
+				},
+				{
+					name: "Unity",
+					href: `/unity`,
+				},
+			],
+		},
 	],
 };
