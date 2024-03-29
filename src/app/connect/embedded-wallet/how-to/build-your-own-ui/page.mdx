@@ -24,7 +24,7 @@ export const metadata = createMetadata({
 
 You have full control with the connection hooks and functions to build your own UI. To use embedded wallets, you first choose a authentication strategy and then connect.
 
-## Starting from a template
+## Starting from an example
 
 View a fully functioning example of an embedded wallet with a custom UI:
 
@@ -62,13 +62,13 @@ Note that for Apple and Facebook, you just need to update the strategy to "faceb
 
 <Tabs defaultValue="react-native">
 <TabsList>
-	<TabsTrigger value="react-native">React & React Native</TabsTrigger>
-	<TabsTrigger value="typescript">Other Frameworks</TabsTrigger>
+	<TabsTrigger value="react-native">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react-native">
 
-In React and React Native, the `useEmbeddedWallet()` hook handles authentication and connection states.
+In React and React Native, the `useConnect()` hook handles authentication and connection states.
 
 ```tsx
 import { embeddedWallet } from "thirdweb/wallets";
@@ -97,7 +97,7 @@ In other frameworks, use your own instance of the wallet to authenticate and con
 import { embeddedWallet } from "thirdweb/wallets";
 
 const wallet = embeddedWallet();
-await wallet.connect({
+const account = await wallet.connect({
 	client,
 	strategy: "google",
 });
@@ -110,8 +110,8 @@ await wallet.connect({
 
 <Tabs defaultValue="react-native">
 <TabsList>
-	<TabsTrigger value="react-native">React & React Native</TabsTrigger>
-	<TabsTrigger value="typescript">Other Frameworks</TabsTrigger>
+	<TabsTrigger value="react-native">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react-native">

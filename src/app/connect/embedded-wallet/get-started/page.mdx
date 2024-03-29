@@ -39,10 +39,10 @@ Quickly get started with one of our templates:
 Install the required package:
 
 <InstallTabs
-	npm="npm i thirdweb@beta"
-	yarn="yarn add thirdweb@beta"
-	pnpm="pnpm i thirdweb@beta"
-	bun="bun i thirdweb@beta"
+	npm="npm i thirdweb"
+	yarn="yarn add thirdweb"
+	pnpm="pnpm i thirdweb"
+	bun="bun i thirdweb"
 />
 
 ## Get your client ID
@@ -57,7 +57,6 @@ Quickest ways to get started with embedded wallets on each platform.
 
 <TabsList>
 	<TabsTrigger value="react">React</TabsTrigger>
-	<TabsTrigger value="react-native">React Native</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="unity">Unity</TabsTrigger>
 </TabsList>
@@ -66,26 +65,6 @@ Quickest ways to get started with embedded wallets on each platform.
 ```tsx
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
 import { createWallet } from "thirdweb/wallets";
-
-const client = createThirdwebClient({ clientId });
-const wallets = [embeddedWallet()];
-
-export default function App() {
-	return (
-		<ThirdwebProvider>
-			<ConnectButton client={client} wallets={wallets} />
-		</ThirdwebProvider>
-	);
-}
-```
-
-</TabsContent>
-
-<TabsContent value="react-native">
-
-```tsx
-import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
-import { embeddedWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({ clientId });
 const wallets = [embeddedWallet()];
