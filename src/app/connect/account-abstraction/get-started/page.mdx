@@ -79,7 +79,6 @@ All transactions performed with the smart account will then be gasless.
 
 <TabsList>
 	<TabsTrigger value="react">React</TabsTrigger>
-	<TabsTrigger value="react-native">React Native</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="unity">Unity</TabsTrigger>
 </TabsList>
@@ -96,40 +95,20 @@ clientId: "YOUR_CLIENT_ID",
 export default function App() {
 return (
     <ThirdwebProvider>
-      <ConnectButton 
+      <ConnectButton
 	    client={client}
 	    accountAbstraction={{
 			chain: sepolia, // the chain where your smart accounts will be or is deployed
             factoryAddress: "0x...", // your deployed factory address
             gasless: true // enable or disable gasless transactions
-        }} 
+        }}
 	  />
     </ThirdwebProvider>
   );
 }
 ```
 </TabsContent>
-<TabsContent value="react-native">
-```tsx
-import { createThirdwebClient } from "thirdweb";
-import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
 
-export default function App() {
-return (
-     <ThirdwebProvider>
-      <ConnectButton 
-	    client={client}
-	    accountAbstraction={{
-			chain: sepolia, // the chain where your smart accounts will be or is deployed
-            factoryAddress: "0x...", // your deployed factory address
-            gasless: true // enable or disable gasless transactions
-        }} 
-	  />
-    </ThirdwebProvider>
-  );
-}
-```
-</TabsContent>
 <TabsContent value="typescript">
 
 ```ts
