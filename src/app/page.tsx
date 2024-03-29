@@ -15,7 +15,6 @@ import { Heading, Grid } from "@/components/Document";
 // 	User,
 // } from "lucide-react";
 import {
-	ReactIcon,
 	TypeScriptIcon,
 	// PythonIcon,
 	// GoIcon,
@@ -344,16 +343,20 @@ function SDKSection() {
 
 			<Grid>
 				<SDKCardIndex
-					href="/typescript/latest"
+					href="/typescript/v5"
 					title="TypeScript"
 					icon={TypeScriptIcon}
 				/>
-				<SDKCardIndex href="/react/latest" title="React" icon={ReactIcon} />
-				<SDKCardIndex
-					href="/react-native/latest"
-					title="React Native"
+				{/* <SDKCardIndex
+					href="/typescript/v5/react"
+					title="React"
 					icon={ReactIcon}
 				/>
+				<SDKCardIndex
+					href="/react-native/v0"
+					title="React Native"
+					icon={ReactIcon}
+				/> */}
 				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
 				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
 				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
