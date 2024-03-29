@@ -83,6 +83,7 @@ const onClick = async () => {
 | ---------- | ----------------------------------------------------- | --------------------------------------------------- |
 | Provider   | `import { ThirdwebProvider} from @thirdweb-dev/react` | `import { ThirdwebProvider } from "thirdweb/react"` |
 | Contract   | `useContract(...)`                                    | `getContract(...) // not a hook`                    |
+| Address    | `useAddress(...)`                                     | `useActiveAccount(...) // account?.address`          |
 | Read       | `useContractRead(...)`                                | `useReadContract(...)`                              |
 | Write      | `useContractWrite(...)`                               | `useSendTransaction()`                              |
 | Extensions | `useNFTs(...)`                                        | `useReadContract(getNFTs, { ... })`                 |

@@ -63,15 +63,7 @@ const toolLinks = [
 const sdkLinks = [
 	{
 		name: "TypeScript",
-		href: "/typescript-sdks",
-	},
-	{
-		name: "React",
-		href: "/react/v4",
-	},
-	{
-		name: "React Native",
-		href: "/react-native/v0",
+		href: "/typescript/v5",
 	},
 	{
 		name: "Unity",
@@ -248,7 +240,7 @@ function DropdownLinks(props: {
 					<DropdownMenuContent
 						className="flex flex-col gap-1 bg-b-800 p-3"
 						style={{
-							width: "150px",
+							minWidth: "150px",
 						}}
 					>
 						{props.links.map((info) => {

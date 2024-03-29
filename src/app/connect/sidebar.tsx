@@ -6,7 +6,6 @@ import {
 	WalletsSmartIcon,
 	PayIcon,
 } from "@/icons";
-import { CodeIcon } from "lucide-react";
 
 const connectSlug = "/connect/connect";
 const embeddedSlug = "/connect/embedded-wallet";
@@ -123,7 +122,7 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/react/v4/smartWallet`,
+							href: `/references/typescript/v5/smartWallet`,
 						},
 						{
 							name: "React Native",
@@ -184,29 +183,29 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
-				{
-					name: "References",
-					isCollapsible: true,
-					expanded: true,
-					links: [
-						{
-							name: "React",
-							href: `/references/react/v4/smartWallet`,
-						},
-						{
-							name: "React Native",
-							href: `/react-native/v0/wallets/smartwallet`,
-						},
-						{
-							name: "TypeScript",
-							href: `/references/wallets/v2/SmartWallet`,
-						},
-						{
-							name: "Unity",
-							href: `/unity/wallets/providers/smart-wallet`,
-						},
-					],
-				},
+				// {
+				// 	name: "References",
+				// 	isCollapsible: true,
+				// 	expanded: true,
+				// 	links: [
+				// 		{
+				// 			name: "React",
+				// 			href: `/references/typescript/v5/smartWallet`,
+				// 		},
+				// 		{
+				// 			name: "React Native",
+				// 			href: `/react-native/v0/wallets/smartwallet`,
+				// 		},
+				// 		{
+				// 			name: "TypeScript",
+				// 			href: `/references/wallets/v2/SmartWallet`,
+				// 		},
+				// 		{
+				// 			name: "Unity",
+				// 			href: `/unity/wallets/providers/smart-wallet`,
+				// 		},
+				// 	],
+				// },
 				{
 					name: "FAQs",
 					href: `${aAslug}/faq`,
@@ -347,30 +346,30 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		{ separator: true },
+		// { separator: true },
 		// SDK References
-		{
-			name: "SDK References",
-			icon: <CodeIcon />,
-			isCollapsible: true,
-			links: [
-				{
-					name: "React",
-					href: `/react/v4`,
-				},
-				{
-					name: "React Native",
-					href: `/react-native/v0`,
-				},
-				{
-					name: "TypeScript",
-					href: `/typescript/v4`,
-				},
-				{
-					name: "Unity",
-					href: `/unity`,
-				},
-			],
-		},
+		// {
+		// 	name: "SDK References",
+		// 	icon: <CodeIcon />,
+		// 	isCollapsible: true,
+		// 	links: [
+		// 		{
+		// 			name: "React",
+		// 			href: `/typescript/v5/react`,
+		// 		},
+		// 		{
+		// 			name: "React Native",
+		// 			href: `/react-native/v0`,
+		// 		},
+		// 		{
+		// 			name: "TypeScript",
+		// 			href: `/typescript/v5`,
+		// 		},
+		// 		{
+		// 			name: "Unity",
+		// 			href: `/unity`,
+		// 		},
+		// 	],
+		// },
 	],
 };

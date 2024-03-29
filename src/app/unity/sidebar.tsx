@@ -80,6 +80,10 @@ const walletActions: SidebarLink = (() => {
 				href: `${parentSlug}/sendrawtransaction`,
 			},
 			{
+				name: "ExecuteRawTransaction",
+				href: `${parentSlug}/executerawtransaction`,
+			},
+			{
 				name: "Sign",
 				href: `${parentSlug}/sign`,
 			},
@@ -322,6 +326,28 @@ const blocks: SidebarLink = {
 	],
 };
 
+const pay: SidebarLink = {
+	name: "Thirdweb Pay",
+	links: [
+		{
+			name: "Get Buy With Crypto Quote",
+			href: "/unity/pay/getbuywithcryptoquote",
+		},
+		{
+			name: "Buy With Crypto",
+			href: "/unity/pay/buywithcrypto",
+		},
+		{
+			name: "Get Buy With Crypto Status",
+			href: "/unity/pay/getbuywithcryptostatus",
+		},
+		{
+			name: "Get Buy With Crypto History",
+			href: "/unity/pay/getbuywithcryptohistory",
+		},
+	],
+};
+
 export const sidebar: SideBar = {
 	name: "Unity SDK",
 	links: [
@@ -344,6 +370,7 @@ export const sidebar: SideBar = {
 			name: "Storage",
 			href: "/unity/storage",
 		},
+		pay,
 		// {
 		// 	name: "Full Reference",
 		// 	href: "/references/unity",
