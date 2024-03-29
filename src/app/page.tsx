@@ -259,7 +259,7 @@ function WalletsSection() {
 					icon={PayIcon}
 				/>
 				<ArticleCardIndex
-					href="/typescript/v5"
+					href="/connect/blockchain-api"
 					title="Blockchain API"
 					description="Performant, and reliable blockchain API"
 					icon={CodeIcon}
