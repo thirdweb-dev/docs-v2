@@ -32,11 +32,14 @@ Similarly, you can use any wallets created with the thirdweb SDK with ethers.js 
 
 ```ts
 import { ethers6Adapter } from "thirdweb/adapters/ethers6";
-import { createThirdwebClient, metamaskWallet } from "thirdweb/wallets";
+import { createThirdwebClient, embeddedWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({ clientId });
-const wallet = metamaskWallet();
-const account = await wallet.connect();
+const wallet = embeddedWallet();
+const account = await wallet.connect({
+  client,
+  strategy: "google",
+});
 
 // convert a thirdweb account to ethers signer
 const ethersSigner = await ethers6Adapter.signer.toEthers(client, account);
