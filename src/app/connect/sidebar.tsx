@@ -38,7 +38,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Build Custom Experience",
-					href: `${connectSlug}/custom`,
+					href: `/typescript/v5/react/connecting-wallets#using-hooks`,
 				},
 			],
 		},
