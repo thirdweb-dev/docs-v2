@@ -1,10 +1,34 @@
 import { DocLayout } from "@/components/Layouts/DocLayout";
-import { sidebar } from "./sidebar";
+import { typescriptV4Sidebar } from "./sidebar";
 import { createMetadata } from "@doc";
+import { VersionSelector } from "../../../components/others/VersionSelector";
 
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
-		<DocLayout sideBar={sidebar} editPageButton={true}>
+		<DocLayout
+			sideBar={typescriptV4Sidebar}
+			editPageButton={true}
+			sidebarHeader={
+				<div className="flex items-center gap-1">
+					<p className="py-5 text-lg font-semibold text-f-100">
+						TypeScript SDK
+					</p>
+					<VersionSelector
+						versions={[
+							{
+								name: "v4",
+								href: "/typescript/v4/",
+							},
+							{
+								name: "v5",
+								href: "/typescript/v5/",
+							},
+						]}
+						selected="v4"
+					/>
+				</div>
+			}
+		>
 			{props.children}
 		</DocLayout>
 	);
