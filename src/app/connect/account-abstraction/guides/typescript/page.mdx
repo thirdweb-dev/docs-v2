@@ -60,56 +60,42 @@ To use account abstraction infrastructure on mainnet you will also need to [crea
 </Step>
 <Step title="Create a Node Script">
 
-To use smart accounts in a node script, we are going to set up our project using the CLI [create](/cli/create) command.
-Open your terminal and run:
+To use smart accounts in a node script, simply create a new Node.js project and install the `thirdweb` package.
 
 ```bash
-npx thirdweb create app
+npm i thirdweb
 ```
-
-When prompted, select/input the following options:
-
-- A name for the project
-- `EVM` as the blockchain
-- `Node.js` as the environment
-- `TypeScript` as the language
-
-This will create a repository. Open it in your code editor.
 
 Create a `.env` file and add the following:
 
 ```bash
 THIRDWEB_SECRET_KEY=<YOUR_SECRET_KEY>
+PRIVATE_KEY=<A_TEST_WALLET_PRIVATE_KEY>
 ```
 
-Open the `index.ts` file and delete the starter script, we won't need it.
+Create a `index.ts` file where we'll write our script.
 
 </Step>
 <Step title="Creating the Personal Wallet Key">
 
 This smart account is unlocked by a 'key' - a personal wallet.
-This key can be anything from a [MetaMask wallet](/references/wallets/latest/MetaMaskWallet) or even a [Local Wallet](/references/wallets/latest/LocalWallet) and is used as a way to 'sign in' to the wallet.
+This key can be anything from a MetaMask wallet or an Embedded Wallet or just a private key and is used as a way to 'sign in' to the smart account.
 
-First, install the wallets package if you haven't already:
-
-```bash
-yarn add @thirdweb-dev/wallets
-```
-
-To create a personal wallet key, we are going to use the [Local Wallet](/references/wallets/latest/LocalWallet), which we need to import from the `@thirdweb-dev/wallets` package, and store it in an ecrypted JSON file.
+To create a personal wallet key, we are going to use the [`privateKeyAccount`](/references/typescript/v5/privateKeyAccount), which we need to import from the `thirdweb/wallets` package.
 
 ```typescript
-import { LocalWalletNode } from "@thirdweb-dev/wallets/evm/wallets/local-wallet-node";
+import { createThirdwebClient } from "thirdweb";
+import { privateKeyAccount } from "thirdweb/wallets";
 
-// Load or create a personal wallet
-// Here we generate LocalWallet that will be stored in wallet.json
-const personalWallet = new LocalWalletNode();
-await personalWallet.loadOrCreate({
-	strategy: "encryptedJson",
-	password: "my_password", // or any password
+const client = createThirdwebClient({
+	secretKey: process.env.THIRDWEB_SECRET_KEY as string,
 });
-const personalWalletAddress = await personalWallet.getAddress();
-console.log("Personal wallet address:", personalWalletAddress);
+
+const personalAccount = privateKeyAccount({
+	client,
+	privateKey: process.env.PRIVATE_KEY as string,
+});
+console.log("Personal account address:", personalAccount.address);
 ```
 
 </Step>
@@ -120,42 +106,57 @@ To do this, we need to pass a `SmartWalletConfig` object to the constructor. Thi
 
 - `chain`: the chain that the smart account will be deployed on.
 - `factoryAddress`: the address of the account factory contract.
-- `secretKey`: the secret key that we created earlier.
 - `gasless`: whether the smart account should have sponsored transactions or not.
 
 Once we have created the config and instantiated the `SmartWallet` class, we can connect the personal wallet to the smart account using the `connect` method.
 
 ```typescript
 // Configure the smart wallet
-const config: SmartWalletConfig = {
-	chain: "goerli",
+const config = {
+	chain: sepolia,
 	factoryAddress: "0x...", // your factory address
-	secretKey: process.env.THIRDWEB_SECRET_KEY as string,
 	gasless: true,
 };
 
 // Connect the smart wallet
-const smartWallet = new SmartWallet(config);
-await smartWallet.connect({
-	personalWallet,
+const wallet = smartWallet(config);
+const smartAccount = await wallet.connect({
+	client,
+	personalAccount,
 });
 ```
 
-To view all of the methods on the `SmartWallet` class, [view the Wallet SDK documentation](/connect/account-abstraction).
-
 </Step>
-<Step title="Instantiate the thirdweb SDK">
+<Step title="Using the Smart Account">
 
-Now that we have created a smart account object and connected it, we can instantiate the [thirdweb SDK](/typescript/latest) with the smart account using the `fromWallet` method.
+Now that we have created a smart account object and connected it, we can use it to perform onchain actions gaslessly.
+
+In this example, we will claim a NFT using the `claimTo` method and then send the transaction using the `sendTransaction` method.
 
 ```typescript
-// now use the SDK normally to perform transactions with the smart wallet
-const sdk = await ThirdwebSDK.fromWallet(smartWallet, chain, {
-	secretKey: secretKey,
+const balance = await getWalletBalance({
+	client,
+	chain,
+	address: smartAccount.address,
+});
+console.log("Smart account balance:", balance.displayValue);
+
+const contract = getContract({
+	client,
+	chain: sepolia,
+	address: "0x...", // deploy a drop contract from thirdweb.com/explore
 });
 
-console.log("Smart Account addr:", await sdk.wallet.getAddress());
-console.log("balance:", (await sdk.wallet.balance()).displayValue);
+const transaction = await claimTo({
+	contract,
+	to: smartAccount.address,
+	quantity: 1,
+});
+const { transactionHash } = await sendTransaction({
+	transaction,
+	smartAccount,
+});
+console.log(`Minted NFT with transaction hash: ${transactionHash}`);
 ```
 
 We have also passed our `secretKey` to the SDK so that we can use the bundler and paymaster.
@@ -163,37 +164,12 @@ We have also passed our `secretKey` to the SDK so that we can use the bundler an
 We have also added some helpful logs to view the smart account address and balance using the associated `balance` and `getAddress` methods.
 
 </Step>
-<Step title="Using the Smart Account">
-
-To follow this specific example, you will need the following setup:
-
-- [Deploy a token drop contract](https://thirdweb.com/thirdweb.eth/DropERC20) deployed on Goerli.
-- Claim conditions set so that tokens can be claimed
-
-Now let's use this smart account to claim an ERC20 token from a token drop contract!
-
-First, we will get the contract instance of an ERC20 token drop contract using the `getContract` method.
-Then, we will get the balance of the ERC20 token using the `balance` method and log it to the console.
-Finally, we will claim 1 ERC20 token using the `claim` method and log the transaction hash to the console.
-
-```typescript
-// Claim a ERC20 token
-const contract = await sdk.getContract(
-	"0xc54414e0E2DBE7E9565B75EFdC495c7eD12D3823", // TokenDrop on goerli
-);
-const tokenBalance = await contract.erc20.balance();
-console.log("ERC20 token balance:", tokenBalance.displayValue);
-const tx = await contract.erc20.claim(1);
-console.log("Claimed 1 ERC20 token, tx hash:", tx.receipt.transactionHash);
-```
-
-</Step>
 <Step title="Run the Script">
 
 To run the script, run the following command:
 
 ```bash
-yarn dev
+bun index.ts
 ```
 
 As you can see in the terminal output, upon claiming the token, the smart account is deployed. This is because smart account contracts are deployed when the first transaction is initiated.
@@ -204,7 +180,7 @@ We have successfully deployed a smart account using our factory contract and cla
 <Step title="Conclusion">
 
 In this guide, we have learned how to use the wallet SDK with the TypeScript SDK to
-create a smart account and claim an ERC20 token.
+create a smart account and claim an NFT.
 
 Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart-wallet-script) for the full source code!
 
