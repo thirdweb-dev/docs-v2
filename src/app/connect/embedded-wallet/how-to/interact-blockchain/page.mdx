@@ -66,8 +66,8 @@ You can pass the connected account to any of the transaction actions:
 
 ```typescript
 import { createThirdwebClient, getContract, sendTransaction } from "thirdweb";
-import { sepolia } from "@thirdweb-dev/chains";
-import { embeddedWallet } from "@thirdweb-dev/wallet";
+import { sepolia } from "thirdweb/chains";
+import { embeddedWallet } from "thirdweb/wallets";
 
 const wallet = embeddedWallet();
 const account = await wallet.connect({
