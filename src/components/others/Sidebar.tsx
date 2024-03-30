@@ -242,16 +242,7 @@ function DocSidebarCategory(props: {
 }
 
 export function DocSidebarMobile(props: ReferenceSideBarProps) {
-	const [open, _setOpen] = useState(false);
-
-	const setOpen = (value: boolean) => {
-		if (value) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
-		}
-		_setOpen(value);
-	};
+	const [open, setOpen] = useState(false);
 
 	return (
 		<DropdownMenu open={open} onOpenChange={setOpen}>
