@@ -54,8 +54,16 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
+					name: "Connecting wallets",
+					href: `${slug}/connecting-wallets`,
+				},
+				{
 					name: "Accounts & Wallets",
 					href: `${slug}/wallets`,
+				},
+				{
+					name: "Supported Wallets",
+					href: `${slug}/supported-wallets`,
 				},
 				{
 					name: "Extensions",
@@ -112,10 +120,6 @@ export const sidebar: SideBar = {
 				{
 					name: "Connecting Wallets",
 					href: `${reactSlug}/connecting-wallets`,
-				},
-				{
-					name: "Supported Wallets",
-					href: `${reactSlug}/wallets`,
 				},
 				{
 					name: "UI Components",
