@@ -14,8 +14,10 @@ import { Heading, Grid } from "@/components/Document";
 // 	ShoppingBag,
 // 	User,
 // } from "lucide-react";
+import { CodeIcon } from "lucide-react";
 import {
 	TypeScriptIcon,
+	ReactIcon,
 	// PythonIcon,
 	// GoIcon,
 	UnityIcon,
@@ -228,7 +230,7 @@ function WalletsSection() {
 			<Grid>
 				<ArticleCardIndex
 					href="/connect/connect"
-					title="Connect UI"
+					title="UI Components"
 					description="Fully customizable Connect Wallet component"
 					icon={WalletsConnectIcon}
 				/>
@@ -255,6 +257,12 @@ function WalletsSection() {
 					title="Pay"
 					description="Easily integrate cross-chain crypto purchases for your users"
 					icon={PayIcon}
+				/>
+				<ArticleCardIndex
+					href="/connect/blockchain-api"
+					title="Blockchain API"
+					description="Performant, and reliable blockchain API"
+					icon={CodeIcon}
 				/>
 			</Grid>
 		</section>
@@ -347,18 +355,17 @@ function SDKSection() {
 					title="TypeScript"
 					icon={TypeScriptIcon}
 				/>
-				{/* <SDKCardIndex
+				<SDKCardIndex
 					href="/typescript/v5/react"
 					title="React"
 					icon={ReactIcon}
 				/>
+				{/**
 				<SDKCardIndex
 					href="/react-native/v0"
 					title="React Native"
 					icon={ReactIcon}
 				/> */}
-				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
-				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
 				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
 				<SDKCardIndex
 					href="/contracts/build/overview"

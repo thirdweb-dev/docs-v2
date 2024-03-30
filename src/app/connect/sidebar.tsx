@@ -24,7 +24,7 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Connect
 		{
-			name: "Connect UI",
+			name: "UI Components",
 			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
@@ -144,7 +144,7 @@ export const sidebar: SideBar = {
 		//Account abstraction
 		{ separator: true },
 		{
-			name: "Account abstraction",
+			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
 			isCollapsible: true,
 			href: `${aAslug}`,
@@ -348,12 +348,16 @@ export const sidebar: SideBar = {
 			],
 		},
 		{ separator: true },
-		// SDK References
 		{
-			name: "SDK References",
+			name: "Blockchain API",
+			href: "/connect/blockchain-api",
 			icon: <CodeIcon />,
 			isCollapsible: true,
 			links: [
+				{
+					name: "TypeScript",
+					href: `/typescript/v5`,
+				},
 				{
 					name: "React",
 					href: `/typescript/v5/react`,
@@ -361,10 +365,6 @@ export const sidebar: SideBar = {
 				{
 					name: "React Native",
 					href: `/react-native/v0`,
-				},
-				{
-					name: "TypeScript",
-					href: `/typescript/v5`,
 				},
 				{
 					name: "Unity",

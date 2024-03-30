@@ -20,16 +20,17 @@ Once connected, you can interact with the wallet using the `thirdweb/wallets/emb
 ```typescript
 import { getAuthenticatedUser } from "thirdweb/wallets/embedded";
 
-const user = await getAuthenticatedUser({ client });
+const email = await getUserEmail({ client });
+console.log("user email", email);
 ```
 
-## Get the user wallet address
+## Get the user's account
 
 <Tabs defaultValue="react">
 
 <TabsList>
-	<TabsTrigger value="react">React & React Native</TabsTrigger>
-	<TabsTrigger value="typecsript">Other Frameworks</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typecsript">TypeScript</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
@@ -38,7 +39,35 @@ const user = await getAuthenticatedUser({ client });
 import { useActiveAccount } from "thirdweb/react";
 
 const account = useActiveAccount();
-console.log("address", account.address);
+```
+
+</TabsContent>
+
+<TabsContent value="typecsript">
+```typescript
+const account = await embeddedWallet.getAccount();
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Get the user's wallet address
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typecsript">TypeScript</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+
+```typescript
+import { useActiveAccount } from "thirdweb/react";
+
+const account = useActiveAccount();
+console.log("wallet address", account.address);
 ```
 
 </TabsContent>
@@ -54,38 +83,14 @@ const address = account.address;
 
 </Tabs>
 
-## Get the user's signer
-
-<Tabs defaultValue="react">
-
-<TabsList>
-	<TabsTrigger value="react">React & React Native</TabsTrigger>
-	<TabsTrigger value="typecsript">Other Frameworks</TabsTrigger>
-</TabsList>
-
-<TabsContent value="react">
+## Get wallet balance
 
 ```typescript
-import { useSigner } from "@thirdweb-dev/react"; // or /react-native
-
-const signer = useSigner();
-```
-
-</TabsContent>
-
-<TabsContent value="typecsript">
-```typescript
-await embeddedWallet.getSigner();
-```
-
-</TabsContent>
-
-</Tabs>
-
-## Transfer funds
-
-```typescript
-await embeddedWallet.transfer("0x...", 0.1); // amount in ETH
+await getWalletBalance({
+	client,
+	chain,
+	address: account.address,
+});
 ```
 
 ## Sign a message
