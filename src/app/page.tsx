@@ -230,7 +230,7 @@ function WalletsSection() {
 				<ArticleCardIndex
 					href="/connect/connect"
 					title="UI Components"
-					description="Fully customizable Connect Wallet component"
+					description="UI components for wallet connection and more"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
