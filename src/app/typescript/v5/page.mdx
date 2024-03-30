@@ -4,6 +4,7 @@ import {
 	Stack,
 	OpenSourceCard,
 	InstallTabs,
+	createMetadata,
 } from "@doc";
 import {
 	ZapIcon,
@@ -18,6 +19,16 @@ import {
 	KeyRoundIcon,
 } from "lucide-react";
 import { ReactIcon } from "@/icons";
+
+export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Connect TS SDK",
+		icon: "wallets",
+	},
+	title: "Connect TS SDK | thirdweb",
+	description:
+		"Performant & lightweight TypeScript SDK to connect wallets and interact with any EVM chain.",
+});
 
 # TypeScript SDK
 
