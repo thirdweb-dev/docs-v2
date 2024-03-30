@@ -85,14 +85,6 @@ const supportLinks = [
 export function Header() {
 	const [showBurgerMenu, setShowBurgerMenu] = useState(false);
 
-	useEffect(() => {
-		if (showBurgerMenu) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
-		}
-	}, [showBurgerMenu]);
-
 	return (
 		<header className="flex w-full items-center border-b bg-b-900">
 			<div
