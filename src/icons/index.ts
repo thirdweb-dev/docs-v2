@@ -18,7 +18,7 @@ export { InfraStorageIcon } from "./products/infra/InfraStorageIcon";
 // // payments
 export { PaymentsNFTCheckoutIcon } from "./products/payments/PaymentsNFTCheckoutIcon";
 export { PaymentsSponsoredIcon } from "./products/payments/PaymentsSponsoredIcon";
-export { PayIcon } from "./products/payments/PayIcon";
+export { PayIcon } from "./products/pay/PayIcon";
 // wallets
 export { WalletsAuthIcon } from "./products/wallets/WalletsAuthIcon";
 export { WalletsConnectIcon } from "./products/wallets/WalletsConnectIcon";
