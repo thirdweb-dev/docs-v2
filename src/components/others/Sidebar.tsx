@@ -32,7 +32,7 @@ export type LinkGroup = {
 	links: SidebarLink[];
 	expanded?: boolean;
 	/**
-	 * If set to false, the the group will not be rendered as an accordion
+	 * If set to false, the group will not be rendered as an accordion
 	 * @defaultValue true
 	 */
 	isCollapsible?: boolean;
