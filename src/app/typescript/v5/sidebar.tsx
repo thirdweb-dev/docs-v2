@@ -36,6 +36,18 @@ export const sidebar: SideBar = {
 					href: `${slug}/contract`,
 				},
 				{
+					name: "Accounts & Wallets",
+					href: `${slug}/wallets`,
+				},
+				{
+					name: "Connecting wallets",
+					href: `${slug}/connecting-wallets`,
+				},
+				{
+					name: "Supported Wallets",
+					href: `${slug}/supported-wallets`,
+				},
+				{
 					name: "Transactions",
 					href: `${slug}/transactions`,
 					links: [
@@ -52,18 +64,6 @@ export const sidebar: SideBar = {
 							href: `${slug}/transactions/send`,
 						},
 					],
-				},
-				{
-					name: "Connecting wallets",
-					href: `${slug}/connecting-wallets`,
-				},
-				{
-					name: "Accounts & Wallets",
-					href: `${slug}/wallets`,
-				},
-				{
-					name: "Supported Wallets",
-					href: `${slug}/supported-wallets`,
 				},
 				{
 					name: "Extensions",
@@ -146,6 +146,14 @@ export const sidebar: SideBar = {
 							href: `${reactSlug}/components/MediaRenderer`,
 						},
 					],
+				},
+				{
+					name: "Transactions",
+					href: `${reactSlug}/transactions`,
+				},
+				{
+					name: "Extensions",
+					href: `${reactSlug}/extensions`,
 				},
 				{
 					name: "Hooks",
