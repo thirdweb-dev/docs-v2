@@ -32,7 +32,6 @@ import {
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
-	PaymentsNFTCheckoutIcon,
 	PayIcon,
 } from "@/icons";
 // import { LandingPageCTAs } from "./landing-page/CTAs";
@@ -45,7 +44,7 @@ export default function Page() {
 			<WalletsSection />
 			<ContractsSection />
 			<EngineSection />
-			<PaymentSection />
+
 			<SDKSection />
 		</main>
 	);
@@ -304,23 +303,6 @@ function ContractsSection() {
 					title="Publish"
 					description="Publish your contracts onchain"
 					icon={ContractPublishIcon}
-				/>
-			</Grid>
-		</section>
-	);
-}
-
-function PaymentSection() {
-	return (
-		<section className="my-12">
-			<SectionTitle id="payments" title="Payments" />
-
-			<Grid>
-				<ArticleCardIndex
-					href="/payments"
-					title="NFT Checkout"
-					description="Credit card checkout for NFTs"
-					icon={PaymentsNFTCheckoutIcon}
 				/>
 			</Grid>
 		</section>
