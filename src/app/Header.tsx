@@ -56,21 +56,6 @@ const toolLinks = [
 	},
 ];
 
-const toolLinks = [
-	{
-		name: "Account",
-		href: "/account",
-	},
-	{
-		name: "API Keys",
-		href: "/account/api-keys",
-	},
-	{
-		name: "CLI",
-		href: "/cli",
-	},
-];
-
 const sdkLinks = [
 	{
 		name: "TypeScript",
