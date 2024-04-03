@@ -18,8 +18,10 @@ import { ethers6Adapter } from "thirdweb/adapters/ethers6";
 import { sendTransaction } from "thirdweb";
 
 // convert a ethers signer
-const ethersSigner: ethers.Signer = ...;
-const account = await ethers6Adapter.signer.fromEthers(ethersSigner);
+const signer: ethers.Signer = ...;
+const account = await ethers6Adapter.signer.fromEthers({
+  signer,
+});
 
 // use it with the thirdweb SDK
 await sendTransaction({
@@ -33,16 +35,22 @@ Similarly, you can use any wallets created with the thirdweb SDK with ethers.js 
 ```ts
 import { ethers6Adapter } from "thirdweb/adapters/ethers6";
 import { createThirdwebClient, embeddedWallet } from "thirdweb/wallets";
+import { sepolia } from "thirdweb/chains";
 
 const client = createThirdwebClient({ clientId });
 const wallet = embeddedWallet();
+const chain = sepolia;
 const account = await wallet.connect({
   client,
   strategy: "google",
 });
 
 // convert a thirdweb account to ethers signer
-const ethersSigner = await ethers6Adapter.signer.toEthers(client, account);
+const ethersSigner = await ethers6Adapter.signer.toEthers({
+  client, 
+  chain,
+  account
+});
 ```
 
 You can also convert ethers.js providers and contracts from and to the thirdweb SDK.
@@ -57,11 +65,17 @@ You can use an existing ethers.js v5 Signer with the thirdweb SDK by converting 
 import { ethers5Adapter } from "thirdweb/adapters/ethers5";
 
 // convert an ethers signer to a thirdweb account
-const ethersSigner: ethers.Signer = ...;
-const account = await ethers5Adapter.signer.fromEthers(ethersSigner);
+const signer: ethers.Signer = ...;
+const account = await ethers5Adapter.signer.fromEthers({
+  signer,
+});
 
 // convert a thirdweb account to ethers signer
-const ethersSigner = await ethers6Adapter.signer.toEthers(client, account);
+const ethersSigner = await ethers5Adapter.signer.toEthers({
+  client, 
+  chain,
+  account
+});
 ```
 
 You can also convert ethers.js providers and contracts from and to the thirdweb SDK.
@@ -84,9 +98,9 @@ const account = await viemAdapter.walletClient.fromViem({
 
 // convert a thirdweb account to viem wallet client
 const viemClientWallet = viemAdapter.walletClient.toViem({
-	client,
-	chain,
-	account,
+  client,
+  chain,
+  account,
 });
 ```
 
