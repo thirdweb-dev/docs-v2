@@ -84,8 +84,19 @@ console.log("cost in ether", gasCost.ether);
 Simulate a transaction to see if it would be successful.
 
 ```ts
-import { prepareContractCall, simulateTransaction } from "thirdweb";
+import { simulateTransaction } from "thirdweb";
 
 const result = await simulateTransaction({ transaction });
 console.log("simulation result", result);
+```
+
+## encode
+
+Encode a transaction data to be used later
+
+```ts
+import { encode } from "thirdweb";
+
+const data = await encode(transaction);
+console.log("encoded data", data);
 ```
