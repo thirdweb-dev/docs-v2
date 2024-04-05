@@ -31,6 +31,25 @@ var connection = new WalletConnection(
 string address = await sdk.Wallet.Connect(connection);
 ```
 
+### Login with Phone Number
+
+Automatically logs in if previously accessed with the same phone number or prompts for a one-time password (OTP) sent to the user's phone.
+
+```csharp
+// Reference to your Thirdweb SDK
+var sdk = ThirdwebManager.Instance.SDK;
+
+// Configure the connection
+var connection = new WalletConnection(
+    provider: WalletProvider.EmbeddedWallet,
+    chainId: 1,
+    phoneNumber: "+1234567890",
+);
+
+// Connect the wallet
+string address = await sdk.Wallet.Connect(connection);
+```
+
 ### Login with OAuth2 (Google, Apple, Facebook, etc.)
 
 This method initiates an OAuth2 login process and redirects back to the app upon successful authentication.
