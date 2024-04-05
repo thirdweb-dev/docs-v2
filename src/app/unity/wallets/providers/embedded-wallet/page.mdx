@@ -44,6 +44,9 @@ var connection = new WalletConnection(
     provider: WalletProvider.EmbeddedWallet,
     chainId: 1,
     phoneNumber: "+1234567890",
+    authOptions: new AuthOptions(
+        authProvider: AuthProvider.PhoneOTP,
+    )
 );
 
 // Connect the wallet
