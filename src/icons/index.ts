@@ -22,7 +22,7 @@ export { PayIcon } from "./products/payments/PayIcon";
 // wallets
 export { WalletsAuthIcon } from "./products/wallets/WalletsAuthIcon";
 export { WalletsConnectIcon } from "./products/wallets/WalletsConnectIcon";
-export { WalletsEmbeddedIcon } from "./products/wallets/WalletsEmbeddedIcon";
+export { WalletsInAppIcon } from "./products/wallets/WalletsInAppIcon";
 export { WalletsSmartIcon } from "./products/wallets/WalletsSmartIcon";
 // solutions
 export { GamingIcon } from "./solutions/GamingIcon";

@@ -12,17 +12,17 @@ import EWCustomAuthdb2 from "../images/customauthdb2.png";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Configure Authentication for Embedded Wallet",
+		title: "Configure Authentication for In-App Wallet",
 		icon: "wallets",
 	},
-	title: "Configure Authentication Embedded Wallet | thirdweb",
+	title: "Configure Authentication In-App Wallet | thirdweb",
 	description:
 		"Configure Authentication with OIDC standard, OR a generic option that lets you bring your own auth server",
 });
 
 # Configuration
 
-We offer two options to set up embedded wallets with custom auth, one that is based on the [OIDC (Open ID Connect)](https://openid.net/developers/how-connect-works/) standard, and a generic option that lets you bring your own auth server. You can also use both options together if needed.
+We offer two options to setup in-app wallets with custom auth, one that is based on the [OIDC (Open ID Connect)](https://openid.net/developers/how-connect-works/) standard, and a generic option that lets you bring your own auth server. You can also use both options together if needed.
 
 ## OIDC compatible auth
 
@@ -32,10 +32,10 @@ An OIDC auth system has a public-private keypair, where the private key is used 
 
 - The public key is uploaded to a public URL in JWKS format. The standard location is `https://{domain}.com/.well-known/jwks.json`
 - When a user logs in, a JWT token called the idToken is generated and signed by the private key. The OIDC spec provides an interface for fields that are used in this token.
-- This JWT is then passed to the embedded wallet to generate a wallet for the user.
+- This JWT is then passed to the in-app wallet to generate a wallet for the user.
 - We will verify the JWT against the public key to verify that the JWT was signed correctly. Upon successful verification, we will proceed to generate a wallet based on the `sub` (user identifier) value of the idToken.
 
-To setup an OIDC compatible auth, enable the first option in the configuration tab of the embedded wallet dashboard
+To setup an OIDC compatible auth, enable the first option in the configuration tab of the in-app wallet dashboard
 
 <DocImage src={EWCustomAuthdb} />
 
@@ -54,15 +54,15 @@ You will be asked to enter the following values
 
 <TabsContent value="react">
 
-In React and React Native, the `useEmbeddedWallet()` hook handles authentication and connection states.
+In React and React Native, the `useInAppWallet()` hook handles authentication and connection states.
 
 ```typescript
-import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
+import { useInAppWallet } from "@thirdweb-dev/react"; // or /react-native
 
-const embeddedWallet = useEmbeddedWallet();
+const inAppWallet = useInAppWallet();
 
 const handlePostLogin = async (jwt: string) => {
-	await embeddedWallet.connect({
+	await inAppWallet.connect({
 		strategy: "jwt",
 		jwt,
 		encryptionKey: "your-encryption-key",
@@ -77,21 +77,21 @@ const handlePostLogin = async (jwt: string) => {
 In other frameworks, use your own instance of the wallet to authenticate and connect.
 
 ```typescript
-import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { InAppWallet } from "@thirdweb-dev/wallets";
 import { Goerli } from "@thirdweb-dev/chains";
 
-const embeddedWallet = new EmbeddedWallet({
+const inAppWallet = new InAppWallet({
 	chain: Goerli, //  chain to connect to
 	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
 
-const authResult = await embeddedWallet.authenticate({
+const authResult = await inAppWallet.authenticate({
 	strategy: "jwt",
 	jwt,
 	encryptionKey: "your-encryption-key",
 });
 
-const walletAddress = await embeddedWallet.connect({ authResult });
+const walletAddress = await inAppWallet.connect({ authResult });
 ```
 
 </TabsContent>
@@ -110,13 +110,13 @@ Generic auth is good for supporting other auth methods that we don't support tod
 High-level flow and requirement for generic auth via endpoint:
 
 - When a user logs in, you are able to generate a public identifier that allows you to identify the user.
-- You can pass this identifier to the embedded wallet to generate a wallet for the user.
+- You can pass this identifier to the in-app wallet to generate a wallet for the user.
 - When verifying the user, we will hit an endpoint that you provide to verify the user's identity.
 - We will then generate a wallet for the user if the provided payload is valid.
 
 <DocImage src={EWCustomAuth} />
 
-To use generic auth, enable the second option in the configuration tab of the embedded wallet dashboard
+To use generic auth, enable the second option in the configuration tab of the in-app wallet dashboard
 
 <DocImage src={EWCustomAuthdb2} />
 
@@ -136,7 +136,7 @@ You can also pass a list of headers. These headers will be sent with every reque
 
 ### Authenticating a user via generic auth
 
-Once you've logged in with your own auth, you can pass the user's JWT to the embedded wallet to authenticate and connect.
+Once you've logged in with your own auth, you can pass the user's JWT to the in-app wallet to authenticate and connect.
 
 <Tabs defaultValue="react">
 <TabsList>
@@ -146,15 +146,15 @@ Once you've logged in with your own auth, you can pass the user's JWT to the emb
 
 <TabsContent value="react">
 
-In React and React Native, the `useEmbeddedWallet()` hook handles authentication and connection states.
+In React and React Native, the `useInAppWallet()` hook handles authentication and connection states.
 
 ```typescript
-import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
+import { useInAppWallet } from "@thirdweb-dev/react"; // or /react-native
 
-const embeddedWallet = useEmbeddedWallet();
+const inAppWallet = useInAppWallet();
 
 const handlePostLogin = async (jwt: string) => {
-	await embeddedWallet.connect({
+	await inAppWallet.connect({
 		strategy: "auth_endpoint",
 		// This is the payload that is sent to the auth endpoint
 		payload,
@@ -170,22 +170,22 @@ const handlePostLogin = async (jwt: string) => {
 In other frameworks, use your own instance of the wallet to authenticate and connect.
 
 ```typescript
-import { EmbeddedWallet } from "@thirdweb-dev/wallets";
+import { InAppWallet } from "@thirdweb-dev/wallets";
 import { Goerli } from "@thirdweb-dev/chains";
 
-const embeddedWallet = new EmbeddedWallet({
+const inAppWallet = new InAppWallet({
 	chain: Goerli, //  chain to connect to
 	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
 });
 
-const authResult = await embeddedWallet.authenticate({
+const authResult = await inAppWallet.authenticate({
 	strategy: "auth_endpoint",
 	// This is the payload that is sent to the auth endpoint
 	payload,
 	encryptionKey: "your-encryption-key",
 });
 
-const walletAddress = await embeddedWallet.connect({ authResult });
+const walletAddress = await inAppWallet.connect({ authResult });
 ```
 
 </TabsContent>

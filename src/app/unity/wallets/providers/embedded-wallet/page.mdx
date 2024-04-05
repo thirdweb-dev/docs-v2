@@ -2,13 +2,13 @@ import { DocImage, createMetadata } from "@doc";
 import ewsSettings from "./ews-settings.png";
 
 export const metadata = createMetadata({
-	title: "Embedded Wallet | thirdweb Unity SDK",
-	description: "Connect to Embedded Wallet with thirdweb Unity SDK",
+	title: "In-App Wallet | thirdweb Unity SDK",
+	description: "Connect to In-App Wallet with thirdweb Unity SDK",
 });
 
-# Embedded Wallet
+# In-App Wallet
 
-The Embedded Wallet service by thirdweb facilitates creating or accessing a wallet seamlessly. Ensure your client ID is set within [ThirdwebManager](/unity/thirdwebmanager), and enable the [Embedded Wallet](/connect/embedded-wallet/overview) service to experience various, smooth and persistent cross-platform login methods.
+The In-App Wallet service by thirdweb facilitates creating or accessing a wallet seamlessly. Ensure your client ID is set within [ThirdwebManager](/unity/thirdwebmanager), and enable the [In-App Wallet](/connect/embedded-wallet/overview) service to experience various, smooth and persistent cross-platform login methods.
 
 ## Usage
 
@@ -59,7 +59,7 @@ This method initiates an OAuth2 login process and redirects back to the app upon
 
 If building for mobile, you need to set a custom scheme for your app to enable OAuth2 login flows on Android and iOS.
 To do so, see the [ThirdwebManager](/unity/thirdwebmanager) - `ThirdwebConfig` and update it with your custom scheme (such as `myapp://`).
-You may allowlist that scheme in your [API key Embedded Wallet settings](https://thirdweb.com/create-api-key). On Android, your manifest will be updated automatically at build time to include the necessary settings.
+You may allowlist that scheme in your [API key In-App Wallet settings](https://thirdweb.com/create-api-key). On Android, your manifest will be updated automatically at build time to include the necessary settings.
 
 ```csharp
 // Reference to your Thirdweb SDK

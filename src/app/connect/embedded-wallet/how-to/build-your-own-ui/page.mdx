@@ -10,10 +10,10 @@ import {
 
 export const metadata = createMetadata({
 	image: {
-		title: "Build a custom UI for connecting Embedded wallet",
+		title: "Build a custom UI for connecting in-app wallets",
 		icon: "wallets",
 	},
-	title: "Build a custom UI for embedded wallets",
+	title: "Build a custom UI for in-app wallets",
 	description:
 		"You have full control with the connection hooks and functions to build your own UI",
 });
@@ -22,22 +22,22 @@ export const metadata = createMetadata({
 
 ## Low level control to authenticate and connect wallets
 
-You have full control with the connection hooks and functions to build your own UI. To use embedded wallets, you first choose an authentication strategy and then connect.
+You have full control with the connection hooks and functions to build your own UI. To use in-app wallets, you first choose a authentication strategy and then connect.
 
 ## Starting from an example
 
-View a fully functioning example of an embedded wallet with a custom UI:
+View a fully functioning example of an in-app wallet with a custom UI:
 
 <Stack>
 
 <GithubTemplateCard
-	title="Embedded Wallets with Custom UI - React"
+	title="In-App Wallets with Custom UI - React"
 	href="https://github.com/thirdweb-example/embedded-wallet-custom-ui"
 	tag="v4 SDK"
 />
 
 <GithubTemplateCard
-	title="Embedded Wallets with Custom UI - React Native"
+	title="In-App Wallets with Custom UI - React Native"
 	href="https://github.com/thirdweb-example/embedded-wallet-custom-ui-react-native"
 	tag="v4 SDK"
 />
@@ -73,13 +73,13 @@ Note that for Apple and Facebook, you just need to update the strategy to "faceb
 In React and React Native, the `useConnect()` hook handles authentication and connection states.
 
 ```tsx
-import { embeddedWallet } from "thirdweb/wallets";
+import { inAppWallet } from "thirdweb/wallets";
 
 const { connect } = useConnect();
 
 const handleLogin = async () => {
 	await connect(() => {
-		const wallet = embeddedWallet();
+		const wallet = inAppWallet();
 		await wallet.connect({
 			client,
 			strategy: "google",
@@ -96,9 +96,9 @@ const handleLogin = async () => {
 In other frameworks, use your own instance of the wallet to authenticate and connect.
 
 ```typescript
-import { embeddedWallet } from "thirdweb/wallets";
+import { inAppWallet } from "thirdweb/wallets";
 
-const wallet = embeddedWallet();
+const wallet = inAppWallet();
 const account = await wallet.connect({
 	client,
 	strategy: "google",
@@ -119,7 +119,7 @@ const account = await wallet.connect({
 <TabsContent value="react-native">
 
 ```typescript
-import { embeddedWallet, preAuthenticate } from "thirdweb/wallets/embedded";
+import { inAppWallet, preAuthenticate } from "thirdweb/wallets";
 
 const { connect } = useConnect();
 
@@ -135,7 +135,7 @@ const preLogin = async (email: string) => {
 const handleLogin = async (email: string, verificationCode: string) => {
 	// verify email and connect
 	await connect(() => {
-		const wallet = embeddedWallet();
+		const wallet = inAppWallet();
 		await wallet.connect({
 			client,
 			strategy: "email",
@@ -154,7 +154,7 @@ const handleLogin = async (email: string, verificationCode: string) => {
 In other frameworks, use your own instance of the wallet to authenticate and connect.
 
 ```typescript
-import { embeddedWallet, preAuthenticate } from "thirdweb/wallets/embedded";
+import { inAppWallet, preAuthenticate } from "thirdweb/wallets";
 
 // send email verification code
 await preAuthenticate({
@@ -163,7 +163,7 @@ await preAuthenticate({
 	email,
 });
 
-const wallet = embeddedWallet();
+const wallet = inAppWallet();
 const account = await wallet.connect({
 	client,
 	strategy: "email_verification",

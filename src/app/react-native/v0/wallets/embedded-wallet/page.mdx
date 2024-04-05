@@ -4,18 +4,18 @@ import { DocLink } from "@/components/Document";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Embedded Wallet",
+		title: "In-App Wallet",
 		icon: "react",
 	},
-	title: "Embedded Wallet | thirdweb React Native SDK",
+	title: "In-App Wallet | thirdweb React Native SDK",
 	description: "API reference for embeddedWallet function",
 });
 
-<WalletsBreadcrumb name="Embedded Wallet" slug="embedded-wallet" />
+<WalletsBreadcrumb name="In-App Wallet" slug="embedded-wallet" />
 
 # EmbeddedWallet
 
-A wallet configurator for [Embedded Wallet](/connect/embedded-wallet/overview) which allows integrating the wallet with React Native
+A wallet configurator for [In-App Wallet](/connect/embedded-wallet/overview) which allows integrating the wallet with React Native
 
 ```tsx
 import { embeddedWallet } from "@thirdweb-dev/react-native";
@@ -36,7 +36,7 @@ const embeddedWalletConfig = embeddedWallet();
 
 Whether to show the Sign In with different providers.
 
-To use this feature you will need to enable the `Embedded Wallets` service for your `clientId`
+To use this feature you will need to enable the `In-App Wallets` service for your `clientId`
 in your [Dashboard Settings](https://thirdweb.com/dashboard/settings) and you will need to allowlist
 your app's `redirectUrl` (more on this below).
 
@@ -131,7 +131,7 @@ You can use the [`useEmbeddedWallet`](/references/react-native/v0/useEmbeddedWal
 
 The wallet also needs to be added in [ThirdwebProvider's supportedWallets](/react-native/v0/connecting-wallets#supported-wallets) if you want the wallet to auto-connect on next page load.
 
-The hook will return all the necessary functions you'll need to authenticate and connect to the embedded wallet.
+The hook will return all the necessary functions you'll need to authenticate and connect to the in-app wallet.
 
 ### Connecting with Google sign in
 

@@ -11,17 +11,17 @@ import { Layers2Icon } from "lucide-react";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Enable Gasless Transactions with Embedded Wallet",
+		title: "Enable Gasless Transactions with In-App Wallet",
 		icon: "wallets",
 	},
-	title: "Enable Gasless Transactions | thirdweb Embedded Wallet",
+	title: "Enable Gasless Transactions | thirdweb In-App Wallet",
 	description:
 		"By using account abstraction you can create a truly seamless user experience with gasless transactions, batched transactions, and full account recovery.",
 });
 
 # Enable Gasless Transactions
 
-By combining [Account abstraction](/connect/account-abstraction) and [Embedded Wallet](/connect/embedded-wallet/overview), you can create a truly seamless user experience:
+By combining [Account abstraction](/connect/account-abstraction) and [In-App Wallet](/connect/embedded-wallet/overview), you can create a truly seamless user experience:
 
 - Gasless transactions
 - Batched transactions
@@ -29,9 +29,9 @@ By combining [Account abstraction](/connect/account-abstraction) and [Embedded W
 
 Let's create an app that creates smart accounts for our users.
 
-These smart accounts will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an embedded wallet.
+These smart accounts will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an in-app wallet.
 
-From the user's perspective, they will log in with their email or social account. Under the hood, an embedded wallet is created for them, and then a smart account is created and initialized using the embedded wallet.
+From the user's perspective, they will log in with their email or social account. Under the hood, an in-app wallet is created for them, and then a smart account is created and initialized using the in-app wallet.
 
 <DocImage src={ConnectCompat} />
 
@@ -99,7 +99,7 @@ export default function App() {
 }
 ```
 
-This will create an embedded wallet and a smart account for the user. The smart account will be initialized with the embedded wallet as the owner.
+This will create an in-app wallet and a smart account for the user. The smart account will be initialized with the in-app wallet as the owner.
 
 Pass your deployed `factoryAddress` to the `accountAbstraction` prop. This will allow the smart account to be be deployed only when the user sends their first transaction.
 

@@ -3,24 +3,24 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Get Started with Embedded Wallet",
+		title: "Get started with In-App Wallet",
 		icon: "wallets",
 	},
-	title: "Get Started with Embedded Wallet",
-	description: "Get started with Embedded Wallet",
+	title: "Get started with In-App Wallet",
+	description: "Get started with In-App Wallet",
 });
 
 # QuickStart
 
-Once set up, your app will be able to connect and create embedded wallets for users.
+Once set up, your app will be able to connect and create in-app wallets for users.
 
 ## Try the demo
 
-See Embedded Wallets in action with our demo app:
+See In-App Wallets in action with our demo app:
 
 <OpenSourceCard
 	title="CatAttack"
-	description="Embedded Wallet Demo App"
+	description="In-App Wallet Demo App"
 	href="https://catattack.thirdweb.com"
 />
 
@@ -29,8 +29,8 @@ See Embedded Wallets in action with our demo app:
 Quickly get started with one of our templates:
 
 <OpenSourceCard
-	title="Embedded wallets with gasless transactions (account abstraction)"
-	description="A starter kit for building embedded wallets with smart contract integrations."
+	title="In-app wallets with gasless transactions (account abstraction)"
+	description="A starter kit for building in-app wallets with smart contract integrations."
 	href="https://github.com/thirdweb-example/embedded-smart-wallet"
 />
 
@@ -47,11 +47,11 @@ Install the required package:
 
 ## Get your client ID
 
-To use embedded wallets in your applications, you will need a client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
+To use in-app wallets in your applications, you will need a client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
 
-## Connecting & Creating Embedded Wallets
+## Connecting & Creating In-App Wallets
 
-Quickest ways to get started with embedded wallets on each platform.
+Quickest ways to get started with in-app wallets on each platform.
 
 <Tabs defaultValue="react">
 
@@ -67,7 +67,7 @@ import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
 import { createWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({ clientId });
-const wallets = [embeddedWallet()];
+const wallets = [inAppWallet()];
 
 export default function App() {
 	return (
@@ -83,10 +83,10 @@ export default function App() {
 <TabsContent value="typescript">
 
 ```tsx
-import { embeddedWallet } from "thirdweb/wallets";
+import { inAppWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({ clientId });
-const wallet = embeddedWallet();
+const wallet = inAppWallet();
 const account = await wallet.connect({
 	client,
 	strategy: "google", // The authentication strategy to use, can be any of the supported strategies (google, facebook, apple, email, jwt)
@@ -107,7 +107,7 @@ public async void ConnectWallet()
 
     // Configure the connection
     var connection = new WalletConnection(
-      provider: WalletProvider.EmbeddedWallet,          // The wallet provider you want to connect to (Required)
+      provider: WalletProvider.InAppWallet,          // The wallet provider you want to connect to (Required)
       chainId: 1,                              // The chain you want to connect to (Required)
       email: "email@email.com"                 // The email you want to authenticate with (Required)
     );

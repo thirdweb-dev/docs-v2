@@ -110,6 +110,7 @@ import { embeddedWallet, smartWallet } from "thirdweb/react";
 import { sepolia } from "thirdweb/chains";
 
 function Example() {
+<<<<<<< HEAD
 	const { connect } = useConnect();
 
 	const connectToSmartAccount = async () => {
@@ -133,6 +134,13 @@ function Example() {
 			});
 			return wallet;
 		}
+=======
+	// here we're using metamask as the personal wallet
+	// can be any other wallet, including localWallet(), inAppWallet(), etc
+	const { connect } = useSmartWallet(metamaskWallet(), {
+		factoryAddress: "your-factory-address",
+		gasless: true,
+>>>>>>> ade27dc (First Draft for Replacing Embedded Wallets -> In-App Wallets)
 	});
 
 	return (

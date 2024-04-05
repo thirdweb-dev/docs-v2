@@ -6,17 +6,17 @@ import EWJWKCreatorTool from "../images/jwk-creator-tool.png";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Create a Custom JWT Auth Server for Embedded Wallet",
+		title: "Create a Custom JWT Auth Server for In-App Wallet",
 		icon: "wallets",
 	},
-	title: "Create a Custom JWT Auth Server | EmbeddedWallet",
+	title: "Create a Custom JWT Auth Server | InAppWalletWallet",
 	description:
-		"Learn how to integrate your auth backend with our embedded wallets solution so you can onboard your users into web3 seamlessly.",
+		"Learn how to integrate your auth backend with our in-app wallets solution so you can onboard your users into web3 seamlessly.",
 });
 
 # Create a Custom JWT Auth Server
 
-Learn how to integrate your auth backend with our embedded wallets solution so you can onboard your users into web3 seamlessly.
+Learn how to integrate your auth backend with our in-app wallets solution so you can onboard your users into web3 seamlessly.
 
 This guide will show you how to create your own Auth Server that is compatible with the JWT auth strategy. By doing so, you can have full control over user authentication and data security. This allows you to ensure that your application meets specific compliance requirements while also providing a customized sign-in experience.
 
@@ -181,25 +181,32 @@ Once deployed, replace `http://localhost:3000` in the JWT payload with your actu
 
 </Step>
 
-<Step title="Integrate Embedded Wallets">
+<Step title="Integrate In-App Wallets">
+
+<<<<<<< HEAD
 
 1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
-2. Create a thirdweb API key if you don't have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
+2. # Create a thirdweb API key if you don't have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
+3. Navigate to Wallets > [In-App Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
+4. Create a thirdweb API key if you don’t have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
 
+   > > > > > > > ade27dc (First Draft for Replacing Embedded Wallets -> In-App Wallets)
+
+   {" "}
    <DocImage src={EWCreateKey} />
 
-3. Allowlist domain or bundle IDs in Access Restrictions.
-4. Navigate to the Configuration view and enable **Custom JSON Web Token**
+5. Allowlist domain or bundle IDs in Access Restrictions.
+6. Navigate to the Configuration view and enable **Custom JSON Web Token**
 
    <DocImage src={EWConfig} />
 
-5. Set the JWKS URI to `your-domain/.well-known/jwks.json`
-6. Set the AUD to `EpicGame` or the value you set as the `aud` in the `server.js` file.
+7. Set the JWKS URI to `your-domain/.well-known/jwks.json`
+8. Set the AUD to `EpicGame` or the value you set as the `aud` in the `server.js` file.
 
    <DocImage src={EWConfigOpt} />
 
-7. Copy the client ID.
-8. In your preferred thirdweb client SDK, pass the JWT you retrieved from logging in to the server.
+9. Copy the client ID.
+10. In your preferred thirdweb client SDK, pass the JWT you retrieved from logging in to the server.
 
 </Step>
 

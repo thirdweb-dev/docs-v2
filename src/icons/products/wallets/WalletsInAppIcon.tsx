@@ -1,4 +1,4 @@
-export function WalletsEmbeddedIcon(props: { className?: string }) {
+export function WalletsInAppIcon(props: { className?: string }) {
 	return (
 		<svg
 			width="24"

@@ -5,21 +5,21 @@ import customJsonFirebase from "../images/custom-json-firebase.png";
 
 export const metadata = createMetadata({
 	image: {
-		title: "Integrate Firebase Auth for Embedded Wallet",
+		title: "Integrate Firebase Auth for In-App Wallet",
 		icon: "wallets",
 	},
-	title: "Integrate Firebase Auth | EmbeddedWallet",
+	title: "Integrate Firebase Auth | InAppWallet",
 	description:
-		"Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase's email provider and integrate it with Embedded Wallet.",
+		"Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with In-App Wallet.",
 });
 
 # Integrate Firebase Auth
 
-Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase's email provider and integrate it with Embedded Wallet.
+Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with In-App Wallet.
 
 <Callout title="Info" variant="info">
 
-This article covers the steps of integrating Firebase Auth for a React Native app. Firebase steps and the Embedded Wallet code may be replicated for React.
+This article covers the steps of integrating Firebase Auth for a React Native app. Firebase steps and the In-App Wallet code may be replicated for React.
 
 </Callout>
 
@@ -57,8 +57,8 @@ To skip over the initialization steps, we will use the React Native TypeScript s
 
 <Step title="Set up the custom JSON Web Keys link through dashboard">
 
-1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded)
-2. To use embedded wallets, choose an existing API key or create a new one. Learn more about API keys.
+1. Navigate to Wallets > [In-App Wallets](https://thirdweb.com/dashboard/wallets/embedded)
+2. To use in-app wallets, choose an existing API key or create a new one. Learn more about API keys.
 
    <DocImage src={ewCreateKey} />
 
@@ -141,15 +141,15 @@ async function getFirebaseJWT() {
 
 </Step>
 
-<Step title="Pass the JWT to EmbeddedWallet">
-Pass the JWT to the Embedded Wallet config in your `App.tsx` file:
+<Step title="Pass the JWT to InAppWallet">
+Pass the JWT to the In-App Wallet config in your `App.tsx` file:
 
 ```jsx
-import { useEmbeddedWallet } from "@thirdweb-dev/react-native";
+import { useInAppWallet } from "@thirdweb-dev/react-native";
 
-const connectEmbedded = useEmbeddedWallet();
+const connectInApp = useInAppWallet();
 
-await connectEmbedded({
+await connectInApp({
 	strategy: "jwt",
 	jwt: await getFirebaseJWT(),
 	encryptionKey: "your-encryption-key",
@@ -160,7 +160,7 @@ You can set your `encryptionKey` in either a secret env variable or ask the user
 
 ** Do not hardcode the `encryptionKey` in your code. **
 
-After the connectEmbedded function returns, the ThirdwebProvider will have connected a wallet thereby granting access to all hooks and functionalities.
+After the connectInApp function returns, the ThirdwebProvider will have connected a wallet thereby granting access to all hooks and functionalities.
 
 </Step>
 

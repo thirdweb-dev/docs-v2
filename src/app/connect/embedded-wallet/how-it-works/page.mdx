@@ -4,10 +4,10 @@ import { DocImage, Callout, createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	image: {
-		title: "How Embedded Wallet works",
+		title: "How In-App Wallet works",
 		icon: "wallets",
 	},
-	title: "How Embedded Wallet works",
+	title: "How In-App Wallet works",
 	description:
 		"When a user signs into an application using their email or social logins for the first time, a wallet is generated on the user's device. The corresponding wallet key for this wallet is securely split into three shards using Shamir's Secret Sharing algorithm",
 });
@@ -26,7 +26,7 @@ When a user signs into an application using their email or social logins for the
 
 ## Recoverability
 
-Embedded Wallets are non-custodial, and users can export their private key anytime. Users may recover their wallet from any device by authenticating or signing into an application to receive access to their wallet.
+In-App Wallets are non-custodial, and users can export their private key anytime. Users may recover their wallet from any device by authenticating or signing into an application to receive access to their wallet.
 Threshold secret-sharing cryptography is used to recreate the private key; two of three shards are required.
 If a user loses access to their authentication method (email, social login, or custom authentication), they cannot recover their wallet.
 
@@ -36,9 +36,9 @@ thirdweb does not have the ability to access user accounts or reconstruct privat
 
 </Callout>
 
-## Embedded Wallet Scope
+## In-App Wallet Scope
 
-Embedded Wallets are scoped to applications per API key. If users use the same email to sign in to a different application using Embedded Wallets, the application will manage an entirely different wallet.
+In-App Wallets are scoped to applications per API key. If users use the same email to sign in to a different application using In-App Wallets, the application will manage an entirely different wallet.
 
 ### Benefits of single application scoped wallets
 
@@ -46,7 +46,7 @@ Embedded Wallets are scoped to applications per API key. If users use the same e
 - Users may only view tokens sent or purchased from your application.
 - To improve user experience, saved payment methods and KYC verification are only provided to thirdweb; applications cannot view this information.
 
-Users may view all their application-scoped Embedded Wallets in a single view using the [My Wallets](https://ews.thirdweb.com/wallet) dashboard. Learn more about My Wallets.
+Users may view all their application-scoped In-App Wallets in a single view using the [My Wallets](https://ews.thirdweb.com/wallet) dashboard. Learn more about My Wallets.
 
 <DocImage src={AppScoped} />
 
@@ -70,8 +70,8 @@ Using threshold secret sharing, thirdweb cannot reconstruct a user's private key
 
 #### GDPR & CCPA
 
-Embedded wallets are compliant with GDPR and CCPA within 90 days.
+In-app wallets are compliant with GDPR and CCPA within 90 days.
 
 #### Audit and Bounty Program
 
-HackerOne has audited embedded Wallet private key security architecture, and there is an ongoing bounty program to ensure vulnerabilities are caught. [View the Letter of Attestation.](/pdfs/thirdweb_code_security_audit.pdf)
+HackerOne has audited our in-app wallet private key security architecture, and there is an ongoing bounty program to ensure vulnerabilities are caught. [View the Letter of Attestation.](/pdfs/thirdweb_code_security_audit.pdf)
