@@ -1,7 +1,14 @@
 import { getAllWalletsList, getWalletInfo, WalletId } from "thirdweb/wallets";
 import Image from "next/image";
 import { Table, Tr, Td, TBody, Th } from "../Document/Table";
-import { InlineCode } from "../Document";
+import { DocLink, InlineCode } from "../Document";
+
+const specialWallets: {
+	[key in WalletId]?: boolean;
+} = {
+	smart: true,
+	embedded: true,
+};
 
 export async function AllSupportedWallets() {
 	const wallets = await getAllWalletsList();
@@ -10,24 +17,30 @@ export async function AllSupportedWallets() {
 		<Table>
 			<TBody>
 				<Tr>
-					<Th> Icon </Th>
-					<Th> Name </Th>
-					<Th> Wallet ID </Th>
+					<Th> Wallet </Th>
+					<Th> ID </Th>
 				</Tr>
 
-				{wallets.map((w) => {
-					return (
-						<Tr key={w.id}>
-							<Td>
-								<WalletImage id={w.id} />
-							</Td>
-							<Td>{w.name}</Td>
-							<Td>
-								<InlineCode code={`"${w.id}"`} />
-							</Td>
-						</Tr>
-					);
-				})}
+				{wallets
+					.filter((w) => !(w.id in specialWallets))
+					.map((w) => {
+						return (
+							<Tr key={w.id}>
+								<Td>
+									<DocLink
+										href={`/typescript/v5/supported-wallets/${w.id}`}
+										className="flex flex-nowrap items-center gap-4 whitespace-nowrap"
+									>
+										<WalletImage id={w.id} />
+										{w.name}
+									</DocLink>
+								</Td>
+								<Td>
+									<InlineCode code={`"${w.id}"`} />
+								</Td>
+							</Tr>
+						);
+					})}
 			</TBody>
 		</Table>
 	);

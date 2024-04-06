@@ -5,6 +5,7 @@ export function DocLink(props: {
 	href: string;
 	children: React.ReactNode;
 	className?: string;
+	target?: string;
 }) {
 	return (
 		<Link
@@ -14,9 +15,10 @@ export function DocLink(props: {
 				props.className,
 			)}
 			target={
-				props.href.startsWith("http") || props.href.includes(".pdf")
+				props.target ||
+				(props.href.startsWith("http") || props.href.includes(".pdf")
 					? "_blank"
-					: undefined
+					: undefined)
 			}
 		>
 			{props.children}
