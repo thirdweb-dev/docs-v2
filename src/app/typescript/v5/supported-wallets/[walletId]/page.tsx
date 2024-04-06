@@ -6,6 +6,7 @@ import {
 	type WalletId,
 } from "thirdweb/wallets";
 import {
+	Breadcrumb,
 	CodeBlock,
 	createMetadata,
 	DocLink,
@@ -51,6 +52,19 @@ export default async function Page(props: PageProps) {
 
 	return (
 		<div>
+			<Breadcrumb
+				crumbs={[
+					{
+						href: "/typescript/v5/supported-wallets",
+						name: "Supported Wallets",
+					},
+					{
+						href: `/typescript/v5/supported-wallets/${props.params.walletId}`,
+						name: walletMetadata.name,
+					},
+				]}
+			/>
+
 			<div className="mb-10 flex items-center gap-3 [&_h1]:m-0">
 				<Image
 					src={walletImage}
