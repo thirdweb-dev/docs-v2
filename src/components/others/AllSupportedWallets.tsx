@@ -7,7 +7,7 @@ const specialWallets: {
 	[key in WalletId]?: boolean;
 } = {
 	smart: true,
-	embedded: true,
+	inApp: true,
 };
 
 export async function AllSupportedWallets() {
