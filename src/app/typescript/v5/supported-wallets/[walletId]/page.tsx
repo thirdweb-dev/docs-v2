@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export default async function Page(props: PageProps) {
+	
 	const [walletMetadata, walletImage] = await Promise.all([
 		getWalletInfo(props.params.walletId),
 		getWalletInfo(props.params.walletId, true),
@@ -186,7 +187,10 @@ export default async function Page(props: PageProps) {
 export async function generateStaticParams(): Promise<PageProps["params"][]> {
 	const walletList = await getAllWalletsList();
 
+	
+
 	return walletList.map((w) => {
+		
 		return {
 			walletId: w.id,
 		};
