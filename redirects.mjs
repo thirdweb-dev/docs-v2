@@ -624,6 +624,8 @@ const otherRedirects = {
 	"/templates": "https://thirdweb.com/templates",
 	"/gaming": "/solutions/gaming/overview",
 	"/signature-minting": "/contracts/design-docs/signature-mint",
+	// v5 reference
+	"/references/typescript/v5/embeddedWallet": "/references/typescript/v5/inAppWallet",
 };
 
 /**
