@@ -162,6 +162,10 @@ export const sidebar: SideBar = {
 					href: `${aAslug}/permissions`,
 				},
 				{
+					name: "Batching Transactions",
+					href: `${aAslug}/batching-transactions`,
+				},
+				{
 					name: "Bundler & Paymaster",
 					href: `${aAslug}/infrastructure`,
 				},
