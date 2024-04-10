@@ -52,7 +52,7 @@ const walletActions: SidebarLink = (() => {
 })();
 
 const wallets: SidebarLink = (() => {
-	const parentSlug = "/dotnet/wallets";
+	// const parentSlug = "/dotnet/wallets";
 	return {
 		name: "Wallet Interactions",
 		links: [walletProviders, walletActions],
