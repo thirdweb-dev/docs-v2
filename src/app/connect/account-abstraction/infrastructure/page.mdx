@@ -27,7 +27,7 @@ With a thirdweb API key, you get access to bundler and paymaster infrastructure 
 | ----------------- | ------- | -------------------- |
 | Ethereum          | ✅      | ✅ (goerli, sepolia) |
 | Polygon           | ✅      | ✅ (mumbai, amoy)    |
-| Arbitrum          | ✅      | ✅ (goerli, sepolia) |
+| Arbitrum  (one, nova)         | ✅      | ✅ (goerli, sepolia) |
 | Optimism          | ✅      | ✅                   |
 | Gnosis            | ✅      | ✅                   |
 | Linea             | ✅      | ✅                   |
@@ -39,7 +39,9 @@ With a thirdweb API key, you get access to bundler and paymaster infrastructure 
 | Xai Orbit         | ✅      | ✅                   |
 | Mode              | ✅      | ✅                   |
 | Zora              | ✅      | ✅                   |
-| Fraxtal           | ✅      | ❌                   |
+| Fraxtal           | ✅      | ✅                   |
+| Lisk           | ✅      | ❌                   |
+| Taiko           | ✅      | ❌                   |
 
 To support a chain not listed, [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
 
@@ -59,10 +61,12 @@ const config: SmartWalletOptions = {
 };
 ```
 
+## Using a Custom Paymaster
+
 You can also provide an entirely custom paymaster logic by providing a `paymaster` function to the `SmartWalletOptions` overrides.
 
 ```ts
-const config: SmartWalletConfig = {
+const config: SmartWalletOptions = {
 	chain,
 	factoryAddress,
 	gasless,
