@@ -69,6 +69,9 @@ BigInteger weiValue = BigInteger.Zero;
 // Executing the transfer
 var transactionHash = await ThirdwebContract.Write(wallet, contract, "transfer", weiValue, toAddress, amount);
 Console.WriteLine($"Transaction hash: {transactionHash}");
+
+// Poll for the receipt
+var transactionReceipt = await Utils.GetTransactionReceipt(transactionHash);
 ```
 
 This method is essential for interacting with smart contracts when you need to make changes to the blockchain, such as updating state or transferring assets.

@@ -47,6 +47,34 @@ const walletActions: SidebarLink = (() => {
 				name: "Disconnect",
 				href: `${parentSlug}/disconnect`,
 			},
+			{
+				name: "GetEmail",
+				href: `${parentSlug}/getemail`,
+			},
+			{
+				name: "GetPhoneNumber",
+				href: `${parentSlug}/getphonenumber`,
+			},
+			{
+				name: "IsDeployed",
+				href: `${parentSlug}/isdeployed`,
+			},
+			{
+				name: "SendTransaction",
+				href: `${parentSlug}/sendtransaction`,
+			},
+			{
+				name: "CreateSessionKey",
+				href: `${parentSlug}/createsessionkey`,
+			},
+			{
+				name: "AddAdmin",
+				href: `${parentSlug}/addadmin`,
+			},
+			{
+				name: "RemoveAdmin",
+				href: `${parentSlug}/removeadmin`,
+			},
 		],
 	};
 })();
