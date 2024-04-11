@@ -536,6 +536,7 @@ const infrastructureRedirects = {
 	"/infrastructure/engine/faq": "/engine/faq",
 	"/guides/engine/relayer": "/engine/features/relayer",
 	"/infrastructure/engine/overview": "/engine",
+	"/engine/features/permissions": "/engine/features/admins",
 
 	//storage
 	"/storage": "/infrastructure/storage/overview",
