@@ -24,13 +24,13 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Connect
 		{
-			name: "Connect UI",
+			name: "UI Components",
 			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
 				{
-					name: "ConnectWallet",
-					href: `${connectSlug}/ConnectWallet`,
+					name: "ConnectButton",
+					href: `${connectSlug}/ConnectButton`,
 				},
 				{
 					name: "ConnectEmbed",
@@ -38,7 +38,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Build Custom Experience",
-					href: `${connectSlug}/custom`,
+					href: `/typescript/v5/react/connecting-wallets#using-hooks`,
 				},
 			],
 		},
@@ -123,7 +123,7 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/react/v4/smartWallet`,
+							href: `/references/typescript/v5/smartWallet`,
 						},
 						{
 							name: "React Native",
@@ -144,7 +144,7 @@ export const sidebar: SideBar = {
 		//Account abstraction
 		{ separator: true },
 		{
-			name: "Account abstraction",
+			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
 			isCollapsible: true,
 			href: `${aAslug}`,
@@ -160,6 +160,10 @@ export const sidebar: SideBar = {
 				{
 					name: "Permissions & Session Keys",
 					href: `${aAslug}/permissions`,
+				},
+				{
+					name: "Batching Transactions",
+					href: `${aAslug}/batching-transactions`,
 				},
 				{
 					name: "Bundler & Paymaster",
@@ -184,29 +188,29 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
-				{
-					name: "References",
-					isCollapsible: true,
-					expanded: true,
-					links: [
-						{
-							name: "React",
-							href: `/references/react/v4/smartWallet`,
-						},
-						{
-							name: "React Native",
-							href: `/react-native/v0/wallets/smartwallet`,
-						},
-						{
-							name: "TypeScript",
-							href: `/references/wallets/v2/SmartWallet`,
-						},
-						{
-							name: "Unity",
-							href: `/unity/wallets/providers/smart-wallet`,
-						},
-					],
-				},
+				// {
+				// 	name: "References",
+				// 	isCollapsible: true,
+				// 	expanded: true,
+				// 	links: [
+				// 		{
+				// 			name: "React",
+				// 			href: `/references/typescript/v5/smartWallet`,
+				// 		},
+				// 		{
+				// 			name: "React Native",
+				// 			href: `/react-native/v0/wallets/smartwallet`,
+				// 		},
+				// 		{
+				// 			name: "TypeScript",
+				// 			href: `/references/wallets/v2/SmartWallet`,
+				// 		},
+				// 		{
+				// 			name: "Unity",
+				// 			href: `/unity/wallets/providers/smart-wallet`,
+				// 		},
+				// 	],
+				// },
 				{
 					name: "FAQs",
 					href: `${aAslug}/faq`,
@@ -348,23 +352,23 @@ export const sidebar: SideBar = {
 			],
 		},
 		{ separator: true },
-		// SDK References
 		{
-			name: "SDK References",
+			name: "Blockchain API",
+			href: "/connect/blockchain-api",
 			icon: <CodeIcon />,
 			isCollapsible: true,
 			links: [
 				{
+					name: "TypeScript",
+					href: `/typescript/v5`,
+				},
+				{
 					name: "React",
-					href: `/react/v4`,
+					href: `/typescript/v5/react`,
 				},
 				{
 					name: "React Native",
 					href: `/react-native/v0`,
-				},
-				{
-					name: "TypeScript",
-					href: `/typescript/v4`,
 				},
 				{
 					name: "Unity",

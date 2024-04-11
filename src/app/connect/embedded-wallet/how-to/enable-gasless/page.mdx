@@ -74,28 +74,26 @@ Select the appropriate thirdweb account factory type for your app:
 
 ## 2. Enable account abstraction in your app
 
-To enable account abstraction in your app, you need to add `smartWallet()` to the list of supported wallets in the `ThirdwebProvider`:
+To enable account abstraction in your app, you need to add the `accountAbstraction` prop to the `ConnectButton` or `ConnectEmbed` component.
 
 ```jsx
-import {
-	ThirdwebProvider,
-	ConnectWallet,
-	embeddedWallet,
-} from "@thirdweb-dev/react";
+import { ConnectButton } from "thirdweb/react";
+import { embeddedWallet } from "thirdweb/wallets";
+
+const wallets = [embeddedWallet()];
 
 export default function App() {
 	return (
-		<ThirdwebProvider
-			activeChain="goerli"
-			clientId="YOUR_CLIENT_ID"
-			supportedWallets={[
-				smartWallet(embeddedWallet(), {
-					factoryAddress: "YOUR_FACTORY_ADDRESS",
+		<ThirdwebProvider>
+			<ConnectButton
+				client={client}
+				wallets={wallets}
+				accountAbstraction={{
+					factoryAddress: "0x...", // your factory address
+					chain: sepolia, // your chain
 					gasless: true,
-				}),
-			]}
-		>
-			<ConnectWallet />
+				}}
+			/>
 		</ThirdwebProvider>
 	);
 }
@@ -103,6 +101,6 @@ export default function App() {
 
 This will create an embedded wallet and a smart account for the user. The smart account will be initialized with the embedded wallet as the owner.
 
-Pass your deployed `factoryAddress` to the `smartWallet()` function. This will allow the smart account to be be deployed only when the user sends their first transaction.
+Pass your deployed `factoryAddress` to the `accountAbstraction` prop. This will allow the smart account to be be deployed only when the user sends their first transaction.
 
-You can sponsor transactions simply by passing `gasless: true` to the `smartWallet()` function. This will allow the smart account to send transactions without the user needing to hold any ETH.
+You can sponsor transactions simply by passing `gasless: true` to the `accountAbstraction` prop. This will allow the smart account to send transactions without the user needing to hold any ETH.

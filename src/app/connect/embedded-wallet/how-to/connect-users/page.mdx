@@ -24,31 +24,26 @@ export const metadata = createMetadata({
 
 ## Using the Connect UI components
 
-If you're building a [React website](/react/v4/components/ConnectWallet), [React Native app](/react-native/v0/components/ConnectWallet), or [Unity game](/unity/ConnectWallet) you can use the prebuilt connect UI components to authenticate users and connect their wallets.
+If you're building a [React website](/typescript/v5/react/components/ConnectButton), [React Native app](/react-native/v0/components/ConnectWallet), or [Unity game](/unity/ConnectWallet) you can use the prebuilt connect UI components to authenticate users and connect their wallets.
 
 <Tabs defaultValue="react">
 
 <TabsList>
-	<TabsTrigger value="react">React </TabsTrigger>
-	<TabsTrigger value="react-native">React Native</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
 ```jsx
-import {
-	ThirdwebProvider,
-	ConnectWallet,
-	embeddedWallet,
-} from "@thirdweb-dev/react";
+import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
+import { embeddedWallet } from "thirdweb/wallets";
+
+const client = createThirdwebClient({ clientId });
+const wallets = [embeddedWallet()];
 
 export default function App() {
 	return (
-		<ThirdwebProvider
-			activeChain="goerli"
-			clientId="YOUR_CLIENT_ID"
-			supportedWallets={[embeddedWallet()]}
-		>
-			<ConnectWallet />
+		<ThirdwebProvider>
+			<ConnectButton client={client} wallets={wallets} />
 		</ThirdwebProvider>
 	);
 }
@@ -56,29 +51,6 @@ export default function App() {
 
 </TabsContent>
 
-<TabsContent value="react-native">
-
-```tsx
-import {
-	ThirdwebProvider,
-	ConnectWallet,
-	embeddedWallet,
-} from "@thirdweb-dev/react-native";
-
-export default function App() {
-	return (
-		<ThirdwebProvider
-			activeChain="goerli"
-			clientId="YOUR_CLIENT_ID"
-			supportedWallets={[embeddedWallet()]}
-		>
-			<ConnectWallet />
-		</ThirdwebProvider>
-	);
-}
-```
-
-</TabsContent>
 </Tabs>
 
 ## Choose authentication methods
@@ -89,37 +61,26 @@ By default, the connect UI supports Google, Apple, Facebook and email/password a
 
 <TabsList>
 	<TabsTrigger value="react">React </TabsTrigger>
-	<TabsTrigger value="react-native">React Native</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
-```jsx
-<ThirdwebProvider
-  supportedWallets={[
-    embeddedWallet({
-      auth: {
-        options: ["email", "facebook", "apple", "google"],
-      }
-    })
-  ]}
->
+```tsx
+import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
+import { embeddedWallet } from "thirdweb/wallets";
+
+const client = createThirdwebClient({ clientId });
+const wallets = [embeddedWallet({
+providers: ["email", "facebook", "apple", "google"]
+})];
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<ConnectButton client={client} wallets={wallets} />
+		</ThirdwebProvider>
+	);
+}
 ```
 </TabsContent>
 
-<TabsContent value="react-native">
-
-```jsx
-<ThirdwebProvider
-  supportedWallets={[
-    embeddedWallet({
-      auth: {
-        options: ["email", "facebook", "apple", "google"],
-        redirectUrl: "your_app://deeplink" // required for social logins only
-      }
-    })
-  ]}
->
-```
-
-</TabsContent>
 </Tabs>

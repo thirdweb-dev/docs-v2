@@ -36,6 +36,18 @@ export const sidebar: SideBar = {
 					href: `${slug}/contract`,
 				},
 				{
+					name: "Accounts & Wallets",
+					href: `${slug}/wallets`,
+				},
+				{
+					name: "Connecting wallets",
+					href: `${slug}/connecting-wallets`,
+				},
+				{
+					name: "Supported Wallets",
+					href: `${slug}/supported-wallets`,
+				},
+				{
 					name: "Transactions",
 					href: `${slug}/transactions`,
 					links: [
@@ -52,10 +64,6 @@ export const sidebar: SideBar = {
 							href: `${slug}/transactions/send`,
 						},
 					],
-				},
-				{
-					name: "Accounts & Wallets",
-					href: `${slug}/wallets`,
 				},
 				{
 					name: "Extensions",
@@ -88,6 +96,10 @@ export const sidebar: SideBar = {
 					href: `${slug}/storage`,
 				},
 				{
+					name: "Auth",
+					href: `${slug}/auth`,
+				},
+				{
 					separator: true,
 				},
 			],
@@ -108,10 +120,6 @@ export const sidebar: SideBar = {
 				{
 					name: "Connecting Wallets",
 					href: `${reactSlug}/connecting-wallets`,
-				},
-				{
-					name: "Supported Wallets",
-					href: `${reactSlug}/wallets`,
 				},
 				{
 					name: "UI Components",
@@ -138,6 +146,14 @@ export const sidebar: SideBar = {
 							href: `${reactSlug}/components/MediaRenderer`,
 						},
 					],
+				},
+				{
+					name: "Transactions",
+					href: `${reactSlug}/transactions`,
+				},
+				{
+					name: "Extensions",
+					href: `${reactSlug}/extensions`,
 				},
 				{
 					name: "Hooks",

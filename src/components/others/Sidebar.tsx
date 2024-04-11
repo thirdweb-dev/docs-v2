@@ -32,7 +32,7 @@ export type LinkGroup = {
 	links: SidebarLink[];
 	expanded?: boolean;
 	/**
-	 * If set to false, the the group will not be rendered as an accordion
+	 * If set to false, the group will not be rendered as an accordion
 	 * @defaultValue true
 	 */
 	isCollapsible?: boolean;
@@ -54,13 +54,16 @@ type ReferenceSideBarProps = {
 	links: SidebarLink[];
 	onLinkClick?: () => void;
 	name: string;
+	header?: React.ReactNode;
 };
 
 export function DocSidebar(props: ReferenceSideBarProps) {
 	return (
 		<div className="flex h-full flex-col">
 			{/* Side bar Name */}
-			<p className="py-5 text-lg font-semibold text-f-100">{props.name}</p>
+			{props.header || (
+				<p className="py-5 text-lg font-semibold text-f-100">{props.name}</p>
+			)}
 
 			<ul className="styled-scrollbar transform-gpu overflow-y-scroll pb-10 pr-3">
 				{props.links.map((link, i) => (
@@ -239,16 +242,7 @@ function DocSidebarCategory(props: {
 }
 
 export function DocSidebarMobile(props: ReferenceSideBarProps) {
-	const [open, _setOpen] = useState(false);
-
-	const setOpen = (value: boolean) => {
-		if (value) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
-		}
-		_setOpen(value);
-	};
+	const [open, setOpen] = useState(false);
 
 	return (
 		<DropdownMenu open={open} onOpenChange={setOpen}>
@@ -274,6 +268,7 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 								props.onLinkClick();
 							}
 						}}
+						header={props.header}
 					/>
 				</div>
 			</DropdownMenuContent>

@@ -18,7 +18,7 @@ This is typically an **admin** operation, where the owner of the contract genera
 
 ```csharp
 var payload = new ERC20MintPayload("{{wallet_address}}", "{{quantity}}");
-var signedPayload = await contract.ERC20.signature.Generate(payload);
+var signedPayload = await contract.ERC20.Signature.Generate(payload);
 ```
 
 <Details summary="Configuration">
@@ -49,9 +49,9 @@ Mint tokens from a previously generated signature (see [`generate`](#generate)).
 
 ```csharp
 var payload = new ERC20MintPayload("{{wallet_address}}", "{{quantity}}");
-var signedPayload = await contract.ERC20.signature.Generate(payload);
+var signedPayload = await contract.ERC20.Signature.Generate(payload);
 
-var data = await contract.ERC20.signature.Mint(signedPayload);
+var data = await contract.ERC20.Signature.Mint(signedPayload);
 ```
 
 <Details summary="Configuration">
@@ -77,9 +77,9 @@ if you want to show a more user-friendly error message.
 
 ```csharp
 var payload = new ERC20MintPayload("{{wallet_address}}", "{{quantity}}");
-var signedPayload = await contract.ERC20.signature.Generate(payload);
+var signedPayload = await contract.ERC20.Signature.Generate(payload);
 
-var data = await contract.ERC20.signature.Verify(signedPayload);
+var data = await contract.ERC20.Signature.Verify(signedPayload);
 ```
 
 <Details summary="Configuration">

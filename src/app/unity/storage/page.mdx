@@ -12,7 +12,7 @@ export const metadata = createMetadata({
 Download an image from a URL or IPFS URI into a `Sprite` object.
 
 ```csharp
-var data = await sdk.storage.DownloadImage("{{image_url}}");
+var data = await sdk.Storage.DownloadImage("{{image_url}}");
 ```
 
 <Details summary="Configuration">
@@ -34,7 +34,7 @@ Returns a [Sprite](https://docs.unity3d.com/Manual/Sprites.html).
 Download text data such as JSON from a URL or IPFS URI.
 
 ```csharp
-var data = await sdk.storage.DownloadText<string>("{{text_uri}}");
+var data = await sdk.Storage.DownloadText<string>("{{text_uri}}");
 ```
 
 <Details summary="Configuration">
@@ -60,7 +60,7 @@ Returns the data as the specified type.
 Upload and pin data in IPFS using the path to a file.
 
 ```csharp
-var data = await sdk.storage.UploadFromPath("{{path/to-file}}");
+var data = await sdk.Storage.UploadFromPath("{{path/to-file}}");
 ```
 
 <Details summary="Configuration">
@@ -78,7 +78,7 @@ Must be a `string`.
 Upload raw data to IPFS.
 
 ```csharp
-var data = await sdk.storage.UploadText("Hello world!");
+var data = await sdk.Storage.UploadText("Hello world!");
 ```
 
 <Details summary="Configuration">

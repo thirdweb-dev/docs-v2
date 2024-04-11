@@ -4,6 +4,7 @@ import {
 	Stack,
 	OpenSourceCard,
 	InstallTabs,
+	createMetadata,
 } from "@doc";
 import {
 	ZapIcon,
@@ -15,8 +16,19 @@ import {
 	RssIcon,
 	PlugZapIcon,
 	BoxIcon,
+	KeyRoundIcon,
 } from "lucide-react";
 import { ReactIcon } from "@/icons";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Connect TS SDK",
+		icon: "wallets",
+	},
+	title: "Connect TS SDK | thirdweb",
+	description:
+		"Performant & lightweight TypeScript SDK to connect wallets and interact with any EVM chain.",
+});
 
 # TypeScript SDK
 
@@ -30,10 +42,10 @@ Performant & lightweight SDK to interact with any EVM chain from Node, React and
 ## Installation
 
 <InstallTabs
-	npm="npm i thirdweb@beta"
-	yarn="yarn add thirdweb@beta"
-	pnpm="pnpm i thirdweb@beta"
-	bun="bun i thirdweb@beta"
+	npm="npm i thirdweb"
+	yarn="yarn add thirdweb"
+	pnpm="pnpm i thirdweb"
+	bun="bun i thirdweb"
 />
 
 ## Features
@@ -113,6 +125,13 @@ Performant & lightweight SDK to interact with any EVM chain from Node, React and
 	icon={BoxIcon}
 	href="/typescript/v5/storage"
 	description="IPFS download and upload"
+/>
+
+<ArticleIconCard
+	title="Auth"
+	icon={KeyRoundIcon}
+	href="/typescript/v5/auth"
+	description="Authenticate users"
 />
 
 <ArticleIconCard

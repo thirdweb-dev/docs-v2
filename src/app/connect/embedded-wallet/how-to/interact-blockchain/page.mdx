@@ -36,23 +36,25 @@ One connected, embedded wallets can be used alongside the [Contract SDK](/contra
 <TabsContent value="react">
 The `ThirdwebProvider` handles maintaining the connection state, and allows using all the hooks in the SDK to interact with the blockchain as the connected user.
 
-Here's an example using the `Web3Button` component to claim an NFT on a smart contract:
+Here's an example using the `TransactionButton` component to claim an NFT on a smart contract:
 
 ```tsx
 export default function App() {
+	const account = useActiveAccount();
+
 	return (
-		<ThirdwebProvider
-			activeChain="goerli"
-			clientId="YOUR_CLIENT_ID"
-			supportedWallets={[embeddedWallet()]}
-		>
-			<Web3Button
-				contractAddress="0x..."
-				action={(contract) => contract.erc721.claim(1)}
+		<div>
+			<TransactionButton
+				transaction={() => {
+					if (!account) {
+						return alert("Please connect your wallet");
+					}
+					return claimTo({ contract, to: account.address, quantity: 1 });
+				}}
 			>
 				Claim NFT
-			</Web3Button>
-		</ThirdwebProvider>
+			</TransactionButton>
+		</div>
 	);
 }
 ```
@@ -60,22 +62,27 @@ export default function App() {
 </TabsContent>
 
 <TabsContent value="typescript">
-To initialize the Contract SDK with your wallet, use the [`fromWallet`](/references/typescript/latest/ThirdwebSDK#fromWallet) method:
+You can pass the connected account to any of the transaction actions:
 
 ```typescript
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { EmbeddedWallet } from "@thirdweb-dev/wallet";
+import { createThirdwebClient, getContract, sendTransaction } from "thirdweb";
+import { sepolia } from "thirdweb/chains";
+import { embeddedWallet } from "thirdweb/wallets";
 
-const wallet = new EmbeddedWallet();
-await wallet.connect();
-
-const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum", {
-	clientId: "YOUR_CLIENT_ID", // Use client id if using on the client side, get it from dashboard settings
-	secretKey: "YOUR_SECRET_KEY", // Use secret key if using on the server, get it from dashboard settings
+const wallet = embeddedWallet();
+const account = await wallet.connect({
+	client,
+	strategy: "google",
 });
 
-const contract = await sdk.getContract("0x...");
-await contract.erc721.claim(1);
+const contract = getContract({ client, address: "0x..." });
+
+const transaction = claimTo({
+	contract,
+	to: wallet.account.address,
+	quantity: 1,
+});
+await sendTransaction({ transaction, account });
 ```
 
 </TabsContent>
@@ -84,26 +91,14 @@ await contract.erc721.claim(1);
 
 ## Full Reference
 
-View everything you can do in the Contract SDK once you have connected your wallet:
+View everything you can do in the Connect SDK once you have connected your wallet:
 
 <Grid className="lg:grid-cols-2">
 
 <ArticleIconCard
-	href={"/wallet-sdk/latest"}
+	href={"/typescript/v5"}
 	image={WalletIcon}
-	title="Connect SDK"
-/>
-<ArticleIconCard href={"/react/latest"} icon={ReactIcon} title="React SDK" />
-<ArticleIconCard
-	href={"/react-native/latest"}
-	icon={ReactIcon}
-	title="React Native SDK"
-/>
-
-<ArticleIconCard
-	href={"/react-native/latest"}
-	icon={UnityIcon}
-	title="Unity SDK"
+	title="Connect SDK reference"
 />
 
 </Grid>

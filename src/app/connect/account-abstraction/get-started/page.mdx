@@ -79,79 +79,62 @@ All transactions performed with the smart account will then be gasless.
 
 <TabsList>
 	<TabsTrigger value="react">React</TabsTrigger>
-	<TabsTrigger value="react-native">React Native</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="unity">Unity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
 ```tsx
-import { ThirdwebProvider, ConnectWallet, smartWallet, embeddedWallet } from "@thirdweb-dev/react";
+import { createThirdwebClient } from "thirdweb";
+import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
+
+const client = createThirdwebClient({
+clientId: "YOUR_CLIENT_ID",
+});
 
 export default function App() {
 return (
-    <ThirdwebProvider
-      clientId="YOUR_CLIENT_ID"
-      activeChain="sepolia"
-      supportedWallets={[
-        smartWallet(
-          embeddedWallet(), // any personal wallet
-          {
+    <ThirdwebProvider>
+      <ConnectButton
+	    client={client}
+	    accountAbstraction={{
+			chain: sepolia, // the chain where your smart accounts will be or is deployed
             factoryAddress: "0x...", // your deployed factory address
             gasless: true // enable or disable gasless transactions
-        })
-      ]}
-    >
-      <ConnectWallet />
+        }}
+	  />
     </ThirdwebProvider>
   );
 }
 ```
 </TabsContent>
-<TabsContent value="react-native">
-```tsx
-import { ThirdwebProvider, ConnectWallet, smartWallet, embeddedWallet } from "@thirdweb-dev/react-native";
 
-export default function App() {
-return (
-    <ThirdwebProvider
-      clientId="YOUR_CLIENT_ID"
-      activeChain="sepolia"
-      supportedWallets={[
-        smartWallet(
-          embeddedWallet(), // any personal wallet
-          {
-            factoryAddress: "0x...", // your deployed factory address
-            gasless: true // enable or disable gasless transactions
-        })
-      ]}
-    >
-      <ConnectWallet />
-    </ThirdwebProvider>
-  );
-}
-```
-</TabsContent>
 <TabsContent value="typescript">
 
 ```ts
-import { LocalWallet, SmartWallet } from "@thirdweb-dev/wallets";
+import { createThirdwebClient } from "thirdweb";
+import { embeddedwallet, smartWallet } from "thirdweb/wallets";
 
-// First, connect the personal wallet, which can be any wallet (metamask, walletconnect, etc.)
-// Here we're just generating a new local wallet which can be saved later
-const personalWallet = new LocalWallet();
-await personalWallet.generate();
-// Setup the Smart Wallet configuration
-const config = {
+const client = createThirdwebClient({
+	clientId,
+});
+
+// First, create and connect the personal wallet, which can be any wallet (embedded, metamask, etc.)
+const personalWallet = embeddedWallet();
+const personalAccount = await personalWallet.connect({
+	client,
+	strategy: "google",
+});
+// Then, create and connect the Smart wallet
+const wallet = smartwallet({
 	chain: "sepolia", // the chain where your smart wallet will be or is deployed
 	factoryAddress: "0x...", // your own deployed account factory address
 	clientId: "YOUR_CLIENT_ID", // or use secretKey for backend/node scripts
 	gasless: true, // enable or disable gasless transactions
-};
-// Then, connect the Smart wallet
-const wallet = new SmartWallet(config);
-await wallet.connect({
-	personalWallet,
+});
+const smartAccount = await wallet.connect({
+	client,
+	personalAccount,
 });
 ```
 
@@ -215,35 +198,46 @@ and [Unity SDKs](/unity) to deploy contracts, perform transactions, and manipula
 <TabsContent value="react">
 
 ```tsx
-import {
-	useAddress,
-	useContract,
-	useOwnedNFTs,
-	Web3Button,
-} from "@thirdweb-dev/react";
+import { getContract } from "thirdweb";
+import { useActiveAccount, TransactionButton } from "thirdweb/react";
+import { mintTo } from "thirdweb/extensions/erc721";
 
-// The ThirdwebProvider setup above already handles the connection to the smart wallet
-// Within the provider, you can use the react SDK hooks to interact with the blockchain
+const contract = getContract({ client, chain, address: "0x..." });
+
+// The ThirdwebProvider setup above already handles the connection to the smart account
+// Within the provider, you can use the SDK normally to interact with the blockchain
 export default function MyComponent() {
-	// Get the connected smart wallet address
-	const smartWalletAddress = useAddress();
+	// Get the connected smart account
+	const smartAccount = useActiveAccount();
 	// Fetch owned NFTs
-	const { contract } = useContract("0x...");
-	const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
+	const { data, isLoading } = useReadContract(
+		getOwnedNFTs,
+		{
+			contract,
+			address: smartAccount.address!,
+		},
+		{
+			enabled: !!smartAccount,
+		},
+	);
 	// Mint a new NFT
 	return (
-		<Web3Button
-			contractAddress={"0x..."}
-			action={(contract) =>
-				contract.erc721.mint({
-					name: "My NFT",
-					description: "My NFT description",
-					image: "https://example.com/image.png",
-				})
-			}
+		<TransactionButton
+			transaction={() => {
+				if (!account) return;
+				return mintTo({
+					contract,
+					to: account.address,
+					nft: {
+						name: "My NFT",
+						description: "My NFT description",
+						image: "https://example.com/image.png",
+					},
+				});
+			}}
 		>
 			Mint NFT
-		</Web3Button>
+		</TransactionButton>
 	);
 }
 ```
@@ -253,35 +247,46 @@ export default function MyComponent() {
 <TabsContent value="react-native">
 
 ```tsx
-import {
-	useAddress,
-	useContract,
-	useOwnedNFTs,
-	Web3Button,
-} from "@thirdweb-dev/react-native";
+import { getContract } from "thirdweb";
+import { useActiveAccount, TransactionButton } from "thirdweb/react";
+import { mintTo } from "thirdweb/extensions/erc721";
 
-// The ThirdwebProvider setup above already handles the connection to the smart wallet
-// Within the provider, you can use the react SDK hooks to interact with the blockchain
+const contract = getContract({ client, chain, address: "0x..." });
+
+// The ThirdwebProvider setup above already handles the connection to the smart account
+// Within the provider, you can use the SDK normally to interact with the blockchain
 export default function MyComponent() {
-	// Get the connected smart wallet address
-	const smartWalletAddress = useAddress();
+	// Get the connected smart account
+	const smartAccount = useActiveAccount();
 	// Fetch owned NFTs
-	const { contract } = useContract("0x...");
-	const { data, isLoading } = useOwnedNFTs(contract, smartWalletAddress);
+	const { data, isLoading } = useReadContract(
+		getOwnedNFTs,
+		{
+			contract,
+			address: smartAccount.address!,
+		},
+		{
+			enabled: !!smartAccount,
+		},
+	);
 	// Mint a new NFT
 	return (
-		<Web3Button
-			contractAddress={"0x..."}
-			action={(contract) =>
-				contract.erc721.mint({
-					name: "My NFT",
-					description: "My NFT description",
-					image: "https://example.com/image.png",
-				})
-			}
+		<TransactionButton
+			transaction={() => {
+				if (!account) return;
+				return mintTo({
+					contract,
+					to: account.address,
+					nft: {
+						name: "My NFT",
+						description: "My NFT description",
+						image: "https://example.com/image.png",
+					},
+				});
+			}}
 		>
 			Mint NFT
-		</Web3Button>
+		</TransactionButton>
 	);
 }
 ```
@@ -290,28 +295,26 @@ export default function MyComponent() {
 <TabsContent value="typescript">
 
 ```ts
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { getContract, prepareContractCall } from "thirdweb";
+import { mintTo } from "thirdweb/extensions/erc721";
 
-// Simply initialize your SDK with the created smart wallet
-const sdk = await ThirdwebSDK.fromWallet(smartWallet, "sepolia", {
-	clientId: "YOUR_CLIENT_ID",
-});
-// You can now interact with the blockchain as you would with a regular EOA
-const smartWalletAddress = await sdk.wallet.getAddress();
+// Once you have a smartAccount connected, you can interact with the blockchain as you would with a regular EOA
+const smartWalletAddress = smartAccount.address;
 // gas-free wallet actions
-await sdk.wallet.transfer("0x...", "0.01");
-// gas-free contract deployments
-const contractAddress = await sdk.deployer.deployNFTCollection({
-	name: "My NFT Collection",
-	primary_sale_recipient: smartWalletAddress,
+const transaction = await mintTo({
+	contract,
+	to: smartWalletAddress,
+	nft: {
+		name: "My NFT",
+		description: "My NFT description",
+		image: "https://example.com/image.png",
+	},
 });
-// gas free contract interactions
-const contract = await sdk.getContract(contractAddress);
-await contract.erc721.mint({
-	name: "My NFT",
-	description: "My NFT description",
-	image: "https://example.com/image.png",
+const { transactionHash } = await sendTransaction({
+	transaction,
+	smartAccount,
 });
+console.log(`Minted NFT with transaction hash: ${transactionHash}`);
 ```
 
 </TabsContent>

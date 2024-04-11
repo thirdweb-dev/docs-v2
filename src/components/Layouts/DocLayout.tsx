@@ -13,6 +13,7 @@ export type DocLayoutProps = {
 	children?: React.ReactNode;
 	editPageButton?: true;
 	showTableOfContents?: boolean;
+	sidebarHeader?: React.ReactNode;
 };
 
 export function DocLayout(props: DocLayoutProps) {
@@ -31,10 +32,10 @@ export function DocLayout(props: DocLayoutProps) {
 					"hidden xl:flex",
 				)}
 			>
-				<DocSidebar {...props.sideBar} />
+				<DocSidebar {...props.sideBar} header={props.sidebarHeader} />
 			</aside>
 			<div className="sticky top-sticky-top-height z-stickyMobileSidebar border-b bg-b-900 py-4 xl:hidden">
-				<DocSidebarMobile {...props.sideBar} />
+				<DocSidebarMobile {...props.sideBar} header={props.sidebarHeader} />
 			</div>
 			<main className="relative flex w-full flex-col overflow-hidden">
 				<div className="grow xl:mt-6">{props.children}</div>

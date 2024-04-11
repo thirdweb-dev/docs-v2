@@ -19,7 +19,7 @@ import {
 	DropdownMenuItem,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DocSearch } from "@/components/others/DocSearch";
 import { ContextAIBotButton } from "@/components/others/ContextAIButton";
 import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
@@ -39,16 +39,27 @@ const links = [
 		name: "Engine",
 		href: "/engine",
 	},
+];
+
+const toolLinks = [
 	{
-		name: "Payments",
-		href: "/payments",
+		name: "Account",
+		href: "/account",
+	},
+	{
+		name: "API Keys",
+		href: "/account/api-keys",
+	},
+	{
+		name: "CLI",
+		href: "/cli",
 	},
 ];
 
 const sdkLinks = [
 	{
 		name: "TypeScript",
-		href: "/typescript-sdks",
+		href: "/typescript/v5",
 	},
 	{
 		name: "Unity",
@@ -57,6 +68,10 @@ const sdkLinks = [
 	{
 		name: "Solidity",
 		href: "/contracts/build/overview",
+	},
+	{
+		name: ".NET",
+		href: "/dotnet",
 	},
 ];
 
@@ -73,14 +88,6 @@ const supportLinks = [
 
 export function Header() {
 	const [showBurgerMenu, setShowBurgerMenu] = useState(false);
-
-	useEffect(() => {
-		if (showBurgerMenu) {
-			document.body.style.overflow = "hidden";
-		} else {
-			document.body.style.overflow = "auto";
-		}
-	}, [showBurgerMenu]);
 
 	return (
 		<header className="flex w-full items-center border-b bg-b-900">
@@ -147,6 +154,12 @@ export function Header() {
 						})}
 
 						<DropdownLinks
+							links={toolLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="Tools"
+						/>
+
+						<DropdownLinks
 							links={sdkLinks}
 							onLinkClick={() => setShowBurgerMenu(false)}
 							category="SDKs"
@@ -166,7 +179,7 @@ export function Header() {
 							<DocSearch variant="search" />
 						</div>
 
-						<div className="flex flex-col gap-5 xl:flex-row xl:gap-1">
+						<div className="px-2">
 							<DropdownLinks
 								links={supportLinks}
 								onLinkClick={() => setShowBurgerMenu(false)}
@@ -209,7 +222,7 @@ function DropdownLinks(props: {
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="ghost"
-							className="inline-flex gap-1 pl-2 pr-1 font-medium text-f-300 hover:text-f-100"
+							className="inline-flex gap-1 px-0 font-medium text-f-300 hover:bg-transparent hover:text-f-100"
 						>
 							{props.category}
 							<ChevronDownIcon className="w-4 text-f-300 opacity-70" />
@@ -219,7 +232,7 @@ function DropdownLinks(props: {
 					<DropdownMenuContent
 						className="flex flex-col gap-1 bg-b-800 p-3"
 						style={{
-							width: "150px",
+							minWidth: "150px",
 						}}
 					>
 						{props.links.map((info) => {

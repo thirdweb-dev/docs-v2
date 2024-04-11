@@ -1,4 +1,4 @@
-import { Callout, OpenSourceCard, createMetadata } from "@doc";
+import { Callout, OpenSourceCard, createMetadata, InstallTabs } from "@doc";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 export const metadata = createMetadata({
@@ -36,34 +36,14 @@ Quickly get started with one of our templates:
 
 ## Starting from existing project
 
-[Install](/cli/install) the required packages:
+Install the required package:
 
-<Tabs defaultValue="cli">
-
-<TabsList>
-	<TabsTrigger value="cli">thirdweb CLI</TabsTrigger>
-	<TabsTrigger value="npm">npm</TabsTrigger>
-</TabsList>
-
-<TabsContent value="cli">
-```bash
-npx thirdweb install
-```
-
-This command will recognize the environment you are working in and install the appropriate packages.
-
-</TabsContent>
-
-<TabsContent value="npm">
-
-```bash
-npm install @thirdweb-dev/react @thirdweb-dev/chains @thirdweb-dev/sdk ethers@5^
-```
-
-This command will recognize the environment you are working in and install the appropriate packages.
-
-</TabsContent>
-</Tabs>
+<InstallTabs
+	npm="npm i thirdweb"
+	yarn="yarn add thirdweb"
+	pnpm="pnpm i thirdweb"
+	bun="bun i thirdweb"
+/>
 
 ## Get your client ID
 
@@ -77,51 +57,22 @@ Quickest ways to get started with embedded wallets on each platform.
 
 <TabsList>
 	<TabsTrigger value="react">React</TabsTrigger>
-	<TabsTrigger value="react-native">React Native</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="unity">Unity</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
-```jsx
-import {
-	ThirdwebProvider,
-	ConnectWallet,
-	embeddedWallet,
-} from "@thirdweb-dev/react";
-
-export default function App() {
-	return (
-		<ThirdwebProvider
-			activeChain="ethereum"
-			clientId="YOUR_CLIENT_ID"
-			supportedWallets={[embeddedWallet()]}
-		>
-			<ConnectWallet />
-		</ThirdwebProvider>
-	);
-}
-```
-
-</TabsContent>
-
-<TabsContent value="react-native">
-
 ```tsx
-import {
-	ThirdwebProvider,
-	ConnectWallet,
-	embeddedWallet,
-} from "@thirdweb-dev/react-native";
+import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
+import { createWallet } from "thirdweb/wallets";
+
+const client = createThirdwebClient({ clientId });
+const wallets = [embeddedWallet()];
 
 export default function App() {
 	return (
-		<ThirdwebProvider
-			activeChain="ethereum"
-			clientId="YOUR_CLIENT_ID"
-			supportedWallets={[embeddedWallet()]}
-		>
-			<ConnectWallet />
+		<ThirdwebProvider>
+			<ConnectButton client={client} wallets={wallets} />
 		</ThirdwebProvider>
 	);
 }
@@ -132,18 +83,14 @@ export default function App() {
 <TabsContent value="typescript">
 
 ```tsx
-import { EmbeddedWallet } from "@thirdweb-dev/wallets";
-import { Goerli } from "@thirdweb-dev/chains";
+import { embeddedWallet } from "thirdweb/wallets";
 
-const wallet = new EmbeddedWallet({
-	chain: Goerli, //  chain to connect to
-	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
-});
-
-const authResult = await wallet.authenticate({
+const client = createThirdwebClient({ clientId });
+const wallet = embeddedWallet();
+const account = await wallet.connect({
+	client,
 	strategy: "google", // The authentication strategy to use, can be any of the supported strategies (google, facebook, apple, email, jwt)
 });
-const walletAddress = await wallet.connect({ authResult });
 ```
 
 </TabsContent>

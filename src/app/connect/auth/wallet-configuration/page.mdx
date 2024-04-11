@@ -1,4 +1,5 @@
 import { Callout, createMetadata } from "@doc";
+import { V4SDKbanner } from "@/components/others/V4SDKBanner";
 
 export const metadata = createMetadata({
 	image: {
@@ -11,6 +12,8 @@ export const metadata = createMetadata({
 });
 
 # Wallet Configuration
+
+<V4SDKbanner />
 
 Auth makes use of a server-side wallet to sign and verify JWTs, as covered in the [how auth works section](/connect/auth/how-it-works/jwt). You can configure this wallet using a variety of wallet management options, giving you the freedom to choose the most convenient and secure setup for your project.
 

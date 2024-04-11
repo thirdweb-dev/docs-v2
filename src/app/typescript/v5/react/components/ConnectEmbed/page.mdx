@@ -48,53 +48,30 @@ Refer to [Props](#props) to see all the available configuration options
 
 ```tsx
 import { ConnectEmbed } from "thirdweb/react";
-// Import the wallets you want to include
-import {
-	metamaskConfig,
-	walletConnectConfig,
-	coinbaseConfig,
-	embeddedWalletConfig,
-} from "thirdweb/wallets";
+import { createWallet, embeddedWallet } from "thirdweb/wallets";
+
+const wallets = [
+	embeddedWallet(),
+	createWallet("io.metamask"),
+	createWallet("com.coinbase.wallet"),
+	createWallet("me.rainbow"),
+];
 
 function Example() {
 	return (
 		<div>
-			<ConnectEmbed
-				client={client}
-				appMetadata={appMetadata}
-				wallets={[
-					metamaskConfig({ recommended: true }),
-					coinbaseConfig(),
-					walletConnectConfig(),
-					embeddedWalletConfig(),
-				]}
-			/>
+			<ConnectEmbed client={client} wallets={wallets} />
 		</div>
 	);
 }
 ```
-
-### Customizing wallets
-
-If `wallets` is not configured, the `ConnectEmbed` will use the below default wallets:
-
-<Details summary="Default Wallets" id='default-wallets'>
-
-- [Embedded Wallet](/references/typescript/v5/embeddedWalletConfig)
-- [MataMask Wallet](/references/typescript/v5/metamaskConfig)
-- [Coinbase Wallet](/references/typescript/v5/coinbaseConfig)
-- [WalletConnect](/references/typescript/v5/walletConnectConfig)
-- [Rainbow Wallet](/references/typescript/v5/rainbowConfig)
-- [Zerion Wallet](/references/typescript/v5/zerionConfig)
-
-</Details>
 
 <Stack>
 
 <ArticleIconCard
 	title="Supported Wallets"
 	icon={TablePropertiesIcon}
-	href="/typescript/v5/react/wallets"
+	href="/typescript/v5/supported-wallets"
 />
 
 </Stack>

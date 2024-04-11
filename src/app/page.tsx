@@ -14,12 +14,14 @@ import { Heading, Grid } from "@/components/Document";
 // 	ShoppingBag,
 // 	User,
 // } from "lucide-react";
+import { CodeIcon } from "lucide-react";
 import {
-	ReactIcon,
 	TypeScriptIcon,
+	ReactIcon,
 	// PythonIcon,
 	// GoIcon,
 	UnityIcon,
+	DotNetIcon,
 	SolidityIcon,
 	ContractBuildIcon,
 	ContractExploreIcon,
@@ -31,7 +33,6 @@ import {
 	WalletsConnectIcon,
 	WalletsEmbeddedIcon,
 	WalletsSmartIcon,
-	PaymentsNFTCheckoutIcon,
 	PayIcon,
 } from "@/icons";
 // import { LandingPageCTAs } from "./landing-page/CTAs";
@@ -44,7 +45,7 @@ export default function Page() {
 			<WalletsSection />
 			<ContractsSection />
 			<EngineSection />
-			<PaymentSection />
+
 			<SDKSection />
 		</main>
 	);
@@ -229,8 +230,8 @@ function WalletsSection() {
 			<Grid>
 				<ArticleCardIndex
 					href="/connect/connect"
-					title="Connect UI"
-					description="Fully customizable Connect Wallet component"
+					title="UI Components"
+					description="UI components for wallet connection and more"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
@@ -256,6 +257,12 @@ function WalletsSection() {
 					title="Pay"
 					description="Easily integrate cross-chain crypto purchases for your users"
 					icon={PayIcon}
+				/>
+				<ArticleCardIndex
+					href="/connect/blockchain-api"
+					title="Blockchain API"
+					description="Performant, and reliable blockchain API"
+					icon={CodeIcon}
 				/>
 			</Grid>
 		</section>
@@ -303,23 +310,6 @@ function ContractsSection() {
 	);
 }
 
-function PaymentSection() {
-	return (
-		<section className="my-12">
-			<SectionTitle id="payments" title="Payments" />
-
-			<Grid>
-				<ArticleCardIndex
-					href="/payments"
-					title="NFT Checkout"
-					description="Credit card checkout for NFTs"
-					icon={PaymentsNFTCheckoutIcon}
-				/>
-			</Grid>
-		</section>
-	);
-}
-
 function EngineSection() {
 	return (
 		<section className="my-12">
@@ -344,24 +334,28 @@ function SDKSection() {
 
 			<Grid>
 				<SDKCardIndex
-					href="/typescript/latest"
+					href="/typescript/v5"
 					title="TypeScript"
 					icon={TypeScriptIcon}
 				/>
-				<SDKCardIndex href="/react/latest" title="React" icon={ReactIcon} />
 				<SDKCardIndex
-					href="/react-native/latest"
-					title="React Native"
+					href="/typescript/v5/react"
+					title="React"
 					icon={ReactIcon}
 				/>
-				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
-				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
+				{/**
+				<SDKCardIndex
+					href="/react-native/v0"
+					title="React Native"
+					icon={ReactIcon}
+				/> */}
 				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
 				<SDKCardIndex
 					href="/contracts/build/overview"
 					title="Solidity"
 					icon={SolidityIcon}
 				/>
+				<SDKCardIndex href="/dotnet" title=".NET" icon={DotNetIcon} />
 			</Grid>
 		</section>
 	);

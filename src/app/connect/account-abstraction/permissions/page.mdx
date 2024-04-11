@@ -1,5 +1,6 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { createMetadata } from "@doc";
+import { V4SDKbanner } from "@/components/others/V4SDKBanner";
 
 export const metadata = createMetadata({
 	image: {
@@ -28,37 +29,62 @@ Existing admins on the account can add new admins, remove existing admins or ren
 <Tabs defaultValue="react">
 
 <TabsList>
-	<TabsTrigger value="react">React Hooks</TabsTrigger>
-	<TabsTrigger value="typescript">TypeScript functions</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
 
-In React and React Native, you can use the `useAddAdmin` hook to add a new admin:
-
 ```tsx
-const { mutate: addAdmin } = useAddAdmin();
-const { mutate: removeAdmin } = useRemoveAdmin();
+import { addAdmin } from "thirdweb/extensions/erc4337";
+import { useSendTransaction, useActiveAccount } from "thirdweb/react";
+import { getContract } from "thirdweb";
 
-const onClickAdd = () => {
-	addAdmin("0x...");
-};
+const { mutate: sendTransaction } = useSendTransaction();
+const smartAccount = useActiveAccount();
 
-const onClickRemove = () => {
-	removeAdmin("0x...");
+const onClick = () => {
+	if (!smartAccount) return;
+	const transaction = addAdmin({
+		contract: getContract({
+			address: smartAccount.address,
+			chain,
+			client,
+		}),
+		account: smartAccount,
+		adminAddress: "0x...", // the address of the new admin
+	});
+	sendTransaction(transaction);
 };
 ```
 
 </TabsContent>
 <TabsContent value="typescript">
 
-You can also use the Wallet SDK to add a new admin:
-
 ```typescript
-const smartWallet = new SmartWallet(config);
+import { addAdmin } from "thirdweb/extensions/erc4337";
+import { smartWallet } from "thirdweb/wallets";
+import { sendTransaction, getContract } from "thirdweb";
 
-await smartWallet.addAdmin("0x...");
-await smartWallet.removeAdmin("0x...");
+const smartWallet = new smartWallet(config);
+const smartAccount = await smartWallet.connect({
+	client,
+	personalAccount,
+});
+
+const transaction = addAdmin({
+	contract: getContract({
+		address: smartAccount.address,
+		chain,
+		client,
+	}),
+	account: smartAccount,
+	adminAddress: "0x...", // the address of the new admin
+});
+await sendTransaction({
+	transaction,
+	account: smartAccount,
+});
 ```
 
 </TabsContent>
@@ -84,43 +110,39 @@ To set the permissions for a given signer, the `setPermissionsForSigner` functio
 <Tabs defaultValue="react">
 
 <TabsList>
-	<TabsTrigger value="react">React Hooks</TabsTrigger>
-	<TabsTrigger value="typescript">TypeScript functions</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="unity">Unity</TabsTrigger>
 </TabsList>
 
   <TabsContent value="react">
 
-From a React application, you can use the `useCreateSessionKey` hook:
-
 ```tsx
-const Component = () => {
-    const {
-      mutate: createSessionKey,
-      isLoading,
-      error,
-    } = useCreateSessionKey();
+import { addSessionKey } from "thirdweb/extensions/erc4337";
+import { useSendTransaction, useActiveAccount } from "thirdweb/react";
+import { getContract } from "thirdweb";
 
-    const handleOnClick = () => {
-	    createSessionKey(
-          "0x...", // the session key address
-          {
-            approvedCallTargets: ["0x..."], // the addresses of allowed contracts, or '*' for any contract
-            nativeTokenLimitPerTransaction: 0.1, // Optional: the maximum amount of native token (in ETH) that the session key can spend per transaction
-            startDate: new Date(), // Optional: the date when the session key becomes active
-            expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // Optional: the date when the session key expires
-          }
-        );
-    };
+const { mutate: sendTransaction } = useSendTransaction();
+const smartAccount = useActiveAccount();
 
-    return (
-      <button
-        disabled={isLoading}
-        onClick={() => handleOnClick()}
-      >
-        Create Session Key
-      </button>
-    );
+const onClick = () => {
+	if (!smartAccount) return;
+	const transaction = addSessionKey({
+		contract: getContract({
+			address: smartAccount.address,
+			chain,
+			client,
+		}),
+		account: smartAccount,
+		sessionKeyAddress: "0x...", // the address of the new session key
+		permissions: {
+			approvedTargets: "*", // the addresses of allowed contracts, or '*' for any contract
+			nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+			permissionStartTimestamp: new Date(), // the date when the session key becomes active
+			permissionEndTimestamp: new Date(Date.now() + 24 * 60 * 60 * 1000), // the date when the session key expires
+		},
+	});
+	sendTransaction(transaction);
 };
 ```
 
@@ -128,21 +150,36 @@ const Component = () => {
 
 <TabsContent value="typescript">
 
-The easiest way to manage session keys is by using the Wallet SDK, in TypeScript:
-
 ```ts
-const smartWallet = new SmartWallet(config);
+import { addAdmin } from "thirdweb/extensions/erc4337";
+import { smartWallet } from "thirdweb/wallets";
+import { sendTransaction, getContract } from "thirdweb";
 
-// create and add a session key with permissions
-await smartWallet.createSessionKey(
-    "0x...", // the session key address
-    {
-        approvedCallTargets: ["0x..."], // the addresses of allowed contracts, or '*' for any contract
-        nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
-        startDate: new Date(), // the date when the session key becomes active
-        expirationDate = new Date(Date.now() + 24 * 60 * 60 * 1000); // the date when the session key expires
-    }
-);
+const smartWallet = new smartWallet(config);
+const smartAccount = await smartWallet.connect({
+	client,
+	personalAccount,
+});
+
+const transaction = addSessionKey({
+	contract: getContract({
+		address: smartAccount.address,
+		chain,
+		client,
+	}),
+	account: smartAccount,
+	sessionKeyAddress: "0x...", // the address of the new session key
+	permissions: {
+		approvedTargets: "*", // the addresses of allowed contracts, or '*' for any contract
+		nativeTokenLimitPerTransaction: 0.1, // the maximum amount of native token (in ETH) that the session key can spend per transaction
+		permissionStartTimestamp: new Date(), // the date when the session key becomes active
+		permissionEndTimestamp: new Date(Date.now() + 24 * 60 * 60 * 1000), // the date when the session key expires
+	},
+});
+await sendTransaction({
+	transaction,
+	account: smartAccount,
+});
 ```
 
 </TabsContent>

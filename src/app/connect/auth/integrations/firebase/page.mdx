@@ -1,6 +1,7 @@
 import { DocImage, OpenSourceCard, createMetadata } from "@doc";
 import firebaseUsersImage from "../../assets/firebase-users.png";
 import firebaseDBImage from "../../assets/firebase-db.png";
+import { V4SDKbanner } from "@/components/others/V4SDKBanner";
 
 export const metadata = createMetadata({
 	image: {
@@ -13,6 +14,8 @@ export const metadata = createMetadata({
 });
 
 # Firebase
+
+<V4SDKbanner />
 
 This guide will show you how to integrate Auth as a custom authentication provider for [Firebase](https://firebase.google.com/) and automatically create a document in the `users` Firestore collection when a user signs up successfully.
 

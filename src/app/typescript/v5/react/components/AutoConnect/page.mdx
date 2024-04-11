@@ -33,10 +33,16 @@ or [`ConnectEmbed`](/typescript/v5/react/components/ConnectEmbed) components, Yo
 ### Example
 
 ```tsx
-import { AutoConnect, metamaskConfig, coinbaseConfig } from "@thirdweb/react";
+import { createWallet, embeddedWallet } from "thirdweb/wallets";
+import { AutoConnect } from "thirdweb/react";
 
 // wallets used in your app
-const wallets = [metamaskConfig(), coinbaseConfig()];
+const wallets = [
+	embeddedWallet(),
+	createWallet("io.metamask"),
+	createWallet("com.coinbase.wallet"),
+	createWallet("me.rainbow"),
+];
 
 function Example() {
 	return (

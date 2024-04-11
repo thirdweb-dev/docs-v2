@@ -71,7 +71,7 @@ Check if tokens are currently available for claiming, optionally specifying if a
 address can claim.
 
 ```csharp
-var data = await contract.ERC1155.claimConditions.CanClaim("{{token_id}}", 1, "{{wallet_address}}");
+var data = await contract.ERC1155.ClaimConditions.CanClaim("{{token_id}}", 1, "{{wallet_address}}");
 ```
 
 <Details summary="Configuration">
@@ -116,7 +116,7 @@ bool
 Retrieve the currently active claim phase for a specific token ID, if any.
 
 ```csharp
-var data = await contract.ERC1155.claimConditions.GetActive("{{token_id}}");
+var data = await contract.ERC1155.ClaimConditions.GetActive("{{token_id}}");
 ```
 
 <Details summary='Configuration'>
@@ -150,7 +150,7 @@ If a claim condition is active, returns a `ClaimConditions` struct containing th
 Get a list of reasons why a specific wallet address is not eligible to claim tokens, if any.
 
 ```csharp
-var data = await contract.ERC1155.claimConditions.GetIneligibilityReasons("{{token_id}}", 1, "{{wallet_address}}");
+var data = await contract.ERC1155.ClaimConditions.GetIneligibilityReasons("{{token_id}}", 1, "{{wallet_address}}");
 ```
 
 <Details summary="Configuration">
@@ -203,7 +203,7 @@ string[]
 Returns allowlist information and merkle proofs for a given wallet address.
 
 ```csharp
-var data = await contract.ERC1155.claimConditions.GetClaimerProofs("{{token_id}}", "{{wallet_address}}");
+var data = await contract.ERC1155.ClaimConditions.GetClaimerProofs("{{token_id}}", "{{wallet_address}}");
 ```
 
 <Details summary="Configuration">

@@ -68,7 +68,7 @@ Let's take a look at some of the most important fields here and understand what 
 
 `domain` is one of the most important fields on the sign-in with wallet message. It is used to prevent phishing attacks by specifying the domain of the application that the user is logging into. This should match the domain of the application that the user is on while making a login request, and should be enforced by the server receiving the login request.
 
-This helps to mitigate the possibility that a user could be tricked into signing a login message to an application by a malicious third-party website, allowing the the third-party to authenticate as the user.
+This helps to mitigate the possibility that a user could be tricked into signing a login message to an application by a malicious third-party website, allowing the third-party to authenticate as the user.
 
 ### `address`
 
@@ -76,7 +76,7 @@ This helps to mitigate the possibility that a user could be tricked into signing
 
 ### `statement`
 
-This is an arbitrary statement displayed as the user is logging in, an is often used to display a link to an applications terms of service. By default, Auth uses this line to further prevent phishing attacks as it prompts the user to double-check that the domain matches the current URL of the app that they are on: `Please ensure that the domain above matches the URL of the current website.`
+This is an arbitrary statement displayed as the user is logging in, and is often used to display a link to an applications terms of service. By default, Auth uses this line to further prevent phishing attacks as it prompts the user to double-check that the domain matches the current URL of the app that they are on: `Please ensure that the domain above matches the URL of the current website.`
 
 ### `chainId`
 
@@ -88,7 +88,7 @@ The `nonce` is used to prevent replay attacks by adding a unique ID to each logi
 
 ### `expirationTime`
 
-`expirationTime` is used to increase security my making login payloads invalid after a certain duration. By default Auth sets login payloads to expire after 5 minutes. This is because anyone who obtains a login payload from another user can use it to login as that user, so it's important that login payloads expire quickly.
+`expirationTime` is used to increase security by making login payloads invalid after a certain duration. By default Auth sets login payloads to expire after 5 minutes. This is because anyone who obtains a login payload from another user can use it to login as that user, so it's important that login payloads expire quickly.
 
 ## How do we verify a sign-in with wallet message?
 
@@ -110,4 +110,4 @@ Next, we check that the payload is currently valid. This includes checking that 
 
 Finally, we check that the user attempting to login actually signed the login payload. This ensures that the user is the one who is attempting to login, and not a malicious third-party.
 
-However, there is one nuance at this step. If a user is signing in with a smart contract wallet ([EIP1271](https://eips.ethereum.org/EIPS/eip-1271)), then we need to make a smart contract call to the `isValidSignature` function to check if the signature is valid - and this requires that the `chainId` on the login payload is correct. This is because smart contract wallets exist on only onchain, so we need to know which chain the wallet exists on in order to interact with the smart contract.
+However, there is one nuance at this step. If a user is signing in with a smart contract wallet ([EIP1271](https://eips.ethereum.org/EIPS/eip-1271)), then we need to make a smart contract call to the `isValidSignature` function to check if the signature is valid - and this requires that the `chainId` on the login payload is correct. This is because smart contract wallets exist only onchain, so we need to know which chain the wallet exists on in order to interact with the smart contract.

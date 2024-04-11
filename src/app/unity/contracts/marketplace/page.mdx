@@ -14,7 +14,7 @@ To access the top-level functionality, provide the `marketplace` contract type w
 
 ```csharp
 Contract contract = sdk.GetContract("0x...");
-Marketplace marketplace = contract.marketplace;
+Marketplace marketplace = contract.Marketplace;
 ```
 
 ## Auction - CancelListing
@@ -24,7 +24,7 @@ Cancel a listing that you made.
 Note: Auction listings cannot be canceled if a bid has been made.
 
 ```csharp
-var data = await marketplace.auction.CancelListing("{{listing_id}}");
+var data = await marketplace.EnglishAuctions.CancelListing("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -42,7 +42,7 @@ Must be a `string`.
 List an NFT for sale in an auction listing on the marketplace.
 
 ```csharp
-var data = await marketplace.auction.CreateListing(new NewAuctionListing() {
+var data = await marketplace.EnglishAuctions.CreateListing(new NewAuctionListing() {
     assetContractAddress = "{{contract_address}}",
     tokenId = "0",
     startTimestamp = DateTime.Now.Ticks,
@@ -115,7 +115,7 @@ Close the auction for both **buyer** and **seller**.
 This means that the NFT is transferred to the buyer, and the seller is paid the amount of the winning bid.
 
 ```csharp
-var data = await marketplace.auction.ExecuteSale("{{listing_id}}");
+var data = await marketplace.EnglishAuctions.ExecuteSale("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -133,7 +133,7 @@ Must be a `string`.
 Get the details of a listing using the listing ID.
 
 ```csharp
-var data = await marketplace.auction.GetListing("{{listing_id}}");
+var data = await marketplace.EnglishAuctions.GetListing("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -177,7 +177,7 @@ Get the value that the next bid must be in order to be accepted.
 - If there is a current bid, this value is the current bid plus the bid buffer.
 
 ```csharp
-var data = await marketplace.auction.GetMinimumNextBid("{{listing_id}}");
+var data = await marketplace.EnglishAuctions.GetMinimumNextBid("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -209,7 +209,7 @@ The minimum next bid for the listing.
 Get the address that won an auction _after_ an auction has ended.
 
 ```csharp
-var data = await marketplace.auction.GetWinner("{{listing_id}}");
+var data = await marketplace.EnglishAuctions.GetWinner("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -235,7 +235,7 @@ string
 Get the current highest bid of an active auction.
 
 ```csharp
-var data = await marketplace.auction.GetWinningBid("{{listing_id}}");
+var data = await marketplace.EnglishAuctions.GetWinningBid("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -270,7 +270,7 @@ Cancel a direct listing you created.
 Direct listings can be canceled at any time, unless a buyout has already occurred.
 
 ```csharp
-var data = await marketplace.direct.CancelListing("{{listing_id}}");
+var data = await marketplace.DirectListings.CancelListing("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -288,7 +288,7 @@ Must be a `string`.
 List an NFT for sale on the marketplace for direct purchase.
 
 ```csharp
-var data = await marketplace.direct.CreateListing(new NewDirectListing()
+var data = await marketplace.DirectListings.CreateListing(new NewDirectListing()
 {
     assetContractAddress = "{{contract_address}}",
     tokenId = "{{token_id}}",
@@ -362,7 +362,7 @@ Must be a `string`.
 Get an active offer on a listing from a specific wallet address, if there is one.
 
 ```csharp
-var data = await marketplace.direct.GetActiveOffer("{{listing_id}}", "{{wallet_address}}");
+var data = await marketplace.DirectListings.GetActiveOffer("{{listing_id}}", "{{wallet_address}}");
 ```
 
 <Details summary="Configuration">
@@ -401,7 +401,7 @@ Returns an `Offer` struct with the following properties:
 Get a direct listing by its ID.
 
 ```csharp
-var data = await marketplace.direct.GetListing("{{listing_id}}");
+var data = await marketplace.DirectListings.GetListing("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -442,7 +442,7 @@ Get all active listings on the marketplace, both direct and auction listings.
 An active listing means it can be bought or bid on.
 
 ```csharp
-var data = await marketplace.GetActiveListings();
+var data = await marketplace.DirectListings.GetActiveListings();
 ```
 
 <Details summary="Configuration">
@@ -452,7 +452,7 @@ var data = await marketplace.GetActiveListings();
 A filter to apply to the listings returned.
 
 ```csharp
-var data = await marketplace.GetActiveListings(new MarketplaceFilter()
+var data = await marketplace.DirectListings.GetActiveListings(new MarketplaceFilter()
 {
     seller = "{{wallet_address}}", // Only show results from this seller
     tokenContract = "{{contract_address}}", // Only show results from this contract address
@@ -488,7 +488,7 @@ Returns a list of `Listing` structs, each containing the following properties:
 Get all the listings on the marketplace, including inactive ones.
 
 ```csharp
-var data = await marketplace.GetAllListings();
+var data = await marketplace.DirectListings.GetAllListings();
 ```
 
 <Details summary="Configuration">
@@ -498,7 +498,7 @@ var data = await marketplace.GetAllListings();
 A filter to apply to the listings returned.
 
 ```csharp
-var data = await marketplace.GetAllListings(new MarketplaceFilter()
+var data = await marketplace.DirectListings.GetAllListings(new MarketplaceFilter()
 {
     seller = "{{wallet_address}}", // Only show results from this seller
     tokenContract = "{{contract_address}}", // Only show results from this contract address
@@ -534,7 +534,7 @@ Returns a list of `Listing` structs, each containing the following properties:
 Get all the offers made on a listing.
 
 ```csharp
-var data = await marketplace.GetOffers("{{listing_id}}");
+var data = await marketplace.Offers.GetOffers("{{listing_id}}");
 ```
 
 <Details summary="Configuration">
@@ -567,7 +567,7 @@ Returns a list of `Offer` structs, each containing the following properties:
 Create a new bid on an auction listing or a new offer on a direct listing.
 
 ```csharp
-var data = await marketplace.MakeOffer("{{listing_id}}", "{{price}}", 1);
+var data = await marketplace.Offers.MakeOffer("{{listing_id}}", "{{price}}", 1);
 ```
 
 <Details summary="Configuration">

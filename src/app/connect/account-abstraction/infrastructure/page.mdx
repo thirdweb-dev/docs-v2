@@ -26,8 +26,8 @@ With a thirdweb API key, you get access to bundler and paymaster infrastructure 
 | Chain             | Mainnet | Testnet              |
 | ----------------- | ------- | -------------------- |
 | Ethereum          | ✅      | ✅ (goerli, sepolia) |
-| Polygon           | ✅      | ✅                   |
-| Arbitrum          | ✅      | ✅ (goerli, sepolia) |
+| Polygon           | ✅      | ✅ (mumbai, amoy)    |
+| Arbitrum  (one, nova)         | ✅      | ✅ (goerli, sepolia) |
 | Optimism          | ✅      | ✅                   |
 | Gnosis            | ✅      | ✅                   |
 | Linea             | ✅      | ✅                   |
@@ -39,44 +39,43 @@ With a thirdweb API key, you get access to bundler and paymaster infrastructure 
 | Xai Orbit         | ✅      | ✅                   |
 | Mode              | ✅      | ✅                   |
 | Zora              | ✅      | ✅                   |
-| Fraxtal           | ✅      | ❌                   |
+| Fraxtal           | ✅      | ✅                   |
+| Lisk           | ✅      | ❌                   |
+| Taiko           | ✅      | ❌                   |
 
 To support a chain not listed, [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
 
-## Using a Custom Bundler & Paymaster
+## Using a Custom Bundler
 
 Smart accounts are free to use with your own account abstraction infrastructure. To use your own paymaster & bundler,
-pass the `bundlerUrl`, `paymasterUrl` the `SmartWalletConfig` object:
+pass the `bundlerUrl` the `SmartWalletOptions` overrides:
 
-```javascript
-const config: SmartWalletConfig = {
-  chain,
-  gasless,
-  factoryAddress,
-  clientId,
-  bundlerUrl: "your-bundler-url",
-  paymasterUrl: "your-paymaster-url",
+```ts
+const config: SmartWalletOptions = {
+	chain,
+	factoryAddress,
+	gasless,
+	overrides: {
+		bundlerUrl: "your-bundler-url",
+	},
 };
 ```
 
-You can also provide an entirely custom paymaster logic by extending the `PaymasterAPI` class and passing it to the `paymasterAPI` field.
+## Using a Custom Paymaster
 
-```javascript
-class MyPaymaster extends PaymasterAPI {
-  async getPaymasterAndData(
-    userOp: Partial<UserOperationStruct>,
-  ): Promise<string> {
-    // Your implementation, must return the signed paymaster data
-  }
-}
+You can also provide an entirely custom paymaster logic by providing a `paymaster` function to the `SmartWalletOptions` overrides.
 
-const config: SmartWalletConfig = {
-  chain,
-  gasless,
-  factoryAddress,
-  clientId,
-  bundlerUrl: "your-bundler-url",
-  paymasterAPI: new MyPaymaster(),
+```ts
+const config: SmartWalletOptions = {
+	chain,
+	factoryAddress,
+	gasless,
+	overrides: {
+		paymaster: async (userOp: UserOperation) => {
+			// your custom paymaster logic
+			return myPaymasterResultLogic(userOp);
+		},
+	},
 };
 ```
 

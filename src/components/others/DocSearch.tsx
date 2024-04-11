@@ -70,13 +70,13 @@ function SearchModalContent(props: { closeModal: () => void }) {
 	const debouncedInput = useDebounce(input, 500);
 	const pathname = usePathname();
 
-	const [showNewSDK, setShowNewSDK] = useState(false);
+	const [showOldSDK, setShowOldSDK] = useState(false);
 
 	useEffect(() => {
-		if (isNewSDK(pathname)) {
-			setShowNewSDK(true);
+		if (isOldSDK(pathname)) {
+			setShowOldSDK(true);
 		} else {
-			setShowNewSDK(false);
+			setShowOldSDK(false);
 		}
 	}, [pathname]);
 
@@ -94,15 +94,15 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			const { results: _results } = (await res.json()) as SearchResult;
 
 			const results = _results.filter((x) => {
-				const isNew = isNewSDK(x.pageHref);
+				const isOld = isOldSDK(x.pageHref);
 
 				// filter out old SDKs if should not be shown
-				if (isNew && !showNewSDK) {
+				if (isOld && !showOldSDK) {
 					return false;
 				}
 
 				// filter out new SDKs if should not be shown
-				if (!isNew && showNewSDK) {
+				if (!isOld && showOldSDK) {
 					return false;
 				}
 
@@ -419,21 +419,21 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 	);
 }
 
-// function isOldSDK(href: string) {
-// 	return (
-// 		href.includes("/react-native/v0") ||
-// 		href.includes("/typescript/v4") ||
-// 		href.includes("/react/v4") ||
-// 		href.includes("/wallet-sdk/v2") ||
-// 		href.includes("/wallets/v2") ||
-// 		href.includes("/storage-sdk/v2") ||
-// 		href.includes("/storage/v2")
-// 	);
-// }
-
-function isNewSDK(href: string) {
-	return href.includes("/typescript/v5");
+function isOldSDK(href: string) {
+	return (
+		href.includes("/react-native/v0") ||
+		href.includes("/typescript/v4") ||
+		href.includes("/react/v4") ||
+		href.includes("/wallet-sdk/v2") ||
+		href.includes("/wallets/v2") ||
+		href.includes("/storage-sdk/v2") ||
+		href.includes("/storage/v2")
+	);
 }
+
+// function isNewSDK(href: string) {
+// 	return href.includes("/typescript/v5");
+// }
 
 function getTagsFromHref(href: string): Tag[] | undefined {
 	if (href.includes("/react-native/v0")) {

@@ -28,7 +28,29 @@ var connection = new WalletConnection(
 );
 
 // Connect the wallet
-string address = await sdk.wallet.Connect(connection);
+string address = await sdk.Wallet.Connect(connection);
+```
+
+### Login with Phone Number
+
+Automatically logs in if previously accessed with the same phone number or prompts for a one-time password (OTP) sent to the user's phone.
+
+```csharp
+// Reference to your Thirdweb SDK
+var sdk = ThirdwebManager.Instance.SDK;
+
+// Configure the connection
+var connection = new WalletConnection(
+    provider: WalletProvider.EmbeddedWallet,
+    chainId: 1,
+    phoneNumber: "+1234567890",
+    authOptions: new AuthOptions(
+        authProvider: AuthProvider.PhoneOTP,
+    )
+);
+
+// Connect the wallet
+string address = await sdk.Wallet.Connect(connection);
 ```
 
 ### Login with OAuth2 (Google, Apple, Facebook, etc.)
@@ -53,7 +75,7 @@ var connection = new WalletConnection(
 );
 
 // Connect the wallet
-string address = await sdk.wallet.Connect(connection);
+string address = await sdk.Wallet.Connect(connection);
 ```
 
 ### Bring your own Auth
@@ -82,14 +104,16 @@ var connection = new WalletConnection(
 );
 
 // Connect the wallet
-string address = await sdk.wallet.Connect(connection);
+string address = await sdk.Wallet.Connect(connection);
 ```
 
 ## Behavior
 
 ### WebGL
 
-If using Email OTP flow, displays a modal where you can input your OTP code.
+If using Email OTP flow, displays an iFrame where you can input your OTP code.
+
+If using Phone OTP flow, displays an iFrame where you can input your OTP code.
 
 If using OAuth2 flow, opens a popup where you can login with your provider account. If successful, the popup will close and the wallet will connect.
 
@@ -99,6 +123,8 @@ If using Custom Auth flow, attempts to connect directly after verifying the auth
 
 If using Email OTP flow, displays a modal where you can input your OTP code.
 
+If using Phone OTP flow, displays a modal where you can input your OTP code.
+
 If using the OAuth2 flow, opens the default browser where you can login with your provider account. Connects after the login flow is complete.
 
 If using Custom Auth flow, attempts to connect directly after verifying the auth token.
@@ -106,6 +132,8 @@ If using Custom Auth flow, attempts to connect directly after verifying the auth
 ### Mobile
 
 If using Email OTP flow, displays a modal where you can input your OTP code.
+
+If using Phone OTP flow, displays a modal where you can input your OTP code.
 
 If using the OAuth2 flow, interacts with native in-app browser/authentication implementations to login with your provider account. Redirects back to the app through a deep link after the login flow is complete. Only available in builds.
 

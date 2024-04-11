@@ -17,7 +17,7 @@ Use this method to fetch the balance of a wallet.
 You can use the native currency address to fetch the balance of the native currency, or a specific ERC20 token contract address to fetch the ERC20 balance.
 
 ```csharp
-var data = await sdk.wallet.GetBalance();
+var data = await sdk.Wallet.GetBalance();
 ```
 
 ## Configuration
@@ -29,7 +29,7 @@ The address of the token smart contract that you want to get the balance for.
 If no address is provided, the balance of the native currency will be used.
 
 ```csharp
-var data = await sdk.wallet.GetBalance("{{currency_contract_address}}");
+var data = await sdk.Wallet.GetBalance("{{currency_contract_address}}");
 ```
 
 ## Return Value
