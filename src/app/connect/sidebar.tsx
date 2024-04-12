@@ -127,7 +127,7 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "React Native",
-							href: `/react-native/v0/wallets/inAppWallet`,
+							href: `/react-native/v0/wallets/in-app-wallet`,
 						},
 						{
 							name: "Unity",
