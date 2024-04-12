@@ -102,6 +102,10 @@ const contracts: SidebarLink = {
 			name: "Write Contract",
 			href: "/dotnet/contracts/write",
 		},
+		{
+			name: "Prepare Transaction",
+			href: "/dotnet/contracts/prepare",
+		},
 	],
 };
 
