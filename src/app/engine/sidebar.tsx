@@ -33,8 +33,12 @@ export const sidebar: SideBar = {
 					href: `${engineSlug}/features/contracts`,
 				},
 				{
-					name: "Permissions",
-					href: `${engineSlug}/features/permissions`,
+					name: "Admins",
+					href: `${engineSlug}/features/admins`,
+				},
+				{
+					name: "Access Tokens",
+					href: `${engineSlug}/features/access-tokens`,
 				},
 				{
 					name: "Webhooks",
