@@ -3,7 +3,7 @@ import { Details, Callout, createMetadata } from "@doc";
 export const metadata = createMetadata({
 	title: "ThirdwebTransaction.Create | Thirdweb .NET SDK",
 	description:
-		"Instantiate a low level ThirdwebTransaction object to manipulate, simulate and execute transactions.",
+		"Instantiate a low level ThirdwebTransaction object to manipulate, simulate and execute transactions using specific wallet credentials and transaction inputs.",
 });
 
 # ThirdwebTransaction.Create
@@ -13,40 +13,40 @@ export const metadata = createMetadata({
 	[ThirdwebContract.Prepare](/dotnet/contracts/prepare) to create a transaction.
 </Callout>
 
-A ThirdwebTransaction object is a low level object that allows you to manipulate, simulate and execute transactions.
-
-This method is for advanced users who want to manually create transactions.
+The `ThirdwebTransaction.Create` method allows advanced users to manually create transactions using specific wallet credentials and transaction inputs. This method is ideal for users who need precise control over the transaction details.
 
 ## Usage
 
 ```csharp
-var contract = await ThirdwebContract.Create(client, "contractAddress", chainId, "optionalAbi");
+ThirdwebTransaction transaction = await ThirdwebTransaction.Create(client, wallet, txInput, chainId);
 ```
 
 <Details summary="Parameters">
 
 ### client (required)
 
-An instance of `ThirdwebClient`.
+An instance of `ThirdwebClient`. This is the client through which all blockchain interactions are managed.
 
-### address (required)
+### wallet (required)
 
-The address of the smart contract you want to interact with. Must be a hexadecimal `string`.
+An instance of `IThirdwebWallet`. This represents the wallet that will be used to perform the transaction. The wallet's address must match the from address specified in txInput, if provided.
 
-### chain (required)
+### txInput (required)
 
-The blockchain network's chain ID as a `BigInteger`. This ID specifies which network the contract is deployed on.
+An instance of `TransactionInput`. This structure includes necessary details such as the from address, value, gas limit, and data payload.
 
-### abi (optional)
+The `from` field is optional and, if not provided, will default to the wallet's address.
 
-The ABI of the contract. If not provided, it will attempt to fetch the ABI automatically if available.
+### chainId (required)
+
+The blockchain network's chain ID as a `BigInteger`. This ID specifies which network the transaction is intended for.
 
 </Details>
 
 <Details summary="Return Value">
 
-### ThirdwebContract
+### ThirdwebTransaction
 
-Returns an instance of `ThirdwebContract` configured with the provided parameters, ready to interact with the blockchain.
+Returns an instance of `ThirdwebTransaction` configured with the provided parameters, ready to interact with the blockchain.
 
 </Details>

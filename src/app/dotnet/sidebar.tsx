@@ -116,6 +116,14 @@ const transactions: SidebarLink = {
 			name: "Create Transaction",
 			href: "/dotnet/transactions/create",
 		},
+		{
+			name: "Instance Methods",
+			href: "/dotnet/transactions/instance",
+		},
+		{
+			name: "Static Methods",
+			href: "/dotnet/transactions/static",
+		},
 	],
 };
 
