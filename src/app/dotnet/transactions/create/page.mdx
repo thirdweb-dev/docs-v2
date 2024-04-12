@@ -1,0 +1,52 @@
+import { Details, Callout, createMetadata } from "@doc";
+
+export const metadata = createMetadata({
+	title: "ThirdwebTransaction.Create | Thirdweb .NET SDK",
+	description:
+		"Instantiate a low level ThirdwebTransaction object to manipulate, simulate and execute transactions.",
+});
+
+# ThirdwebTransaction.Create
+
+<Callout variant="warning" title="Advanced Use Case">
+	If you are interacting with a contract, it is best to use
+	[ThirdwebContract.Prepare](/dotnet/contracts/prepare) to create a transaction.
+</Callout>
+
+A ThirdwebTransaction object is a low level object that allows you to manipulate, simulate and execute transactions.
+
+This method is for advanced users who want to manually create transactions.
+
+## Usage
+
+```csharp
+var contract = await ThirdwebContract.Create(client, "contractAddress", chainId, "optionalAbi");
+```
+
+<Details summary="Parameters">
+
+### client (required)
+
+An instance of `ThirdwebClient`.
+
+### address (required)
+
+The address of the smart contract you want to interact with. Must be a hexadecimal `string`.
+
+### chain (required)
+
+The blockchain network's chain ID as a `BigInteger`. This ID specifies which network the contract is deployed on.
+
+### abi (optional)
+
+The ABI of the contract. If not provided, it will attempt to fetch the ABI automatically if available.
+
+</Details>
+
+<Details summary="Return Value">
+
+### ThirdwebContract
+
+Returns an instance of `ThirdwebContract` configured with the provided parameters, ready to interact with the blockchain.
+
+</Details>

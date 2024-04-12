@@ -109,6 +109,16 @@ const contracts: SidebarLink = {
 	],
 };
 
+const transactions: SidebarLink = {
+	name: "Transaction Builder",
+	links: [
+		{
+			name: "Create Transaction",
+			href: "/dotnet/transactions/create",
+		},
+	],
+};
+
 export const sidebar: SideBar = {
 	name: ".NET SDK",
 	links: [
@@ -130,6 +140,7 @@ export const sidebar: SideBar = {
 		},
 		contracts,
 		wallets,
+		transactions,
 		{
 			name: "Storage Download & Upload",
 			href: "/dotnet/storage",
