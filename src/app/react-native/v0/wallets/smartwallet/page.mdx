@@ -94,7 +94,7 @@ import { useSmartWallet, metamaskWallet } from "@thirdweb-dev/react-native";
 
 function Example() {
 	// here we're using metamask as the personal wallet
-	// can be any other wallet, including localWallet(), embeddedWallet(), etc
+	// can be any other wallet, including localWallet(), inAppWallet(), etc
 	const { connect } = useSmartWallet(metamaskWallet(), {
 		factoryAddress: "your-factory-address",
 		gasless: true,

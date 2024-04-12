@@ -11,9 +11,9 @@ import ConnectWalletHero from "./connect-wallet-hero.webp";
 export const metadata = createMetadata({
 	title: "Connect users with In-App Wallet",
 	description:
-		"use the prebuilt connect UI components to authenticate users and connect embedded wallet",
+		"use the prebuilt connect UI components to authenticate users and connect in-app wallets",
 	image: {
-		title: "Connect users with In-App Wallet",
+		title: "Connect users with In-App Wallets",
 		icon: "wallets",
 	},
 });
@@ -35,10 +35,10 @@ If you're building a [React website](/typescript/v5/react/components/ConnectButt
 <TabsContent value="react">
 ```jsx
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
-import { embeddedWallet } from "thirdweb/wallets";
+import { inAppWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({ clientId });
-const wallets = [embeddedWallet()];
+const wallets = [inAppWallet()];
 
 export default function App() {
 	return (
@@ -66,10 +66,10 @@ By default, the connect UI supports Google, Apple, Facebook and email/password a
 <TabsContent value="react">
 ```tsx
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
-import { embeddedWallet } from "thirdweb/wallets";
+import { inAppWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({ clientId });
-const wallets = [embeddedWallet({
+const wallets = [inAppWallet({
 providers: ["email", "facebook", "apple", "google"]
 })];
 

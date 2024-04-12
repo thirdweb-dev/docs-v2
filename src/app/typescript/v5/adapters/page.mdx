@@ -34,22 +34,22 @@ Similarly, you can use any wallets created with the thirdweb SDK with ethers.js 
 
 ```ts
 import { ethers6Adapter } from "thirdweb/adapters/ethers6";
-import { createThirdwebClient, embeddedWallet } from "thirdweb/wallets";
+import { createThirdwebClient, inAppWallet } from "thirdweb/wallets";
 import { sepolia } from "thirdweb/chains";
 
 const client = createThirdwebClient({ clientId });
-const wallet = embeddedWallet();
+const wallet = inAppWallet();
 const chain = sepolia;
 const account = await wallet.connect({
-  client,
-  strategy: "google",
+	client,
+	strategy: "google",
 });
 
 // convert a thirdweb account to ethers signer
 const ethersSigner = await ethers6Adapter.signer.toEthers({
-  client, 
-  chain,
-  account
+	client,
+	chain,
+	account,
 });
 ```
 
@@ -72,7 +72,7 @@ const account = await ethers5Adapter.signer.fromEthers({
 
 // convert a thirdweb account to ethers signer
 const ethersSigner = await ethers5Adapter.signer.toEthers({
-  client, 
+  client,
   chain,
   account
 });

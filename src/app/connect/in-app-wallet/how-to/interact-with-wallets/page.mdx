@@ -8,17 +8,17 @@ export const metadata = createMetadata({
 	},
 	title: "Interact with In-App Wallet",
 	description:
-		"Learn how to interact with the embedded wallet using the React hooks or the EmbeddedWallet instance.",
+		"Learn how to interact with the in-app wallet using the React hooks or the InAppWallet instance.",
 });
 
 # Interact with wallets
 
-Once connected, you can interact with the wallet using the `thirdweb/wallets/embedded` specific methods.
+Once connected, you can interact with the wallet using the `thirdweb/wallets/inApp` specific methods.
 
 ## Get the user email
 
 ```typescript
-import { getUserEmail } from "thirdweb/wallets/embedded";
+import { getUserEmail } from "thirdweb/wallets/inApp";
 
 const email = await getUserEmail({ client });
 console.log("user email", email);
@@ -45,7 +45,7 @@ const account = useActiveAccount();
 
 <TabsContent value="typecsript">
 ```typescript
-const account = await embeddedWallet.getAccount();
+const account = await inAppWallet.getAccount();
 ```
 
 </TabsContent>
@@ -75,7 +75,7 @@ console.log("wallet address", account.address);
 <TabsContent value="typecsript">
 
 ```typescript
-const account = embeddedWallet.getAccount();
+const account = inAppWallet.getAccount();
 const address = account.address;
 ```
 
@@ -96,5 +96,5 @@ await getWalletBalance({
 ## Sign a message
 
 ```typescript
-await embeddedWallet.sign("Hello World!");
+await inAppWallet.sign("Hello World!");
 ```

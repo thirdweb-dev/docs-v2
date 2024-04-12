@@ -629,6 +629,7 @@ const otherRedirects = {
 	"/connect/embedded-wallet/:path*": "/connect/in-app-wallet/:path*",
 	"/connect/embedded-wallet/how-to/get-embedded-wallet-details-on-server": "/connect/in-app-wallet/how-to/get-in-app-wallet-details-on-server",
 	"/react-native/v0/wallets/embedded-wallet": "/react-native/v0/wallets/in-app-wallet",
+	"/unity/wallets/providers/embedded-wallet": "/unity/wallets/providers/in-app-wallet",
 };
 
 /**

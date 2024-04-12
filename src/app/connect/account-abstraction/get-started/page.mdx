@@ -113,14 +113,14 @@ return (
 
 ```ts
 import { createThirdwebClient } from "thirdweb";
-import { embeddedwallet, smartWallet } from "thirdweb/wallets";
+import { inAppWallet, smartWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({
 	clientId,
 });
 
-// First, create and connect the personal wallet, which can be any wallet (embedded, metamask, etc.)
-const personalWallet = embeddedWallet();
+// First, create and connect the personal wallet, which can be any wallet (in-app, metamask, etc.)
+const personalWallet = inAppWallet();
 const personalAccount = await personalWallet.connect({
 	client,
 	strategy: "google",

@@ -8,7 +8,7 @@ const walletProviders: SidebarLink = (() => {
 		links: [
 			{
 				name: "In-App Wallet",
-				href: `${parentSlug}/embedded-wallet`,
+				href: `${parentSlug}/in-app-wallet`,
 			},
 			{
 				name: "Account Abstraction",

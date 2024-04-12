@@ -17,12 +17,12 @@ export const metadata = createMetadata({
 	},
 	title: "Interact with the blockchain | thirdweb In-App Wallet",
 	description:
-		"One connected, embedded wallets can be used alongside the Contract SDK to interact with the blockchain",
+		"One connected, in-app wallets can be used alongside the Contract SDK to interact with the blockchain",
 });
 
 # Interact with the blockchain
 
-One connected, embedded wallets can be used alongside the [Contract SDK](/contracts/interact/overview) to interact with the blockchain.
+One connected, in-app wallets can be used alongside the [Contract SDK](/contracts/interact/overview) to interact with the blockchain.
 
 ## Initialize the SDK With Your Wallet
 
@@ -67,9 +67,9 @@ You can pass the connected account to any of the transaction actions:
 ```typescript
 import { createThirdwebClient, getContract, sendTransaction } from "thirdweb";
 import { sepolia } from "thirdweb/chains";
-import { embeddedWallet } from "thirdweb/wallets";
+import { inAppWallet } from "thirdweb/wallets";
 
-const wallet = embeddedWallet();
+const wallet = inAppWallet();
 const account = await wallet.connect({
 	client,
 	strategy: "google",

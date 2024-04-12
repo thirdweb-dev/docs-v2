@@ -267,11 +267,11 @@ A function that returns a React component that renders the UI for selecting your
 
 Instead of the default icon + name in wallet selector screen, you can render a custom UI for your wallet.
 
-Take [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders an Social Icons + Email Input.
+Take [in-app wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders an Social Icons + Email Input.
 
 <Callout variant='info'>
 
-In this example, rest of the wallets are put behind a "Connect a wallet" button - that is NOT because the embeddedWallet wallet has a custom `selectUI` but because the embeddedWallet is a social login.
+In this example, rest of the wallets are put behind a "Connect a wallet" button - that is NOT because the inAppWallet wallet has a custom `selectUI` but because the inAppWallet is a social login.
 
 If you add a custom `selectUI` to your wallet, This will not be the case and rest of the wallets will be rendered in the same screen below your wallet's `selectUI`
 
@@ -471,7 +471,7 @@ function MyWalletConnectionUI(props: ConnectUIProps<MyWallet>) {
 
 Instead of the default icon + name in the wallet selector screen, you can render a custom UI for your wallet.
 
-Take [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders Social Icons + Email Input.
+Take [in-app wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embeddedWallet/embeddedWallet.tsx) for example, It renders Social Icons + Email Input.
 
 <DocImage src={connectWalletEmbeddedCompact} />
 
@@ -479,7 +479,7 @@ Take [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/rea
 
 <Callout variant='info' >
 
-In this example, rest of the wallets are put behind a "Connect a wallet" button - that is NOT because the embeddedWallet wallet has a custom `selectUI` but because the embeddedWallet is a social login.
+In this example, rest of the wallets are put behind a "Connect a wallet" button - that is NOT because the inAppWallet wallet has a custom `selectUI` but because the inAppWallet is a social login.
 
 If you add a custom `selectUI` to your wallet, This will not be the case and rest of the wallets will be rendered in the same screen below your wallet's `selectUI`
 
@@ -546,7 +546,7 @@ You can look at how `thirdweb-dev/react` package's built-in wallets are implemen
 - [Coinbase](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/coinbase/coinbaseWallet.tsx)
 - [WalletConnect](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/walletConnect.tsx)
 - [Safe](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/safe/safeWallet.tsx)
-- [Embedded wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embedded-wallet.tsx)
+- [In-App wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/embedded-wallet.tsx)
 - [Local Wallet](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/localWallet/localWallet.tsx)
 - [Smart Account](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/smartWallet/smartWallet.tsx)
 - [Magic Link](https://github.com/thirdweb-dev/js/blob/main/packages/react/src/wallet/wallets/magic/magicLink.tsx)
