@@ -106,17 +106,16 @@ The [useConnect](/references/typescript/v5/useConnect) hook allows you to progra
 
 ```tsx
 import { useConnect } from "thirdweb/react";
-import { embeddedWallet, smartWallet } from "thirdweb/react";
+import { inAppWallet, smartWallet } from "thirdweb/react";
 import { sepolia } from "thirdweb/chains";
 
 function Example() {
-<<<<<<< HEAD
 	const { connect } = useConnect();
 
 	const connectToSmartAccount = async () => {
 		connect(async () => {
 			// 1. connect the personal wallet
-			const personalWallet = embeddedWallet(); // or any other wallet
+			const personalWallet = inAppWallet(); // or any other wallet
 			const personalAccount = await personalWallet.connect({
 				client,
 				chain: sepolia,
@@ -134,13 +133,6 @@ function Example() {
 			});
 			return wallet;
 		}
-=======
-	// here we're using metamask as the personal wallet
-	// can be any other wallet, including localWallet(), inAppWallet(), etc
-	const { connect } = useSmartWallet(metamaskWallet(), {
-		factoryAddress: "your-factory-address",
-		gasless: true,
->>>>>>> ade27dc (First Draft for Replacing Embedded Wallets -> In-App Wallets)
 	});
 
 	return (

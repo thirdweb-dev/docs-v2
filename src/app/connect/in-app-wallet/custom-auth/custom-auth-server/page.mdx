@@ -94,19 +94,22 @@ You can now auth into the wallet and use it to sign transactions like so (see [u
 
 <TabsContent value="react">
 
-In React and React Native, the `useEmbeddedWallet()` hook handles authentication and connection states.
-
 ```typescript
-import { useEmbeddedWallet } from "@thirdweb-dev/react"; // or /react-native
+import { inAppWallet } from "thirdweb/wallets";
+import { useConnect } from "thirdweb/react";
 
-const embeddedWallet = useEmbeddedWallet();
+const { connect } = useConnect();
 
-const handlePostLogin = async () => {
-	await embeddedWallet.connect({
-		strategy: "auth_endpoint",
-		// In production this would be your public identifier for the user
-		payload: JSON.stringify({ userId: "ANY_RANDOM_ID_HERE" }),
-		encryptionKey: "your-encryption-key",
+const handlePostLogin = async (jwt: string) => {
+	await connect(() => {
+		const wallet = inAppWallet();
+		wallet.connect({
+			client,
+			strategy: "auth_endpoint",
+			payload: JSON.stringify({ userId: "ANY_RANDOM_ID_HERE" }),
+			encryptionKey: "your-encryption-key",
+		});
+		return wallet;
 	});
 };
 ```
@@ -115,24 +118,19 @@ const handlePostLogin = async () => {
 
 <TabsContent value="typescript">
 
-In other frameworks, use your own instance of the wallet to authenticate and connect.
-
 ```typescript
-import { EmbeddedWallet } from "@thirdweb-dev/wallets";
-import { Goerli } from "@thirdweb-dev/chains";
+import { inAppWallet } from "thirdweb/wallets";
 
-const embeddedWallet = new EmbeddedWallet({
-	chain: Goerli, //  chain to connect to
-	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
-});
+const wallet = inAppWallet();
 
-const authResult = await embeddedWallet.authenticate({
+const account = await wallet.connect({
+	client,
 	strategy: "auth_endpoint",
 	payload: JSON.stringify({ userId: "ANY_RANDOM_ID_HERE" }),
 	encryptionKey: "your-encryption-key",
 });
 
-const walletAddress = await embeddedWallet.connect({ authResult });
+// use the account to send transactions
 ```
 
 </TabsContent>

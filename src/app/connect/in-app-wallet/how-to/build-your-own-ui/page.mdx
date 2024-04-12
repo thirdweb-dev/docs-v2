@@ -62,18 +62,19 @@ import { ThirdwebProvider } from "thirdweb/react";
 
 Note that for Apple and Facebook, you just need to update the strategy to "facebook" or "apple".
 
-<Tabs defaultValue="react-native">
+<Tabs defaultValue="react">
 <TabsList>
-	<TabsTrigger value="react-native">React</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 </TabsList>
 
-<TabsContent value="react-native">
+<TabsContent value="react">
 
 In React and React Native, the `useConnect()` hook handles authentication and connection states.
 
 ```tsx
 import { inAppWallet } from "thirdweb/wallets";
+import { useConnect } from "thirdweb/react";
 
 const { connect } = useConnect();
 
@@ -103,6 +104,8 @@ const account = await wallet.connect({
 	client,
 	strategy: "google",
 });
+
+// use the account to send transactions
 ```
 
 </TabsContent>
@@ -110,13 +113,13 @@ const account = await wallet.connect({
 
 ## Authenticate via Email verification
 
-<Tabs defaultValue="react-native">
+<Tabs defaultValue="react">
 <TabsList>
-	<TabsTrigger value="react-native">React</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 </TabsList>
 
-<TabsContent value="react-native">
+<TabsContent value="react">
 
 ```typescript
 import { inAppWallet, preAuthenticate } from "thirdweb/wallets";

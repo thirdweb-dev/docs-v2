@@ -10,12 +10,12 @@ export const metadata = createMetadata({
 	},
 	title: "Integrate Firebase Auth | InAppWallet",
 	description:
-		"Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with In-App Wallet.",
+		"Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase's email provider and integrate it with In-App Wallet.",
 });
 
 # Integrate Firebase Auth
 
-Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase’s email provider and integrate it with In-App Wallet.
+Learn how to obtain a JSON Web Token (JWT) from Firebase using Firebase's email provider and integrate it with In-App Wallet.
 
 <Callout title="Info" variant="info">
 
@@ -26,20 +26,16 @@ This article covers the steps of integrating Firebase Auth for a React Native ap
 ## Prerequisites
 
 - Firebase project
-- React Native CLI installed
+- React App
 
 <Steps>
 
 <Step title="Create a React Native App">
-To skip over the initialization steps, we will use the React Native TypeScript starter template. You may also integrate this functionality into an existing application by installing the React Native SDK.
+Create a react native app with the tool of your choice and install the required packages:
 
-1. Create the template from the CLI:
-
-   ```bash
-   npx thirdweb create --template react-native-typescript-starter
-   ```
-
-   This command will create a React Native app with the `@thirdweb-dev/react-native` SDK already installed.
+```shell
+npm i thirdweb
+```
 
 2. Note that we assume this is a simple app with a single screen `App.tsx`.
 
@@ -145,15 +141,23 @@ async function getFirebaseJWT() {
 Pass the JWT to the In-App Wallet config in your `App.tsx` file:
 
 ```jsx
-import { useInAppWallet } from "@thirdweb-dev/react-native";
+import { inAppWallet } from "thirdweb/wallets";
+import { useConnect } from "thirdweb/react";
 
-const connectInApp = useInAppWallet();
+const { connect } = useConnect();
 
-await connectInApp({
-	strategy: "jwt",
-	jwt: await getFirebaseJWT(),
-	encryptionKey: "your-encryption-key",
-});
+const connectInApp = async (jwt: string) => {
+	await connect(() => {
+		const wallet = inAppWallet();
+		wallet.connect({
+			client,
+			strategy: "jwt",
+			jwt: await getFirebaseJWT(),
+			encryptionKey: "your-encryption-key",
+		});
+		return wallet;
+	});
+};
 ```
 
 You can set your `encryptionKey` in either a secret env variable or ask the user to enter a password for it.
@@ -164,13 +168,13 @@ After the connectInApp function returns, the ThirdwebProvider will have connecte
 
 </Step>
 
-<Step title="Access the connected wallet">
-To access the connected wallet, use the `useWallet()` hook:
+<Step title="Access the connected account">
+To access the connected account, use the `useActiveAccount()` hook:
 
 ```jsx
-import { useWallet } from "@thirdweb-dev/react-native";
+import { useActiveAccount } from "thirdweb/react";
 
-const activeWallet = useWallet();
+const activeWallet = useActiveAccount();
 ```
 
 </Step>

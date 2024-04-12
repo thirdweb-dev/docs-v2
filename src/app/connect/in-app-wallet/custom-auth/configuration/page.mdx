@@ -48,24 +48,28 @@ You will be asked to enter the following values
 
 <Tabs defaultValue="react">
 <TabsList>
-	<TabsTrigger value="react">React & React Native</TabsTrigger>
-	<TabsTrigger value="typescript">Other Frameworks</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
 
-In React and React Native, the `useInAppWallet()` hook handles authentication and connection states.
-
 ```typescript
-import { useInAppWallet } from "@thirdweb-dev/react"; // or /react-native
+import { inAppWallet } from "thirdweb/wallets";
+import { useConnect } from "thirdweb/react";
 
-const inAppWallet = useInAppWallet();
+const { connect } = useConnect();
 
 const handlePostLogin = async (jwt: string) => {
-	await inAppWallet.connect({
-		strategy: "jwt",
-		jwt,
-		encryptionKey: "your-encryption-key",
+	await connect(() => {
+		const wallet = inAppWallet();
+		wallet.connect({
+			client,
+			strategy: "jwt",
+			jwt,
+			encryptionKey: "your-encryption-key",
+		});
+		return wallet;
 	});
 };
 ```
@@ -74,24 +78,19 @@ const handlePostLogin = async (jwt: string) => {
 
 <TabsContent value="typescript">
 
-In other frameworks, use your own instance of the wallet to authenticate and connect.
-
 ```typescript
-import { InAppWallet } from "@thirdweb-dev/wallets";
-import { Goerli } from "@thirdweb-dev/chains";
+import { inAppWallet } from "thirdweb/wallets";
 
-const inAppWallet = new InAppWallet({
-	chain: Goerli, //  chain to connect to
-	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
-});
+const wallet = inAppWallet();
 
-const authResult = await inAppWallet.authenticate({
+const account = await wallet.connect({
+	client,
 	strategy: "jwt",
 	jwt,
 	encryptionKey: "your-encryption-key",
 });
 
-const walletAddress = await inAppWallet.connect({ authResult });
+// use the account to send transactions
 ```
 
 </TabsContent>
@@ -140,25 +139,29 @@ Once you've logged in with your own auth, you can pass the user's JWT to the in-
 
 <Tabs defaultValue="react">
 <TabsList>
-	<TabsTrigger value="react">React & React Native</TabsTrigger>
-	<TabsTrigger value="typescript">Other Frameworks</TabsTrigger>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
 
-In React and React Native, the `useInAppWallet()` hook handles authentication and connection states.
-
 ```typescript
-import { useInAppWallet } from "@thirdweb-dev/react"; // or /react-native
+import { inAppWallet } from "thirdweb/wallets";
+import { useConnect } from "thirdweb/react";
 
-const inAppWallet = useInAppWallet();
+const { connect } = useConnect();
 
 const handlePostLogin = async (jwt: string) => {
-	await inAppWallet.connect({
-		strategy: "auth_endpoint",
-		// This is the payload that is sent to the auth endpoint
-		payload,
-		encryptionKey: "your-encryption-key",
+	await connect(() => {
+		const wallet = inAppWallet();
+		wallet.connect({
+			client,
+			strategy: "auth_endpoint",
+			// This is the payload that is sent to the auth endpoint
+			payload,
+			encryptionKey: "your-encryption-key",
+		});
+		return wallet;
 	});
 };
 ```
@@ -170,22 +173,19 @@ const handlePostLogin = async (jwt: string) => {
 In other frameworks, use your own instance of the wallet to authenticate and connect.
 
 ```typescript
-import { InAppWallet } from "@thirdweb-dev/wallets";
-import { Goerli } from "@thirdweb-dev/chains";
+import { inAppWallet } from "thirdweb/wallets";
 
-const inAppWallet = new InAppWallet({
-	chain: Goerli, //  chain to connect to
-	clientId: "YOUR_CLIENT_ID", // Your thirdweb client ID
-});
+const wallet = inAppWallet();
 
-const authResult = await inAppWallet.authenticate({
+const account = await wallet.connect({
+	client,
 	strategy: "auth_endpoint",
 	// This is the payload that is sent to the auth endpoint
 	payload,
 	encryptionKey: "your-encryption-key",
 });
 
-const walletAddress = await inAppWallet.connect({ authResult });
+// use the account to send transactions
 ```
 
 </TabsContent>
@@ -193,4 +193,4 @@ const walletAddress = await inAppWallet.connect({ authResult });
 
 You can set your `encryptionKey` in either a secret env variable or ask the user to enter a password for it.
 
-** Do not hardcode the `encryptionKey` in your code. **
+**Do not hardcode the `encryptionKey` in your code. Use environment variables, server returned keys or user derived keys.**

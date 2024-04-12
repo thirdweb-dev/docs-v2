@@ -123,11 +123,11 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/typescript/v5/smartWallet`,
+							href: `/references/typescript/v5/inAppWallet`,
 						},
 						{
 							name: "React Native",
-							href: `/react-native/v0/wallets/smartwallet`,
+							href: `/react-native/v0/wallets/inAppWallet`,
 						},
 						{
 							name: "Unity",

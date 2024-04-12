@@ -183,25 +183,23 @@ Once deployed, replace `http://localhost:3000` in the JWT payload with your actu
 
 <Step title="Integrate In-App Wallets">
 
-1. Navigate to Wallets > [Embedded Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
-2. # Create a thirdweb API key if you don't have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
-3. Navigate to Wallets > [In-App Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
-4. Create a thirdweb API key if you don’t have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
+1. Navigate to Wallets > [In-App Wallets](https://thirdweb.com/dashboard/wallets/embedded) in the thirdweb dashboard.
+2. Create a thirdweb API key if you don't have one or select an existing key to use for this project. [Learn more about API keys.](/api-keys)
 
    <DocImage src={EWCreateKey} />
 
-5. Allowlist domain or bundle IDs in Access Restrictions.
-6. Navigate to the Configuration view and enable **Custom JSON Web Token**
+3. Allowlist domain or bundle IDs in Access Restrictions.
+4. Navigate to the Configuration view and enable **Custom JSON Web Token**
 
    <DocImage src={EWConfig} />
 
-7. Set the JWKS URI to `your-domain/.well-known/jwks.json`
-8. Set the AUD to `EpicGame` or the value you set as the `aud` in the `server.js` file.
+5. Set the JWKS URI to `your-domain/.well-known/jwks.json`
+6. Set the AUD to `EpicGame` or the value you set as the `aud` in the `server.js` file.
 
    <DocImage src={EWConfigOpt} />
 
-9. Copy the client ID.
-10. In your preferred thirdweb client SDK, pass the JWT you retrieved from logging in to the server.
+7. Copy the client ID.
+8. In your preferred thirdweb client SDK, pass the JWT you retrieved from logging in to the server.
 
 </Step>
 
