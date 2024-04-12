@@ -106,7 +106,7 @@ The [useConnect](/references/typescript/v5/useConnect) hook allows you to progra
 
 ```tsx
 import { useConnect } from "thirdweb/react";
-import { embeddedWallet, smartWallet } from "thirdweb/react";
+import { inAppWallet, smartWallet } from "thirdweb/react";
 import { sepolia } from "thirdweb/chains";
 
 function Example() {
@@ -115,7 +115,7 @@ function Example() {
 	const connectToSmartAccount = async () => {
 		connect(async () => {
 			// 1. connect the personal wallet
-			const personalWallet = embeddedWallet(); // or any other wallet
+			const personalWallet = inAppWallet(); // or any other wallet
 			const personalAccount = await personalWallet.connect({
 				client,
 				chain: sepolia,

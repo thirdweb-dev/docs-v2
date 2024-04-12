@@ -2,14 +2,14 @@ import { SideBar } from "@/components/Layouts/DocLayout";
 import {
 	WalletsAuthIcon,
 	WalletsConnectIcon,
-	WalletsEmbeddedIcon,
+	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
 
 const connectSlug = "/connect/connect";
-const embeddedSlug = "/connect/embedded-wallet";
+const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
 const paySlug = "/connect/pay";
@@ -43,76 +43,76 @@ export const sidebar: SideBar = {
 			],
 		},
 
-		//Embedded Wallets
+		//In-App Wallets
 		{ separator: true },
 		{
-			name: "Embedded Wallet",
-			icon: <WalletsEmbeddedIcon />,
-			href: `${embeddedSlug}/overview`,
+			name: "In-App Wallet",
+			icon: <WalletsInAppIcon />,
+			href: `${inAppSlug}/overview`,
 			links: [
 				{
 					name: "How it works",
-					href: `${embeddedSlug}/how-it-works`,
+					href: `${inAppSlug}/how-it-works`,
 				},
 				{
 					name: "Get Started",
-					href: `${embeddedSlug}/get-started`,
+					href: `${inAppSlug}/get-started`,
 				},
 				{
 					name: "How to",
 					links: [
 						{
 							name: "Connect Users",
-							href: `${embeddedSlug}/how-to/connect-users`,
+							href: `${inAppSlug}/how-to/connect-users`,
 						},
 						{
 							name: "Build your own UI",
-							href: `${embeddedSlug}/how-to/build-your-own-ui`,
+							href: `${inAppSlug}/how-to/build-your-own-ui`,
 						},
 						{
 							name: "Interact with wallets",
-							href: `${embeddedSlug}/how-to/interact-with-wallets`,
+							href: `${inAppSlug}/how-to/interact-with-wallets`,
 						},
 						{
 							name: "Interact with the blockchain",
-							href: `${embeddedSlug}/how-to/interact-blockchain`,
+							href: `${inAppSlug}/how-to/interact-blockchain`,
 						},
 						{
 							name: "Enable Gasless Transactions",
-							href: `${embeddedSlug}/how-to/enable-gasless`,
+							href: `${inAppSlug}/how-to/enable-gasless`,
 						},
 						{
 							name: "Getting User Details (Server)",
-							href: `${embeddedSlug}/how-to/get-embedded-wallet-details-on-server`,
+							href: `${inAppSlug}/how-to/get-in-app-wallet-details-on-server`,
 						},
 						{
 							name: "Export private key",
-							href: `${embeddedSlug}/how-to/export-private-key`,
+							href: `${inAppSlug}/how-to/export-private-key`,
 						},
 					],
 				},
 				{
 					name: "Custom Authentication",
-					href: `${embeddedSlug}/custom-auth/overview`,
+					href: `${inAppSlug}/custom-auth/overview`,
 					links: [
 						{
 							name: "Configuration",
-							href: `${embeddedSlug}/custom-auth/configuration`,
+							href: `${inAppSlug}/custom-auth/configuration`,
 						},
 						{
 							name: "Integration guides",
 							links: [
 								{
 									name: "Custom auth server (OIDC Auth)",
-									href: `${embeddedSlug}/custom-auth/custom-jwt-auth-server`,
+									href: `${inAppSlug}/custom-auth/custom-jwt-auth-server`,
 								},
 								{
 									name: "Custom auth server (Generic Auth)",
-									href: `${embeddedSlug}/custom-auth/custom-auth-server`,
+									href: `${inAppSlug}/custom-auth/custom-auth-server`,
 								},
 								{
 									name: "Firebase Auth",
-									href: `${embeddedSlug}/custom-auth/firebase-auth`,
+									href: `${inAppSlug}/custom-auth/firebase-auth`,
 								},
 							],
 						},
@@ -123,21 +123,21 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/typescript/v5/smartWallet`,
+							href: `/references/typescript/v5/inAppWallet`,
 						},
 						{
 							name: "React Native",
-							href: `/react-native/v0/wallets/smartwallet`,
+							href: `/react-native/v0/wallets/in-app-wallet`,
 						},
 						{
 							name: "Unity",
-							href: `/unity/wallets/providers/embedded-wallet`,
+							href: `/unity/wallets/providers/in-app-wallet`,
 						},
 					],
 				},
 				{
 					name: "FAQs",
-					href: `${embeddedSlug}/faqs`,
+					href: `${inAppSlug}/faqs`,
 				},
 			],
 		},

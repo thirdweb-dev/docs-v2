@@ -1,0 +1,107 @@
+import {
+	OpenSourceCard,
+	DocImage,
+	ArticleIconCard,
+	Stack,
+	createMetadata,
+} from "@doc";
+import ConnectCompat from "./connect-wallet-embedded-compact.png";
+import ConnectDropdown from "./connect-wallet-smart-dropdown.png";
+import { Layers2Icon } from "lucide-react";
+
+export const metadata = createMetadata({
+	image: {
+		title: "Enable Gasless Transactions with In-App Wallet",
+		icon: "wallets",
+	},
+	title: "Enable Gasless Transactions | thirdweb In-App Wallet",
+	description:
+		"By using account abstraction you can create a truly seamless user experience with gasless transactions, batched transactions, and full account recovery.",
+});
+
+# Enable Gasless Transactions
+
+By combining [Account abstraction](/connect/account-abstraction) and [In-App Wallet](/connect/in-app-wallet/overview), you can create a truly seamless user experience:
+
+- Gasless transactions
+- Batched transactions
+- Full account recovery the user "account"
+
+Let's create an app that creates smart accounts for our users.
+
+These smart accounts will require a **“personal wallet”** to access and initialize the wallet. For this personal wallet, we will of course use an in-app wallet.
+
+From the user's perspective, they will log in with their email or social account. Under the hood, an in-app wallet is created for them, and then a smart account is created and initialized using the in-app wallet.
+
+<DocImage src={ConnectCompat} />
+
+When the user connects a wallet by entering their email, they will be able to view & interact with their smart account:
+
+<DocImage src={ConnectDropdown} />
+
+## Example Repo
+
+View a fully functioning project on GitHub:
+
+<OpenSourceCard
+	title="Source Code"
+	href="https://github.com/thirdweb-example/embedded-smart-wallet"
+	tag="v4 SDK"
+/>
+
+## 1. Deploy an Account Factory
+
+Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/contracts/build/base-contracts/erc-4337).
+
+Select the appropriate thirdweb account factory type for your app:
+
+<Stack>
+
+<ArticleIconCard
+	icon={Layers2Icon}
+	title="Account Factory"
+	href={"https://thirdweb.com/thirdweb.eth/AccountFactory"}
+/>
+
+<ArticleIconCard
+	icon={Layers2Icon}
+	title="Managed Account Factory"
+	href={"https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"}
+/>
+
+</Stack>
+
+[Learn more about Account abstraction here](/connect/account-abstraction)
+
+## 2. Enable account abstraction in your app
+
+To enable account abstraction in your app, you need to add the `accountAbstraction` prop to the `ConnectButton` or `ConnectEmbed` component.
+
+```jsx
+import { ConnectButton } from "thirdweb/react";
+import { inAppWallet } from "thirdweb/wallets";
+
+const wallets = [inAppWallet()];
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<ConnectButton
+				client={client}
+				wallets={wallets}
+				accountAbstraction={{
+					factoryAddress: "0x...", // your factory address
+					chain: sepolia, // your chain
+					gasless: true,
+				}}
+			/>
+		</ThirdwebProvider>
+	);
+}
+```
+
+This will create an in-app wallet and a smart account for the user. The smart account will be initialized with the in-app wallet as the owner.
+
+Pass your deployed `factoryAddress` to the `accountAbstraction` prop. This will allow the smart account to be be deployed only when the user sends their first transaction.
+
+You can sponsor transactions simply by passing `gasless: true` to the `accountAbstraction` prop. This will allow the smart account to send transactions without the user needing to hold any ETH.

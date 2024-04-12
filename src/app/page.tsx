@@ -31,7 +31,7 @@ import {
 	InfraEngineIcon,
 	WalletsAuthIcon,
 	WalletsConnectIcon,
-	WalletsEmbeddedIcon,
+	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
 } from "@/icons";
@@ -241,10 +241,10 @@ function WalletsSection() {
 					icon={WalletsSmartIcon}
 				/>
 				<ArticleCardIndex
-					title="Embedded Wallet"
+					title="In-App Wallet"
 					description="Email & social login wallets for your customers"
-					href="/connect/embedded-wallet/overview"
-					icon={WalletsEmbeddedIcon}
+					href="/connect/in-app-wallet/overview"
+					icon={WalletsInAppIcon}
 				/>
 				<ArticleCardIndex
 					href="/connect/auth"

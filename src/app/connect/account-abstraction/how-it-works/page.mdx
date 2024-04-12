@@ -20,7 +20,7 @@ Smart accounts rely on code instead of private keys to secure and recover wallet
 
 **A smart account is a type of Web3 wallet powered by smart contracts.**
 
-This smart account is unlocked by a 'key' - a personal account. This key can be anything from a [MetaMask](/references/wallets/v2/MetaMaskWallet) wallet or even an [Embedded Wallet](../connect/embedded-wallet) and is used as a way to 'sign in' to the wallet.
+This smart account is unlocked by a 'key' - a personal account. This key can be anything from a [MetaMask](/references/wallets/v2/MetaMaskWallet) wallet or even a [In-App Wallet](/connect/in-app-wallet/overview) and is used as a way to 'sign in' to the wallet.
 
 ## Benefits of Smart Accounts
 
@@ -41,10 +41,10 @@ This factory contract is responsible for deploying individual user contracts whe
 
 #### Types of Account and Account Factory
 
-| Factory Type                                                         | Upgradeability                                              | Expected Usage                                                                                                                                                                                |
-| -------------------------------------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`Simple`](https://thirdweb.com/thirdweb.eth/AccountFactory)         | Non-upgradeable                                             | Developer wants to issue simple smart accounts to their users. They do not anticipate that users' wallets will need any feature upgrades.                                                     |
-| [`Managed`](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) | Account upgrades controlled centrally by the app developer. | The developer wants to issue smart accounts to their users. They do anticipate feature upgrades to user wallets and want to push upgrades to user wallets for seamless/invisible UX upgrades. |
+| Factory Type                                                         | Upgradeability                                              | Expected Usage                                                                                                                                                                                 |
+| -------------------------------------------------------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`Simple`](https://thirdweb.com/thirdweb.eth/AccountFactory)         | Non-upgradeable                                             | Developer wants to issue simple smart accounts to their users. They do not anticipate that users wallets will need any feature upgrades.                                                       |
+| [`Managed`](https://thirdweb.com/thirdweb.eth/ManagedAccountFactory) | Account upgrades controlled centrally by the app developer. | Developer wants to issue smart accounts to their users. They do anticipate feature upgrades to user wallets, and want to push upgrades to user wallets for seamless/invisible UX for upgrades. |
 
 ### Account Type Feature Comparison
 

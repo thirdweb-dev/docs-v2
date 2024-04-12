@@ -63,7 +63,7 @@ Learn more about creating an API key and restricting which contracts the smart a
 
 Use the following code to integrate account abstraction into your apps. This will:
 
-- Connect your users to their smart account based on their personal wallet (can be any EOA wallet such as embedded wallet or metamask).
+- Connect your users to their smart account based on their personal wallet (can be any EOA wallet such as in-app wallet or metamask).
 - Automatically deploy the individual account contracts for your users when they do their first onchain transaction.
 - Handle all transaction gas costs via the thirdweb paymaster.
 - Select your deployed account factory and client ID to use the thirdweb infrastructure.
@@ -113,14 +113,14 @@ return (
 
 ```ts
 import { createThirdwebClient } from "thirdweb";
-import { embeddedwallet, smartWallet } from "thirdweb/wallets";
+import { inAppWallet, smartWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({
 	clientId,
 });
 
-// First, create and connect the personal wallet, which can be any wallet (embedded, metamask, etc.)
-const personalWallet = embeddedWallet();
+// First, create and connect the personal wallet, which can be any wallet (in-app, metamask, etc.)
+const personalWallet = inAppWallet();
 const personalAccount = await personalWallet.connect({
 	client,
 	strategy: "google",

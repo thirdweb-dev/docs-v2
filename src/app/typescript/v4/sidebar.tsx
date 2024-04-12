@@ -129,8 +129,8 @@ function getReactNativeSidebar(): SidebarLink {
 						href: `${walletsSlug}/coinbase`,
 					},
 					{
-						name: "Embedded Wallet",
-						href: `${walletsSlug}/embedded-wallet`,
+						name: "In-App Wallet",
+						href: `${walletsSlug}/in-app-wallet`,
 					},
 					{
 						name: "Local Wallet",
