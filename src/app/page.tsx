@@ -21,6 +21,7 @@ import {
 	// PythonIcon,
 	// GoIcon,
 	UnityIcon,
+	DotNetIcon,
 	SolidityIcon,
 	ContractBuildIcon,
 	ContractExploreIcon,
@@ -354,6 +355,7 @@ function SDKSection() {
 					title="Solidity"
 					icon={SolidityIcon}
 				/>
+				<SDKCardIndex href="/dotnet" title=".NET" icon={DotNetIcon} />
 			</Grid>
 		</section>
 	);
