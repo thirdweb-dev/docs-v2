@@ -102,6 +102,28 @@ const contracts: SidebarLink = {
 			name: "Write Contract",
 			href: "/dotnet/contracts/write",
 		},
+		{
+			name: "Prepare Transaction",
+			href: "/dotnet/contracts/prepare",
+		},
+	],
+};
+
+const transactions: SidebarLink = {
+	name: "Transaction Builder",
+	links: [
+		{
+			name: "Create Transaction",
+			href: "/dotnet/transactions/create",
+		},
+		{
+			name: "Instance Methods",
+			href: "/dotnet/transactions/instance",
+		},
+		{
+			name: "Static Methods",
+			href: "/dotnet/transactions/static",
+		},
 	],
 };
 
@@ -126,6 +148,7 @@ export const sidebar: SideBar = {
 		},
 		contracts,
 		wallets,
+		transactions,
 		{
 			name: "Storage Download & Upload",
 			href: "/dotnet/storage",
