@@ -40,9 +40,10 @@ The parameters to pass to the smart contract method, if any. Provide these as a 
 </Details>
 
 <Details summary="Return Value">
-### string
 
-Returns the transaction hash as a `string`. This hash can be used to track the status of the transaction on the blockchain.
+### TransactionReceipt
+
+Returns the transaction receipt as a `TransactionReceipt` object, which contains information about the executed transaction.
 
 </Details>
 
@@ -67,11 +68,8 @@ BigInteger amount = new BigInteger(1000); // The amount to transfer
 BigInteger weiValue = BigInteger.Zero;
 
 // Executing the transfer
-var transactionHash = await ThirdwebContract.Write(wallet, contract, "transfer", weiValue, toAddress, amount);
-Console.WriteLine($"Transaction hash: {transactionHash}");
-
-// Poll for the receipt
-var transactionReceipt = await Utils.GetTransactionReceipt(transactionHash);
+var receipt = await ThirdwebContract.Write(wallet, contract, "transfer", weiValue, toAddress, amount);
+Console.WriteLine($"Transaction receipt: {receipt}");
 ```
 
 This method is essential for interacting with smart contracts when you need to make changes to the blockchain, such as updating state or transferring assets.

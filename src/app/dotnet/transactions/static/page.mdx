@@ -159,3 +159,39 @@ An instance of `ThirdwebTransaction`. The transaction you are sending and waitin
 Returns the transaction receipt as a `TransactionReceipt`, which includes details of the transaction execution result.
 
 </Details>
+
+## ThirdwebTransaction.WaitForTransactionReceipt
+
+Wait for a transaction receipt to be available. Throws if reverted explicitly or silently and attempts to decode the revert reason.
+
+```csharp
+TransactionReceipt receipt = await ThirdwebTransaction.WaitForTransactionReceipt(client, chainId, txHash);
+```
+
+<Details summary="Parameters">
+
+### client (required)
+
+An instance of `ThirdwebClient`.
+
+### chainId (required)
+
+The chain ID of the blockchain network where the transaction was sent. Must be a `BigInteger`.
+
+### txHash (required)
+
+The hash of the transaction you are waiting for. Must be a hexadecimal `string`.
+
+### cancellationToken (optional)
+
+A `CancellationToken` to cancel the operation.
+
+</Details>
+
+<Details summary="Return Value">
+
+### TransactionReceipt
+
+Returns the transaction receipt as a `TransactionReceipt`, which includes details of the transaction execution result.
+
+</Details>
