@@ -62,6 +62,14 @@ const sdkLinks = [
 		href: "/typescript/v5",
 	},
 	{
+		name: "React",
+		href: "/typescript/v5/react",
+	},
+	{
+		name: "React Native",
+		href: "/react-native/v0",
+	},
+	{
 		name: "Unity",
 		href: "/unity",
 	},
