@@ -16,8 +16,6 @@ export const metadata = createMetadata({
 
 Engine makes it effortless for any developer to airdrop NFTs at scale. You sponsor the gas so your users only need a wallet address!
 
-> This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
-
 <DocImage
 	src={OverviewImage}
 	alt="Airdrop overview"
@@ -27,7 +25,7 @@ Engine makes it effortless for any developer to airdrop NFTs at scale. You spons
 ## Prerequisites
 
 - An Engine instance
-- A [backend wallet](/engine/features/backend-wallets) with [MATIC on Mumbai](https://mumbaifaucet.com/)
+- A [backend wallet](/engine/features/backend-wallets) with currency to pay for gas
 - A deployed NFT contract that can be claimed by the backend wallet
 - A client ID and secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
 
@@ -58,7 +56,7 @@ function ClaimPage() {
 
 function Example() {
 	return (
-		<ThirdwebProvider activeChain="mumbai" clientId="<thirdweb_client_id>">
+		<ThirdwebProvider activeChain="<chain_id>" clientId="<thirdweb_client_id>">
 			<ClaimPage />
 		</ThirdwebProvider>
 	);
@@ -76,7 +74,7 @@ export async function POST(request: Request) {
 	const { userWalletAddress } = await request.json();
 
 	await fetch(
-		"<engine_url>/contract/mumbai/<nft_contract_address>/erc1155/mint-to",
+		"<engine_url>/contract/<chain_id>/<nft_contract_address>/erc1155/mint-to",
 		{
 			method: "POST",
 			headers: {
