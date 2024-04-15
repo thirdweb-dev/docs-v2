@@ -44,11 +44,11 @@ If the chain you are looking for is not one of default supported chains, you can
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react-native";
-import { Mumbai } from "@thirdweb-dev/chains";
+import { <chain_id> } from "@thirdweb-dev/chains";
 
 function App() {
 	return (
-		<ThirdwebProvider activeChain={Mumbai} clientId="your-client-id">
+		<ThirdwebProvider activeChain={<chain_id>} clientId="your-client-id">
 			<YourApp />
 		</ThirdwebProvider>
 	);
@@ -71,10 +71,10 @@ you can override any properties of a chain, such as the `rpc` field.
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react-native";
-import { Mumbai } from "@thirdweb-dev/chains";
+import { <chain_id> } from "@thirdweb-dev/chains";
 
 const activeChain = {
-	...Mumbai,
+	...<chain_id>,
 	rpc: ["https://<your-rpc-to-use>.com"], // Override the "rpc" field.
 	// ... Override any other fields you want to customize.
 };

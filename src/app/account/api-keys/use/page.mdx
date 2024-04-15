@@ -90,7 +90,7 @@ import os
   secret_key = os.environ['SECRET_KEY']
   private_key = os.environ['PRIVATE_KEY']
 
-  sdk = ThirdwebSDK.from_private_key(private_key, "mumbai", SDKOptions(secret_key=secret_key))
+  sdk = ThirdwebSDK.from_private_key(private_key, "<chain_id>", SDKOptions(secret_key=secret_key))
 ```
 
 </TabsContent>
@@ -113,9 +113,9 @@ func main() {
     secretKey := "..."
 
     // Creates a new SDK instance to get read-only data for your contracts, you can pass:
-    // - a chain name (mainnet, rinkeby, goerli, polygon, mumbai, avalanche, fantom)
+    // - a chain name (mainnet, rinkeby, goerli, polygon, avalanche, fantom)
     // - a custom RPC URL
-    sdk, err := thirdweb.NewThirdwebSDK("mumbai", &thirdweb.SDKOptions{
+    sdk, err := thirdweb.NewThirdwebSDK("<chain_id>", &thirdweb.SDKOptions{
       SecretKey: secretKey,
     })
     if err != nil {

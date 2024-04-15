@@ -20,15 +20,13 @@ This guide uses thirdweb Engine to sell NFTs with credit card:
 
 The buyer receives the NFT without requiring wallet signatures or gas funds.
 
-> This guide references Polygon Mumbai testnet and NextJS but is applicable for any EVM chain and full-stack framework.
-
 <DocImage src={OverviewImage} alt="NFT checkout overview" />
 
 ## Prerequisites
 
 - A thirdweb client ID and secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
 - An Engine instance
-- A [backend wallet](/engine/features/backend-wallets) with [MATIC on Mumbai](https://mumbaifaucet.com/)
+- A [backend wallet](/engine/features/backend-wallets) with currency to pay for gas
 - An [access token](/engine/features/authentication) for your Engine instance
 - A deployed NFT contract that can be claimed by the backend wallet
 - A [Stripe account](https://dashboard.stripe.com/register) on test mode (no real payments will be made)
@@ -40,7 +38,7 @@ Use [`<ConnectWallet>`](/react/latest/components/ConnectWallet) to prompt the bu
 ```tsx
 function Home() {
 	return (
-		<ThirdwebProvider activeChain="mumbai" clientId="<thirdweb_client_id>">
+		<ThirdwebProvider activeChain="<chain_id>" clientId="<thirdweb_client_id>">
 			<PurchasePage />
 		</ThirdwebProvider>
 	);
@@ -169,7 +167,7 @@ export async function POST(req: NextRequest) {
 			accessToken: "<engine_access_token>",
 		});
 		await engine.erc1155.mintTo(
-			"mumbai",
+			"<chain_id>",
 			"<nft_contract_address>",
 			"<backend_wallet_address>",
 			{
