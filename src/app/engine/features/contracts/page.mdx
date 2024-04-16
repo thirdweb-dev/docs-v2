@@ -1,4 +1,4 @@
-import { createMetadata } from "@doc";
+import { Details, createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	title: "Contracts | thirdweb Engine",
@@ -40,7 +40,34 @@ const { result } = await resp.json();
 console.log("Queue ID:", result.queueId);
 ```
 
-[See API reference.](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract/operation/write)
+<Details id="handling-overloaded-functions" summary="Handling overloaded functions">
+
+If there are multiple signatures for `functionName` on the contract, provide the full signature with args.
+
+**Example**
+
+Your contract has two functions named `mintTo`:
+
+```solidity
+function mintTo(address to) public
+```
+
+```solidity
+function mintTo(address to, uint256 quantity) public
+```
+
+This is the request body to call the second function:
+
+```json
+{
+	"functionName": "mintTo(address, uint256)",
+	"args": ["0x4Ff9aa707AE1eAeb40E581DF2cf4e14AffcC553d", "3"]
+}
+```
+
+</Details>
+
+[See API reference](https://redocly.github.io/redoc/?url=https://demo.web3api.thirdweb.com/json#tag/Contract/operation/write)
 
 ### Call a payable method
 
