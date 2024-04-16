@@ -74,7 +74,7 @@ export default function RootLayout({
 						{/* Note: Please change id as well when changing text or href so that new banner is shown to user even if user dismissed the older one  */}
 						<Banner
 							id="v5-stable"
-							text="Connect SDK v5 now in stable. See documentation."
+							text="Connect SDK v5 has been released. See documentation."
 							href="https://portal.thirdweb.com/typescript/v5"
 						/>
 						<Header />
