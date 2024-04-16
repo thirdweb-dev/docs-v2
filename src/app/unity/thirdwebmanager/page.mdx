@@ -46,13 +46,13 @@ Here, you can specify the URL for your IPFS gateway, which stores your assets in
 
 - `Storage IPFS Gateway Url`: The URL for your IPFS gateway.
 
-### OpenZeppelin Defender Options
+### Gasless Relayer Options
 
-In this section, configure settings for OpenZeppelin Defender, a service that handles gasless transactions for your users. Adjust the following:
+In this section, configure settings for your thirdweb [Engine Relayer](https://portal.thirdweb.com/engine/features/relayers), a service that handles gasless transactions for your users.
 
-- `Relayer Url`: The URL for your relayer service.
-- `Forwarder Address`: The address of your forwarder contract.
-- `Forwarder Domain Override` and `Forwarder Version Override`: Optional settings if you want to override the defaults for OpenZeppelin Defender.
+- `Relayer Url`: The URL for your engine relayer, can be found on the thirdweb dashboard.
+- `Forwarder Address`: Override the default thirdweb forwarder contract address. (Optional)
+- `Forwarder Domain Override` and `Forwarder Version Override`: Overrides for the forwarder domain and version. (Optional)
 
 ### Wallet Connect Options
 
@@ -68,7 +68,7 @@ Here, provide your project ID for WalletConnect:
 
 ### Smart Account Options
 
-These settings are required to set up a smart account. Adjust the following:
+These settings are required to set up a smart account.
 
 - `Factory Contract Address`: The address of your account factory contract.
 - `Thirdweb API Key`: Your API key for Thirdweb.
@@ -79,7 +79,7 @@ These settings are required to set up a smart account. Adjust the following:
 
 ### Native Prefabs (Danger Zone)
 
-This section allows you to provide GameObject prefabs for native wallet providers, which will be instantiated at runtime. Adjust the following:
+This section allows you to provide GameObject prefabs for native wallet providers, which will be instantiated at runtime.
 
 - `WalletConnect Prefab`: The prefab for WalletConnect's customizable UI/behavior.
 - `Metamask Prefab`: The prefab for Metamask's customizable UI/behavior.
