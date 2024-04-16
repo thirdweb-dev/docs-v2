@@ -12,6 +12,23 @@ const withMDX = createMDX({
 const nextConfig = {
 	pageExtensions: ["mdx", "tsx", "ts"],
 	redirects,
+	headers: async () => {
+		return [
+			// Disallow all pages from being embedded in an iframe.
+			{
+				headers: [
+					{
+						key: "Content-Security-Policy",
+						value: `frame-ancestors 'none';`,
+					},
+					{
+						key: "X-Frame-Options",
+						value: "DENY",
+					},
+				],
+			},
+		];
+	},
 };
 
 export default withMDX(nextConfig);
