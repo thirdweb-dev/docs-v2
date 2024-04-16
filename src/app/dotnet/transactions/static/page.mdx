@@ -60,6 +60,30 @@ Returns the total costs of the transaction as `TotalCosts`, encompassing both th
 
 </Details>
 
+## ThirdwebTransaction.EstimateGasLimit
+
+Estimate the gas limit of a transaction or user operation.
+
+```csharp
+BigInteger estimatedGasLimit = await ThirdwebTransaction.EstimateGasLimit(transaction);
+```
+
+<Details summary="Parameters">
+
+### transaction (required)
+
+An instance of `ThirdwebTransaction`. The transaction for which you are estimating the gas limit.
+
+</Details>
+
+<Details summary="Return Value">
+
+### BigInteger
+
+Returns the estimated gas limit as a `BigInteger`.
+
+</Details>
+
 ## ThirdwebTransaction.EstimateGasPrice
 
 Estimate the gas price for a transaction, optionally adjusting the estimate by a bump ratio.
@@ -90,10 +114,10 @@ Returns the estimated gas price as a `BigInteger`.
 
 ## ThirdwebTransaction.Simulate
 
-Simulate the execution of a transaction to estimate the required gas limit.
+Simulate the execution of a transaction and return raw data.
 
 ```csharp
-BigInteger estimatedGasLimit = await ThirdwebTransaction.Simulate(transaction);
+string data = await ThirdwebTransaction.Simulate(transaction);
 ```
 
 <Details summary="Parameters">
@@ -106,9 +130,33 @@ An instance of `ThirdwebTransaction`. The transaction you are simulating.
 
 <Details summary="Return Value">
 
-### BigInteger
+### string
 
-Returns the estimated gas limit required for the transaction as a `BigInteger`.
+Returns the raw data of the simulated transaction as a `string`.
+
+</Details>
+
+## ThirdwebTransaction.Sign
+
+Sign a raw transaction and returns the signed transaction data or the signed user operation json.
+
+```csharp
+string signedTx = await ThirdwebTransaction.Sign(transaction);
+```
+
+<Details summary="Parameters">
+
+### transaction (required)
+
+An instance of `ThirdwebTransaction`. The transaction you are signing.
+
+</Details>
+
+<Details summary="Return Value">
+
+### string
+
+Returns the signed transaction data as a `string` or the signed user operation json if using Account Abstraction.
 
 </Details>
 
