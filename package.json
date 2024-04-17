@@ -27,7 +27,7 @@
 		"flexsearch": "^0.7.31",
 		"github-slugger": "^2.0.0",
 		"lucide-react": "^0.286.0",
-		"next": "~13.4",
+		"next": "~13.5",
 		"nextjs-toploader": "^1.5.3",
 		"node-html-parser": "^6.1.11",
 		"posthog-js": "^1.96.1",
