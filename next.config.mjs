@@ -16,6 +16,7 @@ const nextConfig = {
 		return [
 			// Disallow all pages from being embedded in an iframe.
 			{
+				source: "/:path*",
 				headers: [
 					{
 						key: "Content-Security-Policy",
