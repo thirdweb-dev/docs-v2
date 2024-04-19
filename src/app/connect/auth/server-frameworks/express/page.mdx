@@ -50,6 +50,9 @@ const app = express();
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 	domain: process.env.THIRDWEB_AUTH_DOMAIN || "",
 	wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+	thirdwebAuthOptions: {
+		secretKey: "...",
+	},
 });
 
 // Add the auth router to our app to set up the /auth/* endpoints
@@ -176,6 +179,9 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   authOptions: {
     tokenDurationInSeconds: 60 * 60 * 24 * 7, // 1 week
   },
+  thirdwebAuthOptions: {
+		secretKey: "...",
+	},
 });
 ```
 

@@ -66,6 +66,9 @@ import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 	domain: "example.com",
 	wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+	thirdwebAuthOptions: {
+		secretKey: "...",
+	},
 });
 
 export default ThirdwebAuthHandler();
@@ -96,6 +99,9 @@ import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuthAppRouter({
 	domain: "example.com",
 	wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+	thirdwebAuthOptions: {
+		secretKey: "...",
+	},
 });
 ```
 

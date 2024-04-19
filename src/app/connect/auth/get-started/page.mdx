@@ -82,6 +82,9 @@ import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 	domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
 	wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+	thirdwebAuthOptions: {
+		secretKey: "...",
+	},
 });
 
 // Use the ThirdwebAuthHandler as the default export to handle all requests to /api/auth/*
