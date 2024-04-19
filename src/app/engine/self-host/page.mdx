@@ -18,6 +18,7 @@ dashboard](https://thirdweb.com/dashboard/engine).
 
 - [Docker](https://docs.docker.com/get-docker/)
 - A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
+- PostgresDB (version 14+)
 
 ### Development
 
@@ -92,6 +93,7 @@ See the [Production Checklist](/engine/production-checklist#cloud-hosting) for b
 - Host Postgres DB on a cloud provider.
   - Examples: [AWS RDS](https://aws.amazon.com/rds/postgresql/), [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres), [Heroku](https://www.heroku.com/postgres), [Supabase](https://supabase.com/docs/guides/database/overview)
   - Minimum specs: 2 vCPU, 2 GB memory (AWS equivalent: t4g.small)
+  - Minimum version: 14
   - Set the `connection_limit` parameter within your `POSTGRES_CONNECTION_URL` environment variable to `10`.
 
 ### FAQ
