@@ -12,10 +12,10 @@ export default async function Layout(props: { children: React.ReactNode }) {
 
 export const metadata = createMetadata({
 	image: {
-		title: "thirdweb Unity SDK",
-		icon: "unity",
+		title: "thirdweb .NET SDK",
+		icon: "dotnet",
 	},
-	title: "thirdweb Unity SDK",
+	title: "thirdweb .NET SDK",
 	description:
-		"Connect to user's wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, marketplaces; all with built-in RPC URLs, IPFS gateways, and more.",
+		"Connect to user's wallets, interact with smart contracts, sign in with email or phone number, unlock Account Abstraction features; all with built-in RPC URLs, IPFS gateways, Godot support and more.",
 });
