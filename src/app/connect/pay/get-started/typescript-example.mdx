@@ -34,19 +34,15 @@ This function takes an object with the following properties:
 Since you need to pass the `fromAddress` to function, you need to connect a wallet. Refer to [Connecting Wallets](/typescript/v5/wallets) guide to see how you can connect various wallets.
 
 ```tsx
-import {
-	NATIVE_TOKEN_ADDRESS,
-	createThirdwebClient,
-	metamaskWallet,
-} from "thirdweb";
-import { metamaskWallet } from "thirdweb/wallets";
+import { NATIVE_TOKEN_ADDRESS, createThirdwebClient } from "thirdweb";
+import { createWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({
 	clientId: "YOUR_CLIENT_ID",
 });
 
 // connect a wallet to get an account
-const metamask = metamaskWallet();
+const metamask = createWallet("io.metamask");
 const account = await metamask.connect();
 
 const quote = await getBuyWithCryptoQuote({

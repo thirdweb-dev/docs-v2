@@ -10,9 +10,9 @@ See [Wallets](/typescript/v5/wallets) for more information on how to create a wa
 
 ```ts
 import { sendTransaction } from "thirdweb";
-import { metamaskWallet } from "thirdweb/wallets";
+import { createWallet } from "thirdweb/wallets";
 
-const wallet = metamaskWallet();
+const wallet = createWallet("io.metamask");
 await wallet.connect();
 
 const transactionResult = await sendTransaction({
@@ -27,9 +27,9 @@ Send a transaction and wait for it to be mined. Useful when you want to block un
 
 ```ts
 import { sendAndConfirmTransaction } from "thirdweb";
-import { metamaskWallet } from "thirdweb/wallets";
+import { createWallet } from "thirdweb/wallets";
 
-const wallet = metamaskWallet();
+const wallet = createWallet("io.metamask");
 await wallet.connect();
 
 const receipt = await sendAndConfirmTransaction({
@@ -44,9 +44,9 @@ Wait for a transaction to be mined and get the transaction receipt.
 
 ```ts
 import { sendTransaction, waitForReceipt } from "thirdweb";
-import { metamaskWallet } from "thirdweb/wallets";
+import { createWallet } from "thirdweb/wallets";
 
-const wallet = metamaskWallet();
+const wallet = createWallet("io.metamask");
 await wallet.connect();
 
 const transactionResult = await sendTransaction({
