@@ -66,16 +66,16 @@ const onClick = async () => {
 
 ### TypeScript Cheatsheet
 
-| Task       | `@thirdweb-dev/sdk`                                      | `thirdweb`                                          |
-| ---------- | -------------------------------------------------------- | --------------------------------------------------- |
-| Chains     | `import { Sepolia } from "@thirdweb-dev/chains"`         | `import { sepolia } from "thirdweb/chains"`         |
-| Wallets    | `import { MetaMaskWallet } from "@thirdweb-dev/wallets"` | `import { metamaskWallet } from "thirdweb/wallets"` |
-| Initialize | `new ThirdwebSDK(...)`                                   | `createThirdwebClient({ ... })`                     |
-| Contract   | `await sdk.getContract(...)`                             | `getContract(...) // no await`                      |
-| Read       | `await contract.call(...)`                               | `await readContract(...)`                           |
-| Prepare    | `await contract.prepare(...)`                            | `prepareContractCall(...) // no await`              |
-| Send       | `await contract.call(...)`                               | `await sendTransaction(...)`                        |
-| Extensions | `await contract.erc721.getAll()`                         | `await getNFTs(...)`                                |
+| Task       | `@thirdweb-dev/sdk`                                      | `thirdweb`                                        |
+| ---------- | -------------------------------------------------------- | ------------------------------------------------- |
+| Chains     | `import { Sepolia } from "@thirdweb-dev/chains"`         | `import { sepolia } from "thirdweb/chains"`       |
+| Wallets    | `import { MetaMaskWallet } from "@thirdweb-dev/wallets"` | `import { createWallet } from "thirdweb/wallets"` |
+| Initialize | `new ThirdwebSDK(...)`                                   | `createThirdwebClient({ ... })`                   |
+| Contract   | `await sdk.getContract(...)`                             | `getContract(...) // no await`                    |
+| Read       | `await contract.call(...)`                               | `await readContract(...)`                         |
+| Prepare    | `await contract.prepare(...)`                            | `prepareContractCall(...) // no await`            |
+| Send       | `await contract.call(...)`                               | `await sendTransaction(...)`                      |
+| Extensions | `await contract.erc721.getAll()`                         | `await getNFTs(...)`                              |
 
 ### React Cheatsheet
 
@@ -83,7 +83,7 @@ const onClick = async () => {
 | ---------- | ----------------------------------------------------- | --------------------------------------------------- |
 | Provider   | `import { ThirdwebProvider} from @thirdweb-dev/react` | `import { ThirdwebProvider } from "thirdweb/react"` |
 | Contract   | `useContract(...)`                                    | `getContract(...) // not a hook`                    |
-| Address    | `useAddress(...)`                                     | `useActiveAccount(...) // account?.address`          |
+| Address    | `useAddress(...)`                                     | `useActiveAccount(...) // account?.address`         |
 | Read       | `useContractRead(...)`                                | `useReadContract(...)`                              |
 | Write      | `useContractWrite(...)`                               | `useSendTransaction()`                              |
 | Extensions | `useNFTs(...)`                                        | `useReadContract(getNFTs, { ... })`                 |
