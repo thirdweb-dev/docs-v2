@@ -1,4 +1,4 @@
-import { Details, createMetadata } from "@doc";
+import { Details, Callout, createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	title: "Contract Subscriptions | thirdweb Engine",
@@ -10,17 +10,17 @@ export const metadata = createMetadata({
 
 Subscribe to transaction logs and receipts on any contract and query them from your app.
 
-**Logs** are events emitted from a successfully executed transaction. Example: a burned NFT will emit a `Transfer OWNER -> 0x000...` log.
+A **log** is an event emitted from a successfully executed transaction. Example: a burned NFT emits a `Transfer OWNER -> 0x000...` log.
 
-**Receipts** are the details for any transaction. This may be useful for tracking onchain failures (reverted executions).
+A **receipt** contains onchain details for any transaction. This may be useful for tracking onchain failures (reverted executions).
 
 ## Use cases
 
-Your app can poll for logs/transactions to trigger an action when an onchain event, including:
+Your app may trigger an action when an onchain event occurs, such as:
 
-- ETH or any ERC20 currency is transferred to or from a wallet.
-- An NFT is minted from your NFT collection.
-- An NFT in your NFT collection is burned or transferred.
+- ETH or an ERC20 currency is transferred to or from a wallet.
+- An token is minted from your NFT collection.
+- An token in your NFT collection is burned or transferred.
 - Metadata for an oracle contract is updated.
 
 ## Manage contract subscriptions
@@ -43,16 +43,12 @@ API reference: [`POST /contract/<chain>/<contract_address>/subscriptions/unsubsc
 
 ## Query contract subscription data
 
-To query log and receipts stored for contract subscriptions, call the following endpoints:
+Query processed log and receipts with the following endpoints:
 
 - Transaction logs: `GET /contract/subscriptions/logs`
 - Transaction receipts: `GET /contract/subscriptions/receipts`
 
-There three ways to paginate the data:
-
-- By cursor
-- By block
-- By timestamp
+Paginate by cursor, block range, or timestamp range.
 
 #### Query by cursor
 
@@ -110,6 +106,15 @@ Example body:
 
 #### Advanced queries
 
+Query multiple subscriptions by providing multiple addresses, comma-separated:
+
+```json
+{
+    ...
+    "addresses": "0x24e6B0dfFfF1817F2BC9aD1E49a7Ad3C97a849f4,0x9ca57B9341dCB029a5b11163C9a47FB65BA6F4c3"
+}
+```
+
 Filter topics by providing a list of topics:
 
 ```json
@@ -119,16 +124,28 @@ Filter topics by providing a list of topics:
 }
 ```
 
+<Callout title="Not seeing data?" variant="info">
+
+Logs and receipts are stored after a contract subscription is created for the specified chain and address.
+
+Check the most recently indexed block on the **Contract Subscriptions** section of the [Engine dashboard](https://thirdweb.com/dashboard/engine).
+
+</Callout>
+
 ## FAQ
 
-#### Why use Contract Subscriptions instead of querying the blockchain (RPC) directly?
+#### Do contract subscriptions backfill past data?
 
-Querying RPC for onchain data is slow, unreliable, and costly at scale. Many RPCs have low limits on the amount of blocks that are queryable at once. Even if your contract has low interactivity, your app must still process all logs within all blocks in your desired range to get accurate results.
+Not at this time. This feature may be coming in a future Engine version.
 
-Contract Subscriptions allow your app to query the onchain data you care about with fast, reliable, and cheap database calls.
+#### Why use contract subscriptions instead of querying the blockchain directly?
 
-#### What is the difference between Contract Subscriptions and using listeners with my library (like ethers.js)?
+Querying RPC nodes for onchain data is slow, unreliable, and costly at scale. RPCs have limits on the number of blocks that can be queried once. Even if your contract has low activity, your app must all blocks in your desired range to get accurate results.
 
-Listeners built into some libraries are appropriate if you want real-time results and don't need resilience. For example, if your backend request times out or your backend has an outage, that log data is lost.
+Contract subscriptions allow your app to query the onchain data you care about from database, which is faster, more reliable, and less costly.
 
-Contract Subscriptions utilize workers to continuously poll the blockchain for logs and receipts since the last processed block and stores the results to a database. As a result, data can be trusted to be persisted to the database eventually, even when unexpected issues with your backend, Engine, or the RPC occur.
+#### What is the difference between contract subscriptions and using event listeners in my web3 library?
+
+Event listeners built into web3 libraries are appropriate to listen for real-time results without any persistence or resilience. If your backend request times out or your backend has an outage, event data is missed.
+
+A Contract Subscription continuously poll the blockchain for logs and receipts since the last processed block and stores the results to database. Your app can rely on data to be stored eventually, even when unexpected issues with your backend, Engine, the RPC, or the blockchain occur.
