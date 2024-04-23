@@ -35,23 +35,6 @@ import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
 import "@thirdweb-dev/contracts/extension/interface/IMintableERC20.sol";
 import "@thirdweb-dev/contracts/extension/Multicall.sol";
 
-contract Contract is ERC20, IMintableERC20, Multicall {
-    constructor(
-        string memory _name,
-        string memory _symbol
-    )
-        ERC20(
-            _name,
-            _symbol
-        )
-    {}
-
-    function mintTo(address to, uint256 amount) external override returns (uint256) {
-        // Your custom implementation here
-    }
-
-}
-```
 
 ## Base Contracts Implementing This Extension
 
