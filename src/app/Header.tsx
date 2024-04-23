@@ -147,10 +147,11 @@ export function Header() {
 						"xl:static xl:animate-none xl:flex-row xl:justify-between xl:bg-transparent xl:p-0",
 					)}
 				>
-					<ul className="flex flex-col gap-5 xl:flex-row xl:items-center">
+					<ul className="flex flex-col gap-5 xl:flex-row lg:items-center">
 						{links.map((link) => {
 							return (
 								<li
+									className="flex items-center"
 									key={link.href}
 									onClick={() => {
 										setShowBurgerMenu(false);
@@ -187,7 +188,7 @@ export function Header() {
 							<DocSearch variant="search" />
 						</div>
 
-						<div className="px-2">
+						<div className="xl:px-2">
 							<DropdownLinks
 								links={supportLinks}
 								onLinkClick={() => setShowBurgerMenu(false)}
@@ -225,15 +226,15 @@ function DropdownLinks(props: {
 	return (
 		<>
 			{/* desktop */}
-			<div className="hidden xl:block">
+			<div className="hidden xl:flex items-center">
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="ghost"
-							className="inline-flex gap-1 px-0 font-medium text-f-300 hover:bg-transparent hover:text-f-100"
+							className="inline-flex gap-1 py-0 px-0 font-medium text-f-300 hover:bg-transparent hover:text-f-100 items-center text-sm"
 						>
 							{props.category}
-							<ChevronDownIcon className="w-4 text-f-300 opacity-70" />
+							<ChevronDownIcon className="text-f-300 opacity-70 size-4" />
 						</Button>
 					</DropdownMenuTrigger>
 
