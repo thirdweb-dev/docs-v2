@@ -76,7 +76,7 @@ const onClick = async () => {
 | Prepare    | `await contract.prepare(...)`                            | `prepareContractCall(...) // no await`            |
 | Send       | `await contract.call(...)`                               | `await sendTransaction(...)`                      |
 | Extensions | `await contract.erc721.getAll()`                         | `await getNFTs(...)`                              |
-| Deploy     | `sdk.deployer.deployBuiltInContract(...)`                | `await getNFTs(...)`                              |
+| Deploy     | `sdk.deployer.deployBuiltInContract(...)`                | `await deployPublishedContract(...)`              |
 
 
 ### React Cheatsheet
@@ -90,9 +90,9 @@ const onClick = async () => {
 | Write                | `useContractWrite(...)`                               | `useSendTransaction()`                              |
 | Extensions           | `useNFTs(...)`                                        | `useReadContract(getNFTs, { ... })`                 |
 | Get Signer           | `useSigner()`                                         | `useActiveAccount()`                                |
-| Get Wallet           | `useWallet()`                                         | `await deployedPublishedContract(...)`              |
+| Get Wallet           | `useWallet()`                                         | `useActiveWallet()`                                 |
 | Button               | `Web3Button`                                          | `TransactionButton`                                 |
 | Connect              | `ConnectWallet`                                       | `ConnectButton`                                     |
 | Connection Status    | `useConnectionStatus()`                               | `useActiveWalletConnectionStatus()`                 |
 | Switch Chain         | `useSwitchChain()`                                    | `useSwitchActiveWalletChain()`                      |
-| Get Connected Chain  | `useChain ()`                                         | `useSwitchActiveWalletChain()`                      |
+| Get Connected Chain  | `useChain()`                                          | `useSwitchActiveWalletChain()`                      |
