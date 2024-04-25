@@ -31,9 +31,9 @@ Configure webhooks in Engine to notify your backend server of transaction or bac
 
 ### Wallets
 
-| Event                    | Description                                             |
-| ------------------------ | ------------------------------------------------------- |
-| `backend_wallet_balance` | A backend wallet's balance is below `minWalletBalance`. |
+| Event                    | Description                                                                                                                                  |
+| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `backend_wallet_balance` | A backend wallet's balance is below `minWalletBalance`. To read or update this value, call `GET/POST /configuration/backend-wallet-balance`. |
 
 ## Setup
 
@@ -45,25 +45,15 @@ Configure webhooks in Engine to notify your backend server of transaction or bac
 
 Webhook URLs must start with `https://`.
 
-However `http://localhost:*` is allowed for local testing.
+## Webhook verification (recommended)
 
-### Backend wallet balance
-
-Define the `minWalletBalance` (in the blockchain native coin) to maintain in each backend wallet. The default value is value is `2000000000000000 wei` (e.g. 0.002 ETH). A webhook event will be sent if a backend wallet balance falls below this value.
-
-To read or update this value, call `GET/POST /configuration/backend-wallet-balance`.
-
-### Transaction events
-
-Create a webhook by calling `POST /webhooks/create`.
-
-## Webhook verification
-
-To secure your webhook endpoint, verify the request originated from Engine.
+Since any outside origin can call your webhook endpoint, it is recommended to verify the webhook signature to ensure a request comes from your Engine instance.
 
 ### Check the signature
 
 The payload body is signed with the webhook secret and provided in the `X-Engine-Signature` request header.
+
+Get the **webhook secret** for your webhook endpoint from the dashboard.
 
 This code example checks if the signature is valid:
 
