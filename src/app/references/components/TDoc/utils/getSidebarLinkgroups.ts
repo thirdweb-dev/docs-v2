@@ -5,6 +5,7 @@ import {
 	SidebarLink,
 } from "../../../../../components/others/Sidebar";
 import { subgroups } from "./subgroups";
+import { uniqueSlugger } from "./uniqueSlugger";
 
 const tagsToGroup = {
 	"@contract": "Contract",
@@ -120,6 +121,17 @@ function getCustomTag(doc: SomeDoc): [TagKey, string | undefined] | undefined {
 
 export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 	const linkGroups: LinkGroup[] = [];
+	const generatedLinks = new Set<string>();
+
+	const getLink = (href: string) => {
+		const link = uniqueSlugger({
+			base: href,
+			isUnique: (s) => !generatedLinks.has(s),
+		});
+
+		generatedLinks.add(link);
+		return link;
+	};
 
 	// group links by tags
 	function createSubGroups(key: keyof typeof subgroups, docs: SomeDoc[]) {
@@ -155,7 +167,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 				([extensionName, docs]) => {
 					const links = docs.map((d) => ({
 						name: d.name,
-						href: `${path}/${extensionName.toLowerCase()}/${d.name}`,
+						href: getLink(`${path}/${extensionName.toLowerCase()}/${d.name}`),
 					}));
 					return {
 						name: extensionName,
@@ -166,7 +178,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			if (!linkGroups.find((group) => group.name === name)) {
 				linkGroups.push({
 					name: name,
-					href: `${path}/${key}`,
+					href: getLink(`${path}/${key}`),
 					links: [{ name: "Extensions", links: extensionLinkGroups }],
 				});
 			} else {
@@ -224,7 +236,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 				name: tagsToGroup[tag],
 				links: groupDocs.map((d) => ({
 					name: d.name,
-					href: `${path}/${d.name}`,
+					href: getLink(`${path}/${d.name}`),
 				})),
 			});
 		};
@@ -236,7 +248,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 		ungroupedLinks.forEach((d) => {
 			links.push({
 				name: d.name,
-				href: `${path}/${d.name}`,
+				href: getLink(`${path}/${d.name}`),
 			});
 		});
 
@@ -251,7 +263,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			linkGroups.push({
 				name: name,
 				links: links,
-				href: `${path}/${key}`,
+				href: getLink(`${path}/${key}`),
 			});
 		}
 	}
