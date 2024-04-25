@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "next/og";
 import { getBaseUrl } from "../../../lib/getBaseUrl";
 
 export const runtime = "edge";
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
 	const title = searchParams.get("title");
 
 	if (!icon || !title) {
-		return new Response(`Failed to generate the image`, {
+		return new Response("Failed to generate the image", {
 			status: 500,
 		});
 	}

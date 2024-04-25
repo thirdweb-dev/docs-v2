@@ -1,37 +1,51 @@
-import GhostContentAPI from "@tryghost/content-api";
+import type { PostsOrPages } from "@tryghost/content-api";
 
 export const GHOST_THIRDWEB_BLOG_KEY = "49c62b5137df1c17ab6b9e46e3";
 
-const api = new GhostContentAPI({
-	key: GHOST_THIRDWEB_BLOG_KEY,
-	version: "v5.0",
-	url: "https://thirdweb.ghost.io",
-});
-
 export async function fetchChangeLogs() {
-	// const res = await fetch(
-	// 	`https://thirdweb.ghost.io/ghost/api/content/posts/?key=${GHOST_THIRDWEB_BLOG_KEY}&fields=title,url,published_at,slug&filter=tag:changelog&visibility:public&limit=30`,
-	// );
-
-	// if (!res.ok) {
-	// 	throw new Error("Failed to fetch post");
-	// }
-
-	return api.posts.browse({
-		fields: ["title", "slug", "published_at"],
-		filter: ["tag:changelog"],
+	const queryParamsString = Object.entries({
+		key: GHOST_THIRDWEB_BLOG_KEY,
+		fields: ["title", "slug", "published_at"].join(","),
+		filter: "tag:changelog",
+		limit: "100",
 		order: "published_at DESC",
-		limit: 100,
-		include: ["authors", "tags"],
-	});
+		include: ["authors", "tags"].join(","),
+	})
+		.map(([key, value]) => `${key}=${value}`)
+		.join("&");
+
+	const res = await fetch(
+		`https://thirdweb.ghost.io/ghost/api/content/posts/?${queryParamsString}`,
+	);
+
+	if (!res.ok) {
+		throw new Error("Failed to fetch post");
+	}
+
+	const data = await res.json();
+
+	return data.posts as PostsOrPages;
 }
 
 export async function fetchPost(slug: string) {
-	// can't use the 'read' method because it doesn't support including the authors and tags - so using browse instead
-
-	return api.posts.browse({
+	const queryParamsString = Object.entries({
+		key: GHOST_THIRDWEB_BLOG_KEY,
 		filter: `slug:${slug}`,
-		include: ["authors", "tags"],
-		limit: 1,
-	});
+		include: ["authors", "tags"].join(","),
+		limit: "1",
+	})
+		.map(([key, value]) => `${key}=${value}`)
+		.join("&");
+
+	const res = await fetch(
+		`https://thirdweb.ghost.io/ghost/api/content/posts/?${queryParamsString}`,
+	);
+
+	if (!res.ok) {
+		throw new Error("Failed to fetch post");
+	}
+
+	const data = await res.json();
+
+	return data.posts as PostsOrPages;
 }

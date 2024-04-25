@@ -147,7 +147,7 @@ export function Header() {
 						"xl:static xl:animate-none xl:flex-row xl:justify-between xl:bg-transparent xl:p-0",
 					)}
 				>
-					<ul className="flex flex-col gap-5 xl:flex-row lg:items-center">
+					<ul className="flex flex-col gap-5 lg:items-center xl:flex-row">
 						{links.map((link) => {
 							return (
 								<li
@@ -226,15 +226,15 @@ function DropdownLinks(props: {
 	return (
 		<>
 			{/* desktop */}
-			<div className="hidden xl:flex items-center">
+			<div className="hidden items-center xl:flex">
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="ghost"
-							className="inline-flex gap-1 py-0 px-0 font-medium text-f-300 hover:bg-transparent hover:text-f-100 items-center text-sm"
+							className="inline-flex items-center gap-1 p-0 text-sm font-medium text-f-300 hover:bg-transparent hover:text-f-100"
 						>
 							{props.category}
-							<ChevronDownIcon className="text-f-300 opacity-70 size-4" />
+							<ChevronDownIcon className="size-4 text-f-300 opacity-70" />
 						</Button>
 					</DropdownMenuTrigger>
 
