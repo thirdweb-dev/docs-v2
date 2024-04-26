@@ -75,15 +75,16 @@ All transactions performed with the smart account will then be gasless.
 
 </Callout>
 
-<Tabs defaultValue="react">
+<Tabs defaultValue="ui">
 
 <TabsList>
-	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="ui">UI Component</TabsTrigger>
+	<TabsTrigger value="react">React Hook</TabsTrigger>
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="unity">Unity</TabsTrigger>
 </TabsList>
 
-<TabsContent value="react">
+<TabsContent value="ui">
 ```tsx
 import { createThirdwebClient } from "thirdweb";
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
@@ -107,6 +108,43 @@ return (
   );
 }
 ```
+</TabsContent>
+
+<TabsContent value="react">
+
+```tsx
+import { useConnect } from "thirdweb/react";
+import { inAppWallet } from "thirdweb/wallets";
+import { sepolia } from "thirdweb/chains";
+
+function App() {
+	// 1. set the `accountAbstraction` configuration
+	const { connect } = useConnect({
+		client,
+		accountAbstraction: {
+			chain: sepolia, // the chain where your smart accounts will be or is deployed
+			factoryAddress: "0x...", // your deployed factory address
+			gasless: true, // enable or disable gasless transactions
+		},
+	});
+
+	const connectToSmartAccount = async () => {
+		// 2. connect with the admin wallet of the smart account
+		connect(async () => {
+			const wallet = inAppWallet(); // or any other wallet
+			await wallet.connect({
+				client,
+				chain: sepolia,
+				strategy: "google",
+			});
+			return wallet;
+		});
+	};
+
+	return <button onClick={() => connectToSmartAccount()}>Connect</button>;
+}
+```
+
 </TabsContent>
 
 <TabsContent value="typescript">
