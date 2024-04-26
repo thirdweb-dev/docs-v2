@@ -39,16 +39,16 @@ function Example() {
 					contract,
 					method: "mint",
 					params: [address, amount],
-				})
+				});
 				return tx;
 			}}
-			onTransactionSent={(result) =>
+			onTransactionSent={(result) => {
 				console.log("Transaction submitted", result.transactionHash);
 			}}
-			onTransactionConfirmed={(receipt) =>
+			onTransactionConfirmed={(receipt) => {
 				console.log("Transaction confirmed", receipt.transactionHash);
 			}}
-			onError={(error) =>
+			onError={(error) => {
 				console.error("Transaction error", error);
 			}}
 		>
