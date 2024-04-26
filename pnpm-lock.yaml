@@ -63,8 +63,8 @@ dependencies:
     specifier: ^6.1.13
     version: 6.1.13
   posthog-js:
-    specifier: ^1.129.0
-    version: 1.129.0
+    specifier: 1.67.1
+    version: 1.67.1
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -7030,11 +7030,10 @@ packages:
       picocolors: 1.0.0
       source-map-js: 1.2.0
 
-  /posthog-js@1.129.0:
-    resolution: {integrity: sha512-Vddg6Shbum/SxFFUYrEUMu6PmFk7tNHIxTXQwtqrYtar6YKUXDUslW8kf8vwsK09AOglX7ISynisSJ8u/MzicA==}
+  /posthog-js@1.67.1:
+    resolution: {integrity: sha512-gvdCVrrxoRYbtNTCUt2/YdZ+tfSfzcl72ym/dtRVCYJpwlCUIKnNJ3E2g7Bbw1+Ki6CvGxdu9r7jHIWnvJAMuw==}
     dependencies:
       fflate: 0.4.8
-      preact: 10.20.2
     dev: false
 
   /preact@10.20.2:
