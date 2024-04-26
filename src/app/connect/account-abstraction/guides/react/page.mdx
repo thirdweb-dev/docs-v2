@@ -106,42 +106,34 @@ The [useConnect](/references/typescript/v5/useConnect) hook allows you to progra
 
 ```tsx
 import { useConnect } from "thirdweb/react";
-import { inAppWallet, smartWallet } from "thirdweb/react";
+import { inAppWallet } from "thirdweb/wallets";
 import { sepolia } from "thirdweb/chains";
 
 function Example() {
-	const { connect } = useConnect();
+	// 1. set the `accountAbstraction` configuration
+	const { connect } = useConnect({
+		client,
+		accountAbstraction: {
+			chain: sepolia,
+			factoryAddress: "your-factory-address",
+			gasless: true,
+		},
+	});
 
 	const connectToSmartAccount = async () => {
+		// 2. connect with the admin wallet of the smart account
 		connect(async () => {
-			// 1. connect the personal wallet
-			const personalWallet = inAppWallet(); // or any other wallet
-			const personalAccount = await personalWallet.connect({
+			const wallet = inAppWallet(); // or any other wallet
+			await wallet.connect({
 				client,
 				chain: sepolia,
 				strategy: "google",
 			});
-			// 2. connect the smart wallet
-			const wallet = smartWallet({
-				chain: sepolia,
-				factoryAddress: "your-factory-address",
-				gasless: true,
-			});
-			await wallet.connect({
-				client,
-				personalAccount,
-			});
 			return wallet;
-		}
-	});
+		});
+	};
 
-	return (
-		<button
-			onClick={() => connectToSmartAccount()}
-		>
-			Connect
-		</button>
-	);
+	return <button onClick={() => connectToSmartAccount()}>Connect</button>;
 }
 ```
 
