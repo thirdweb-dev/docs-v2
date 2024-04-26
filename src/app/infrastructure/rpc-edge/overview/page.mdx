@@ -1,4 +1,4 @@
-import { DocImage } from "@doc";
+import { Callout, DocImage } from "@doc";
 import { createMetadata } from "@doc";
 import rpcDiagramImage from "./assets/rpc-diagram.svg";
 
@@ -19,6 +19,10 @@ Remote Procedure Call (RPC) Edge provides reliable access to querying data and i
 <DocImage src={rpcDiagramImage} alt="RPC Diagram" />
 
 By default, we provide publicly available RPCs for over 900+ EVM Networks. [View the default RPC endpoints](https://thirdweb.com/dashboard/infrastructure/rpc-edge) for each supported chain.
+
+<Callout variant="info" title="Accessing your RPC URL">
+	To use RPC Edge with other tools like Anvil, take a chain's [public RPC endpoint](https://thirdweb.com/chainlist) and attach your app's client ID from your [account settings](https://thirdweb.com/dashboard/settings/api-keys) `https://<chainId>.rpc.thirdweb.com/<clientId>`.
+</Callout>
 
 #### Features
 
