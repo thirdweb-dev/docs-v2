@@ -28,7 +28,7 @@ public async void GetQuote()
 	);
 
 	BuyWithCryptoQuoteResult quote = await ThirdwebPay.GetBuyWithCryptoQuote(swapQuoteParams);
-	ThirdwebDebug.Log($"Quote: {JsonConvert.SerializeObject(_quote, Formatting.Indented)}");
+	ThirdwebDebug.Log($"Quote: {JsonConvert.SerializeObject(quote, Formatting.Indented)}");
 }
 ```
 
@@ -36,7 +36,7 @@ public async void GetQuote()
 
 #### BuyWithCryptoQuoteParams
 
-A BuyWithCryptoQuoteParams object (with a helpful constructor) containing the following properties:
+A `BuyWithCryptoQuoteParams` object (with a helpful constructor) containing the following properties:
 
 ```csharp
 string fromAddress; // Address executing the swap
@@ -49,11 +49,12 @@ BigInteger? toChainId; // Optional, chain ID of the to token
 string toAmount; // Optional, amount of to token
 string toAmountWei; // Optional, amount of to token in wei
 int? maxSlippageBPS; // Optional, maximum slippage in basis points
+string intentId; // Optional, intent identifier used to link status to a BuyWithFiat onramp flow if any
 ```
 
 ### Return Value
 
-A BuyWithCryptoQuoteResult object containing the following properties:
+A `BuyWithCryptoQuoteResult` object containing the following properties:
 
 ```csharp
 string quoteId; // Quote identifier
