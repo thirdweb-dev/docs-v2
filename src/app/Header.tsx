@@ -147,7 +147,7 @@ export function Header() {
 						"xl:static xl:animate-none xl:flex-row xl:justify-between xl:bg-transparent xl:p-0",
 					)}
 				>
-					<ul className="flex flex-col gap-5 lg:items-center xl:flex-row">
+					<ul className="flex flex-col gap-5 xl:flex-row">
 						{links.map((link) => {
 							return (
 								<li
