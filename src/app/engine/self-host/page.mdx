@@ -98,6 +98,14 @@ See the [Production Checklist](/engine/production-checklist#cloud-hosting) for b
 
 ### FAQ
 
+#### Why is my Docker image unable to reach my Postgres database?
+
+Here are common troubleshooting tips:
+
+- Ensure the Postgres DB is running in Docker. `POSTGRES_CONNECTION_URL` should be set to `localhost` (if in the same container) or `host.docker.internal` (if in a different container).
+- Ensure the Postgres DB connection URL and credentials are correct.
+- Ensure the database name exists on the Postgres DB.
+
 #### How do I filter logs in Engine?
 
 Configure log verbosity via the `LOG_LEVEL` environment variable.
