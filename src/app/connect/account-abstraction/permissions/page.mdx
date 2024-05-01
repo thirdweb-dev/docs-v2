@@ -100,9 +100,9 @@ Each individual session key has its own permissions to use the account. Only adm
 
 Session keys can be assigned the following permissions:
 
-- Allow interaction with specific contracts with the account.
-- Have a maximum amount of native tokens that can be transferred per transaction.
-- Have access to the account only during a specific time window.
+- [Required] Allow interaction with specific contracts with the account ("*" for any contracts)
+- [Optional] Have a maximum amount of native tokens that can be transferred per transaction (defaults to 0 eth, transactions with value will be rejected)
+- [Optional] Have access to the account only during a specific time window (defaults to 10 years from now)
 
 These restrictions are set in the `SignerPermissionsRequest` struct.
 To set the permissions for a given signer, the `setPermissionsForSigner` function is called.
