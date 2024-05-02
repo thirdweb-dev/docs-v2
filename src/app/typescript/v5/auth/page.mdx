@@ -1,18 +1,37 @@
-import { OpenSourceCard } from "@doc";
+import { OpenSourceCard, Callout } from "@doc";
 
 # Auth
 
 Using [`EIP-4361`](https://eips.ethereum.org/EIPS/eip-4361) (Sign in with Ethererum) standard, you can authenticate users to your backend using only their wallet. This is a secure and easy way to authenticate users without requiring them to create an additional account.
 
-## Example Repo
-
-<OpenSourceCard
-	title="Auth + Next.js"
-	href="https://github.com/thirdweb-example/thirdweb-auth-next"
-	description="A working example of Auth + Next.js"
-/>
-
 ## Usage
+
+### Client Functions
+
+<Callout variant="info" title="Auth with React">
+	If you're using React, Auth integrates directly with our built-in
+	[ConnectButton component](/react/components/ConnectButton). This handles
+	things like caching, error handling, and retries for you.
+</Callout>
+
+```ts
+import { signLoginPayload } from 'thirdweb/auth';
+
+// 1. fetch a login payload from your server
+const result = await fetch(...);
+const loginPayload = await result.json();
+
+// 2. sign the login payload with the user's account
+const signature = await signLoginPayload({ payload: loginPayload, account });
+
+// 3. send the login payload and signature to your server
+const result = await fetch(...);
+const verifiedPayload = await result.json();
+```
+
+How you store and maintain a user session is up to you, but our recommended approach is to store a JWT token in a cookie that is verified on the server. The server functions below include utility functions to generate and verify the JWT.
+
+### Server Functions
 
 ```ts
 import { createAuth } from 'thirdweb/auth';
@@ -35,3 +54,17 @@ const jwt = await auth.generateJWT({ payload: verifiedPayload });
 // 6. authenticate the client based on the JWT on subsequent calls
  const { valid, parsedJWT } = await auth.verifyJWT({ jwt });
 ```
+
+## Example Repos
+
+<OpenSourceCard
+	title="Auth + Next.js"
+	href="https://github.com/thirdweb-example/thirdweb-auth-next"
+	description="A working example of Auth + Next.js"
+/>
+
+<OpenSourceCard
+	title="Auth + Express"
+	href="https://github.com/thirdweb-example/thirdweb-auth-express"
+	description="A working example of a React + Express app using Auth"
+/>
