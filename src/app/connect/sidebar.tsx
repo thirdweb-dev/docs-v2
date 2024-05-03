@@ -225,8 +225,31 @@ export const sidebar: SideBar = {
 			isCollapsible: true,
 			links: [
 				{
-					name: "Overview",
+					name: "Get Started",
 					href: `${authSlug}`,
+				},
+				{
+					name: "Frameworks",
+					isCollapsible: true,
+					expanded: false,
+					links: [
+						{
+							name: "Next.js",
+							href: `${authSlug}/frameworks/next`,
+						},
+						{
+							name: "React",
+							href: `${authSlug}/frameworks/react`,
+						},
+						{
+							name: "Express",
+							href: `${authSlug}/frameworks/express`,
+						},
+					],
+				},
+				{
+					name: "Deploying to Production",
+					href: `${authSlug}/deploying-to-production`,
 				},
 				{
 					name: "How it Works",
@@ -245,68 +268,7 @@ export const sidebar: SideBar = {
 							name: "JSON Web Tokens",
 							href: `${authSlug}/how-it-works/jwt`,
 						},
-						{
-							name: "Auth API",
-							href: `${authSlug}/how-it-works/api`,
-						},
 					],
-				},
-				{
-					name: "Get Started",
-					href: `${authSlug}/get-started`,
-				},
-				{
-					name: "Client Frameworks",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "React",
-							href: `${authSlug}/client-frameworks/react`,
-						},
-						{
-							name: "React Native",
-							href: `${authSlug}/client-frameworks/react-native`,
-						},
-					],
-				},
-				{
-					name: "Server Frameworks",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "Next.js",
-							href: `${authSlug}/server-frameworks/next`,
-						},
-						{
-							name: "Express",
-							href: `${authSlug}/server-frameworks/express`,
-						},
-					],
-				},
-				{
-					name: "Integrations",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "Next Auth",
-							href: `${authSlug}/integrations/next-auth`,
-						},
-						{
-							name: "Supabase",
-							href: `${authSlug}/integrations/supabase`,
-						},
-						{
-							name: "Firebase",
-							href: `${authSlug}/integrations/firebase`,
-						},
-					],
-				},
-				{
-					name: "Wallet Configuration",
-					href: `${authSlug}/wallet-configuration`,
 				},
 				{
 					name: "FAQs",

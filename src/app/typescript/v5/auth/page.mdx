@@ -34,17 +34,23 @@ How you store and maintain a user session is up to you, but our recommended appr
 ### Server Functions
 
 ```ts
-import { createAuth } from 'thirdweb/auth';
+import { createAuth } from "thirdweb/auth";
 
-const auth = createAuth({...});
+const auth = createAuth({
+	domain: "localhost:3000",
+	clientId: "1234567890", // get yours at https://thirdweb.com/dashboard/settings/api-keys
+});
 
 // 1. generate a login payload for a client on the server side
-const loginPayload = await auth.generatePayload({ address: '0x123...' });
+const loginPayload = await auth.generatePayload({ address: "0x123..." });
 
 // 2. send the login payload to the client to sign
 
 // 3. verify the login payload and signature that the client sends back later
-const verifiedPayload = await auth.verifyPayload({ payload: loginPayload, signature: '0x123...' });
+const verifiedPayload = await auth.verifyPayload({
+	payload: loginPayload,
+	signature: "0x123...",
+});
 
 // 4. generate a JWT for the client
 const jwt = await auth.generateJWT({ payload: verifiedPayload });
@@ -52,7 +58,7 @@ const jwt = await auth.generateJWT({ payload: verifiedPayload });
 // 5. set the JWT as a cookie or otherwise provide it to the client
 
 // 6. authenticate the client based on the JWT on subsequent calls
- const { valid, parsedJWT } = await auth.verifyJWT({ jwt });
+const { valid, parsedJWT } = await auth.verifyJWT({ jwt });
 ```
 
 ## Example Repos
