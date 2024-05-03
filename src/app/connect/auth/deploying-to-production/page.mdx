@@ -56,8 +56,9 @@ In your `components` directory:
 import { ConnectButton } from "thirdweb/react";
 import { createThirdwebClient } from "thirdweb";
 
+const client = createThirdwebClient({ clientId });
+
 export default function Connect() {
-	const client = createThirdwebClient({ clientId });
 	<ConnectButton
 		client={client}
 		auth={{
