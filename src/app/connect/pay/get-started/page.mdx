@@ -1,72 +1,106 @@
 import {
-	OpenSourceCard,
-	ArticleIconCard,
+	createMetadata,
 	Callout,
 	DocImage,
-	Stack,
-	createMetadata,
 	Steps,
 	Step,
-	Tabs,
-	TabsList,
-	TabsTrigger,
-	TabsContent,
+	InstallTabs,
 } from "@doc";
-import { GraduationCap } from "lucide-react";
-import payApiKeyImage from "../assets/pay-api-key.png";
-import ReactExampleMDX from "./react-example.mdx";
-import TypeScriptExampleMDX from "./typescript-example.mdx";
-
+import PayModalImage from "../assets/pay-modal.png";
 export const metadata = createMetadata({
 	image: {
-		title: "thirdweb Pay - Get Started with Buy With Crypto",
+		title: "thirdweb Pay - Buy With Fiat",
 		icon: "thirdweb",
 	},
-	title: "thirdweb Pay - Buy With Crypto | thirdweb",
+	title: "thirdweb Pay - Buy With Fiat - thirdweb",
 	description:
-		"Learn how to get a quote and send a transaction with the thirdweb SDK",
+		"Buy With Fiat - End-to-End Web3 Purchase Flow Directly From Fiat",
 });
 
 # Get Started
 
-Learn how to get a quote and send crypto purchase transactions.
+Learn how to add Pay to any transaction execution or embed Pay directly into your site.
 
-## Using the Connect UI
+The following guide uses our Typescript SDK. You can also learn how to integrate Pay with our [Unity SDK](https://portal.thirdweb.com/unity/pay/getbuywithcryptoquote).
 
-Buy With Crypto comes by default with our [ConnectButton](/typescript/v5/react/components/ConnectButton) React component.
+---
 
-You can simply add the `ConnectButton` component to your React app. Connect handles everything including connecting the user to various wallets, sending & receiving tokens, and buying with crypto.
+## Installation
 
-## Using the SDK
+<Steps>
+<Step title="Install the Connect SDK">
 
-There are 3 main steps to perform a Buy With Crypto transaction:
+<InstallTabs
+	npm="npm i thirdweb"
+	yarn="yarn install thirdweb"
+	pnpm="pnpm i thirdweb"
+/>
+</Step>
+<Step title="Get Your Client ID">
 
-1. Get a price quote for the transaction
-2. Execute the transaction with users connected wallet
-3. Wait for the transaction to be confirmed by polling the status of the transaction
+Log in to [the thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to the **Settings** page and create an API key to get your **Client ID**.
 
-### Install thirdweb
+</Step>
+</Steps>
+---
 
-```bash
-npm install thirdweb
+## Send a Transaction with Pay
+
+Pay is enabled by default for any contract call sent with `sendTransaction`. It will automatically be invoked when a user does not have enough funds to complete the transaction.
+
+<Callout variant="info">
+	ℹ️ `sendTransaction` is available in [Connect SDK v5](/typescript/v5) or
+	above.
+</Callout>
+
+```tsx
+import { ThirdwebProvider, sendTransaction } from "thirdweb/react";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<button onClick={() => sendTransaction()} />
+		</ThirdwebProvider>
+	);
+}
 ```
 
-### Create a client
+When a user clicks this button, Pay will perform gas estimation to determine if the user has a sufficient balance. If their balance is sufficient, the transaction will execute normally. If their balance is not sufficient, the following modal will pop up asking them to either onramp funds or convert crypto to the required amount:
 
-A client is required to use thirdweb SDK. Refer to [this guide](/typescript/v5/client) to learn how to create a client.
+<DocImage src={PayModalImage} />
 
-<Tabs defaultValue="tab-1">
-	<TabsList>
-		<TabsTrigger value="tab-1">React</TabsTrigger>
-		<TabsTrigger value="tab-2">TypeScript</TabsTrigger>
-	</TabsList>
+Once a user onramps or converts their funds to the required token, the user will be prompted once more to confirm the transaction. The transaction will then execute as expected.
 
-<TabsContent value="tab-1">
-	<ReactExampleMDX />
-</TabsContent>
+---
 
-<TabsContent value="tab-2">
-	<TypeScriptExampleMDX />
-</TabsContent>
+## Embed Pay
 
-</Tabs>
+Pay works as its own standalone component that you can place directly into your site via the `PayEmbed` component.
+
+```tsx
+import { ThirdwebProvider, PayEmbed } from "thirdweb/react";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<PayEmbed />
+		</ThirdwebProvider>
+	);
+}
+```
+
+The embedded Pay component will be displayed like so in your application interface:
+
+<DocImage src={PayModalImage} />
+
+And voila! Your users can now onramp and convert crypto directly from your application.
+
+---
+
+## Customize Pay
+
+You can customize the look of Pay, modify available tokens, and more by following our [customization guide](/connect/pay/customization). To see all configuration options for the Pay modal shown above, you can view this reference.

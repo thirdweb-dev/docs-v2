@@ -1,0 +1,119 @@
+import { createMetadata, DocImage } from "@doc";
+export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Pay - Customization",
+		icon: "thirdweb",
+	},
+	title: "thirdweb Pay - Customization - thirdweb",
+	description:
+		"thirdweb Pay - Customizing the crypto-to-crypto purchase and onramp flow",
+});
+
+# Customization
+
+The Pay interface is highly customizable. You can find a selection of popular customizations below. For the full list of props, you can [view the full reference](/references/typescript/v5/SendTransactionConfig).
+
+## Supported Tokens
+
+You can enable users to select your token on a given chain by passing an array of `SupportedTokens`. Note that this array overrides the default tokens displayed for that chain.
+
+```tsx
+import {
+	ThirdwebProvider,
+	sendTransaction,
+	defaultTokens,
+	usdcIcon,
+} from "thirdweb/react";
+
+const supportedTokens = {
+	"1": [
+		{
+			address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+			name: "USD Coin",
+			symbol: "USDC",
+			icon: usdcIcon,
+		},
+	],
+};
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<button
+				onClick={() =>
+					sendTransaction({
+						payModal: {
+							supportedTokens,
+						},
+					})
+				}
+			/>
+		</ThirdwebProvider>
+	);
+}
+```
+
+---
+
+## Theme
+
+You can set the theme for the Pay component, which is set to `"dark"` by default. theme can be set to either `"dark"` , `"light"` or a custom theme object.
+
+We have [`lightTheme`](/references/typescript/v5/lightTheme) or [`darkTheme`](/references/typescript/v5/darkTheme) providers that you can override to kickstart customization.
+
+You can refer to our [`Theme`] page for a full view of customizable options if you’d prefer to create a custom theme from scratch.
+
+```tsx
+import { ThirdwebProvider, sendTransaction } from "thirdweb/react";
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<button
+				onClick={() =>
+					sendTransaction({
+						payModal: {
+							theme: yourThemeConfig,
+						},
+					})
+				}
+			/>
+		</ThirdwebProvider>
+	);
+}
+```
+
+---
+
+## Localization
+
+By default, our ConnectButton uses the `en-US` locale. You can customize the language by setting the `locale` prop.
+
+```tsx
+import { ThirdwebProvider, sendTransaction } from "thirdweb/react";
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<button
+				onClick={() =>
+					sendTransaction({
+						payModal: {
+							locale: "en_US",
+						},
+					})
+				}
+			/>
+		</ThirdwebProvider>
+	);
+}
+```
+
+thirdweb currently supports the following locales:
+
+| Locale   | localeId  |
+| :------- | :-------- |
+| English  | `"en_US"` |
+| Spanish  | `"es_ES"` |
+| Japanese | `"ja_JP"` |
+| Filipino | `"tl_PH"` |

@@ -322,32 +322,58 @@ export const sidebar: SideBar = {
 			isCollapsible: true,
 			links: [
 				{
+					name: "Overview",
+					href: `${paySlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${paySlug}/get-started`,
+				},
+				{
+					name: "Supported Chains",
+					href: `${paySlug}/supported-chains`,
+				},
+				{
+					name: "Buy With Fiat",
+					href: `${paySlug}/buy-with-fiat`,
+				},
+				{
 					name: "Buy With Crypto",
 					isCollapsible: true,
-					expanded: true,
 					links: [
 						{
 							name: "Overview",
-							href: `${paySlug}/buy-with-crypto`,
+							href: `${paySlug}/buy-with-crypto/overview`,
 						},
-						{
-							name: "Supported Chains",
-							href: `${paySlug}/supported-chains`,
-						},
-						{
-							name: "Get Started",
-							href: `${paySlug}/get-started`,
-						},
-
 						{
 							name: "Fee Sharing",
-							href: `${paySlug}/fee-sharing`,
+							href: `${paySlug}/buy-with-crypto/fee-sharing`,
 						},
 					],
 				},
 				{
-					name: "Buy With Fiat (Coming Soon)",
-					href: `${paySlug}/buy-with-fiat`,
+					name: "Customization",
+					href: `${paySlug}/customization`,
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Supported Tokens",
+							href: `${paySlug}/customization#supported-tokens`,
+						},
+						{
+							name: "Theme",
+							href: `${paySlug}/customization#theme`,
+						},
+						{
+							name: "Localization",
+							href: `${paySlug}/customization#localization`,
+						},
+					],
+				},
+				{
+					name: "FAQs",
+					href: `${paySlug}/faqs`,
 				},
 			],
 		},
