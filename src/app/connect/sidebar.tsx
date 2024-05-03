@@ -220,7 +220,7 @@ export const sidebar: SideBar = {
 		// Auth
 		{ separator: true },
 		{
-			name: "Auth",
+			name: "Auth (SIWE)",
 			icon: <WalletsAuthIcon />,
 			isCollapsible: true,
 			links: [
