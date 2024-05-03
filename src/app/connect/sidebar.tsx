@@ -243,29 +243,6 @@ export const sidebar: SideBar = {
 					name: "Deploying to Production",
 					href: `${authSlug}/deploying-to-production`,
 				},
-				{
-					name: "How it Works",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "Overview",
-							href: `${authSlug}/how-it-works`,
-						},
-						{
-							name: "Sign-in with Wallet",
-							href: `${authSlug}/how-it-works/siwe`,
-						},
-						{
-							name: "JSON Web Tokens",
-							href: `${authSlug}/how-it-works/jwt`,
-						},
-					],
-				},
-				{
-					name: "FAQs",
-					href: `${authSlug}/faq`,
-				},
 			],
 		},
 		{ separator: true },
