@@ -77,6 +77,33 @@ function Example() {
 
 </Stack>
 
+## Auth
+
+The `ConnectButton` can optionally include [Auth](/connect/auth) to manage user authentication for you. When the user connects their wallet, the `ConnectButton` will immediately prompt them to sign a message to login. That signature can then be verified on your server to issue the user a JWT authenticating their session.
+
+```ts
+<ConnectButton
+	client={client}
+	auth={{
+		isLoggedIn: async (address) => {
+			console.log("checking if logged in!", { address });
+			return await isLoggedIn();
+		},
+		doLogin: async (params) => {
+			console.log("logging in!");
+			await login(params);
+		},
+		getLoginPayload: async ({ address }) => generatePayload({ address }),
+		doLogout: async () => {
+			console.log("logging out!");
+			await logout();
+		},
+	}}
+/>
+```
+
+Each of these functions correspond to a server API endpoint or server-side function. For their implementations, see the [TypeScript Auth docs](/typescript/v5/auth/#server-functions) or check out our [examples](/typescript/v5/auth/#example-repos).
+
 ## Props
 
 <Stack>
