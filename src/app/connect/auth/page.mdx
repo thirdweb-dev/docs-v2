@@ -116,16 +116,16 @@ const auth = createAuth({
 	client,
 });
 
-// 1. generate a login payload
+// 1. generate a login payload on the server
 const loginPayload = await auth.generatePayload({ address: "0x123..." });
 
-// 2. sign the login payload
+// 2. sign the login payload on the client
 const signature = await auth.signPayload({
 	payload: loginPayload,
 	account: userAccount,
 });
 
-// 3. verify the login payload and signature that the client sends back later
+// 3. verify the login payload and signature on the server
 const verifiedPayload = await auth.verifyPayload({
 	payload: loginPayload,
 	signature,
