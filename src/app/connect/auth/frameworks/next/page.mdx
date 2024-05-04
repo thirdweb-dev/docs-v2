@@ -102,19 +102,18 @@ There are two ways to setup Auth on the client-side of a Next.js application, th
 </TabsList>
 
 <TabsContent value="connect">
-In your project's components directory, create a `ConnectButton.tsx` file:
+Wherever you'd like your connect/login button, place the `ConnectButton` component.
 
 ```tsx
-// components/ConnectButton.tsx
-"use client";
+// app/page.tsx
 import type { NextPage } from "next";
-import { ConnectButton as ThirdwebConnectButton } from "thirdweb/react";
+import { ConnectButton } from "thirdweb/react";
 import { client } from "@/lib/client";
 import { generatePayload, isLoggedIn, login, logout } from "@/actions/auth"; // we'll create this file in the next section
 
-const ConnectButton = () => {
+const Page = () => {
 	return (
-		<ThirdwebConnectButton
+		<ConnectButton
 			client={client}
 			auth={{
 				isLoggedIn: async (address) => {
@@ -135,7 +134,7 @@ const ConnectButton = () => {
 	);
 };
 
-export default ConnectButton;
+export default Page;
 ```
 
 Use this component anywhere in your application. To try it out, we'll put it in the root `page.tsx`:
