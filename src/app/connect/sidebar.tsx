@@ -1,4 +1,4 @@
-import { SideBar } from "@/components/Layouts/DocLayout";
+import type { SideBar } from "@/components/Layouts/DocLayout";
 import {
 	WalletsAuthIcon,
 	WalletsConnectIcon,
@@ -164,6 +164,10 @@ export const sidebar: SideBar = {
 				{
 					name: "Batching Transactions",
 					href: `${aAslug}/batching-transactions`,
+				},
+				{
+					name: "Account Factories",
+					href: `${aAslug}/factories`,
 				},
 				{
 					name: "Bundler & Paymaster",

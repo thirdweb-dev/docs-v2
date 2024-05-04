@@ -90,9 +90,8 @@ export default function App() {
 				client={client}
 				wallets={wallets}
 				accountAbstraction={{
-					factoryAddress: "0x...", // your factory address
 					chain: sepolia, // your chain
-					gasless: true,
+					sponsorGas: true,
 				}}
 			/>
 		</ThirdwebProvider>
@@ -102,6 +101,4 @@ export default function App() {
 
 This will create an in-app wallet and a smart account for the user. The smart account will be initialized with the in-app wallet as the owner.
 
-Pass your deployed `factoryAddress` to the `accountAbstraction` prop. This will allow the smart account to be be deployed only when the user sends their first transaction.
-
-You can sponsor transactions simply by passing `gasless: true` to the `accountAbstraction` prop. This will allow the smart account to send transactions without the user needing to hold any ETH.
+You can sponsor transactions simply by passing `sponsrGas: true` to the `accountAbstraction` prop. This will allow the smart account to send transactions without the user needing to hold any ETH.
