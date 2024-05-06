@@ -18,8 +18,12 @@ export const sidebar: SideBar = {
 	name: "Connect",
 	links: [
 		{
-			name: "Overview",
+			name: "Introduction",
 			href: "/connect",
+		},
+		{
+			name: "QuickStart",
+			href: "/connect/quickstart",
 		},
 		{ separator: true },
 		// Connect
