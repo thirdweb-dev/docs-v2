@@ -6,7 +6,8 @@ import {
 	Step,
 	InstallTabs,
 } from "@doc";
-import PayModalImage from "../assets/pay-modal.png";
+import GetStartedSend from "../assets/get-started-send.png";
+import GetStartedEmbed from "../assets/get-started-embed.png";
 export const metadata = createMetadata({
 	image: {
 		title: "thirdweb Pay - Buy With Fiat",
@@ -14,7 +15,7 @@ export const metadata = createMetadata({
 	},
 	title: "thirdweb Pay - Buy With Fiat - thirdweb",
 	description:
-		"Buy With Fiat - End-to-End Web3 Purchase Flow Directly From Fiat",
+		"Buy With Fiat -  Onchain Purchases Directly From Credit or Debit Card",
 });
 
 # Get Started
@@ -69,7 +70,7 @@ export default function App() {
 
 When a user clicks this button, Pay will perform gas estimation to determine if the user has a sufficient balance. If their balance is sufficient, the transaction will execute normally. If their balance is not sufficient, the following modal will pop up asking them to either onramp funds or convert crypto to the required amount:
 
-<DocImage src={PayModalImage} />
+<DocImage src={GetStartedSend} />
 
 Once a user onramps or converts their funds to the required token, the user will be prompted once more to confirm the transaction. The transaction will then execute as expected.
 
@@ -95,7 +96,7 @@ export default function App() {
 
 The embedded Pay component will be displayed like so in your application interface:
 
-<DocImage src={PayModalImage} />
+<DocImage src={GetStartedEmbed} />
 
 And voila! Your users can now onramp and convert crypto directly from your application.
 
