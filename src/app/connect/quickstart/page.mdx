@@ -1,6 +1,6 @@
 # QuickStart
 
-Learn how to add the Connect to your application, log in your users, and allow them to interact with your application.
+Learn how to add Connect SDK to your application, log in your users, and allow them to interact with your application.
 
 The following guide is in Typescript. You can also learn how to integrate Connect with our [Unity SDK](https://portal.thirdweb.com/unity/pay/getbuywithcryptoquote).
 
@@ -21,7 +21,7 @@ Log in to the [thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to
 ```tsx
 import { ThirdwebProvider, ConnectButton, createThirdwebClient } from "thirdweb/react";
 
-const client = createThirdwebClient({ clientId: your_client_id });
+const client = createThirdwebClient({ clientId: <your_client_id> });
 
 export default function App() {
   return (
@@ -34,7 +34,7 @@ export default function App() {
 
 ## Interact With A Wallet
 
-Once your user has logged in, you can start getting information like balances and wallet addresses:
+Once your user has logged in, interact with the application using different functions such as fetching balances and wallet addresses:
 
 ```tsx
 import { useActiveAccount } from "thirdweb/react";
@@ -49,8 +49,10 @@ const balance = await getWalletBalance({
   chain,
   address: account.address,
 });
-console.log("wallet balaance", balance);
+console.log("wallet balance", balance);
 ```
+
+[View the full reference.](/typescript/v5)
 
 ## You’re Ready to web3
 
