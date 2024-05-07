@@ -25,6 +25,7 @@ import { ContextAIBotButton } from "@/components/others/ContextAIButton";
 import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
 import { ThirdwebIcon } from "../icons/thirdweb";
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 const links = [
 	{
@@ -60,26 +61,33 @@ const sdkLinks = [
 	{
 		name: "TypeScript",
 		href: "/typescript/v5",
+		icon: "/icons/navbar/nav-icon-typescript.svg",
 	},
 	{
 		name: "React",
 		href: "/typescript/v5/react",
+		icon: "/icons/navbar/nav-icon-react.svg",
 	},
 	{
 		name: "React Native",
 		href: "/react-native/v0",
+		icon: "/icons/navbar/nav-icon-react.svg",
+		// icon: "/icons/navbar/nav-icon-react-native.svg",
 	},
 	{
 		name: "Unity",
 		href: "/unity",
+		icon: "/icons/navbar/nav-icon-unity.svg",
 	},
 	{
 		name: "Solidity",
 		href: "/contracts/build/overview",
+		icon: "/icons/navbar/nav-icon-solidity.svg",
 	},
 	{
 		name: ".NET",
 		href: "/dotnet",
+		icon: "/icons/navbar/nav-icon-dotnet.svg",
 	},
 ];
 
@@ -221,7 +229,7 @@ export function Header() {
 function DropdownLinks(props: {
 	onLinkClick?: () => void;
 	category: string;
-	links: Array<{ name: string; href: string }>;
+	links: Array<{ name: string; href: string; icon?: string }>;
 }) {
 	return (
 		<>
@@ -256,6 +264,15 @@ function DropdownLinks(props: {
 											"hover:bg-b-600 hover:text-f-100",
 										)}
 									>
+										{info.icon && (
+											<Image
+												src={info.icon}
+												width={"20"}
+												height={"20"}
+												alt=""
+												className="mr-2"
+											/>
+										)}
 										{info.name}
 									</Link>
 								</DropdownMenuItem>
@@ -282,6 +299,7 @@ function DropdownLinks(props: {
 												name={info.name}
 												href={info.href}
 												onClick={props.onLinkClick}
+												icon={info.icon}
 											/>
 										);
 									})}
@@ -295,7 +313,12 @@ function DropdownLinks(props: {
 	);
 }
 
-function NavLink(props: { href: string; name: string; onClick?: () => void }) {
+function NavLink(props: {
+	href: string;
+	name: string;
+	onClick?: () => void;
+	icon?: string;
+}) {
 	const pathname = usePathname();
 	return (
 		<Link
@@ -305,9 +328,17 @@ function NavLink(props: { href: string; name: string; onClick?: () => void }) {
 			className={clsx(
 				"text-base font-medium transition-colors hover:text-f-100 xl:text-sm",
 				pathname === props.href ? "text-f-100" : "text-f-300 ",
+				props.icon ? "flex flex-row gap-2" : "",
 			)}
 		>
-			{props.name}
+			{props.icon ? (
+				<>
+					<Image src={props.icon} width={"40"} height={"40"} alt="" />
+					<span className="my-auto">{props.name}</span>
+				</>
+			) : (
+				props.name
+			)}
 		</Link>
 	);
 }
