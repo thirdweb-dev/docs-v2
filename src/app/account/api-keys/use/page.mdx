@@ -4,7 +4,7 @@ import { createMetadata } from "@doc";
 export const metadata = createMetadata({
 	title: "Using thirdweb API Key",
 	description:
-		"How to use thirdweb API key in TypeScript, React, Unity, Python, and Go.",
+		"How to use thirdweb API key in TypeScript, React, and Unity.",
 	image: {
 		title: "Using thirdweb API Key",
 		icon: "thirdweb",
@@ -19,8 +19,6 @@ export const metadata = createMetadata({
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="react">React</TabsTrigger>
 	<TabsTrigger value="unity">Unity</TabsTrigger>
-	<TabsTrigger value="python">Python</TabsTrigger>
-	<TabsTrigger value="go">Go</TabsTrigger>
 </TabsList>
 
 <TabsContent value='typescript'>
@@ -76,61 +74,4 @@ ThirdwebSDK sdk = new ThirdwebSDK("goerli", 5, new ThirdwebSDK.Options()
 
 </TabsContent>
 
-<TabsContent value="python">
-
-When using the Python SDK, you can use the secret key to instantiate the SDK:
-
-```python
-from thirdweb import ThirdwebSDK
-from thirdweb.types import SDKOptions
-from dotenv.main import load_dotenv
-import os
-
-  load_dotenv()
-  secret_key = os.environ['SECRET_KEY']
-  private_key = os.environ['PRIVATE_KEY']
-
-  sdk = ThirdwebSDK.from_private_key(private_key, "<chain_id>", SDKOptions(secret_key=secret_key))
-```
-
-</TabsContent>
-
-<TabsContent value="go" >
-
-When using the GO SDK, you can use the secret key to instantiate the SDK:
-
-```go
-package main
-
-import (
-    "fmt"
-
-    "github.com/thirdweb-dev/go-sdk/v2/thirdweb"
-)
-
-func main() {
-    // Your secret key from the thirdweb api keys dashboard
-    secretKey := "..."
-
-    // Creates a new SDK instance to get read-only data for your contracts, you can pass:
-    // - a chain name (mainnet, rinkeby, goerli, polygon, avalanche, fantom)
-    // - a custom RPC URL
-    sdk, err := thirdweb.NewThirdwebSDK("<chain_id>", &thirdweb.SDKOptions{
-      SecretKey: secretKey,
-    })
-    if err != nil {
-      panic(err)
-  }
-
-    // Now we can interact with the SDK, like displaying the connected chain ID
-    chainId, err := sdk.GetChainID()
-    if err != nil {
-      panic(err)
-    }
-
-    fmt.Println("New SDK instance create onchain", chainId)
-}
-```
-
-</TabsContent>
 </Tabs>
