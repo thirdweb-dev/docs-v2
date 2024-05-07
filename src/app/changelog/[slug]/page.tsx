@@ -3,7 +3,6 @@
 import { fetchChangeLogs, fetchPost } from "../ghost";
 import ReactHtmlParser from "react-html-parser";
 import { cn } from "@/lib/utils";
-import { notFound } from "next/navigation";
 import "./styles.css";
 import { Author } from "../components/Author";
 import { RenderDate } from "../components/RenderData";
@@ -20,7 +19,7 @@ export default async function Page(props: {
 	const data = (await fetchPost(props.params.slug))[0];
 
 	if (!data) {
-		notFound();
+		throw new Error("Not found");
 	}
 
 	return (
@@ -28,7 +27,7 @@ export default async function Page(props: {
 			<Button asChild>
 				<Link
 					href="/changelog"
-					className="mb-4 translate-x-[-25%] bg-transparent !p-2 !text-f-300 hover:!text-accent-500"
+					className="mb-4 -translate-x-1/4 bg-transparent !p-2 !text-f-300 hover:!text-accent-500"
 				>
 					<ArrowLeft className="size-6" />
 				</Link>
@@ -82,3 +81,5 @@ export async function generateStaticParams() {
 		};
 	});
 }
+
+export const dynamicParams = false;

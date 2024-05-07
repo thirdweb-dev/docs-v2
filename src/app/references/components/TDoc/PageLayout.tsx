@@ -1,4 +1,3 @@
-import { notFound } from "next/navigation";
 import type { TransformedDoc } from "typedoc-better-json";
 import { RootTDoc } from "./Root";
 import { getSlugToDocMap, fetchAllSlugs } from "./utils/slugs";
@@ -40,7 +39,7 @@ export function getTDocPage(options: {
 		const docSlug = props.params.slug?.join("/");
 
 		if (!version) {
-			notFound();
+			throw new Error("version not found");
 		}
 
 		// API page
@@ -60,7 +59,7 @@ export function getTDocPage(options: {
 			const selectedDoc = docSlug && slugToDoc[docSlug];
 
 			if (!selectedDoc) {
-				notFound();
+				throw new Error("selectedDoc not found");
 			}
 
 			return (
@@ -100,24 +99,27 @@ export function getTDocPage(options: {
 		const versions = await getVersions();
 
 		const returnVal = await Promise.all(
-			versions.map((version) => {
-				return getDoc(version)
-					.then((doc) => fetchAllSlugs(doc))
-					.then((slugs) => {
-						return [
-							...slugs.map((slug) => {
-								return {
-									slug: slug.split("/") as string[],
-									version: version,
-								};
-							}),
-							{ version, slug: [] },
-						];
-					});
+			versions.map(async (version) => {
+				const doc = await getDoc(version);
+				const slugs = fetchAllSlugs(doc);
+				return [
+					...slugs.map((slug) => {
+						return {
+							slug: slug.split("/") as string[],
+							version: version,
+						};
+					}),
+					{ version, slug: [] },
+				];
 			}),
 		);
 
-		return returnVal.flat();
+		const paths = returnVal.flat();
+		if (paths.length === 0) {
+			throw new Error("No paths found");
+		}
+
+		return paths;
 	}
 
 	async function generateMetadata(props: PageProps): Promise<Metadata> {
