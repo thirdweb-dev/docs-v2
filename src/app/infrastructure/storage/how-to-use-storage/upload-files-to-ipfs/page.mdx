@@ -87,8 +87,6 @@ npx thirdweb upload directory_name
 		<TabsTrigger value="react">React</TabsTrigger>
 		<TabsTrigger value="react-native">React Native</TabsTrigger>
         <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-		<TabsTrigger value="python">Python</TabsTrigger>
-        <TabsTrigger value="go">Go</TabsTrigger>
 	</TabsList>
 	<TabsContent value="react">
     ```jsx
@@ -199,38 +197,5 @@ npx thirdweb upload directory_name
         const data = await storage.downloadJSON(uri);
     ```
     </TabsContent>
-     <TabsContent value="python">
-     ```python
-        from thirdweb import ThirdwebSDK
-        sdk = ThirdwebSDK("goerli")
-        metadata = {
-        "name": "NFT",
-        "image": "ipfs://..."
-        }
-        uri = sdk.storage.upload(metadata)
-    ```
-
-</TabsContent>
-      <TabsContent value="go">
-      ```go
-        package main
-
-        import (
-            "context"
-            "github.com/thirdweb-dev/go-sdk/v2/thirdweb"
-        )
-
-        func main() {
-            sdk, _ := thirdweb.NewThirdwebSDK("goerli", nil)
-
-            metadata := map[string]interface{}{
-            "name": "NFT",
-            "image": "ipfs://..."
-            }
-            uri, _ := sdk.Storage.Upload(context.Background(), metadata, "", "")
-        }
-    ```
-
-</TabsContent>
 
 </Tabs>

@@ -18,8 +18,6 @@ import { CodeIcon } from "lucide-react";
 import {
 	TypeScriptIcon,
 	ReactIcon,
-	// PythonIcon,
-	// GoIcon,
 	UnityIcon,
 	DotNetIcon,
 	SolidityIcon,
