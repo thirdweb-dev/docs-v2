@@ -272,13 +272,20 @@ export const sidebar: SideBar = {
 					name: "Supported Chains",
 					href: `${paySlug}/supported-chains`,
 				},
-				{
-					name: "Build a Custom Experience",
-					href: `${paySlug}/build-a-custom-experience`,
-				},
+
 				{
 					name: "Buy With Fiat",
-					href: `${paySlug}/buy-with-fiat`,
+					isCollapsible: true,
+					links: [
+						{
+							name: "Overview",
+							href: `${paySlug}/buy-with-fiat`,
+						},
+						{
+							name: "Build a Custom Experience",
+							href: `${paySlug}/buy-with-fiat/build-a-custom-experience`,
+						},
+					],
 				},
 				{
 					name: "Buy With Crypto",
