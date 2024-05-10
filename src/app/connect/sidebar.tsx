@@ -82,7 +82,7 @@ export const sidebar: SideBar = {
 							href: `${inAppSlug}/how-to/interact-blockchain`,
 						},
 						{
-							name: "Enable Gasless Transactions",
+							name: "Sponsor Transactions",
 							href: `${inAppSlug}/how-to/enable-gasless`,
 						},
 						{
