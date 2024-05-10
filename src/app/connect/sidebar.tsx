@@ -267,6 +267,20 @@ export const sidebar: SideBar = {
 				{
 					name: "Get Started",
 					href: `${paySlug}/get-started`,
+					links: [
+						{
+							name: "ConnectButton",
+							href: `${paySlug}/get-started#connectbutton`,
+						},
+						{
+							name: "Embed Pay",
+							href: `${paySlug}/get-started#embed-pay`,
+						},
+						{
+							name: "Send a Transaction with Pay",
+							href: `${paySlug}/get-started#send-a-transaction-with-pay`,
+						},
+					],
 				},
 				{
 					name: "Supported Chains",
@@ -303,29 +317,20 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Customization",
-					href: `${paySlug}/customization`,
 					isCollapsible: true,
 					expanded: true,
 					links: [
 						{
-							name: "Support Custom Tokens",
-							href: `${paySlug}/customization#supported-tokens`,
+							name: "ConnectButton",
+							href: `${paySlug}/customization/connectbutton`,
 						},
 						{
-							name: "Prefill Custom Token",
-							href: `${paySlug}/customization#prefill-custom-token`,
+							name: "PayEmbed",
+							href: `${paySlug}/customization/payembed`,
 						},
 						{
-							name: "Disable Buy With Crypto",
-							href: `${paySlug}/customization#disable-buy-with-crypto`,
-						},
-						{
-							name: "Theme",
-							href: `${paySlug}/customization#theme`,
-						},
-						{
-							name: "Localization",
-							href: `${paySlug}/customization#localization`,
+							name: "sendTransaction",
+							href: `${paySlug}/customization/send-transaction`,
 						},
 					],
 				},
