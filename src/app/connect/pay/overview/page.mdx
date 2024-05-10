@@ -11,9 +11,9 @@ export const metadata = createMetadata({
 		"thirdweb Pay - Fast, flexible credit card and crypto point of sale",
 });
 
-# Overview
+# thirdweb Pay
 
-Pay allows your users to purchase cryptocurrencies and execute transactions with their credit card or debit card; or with any token via cross-chain routing.
+thirdweb Pay allows your users to purchase cryptocurrencies with their credit card/debit card or with any token.
 
 <DocImage src={PayOverviewImage} />
 
@@ -30,11 +30,13 @@ Pay is **free to integrate** for developers and unlocks the following for your u
   - **Social apps** looking to add tipping or other paid functionality to their application.
   - **Non-profits** accepting donations in crypto.
 
-## Integration Options
+## Integration options
 
-| OPTION                                                                         | DIFFICULTY | BEST FOR                                                                                                                                  |
-| ------------------------------------------------------------------------------ | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| [ConnectButton Component](/connect/pay/get-started#connectbutton)              | Easy       | Developers who want out-of-the-box support complete with wallet and social login.                                                         |
-| [Embeddable Pay Component](/connect/pay/get-started#embed-pay)                 | Easy       | Developers who want onramp and crypto purchase experiences directly in their application flow.                                            |
-| [Transaction Flow](/connect/pay/get-started#send-a-transaction-with-pay)       | Easy       | Developers who want to reduce friction at point of sale (minting, NFT purchase, etc.)                                                     |
-| [Custom Fiat Experience](/connect/pay/buy-with-fiat/build-a-custom-experience) | Hard       | Developers who want full customization over every step of the onramp process, from displaying quotes to polling for transaction statuses. |
+There are a few ways to integrate thirdweb Pay into your TypeScript / React application:
+
+| Option                                                                         | Difficuly | Best for                                                                                                                                 |
+| ------------------------------------------------------------------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| [PayEmbed Component](/connect/pay/get-started/PayEmbed)                        | Easy      | Integrate Fully featured built-in On-ramp and crypto purchase UI in your application.                                                    |
+| [Send transaction with Pay](/connect/pay/get-started/send-transaction)         | Easy      | Reduce friction at point of sale (minting, NFT purchase, etc.)                                                                           |
+| [ConnectButton Component](/connect/pay/get-started/ConnectButton)              | Easy      | Integrate Wallet Connection in app with ability to buy crypto as a secondary feature                                                     |
+| [Custom Fiat Experience](/connect/pay/buy-with-fiat/build-a-custom-experience) | Hard      | Developers who want full customization over every step of the onramp process, from displaying quotes to polling for transaction statuses |

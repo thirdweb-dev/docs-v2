@@ -266,19 +266,23 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Get Started",
-					href: `${paySlug}/get-started`,
+					expanded: true,
 					links: [
 						{
+							href: `${paySlug}/get-started`,
+							name: "Overview",
+						},
+						{
+							name: "Pay Embed",
+							href: `${paySlug}/get-started/PayEmbed`,
+						},
+						{
+							name: "Send Transaction",
+							href: `${paySlug}/get-started/send-transaction`,
+						},
+						{
 							name: "ConnectButton",
-							href: `${paySlug}/get-started#connectbutton`,
-						},
-						{
-							name: "Embed Pay",
-							href: `${paySlug}/get-started#embed-pay`,
-						},
-						{
-							name: "Send a Transaction with Pay",
-							href: `${paySlug}/get-started#send-a-transaction-with-pay`,
+							href: `${paySlug}/get-started/ConnectButton`,
 						},
 					],
 				},
@@ -289,7 +293,7 @@ export const sidebar: SideBar = {
 
 				{
 					name: "Buy With Fiat",
-					isCollapsible: true,
+					expanded: true,
 					links: [
 						{
 							name: "Overview",
@@ -303,7 +307,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Buy With Crypto",
-					isCollapsible: true,
+					expanded: true,
 					links: [
 						{
 							name: "Overview",
@@ -312,25 +316,6 @@ export const sidebar: SideBar = {
 						{
 							name: "Fee Sharing",
 							href: `${paySlug}/buy-with-crypto/fee-sharing`,
-						},
-					],
-				},
-				{
-					name: "Customization",
-					isCollapsible: true,
-					expanded: true,
-					links: [
-						{
-							name: "ConnectButton",
-							href: `${paySlug}/customization/connectbutton`,
-						},
-						{
-							name: "PayEmbed",
-							href: `${paySlug}/customization/payembed`,
-						},
-						{
-							name: "sendTransaction",
-							href: `${paySlug}/customization/send-transaction`,
 						},
 					],
 				},

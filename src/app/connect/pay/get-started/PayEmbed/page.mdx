@@ -1,0 +1,373 @@
+import { DocImage, ArticleIconCard, Details } from "@doc";
+import { ComponentIcon } from "lucide-react";
+import payEmbedImage from "./pay-embed.png";
+import payEmbedLightImage from "./pay-embed-light.png";
+import payEmbedDisconnectedImage from "./pay-embed-disconnected.png";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+
+# PayEmbed
+
+The [`PayEmbed`](/references/typescript/v5/PayEmbed) allows embedding the thirdweb Pay UI to onramp and purchase crypto directly from your application interface.
+
+It renders a [`ConnectButton`](/typescript/v5/react/components/ConnectButton) component to allow users to connect to various wallets if they user hasn't connected to a wallet yet.
+
+<Tabs defaultValue="tab-1">
+	<TabsList>
+		<TabsTrigger value="tab-1"> Connected </TabsTrigger>
+		<TabsTrigger value="tab-2"> Disconnected </TabsTrigger>
+	</TabsList>
+	<TabsContent value="tab-1">
+		<DocImage src={payEmbedImage} />
+	</TabsContent>
+	<TabsContent value="tab-2">
+		<DocImage src={payEmbedDisconnectedImage} />
+	</TabsContent>
+</Tabs>
+
+## Example
+
+```tsx
+import { PayEmbed } from "thirdweb/react";
+
+const client = createThirdwebClient({ clientId: "..." });
+
+function Example() {
+	return (
+		<div>
+			<PayEmbed client={client} />
+		</div>
+	);
+}
+```
+
+## Props
+
+See list of all available props for the `PayEmbed` component.
+
+<ArticleIconCard
+	title="PayEmbedProps"
+	icon={ComponentIcon}
+	href="/references/typescript/v5/PayEmbedProps"
+/>
+
+<div className="h-16" />
+
+## Customization
+
+### Theme
+
+Set the theme for the `PayEmbed` component with the `theme` prop. By default it is set to `"dark"`
+
+<Tabs defaultValue="tab-1">
+	<TabsList>
+		<TabsTrigger value="tab-1"> Dark </TabsTrigger>
+		<TabsTrigger value="tab-2"> Light </TabsTrigger>
+		<TabsTrigger value="tab-3"> Custom Theme </TabsTrigger>
+	</TabsList>
+	<TabsContent value="tab-1">
+
+```tsx
+<PayEmbed client={client} theme="dark" />
+```
+
+<DocImage src={payEmbedImage} />
+
+</TabsContent>
+
+<TabsContent value="tab-2">
+
+```tsx
+<PayEmbed client={client} theme="light" />
+```
+
+<DocImage src={payEmbedLightImage} />
+
+</TabsContent>
+
+<TabsContent value="tab-3">
+
+You can pass a custom theme object of type [`Theme`](/references/typescript/v5/Theme) to the `theme` prop.
+
+You can also import [`lightTheme`](/references/typescript/v5/lightTheme)
+or [`darkTheme`](/references/typescript/v5/darkTheme)
+functions to use a default light or dark theme as base and overrides parts of it.
+
+```ts
+import { lightTheme } from "thirdweb/react";
+
+const customTheme = lightTheme({
+	colors: {
+		modalBg: "red",
+	},
+});
+```
+
+```tsx
+<PayEmbed client={client} theme={customTheme} />
+```
+
+</TabsContent>
+
+</Tabs>
+
+### Set default token for purchase
+
+In the case you want your users to purchase a specific token, you can choose to select it by default with `payOptions.prefillBuy` prop
+
+#### Examples
+
+<Details summary="Set an ERC-20 token" >
+
+Example: Set USDC on polygon as default token for purchase
+
+```tsx
+import { polygon } from "thirdweb/chains";
+
+<PayEmbed
+	client={client}
+	payOptions={{
+		prefillBuy: {
+			token: {
+				address: "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+				name: "USD Coin",
+				symbol: "USDC",
+				icon: "...", // optional
+			},
+			chain: polygon,
+		},
+	}}
+/>;
+```
+
+</Details>
+
+<Details summary="Set a Native Token" >
+
+You can leave out the `token` field to set a native token as default token for purchase and simply set the `chain` field.
+
+Example: Set Base mainnet native token as default token for purchase
+
+```tsx
+import { base } from "thirdweb/chains";
+
+<PayEmbed
+	client={client}
+	payOptions={{
+		prefillBuy: {
+			chain: base,
+		},
+	}}
+/>;
+```
+
+</Details>
+
+<Details summary="Set a default token amount" >
+
+By default, No buy amount is set. You can suggest a default buy amount by setting the `amount` field.
+
+Example: Set 0.1 Base ETH (native token) by default
+
+```tsx
+import { base } from "thirdweb/chains";
+
+<PayEmbed
+	client={client}
+	payOptions={{
+		prefillBuy: {
+			chain: base,
+			amount: "0.1", // suggest 0.1 Base
+		},
+	}}
+/>;
+```
+
+</Details>
+
+<Details summary="Disable Ediiting token / amount / chain" >
+
+You can disable editing of token, amount and / or chain by setting the `allowEdits` field.
+
+```tsx
+import { base } from "thirdweb/chains";
+
+<PayEmbed
+	client={client}
+	payOptions={{
+		prefillBuy: {
+			chain: base,
+		},
+		allowEdits: {
+			amount: true, // allow editing buy amount
+			token: false, // disable selecting buy token
+			chain: false, // disable selecting buy chain
+		},
+	}}
+/>;
+```
+
+</Details>
+
+### Customize Tokens
+
+By default, PayEmbed shows a few popular tokens for Pay supported chains
+
+You can override this list of tokens shown in PayEmbed by using `supportedTokens` prop
+
+`supportedTokens` prop is an object that maps chainId to an array of tokens
+
+Example: Override the tokens for Base Mainnet ( chaid id 84532 )
+
+```tsx
+import { PayEmbed } from "thirdweb/react";
+import { NATIVE_TOKEN_ADDRESS } from "thirdweb";
+
+function Example() {
+	return (
+		<PayEmbed
+			supportedTokens={{
+				84532: [
+					{
+						address: NATIVE_TOKEN_ADDRESS, // use NATIVE_TOKEN_ADDRESS for native token
+						name: "Base ETH",
+						symbol: "ETH",
+						icon: "https://...",
+					},
+					{
+						address: "0x...", // token contract address
+						name: "Dai Stablecoin",
+						symbol: "DAI",
+						icon: "https://...",
+					},
+				],
+			}}
+		/>
+	);
+}
+```
+
+### Disabling payment methods
+
+By default, Both "Credit Card" and "Crypto" payment methods are enabled in `PayEmbed`.
+
+You can disable either of them as shown below:
+
+<Details summary="Disable Crypto" >
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		buyWithCrypto: false,
+	}}
+/>
+```
+
+</Details>
+
+<Details summary="Disable Credit Card" >
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		buyWithFiat: false,
+	}}
+/>
+```
+
+</Details>
+
+### Customize Credit Card payment
+
+<Details summary="Enable Test Mode" >
+
+Test mode allows you to test the credit card payment flow without actually making a payment using a test card.
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		buyWithFiat: {
+			testMode: true,
+		},
+	}}
+/>
+```
+
+</Details>
+
+### Customize Crypto payment
+
+<Details summary="Set a ERC-20 token as default token for payment" >
+
+Example: Set USDC on polygon as default token for crypto payment
+
+```tsx
+import { base } from "thirdweb/chains";
+
+<PayEmbed
+	client={client}
+	payOptions={{
+		buyWithCrypto: {
+			prefillSource: {
+				token: {
+					address: "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+					name: "USD Coin",
+					symbol: "USDC",
+					icon: "...", // optional
+				},
+				chain: polygon,
+			},
+		},
+	}}
+/>;
+```
+
+</Details>
+
+<Details summary="Set a Native token as default token for payment" >
+
+Example: Set Base Mainnet native token as default source token for crypto payment
+
+```tsx
+import { base } from "thirdweb/chains";
+
+<PayEmbed
+	client={client}
+	payOptions={{
+		buyWithCrypto: {
+			prefillSource: {
+				chain: base,
+			},
+		},
+	}}
+/>;
+```
+
+</Details>
+
+<Details summary="Set a payment token and disable token/chain selection" >
+
+Example: Set Base Mainnet native token as default source token for crypto payment and disable selecting any other token
+
+```tsx
+import { base } from "thirdweb/chains";
+
+<PayEmbed
+	client={client}
+	payOptions={{
+		buyWithCrypto: {
+			prefillSource: {
+				chain: base,
+			},
+			allowEdits: {
+				token: false, // disable selecting source token
+				chain: false, // disable selecting source chain
+			},
+		},
+	}}
+/>;
+```
+
+</Details>

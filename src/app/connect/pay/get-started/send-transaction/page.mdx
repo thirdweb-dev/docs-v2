@@ -1,0 +1,352 @@
+import { DocImage, Details } from "@doc";
+import txPayModalImage from "./tx-pay-modal.png";
+import txInProgressImage from "./tx-inprogress.png";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { CodeTab } from "./CodeTab";
+
+# Send Transaction
+
+Pay is enabled by default for any contract call sent with [`useSendTransaction`](/references/typescript/v5/useSendTransaction) hook or [`TransactionButton`](/typescript/v5/react/components/TransactionButton)
+
+When a transaction is sent with [`useSendTransaction`](/references/typescript/v5/useSendTransaction) hook or [`TransactionButton`](/typescript/v5/react/components/TransactionButton), The cost of the transaction and gas estimation is done to determine if the user has a sufficient balance.
+
+If the balance is sufficient, the transaction will execute normally. If the balance is not sufficient, the thirdweb Pay modal is shown to the user prompting them to buy the required tokens as shown below:
+
+<DocImage src={txPayModalImage} />
+
+<div clasName="h-14" />
+
+## Example
+
+Send 25 polygon MATIC to a wallet
+
+<Tabs defaultValue="tab-1">
+	<TabsList>
+		<TabsTrigger value="tab-1"> useSendTransaction </TabsTrigger>
+		<TabsTrigger value="tab-2"> TransactionButton </TabsTrigger>
+	</TabsList>
+
+<TabsContent value="tab-1">
+
+```tsx
+import { useSendTransaction } from "thirdweb/react";
+import { polygon, toWei, prepareTransaction } from "thirdweb";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+function Example() {
+	const sendTranaction = useSendTransaction();
+
+	async function handleClick() {
+		const tx = prepareTransaction({
+			chain: polygon,
+			client,
+			to: "0x123...",
+			value: toWei("20"),
+		});
+
+		await sendTranaction.mutateAsync(tx);
+	}
+
+	return <button onClick={handleClick}>send MATIC</button>;
+}
+```
+
+ </TabsContent>
+
+<TabsContent value="tab-2">
+
+```tsx
+import { TransactionButton } from "thirdweb/react";
+import { polygon, toWei, prepareTransaction } from "thirdweb";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+function Example() {
+	const sendTranaction = useSendTransaction();
+
+	return (
+		<TransactionButton
+			transaction={() => {
+				const tx = prepareTransaction({
+					chain: polygon,
+					client,
+					to: "0x123...",
+					value: toWei("20"),
+				});
+
+				return tx;
+			}}
+		>
+			send MATIC
+		</TransactionButton>
+	);
+}
+```
+
+</TabsContent>
+</Tabs>
+
+Once the user buys the required tokens, the user will be prompted to continue with the transaction as shown below:
+
+<DocImage src={txInProgressImage} />
+
+## Customizing the Pay Modal
+
+### Theme
+
+Set the theme for the `PayEmbed` component with the `theme` prop. By default it is set to `"dark"`
+
+<Details summary="dark / light">
+
+#### TransactionButton
+
+```ts
+<TransactionButton theme="dark" > Example </TransactionButton>
+```
+
+#### useSendTransaction
+
+```tsx
+const sendTransaction = useSendTransaction({ payModal: { theme: "dark" } });
+```
+
+</Details>
+
+<Details summary="Custom Theme">
+
+You can pass a custom theme object of type [`Theme`](/references/typescript/v5/Theme) to the `theme` prop.
+
+You can also import [`lightTheme`](/references/typescript/v5/lightTheme)
+or [`darkTheme`](/references/typescript/v5/darkTheme)
+functions to use a default light or dark theme as base and overrides parts of it.
+
+```ts
+import { lightTheme } from "thirdweb/react";
+
+const customTheme = lightTheme({
+	colors: {
+		modalBg: "red",
+	},
+});
+```
+
+#### TransactionButton
+
+```ts
+<TransactionButton theme={customTheme} > Example </TransactionButton>
+```
+
+#### useSendTransaction
+
+```tsx
+const sendTransaction = useSendTransaction({
+	payModal: { theme: { customTheme } },
+});
+```
+
+</Details>
+
+---
+
+### Disable thirdweb Pay Modal
+
+By default, thirdweb Pay Modal is enabled except for the following cases:
+
+- User has enough balance to cover the transaction cost
+- thirdweb Pay is not supported on chain that the transaction is being sent to
+- Transaction is sent with a `gasLess` option
+- Transaction is sent with a Smart Wallet with gasless/sponsorGas configuration
+
+If you want to disable the Pay Modal completely, you can set `payModal` option to `false`
+
+<Tabs defaultValue="tab-1">
+	<TabsList>
+		<TabsTrigger value="tab-1"> useSendTransaction </TabsTrigger>
+		<TabsTrigger value="tab-2"> TransactionButton </TabsTrigger>
+	</TabsList>
+
+<TabsContent value="tab-1">
+
+```ts
+const sendTranaction = useSendTransaction({ payModal: false });
+```
+
+ </TabsContent>
+
+<TabsContent value="tab-2">
+
+```tsx
+<TransactionButton payModal={false}>Example</TransactionButton>
+```
+
+</TabsContent>
+
+</Tabs>
+
+<div clasName="h-10" />
+
+### Customize Tokens
+
+By default, Pay Modal shows a few popular tokens for Pay supported chains
+
+You can override this list of tokens shown in Pay Modal by setting `supportedTokens` option in `payModal`
+
+`supportedTokens` prop is an object that maps chainId to an array of tokens
+
+Example: Override the tokens for Base Mainnet ( chaid id 84532 )
+
+<Tabs defaultValue="tab-1">
+	<TabsList>
+		<TabsTrigger value="tab-1"> useSendTransaction </TabsTrigger>
+		<TabsTrigger value="tab-2"> TransactionButton </TabsTrigger>
+	</TabsList>
+
+<TabsContent value="tab-1">
+
+```tsx
+import { PayEmbed } from "thirdweb/react";
+import { NATIVE_TOKEN_ADDRESS } from "thirdweb";
+
+const sendTransaction = useSendTransaction({
+	payModal: {
+		supportedTokens: {
+			84532: [
+				{
+					address: NATIVE_TOKEN_ADDRESS, // use NATIVE_TOKEN_ADDRESS for native token
+					name: "Base ETH",
+					symbol: "ETH",
+					icon: "https://...",
+				},
+				{
+					address: "0x...", // token contract address
+					name: "Dai Stablecoin",
+					symbol: "DAI",
+					icon: "https://...",
+				},
+			],
+		},
+	},
+});
+```
+
+ </TabsContent>
+
+<TabsContent value="tab-2">
+
+```tsx
+import { PayEmbed } from "thirdweb/react";
+import { NATIVE_TOKEN_ADDRESS } from "thirdweb";
+
+<TransactionButton
+	payModal={{
+		supportedTokens: {
+			84532: [
+				{
+					address: NATIVE_TOKEN_ADDRESS, // use NATIVE_TOKEN_ADDRESS for native token
+					name: "Base ETH",
+					symbol: "ETH",
+					icon: "https://...",
+				},
+				{
+					address: "0x...", // token contract address
+					name: "Dai Stablecoin",
+					symbol: "DAI",
+					icon: "https://...",
+				},
+			],
+		},
+	}}
+>
+	Example
+</TransactionButton>;
+```
+
+</TabsContent>
+
+</Tabs>
+
+### Disabling payment methods
+
+By default, Both "Credit Card" and "Crypto" payment methods are enabled by default.
+
+You can disable either of them as shown below:
+
+<Details summary="Disable Crypto payment">
+	<CodeTab payModalCode={`{ buyWithCrypto: false }`} />
+</Details>
+
+<Details summary="Disable Credit Card payment">
+	<CodeTab payModalCode={`{ buyWithFiat: false }`} />
+</Details>
+
+### Customize Credit Card payment
+
+<Details summary="Enable Test Mode" >
+
+Test mode allows you to test the credit card payment flow without actually making a payment using a test card.
+
+<CodeTab payModalCode={`{ buyWithFiat: { testMode: true } }`} />
+
+</Details>
+
+### Customize Crypto payment
+
+<Details  summary="Set a ERC-20 token as default token for payment"  >
+
+Example: Set USDC on polygon as default token for crypto payment
+
+<CodeTab
+	payModalCode={`\
+{
+	buyWithCrypto: {
+		prefillSource: {
+			token: {
+				address: "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+				name: "USD Coin",
+				symbol: "USDC",
+				icon: "...", // optional
+			},
+			chain: polygon,
+		},
+	},
+}`}
+/>
+
+</Details>
+
+<Details  summary="Set a Native token as default token for payment"  >
+
+Example: Set Base Mainnet native token as default source token for crypto payment
+
+<CodeTab
+	payModalCode={`{
+	buyWithCrypto: {
+		prefillSource: {
+			chain: base,
+		},
+	},
+}`}
+/>
+
+</Details>
+
+<Details  summary="Set a payment token and disable token/chain selection"  >
+
+Example: Set Base Mainnet native token as default source token for crypto payment and disable selecting any other token
+
+<CodeTab
+	payModalCode={`{
+	buyWithCrypto: {
+		prefillSource: {
+			chain: base,
+		},
+		allowEdits: {
+			token: false, // disable selecting source token
+			chain: false, // disable selecting source chain
+		},
+	},
+}`}
+/>
+
+</Details>
