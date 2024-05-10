@@ -334,6 +334,10 @@ export const sidebar: SideBar = {
 					href: `${paySlug}/supported-chains`,
 				},
 				{
+					name: "Build a Custom Experience",
+					href: `${paySlug}/build-a-custom-experience`,
+				},
+				{
 					name: "Buy With Fiat",
 					href: `${paySlug}/buy-with-fiat`,
 				},
