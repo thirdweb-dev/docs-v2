@@ -261,32 +261,70 @@ export const sidebar: SideBar = {
 			isCollapsible: true,
 			links: [
 				{
+					name: "Overview",
+					href: `${paySlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${paySlug}/get-started`,
+				},
+				{
+					name: "Supported Chains",
+					href: `${paySlug}/supported-chains`,
+				},
+				{
+					name: "Build a Custom Experience",
+					href: `${paySlug}/build-a-custom-experience`,
+				},
+				{
+					name: "Buy With Fiat",
+					href: `${paySlug}/buy-with-fiat`,
+				},
+				{
 					name: "Buy With Crypto",
 					isCollapsible: true,
-					expanded: true,
 					links: [
 						{
 							name: "Overview",
-							href: `${paySlug}/buy-with-crypto`,
+							href: `${paySlug}/buy-with-crypto/overview`,
 						},
-						{
-							name: "Supported Chains",
-							href: `${paySlug}/supported-chains`,
-						},
-						{
-							name: "Get Started",
-							href: `${paySlug}/get-started`,
-						},
-
 						{
 							name: "Fee Sharing",
-							href: `${paySlug}/fee-sharing`,
+							href: `${paySlug}/buy-with-crypto/fee-sharing`,
 						},
 					],
 				},
 				{
-					name: "Buy With Fiat (Coming Soon)",
-					href: `${paySlug}/buy-with-fiat`,
+					name: "Customization",
+					href: `${paySlug}/customization`,
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Support Custom Tokens",
+							href: `${paySlug}/customization#supported-tokens`,
+						},
+						{
+							name: "Prefill Custom Token",
+							href: `${paySlug}/customization#prefill-custom-token`,
+						},
+						{
+							name: "Disable Buy With Crypto",
+							href: `${paySlug}/customization#disable-buy-with-crypto`,
+						},
+						{
+							name: "Theme",
+							href: `${paySlug}/customization#theme`,
+						},
+						{
+							name: "Localization",
+							href: `${paySlug}/customization#localization`,
+						},
+					],
+				},
+				{
+					name: "FAQs",
+					href: `${paySlug}/faqs`,
 				},
 			],
 		},

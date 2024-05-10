@@ -1,0 +1,125 @@
+import { createMetadata, DocImage } from "@doc";
+export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Pay - Customization",
+		icon: "thirdweb",
+	},
+	title: "thirdweb Pay - Customization - thirdweb",
+	description:
+		"thirdweb Pay - Customizing the crypto-to-crypto purchase and onramp flow",
+});
+
+# Customization
+
+Learn how to customize the Pay interface. You can find a selection of popular customizations below. For the full list of props, you can [view the full reference](/references/typescript/v5/SendTransactionConfig).
+
+---
+
+## Support Custom Tokens
+
+You can enable users to select your token on a given chain by passing an array of `SupportedTokens`. Note that this array overrides the default tokens displayed for that chain.
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		supportedTokens: {
+			"1": [
+				{
+					address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+					name: "USD Coin",
+					symbol: "USDC",
+					icon: usdcIcon,
+				},
+			],
+		},
+	}}
+/>
+```
+
+---
+
+## Prefill Custom Token
+
+In the case you want your users to purchase your token by default in your application, you can choose to pre-fill the Pay purchase flow with `prefillBuy` .
+
+For example, if you wanted users to only purchase Ethereum on Base network, you could do as follows:
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		prefillBuy: {
+			token: {
+				address: "0x866a087038f7C12cf33EF91aC5b1AcE6Ac1DA788",
+				name: "Base ETH",
+				symbol: "ETH",
+				icon: "...", // optional
+			},
+			allowEdits: {
+				amount: true, // allow editing buy amount
+				token: false, // disable selecting buy token
+				chain: false, // disable selecting buy chain
+			},
+		},
+	}}
+/>
+```
+
+---
+
+## Disable Buy With Crypto
+
+In some cases, you may only want to show users fiat payment options for your onchain goods or services. You can do this by setting buyWithCrypto to false in your payOptions object.
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		buyWithCrypto: false, // disable buy with crypto
+	}}
+/>
+```
+
+---
+
+## Theme
+
+You can set the theme for the Pay component, which is set to `"dark"` by default. theme can be set to either `"dark"` , `"light"` or a custom theme object.
+
+We have [`lightTheme`](/references/typescript/v5/lightTheme) or [`darkTheme`](/references/typescript/v5/darkTheme) providers that you can override to kickstart customization.
+
+You can refer to our [`Theme`](/references/typescript/v5/Theme) page for a full view of customizable options if you’d prefer to create a custom theme from scratch.
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		theme: yourThemeConfig,
+	}}
+/>
+```
+
+---
+
+## Localization
+
+By default, our ConnectButton uses the `en-US` locale. You can customize the language by setting the `locale` prop.
+
+```tsx
+<PayEmbed
+	client={client}
+	payOptions={{
+		locale: "en_US",
+	}}
+/>
+```
+
+thirdweb currently supports the following locales:
+
+| Locale   | localeId  |
+| :------- | :-------- |
+| English  | `"en_US"` |
+| Spanish  | `"es_ES"` |
+| Japanese | `"ja_JP"` |
+| Filipino | `"tl_PH"` |
