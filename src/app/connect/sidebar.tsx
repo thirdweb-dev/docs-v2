@@ -358,8 +358,16 @@ export const sidebar: SideBar = {
 					expanded: true,
 					links: [
 						{
-							name: "Supported Tokens",
+							name: "Support Custom Tokens",
 							href: `${paySlug}/customization#supported-tokens`,
+						},
+						{
+							name: "Prefill Custom Token",
+							href: `${paySlug}/customization#prefill-custom-token`,
+						},
+						{
+							name: "Disable Buy With Crypto",
+							href: `${paySlug}/customization#disable-buy-with-crypto`,
 						},
 						{
 							name: "Theme",

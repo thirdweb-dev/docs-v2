@@ -45,6 +45,32 @@ Log in to [the thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to
 </Steps>
 ---
 
+## Embed Pay
+
+Place Pay directly into your site via the `PayEmbed` component.
+
+```tsx
+import { ThirdwebProvider, PayEmbed } from "thirdweb/react";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<PayEmbed />
+		</ThirdwebProvider>
+	);
+}
+```
+
+The embedded Pay component will be displayed like so in your application interface:
+
+<DocImage src={GetStartedEmbed} />
+
+And voila! Your users can now onramp and convert crypto directly from your application.
+
+---
+
 ## Send a Transaction with Pay
 
 Pay is enabled by default for any contract call sent with `sendTransaction`. It will automatically be invoked when a user does not have enough funds to complete the transaction.
@@ -73,32 +99,6 @@ When a user clicks this button, Pay will perform gas estimation to determine if 
 <DocImage src={GetStartedSend} />
 
 Once a user onramps or converts their funds to the required token, the user will be prompted once more to confirm the transaction. The transaction will then execute as expected.
-
----
-
-## Embed Pay
-
-Pay works as its own standalone component that you can place directly into your site via the `PayEmbed` component.
-
-```tsx
-import { ThirdwebProvider, PayEmbed } from "thirdweb/react";
-
-const client = createThirdwebClient({ clientId: your_client_id });
-
-export default function App() {
-	return (
-		<ThirdwebProvider>
-			<PayEmbed />
-		</ThirdwebProvider>
-	);
-}
-```
-
-The embedded Pay component will be displayed like so in your application interface:
-
-<DocImage src={GetStartedEmbed} />
-
-And voila! Your users can now onramp and convert crypto directly from your application.
 
 ---
 
