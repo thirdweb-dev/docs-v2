@@ -20,9 +20,9 @@ export const metadata = createMetadata({
 
 # Get Started
 
-Learn how to add Pay to any transaction execution or embed Pay directly into your application.
+Learn how to add onramps and crypto purchases to your application. To see which integration is right for you, refer to our [integrations overview](/connect/pay/overview#integration-options).
 
-The following guide uses our Typescript SDK. You can also learn how to integrate Pay with our [Unity SDK](https://portal.thirdweb.com/unity/pay/getbuywithcryptoquote).
+The following guide uses our React SDK. You can also learn how to integrate Pay with our [Unity SDK](https://portal.thirdweb.com/unity/pay/getbuywithcryptoquote).
 
 ---
 
@@ -44,9 +44,29 @@ Log in to [the thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to
 </Steps>
 ---
 
+## ConnectButton
+
+Pay is available by default with our `ConnectButton` component. When users log in with Connect, they'll be able to onramp and purchase crypto directly from the logged in Connect interface. You can read more about `ConnectButton` [in this guide](/connect/connect).
+
+```tsx
+import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<ConnectButton client={client} />
+		</ThirdwebProvider>
+	);
+}
+```
+
+---
+
 ## Embed Pay
 
-Place Pay directly into your site via the `PayEmbed` component.
+The `PayEmbed` allows users to onramp and purchase crypto directly from your application interface.
 
 ```tsx
 import { ThirdwebProvider, PayEmbed } from "thirdweb/react";
@@ -56,7 +76,7 @@ const client = createThirdwebClient({ clientId: your_client_id });
 export default function App() {
 	return (
 		<ThirdwebProvider>
-			<PayEmbed />
+			<PayEmbedclient={client} />
 		</ThirdwebProvider>
 	);
 }
@@ -80,11 +100,12 @@ Pay is enabled by default for any contract call sent with `sendTransaction`. It 
 </Callout>
 
 ```tsx
-import { ThirdwebProvider, sendTransaction } from "thirdweb/react";
+import { ThirdwebProvider, useSendTransaction } from "thirdweb/react";
 
 const client = createThirdwebClient({ clientId: your_client_id });
 
 export default function App() {
+	const { sendTranaction } = useSendTransaction();
 	return (
 		<ThirdwebProvider>
 			<button onClick={() => sendTransaction()} />
