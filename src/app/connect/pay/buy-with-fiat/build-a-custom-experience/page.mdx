@@ -1,46 +1,65 @@
-import { createMetadata, DocImage, Steps, Step } from "@doc";
-import OnrampStepOne from "../assets/avax-to-usd.png";
+import {
+	createMetadata,
+	Callout,
+	DocImage,
+	InstallTabs,
+	Steps,
+	Step,
+} from "@doc";
+import OnrampStepOne from "../../assets/avax-to-usd.png";
 
 export const metadata = createMetadata({
 	image: {
 		title: "thirdweb Pay - Custom Experience",
 		icon: "thirdweb",
 	},
-	title: "thirdweb Pay - Buy With Crypto - Custom Experience | thirdweb",
+	title: "thirdweb Pay - Buy With Fiat - Custom Experience | thirdweb",
 	description:
 		"Learn how to build a custom onramp experience with thirdweb Pay.",
 });
 
-# Build a Custom Pay Experience
+# Build a Custom Fiat Experience
 
-Learn how to enable your users to purchase your application’s token with any fiat payment method with our headless flow. In this guide, we’ll show you how to onramp users into Base ETH.
+Learn how to enable your users to purchase your application’s token with any fiat payment method with our headless flow.
 
-Our `PayEmbed` component handles the complexity of the process detailed below and can be integrated in minutes. We encourage you to check out the [PayEmbed guide here](/connect/pay/get-started#embed-pay).
+In this guide, we'll show you how to purchase 0.01 Base ETH from USD in Typescript.
 
-Buying with Fiat can require one or two steps depending on your destination token.
-
-In this guide, we will show you how to purchase 0.01 Base ETH from USD in Typescript.
+<Callout variant="info">
+	Our `PayEmbed` component handles the complexity of the process detailed below
+	and can be integrated in minutes. We encourage you to check out the [PayEmbed
+	guide here](/connect/pay/get-started#embed-pay).
+</Callout>
 
 ---
 
 <Steps>
+<Step title='Install the Connect SDK'>
+<InstallTabs
+	npm="npm i thirdweb"
+	yarn="yarn install thirdweb"
+	pnpm="pnpm i thirdweb"
+/>
+<Step title='Get Your Client ID'>
+
+Log in to the [thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to the **Settings** page and create an API key to get your **Client ID**. You'll need your Client ID to interact with the Connect SDK.
+
+</Step>
+</Step>
 <Step title='Get a “Buy with Fiat” quote'>
-- If desired token can be bought directly with fiat currency
-  - Your users will onramp directly to their destination token
-- If desired token can not be bought directly with fiat currency
-  - Your users will onramp to an intermediate token
-  - Your users will be prompted to convert the onramp token to the destination token
+Buying with fiat can require one or two steps depending on your destination token:
+
+If the destination token _*can*_ be bought directly with fiat, your users can onramp directly to their destination token.
+
+If the destination token _*can not*_ be bought directly with fiat, your users will need to onramp to an intermediate token, then convert the onramp token to the destination token.
 
 For example, when Buying Base ETH:
 
-1. Users will receive Avalance AVAX ( native token ) in exchange of USD
-2. Users will be prompted to convert Avalance AVAX to Base ETH
+1. Users will receive Avalance AVAX ( native token ) in exchange for USD
+2. Users will be prompted to convert Avalanche AVAX to Base ETH
 
 <DocImage src={OnrampStepOne} />
 
 This process requires your user's wallet address. Refer to [this guide](https://portal.thirdweb.com/typescript/v5/connecting-wallets) to learn how to connect a wallet.
-
-Thirdweb SDK requires a client. You can [view this reference](https://portal.thirdweb.com/typescript/v5/client) to create a client.
 
 ```tsx
 import { getBuyWithFiatQuote } from "thirdweb/pay";
@@ -93,7 +112,9 @@ if (hasTwoSteps) {
 
 </Step>
 <Step title='Display the Onramp Experience'>
-Once you have a `quote` from `getBuyWithFiatQuote`,you can open a new tab with `quote.onRampLink` to show the onramp experience.
+Once you have a `quote` from `getBuyWithFiatQuote`, you can open a new tab with `quote.onRampLink` to show the onramp experience. This onramp experience handles all regulatory requirements, know your customer (KYC) verifications, and sanctions screening.
+
+After they've KYC'd (if required), customers have the option of saving payment methods, KYC data, and wallet information in the onramp, which makes the returning onramp experience much faster.
 
 Your users will be able to purchase the `quote.onRampToken` with the specified fiat currency.
 
