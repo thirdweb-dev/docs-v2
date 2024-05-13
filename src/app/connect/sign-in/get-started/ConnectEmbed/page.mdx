@@ -1,0 +1,58 @@
+import {
+	SDKCard,
+	Grid,
+	DocImage,
+	GithubTemplateCard,
+	Stack,
+	createMetadata,
+} from "@doc";
+import { ReactIcon } from "@/icons";
+import connectHeroImage from "../../assets/ConnectEmbed-embedded.png";
+
+export const metadata = createMetadata({
+	image: {
+		title: "ConnectEmbed",
+		icon: "react",
+	},
+	title: "thirdweb ConnectEmbed",
+	description:
+		"ConnectEmbed component renders a UI to connect to various wallets",
+});
+
+# ConnectEmbed
+
+The `ConnectEmbed` component renders the same modal interface as the [ConnectButton](/connect/sign-in/get-started/ConnectButton), allowing you to place your Connect flow directly in your page without an overlay. The `ConnectEmbed` is more useful for implementing full page sign in flows.
+
+## Install the Connect SDK
+
+```tsx
+npm i thirdweb
+```
+
+## Get Your Client ID
+
+Log in to [the thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to the **Settings** page and create an API key to get your **Client ID**.
+
+## Initialize the ConnectEmbed
+
+```tsx
+import { ThirdwebProvider, ConnectEmbed } from "thirdweb/react";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+export default function App() {
+  return (
+    <ThirdwebProvider>
+      <ConnectEmbed client={client} />
+    </ThirdwebProvider>
+  );
+}
+```
+
+## Configuring Login Methods
+
+Once you’ve initialized your `ConnectButton`, you can configure the `wallets` prop to enable connection with email and phone number, social apps like Google and Facebook, and external wallets like Metamask and Phantom.
+
+## Props
+
+The ConnectEmbed component has a number of configurable props. [View full reference](https://portal.thirdweb.com/references/typescript/v5/ConnectEmbedProps).

@@ -1,0 +1,19 @@
+# Logo
+
+You can customize the logo shown on the Connect modal by adding it to the `appMetadata` prop:
+
+```tsx
+import { ConnectButton } from "thirdweb/react";
+ 
+function Example() {
+  return (
+    <div>
+      <ConnectButton
+	      appMetadata={{
+		      logoUrl: "https://path/to/my-app/logo.svg"
+	      }}
+      />
+    </div>
+  );
+}
+```

@@ -8,7 +8,7 @@ import {
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
 
-const connectSlug = "/connect/connect";
+const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
@@ -28,21 +28,60 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Connect
 		{
-			name: "UI Components",
+			name: "Sign-In",
 			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
 				{
-					name: "ConnectButton",
-					href: `${connectSlug}/ConnectButton`,
+					name: "Get Started",
+					links: [
+						{
+							name: "ConnectButton",
+							href: `${connectSlug}/get-started/ConnectButton`,
+						},
+						{
+							name: "ConnectEmbed",
+							href: `${connectSlug}/get-started/ConnectEmbed`,
+						},
+						{
+							name: "Custom UI",
+							href: `${connectSlug}/get-started/custom-ui`,
+						},
+					],
 				},
 				{
-					name: "ConnectEmbed",
-					href: `${connectSlug}/ConnectEmbed`,
+					name: "Sign-In Methods",
+					links: [
+						{
+							name: "Email & Phone",
+							href: `${connectSlug}/methods/in-app-wallets`,
+						},
+						{
+							name: "External Wallets",
+							href: `${connectSlug}/methods/external-wallets`,
+						},
+					],
 				},
 				{
-					name: "Build Custom Experience",
-					href: `/typescript/v5/react/connecting-wallets#using-hooks`,
+					name: "Customization",
+					links: [
+						{
+							name: "Logo",
+							href: `${connectSlug}/customization/logo`,
+						},
+						{
+							name: "Modal Sizes",
+							href: `${connectSlug}/customization/modal-sizes`,
+						},
+						{
+							name: "Theming",
+							href: `${connectSlug}/customization/theming`,
+						},
+						{
+							name: "Localization",
+							href: `${connectSlug}/customization/localization`,
+						},
+					],
 				},
 			],
 		},

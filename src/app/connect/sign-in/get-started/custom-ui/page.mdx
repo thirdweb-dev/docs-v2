@@ -1,0 +1,44 @@
+import {
+	SDKCard,
+	Grid,
+	DocImage,
+	GithubTemplateCard,
+	Stack,
+	createMetadata,
+} from "@doc";
+import { ReactIcon } from "@/icons";
+
+export const metadata = createMetadata({
+	image: {
+		title: "ConnectEmbed",
+		icon: "react",
+	},
+	title: "thirdweb Custom UI",
+	description:
+		"ConnectEmbed component renders a UI to connect to various wallets",
+});
+
+# Custom Sign-in
+
+Learn how to configure your interface even further or customize how Connect is triggered within your application by utilizizing the `useConnect` hook.
+
+```tsx
+const { connect } = useConnect();
+```
+
+Example of how to use `connect` with a custom button:
+
+```tsx
+import { useConnect } from "thirdweb/react";
+ 
+const client = createThirdwebClient({ clientId });
+ 
+function Example() {
+  const { connect, isConnecting, error } = useConnect();
+  return (
+    <button onClick={connect}>
+      Connect
+    </button>
+  );
+}
+```

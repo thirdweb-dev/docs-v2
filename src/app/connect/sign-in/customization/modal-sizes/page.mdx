@@ -1,0 +1,15 @@
+# Modal Sizes
+
+The Connect modal is set to `"wide"` by default. You can set it to `"compact"` by adding it to the `connectModal` prop:
+
+```tsx
+import { ConnectButton } from "thirdweb/react";
+ 
+function Example() {
+  return (
+    <div>
+      <ConnectButton connectModal={{ size: "compact" }} />
+    </div>
+  );
+}
+```

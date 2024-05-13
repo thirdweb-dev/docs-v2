@@ -1,5 +1,5 @@
 import { Callout, DocImage, createMetadata } from "@doc";
-import connectModal from "./assets/connect-modal.png";
+import connectModal from "./assets/hero.png";
 import customModal from "./assets/custom-modals.png";
 import connectPlayground from "./assets/connect-playground.png";
 
@@ -15,7 +15,11 @@ export const metadata = createMetadata({
 
 # Overview
 
-Connect is a comprehensive toolkit for connecting end-user wallets to applications and games. With Connect, you have the option to use the ConnectWallet component or utilize the Wallet SDK to create a customized experience that suits your app requirements.
+A flexible sign-up flow that accommodates different preferences is critical when onboarding users. Whether users prefer to sign up with their email, phone number, social media accounts or directly with a wallet, providing the options that fit your user's needs ensures a smoother, more user-friendly onboarding process that increases conversion. 
+
+Choose how to enable users to sign up with their email, phone number, social accounts, or wallets while also seamlessly customizing it to your brand with Connect SDK.
+
+<DocImage src={connectModal} />
 
 ### Features
 
@@ -26,22 +30,5 @@ Connect is a comprehensive toolkit for connecting end-user wallets to applicatio
 - **Authenticate Users:** Easily enable Auth (SIWE) to authenticate your end users.
 - **SDK Integration:** Easily integrate with thirdweb's Contract SDKs to enable users to interact with your application.
 
-<DocImage src={connectModal} />
-
 <DocImage src={customModal} />
 
-### Use Cases
-
-- Add a connect wallet modal for users to connect to your application with options for multiple wallet providers
-- Help onboard non-native crypto users via email, social, or guest wallets
-- Integrate with SDKs to enable contract interactions via games or applications
-
-### Try it out
-
-<Callout variant='info' title="Playground">
-
-See the ConnectWallet in action on [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
-
-</Callout>
-
-<DocImage src={connectPlayground} />

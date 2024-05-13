@@ -1,0 +1,21 @@
+## Localization
+
+By default, our ConnectButton uses the `en-US` locale. You can customize the language by setting the `locale` prop. You can refer to the **`[LocaleId](https://portal.thirdweb.com/references/typescript/v5/LocaleId)`** type for supported locales.
+
+```tsx
+import { ConnectButton } from "thirdweb/react";
+ 
+function Example() {
+  return (
+    <div>
+      <ConnectButton locale={"en_US"} />
+    </div>
+  );
+}
+```
+
+thirdweb currently supports the following locales:
+
+```tsx
+"en_US" | "es_ES" | "ja_JP" | "tl_PH"
+```

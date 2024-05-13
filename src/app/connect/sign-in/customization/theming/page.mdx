@@ -1,0 +1,19 @@
+# Theming
+
+You can set the theme for the [ConnectButton](https://www.notion.so/ConnectButton-51113a400e614dfe93a598e9e1b8ef63?pvs=21) component, which is set to `"dark"` by default. theme can be set to either `"dark"` , `"light"` or a custom theme object.
+
+We have **`[lightTheme](https://portal.thirdweb.com/references/typescript/v5/lightTheme)`** or **`[darkTheme](https://portal.thirdweb.com/references/typescript/v5/darkTheme)`** providers that you can override to kickstart customization.
+
+You can refer to our `Theme` page for a full view of customizable options if you’d prefer to create a custom theme from scratch.
+
+```tsx
+import { ConnectButton } from "thirdweb/react";
+ 
+function Example() {
+  return (
+    <div>
+      <ConnectButton theme={yourThemeConfig} />
+    </div>
+  );
+}
+```

@@ -1,0 +1,29 @@
+# External Wallets
+
+thirdweb supports a number of first-party web3 wallets such as Metamask and Phantom. You can view the full list of [supported wallets here](https://portal.thirdweb.com/typescript/v5/supported-wallets).
+
+The easiest way to add wallet connection to your application is via the [ConnectButton](https://www.notion.so/ConnectButton-51113a400e614dfe93a598e9e1b8ef63?pvs=21). To configure the wallets shown to your users, you can add them to the ConnectButton `wallets` prop with its [wallet ID](https://portal.thirdweb.com/typescript/v5/supported-wallets).
+
+<aside>
+ℹ️ External wallet login methods can also be configured from the [Connect Playground](https://thirdweb.com/dashboard/connect/playground) in the thirdweb dashboard.
+
+</aside>
+
+```tsx
+import { ConnectButton } from "thirdweb/react";
+import { createWallet } from "thirdweb/wallets";
+ 
+const wallets = [
+  createWallet("io.metamask"),
+  createWallet("com.coinbase.wallet"),
+  createWallet("me.rainbow"),
+];
+ 
+function Example() {
+  return (
+    <div>
+      <ConnectButton client={client} wallets={wallets} />
+    </div>
+  );
+}
+```
