@@ -40,8 +40,8 @@ In some cases, you may onramp to an intermediary token that requires an addition
 A `BuyWithFiatStatusResult` object containing the following properties:
 
 ```csharp
+string IntentId; // Intent identifier to track onramp flow status
 string Status; // Status of the onramp flow
-string SwapType; // Type of swap
 string ToAddress; // Address to receive the tokens
 OnRampQuote Quote; // OnRamp Quote details
 TransactionDetails Source; // Source transaction details

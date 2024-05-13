@@ -58,10 +58,10 @@ A `BuyWithFiatQuoteResult` object containing the following properties:
 string IntentId; // Intent identifier used to track the onramp status
 string ToAddress; // Address to receive the tokens
 OnRampCurrency FromCurrency; // OnRamp Currency details
+OnRampCurrency FromCurrencyWithFees; // OnRamp Currency details with fees
 OnRampToken OnRampToken; // OnRamp Token details
 string Provider; // Onramp provider
 Token ToToken; // Token details of the to token
-string EstimatedOnRampTokenWeiForSwap; // Estimated onramp token amount in wei
 string EstimatedToAmountMinWei; // Estimated to token amount received min in wei
 string EstimatedToAmountMin; // Estimated to token amount received min
 List<OnRampFees> ProcessingFees; // Processing fee details
