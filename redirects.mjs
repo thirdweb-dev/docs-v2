@@ -645,8 +645,6 @@ const otherRedirects = {
 	"/connect/embedded-wallet/how-to/get-embedded-wallet-details-on-server": "/connect/in-app-wallet/how-to/get-in-app-wallet-details-on-server",
 	"/react-native/v0/wallets/embedded-wallet": "/react-native/v0/wallets/in-app-wallet",
 	"/unity/wallets/providers/embedded-wallet": "/unity/wallets/providers/in-app-wallet",
-	// pay
-	"/connect/pay/build-a-custom-experience": "/connect/pay/buy-with-fiat/build-a-custom-experience",
 };
 
 /**

@@ -270,15 +270,15 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "ConnectButton",
-							href: `${paySlug}/get-started#connectbutton`,
+							href: `${paySlug}/get-started#option-1-connectbutton`,
 						},
 						{
 							name: "Embed Pay",
-							href: `${paySlug}/get-started#embed-pay`,
+							href: `${paySlug}/get-started#option-2-embed-pay`,
 						},
 						{
-							name: "Send a Transaction with Pay",
-							href: `${paySlug}/get-started#send-a-transaction-with-pay`,
+							name: "Send a Transaction",
+							href: `${paySlug}/get-started#option-3-send-a-transaction-with-pay`,
 						},
 					],
 				},
@@ -289,17 +289,7 @@ export const sidebar: SideBar = {
 
 				{
 					name: "Buy With Fiat",
-					isCollapsible: true,
-					links: [
-						{
-							name: "Overview",
-							href: `${paySlug}/buy-with-fiat`,
-						},
-						{
-							name: "Build a Custom Experience",
-							href: `${paySlug}/buy-with-fiat/build-a-custom-experience`,
-						},
-					],
+					href: `${paySlug}/buy-with-fiat`,
 				},
 				{
 					name: "Buy With Crypto",
@@ -315,6 +305,7 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
+
 				{
 					name: "Customization",
 					isCollapsible: true,
@@ -333,6 +324,10 @@ export const sidebar: SideBar = {
 							href: `${paySlug}/customization/send-transaction`,
 						},
 					],
+				},
+				{
+					name: "Build a Custom Experience",
+					href: `${paySlug}/build-a-custom-experience`,
 				},
 				{
 					name: "FAQs",

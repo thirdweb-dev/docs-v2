@@ -251,9 +251,9 @@ function WalletsSection() {
 					icon={WalletsAuthIcon}
 				/>
 				<ArticleCardIndex
-					href="/connect/pay/buy-with-crypto"
+					href="/connect/pay/overview"
 					title="Pay"
-					description="Easily integrate cross-chain crypto purchases for your users"
+					description="Easily integrate fiat onramps and cross-chain crypto purchases"
 					icon={PayIcon}
 				/>
 				<ArticleCardIndex
