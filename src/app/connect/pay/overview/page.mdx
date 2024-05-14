@@ -1,0 +1,40 @@
+import { createMetadata, DocImage, Grid, SDKCard } from "@doc";
+import PayOverviewImage from "../assets/pay-overview.png";
+
+export const metadata = createMetadata({
+	image: {
+		title: "thirdweb Pay",
+		icon: "thirdweb",
+	},
+	title: "thirdweb Pay - thirdweb",
+	description:
+		"thirdweb Pay - Fast, flexible credit card and crypto point of sale",
+});
+
+# Overview
+
+Pay allows your users to purchase cryptocurrencies and execute transactions with their credit card or debit card, or with any token via cross-chain routing.
+
+<DocImage src={PayOverviewImage} />
+
+## Features
+
+Pay is **free to integrate** for developers and unlocks the following for your users:
+
+- **Add funds to an EOA or in-app wallet** without leaving your app or game.
+- **Earn fees** on every Buy With Crypto transaction through Pay.
+- **Onramp funds directly into any transaction,** perfect for any of the following use cases:
+  - **Games** selling in-game assets onchain.
+  - **DEXes** looking to help users deposit funds.
+  - **Staking apps** onboarding new users to their pools.
+  - **Social apps** looking to add tipping or other paid functionality to their application.
+  - **Non-profits** accepting donations in crypto.
+
+## Integration Options
+
+| OPTION                                                                                              | DIFFICULTY | BEST FOR                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| [ConnectButton](/connect/pay/get-started#option-1-connectbutton)                                    | Easy       | Developers who want out-of-the-box support complete with wallet and social login.                                                         |
+| [PayEmbed](/connect/pay/get-started#option-2-embed-pay)                                             | Easy       | Developers who want onramp and crypto purchase experiences directly in their application.                                                 |
+| [Transaction Flow (sendTransaction)](/connect/pay/get-started#option-3-send-a-transaction-with-pay) | Easy       | Developers who want users to onramp or purchase crypto directly into a transaction. Great for minting and NFT purchase flows.             |
+| [Custom Pay Experience](/connect/pay/build-a-custom-experience)                                     | Hard       | Developers who want full customization over every step of the onramp process, from displaying quotes to polling for transaction statuses. |

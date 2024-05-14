@@ -24,27 +24,6 @@ In this guide, we will be using the wallet SDK to create a Node script but the l
 If you are working in a React environment, you are recommended to follow [this guide](/connect/account-abstraction/guides/react).
 
 <Steps>
-    <Step title="Deploy an Account Factory">
-
-Deployable via the [explore page](https://thirdweb.com/explore/smart-wallet) or build your own [ERC 4337](https://eips.ethereum.org/EIPS/eip-4337) compatible factory contract using the [Solidity SDK](/contracts/build/base-contracts/erc-4337).
-thirdweb offers the following three different kinds of account factories:
-
-<Grid>
-	<ArticleIconCard
-		title="Account Factory"
-		href="https://thirdweb.com/thirdweb.eth/AccountFactory"
-		icon={WalletsSmartIcon}
-	/>
-	<ArticleIconCard
-		title="Managed Account Factory"
-		href="https://thirdweb.com/thirdweb.eth/ManagedAccountFactory"
-		icon={WalletsSmartIcon}
-	/>
-</Grid>
-
-Read about the differences between the three factory types [here](/connect/account-abstraction/how-it-works).
-
-</Step>
 <Step title="Create an API key">
 
 To use the bundler and paymaster, you must create an API key and a billing account.
@@ -52,7 +31,7 @@ To use the bundler and paymaster, you must create an API key and a billing accou
 To create an API Key:
 
 - Head to the settings page in the dashboard and click the **API Keys** tab.
-- Click on **Create API Key**:
+- Click on **Create API Key**.
 - Follow the steps to create your API key.
 
 To use account abstraction infrastructure on mainnet you will also need to [create an account and add a payment method](https://thirdweb.com/dashboard/settings/billing).
@@ -105,21 +84,18 @@ Now, let's create a smart account using the SmartWallet class from the `@thirdwe
 To do this, we need to pass a `SmartWalletConfig` object to the constructor. This object contains the following properties:
 
 - `chain`: the chain that the smart account will be deployed on.
-- `factoryAddress`: the address of the account factory contract.
-- `gasless`: whether the smart account should have sponsored transactions or not.
+- `sponsorGas`: whether the smart account should have sponsored transactions or not.
 
 Once we have created the config and instantiated the `SmartWallet` class, we can connect the personal wallet to the smart account using the `connect` method.
 
 ```typescript
 // Configure the smart wallet
-const config = {
+const wallet = smartWallet({
 	chain: sepolia,
-	factoryAddress: "0x...", // your factory address
-	gasless: true,
-};
+	sponsorGas: true,
+});
 
 // Connect the smart wallet
-const wallet = smartWallet(config);
 const smartAccount = await wallet.connect({
 	client,
 	personalAccount,
@@ -174,7 +150,7 @@ bun index.ts
 
 As you can see in the terminal output, upon claiming the token, the smart account is deployed. This is because smart account contracts are deployed when the first transaction is initiated.
 
-We have successfully deployed a smart account using our factory contract and claimed an ERC20 token!
+We have successfully deployed a smart account and claimed an ERC20 token!
 
 </Step>
 <Step title="Conclusion">
@@ -182,12 +158,5 @@ We have successfully deployed a smart account using our factory contract and cla
 In this guide, we have learned how to use the wallet SDK with the TypeScript SDK to
 create a smart account and claim an NFT.
 
-Take a look at the [GitHub Repository](https://github.com/thirdweb-example/smart-wallet-script) for the full source code!
-
-<OpenSourceCard
-	title="Node.js Script"
-	description="A Node.js script to create and interact with smart accounts."
-	href={"https://github.com/thirdweb-example/smart-wallet-script"}
-/>
 </Step>
 </Steps>

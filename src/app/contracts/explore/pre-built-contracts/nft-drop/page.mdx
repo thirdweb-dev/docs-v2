@@ -160,8 +160,6 @@ Optionally, users may choose to hide their NFT image and metadata from users bef
 	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
 	<TabsTrigger value="react">React</TabsTrigger>
 	<TabsTrigger value="react-native">React Native</TabsTrigger>
-	<TabsTrigger value="python">Python</TabsTrigger>
-	<TabsTrigger value="go">Go</TabsTrigger>
 </TabsList>
 
 <TabsContent value="typescript">
@@ -192,38 +190,6 @@ const sdk = useSDK(
 		primary_sale_recipient: "<wallet_address>",
 	}),
 );
-```
-
-</TabsContent>
-
-<TabsContent value="python">
-
-```python
-from thirdweb.types.settings.metadata import NFTDropContractMetadata
-
-metadata = NFTDropContractMetadata(
-	name="<your_contract_name>",
-	primary_sale_recipient="<wallet_address>",
-	seller_fee_basis_points=500, # 5% royalty fee
-	fee_recipient="<wallet_address>",
-	platform_fee_basis_points=10, # 0.1% platform fee
-	platform_fee_recipient="<wallet_address>",
-)
-
-sdk.deployer.deploy_nft_drop(metadata)
-```
-
-</TabsContent>
-
-<TabsContent value="go">
-
-```go
-address, err := sdk.Deployer.DeployNFTDrop(
-	context.Background(),
-		&thirdweb.DeployNFTDropMetadata{
-				Name: "<your_contract_name>",
-		}
-)
 ```
 
 </TabsContent>

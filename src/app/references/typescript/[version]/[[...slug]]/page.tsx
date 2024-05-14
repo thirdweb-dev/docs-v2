@@ -14,4 +14,4 @@ const config = getTDocPage({
 export default config.default;
 export const generateStaticParams = config.generateStaticParams;
 export const generateMetadata = config.generateMetadata;
-export const dynamicParams = config.dynamicParams;
+export const dynamic = config.dynamic;

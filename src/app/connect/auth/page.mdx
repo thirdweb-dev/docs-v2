@@ -4,14 +4,15 @@ import {
 	InstallTabs,
 	Stack,
 	createMetadata,
+	Callout,
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger,
 } from "@doc";
 import next from "@/icons/frameworks/nextjs.png";
 import express from "@/icons/frameworks/javascript.png";
 import react from "@/icons/frameworks/react.png";
-import reactNative from "@/icons/frameworks/react-native.png";
-import nextauth from "@/icons/frameworks/nextauth.png";
-import firebase from "@/icons/frameworks/firebase.png";
-import supabase from "@/icons/frameworks/supabase.png";
 import { GraduationCap } from "lucide-react";
 
 export const metadata = createMetadata({
@@ -21,128 +22,162 @@ export const metadata = createMetadata({
 	},
 	title: "thirdweb Auth",
 	description:
-		"Auth is a developer SDK that lets you integrate passwordless web3-native authentication and authorization into your applications.",
+		"Auth allows anyone to integrate passwordless web3-native authentication and authorization into their applications.",
 });
 
 # Overview
 
-Auth is a developer SDK that lets you integrate passwordless web3-native authentication and authorization into your applications.
+Auth allows anyone to integrate passwordless web3-native authentication and authorization into their applications. Users can then **login using any thirdweb wallet** (in-app, browser, or smart wallet).
 
-It enables users to sign in with their wallets, allowing apps to access rich blockchain-level data and interact with their users onchain.
+This allows developers to create a familiar, secure authentication flow that works with traditional backends while leveraging the features of a web3 application.
 
-With Auth, developers can build applications that have secure, self-custodied, web3-first authentication.
+---
 
-<OpenSourceCard
-	title="Auth"
-	href="https://github.com/thirdweb-dev/js/tree/main/legacy_packages/auth"
-/>
-
-## Installation
+# Get Started
 
 <InstallTabs
-	npm="npm i @thirdweb-dev/auth"
-	yarn="yarn add @thirdweb-dev/auth"
-	pnpm="pnpm i @thirdweb-dev/auth"
+	npm="npm i thirdweb"
+	yarn="yarn add thirdweb"
+	pnpm="pnpm i thirdweb"
+	bun="bun i thirdweb"
 />
 
-## Resources
+## Get Your Client ID
 
-<Stack>
+To use Auth in your app, you'll need a client ID. You can get one for free on [your thirdweb dashboard](https://thirdweb.com/create-api-key).
 
-<ArticleIconCard
-	title="Getting Started"
-	href="/connect/auth/get-started"
-	icon={GraduationCap}
+## Setting Up Auth
+
+<Tabs defaultValue="react">
+
+<TabsList>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+```tsx
+import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
+import { createAuth } from "thirdweb/auth";
+
+const client = createThirdwebClient({
+clientId: '1234567890', // get yours at https://thirdweb.com/dashboard/settings/api-keys
+});
+
+const thirdwebAuth = createAuth({
+domain: 'localhost:3000',
+client
+});
+
+export default function App() {
+	const [loggedIn, setLoggedIn] = useState(false);
+	return (
+		// The ThirdwebProvider should be at the root of your application, but the ConnectButton can be anywhere
+		<ThirdwebProvider>
+			<ConnectButton
+				client={client}
+				auth={{
+					getLoginPayload: async (params) => {
+						return await thirdwebAuth.generatePayload({
+							address,
+							chainId: chainId ? parseInt(chainId) : undefined,
+						})
+					},
+					doLogin: async (params) => {
+						const verifiedPayload = await thirdwebAuth.verifyLoginPayload(params);
+						setLoggedIn(verifiedPayload.valid)
+					},
+					isLoggedIn: async () => {
+						return loggedIn;
+					},
+					doLogout: async () => {
+						setLoggedIn(false);
+					}
+				}}
+			/>
+		</ThirdwebProvider>
+	);
+}
+```
+</TabsContent>
+
+<TabsContent value="typescript">
+
+```ts
+import { createAuth } from "thirdweb/auth";
+
+const client = createThirdwebClient({
+	clientId: "1234567890", // get yours at https://thirdweb.com/dashboard/settings/api-keys
+});
+
+const auth = createAuth({
+	domain: "localhost:3000",
+	client,
+});
+
+// 1. generate a login payload on the server
+const loginPayload = await auth.generatePayload({ address: "0x123..." });
+
+// 2. sign the login payload on the client
+const signature = await auth.signPayload({
+	payload: loginPayload,
+	account: userAccount,
+});
+
+// 3. verify the login payload and signature on the server
+const verifiedPayload = await auth.verifyPayload({
+	payload: loginPayload,
+	signature,
+});
+
+// 4. generate a JWT for the client
+const jwt = await auth.generateJWT({ payload: verifiedPayload });
+
+// 5. set the JWT as a cookie or store it another way
+
+// 6. authenticate the client based on the JWT on subsequent calls
+const { valid, parsedJWT } = await auth.verifyJWT({ jwt });
+```
+
+</TabsContent>
+
+<Callout variant="warning" title="Deploying to Production">
+	These examples are intended to get up and running quickly, but aren't secure
+	for production. Before deploying your app to real users, checkout out our
+	walkthrough on [Deploying to
+	Production](/connect/auth/deploying-to-production).
+</Callout>
+
+</Tabs>
+
+## Templates
+
+Quickly get started with one of our templates:
+
+<OpenSourceCard
+	title="Auth + Next.js"
+	href="https://github.com/thirdweb-example/thirdweb-auth-next"
+	description="A working example of Auth + Next.js"
 />
 
-<ArticleIconCard
-	title="How Auth Works"
-	href="/connect/auth/how-it-works"
-	icon={GraduationCap}
+<OpenSourceCard
+	title="Auth + Express"
+	href="https://github.com/thirdweb-example/thirdweb-auth-express"
+	description="A working example of a React + Express app using Auth"
 />
-
-</Stack>
-
-## Applications
-
-Auth unlocks a variety of new possibilities by enabling the connection of web2 and web3 flows. Add wallet-based authentication to existing applications or build web3 experiences that utilize server-side architecture.
-
-Below are some of the applications that Auth enables:
-
-- **Passwordless Authentication:** Let users seamlessly login to your applications with just their wallets.
-- **Identity Verification:** Securely verify the onchain identities of existing users.
-- **Gated Resources:** Gate access to protected resources based on onchain criteria like NFT ownership.
-- **Onchain Interaction:** Interact with users onchain, like sending users reward NFTs.
-- **Onchain Payments:** Allow users to pay for your services with onchain assets like ETH or ERC20 tokens.
-- **Access Onchain Data:** Access rich onchain data associated with your users.
 
 ## Frameworks
 
-Auth integrates with a variety of server-side and client-side development frameworks. We&apos;re always adding support for more frameworks, so if you don&apos;t see yours, [let us know](https://thirdweb.com/contact-us), and we can explore adding support!
-
-### Server Frameworks
+Auth integrates with a variety of server-side and client-side development frameworks. We&apos;re always adding support for more frameworks, so if you don&apos;t see yours, [let us know](https://thirdweb.com/contact-us).
 
 <Stack>
 
 <ArticleIconCard
 	title="Next.js"
-	href="/connect/auth/server-frameworks/next"
+	href="/connect/auth/frameworks/next"
 	description="Integrate Auth in Next.js applications."
 	image={next}
-/>
-
-<ArticleIconCard
-	title="Express"
-	href="/connect/auth/server-frameworks/express"
-	description="Integrates Auth in Express applications."
-	image={express}
-/>
-
-</Stack>
-
-### Client Frameworks
-
-<Stack>
-
-<ArticleIconCard
-	title="React"
-	href="/connect/auth/client-frameworks/react"
-	description="Integrate Auth in React applications."
-	image={react}
-/>
-
-<ArticleIconCard
-	title="React Native"
-	href="/connect/auth/client-frameworks/react-native"
-	description="Integrate Auth in React Native applications."
-	image={reactNative}
-/>
-
-</Stack>
-
-### Integrations
-
-<Stack>
-
-<ArticleIconCard
-	title="Next Auth"
-	href="/connect/auth/integrations/next-auth"
-	description="Add Auth to existing Next Auth applications."
-	image={nextauth}
-/>
-
-<ArticleIconCard
-	title="Supabase"
-	href="/connect/auth/integrations/supabase"
-	description="Add Auth to existing Supabase applications."
-	image={supabase}
-/>
-
-<ArticleIconCard
-	title="Firebase"
-	href="/connect/auth/integrations/firebase"
-	description="Add Auth to existing Firebase applications."
-	image={firebase}
 />
 
 </Stack>

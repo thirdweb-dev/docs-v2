@@ -1,4 +1,4 @@
-import { SideBar } from "@/components/Layouts/DocLayout";
+import type { SideBar } from "@/components/Layouts/DocLayout";
 import {
 	WalletsAuthIcon,
 	WalletsConnectIcon,
@@ -18,8 +18,12 @@ export const sidebar: SideBar = {
 	name: "Connect",
 	links: [
 		{
-			name: "Overview",
+			name: "Introduction",
 			href: "/connect",
+		},
+		{
+			name: "QuickStart",
+			href: "/connect/quickstart",
 		},
 		{ separator: true },
 		// Connect
@@ -78,7 +82,7 @@ export const sidebar: SideBar = {
 							href: `${inAppSlug}/how-to/interact-blockchain`,
 						},
 						{
-							name: "Enable Gasless Transactions",
+							name: "Sponsor Transactions",
 							href: `${inAppSlug}/how-to/enable-gasless`,
 						},
 						{
@@ -123,15 +127,15 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/typescript/v5/inAppWallet`,
+							href: "/references/typescript/v5/inAppWallet",
 						},
 						{
 							name: "React Native",
-							href: `/react-native/v0/wallets/in-app-wallet`,
+							href: "/react-native/v0/wallets/in-app-wallet",
 						},
 						{
 							name: "Unity",
-							href: `/unity/wallets/providers/in-app-wallet`,
+							href: "/unity/wallets/providers/in-app-wallet",
 						},
 					],
 				},
@@ -164,6 +168,10 @@ export const sidebar: SideBar = {
 				{
 					name: "Batching Transactions",
 					href: `${aAslug}/batching-transactions`,
+				},
+				{
+					name: "Account Factories",
+					href: `${aAslug}/factories`,
 				},
 				{
 					name: "Bundler & Paymaster",
@@ -220,97 +228,28 @@ export const sidebar: SideBar = {
 		// Auth
 		{ separator: true },
 		{
-			name: "Auth",
+			name: "Auth (SIWE)",
 			icon: <WalletsAuthIcon />,
 			isCollapsible: true,
 			links: [
 				{
-					name: "Overview",
+					name: "Get Started",
 					href: `${authSlug}`,
 				},
 				{
-					name: "How it Works",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "Overview",
-							href: `${authSlug}/how-it-works`,
-						},
-						{
-							name: "Sign-in with Wallet",
-							href: `${authSlug}/how-it-works/siwe`,
-						},
-						{
-							name: "JSON Web Tokens",
-							href: `${authSlug}/how-it-works/jwt`,
-						},
-						{
-							name: "Auth API",
-							href: `${authSlug}/how-it-works/api`,
-						},
-					],
-				},
-				{
-					name: "Get Started",
-					href: `${authSlug}/get-started`,
-				},
-				{
-					name: "Client Frameworks",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "React",
-							href: `${authSlug}/client-frameworks/react`,
-						},
-						{
-							name: "React Native",
-							href: `${authSlug}/client-frameworks/react-native`,
-						},
-					],
-				},
-				{
-					name: "Server Frameworks",
+					name: "Frameworks",
 					isCollapsible: true,
 					expanded: false,
 					links: [
 						{
 							name: "Next.js",
-							href: `${authSlug}/server-frameworks/next`,
-						},
-						{
-							name: "Express",
-							href: `${authSlug}/server-frameworks/express`,
+							href: `${authSlug}/frameworks/next`,
 						},
 					],
 				},
 				{
-					name: "Integrations",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "Next Auth",
-							href: `${authSlug}/integrations/next-auth`,
-						},
-						{
-							name: "Supabase",
-							href: `${authSlug}/integrations/supabase`,
-						},
-						{
-							name: "Firebase",
-							href: `${authSlug}/integrations/firebase`,
-						},
-					],
-				},
-				{
-					name: "Wallet Configuration",
-					href: `${authSlug}/wallet-configuration`,
-				},
-				{
-					name: "FAQs",
-					href: `${authSlug}/faq`,
+					name: "Deploying to Production",
+					href: `${authSlug}/deploying-to-production`,
 				},
 			],
 		},
@@ -322,32 +261,77 @@ export const sidebar: SideBar = {
 			isCollapsible: true,
 			links: [
 				{
-					name: "Buy With Crypto",
-					isCollapsible: true,
-					expanded: true,
+					name: "Overview",
+					href: `${paySlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${paySlug}/get-started`,
 					links: [
 						{
-							name: "Overview",
-							href: `${paySlug}/buy-with-crypto`,
+							name: "ConnectButton",
+							href: `${paySlug}/get-started#option-1-connectbutton`,
 						},
 						{
-							name: "Supported Chains",
-							href: `${paySlug}/supported-chains`,
+							name: "Embed Pay",
+							href: `${paySlug}/get-started#option-2-embed-pay`,
 						},
 						{
-							name: "Get Started",
-							href: `${paySlug}/get-started`,
-						},
-
-						{
-							name: "Fee Sharing",
-							href: `${paySlug}/fee-sharing`,
+							name: "Send a Transaction",
+							href: `${paySlug}/get-started#option-3-send-a-transaction-with-pay`,
 						},
 					],
 				},
 				{
-					name: "Buy With Fiat (Coming Soon)",
+					name: "Supported Chains",
+					href: `${paySlug}/supported-chains`,
+				},
+
+				{
+					name: "Buy With Fiat",
 					href: `${paySlug}/buy-with-fiat`,
+				},
+				{
+					name: "Buy With Crypto",
+					isCollapsible: true,
+					links: [
+						{
+							name: "Overview",
+							href: `${paySlug}/buy-with-crypto/overview`,
+						},
+						{
+							name: "Fee Sharing",
+							href: `${paySlug}/buy-with-crypto/fee-sharing`,
+						},
+					],
+				},
+
+				{
+					name: "Customization",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "ConnectButton",
+							href: `${paySlug}/customization/connectbutton`,
+						},
+						{
+							name: "PayEmbed",
+							href: `${paySlug}/customization/payembed`,
+						},
+						{
+							name: "useSendTransaction",
+							href: `${paySlug}/customization/send-transaction`,
+						},
+					],
+				},
+				{
+					name: "Build a Custom Experience",
+					href: `${paySlug}/build-a-custom-experience`,
+				},
+				{
+					name: "FAQs",
+					href: `${paySlug}/faqs`,
 				},
 			],
 		},
@@ -360,19 +344,19 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "TypeScript",
-					href: `/typescript/v5`,
+					href: "/typescript/v5",
 				},
 				{
 					name: "React",
-					href: `/typescript/v5/react`,
+					href: "/typescript/v5/react",
 				},
 				{
 					name: "React Native",
-					href: `/react-native/v0`,
+					href: "/react-native/v0",
 				},
 				{
 					name: "Unity",
-					href: `/unity`,
+					href: "/unity",
 				},
 			],
 		},

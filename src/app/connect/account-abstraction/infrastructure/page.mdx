@@ -23,27 +23,31 @@ You can configure your client ID to restrict interactions only with your own con
 
 With a thirdweb API key, you get access to bundler and paymaster infrastructure on the following chains:
 
-| Chain             | Mainnet | Testnet              |
-| ----------------- | ------- | -------------------- |
-| Ethereum          | ✅      | ✅ (goerli, sepolia) |
-| Polygon           | ✅      | ✅ (amoy)    |
-| Arbitrum  (one, nova)         | ✅      | ✅ (goerli, sepolia) |
-| Optimism          | ✅      | ✅                   |
-| Gnosis            | ✅      | ✅                   |
-| Linea             | ✅      | ✅                   |
-| Base              | ✅      | ✅ (goerli, sepolia) |
-| Avalanche C-Chain | ✅      | ✅                   |
-| Scroll            | ✅      | ✅                   |
-| Celo              | ✅      | ✅                   |
-| Binance           | ✅      | ✅                   |
-| Xai Orbit         | ✅      | ✅                   |
-| Mode              | ✅      | ✅                   |
-| Zora              | ✅      | ✅                   |
-| Fraxtal           | ✅      | ✅                   |
-| Lisk           | ✅      | ❌                   |
-| Taiko           | ✅      | ❌                   |
+| Chain                | Mainnet | Testnet |
+| -------------------- | ------- | ------- |
+| Ethereum             | ✅      | ✅      |
+| Polygon              | ✅      | ✅      |
+| Arbitrum (one, nova) | ✅      | ✅      |
+| Optimism             | ✅      | ✅      |
+| Gnosis               | ✅      | ✅      |
+| Linea                | ✅      | ✅      |
+| Base                 | ✅      | ✅      |
+| Avalanche C-Chain    | ✅      | ✅      |
+| Scroll               | ✅      | ✅      |
+| Celo                 | ✅      | ✅      |
+| Binance              | ✅      | ✅      |
+| Xai Orbit            | ✅      | ✅      |
+| Mode                 | ✅      | ✅      |
+| Zora                 | ✅      | ✅      |
+| Fraxtal              | ✅      | ✅      |
+| Lisk                 | ❌      | ✅      |
+| Taiko                | ✅      | ❌      |
+| Degen                | ✅      | ❌      |
+| Mantle               | ✅      | ❌      |
+| Ancient8             | ✅      | ✅      |
+| Blast                | ❌      | ✅      |
 
-To support a chain not listed, [contact us](https://thirdweb.typeform.com/to/Q93CVgUc?typeform-source=thirdweb-www-git-mariano-ftd-1670.thirdweb-preview.com).
+To support a chain not listed, [contact us](https://thirdweb.com/contact-us).
 
 ## Using a Custom Bundler
 
@@ -53,8 +57,7 @@ pass the `bundlerUrl` the `SmartWalletOptions` overrides:
 ```ts
 const config: SmartWalletOptions = {
 	chain,
-	factoryAddress,
-	gasless,
+	sponsorGas: true,
 	overrides: {
 		bundlerUrl: "your-bundler-url",
 	},
@@ -68,8 +71,7 @@ You can also provide an entirely custom paymaster logic by providing a `paymaste
 ```ts
 const config: SmartWalletOptions = {
 	chain,
-	factoryAddress,
-	gasless,
+	sponsorGas: true,
 	overrides: {
 		paymaster: async (userOp: UserOperation) => {
 			// your custom paymaster logic
