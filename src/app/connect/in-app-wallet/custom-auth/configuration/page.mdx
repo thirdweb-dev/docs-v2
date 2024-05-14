@@ -154,7 +154,7 @@ const { connect } = useConnect();
 const handlePostLogin = async (jwt: string) => {
 	await connect(() => {
 		const wallet = inAppWallet();
-		wallet.connect({
+		await wallet.connect({
 			client,
 			strategy: "auth_endpoint",
 			// This is the payload that is sent to the auth endpoint
