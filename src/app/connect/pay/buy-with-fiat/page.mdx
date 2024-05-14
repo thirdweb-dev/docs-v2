@@ -13,15 +13,18 @@ export const metadata = createMetadata({
 
 # Buy With Fiat
 
-Buy With Fiat enables debit and credit card purchases into any transaction across every EVM.
+Buy With Fiat enables debit and credit card purchases to complete any transaction or fund any wallet directly in your application.
+
+<DocImage src={BuyWithFiatImage} />
 
 ### Get Started
 
-- **Transaction Flow:** Allow users to [execute any transaction](/connect/pay/get-started#send-a-transaction-with-pay), even with an empty wallet.
-- **Embed directly:** Use our [PayEmbed](/connect/pay/get-started#embed-pay) to enable onramps and crypto purchases directly in your interface.
-- **The Connect Interface:** By [integrating our ConnectButton](/connect/ConnectButton), your users can onramp funds into their connected wallets.
-
-<DocImage src={BuyWithFiatImage} />
+| OPTION                                                                                              | DIFFICULTY | BEST FOR                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| [ConnectButton](/connect/pay/get-started#option-1-connectbutton)                                    | Easy       | Developers who want out-of-the-box support complete with wallet and social login.                                                         |
+| [PayEmbed](/connect/pay/get-started#option-2-embed-pay)                                             | Easy       | Developers who want onramp and crypto purchase experiences directly in their application.                                                 |
+| [Transaction Flow (sendTransaction)](/connect/pay/get-started#option-3-send-a-transaction-with-pay) | Easy       | Developers who want users to onramp or purchase crypto directly into a transaction. Great for minting and NFT purchase flows.             |
+| [Custom Pay Experience](/connect/pay/build-a-custom-experience)                                     | Hard       | Developers who want full customization over every step of the onramp process, from displaying quotes to polling for transaction statuses. |
 
 ### Supported Countries
 
