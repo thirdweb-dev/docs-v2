@@ -342,8 +342,24 @@ const pay: SidebarLink = {
 			href: "/unity/pay/getbuywithcryptostatus",
 		},
 		{
-			name: "Get Buy With Crypto History",
-			href: "/unity/pay/getbuywithcryptohistory",
+			name: "Get Buy With Fiat Quote",
+			href: "/unity/pay/getbuywithfiatquote",
+		},
+		{
+			name: "Buy With Fiat",
+			href: "/unity/pay/buywithfiat",
+		},
+		{
+			name: "Get Buy With Fiat Status",
+			href: "/unity/pay/getbuywithfiatstatus",
+		},
+		{
+			name: "Get Buy With Fiat Currencies",
+			href: "/unity/pay/getbuywithfiatcurrencies",
+		},
+		{
+			name: "Get Buy History",
+			href: "/unity/pay/getbuyhistory",
 		},
 	],
 };
