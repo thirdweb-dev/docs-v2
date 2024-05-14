@@ -20,9 +20,9 @@ export const metadata = createMetadata({
 
 # Get Started
 
-Learn how to add Pay to any transaction execution or embed Pay directly into your application.
+Learn how to add onramps and crypto purchases to your application. To see which integration is right for you, refer to our [integrations overview](/connect/pay/overview#integration-options).
 
-The following guide uses our Typescript SDK. You can also learn how to integrate Pay with our [Unity SDK](https://portal.thirdweb.com/unity/pay/getbuywithcryptoquote).
+The following guide uses our React SDK. You can also learn how to integrate Pay with our [Unity SDK](https://portal.thirdweb.com/unity/pay/getbuywithcryptoquote).
 
 ---
 
@@ -44,9 +44,31 @@ Log in to [the thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to
 </Steps>
 ---
 
-## Embed Pay
+## Option 1: ConnectButton
 
-Place Pay directly into your site via the `PayEmbed` component.
+Pay is available by default with our `ConnectButton` component. When users log in with Connect, they'll be able to onramp and purchase crypto directly from the logged in Connect interface. You can read more about `ConnectButton` [in this guide](/connect/connect).
+
+```tsx
+import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
+
+const client = createThirdwebClient({ clientId: your_client_id });
+
+export default function App() {
+	return (
+		<ThirdwebProvider>
+			<ConnectButton client={client} />
+		</ThirdwebProvider>
+	);
+}
+```
+
+Our `ConnectButton` has a number of [customization options](/connect/pay/customization/connectbutton) so you can tailor it to your experience.
+
+---
+
+## Option 2: Embed Pay
+
+The `PayEmbed` allows users to onramp and purchase crypto directly from your application interface.
 
 ```tsx
 import { ThirdwebProvider, PayEmbed } from "thirdweb/react";
@@ -56,7 +78,7 @@ const client = createThirdwebClient({ clientId: your_client_id });
 export default function App() {
 	return (
 		<ThirdwebProvider>
-			<PayEmbed />
+			<PayEmbed client={client} />
 		</ThirdwebProvider>
 	);
 }
@@ -68,9 +90,11 @@ The embedded Pay component will be displayed like so in your application interfa
 
 And voila! Your users can now onramp and convert crypto directly from your application.
 
+Our `PayEmbed` has a number of [customization options](/connect/pay/customization/payembed) so you can tailor it to your experience.
+
 ---
 
-## Send a Transaction with Pay
+## Option 3: Send a Transaction with Pay
 
 Pay is enabled by default for any contract call sent with `sendTransaction`. It will automatically be invoked when a user does not have enough funds to complete the transaction.
 
@@ -80,11 +104,12 @@ Pay is enabled by default for any contract call sent with `sendTransaction`. It 
 </Callout>
 
 ```tsx
-import { ThirdwebProvider, sendTransaction } from "thirdweb/react";
+import { ThirdwebProvider, useSendTransaction } from "thirdweb/react";
 
 const client = createThirdwebClient({ clientId: your_client_id });
 
 export default function App() {
+	const { sendTransaction } = useSendTransaction();
 	return (
 		<ThirdwebProvider>
 			<button onClick={() => sendTransaction()} />
@@ -99,8 +124,4 @@ When a user clicks this button, Pay will perform gas estimation to determine if 
 
 Once a user onramps or converts their funds to the required token, the user will be prompted once more to confirm the transaction. The transaction will then execute as expected.
 
----
-
-## Customize Pay
-
-You can customize the look of Pay, modify available tokens, and more by following our [customization guide](/connect/pay/customization). To see all configuration options for the Pay modal shown above, you can view this reference.
+For deeper customization of the Pay transaction modal, you can refer to our [sendTransaction customization guide](/connect/pay/customization/send-transaction).

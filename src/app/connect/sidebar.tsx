@@ -127,15 +127,15 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/typescript/v5/inAppWallet`,
+							href: "/references/typescript/v5/inAppWallet",
 						},
 						{
 							name: "React Native",
-							href: `/react-native/v0/wallets/in-app-wallet`,
+							href: "/react-native/v0/wallets/in-app-wallet",
 						},
 						{
 							name: "Unity",
-							href: `/unity/wallets/providers/in-app-wallet`,
+							href: "/unity/wallets/providers/in-app-wallet",
 						},
 					],
 				},
@@ -267,6 +267,20 @@ export const sidebar: SideBar = {
 				{
 					name: "Get Started",
 					href: `${paySlug}/get-started`,
+					links: [
+						{
+							name: "ConnectButton",
+							href: `${paySlug}/get-started#option-1-connectbutton`,
+						},
+						{
+							name: "Embed Pay",
+							href: `${paySlug}/get-started#option-2-embed-pay`,
+						},
+						{
+							name: "Send a Transaction",
+							href: `${paySlug}/get-started#option-3-send-a-transaction-with-pay`,
+						},
+					],
 				},
 				{
 					name: "Supported Chains",
@@ -275,17 +289,7 @@ export const sidebar: SideBar = {
 
 				{
 					name: "Buy With Fiat",
-					isCollapsible: true,
-					links: [
-						{
-							name: "Overview",
-							href: `${paySlug}/buy-with-fiat`,
-						},
-						{
-							name: "Build a Custom Experience",
-							href: `${paySlug}/buy-with-fiat/build-a-custom-experience`,
-						},
-					],
+					href: `${paySlug}/buy-with-fiat`,
 				},
 				{
 					name: "Buy With Crypto",
@@ -301,33 +305,29 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
+
 				{
 					name: "Customization",
-					href: `${paySlug}/customization`,
 					isCollapsible: true,
 					expanded: true,
 					links: [
 						{
-							name: "Support Custom Tokens",
-							href: `${paySlug}/customization#supported-tokens`,
+							name: "ConnectButton",
+							href: `${paySlug}/customization/connectbutton`,
 						},
 						{
-							name: "Prefill Custom Token",
-							href: `${paySlug}/customization#prefill-custom-token`,
+							name: "PayEmbed",
+							href: `${paySlug}/customization/payembed`,
 						},
 						{
-							name: "Disable Buy With Crypto",
-							href: `${paySlug}/customization#disable-buy-with-crypto`,
-						},
-						{
-							name: "Theme",
-							href: `${paySlug}/customization#theme`,
-						},
-						{
-							name: "Localization",
-							href: `${paySlug}/customization#localization`,
+							name: "useSendTransaction",
+							href: `${paySlug}/customization/send-transaction`,
 						},
 					],
+				},
+				{
+					name: "Build a Custom Experience",
+					href: `${paySlug}/build-a-custom-experience`,
 				},
 				{
 					name: "FAQs",
@@ -344,19 +344,19 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "TypeScript",
-					href: `/typescript/v5`,
+					href: "/typescript/v5",
 				},
 				{
 					name: "React",
-					href: `/typescript/v5/react`,
+					href: "/typescript/v5/react",
 				},
 				{
 					name: "React Native",
-					href: `/react-native/v0`,
+					href: "/react-native/v0",
 				},
 				{
 					name: "Unity",
-					href: `/unity`,
+					href: "/unity",
 				},
 			],
 		},
