@@ -17,22 +17,20 @@ Learn how to customize Pay within the `ConnectButton` interface. You can find a 
 
 ## Customize Supported Tokens
 
-You can enable users to select your token on a given chain by passing an array of `SupportedTokens`. Note that this array overrides all default tokens listed for that chain.
+You can enable users to select your token on a given chain by passing an array of `SupportedTokens`. Note that this array overrides all default tokens listed for that chain. Note that this will also show these tokens in the 'Send' screen to transfer tokens.
 
 ```tsx
-<PayEmbed
+<ConnectButton
 	client={client}
-	payOptions={{
-		supportedTokens: {
-			"1": [
-				{
-					address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
-					name: "USD Coin",
-					symbol: "USDC",
-					icon: usdcIcon,
-				},
-			],
-		},
+	supportedTokens={{
+		"1": [
+			{
+				address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+				name: "USD Coin",
+				symbol: "USDC",
+				icon: usdcIcon,
+			},
+		],
 	}}
 />
 ```
@@ -48,10 +46,11 @@ For example, if you wanted users to only purchase Ethereum on Base network, you 
 ```tsx
 import { base } from "thirdweb/chains";
 
-<PayEmbed
+<ConnectButton
 	client={client}
-	payOptions={{
-		prefillBuy: {
+	detailsModal={{
+		payOptions: {
+			prefillBuy: {
 			token: {
 				address: "0x866a087038f7C12cf33EF91aC5b1AcE6Ac1DA788",
 				name: "Base ETH",
@@ -66,18 +65,21 @@ import { base } from "thirdweb/chains";
 			},
 		},
 	}}
+	}
 />;
 ```
 
 If you'd like to prefill a purchase with a native token, you can set the chain without passing a token:
 
 ```tsx
-<PayEmbed
+<ConnectButton
 	client={client}
-	payOptions={{
-		prefillBuy: {
-			chain: base,
-		},
+	detailsModal={{
+		payOptions: {
+			prefillBuy: {
+				chain: base,
+			},
+		}
 	}}
 />
 ```
@@ -91,10 +93,12 @@ In some cases, you may only want to show users fiat or crypto payment options fo
 #### Disable Buy With Crypto
 
 ```tsx
-<PayEmbed
+<ConnectButton
 	client={client}
-	payOptions={{
-		buyWithCrypto: false,
+	detailsModal={{
+		payOptions: {
+			buyWithCrypto: false,
+		}
 	}}
 />
 ```
@@ -102,10 +106,12 @@ In some cases, you may only want to show users fiat or crypto payment options fo
 #### Disable Buy With Fiat
 
 ```tsx
-<PayEmbed
+<ConnectButton
 	client={client}
-	payOptions={{
-		buyWithFiat: false,
+	detailsModal={{
+		payOptions: {
+			buyWithFiat: false,
+		}
 	}}
 />
 ```
@@ -123,9 +129,9 @@ You can refer to our [`Theme`](/references/typescript/v5/Theme) page for a full 
 #### Provided Themes
 
 ```tsx
-<PayEmbed theme='light' />
+<ConnectButton theme='light' />
 
-<PayEmbed theme='dark' />
+<ConnectButton theme='dark' />
 ```
 
 #### Custom Theme
@@ -134,6 +140,6 @@ You can refer to our [`Theme`](/references/typescript/v5/Theme) page for a full 
 import { darkTheme } from 'thirdweb/react';
 
 // Using custom theme
-<PayEmbed theme={darkTheme({ ... })} />
+<ConnectButton theme={darkTheme({ ... })} />
 
 ```

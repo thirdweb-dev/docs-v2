@@ -127,15 +127,15 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/typescript/v5/inAppWallet`,
+							href: "/references/typescript/v5/inAppWallet",
 						},
 						{
 							name: "React Native",
-							href: `/react-native/v0/wallets/in-app-wallet`,
+							href: "/react-native/v0/wallets/in-app-wallet",
 						},
 						{
 							name: "Unity",
-							href: `/unity/wallets/providers/in-app-wallet`,
+							href: "/unity/wallets/providers/in-app-wallet",
 						},
 					],
 				},
@@ -320,7 +320,7 @@ export const sidebar: SideBar = {
 							href: `${paySlug}/customization/payembed`,
 						},
 						{
-							name: "sendTransaction",
+							name: "useSendTransaction",
 							href: `${paySlug}/customization/send-transaction`,
 						},
 					],
@@ -344,19 +344,19 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "TypeScript",
-					href: `/typescript/v5`,
+					href: "/typescript/v5",
 				},
 				{
 					name: "React",
-					href: `/typescript/v5/react`,
+					href: "/typescript/v5/react",
 				},
 				{
 					name: "React Native",
-					href: `/react-native/v0`,
+					href: "/react-native/v0",
 				},
 				{
 					name: "Unity",
-					href: `/unity`,
+					href: "/unity",
 				},
 			],
 		},
