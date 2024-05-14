@@ -40,6 +40,10 @@ const links = [
 		name: "Engine",
 		href: "/engine",
 	},
+	{
+		name: "Pay",
+		href: "/connect/pay/overview",
+	},
 ];
 
 const toolLinks = [
