@@ -70,7 +70,7 @@ import { inAppWallet } from "thirdweb/wallets";
 
 const client = createThirdwebClient({ clientId });
 const wallets = [inAppWallet({
-providers: ["email", "facebook", "apple", "google"]
+providers: ["email", "facebook", "apple", "google", "phone", "passkey"]
 })];
 
 export default function App() {

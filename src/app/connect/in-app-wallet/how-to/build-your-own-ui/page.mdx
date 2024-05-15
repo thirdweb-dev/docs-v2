@@ -122,7 +122,7 @@ const account = await wallet.connect({
 <TabsContent value="react">
 
 ```typescript
-import { inAppWallet, preAuthenticate } from "thirdweb/wallets";
+import { inAppWallet, preAuthenticate } from "thirdweb/wallets/in-app";
 
 const { connect } = useConnect();
 
@@ -157,7 +157,7 @@ const handleLogin = async (email: string, verificationCode: string) => {
 In other frameworks, use your own instance of the wallet to authenticate and connect.
 
 ```typescript
-import { inAppWallet, preAuthenticate } from "thirdweb/wallets";
+import { inAppWallet, preAuthenticate } from "thirdweb/wallets/in-app";
 
 // send email verification code
 await preAuthenticate({
@@ -173,6 +173,57 @@ const account = await wallet.connect({
 	email,
 	verificationCode,
 });
+```
+
+</TabsContent>
+</Tabs>
+
+## Authenticate via Passkey
+
+<Tabs defaultValue="react">
+<TabsList>
+	<TabsTrigger value="react">React</TabsTrigger>
+	<TabsTrigger value="typescript">TypeScript</TabsTrigger>
+</TabsList>
+
+<TabsContent value="react">
+
+```typescript
+import { inAppWallet, hasStoredPasskey } from "thirdweb/wallets/in-app";
+
+const { connect } = useConnect();
+
+const handleLogin = async (email: string, verificationCode: string) => {
+	await connect(() => {
+		const wallet = inAppWallet();
+		const hasPasskey = await hasStoredPasskey(client);
+		await wallet.connect({
+			client,
+			strategy: "passkey",
+			type: hasPasskey ? "sign-in" : "sign-up",
+		});
+		return wallet;
+	});
+};
+```
+
+</TabsContent>
+
+<TabsContent value="typescript">
+
+In other frameworks, use your own instance of the wallet to authenticate and connect.
+
+```typescript
+import { inAppWallet, hasStoredPasskey } from "thirdweb/wallets/in-app";
+
+const wallet = inAppWallet();
+const hasPasskey = await hasStoredPasskey(client);
+await wallet.connect({
+	client,
+	strategy: "passkey",
+	type: hasPasskey ? "sign-in" : "sign-up",
+});
+return wallet;
 ```
 
 </TabsContent>
