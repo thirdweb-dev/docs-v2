@@ -20,15 +20,15 @@ dashboard](https://thirdweb.com/dashboard/engine).
 - A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
 - PostgresDB (version 14+)
 
-### Development
+### Running Engine locally
 
-Bring your own [Postgres-compatible database](https://www.postgresql.org/support/professional_hosting/), or run Postgres locally:
+Start Postgres:
 
 ```bash
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
 ```
 
-Run Engine locally:
+Start Engine server:
 
 ```bash
 docker run \
@@ -42,8 +42,6 @@ docker run \
   --cpus="0.5" \
   thirdweb/engine:latest
 ```
-
-_Note: Replace `POSTGRES_CONNECTION_URL` with your database URL._
 
 #### Environment variables
 
@@ -80,21 +78,22 @@ To manage your Engine instance from the dashboard:
 1. Add your publicly accessible Engine URL.
    - If Engine is running locally, provide the URL `https://localhost:3005`.
 
-### Production
+### Running Engine in production
 
 See the [Production Checklist](/engine/production-checklist#cloud-hosting) for best practices using Engine in a production environment.
 
-#### Self-hosting recommendations
-
-- Do _not_ set the environment variable `ENABLE_HTTPS=true`.
-- Host Engine Docker on a cloud provider.
-  - Minimum specs: 1 vCPU, 2 GB memory (AWS equivalent: t2.small)
-  - Auto-scale the instance count to increase inbound throughput and queuing capacity.
-- Host Postgres DB on a cloud provider.
+- Pin Engine Docker to a version to control when changes are introduced.
+  - `latest` may include major version changes which can introduce breaking changes.
+- Host Engine DB on any [Postgres-compatible database](https://www.postgresql.org/support/professional_hosting/).
+  - Remember to update `POSTGRES_CONNECTION_URL`.
   - Examples: [AWS RDS](https://aws.amazon.com/rds/postgresql/), [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres), [Heroku](https://www.heroku.com/postgres), [Supabase](https://supabase.com/docs/guides/database/overview)
   - Minimum specs: 2 vCPU, 2 GB memory (AWS equivalent: t4g.small)
   - Minimum version: 14
-  - Set the `connection_limit` parameter within your `POSTGRES_CONNECTION_URL` environment variable to `10`.
+  - Add the `?connection_limit=10` param to your `POSTGRES_CONNECTION_URL` to increase the connection limit.
+- Host Engine server on any cloud provider.
+  - Minimum specs: 1 vCPU, 2 GB memory (AWS equivalent: t2.small)
+  - Auto-scale the instance count to increase inbound throughput and queuing capacity.
+- Remove the `ENABLE_HTTPS` env var.
 
 ### FAQ
 
