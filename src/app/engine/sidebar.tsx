@@ -64,6 +64,10 @@ export const sidebar: SideBar = {
 					name: "Gasless Transactions",
 					href: `${engineSlug}/features/gasless-transactions`,
 				},
+				{
+					name: "Contract Subscriptions",
+					href: `${engineSlug}/features/contract-subscriptions`,
+				},
 			],
 		},
 		{
