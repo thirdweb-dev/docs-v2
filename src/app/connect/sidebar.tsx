@@ -8,7 +8,7 @@ import {
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
 
-const connectSlug = "/connect/connect";
+const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
@@ -28,21 +28,26 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Connect
 		{
-			name: "UI Components",
+			name: "Sign-In",
 			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
 				{
-					name: "ConnectButton",
-					href: `${connectSlug}/ConnectButton`,
-				},
-				{
-					name: "ConnectEmbed",
-					href: `${connectSlug}/ConnectEmbed`,
-				},
-				{
-					name: "Build Custom Experience",
-					href: `/typescript/v5/react/connecting-wallets#using-hooks`,
+					name: "Get Started",
+					links: [
+						{
+							name: "Connect Button",
+							href: `${connectSlug}/ConnectButton`,
+						},
+						{
+							name: "Connect Embed",
+							href: `${connectSlug}/ConnectEmbed`,
+						},
+						{
+							name: "Custom UI",
+							href: "",
+						},
+					],
 				},
 			],
 		},
