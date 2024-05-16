@@ -45,9 +45,51 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "Custom UI",
-							href: "",
+							href: `${connectSlug}/Custom-UI`,
 						},
 					],
+				},
+				{
+					name: "Sign-In Methods",
+					links: [
+						{
+							name: "Email & Phone",
+							href: `${connectSlug}/methods/email-and-phone`,
+						},
+						{
+							name: "Social Login",
+							href: `${connectSlug}/methods/social-logins`,
+						},
+						{
+							name: "External Wallets",
+							href: `${connectSlug}/methods/external-wallets`,
+						},
+					],
+				},
+				{
+					name: "Customization",
+					links: [
+						{
+							name: "Modal Size",
+							href: `${connectSlug}/customization#logo`,
+						},
+						{
+							name: "Logo",
+							href: `${connectSlug}/customization#modal-sizes`,
+						},
+						{
+							name: "Theme",
+							href: `${connectSlug}/customization#theming`,
+						},
+						{
+							name: "Localization",
+							href: `${connectSlug}/customization#localization`,
+						},
+					],
+				},
+				{
+					name: "Playground",
+					href: "https://thirdweb.com/dashboard/connect/playground",
 				},
 			],
 		},
