@@ -8,12 +8,17 @@ export const metadata = createMetadata({
 
 # InAppWallet.Create
 
-Create an instance of `InAppWallet` using a user's email or phone number. This wallet type facilitates secure user authentication through OTP verification, making it suitable for client-facing applications where handling private keys directly is not ideal.
+Create an instance of `InAppWallet` using a user's email, phone number or OAuth. This wallet type facilitates secure user authentication through OTP verification, making it suitable for client-facing applications where handling private keys directly is not ideal.
 
 ## Usage
 
 ```csharp
-var wallet = await InAppWallet.Create(client, "userEmail", "userPhoneNumber");
+// Email version
+var wallet = await InAppWallet.Create(client: client, email: "userEmail");
+// Phone number version
+var wallet = await InAppWallet.Create(client: client, phoneNumber: "+1234567890");
+// Google, Apple, Facebook, etc.
+var wallet = await InAppWallet.Create(client: client, authprovider: AuthProvider.Google);
 ```
 
 <Callout variant="info" title="Client-Side Use">
@@ -32,6 +37,14 @@ The user's email address. Required if `phoneNumber` is not provided.
 ### phoneNumber (optional)
 
 The user's phone number. Required if `email` is not provided.
+
+### authprovider (optional)
+
+The OAuth provider to use for authentication. Supported values are `AuthProvider.Google`, `AuthProvider.Apple`, `AuthProvider.Facebook`.
+
+### storageDirectoryPath (optional)
+
+The path to the directory where the wallet data is stored. Defaults to the application's data directory.
 
 </Details>
 
@@ -101,3 +114,87 @@ Console.WriteLine($"Signature: {signature}");
 ```
 
 **Note:** InAppWallet leverages the security of OTP-based authentication to ensure a secure and user-friendly experience in blockchain applications.
+
+## OAuth Authentication Flow
+
+**LoginWithOauth:** Initiate the login process by calling LoginWithOauth on the InAppWallet instance. This redirects the user to the OAuth provider's login page.
+
+```csharp
+// Windows console app example
+var address = await inAppWallet.LoginWithOauth(
+    isMobile: false,
+    browserOpenAction: (url) =>
+    {
+        var psi = new ProcessStartInfo { FileName = url, UseShellExecute = true };
+        _ = Process.Start(psi);
+    },
+);
+// Godot standalone example
+var address = await ThirdwebManager.Instance.InAppWallet.LoginWithOauth(
+        isMobile: OS.GetName() == "Android" || OS.GetName() == "iOS",
+        browserOpenAction: (url) => OS.ShellOpen(url),
+        mobileRedirectScheme: "thirdweb://"
+);
+```
+
+<Details summary="Parameters">
+
+### isMobile
+
+A `bool` indicating whether the application is running on a mobile platform.
+
+### browserOpenAction
+
+An `Action<string>` that opens the OAuth provider's login page in a browser.
+
+### mobileRedirectScheme
+
+The redirect scheme to use for mobile platforms. Defaults to `"thirdweb://"`.
+
+### browser
+
+An instance of `IThirdwebBrowser` to use for the OAuth login process. Defaults to `null`.
+
+### cancellationToken
+
+A `CancellationToken` to cancel the operation. Defaults to `default`.
+
+</Details>
+
+<Details summary="Return Value">
+
+### string
+
+The InAppWallet address as a hexadecimal `string`.
+
+</Details>
+
+## Example
+
+Here's an example of creating an `InAppWallet` using OAuth.
+
+```csharp
+// Create InAppWallet wallet as signer to unlock web2 auth
+var inAppWallet = await InAppWallet.Create(client: client, authprovider: AuthProvider.Google);
+
+// Resume session (if `InAppWallet` wallet was not logged in)
+if (!await inAppWallet.IsConnected())
+{
+    try {
+        var address = await inAppWallet.LoginWithOauth(
+            isMobile: false,
+            browserOpenAction: (url) =>
+            {
+                var psi = new ProcessStartInfo { FileName = url, UseShellExecute = true };
+                _ = Process.Start(psi);
+            },
+        );
+        Console.WriteLine($"OAuth login successful. InAppWallet address: {address}");
+    } catch (Exception ex) {
+        Console.WriteLine($"OAuth login failed: {ex.Message}");
+        return;
+    }
+}
+```
+
+**Note:** The `LoginWithOauth` API allows for custom browser handling, making it suitable for various application types and platforms.

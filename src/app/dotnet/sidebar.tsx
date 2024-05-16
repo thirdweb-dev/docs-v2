@@ -44,6 +44,10 @@ const walletActions: SidebarLink = (() => {
 				href: `${parentSlug}/signtypeddatav4`,
 			},
 			{
+				name: "Authenticate",
+				href: `${parentSlug}/authenticate`,
+			},
+			{
 				name: "Disconnect",
 				href: `${parentSlug}/disconnect`,
 			},
