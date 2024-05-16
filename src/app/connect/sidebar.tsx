@@ -71,12 +71,12 @@ export const sidebar: SideBar = {
 					name: "Customization",
 					links: [
 						{
-							name: "Modal Size",
+							name: "Logo",
 							href: `${connectSlug}/customization#logo`,
 						},
 						{
-							name: "Logo",
-							href: `${connectSlug}/customization#modal-sizes`,
+							name: "Compact Modal",
+							href: `${connectSlug}/customization#compact-modal`,
 						},
 						{
 							name: "Theme",
