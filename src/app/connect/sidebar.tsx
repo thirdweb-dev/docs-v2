@@ -8,7 +8,7 @@ import {
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
 
-const connectSlug = "/connect/connect";
+const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
@@ -28,21 +28,68 @@ export const sidebar: SideBar = {
 		{ separator: true },
 		// Connect
 		{
-			name: "UI Components",
+			name: "Sign-In",
 			icon: <WalletsConnectIcon />,
 			href: `${connectSlug}`,
 			links: [
 				{
-					name: "ConnectButton",
-					href: `${connectSlug}/ConnectButton`,
+					name: "Get Started",
+					links: [
+						{
+							name: "Connect Button",
+							href: `${connectSlug}/ConnectButton`,
+						},
+						{
+							name: "Connect Embed",
+							href: `${connectSlug}/ConnectEmbed`,
+						},
+						{
+							name: "Custom UI",
+							href: `${connectSlug}/Custom-UI`,
+						},
+					],
 				},
 				{
-					name: "ConnectEmbed",
-					href: `${connectSlug}/ConnectEmbed`,
+					name: "Sign-In Methods",
+					links: [
+						{
+							name: "Email & Phone",
+							href: `${connectSlug}/methods/email-and-phone`,
+						},
+						{
+							name: "Social Login",
+							href: `${connectSlug}/methods/social-logins`,
+						},
+						{
+							name: "External Wallets",
+							href: `${connectSlug}/methods/external-wallets`,
+						},
+					],
 				},
 				{
-					name: "Build Custom Experience",
-					href: `/typescript/v5/react/connecting-wallets#using-hooks`,
+					name: "Customization",
+					links: [
+						{
+							name: "Modal Size",
+							href: `${connectSlug}/customization#logo`,
+						},
+						{
+							name: "Logo",
+							href: `${connectSlug}/customization#modal-sizes`,
+						},
+						{
+							name: "Theme",
+							href: `${connectSlug}/customization#theming`,
+						},
+						{
+							name: "Localization",
+							href: `${connectSlug}/customization#localization`,
+						},
+					],
+				},
+				{
+					name: "Playground",
+					href: "https://thirdweb.com/dashboard/connect/playground",
 				},
 			],
 		},
