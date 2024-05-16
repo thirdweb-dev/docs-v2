@@ -227,9 +227,9 @@ function WalletsSection() {
 
 			<Grid>
 				<ArticleCardIndex
-					href="/connect/connect"
-					title="UI Components"
-					description="UI components for wallet connection and more"
+					href="/connect/sign-in"
+					title="Sign-In"
+					description="Flexible user sign-up flow with wallet and social login"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
