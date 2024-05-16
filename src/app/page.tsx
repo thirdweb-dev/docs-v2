@@ -229,7 +229,7 @@ function WalletsSection() {
 				<ArticleCardIndex
 					href="/connect/sign-in"
 					title="Sign-In"
-					description="Flexible user sign-up flow with wallet and social login"
+					description="Flexible user sign-up flow with wallet and social sign-in methods"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex

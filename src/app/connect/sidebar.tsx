@@ -22,7 +22,7 @@ export const sidebar: SideBar = {
 			href: "/connect",
 		},
 		{
-			name: "QuickStart",
+			name: "Quickstart",
 			href: "/connect/quickstart",
 		},
 		{ separator: true },
@@ -34,6 +34,7 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Get Started",
+					expanded: true,
 					links: [
 						{
 							name: "Connect Button",
@@ -314,6 +315,7 @@ export const sidebar: SideBar = {
 				{
 					name: "Get Started",
 					href: `${paySlug}/get-started`,
+					expanded: true,
 					links: [
 						{
 							name: "ConnectButton",

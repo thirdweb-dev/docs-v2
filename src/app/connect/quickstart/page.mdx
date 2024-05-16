@@ -1,4 +1,4 @@
-# QuickStart
+# Quickstart
 
 Learn how to add Connect SDK to your application, log in your users, and allow them to interact with your application.
 
@@ -38,16 +38,16 @@ Once your user has logged in, interact with the application using different func
 
 ```tsx
 import { useActiveAccount } from "thirdweb/react";
- 
+
 // get wallet address
 const account = useActiveAccount();
 console.log("wallet address", account.address);
 
 // get balance
 const balance = await getWalletBalance({
-  client,
-  chain,
-  address: account.address,
+	client,
+	chain,
+	address: account.address,
 });
 console.log("wallet balance", balance);
 ```

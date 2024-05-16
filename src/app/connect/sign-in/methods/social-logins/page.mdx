@@ -9,24 +9,24 @@ For all social login methods, thirdweb generates a non-custodial [in-app wallet]
 ```tsx
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
 import { inAppWallet } from "thirdweb/wallets";
- 
+
 const client = createThirdwebClient({ clientId: your_client_id });
 
 const wallets = [
-  inAppWallet({
-    providers: ["facebook", "apple", "google"],
-  }),
+	inAppWallet({
+		providers: ["facebook", "apple", "google"],
+	}),
 ];
- 
+
 export default function App() {
-  return (
-    <ThirdwebProvider>
-      <ConnectButton client={client} wallets={wallets} />
-    </ThirdwebProvider>
-  );
+	return (
+		<ThirdwebProvider>
+			<ConnectButton client={client} wallets={wallets} />
+		</ThirdwebProvider>
+	);
 }
 ```
 
-## **Interacting with your App**
+## Interacting with your App
 
 Once a user signed in and their wallet is generated, you can use the **[Wallet Connection hooks](https://portal.thirdweb.com/references/typescript/v5/hooks#wallet-connection)** to get information about the connected wallet like getting the address, account, and more.
