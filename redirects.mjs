@@ -668,13 +668,13 @@ export const redirects = async () => {
 		// references docs
 		latestReference("react", "v4"),
 		latestReference("react-native", "v0"),
-		latestReference("typescript", "v4"),
+		latestReference("typescript", "v5"),
 		latestReference("wallets", "v2"),
 		latestReference("storage", "v2"),
 		// sdk docs
 		latestSDK("react", "v4"),
 		latestSDK("react-native", "v0"),
-		latestSDK("typescript", "v4"),
+		latestSDK("typescript", "v5"),
 		latestSDK("wallet-sdk", "v2"),
 		latestSDK("storage-sdk", "v2"),
 	];
