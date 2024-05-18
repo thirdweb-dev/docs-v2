@@ -193,7 +193,7 @@ import { inAppWallet, hasStoredPasskey } from "thirdweb/wallets/in-app";
 
 const { connect } = useConnect();
 
-const handleLogin = async (email: string, verificationCode: string) => {
+const handleLogin = async () => {
 	await connect(() => {
 		const wallet = inAppWallet();
 		const hasPasskey = await hasStoredPasskey(client);
