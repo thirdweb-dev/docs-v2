@@ -48,10 +48,12 @@ To deploy a client/server:
 
 ## 3. Build your Unreal Engine game
 
-To simplify this part, we created a template for you with a simple script to interact with your server as per the architecture illustrated above. A level blueprint instantiates the UI, which has its own blueprint to interact with your server.
+This part is simple, we have a template for you with a simple script to interact with your server as per the architecture above. A level blueprint instantiates the UI, which has its own blueprint to interact with your server.
 
-Clone https://github.com/thirdweb-example/unreal_demo and navigate to `_Thirdweb/Scenes/Scene_Game` to start the level.
+Go ahead and clone https://github.com/thirdweb-example/unreal_demo and head to `_Thirdweb/Scenes/Scene_Game` and start the level.
 
-You will be able to log in and see the output as the game polls and updates your balance whenever you collect an item while driving.
+At this point, you can update your server url in ThirdwebManager.cpp, and website url in the Canvas_Main blueprint graph to match your deployed frontend/backend in the previous step.
+
+You should now be able to login and see the output as the game polls and updates your balance whenever you collect an item while driving.
 
 All thirdweb related assets are under the `_Thirdweb` folder in your Content Browser.
