@@ -3,6 +3,7 @@ import { TypeScriptIcon, ReactIcon } from "../../../icons";
 
 const slug = "/typescript/v5";
 const reactSlug = `${slug}/react`;
+const reactNativeSlug = `${slug}/react-native`;
 
 export const sidebar: SideBar = {
 	name: "Connect",
@@ -158,6 +159,28 @@ export const sidebar: SideBar = {
 				{
 					name: "Hooks",
 					href: `/references/typescript/v5/hooks`,
+				},
+			],
+		},
+		{
+			separator: true,
+		},
+		{
+			icon: <ReactIcon className="size-4" />,
+			name: "React Native",
+			isCollapsible: false,
+			links: [
+				{
+					name: "Overview",
+					href: reactNativeSlug,
+				},
+				{
+					name: "Installation",
+					href: `${reactNativeSlug}/installation`,
+				},
+				{
+					name: "Differences from React",
+					href: `${reactNativeSlug}/differences`,
 				},
 			],
 		},

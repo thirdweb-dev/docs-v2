@@ -341,12 +341,11 @@ function SDKSection() {
 					title="React"
 					icon={ReactIcon}
 				/>
-				{/**
 				<SDKCardIndex
-					href="/react-native/v0"
+					href="/typescript/v5/react-native"
 					title="React Native"
 					icon={ReactIcon}
-				/> */}
+				/>
 				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
 				<SDKCardIndex
 					href="/contracts/build/overview"

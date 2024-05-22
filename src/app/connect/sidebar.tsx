@@ -179,7 +179,7 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "React Native",
-							href: "/react-native/v0/wallets/in-app-wallet",
+							href: "/references/typescript/v5/inAppWallet",
 						},
 						{
 							name: "Unity",
@@ -401,7 +401,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "React Native",
-					href: "/react-native/v0",
+					href: "/typescript/v5/react-native",
 				},
 				{
 					name: "Unity",
