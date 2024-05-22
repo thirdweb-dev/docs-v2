@@ -21,9 +21,26 @@ export function formatHumanReadableDate(isoString: string) {
 
 	// Function to get the ordinal suffix for the day of the month
 	function getOrdinalSuffix(day: number) {
-		const suffixes = ["th", "st", "nd", "rd"];
-		const v = day % 100;
-		return v >= 11 && v <= 13 ? "th" : suffixes[(v - 11) % 10] || "th";
+		const j = day % 10;
+		const k = day % 100;
+
+		// 1st
+		if (j === 1 && k !== 11) {
+			return "st";
+		}
+
+		// 2nd
+		if (j === 2 && k !== 12) {
+			return "nd";
+		}
+
+		// 3rd
+		if (j === 3 && k !== 13) {
+			return "rd";
+		}
+
+		// 4th, 5th, 6th, 7th, 8th, 9th, 10th, 11th..
+		return "th";
 	}
 
 	const ordinalSuffix = getOrdinalSuffix(dayOfMonth);
