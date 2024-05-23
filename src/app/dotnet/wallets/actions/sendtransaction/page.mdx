@@ -13,14 +13,14 @@ Sends a raw transaction as a user operation from the connected Smart Wallet. It 
 ## Usage
 
 ```csharp
-string transactionHash = await SmartWallet.SendTransaction(new TransactionInput(...));
+string transactionHash = await SmartWallet.SendTransaction(new ThirdwebTransactionInput(...));
 ```
 
 <Details summary="Parameters">
 
-### TransactionInput
+### ThirdwebTransactionInput
 
-`TransactionInput` object containing necessary transaction details such as `To`, `Data`, `Value`.
+`ThirdwebTransactionInput` object containing necessary transaction details such as `To`, `Data`, `Value`.
 
 </Details>
 
