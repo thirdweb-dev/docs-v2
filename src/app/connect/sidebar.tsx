@@ -293,6 +293,10 @@ export const sidebar: SideBar = {
 							name: "Next.js",
 							href: `${authSlug}/frameworks/next`,
 						},
+						{
+							name: "React + Express",
+							href: `${authSlug}/frameworks/react-express`,
+						},
 					],
 				},
 				{
