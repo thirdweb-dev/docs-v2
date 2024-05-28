@@ -8,7 +8,8 @@ import {
 	Stack,
 	Steps,
 	Step,
-	InstallTabs
+	InstallTabs,
+  Callout
 } from "@doc";
 
 export const metadata = createMetadata({
@@ -22,7 +23,7 @@ export const metadata = createMetadata({
 
 # Migrate from RainbowKit
 
-Learn how to migrate to thirdweb's ConnectButton component from RainbowKit.
+Learn how to migrate to thirdweb's ConnectButton component from [RainbowKit](https://www.rainbowkit.com/).
 
 <Steps>
 	<Step title="Installation">
@@ -33,13 +34,67 @@ Learn how to migrate to thirdweb's ConnectButton component from RainbowKit.
 			pnpm="pnpm i thirdweb"
 			bun="bun i thirdweb"
 		/>
+
+    <Callout variant='warning' title="Dependency Conflicts">If you are installing thirdweb using `npm` and run into any dependency conflicts, install thirdweb using `npm install thirdweb --legacy-peer-deps` </Callout>
 	</Step>
-	<Step title="">
+	<Step title="Setup">
+    Wrap application using `ThirdwebProvider` and remove `RainbowKitProvider`
+
+    ```jsx
+    import { ThirdwebProvider } from "thirdweb/react";
+    .
+    .
+    .
+    .
+    function MyApp({ Component, pageProps }: AppProps) {
+      return (
+        <ThirdwebProvider>
+          <WagmiProvider config={config}>
+            <QueryClientProvider client={client}>
+                <Component {...pageProps} />
+            </QueryClientProvider>
+          </WagmiProvider>
+        </ThirdwebProvider>
+      );
+    }
+    ```
 
 	</Step>
-	<Step title="Customize">
-		Use the cheatsheet below to modify the customization options. 
+	<Step title="Swap ConnectButton component">
+		Import `createThirdwebClient` and `ConnectButton` from thirdweb and add them to your application. Modify the `ConnectButton` component
+    by adding the [`client`](/typescript/v5/client) prop. 
+
+    ```jsx
+    import { ConnectButton } from "thirdweb/react";
+    import { createThirdwebClient } from "thirdweb";
+    .
+    .
+    .
+    .
+    const Home: NextPage = () => {
+
+      const client = createThirdwebClient({
+        clientId: "<client_id>",
+      });
+
+      return (
+          <main>
+            <ConnectButton client={client} />
+          </main>
+
+      );
+    };
+    ```
+    <Callout variant="info" title="Client ID">Get a free client ID to use in your application from [thirdweb's dashboard](https://thirdweb.com/dashboard/settings/api-keys).</Callout>
 	</Step>
+  <Step title="Customize"> 
+    To customize your ConnectButton component, view the cheatsheet below or [view the customization documentation](https://portal.thirdweb.com/connect/sign-in/customization). 
+  </Step>
+  <Step title="(Optional) Adapters">
+    If you are using Wagmi, Viem, or Ethers in your application, use thirdweb adapters to continue using contracts, providers, and wallets from these libraries.
+
+    [View the Adapter documentation.](/typescript/v5/adapters)
+  </Step>
 </Steps>
 
 ## Cheatsheet
