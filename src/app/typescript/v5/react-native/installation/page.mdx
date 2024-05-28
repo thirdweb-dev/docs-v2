@@ -87,12 +87,12 @@ import "@thirdweb-dev/react-native-adapter";
 
 If you're using `expo-router`, you need to polyfill before the router entry:
 
-#### 1. create a `app/index.ts`
+#### 1. create a `index.js`
 
-This will be the new entrypoint to your app, ensuring the polyfills happen before any routing.
+Create an `index.js` file at the root of the repo. This will be the new entrypoint to your app, ensuring the polyfills happen before any routing.
 
 ```ts
-// file: app/index.ts
+// file: index.js
 
 // this needs to be imported before expo-router
 import "@thirdweb-dev/react-native-adapter";
@@ -101,12 +101,12 @@ import "expo-router/entry";
 
 #### 2. Change your main entrypoint in `package.json`
 
-Now you can replace `expo-router/entry` with `./app/index` as your main entrypoint.
+Now you can replace `expo-router/entry` with `./index.js` as your main entrypoint.
 
 ```ts
 // file: package.json
 
-"main": "./app/index",
+"main": "./index.js",
 ```
 
 <Callout variant="info" title="Additional notes">
