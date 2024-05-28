@@ -58,6 +58,7 @@ On the thirdweb dashboard, navigate to settings to [create an API Key](https://t
 In your application, initialize and add the `ConnectButton` component by passing in your Client Id. 
 
 ```ts
+import { createThirdwebClient } from 'thirdweb'
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
 
 const client = createThirdwebClient({ clientId: your_client_id });
