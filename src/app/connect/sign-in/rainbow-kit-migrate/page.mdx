@@ -1,0 +1,232 @@
+import {
+	ArticleCard,
+	GithubTemplateCard,
+	Grid,
+	ExpandableGrid,
+	createMetadata,
+	OpenSourceCard,
+	Stack,
+	Steps,
+	Step,
+	InstallTabs
+} from "@doc";
+
+export const metadata = createMetadata({
+	title: "thirdweb Connect",
+	description: "Learn how to migrate to thirdweb connect components from RainbowKit",
+	image: {
+		title: "Migrate from RainbowKit",
+		icon: "thirdweb",
+	},
+});
+
+# Migrate from RainbowKit
+
+Learn how to migrate to thirdweb's ConnectButton component from RainbowKit.
+
+<Steps>
+	<Step title="Installation">
+		Install the connect SDK in your application
+		<InstallTabs
+			npm="npm i thirdweb"
+			yarn="yarn add thirdweb"
+			pnpm="pnpm i thirdweb"
+			bun="bun i thirdweb"
+		/>
+	</Step>
+	<Step title="">
+
+	</Step>
+	<Step title="Customize">
+		Use the cheatsheet below to modify the customization options. 
+	</Step>
+</Steps>
+
+## Cheatsheet
+
+### Installation
+
+#### RainbowKit
+
+```npm install @rainbow-me/rainbowkit wagmi viem@2.x @tanstack/react-query```
+
+#### thirdweb
+
+```npm install thirdweb```
+
+<hr/>
+
+### Initalization
+
+#### RainbowKit
+
+```jsx
+import '@rainbow-me/rainbowkit/styles.css';
+import {
+  getDefaultConfig,
+  RainbowKitProvider,
+} from '@rainbow-me/rainbowkit';
+import { WagmiProvider } from 'wagmi';
+import {
+  mainnet,
+  polygon,
+  optimism,
+  arbitrum,
+  base,
+} from 'wagmi/chains';
+import {
+  QueryClientProvider,
+  QueryClient,
+} from "@tanstack/react-query";
+
+const config = getDefaultConfig({
+  appName: 'My RainbowKit App',
+  projectId: 'YOUR_PROJECT_ID',
+  chains: [mainnet, polygon, optimism, arbitrum, base],
+  ssr: true, // If your dApp uses server side rendering (SSR)
+});
+const queryClient = new QueryClient();
+
+const App = () => {
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
+          {/* Your App */}
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
+  );
+};
+```
+
+#### thirdweb
+
+```jsx
+
+import { ThirdwebProvider } from "thirdweb/react";
+  
+const App = () => {
+  return (
+    <ThirdwebProvider>
+      {/* Your App */}
+    </ThirdwebProvider>
+  );
+};
+```
+
+<hr/>
+
+### ConnectButton
+
+#### RainbowKit
+
+```jsx
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+
+export const YourApp = () => {
+  return <ConnectButton />;
+};
+```
+
+#### thirdweb
+
+```jsx
+import { ConnectButton } from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
+
+const client = createThirdwebClient({ clientId: "your-client-id" });
+
+export const YourApp = () => {
+  return <ConnectButton client={client} />
+}
+```
+
+<hr/>
+
+### Localization
+
+#### RainbowKit
+
+```jsx
+<RainbowKitProvider 
+  locale="zh-CN" 
+  {...etc}>
+  {/* Your App */}
+</RainbowKitProvider>
+```
+
+#### thirdweb
+
+```jsx
+<ConnectButton
+  locale={"es-ES"}
+  {...etc}
+/>
+```
+
+<hr/>
+
+### Modal Sizes
+
+#### RainbowKit
+
+```jsx
+<RainbowKitProvider 
+  modalSize="compact" 
+  {...etc}>
+  {/* Your App */}
+</RainbowKitProvider>
+```
+
+#### thirdweb
+
+```jsx
+<ConnectButton
+  locale={"es-ES"}
+  {...etc}
+/>
+```
+
+<hr/>
+
+### Theming
+
+#### RainbowKit
+
+```jsx
+import { ...etc, darkTheme } from '@rainbow-me/rainbowkit';
+
+<RainbowKitProvider 
+  theme={darkTheme()} 
+  {...etc}>
+  {/* Your App */}
+</RainbowKitProvider>
+```
+
+#### thirdweb
+
+```jsx
+<ConnectButton
+  theme="dark" // "light"
+  {...etc}
+/>
+```
+
+<hr/>
+
+
+## Templates
+
+<Grid>
+    <GithubTemplateCard
+	    title="Wagmi Adapter"
+	    href="https://github.com/thirdweb-example/wagmi-adapter-example"
+	    tag="Example"
+    />
+    <GithubTemplateCard
+	    title="Ethers Adapter"
+	    href="https://github.com/thirdweb-example/ethers-adapter-example"
+	    tag="Example"
+    />
+</Grid>
