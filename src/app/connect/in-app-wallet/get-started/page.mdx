@@ -65,7 +65,8 @@ Quickest ways to get started with in-app wallets on each platform.
 <TabsContent value="react">
 ```tsx
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
-import { createWallet } from "thirdweb/wallets";
+import { createThirdwebClient } from 'thirdweb'
+import { inAppWallet } from 'thirdweb/wallets'
 
 const client = createThirdwebClient({ clientId });
 const wallets = [inAppWallet()];
