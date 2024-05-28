@@ -175,7 +175,7 @@ function DocSidebarCategory(props: {
 		},
 		pathname,
 	);
-	const defaultOpen = !!(hasActiveHref || expanded);
+	const defaultOpen = isCategoryActive || !!(hasActiveHref || expanded);
 
 	const [open, setOpen] = useState(defaultOpen ? true : false);
 
