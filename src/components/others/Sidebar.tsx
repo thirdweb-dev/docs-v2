@@ -111,7 +111,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 					href={link.href}
 					onClick={props.onLinkClick}
 					className={clsx(
-						"block overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+						"overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
 						isActive ? "font-medium text-accent-500" : "text-f-300",
 						"flex flex-row gap-3",
 					)}
