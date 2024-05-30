@@ -24,6 +24,7 @@ import Image from "next/image";
 export type LinkMeta = {
 	name: string;
 	href: string;
+	icon?: StaticImport | React.ReactElement;
 };
 
 export type LinkGroup = {
@@ -104,6 +105,22 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 			/>
 		);
 	} else {
+		if (link.icon) {
+			return (
+				<Link
+					href={link.href}
+					onClick={props.onLinkClick}
+					className={clsx(
+						"overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+						isActive ? "font-medium text-accent-500" : "text-f-300",
+						"flex flex-row gap-3",
+					)}
+				>
+					{link.name}
+					{(link.icon as React.ReactElement) || <></>}
+				</Link>
+			);
+		}
 		return (
 			<Link
 				href={link.href}
@@ -175,7 +192,7 @@ function DocSidebarCategory(props: {
 		},
 		pathname,
 	);
-	const defaultOpen = !!(hasActiveHref || expanded);
+	const defaultOpen = isCategoryActive || !!(hasActiveHref || expanded);
 
 	const [open, setOpen] = useState(defaultOpen ? true : false);
 

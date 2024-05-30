@@ -74,7 +74,7 @@ const sdkLinks = [
 	},
 	{
 		name: "React Native",
-		href: "/react-native/v0",
+		href: "/typescript/v5/react-native",
 		icon: "/icons/navbar/nav-icon-react.svg",
 		// icon: "/icons/navbar/nav-icon-react-native.svg",
 	},

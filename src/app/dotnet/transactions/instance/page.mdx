@@ -108,7 +108,7 @@ Returns the instance of `ThirdwebTransaction` with the `gasLimit` property set.
 
 ## ThirdwebTransaction.SetGasPrice
 
-Set the gas price of the transaction.
+Set the gas price of a legacy transaction.
 
 ```csharp
 ThirdwebTransaction transaction = transaction.SetGasPrice(1000000000);
@@ -151,5 +151,111 @@ The nonce of the transaction. Must be an `BigInteger`.
 ### ThirdwebTransaction
 
 Returns the instance of `ThirdwebTransaction` with the `nonce` property set.
+
+</Details>
+
+## ThirdwebTransaction.SetMaxFeePerGas
+
+Set the maximum fee per gas of an EIP-1559 transaction.
+
+```csharp
+ThirdwebTransaction transaction = transaction.SetMaxFeePerGas(1000000000);
+```
+
+<Details summary="Parameters">
+
+### maxFeePerGas (required)
+
+The maximum fee per gas of the transaction. Must be an `BigInteger`.
+
+</Details>
+
+<Details summary="Return Value">
+
+### ThirdwebTransaction
+
+Returns the instance of `ThirdwebTransaction` with the `maxFeePerGas` property set.
+
+</Details>
+
+## ThirdwebTransaction.SetMaxPriorityFeePerGas
+
+Set the maximum priority fee per gas of an EIP-1559 transaction.
+
+```csharp
+ThirdwebTransaction transaction = transaction.SetMaxPriorityFeePerGas(1000000000);
+```
+
+<Details summary="Parameters">
+
+### maxPriorityFeePerGas (required)
+
+The maximum priority fee per gas of the transaction. Must be an `BigInteger`.
+
+</Details>
+
+<Details summary="Return Value">
+
+### ThirdwebTransaction
+
+Returns the instance of `ThirdwebTransaction` with the `maxPriorityFeePerGas` property set.
+
+</Details>
+
+## ThirdwebTransaction.SetChainId
+
+Set the chain ID of the transaction.
+
+```csharp
+ThirdwebTransaction transaction = transaction.SetChainId(1);
+```
+
+<Details summary="Parameters">
+
+### chainId (required)
+
+The chain ID of the transaction. Must be an `BigInteger`.
+
+</Details>
+
+<Details summary="Return Value">
+
+### ThirdwebTransaction
+
+Returns the instance of `ThirdwebTransaction` with the `chainId` property set.
+
+</Details>
+
+## ThirdwebTransaction.SetZkSyncOptions
+
+Set the ZkSync options of the transaction.
+
+This allows you to use native ZkSync Account Abstraction with any paymaster.
+
+```csharp
+ZkSyncOptions zkSyncOptions = new ZkSyncOptions("0xPaymaster", "0xPaymasterInput");
+ThirdwebTransaction transaction = transaction.SetZkSyncOptions(zkSyncOptions);
+```
+
+<Details summary="Parameters">
+
+### zkSyncOptions (required)
+
+The ZkSync options of the transaction. Must be an instance of `ZkSyncOptions`.
+
+`ZkSyncOptions` includes the following properties:
+
+- `Paymaster` - The paymaster address. Must be a hexadecimal `string`.
+- `PaymasterInput` - The paymaster input data. Must be a hexadecimal `string`.
+- `GasPerPubdataByteLimit` - The gas limit per pubdata byte. Must be a `BigInteger`.
+- `FactoryDeps` - A list of factory dependencies. Must be a list of `byte[]`.
+
+</Details>
+
+<Details summary="Return Value">
+
+### ThirdwebTransaction
+
+Returns the instance of `ThirdwebTransaction` with the `zkSyncOptions` property set.
 
 </Details>

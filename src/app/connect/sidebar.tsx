@@ -7,6 +7,7 @@ import {
 	PayIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
@@ -22,8 +23,13 @@ export const sidebar: SideBar = {
 			href: "/connect",
 		},
 		{
-			name: "QuickStart",
+			name: "Quickstart",
 			href: "/connect/quickstart",
+		},
+		{
+			name: "Playground",
+			href: "https://playground.thirdweb.com/",
+			icon: <FaExternalLinkAlt className="my-auto" />,
 		},
 		{ separator: true },
 		// Connect
@@ -34,6 +40,7 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Get Started",
+					// expanded: true,
 					links: [
 						{
 							name: "Connect Button",
@@ -70,12 +77,12 @@ export const sidebar: SideBar = {
 					name: "Customization",
 					links: [
 						{
-							name: "Modal Size",
+							name: "Logo",
 							href: `${connectSlug}/customization#logo`,
 						},
 						{
-							name: "Logo",
-							href: `${connectSlug}/customization#modal-sizes`,
+							name: "Compact Modal",
+							href: `${connectSlug}/customization#compact-modal`,
 						},
 						{
 							name: "Theme",
@@ -86,6 +93,10 @@ export const sidebar: SideBar = {
 							href: `${connectSlug}/customization#localization`,
 						},
 					],
+				},
+				{
+					name: "Migrate from RainbowKit",
+					href: `${connectSlug}/rainbow-kit-migrate`,
 				},
 				{
 					name: "Playground",
@@ -178,7 +189,7 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "React Native",
-							href: "/react-native/v0/wallets/in-app-wallet",
+							href: "/references/typescript/v5/inAppWallet",
 						},
 						{
 							name: "Unity",
@@ -197,7 +208,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
-			isCollapsible: true,
 			href: `${aAslug}`,
 			links: [
 				{
@@ -277,7 +287,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Auth (SIWE)",
 			icon: <WalletsAuthIcon />,
-			isCollapsible: true,
 			links: [
 				{
 					name: "Get Started",
@@ -292,6 +301,10 @@ export const sidebar: SideBar = {
 							name: "Next.js",
 							href: `${authSlug}/frameworks/next`,
 						},
+						{
+							name: "React + Express",
+							href: `${authSlug}/frameworks/react-express`,
+						},
 					],
 				},
 				{
@@ -305,7 +318,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Pay",
 			icon: <PayIcon />,
-			isCollapsible: true,
+			// isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
@@ -314,6 +327,7 @@ export const sidebar: SideBar = {
 				{
 					name: "Get Started",
 					href: `${paySlug}/get-started`,
+					expanded: true,
 					links: [
 						{
 							name: "ConnectButton",
@@ -399,7 +413,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "React Native",
-					href: "/react-native/v0",
+					href: "/typescript/v5/react-native",
 				},
 				{
 					name: "Unity",

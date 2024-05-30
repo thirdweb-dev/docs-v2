@@ -1,0 +1,67 @@
+import { Details, ArticleIconCard, Stack, GithubTemplateCard } from "@doc";
+import {
+	ZapIcon,
+	ScrollTextIcon,
+	ArrowRightLeftIcon,
+	WalletIcon,
+	BlocksIcon,
+	CodeIcon,
+	FolderTreeIcon,
+	PlugZapIcon,
+	ComponentIcon,
+	CableIcon,
+} from "lucide-react";
+import {
+	TypeScriptIcon,
+	ReactIcon,
+} from "@/icons";
+
+# React Native SDK
+
+You can use all of the `thirdweb` and `thirdweb/react` exports in your React Native app, with some exceptions (see differences).
+
+## Get Started
+
+Many of the components and hooks in the React Native SDK use a [`client`](/typescript/v5/core/client) to interface with the core SDK and your private RPC endpoints. You'll need to create a `clientId` in the [Dashboard](https://thirdweb.com/create-api-key) to generate this client.
+
+<Stack>
+
+<ArticleIconCard
+	title="Installation"
+	icon={FolderTreeIcon}
+	href="/typescript/v5/react-native/installation"
+/>
+
+<ArticleIconCard
+	title="Differences from React"
+	icon={ComponentIcon}
+	href="/typescript/v5/react-native/differences"
+/>
+
+## Usage
+
+<ArticleIconCard
+	title="TypeScript"
+	icon={TypeScriptIcon}
+	href="/typescript/v5/client"
+	description="Follow the TypeScript docs for functions and types"
+/>
+
+<ArticleIconCard
+	title="React"
+	icon={ReactIcon}
+	href="/typescript/v5/react"
+	description="Follow the React docs for hooks, providers and components"
+/>
+
+</Stack>
+
+## Working demo
+
+If you want to see a fully working demo of the `thirdweb` package in a React Native app, you can check out the [expo-starter](https://github.com/thirdweb-dev/expo-starter) repo.
+
+<GithubTemplateCard
+	title="Expo + thirdweb demo repo"
+    descrption="A starter template for using the thirdweb package in a React Native app"
+	href="https://github.com/thirdweb-dev/expo-starter"
+/>

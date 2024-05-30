@@ -227,9 +227,9 @@ function WalletsSection() {
 
 			<Grid>
 				<ArticleCardIndex
-					href="/connect/connect"
-					title="UI Components"
-					description="UI components for wallet connection and more"
+					href="/connect/sign-in"
+					title="Sign-In"
+					description="Flexible user sign-up flow with wallet and social sign-in methods"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
@@ -341,12 +341,11 @@ function SDKSection() {
 					title="React"
 					icon={ReactIcon}
 				/>
-				{/**
 				<SDKCardIndex
-					href="/react-native/v0"
+					href="/typescript/v5/react-native"
 					title="React Native"
 					icon={ReactIcon}
-				/> */}
+				/>
 				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
 				<SDKCardIndex
 					href="/contracts/build/overview"

@@ -271,6 +271,17 @@ export async function logout() {
 }
 ```
 
+You can include custom context in the JWT token with the `context` parameter:
+
+```ts
+const jwt = await thirdwebAuth.generateJWT({
+	payload: verifiedPayload.payload,
+	context: {
+		admin: true,
+	},
+});
+```
+
 Now anywhere in your project, you can check a user's authentication status:
 
 ```tsx
@@ -293,3 +304,9 @@ const AuthenticatedPage = async () => {
 
 export default AuthenticatedPage;
 ```
+
+That's it! You know have a working SIWE Next.js app.
+
+## Support
+
+For help or feedback, please [visit our support site](https://thirdweb.com/support)
