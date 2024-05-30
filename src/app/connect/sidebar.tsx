@@ -7,6 +7,7 @@ import {
 	PayIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
@@ -25,6 +26,11 @@ export const sidebar: SideBar = {
 			name: "Quickstart",
 			href: "/connect/quickstart",
 		},
+		{
+			name: "Playground",
+			href: "https://playground.thirdweb.com/",
+			icon: <FaExternalLinkAlt className="my-auto" />,
+		},
 		{ separator: true },
 		// Connect
 		{
@@ -34,7 +40,7 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Get Started",
-					expanded: true,
+					// expanded: true,
 					links: [
 						{
 							name: "Connect Button",
@@ -87,6 +93,10 @@ export const sidebar: SideBar = {
 							href: `${connectSlug}/customization#localization`,
 						},
 					],
+				},
+				{
+					name: "Migrate from RainbowKit",
+					href: `${connectSlug}/rainbow-kit-migrate`,
 				},
 				{
 					name: "Playground",
@@ -198,7 +208,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
-			isCollapsible: true,
 			href: `${aAslug}`,
 			links: [
 				{
@@ -278,7 +287,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Auth (SIWE)",
 			icon: <WalletsAuthIcon />,
-			isCollapsible: true,
 			links: [
 				{
 					name: "Get Started",
@@ -310,7 +318,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Pay",
 			icon: <PayIcon />,
-			isCollapsible: true,
+			// isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
