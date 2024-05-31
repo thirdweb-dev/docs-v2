@@ -31,22 +31,23 @@ const verifiedPayload = await result.json();
 
 How you store and maintain a user session is up to you, but our recommended approach is to store a JWT token in a cookie that is verified on the server. The server functions below include utility functions to generate and verify the JWT.
 
-In order to generate and verify the JWT you will also need to generate a 32 byte private key and pass that to the createAuth function. On unix-like systems this can be done with:
-
-```
-head -c 32 /dev/urandom | openssl enc | xxd -p -c 32
-```
+In order to generate and verify the JWT you will also need to generate a 32 byte private key. This can be an EOA private key or a random string of your choosing.
 
 ### Server Functions
 
 ```ts
+import { createThirdwebClient } from "thirdweb";
 import { createAuth } from "thirdweb/auth";
 import { privateKeyToAccount } from "thirdweb/wallets";
 
 const privateKey = process.env.THIRDWEB_PRIVATE_KEY;
+const thirdwebClient = createThirdwebClient({
+	secretKey: process.env.THIRDWEB_SECRET_KEY;
+});
 
 const auth = createAuth({
 	domain: "localhost:3000",
+	client: thirdwebClient,
 	adminAccount: privateKeyToAccount({client, privateKey})
 });
 
