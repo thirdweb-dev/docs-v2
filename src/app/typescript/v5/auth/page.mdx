@@ -31,7 +31,7 @@ const verifiedPayload = await result.json();
 
 How you store and maintain a user session is up to you, but our recommended approach is to store a JWT token in a cookie that is verified on the server. The server functions below include utility functions to generate and verify the JWT.
 
-In order to generate and verify the JWT you will also need to generate a 32 byte private key. This can be an EOA private key or a random string of your choosing.
+In order to generate and verify the JWT you will also need an EOA private key. This private key's wallet does not need to hold any funds, it is only used for signing.
 
 ### Server Functions
 
