@@ -155,8 +155,11 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Custom Authentication",
-					href: `${inAppSlug}/custom-auth/overview`,
 					links: [
+						{
+							name: "Overview",
+							href: `${inAppSlug}/custom-auth/overview`,
+						},
 						{
 							name: "Configuration",
 							href: `${inAppSlug}/custom-auth/configuration`,
