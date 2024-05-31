@@ -4,7 +4,7 @@ import { createMetadata } from "@doc";
 
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
-		<DocLayout sideBar={sidebar} editPageButton={true}>
+		<DocLayout sideBar={sidebar} editPageButton={true} noIndex>
 			{props.children}
 		</DocLayout>
 	);
