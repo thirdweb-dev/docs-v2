@@ -28,13 +28,15 @@ Send a transaction and wait for it to be mined. Useful when you want to block un
 ```ts
 import { sendAndConfirmTransaction } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
+import { useActiveAccount } from "thirdweb/react";
 
-const wallet = createWallet("io.metamask");
-await wallet.connect();
+//
+const activeAccount = useActiveAccount();
+//
 
 const receipt = await sendAndConfirmTransaction({
 	transaction,
-	wallet,
+	account:activeAccount,
 });
 ```
 
