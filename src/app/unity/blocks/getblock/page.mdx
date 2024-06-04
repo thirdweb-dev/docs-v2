@@ -13,5 +13,5 @@ Get block data by block number.
 
 ```csharp
 BigInteger blockNumber = 1234567;
-var block = await Blocks.GetBlock(blockNumber);
+var block = await ThirdwebManager.Instance.SDK.Blocks.GetBlock(blockNumber);
 ```
