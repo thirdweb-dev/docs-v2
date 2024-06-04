@@ -26,7 +26,7 @@ public async void GetQuote()
 		toAmount: "20" // I want to buy 20 MATIC
 	);
 
-	BuyWithFiatQuoteResult quote = await ThirdwebPay.GetBuyWithFiatQuote(fiatQuoteParams);
+	BuyWithFiatQuoteResult quote = await ThirdwebManager.Instance.SDK.Pay.GetBuyWithFiatQuote(fiatQuoteParams);
 	ThirdwebDebug.Log($"Quote: {JsonConvert.SerializeObject(quote, Formatting.Indented)}");
 }
 ```
