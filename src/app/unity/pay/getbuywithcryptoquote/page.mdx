@@ -27,7 +27,7 @@ public async void GetQuote()
 		toAmount: "2" // I want to buy 2 WMATIC
 	);
 
-	BuyWithCryptoQuoteResult quote = await ThirdwebPay.GetBuyWithCryptoQuote(swapQuoteParams);
+	BuyWithCryptoQuoteResult quote = await ThirdwebManager.Instance.SDK.Pay.GetBuyWithCryptoQuote(swapQuoteParams);
 	ThirdwebDebug.Log($"Quote: {JsonConvert.SerializeObject(quote, Formatting.Indented)}");
 }
 ```

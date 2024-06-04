@@ -16,7 +16,7 @@ using Thirdweb.Pay;
 
 public async void Buy()
 {
-	string txHash = await ThirdwebPay.BuyWithCrypto(_quote);
+	string txHash = await ThirdwebManager.Instance.SDK.Pay.BuyWithCrypto(_quote);
 	ThirdwebDebug.Log($"Transaction hash: {txHash}");
 }
 ```
