@@ -104,6 +104,12 @@ var connection = new WalletConnection(
 var address = await sdk.Wallet.Connect(connection);
 ```
 
+## ZkSync Support
+
+ZkSync chains make use of native account abstraction, whereby the user's EOA is the smart account. We support this as well.
+
+The only difference is that no account factory or additional parameters are needed, simply set gasless to true, connect to ZkSync with a SmartWallet provider, and you're good to go.
+
 ## Additional Options
 
 Smart accounts, through paymasters, can be seen as a "plugin" to your user wallets, whereby all gas fees can be sponsored onchain.
