@@ -1,4 +1,4 @@
-import { Callout, DocImage, createMetadata } from "@doc";
+import { Callout, DocImage, createMetadata, FeatureCard } from "@doc";
 import connectModal from "./assets/connect-image-new.svg";
 import customModal from "./assets/custom-modals.png";
 import connectPlayground from "./assets/connect-playground.png";
@@ -22,6 +22,23 @@ Whether users prefer to sign up with their email, phone number, social media acc
 <DocImage src={connectModal} />
 
 ### Features
+
+<div
+	className="my-4 grid gap-2 md:grid-cols-2 lg:grid-cols-2 "
+>
+	<FeatureCard
+		title="TypeScript Ready"
+		description="Get types straight out of the box."
+		iconUrl="/icons/feature-cards/wallet.svg"
+	/>
+
+    <FeatureCard
+    	title="Responsive Design"
+    	description="Tailored experience across devices."
+			iconUrl="/icons/feature-cards/fingerprint.svg"
+    />
+
+</div>
 
 - **Wallet Support:** Connect to 170+ different wallet providers with support for any EVM network
 - **Improved onboarding experience:** Support for email / social login, and account abstraction with gas-less options to seamlessly onboard non-native or new crypto users.
