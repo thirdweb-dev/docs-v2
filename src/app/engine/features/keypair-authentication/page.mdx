@@ -138,6 +138,7 @@ await fetch(`${engineBaseUrl}/backend-wallet/137/transfer`, {
 	headers: {
 		"Content-Type": "application/json",
 		authorization: `Bearer ${accessToken}`,
+		"x-backend-wallet-address": "<engine_backend_wallet_address>",
 	},
 	body,
 });
