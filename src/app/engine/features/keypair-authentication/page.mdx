@@ -107,6 +107,42 @@ await fetch(`${engineBaseUrl}/backend-wallet/get-all`, {
 });
 ```
 
+## Restrict the payload body (Advanced)
+
+To ensure this access token can only execute a specific payload, provide a SHA256 hash of the payload body as the `bodyHash` argument of the signed object.
+
+Example: This access token is restricted to transfer 0.1 MATIC on Polygon to 0xE68FFAE106cc68A0e36Ba9Fd86f27337E3a71da6.
+
+```typescript
+import { createHash } from "crypto";
+import jsonwebtoken from "jsonwebtoken";
+
+// Prepare the request payload body.
+const body = JSON.stringify({
+	to: "0xE68FFAE106cc68A0e36Ba9Fd86f27337E3a71da6",
+	currencyAddress: "0x0000000000000000000000000000000000000000",
+	amount: "0.1",
+});
+
+// Add a hash of `body` to the signed payload.
+const payload = {
+	iss: publicKey,
+	bodyHash: createHash("sha256").update(body).digest("hex"),
+};
+const accessToken = jsonwebtoken.sign(payload, privateKey, {
+	algorithm: "ES256",
+});
+
+// Call Engine with `body`.
+await fetch(`${engineBaseUrl}/backend-wallet/137/transfer`, {
+	headers: {
+		"Content-Type": "application/json",
+		authorization: `Bearer ${accessToken}`,
+	},
+	body,
+});
+```
+
 ## FAQ
 
 #### How do I enable this feature on my self-hosted Engine?
