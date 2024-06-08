@@ -19,6 +19,7 @@ dashboard](https://thirdweb.com/dashboard/engine).
 - [Docker](https://docs.docker.com/get-docker/)
 - A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
 - PostgresDB (version 14+)
+- Redis (version 7.2.4+)
 
 ### Running Engine locally
 
@@ -26,6 +27,12 @@ Start Postgres:
 
 ```bash
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+```
+
+Start Postgres:
+
+```bash
+docker run -p 6379:6379 -d redis:7.2.4
 ```
 
 Start Engine server:
@@ -37,6 +44,7 @@ docker run \
   -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
   -e POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable" \
   -e ENABLE_HTTPS=true \
+  -e REDIS_URL="redis://host.docker.internal:6379/0" \
   -p 3005:3005 \
   --pull=always \
   --cpus="0.5" \
@@ -55,6 +63,7 @@ docker run \
 | `LOG_LEVEL`                                                    | Determines the logging severity level. Adjust for finer control over logged information. (Default: `debug`)                 |
 | `PRUNE_TRANSACTIONS`                                           | When `false`, Engine prevents the pruning/deletion of processed transaction data. (Default: `true`)                         |
 | `ENABLE_KEYPAIR_AUTH`                                          | Enables [Keypair Authentication](/engine/features/keypair-authentication).                                                  |
+| `REDIS_URL`                                                    | Redis connection string: `redis://[user:password@]host:port[/db-number]`                                                    |
 
 Your server is running when this log line appears:
 
