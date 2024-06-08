@@ -5,9 +5,9 @@ import {
 	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
+	ExternalLinkIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
@@ -29,7 +29,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Playground",
 			href: "https://playground.thirdweb.com/",
-			icon: <FaExternalLinkAlt className="my-auto" />,
+			icon: <ExternalLinkIcon className="my-auto" />,
 		},
 		{ separator: true },
 		// Connect
