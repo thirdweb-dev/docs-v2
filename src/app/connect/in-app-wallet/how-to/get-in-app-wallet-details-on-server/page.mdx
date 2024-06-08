@@ -19,6 +19,10 @@ export async function fetchInAppWalletMetadataFromThirdweb(
 				queryBy: "phone";
 				phone: string;
 		  },
+		  | {
+				queryBy: "phone";
+				phone: string;
+		  },
 ) {
 	const url = new URL(
 		"https://embedded-wallet.thirdweb.com/api/2023-11-30/embedded-wallet/user-details",
