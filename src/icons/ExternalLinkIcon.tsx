@@ -11,16 +11,16 @@ export function ExternalLinkIcon({ className }: { className: string }) {
 			<path
 				d="M7 7H17V17"
 				stroke="#777777"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M7 17L17 7"
 				stroke="#777777"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
+				strokeWidth="2"
+				strokeLinecap="round"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	);
