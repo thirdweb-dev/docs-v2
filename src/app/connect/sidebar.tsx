@@ -8,7 +8,6 @@ import {
 	ExternalLinkIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
