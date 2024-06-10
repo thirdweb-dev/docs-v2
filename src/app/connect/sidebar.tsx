@@ -36,8 +36,11 @@ export const sidebar: SideBar = {
 		{
 			name: "Sign-In",
 			icon: <WalletsConnectIcon />,
-			href: `${connectSlug}`,
 			links: [
+				{
+					name: "Overview",
+					href: `${connectSlug}/overview`,
+				},
 				{
 					name: "Get Started",
 					// expanded: true,
@@ -110,8 +113,11 @@ export const sidebar: SideBar = {
 		{
 			name: "In-App Wallet",
 			icon: <WalletsInAppIcon />,
-			href: `${inAppSlug}/overview`,
 			links: [
+				{
+					name: "Overview",
+					href: `${inAppSlug}/overview`,
+				},
 				{
 					name: "How it works",
 					href: `${inAppSlug}/how-it-works`,
@@ -211,8 +217,11 @@ export const sidebar: SideBar = {
 		{
 			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
-			href: `${aAslug}`,
 			links: [
+				{
+					name: "Overview",
+					href: `${aAslug}/overview`,
+				},
 				{
 					name: "How it Works",
 					href: `${aAslug}/how-it-works`,
