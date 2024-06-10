@@ -256,6 +256,21 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
+				{
+					name: "Third-Parties",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Biconomy",
+							href: `${aAslug}/third-party/biconomy`,
+						},
+						{
+							name: "OpenZeppelin",
+							href: `${aAslug}/third-party/openzeppelin`,
+						},
+					],
+				},
 				// {
 				// 	name: "References",
 				// 	isCollapsible: true,
