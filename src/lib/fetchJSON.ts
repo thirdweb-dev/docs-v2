@@ -2,7 +2,11 @@ import { gunzip } from "node:zlib";
 import { promisify } from "node:util";
 
 export async function fetchJSON(url: string) {
+	const s = performance.now();
 	const response = await fetch(url, { cache: "no-store" });
+	const e = performance.now();
+
+	console.log("fetching", url, "took", e - s, "ms");
 
 	if (!response.ok) {
 		throw new Error(response.statusText);
