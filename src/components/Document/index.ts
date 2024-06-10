@@ -23,3 +23,4 @@ export { ExpandableGrid } from "./ExpandableGrid";
 export { Stack } from "./Stack";
 export { createMetadata } from "./metadata";
 export { ConnectCard } from "./Cards/ConnectCard";
+export { FeatureCard } from "./FeatureCard";

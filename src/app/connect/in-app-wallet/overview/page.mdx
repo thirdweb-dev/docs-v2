@@ -1,5 +1,5 @@
 import EmbedOverview from "./embed-overview.svg";
-import { Callout, DocImage, createMetadata } from "@doc";
+import { Callout, DocImage, createMetadata, FeatureCard } from "@doc";
 
 export const metadata = createMetadata({
 	image: {
@@ -19,19 +19,46 @@ Users can login using their email address, social logins (twitter, apple, discor
 
 <DocImage src={EmbedOverview} />
 
-<Callout variant='info' title="Playground">
-
-Try out In-App Wallet in the [ConnectWallet Playground!](https://thirdweb.com/dashboard/wallets/connect)
-
-</Callout>
-
 ## Features
 
-- **Modular, Composable & Customizable:** Email login, social login, and bring-your-own auth.
-- **Enable Gasless Transactions:** When you combine in-app wallets with smart accounts (account abstraction), users do not require crypto to interact with the blockchain.
-- **Security:** No single point of failure. Private keys cannot be reconstructed by thirdweb or any developer without user authentication. The only owner of the wallet is the end user.
-- **Connect To Other Web3 Apps**: Your application's in-app wallet users can use the [My Wallets](https://ews.thirdweb.com/wallet) page to sign in to their wallet, and connect to web3 apps via WalletConnect.
-- **View & Transfer NFTs**: Buyers can visit the [My Wallets](https://ews.thirdweb.com/wallet) page to view and transfer NFTs in their In-App Wallets. We cover all gas fees related to transferring NFTs out of in-app wallets and offer a way for users to export their private keys.
+<div
+	className="my-4 grid gap-2 md:grid-cols-2 lg:grid-cols-2 "
+>
+    <FeatureCard
+    	title="Seamless onboarding"
+    	description="Email, phone, social, and passkey options"
+			iconUrl="/icons/feature-cards/fingerprint.svg"
+    />
+	<FeatureCard
+		title="Custom Authentication"
+		description="Bring-your-own authentication method"
+		iconUrl="/icons/feature-cards/authentication.svg"
+	/>
+	<FeatureCard
+		title="Gasless"
+		description="Enable free transactions with smart accounts"
+		iconUrl="/icons/feature-cards/gasless.svg"
+	/>
+	<FeatureCard
+		title="Full Compatibility"
+		description="Connect to other web3 apps via WalletConnect"
+		iconUrl="/icons/feature-cards/compatibility.svg"
+	/>
+
+    <FeatureCard
+    	title="Secure"
+    	description="No single point of failure"
+			iconUrl="/icons/feature-cards/security.svg"
+    />
+
+
+    <FeatureCard
+    	title="Wallet Management"
+    	description="Easily transfer assets or export private keys"
+			iconUrl="/icons/feature-cards/key.svg"
+    />
+
+</div>
 
 ## Use cases
 
