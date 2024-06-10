@@ -227,13 +227,13 @@ function WalletsSection() {
 
 			<Grid>
 				<ArticleCardIndex
-					href="/connect/sign-in"
+					href="/connect/sign-in/overview"
 					title="Sign-In"
 					description="Flexible user sign-up flow with wallet and social sign-in methods"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
-					href="/connect/account-abstraction"
+					href="/connect/account-abstraction/overview"
 					title="Account abstraction"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
