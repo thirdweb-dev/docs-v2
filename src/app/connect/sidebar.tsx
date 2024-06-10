@@ -257,17 +257,21 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "Third-Parties",
+					name: "Gasless",
 					isCollapsible: true,
 					expanded: true,
 					links: [
 						{
+							name: "Engine",
+							href: `${aAslug}/gasless/engine`,
+						},
+						{
 							name: "Biconomy",
-							href: `${aAslug}/third-party/biconomy`,
+							href: `${aAslug}/gasless/biconomy`,
 						},
 						{
 							name: "OpenZeppelin",
-							href: `${aAslug}/third-party/openzeppelin`,
+							href: `${aAslug}/gasless/openzeppelin`,
 						},
 					],
 				},
