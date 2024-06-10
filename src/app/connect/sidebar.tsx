@@ -39,7 +39,7 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${connectSlug}`,
+					href: `${connectSlug}/overview`,
 				},
 				{
 					name: "Get Started",
@@ -116,7 +116,7 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${inAppSlug}`,
+					href: `${inAppSlug}/overview`,
 				},
 				{
 					name: "How it works",
@@ -220,7 +220,7 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Overview",
-					href: `${aAslug}`,
+					href: `${aAslug}/overview`,
 				},
 				{
 					name: "How it Works",
