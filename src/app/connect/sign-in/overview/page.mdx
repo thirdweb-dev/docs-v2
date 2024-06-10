@@ -1,7 +1,7 @@
 import { Callout, DocImage, createMetadata, FeatureCard } from "@doc";
-import connectModal from "./assets/connect-image-new.svg";
-import customModal from "./assets/custom-modals.png";
-import connectPlayground from "./assets/connect-playground.png";
+import connectModal from "../assets/connect-image-new.svg";
+import customModal from "../assets/custom-modals.png";
+import connectPlayground from "../assets/connect-playground.png";
 
 export const metadata = createMetadata({
 	image: {
@@ -31,33 +31,32 @@ Whether users prefer to sign up with their email, phone number, social media acc
 		description="350+ wallet providers supported"
 		iconUrl="/icons/feature-cards/wallet.svg"
 	/>
+	    <FeatureCard
+    	title="Fiat On-Ramp"
+    	description="Enable purchase options directly in modal"
+			iconUrl="/icons/feature-cards/fiat-ramp.svg"
+    />
 
     <FeatureCard
     	title="Seamless onboarding"
     	description="Email, phone, social, and passkey options"
 			iconUrl="/icons/feature-cards/fingerprint.svg"
     />
+			<FeatureCard
+		title="Customizable"
+		description="Match your applications branding"
+		iconUrl="/icons/feature-cards/customize.svg"
+	/>
 		<FeatureCard
 		title="Account Abstraction"
 		description="Easily enable gasless user onboarding flows"
-		iconUrl="/icons/feature-cards/wallet.svg"
-	/>
-
-    <FeatureCard
-    	title="Fiat On-Ramp"
-    	description="Enable purchase options directly in modal"
-			iconUrl="/icons/feature-cards/fingerprint.svg"
-    />
-		<FeatureCard
-		title="Customizable"
-		description="Match your applications branding"
-		iconUrl="/icons/feature-cards/wallet.svg"
+		iconUrl="/icons/feature-cards/account-abstraction.svg"
 	/>
 
     <FeatureCard
     	title="Localization"
     	description="Support for multiple languages"
-			iconUrl="/icons/feature-cards/fingerprint.svg"
+			iconUrl="/icons/feature-cards/localization.svg"
     />
 
 </div>
