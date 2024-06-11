@@ -49,7 +49,8 @@ export async function fetchInAppWalletMetadataFromThirdweb(
 	const data = (await resp.json()) as {
 		userId: string;
 		walletAddress: string;
-		email: string;
+		email?: string;
+		phone?: string;
 		createdAt: string;
 	}[];
 	return data;
