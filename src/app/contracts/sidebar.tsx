@@ -619,6 +619,10 @@ export const sidebar: SideBar = {
 					name: "Design Docs",
 					links: [
 						{
+							name: "Modular Contracts",
+							href: `${designDocs}/modular-contracts`,
+						},
+						{
 							name: "Drop",
 							href: `${designDocs}/drop`,
 						},
