@@ -84,7 +84,9 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 		return <hr className="my-2 border-t" />;
 	}
 
-	const isActive = pathname === props.link.href;
+	const isActive = props.link.href
+		? pathMatchesHref(pathname, props.link.href)
+		: false;
 
 	const { link } = props;
 	if ("links" in link) {
@@ -142,7 +144,7 @@ function DocSidebarNonCollapsible(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, icon } = props.linkGroup;
-	const isCategoryActive = href && href === pathname;
+	const isCategoryActive = href ? pathMatchesHref(pathname, href) : false;
 
 	return (
 		<div className="my-4">
@@ -182,7 +184,7 @@ function DocSidebarCategory(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, expanded, icon } = props.linkGroup;
-	const isCategoryActive = href && href === pathname;
+	const isCategoryActive = href ? pathMatchesHref(pathname, href) : false;
 
 	const hasActiveHref = containsActiveHref(
 		{
@@ -295,19 +297,17 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 
 function containsActiveHref(
 	sidebarlink: SidebarLink,
-	activeLink: string,
+	pathname: string,
 ): boolean {
 	if ("links" in sidebarlink) {
-		return sidebarlink.links.some((link) =>
-			containsActiveHref(link, activeLink),
-		);
+		return sidebarlink.links.some((link) => containsActiveHref(link, pathname));
 	}
 
 	if ("separator" in sidebarlink) {
 		return false;
 	}
 
-	if (sidebarlink.href === activeLink) {
+	if (pathMatchesHref(pathname, sidebarlink.href)) {
 		return true;
 	}
 
@@ -319,4 +319,18 @@ function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
 		return <Image src={props.icon} alt="" className="size-5" />;
 	}
 	return <div className="[&>*]:size-5">{props.icon}</div>;
+}
+
+function pathMatchesHref(pathname: string, href: string): boolean {
+	try {
+		if (href === pathname) {
+			return true;
+		} else if (pathname === new URL(href, window.location.href).pathname) {
+			return true;
+		}
+	} catch {
+		// ignore
+	}
+
+	return false;
 }
