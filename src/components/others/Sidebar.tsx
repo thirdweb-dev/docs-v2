@@ -85,7 +85,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 	}
 
 	const isActive = props.link.href
-		? pathMatches(pathname, props.link.href)
+		? isSamePage(pathname, props.link.href)
 		: false;
 
 	const { link } = props;
@@ -144,7 +144,7 @@ function DocSidebarNonCollapsible(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, icon } = props.linkGroup;
-	const isCategoryActive = href ? pathMatches(pathname, href) : false;
+	const isCategoryActive = href ? isSamePage(pathname, href) : false;
 
 	return (
 		<div className="my-4">
@@ -184,7 +184,7 @@ function DocSidebarCategory(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, expanded, icon } = props.linkGroup;
-	const isCategoryActive = href ? pathMatches(pathname, href) : false;
+	const isCategoryActive = href ? isSamePage(pathname, href) : false;
 
 	const hasActiveHref = containsActiveHref(
 		{
@@ -307,7 +307,7 @@ function containsActiveHref(
 		return false;
 	}
 
-	if (pathMatches(pathname, sidebarlink.href)) {
+	if (isSamePage(pathname, sidebarlink.href)) {
 		return true;
 	}
 
@@ -321,7 +321,7 @@ function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
 	return <div className="[&>*]:size-5">{props.icon}</div>;
 }
 
-function pathMatches(pathname: string, pathOrHref: string): boolean {
+function isSamePage(pathname: string, pathOrHref: string): boolean {
 	try {
 		if (pathOrHref === pathname) {
 			return true;
