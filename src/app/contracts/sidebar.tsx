@@ -178,6 +178,11 @@ export const sidebar: SideBar = {
 					name: "Get Started",
 					href: `${buildSlug}/get-started`,
 				},
+				// modular contracts
+				{
+					name: "Modular Contracts",
+					href: `${buildSlug}/modular-contracts`,
+				},
 				// base contracts
 				{
 					name: "Base Contracts",
