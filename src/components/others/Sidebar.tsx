@@ -85,7 +85,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 	}
 
 	const isActive = props.link.href
-		? pathMatchesHref(pathname, props.link.href)
+		? pathMatches(pathname, props.link.href)
 		: false;
 
 	const { link } = props;
@@ -144,7 +144,7 @@ function DocSidebarNonCollapsible(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, icon } = props.linkGroup;
-	const isCategoryActive = href ? pathMatchesHref(pathname, href) : false;
+	const isCategoryActive = href ? pathMatches(pathname, href) : false;
 
 	return (
 		<div className="my-4">
@@ -184,7 +184,7 @@ function DocSidebarCategory(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, expanded, icon } = props.linkGroup;
-	const isCategoryActive = href ? pathMatchesHref(pathname, href) : false;
+	const isCategoryActive = href ? pathMatches(pathname, href) : false;
 
 	const hasActiveHref = containsActiveHref(
 		{
@@ -307,7 +307,7 @@ function containsActiveHref(
 		return false;
 	}
 
-	if (pathMatchesHref(pathname, sidebarlink.href)) {
+	if (pathMatches(pathname, sidebarlink.href)) {
 		return true;
 	}
 
@@ -321,12 +321,16 @@ function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
 	return <div className="[&>*]:size-5">{props.icon}</div>;
 }
 
-function pathMatchesHref(pathname: string, href: string): boolean {
+function pathMatches(pathname: string, pathOrHref: string): boolean {
 	try {
-		if (href === pathname) {
+		if (pathOrHref === pathname) {
 			return true;
-		} else if (pathname === new URL(href, window.location.href).pathname) {
-			return true;
+		} else {
+			const u1 = new URL(pathname, window.location.href);
+			const u2 = new URL(pathOrHref, window.location.href);
+			if (u1.pathname === u2.pathname && u1.origin === u2.origin) {
+				return true;
+			}
 		}
 	} catch {
 		// ignore
