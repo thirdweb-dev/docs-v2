@@ -25,7 +25,6 @@ import { useDisconnect, useSwitchChain, useWalletClient } from 'wagmi'
 import { viemAdapter } from "thirdweb/adapters/viem";
 import { client } from './client'
 
-.....
 
 const { data: walletClient } = useWalletClient(); // from wagmi 
 const { disconnectAsync } = useDisconnect(); // from wagmi
@@ -55,7 +54,7 @@ useEffect(() => {
     };
     setActive();
 }, [walletClient]);
-....
+
 ```
 
 You can view a fully functioning wagmi + thirdweb app in this [github repository](https://github.com/thirdweb-example/wagmi-thirdweb-pay).
