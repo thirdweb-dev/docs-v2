@@ -17,577 +17,760 @@ Contract contract = sdk.GetContract("0x...");
 Marketplace marketplace = contract.Marketplace;
 ```
 
-## Auction - CancelListing
+## DirectListings
 
-Cancel a listing that you made.
+Interact with direct listings in the marketplace.
 
-Note: Auction listings cannot be canceled if a bid has been made.
+### GetAll
+
+Retrieve all direct listings.
 
 ```csharp
-var data = await marketplace.EnglishAuctions.CancelListing("{{listing_id}}");
+var listings = await marketplace.DirectListings.GetAll(filters);
 ```
 
 <Details summary="Configuration">
 
-#### listingId
+#### filters
 
-The ID of the listing to cancel.
+(Optional) Filters to apply to the listings retrieval.
+
+Must be a `MarketplaceFilters` object.
+
+</Details>
+
+### GetAllValid
+
+Retrieve all valid direct listings.
+
+```csharp
+var validListings = await marketplace.DirectListings.GetAllValid(filters);
+```
+
+<Details summary="Configuration">
+
+#### filters
+
+(Optional) Filters to apply to the valid listings retrieval.
+
+Must be a `MarketplaceFilters` object.
+
+</Details>
+
+### GetListing
+
+Retrieve a specific direct listing by ID.
+
+```csharp
+var listing = await marketplace.DirectListings.GetListing(listingID);
+```
+
+<Details summary="Configuration">
+
+#### listingID
+
+The ID of the listing to retrieve.
 
 Must be a `string`.
 
 </Details>
 
-## Auction - CreateListing
+### GetTotalCount
 
-List an NFT for sale in an auction listing on the marketplace.
+Retrieve the total count of direct listings.
 
 ```csharp
-var data = await marketplace.EnglishAuctions.CreateListing(new NewAuctionListing() {
-    assetContractAddress = "{{contract_address}}",
-    tokenId = "0",
-    startTimestamp = DateTime.Now.Ticks,
-    buyoutPricePerToken = "{{price}}",
-    listingDurationInSeconds = 86400,
-    quantity = 1,
-});
+var count = await marketplace.DirectListings.GetTotalCount();
+```
+
+### IsBuyerApprovedForListing
+
+Check if a buyer is approved for a reserved listing.
+
+```csharp
+var isApproved = await marketplace.DirectListings.IsBuyerApprovedForListing(listingID, buyerAddress);
 ```
 
 <Details summary="Configuration">
 
-#### assetContractAddress
+#### listingID
 
-The address of the NFT smart contract that you are listing.
-
-Must be a `string`.
-
-#### tokenId
-
-The token ID of the NFT to list for sale.
+The ID of the listing.
 
 Must be a `string`.
 
-#### startTimestamp
+#### buyerAddress
 
-The date and time that the listing should start.
+The address of the buyer.
 
-Must be a `long`.
+Must be a `string`.
 
-#### listingDurationInSeconds
+</Details>
 
-How long the auction is open for, in seconds.
+### IsCurrencyApprovedForListing
 
-Must be an `int`.
+Check if a currency is approved for a listing.
 
-#### quantity
+```csharp
+var isApproved = await marketplace.DirectListings.IsCurrencyApprovedForListing(listingID, currencyContractAddress);
+```
 
-The quantity of the NFT to list for sale.
+<Details summary="Configuration">
 
-Only relevant for ERC1155 NFTs. For ERC721 NFTs, this value should be `1`.
+#### listingID
 
-Must be an `int`.
+The ID of the listing.
+
+Must be a `string`.
 
 #### currencyContractAddress
 
-The address of the currency contract that will be used to pay for the listing.
-
-Must be a `string`.
-
-#### buyoutPricePerToken
-
-The price that users must pay to **purchase** the NFT from the auction, immediately closing the auction and executing a sale event for both buyer and seller.
-
-Must be a `string`.
-
-#### reservePricePerToken
-
-The minimum bid that will be accepted for the NFT.
-
-Bids below this amount cannot be placed on the auction.
+The address of the currency contract.
 
 Must be a `string`.
 
 </Details>
 
-## Auction - ExecuteSale
+### ApproveBuyerForReservedListing
 
-Close the auction for both **buyer** and **seller**.
-
-This means that the NFT is transferred to the buyer, and the seller is paid the amount of the winning bid.
+Approve a buyer for a reserved listing.
 
 ```csharp
-var data = await marketplace.EnglishAuctions.ExecuteSale("{{listing_id}}");
+var result = await marketplace.DirectListings.ApproveBuyerForReservedListing(listingID, buyerAddress);
 ```
 
 <Details summary="Configuration">
 
-#### listingId
+#### listingID
 
-The ID of the listing to execute the sale for.
+The ID of the listing.
+
+Must be a `string`.
+
+#### buyerAddress
+
+The address of the buyer.
 
 Must be a `string`.
 
 </Details>
 
-## Auction - GetListing
+### BuyFromListing
 
-Get the details of a listing using the listing ID.
+Buy from a listing.
 
 ```csharp
-var data = await marketplace.EnglishAuctions.GetListing("{{listing_id}}");
+var result = await marketplace.DirectListings.BuyFromListing(listingID, quantity, walletAddress);
 ```
 
 <Details summary="Configuration">
 
-#### listingId
+#### listingID
 
-The ID of the listing to get the details for.
-
-Must be a `string`.
-
-### Return Value
-
-Returns an `AuctionListing` struct, containing the following properties:
-
-```csharp
-{
-    string startTimeInEpochSeconds;
-    string endTimeInEpochSeconds;
-    string reservePrice;
-    CurrencyValue reservePriceCurrencyValuePerToken;
-    string id;
-    string sellerAddress;
-    string assetContractAddress;
-    string tokenId;
-    NFTMetadata asset;
-    int quantity;
-    string currencyContractAddress;
-    string buyoutPrice;
-    CurrencyValue buyoutCurrencyValuePerToken;
-    int type;
-}
-```
-
-</Details>
-
-## Auction - GetMinimumNextBid
-
-Get the value that the next bid must be in order to be accepted.
-
-- If there is no current bid, this value is the reserve price.
-- If there is a current bid, this value is the current bid plus the bid buffer.
-
-```csharp
-var data = await marketplace.EnglishAuctions.GetMinimumNextBid("{{listing_id}}");
-```
-
-<Details summary="Configuration">
-
-#### listingId
-
-The ID of the listing to get the minimum next bid for.
+The ID of the listing.
 
 Must be a `string`.
-
-### Return Value
-
-The minimum next bid for the listing.
-
-```csharp
-{
-    string name;
-    string symbol;
-    string decimals;
-    string value;
-    string displayValue;
-}
-```
-
-</Details>
-
-## Auction - GetWinner
-
-Get the address that won an auction _after_ an auction has ended.
-
-```csharp
-var data = await marketplace.EnglishAuctions.GetWinner("{{listing_id}}");
-```
-
-<Details summary="Configuration">
-
-#### listingId
-
-The ID of the listing to get the winner for.
-
-Must be a `string`.
-
-### Return Value
-
-The wallet address of the winner.
-
-```csharp
-string
-```
-
-</Details>
-
-## Auction - GetWinningBid
-
-Get the current highest bid of an active auction.
-
-```csharp
-var data = await marketplace.EnglishAuctions.GetWinningBid("{{listing_id}}");
-```
-
-<Details summary="Configuration">
-
-#### listingId
-
-The ID of the listing to get the winning bid for.
-
-Must be a `string`.
-
-### Return Value
-
-The current highest bid of the auction.
-
-```typescript
-{
-    string listingId;
-    string buyerAddress;
-    int quantityDesired;
-    string pricePerToken;
-    CurrencyValue currencyValue;
-    string currencyContractAddress;
-}
-```
-
-</Details>
-
-## Direct - CancelListing
-
-Cancel a direct listing you created.
-
-Direct listings can be canceled at any time, unless a buyout has already occurred.
-
-```csharp
-var data = await marketplace.DirectListings.CancelListing("{{listing_id}}");
-```
-
-<Details summary="Configuration">
-
-#### listingId
-
-The ID of the listing to cancel.
-
-Must be a `string`.
-
-</Details>
-
-## Direct - CreateListing
-
-List an NFT for sale on the marketplace for direct purchase.
-
-```csharp
-var data = await marketplace.DirectListings.CreateListing(new NewDirectListing()
-{
-    assetContractAddress = "{{contract_address}}",
-    tokenId = "{{token_id}}",
-    startTimestamp = DateTime.Now.Ticks,
-    listingDurationInSeconds = 86400,
-    quantity = 1,
-    currencyContractAddress = "{{contract_address}}",
-    reservePricePerToken = "{{reserve_price}}",
-    buyoutPricePerToken = "{{buyout_price}}"
-});
-```
-
-<Details summary="Configuration">
-
-#### assetContractAddress
-
-The address of the NFT smart contract the asset you want to list is on.
-
-Must be a `string`.
-
-#### tokenId
-
-The token ID of the NFT you want to list.
-
-Must be an `int`.
-
-#### startTimestamp
-
-The date and time when the listing should open up for offers.
-
-Must be a `long`.
-
-#### listingDurationInSeconds
-
-How long the listing is open for, in seconds.
-
-Must be an `int`.
 
 #### quantity
 
-The quantity of NFTs to list.
+The quantity to buy.
 
-Only applicable for ERC1155 NFTs. For ERC721 NFTs, this should be `1`.
+Must be a `string`.
 
-Must be an `int`.
+#### walletAddress
+
+The address of the buyer's wallet.
+
+Must be a `string`.
+
+</Details>
+
+### CancelListing
+
+Cancel a listing.
+
+```csharp
+var result = await marketplace.DirectListings.CancelListing(listingID);
+```
+
+<Details summary="Configuration">
+
+#### listingID
+
+The ID of the listing.
+
+Must be a `string`.
+
+</Details>
+
+### CreateListing
+
+Create a new listing.
+
+```csharp
+var result = await marketplace.DirectListings.CreateListing(input);
+```
+
+<Details summary="Configuration">
+
+#### input
+
+The input parameters for creating a listing.
+
+Must be a `CreateListingInput` object.
+
+```csharp
+[System.Serializable]
+public struct CreateListingInput
+{
+    public string assetContractAddress; // Required - smart contract address of NFT to sell
+    public string tokenId; // Required - token ID of the NFT to sell
+    public string pricePerToken; // Required - price of each token in the listing
+    public string? currencyContractAddress; // Optional - smart contract address of the currency to use for the listing
+    public bool? isReservedListing; // Optional - whether or not the listing is reserved (only specific wallet addresses can buy)
+    public string? quantity; // Optional - number of tokens to sell (1 for ERC721 NFTs)
+    public long? startTimestamp; // Optional - when the listing should start (default is now)
+    public long? endTimestamp; // Optional - when the listing should end (default is 7 days from now)
+}
+
+```
+
+</Details>
+
+### RevokeBuyerApprovalForReservedListing
+
+Revoke buyer approval for a reserved listing.
+
+```csharp
+var result = await marketplace.DirectListings.RevokeBuyerApprovalForReservedListing(listingId, buyerAddress);
+```
+
+<Details summary="Configuration">
+
+#### listingId
+
+The ID of the listing.
+
+Must be a `string`.
+
+#### buyerAddress
+
+The address of the buyer.
+
+Must be a `string`.
+
+</Details>
+
+### RevokeCurrencyApprovalForListing
+
+Revoke currency approval for a listing.
+
+```csharp
+var result = await marketplace.DirectListings.RevokeCurrencyApprovalForListing(listingId, currencyContractAddress);
+```
+
+<Details summary="Configuration">
+
+#### listingId
+
+The ID of the listing.
+
+Must be a `string`.
 
 #### currencyContractAddress
 
-The address of the currency contract that will be used to pay for the listing.
-
-Defaults to the native currency of the network, i.e. Ether for Ethereum.
-
-Must be a `string`.
-
-#### buyoutPricePerToken
-
-The price that users can buy the NFT for.
-
-Must be a `string`.
-
-#### reservePricePerToken
-
-The minimum price that users can bid for the NFT.
+The address of the currency contract.
 
 Must be a `string`.
 
 </Details>
 
-## Direct - GetActiveOffer
+### UpdateListing
 
-Get an active offer on a listing from a specific wallet address, if there is one.
+Update a listing.
 
 ```csharp
-var data = await marketplace.DirectListings.GetActiveOffer("{{listing_id}}", "{{wallet_address}}");
+var result = await marketplace.DirectListings.UpdateListing(listingId, listing);
 ```
 
 <Details summary="Configuration">
 
 #### listingId
 
-The ID of the listing to get the active offer for.
+The ID of the listing.
 
 Must be a `string`.
 
-#### offerorAddress
+#### listing
 
-The wallet address of the offeror.
+The updated listing details.
 
-Must be a `string`.
-
-### Return Value
-
-Returns an `Offer` struct with the following properties:
+Must be a `DirectListing` object.
 
 ```csharp
+[System.Serializable]
+public struct DirectListing
 {
-    string listingId;
-    string buyerAddress;
-    int quantityDesired;
-    string pricePerToken;
-    CurrencyValue currencyValue;
-    string currencyContractAddress;
+    public string? id; // The id of the listing.
+    public string? creatorAddress; // The address of the creator of listing.
+    public string? assetContractAddress; // The address of the asset being listed.
+    public string? tokenId; // The ID of the token to list.
+    public string? quantity; // The quantity of tokens to include in the listing (always 1 for ERC721).
+    public string? currencyContractAddress; // The address of the currency to accept for the listing.
+    public CurrencyValue? currencyValuePerToken; // The `CurrencyValue` of the listing. Useful for displaying the price information.
+    public string? pricePerToken; // The price to pay per unit of NFTs listed.
+    public NFTMetadata? asset; // The asset being listed.
+    public long? startTimeInSeconds; // The start time of the listing.
+    public long? endTimeInSeconds; // The end time of the listing.
+    public bool? isReservedListing; // Whether the listing is reserved to be bought from a specific set of buyers.
+    public MarketplaceStatus? status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
 }
 ```
 
 </Details>
 
-## Direct - GetListing
+## EnglishAuctions
 
-Get a direct listing by its ID.
+Interact with English auctions in the marketplace.
+
+### GetAll
+
+Retrieve all English auctions.
 
 ```csharp
-var data = await marketplace.DirectListings.GetListing("{{listing_id}}");
+var auctions = await marketplace.EnglishAuctions.GetAll(filters);
 ```
 
 <Details summary="Configuration">
 
-#### listingId
+#### filters
 
-The ID of the listing to get.
+(Optional) Filters to apply to the auctions retrieval.
+
+Must be a `MarketplaceFilters` object.
+
+</Details>
+
+### GetAllValid
+
+Retrieve all valid English auctions.
+
+```csharp
+var validAuctions = await marketplace.EnglishAuctions.GetAllValid(filters);
+```
+
+<Details summary="Configuration">
+
+#### filters
+
+(Optional) Filters to apply to the valid auctions retrieval.
+
+Must be a `MarketplaceFilters` object.
+
+</Details>
+
+### GetAuction
+
+Retrieve a specific English auction by ID.
+
+```csharp
+var auction = await marketplace.EnglishAuctions.GetAuction(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction to retrieve.
 
 Must be a `string`.
 
-### Return Value
+</Details>
 
-Returns a `DirectListing` object containing the following properties:
+### GetBidBufferBps
+
+Retrieve the bid buffer basis points for an auction.
 
 ```csharp
+var bidBufferBps = await marketplace.EnglishAuctions.GetBidBufferBps(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### GetMinimumNextBid
+
+Retrieve the minimum next bid for an auction.
+
+```csharp
+var minimumNextBid = await marketplace.EnglishAuctions.GetMinimumNextBid(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### GetTotalCount
+
+Retrieve the total count of English auctions.
+
+```csharp
+var count = await marketplace.EnglishAuctions.GetTotalCount();
+```
+
+### GetWinner
+
+Retrieve the winner of an auction.
+
+```csharp
+var winner = await marketplace.EnglishAuctions.GetWinner(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### GetWinningBid
+
+Retrieve the winning bid for an auction.
+
+```csharp
+var winningBid = await marketplace.EnglishAuctions.GetWinningBid(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### IsWinningBid
+
+Check if a bid is the winning bid.
+
+```csharp
+var isWinningBid = await marketplace.EnglishAuctions.IsWinningBid(auctionId, bidAmount);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+#### bidAmount
+
+The amount of the bid.
+
+Must be a `string`.
+
+</Details>
+
+### BuyoutAuction
+
+Buyout an auction.
+
+```csharp
+var result = await marketplace.EnglishAuctions.BuyoutAuction(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### CancelAuction
+
+Cancel an auction.
+
+```csharp
+var result = await marketplace.EnglishAuctions.CancelAuction(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### CloseAuctionForBidder
+
+Close an auction for the bidder.
+
+```csharp
+var result = await marketplace.EnglishAuctions.CloseAuctionForBidder(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### CloseAuctionForSeller
+
+Close an auction for the seller.
+
+```csharp
+var result = await marketplace.EnglishAuctions.CloseAuctionForSeller(auctionId);
+```
+
+<Details summary="Configuration">
+
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### CreateAuction
+
+Create a new auction.
+
+```csharp
+var result = await marketplace.EnglishAuctions.CreateAuction(input);
+```
+
+<Details summary="Configuration">
+
+#### input
+
+The input parameters for creating an auction.
+
+Must be a `CreateAuctionInput` object.
+
+```csharp
+[System.Serializable]
+public struct CreateAuctionInput
 {
-    string id;
-    string sellerAddress;
-    string assetContractAddress;
-    string tokenId;
-    NFTMetadata asset;
-    int quantity;
-    string currencyContractAddress;
-    string buyoutPrice;
-    CurrencyValue buyoutCurrencyValuePerToken;
-    int type;
-    string startTimeInSeconds;
-    string secondsUntilEnd;
+    public string assetContractAddress; // Required - smart contract address of NFT to sell
+    public string tokenId; // Required - token ID of the NFT to sell
+    public string buyoutBidAmount; // Required - amount to buy the NFT and close the listing
+    public string minimumBidAmount; // Required - Minimum amount that bids must be to placed
+    public string? currencyContractAddress; // Optional - smart contract address of the currency to use for the listing
+    public string? quantity; // Optional - number of tokens to sell (1 for ERC721 NFTs)
+    public long? startTimestamp; // Optional - when the listing should start (default is now)
+    public long? endTimestamp; // Optional - when the listing should end (default is 7 days from now)
+    public string? bidBufferBps; // Optional - percentage the next bid must be higher than the current highest bid (default is contract-level bid buffer bps)
+    public string? timeBufferInSeconds; // Optional - time in seconds that are added to the end time when a bid is placed (default is contract-level time buffer in seconds)
 }
 ```
 
 </Details>
 
-## GetActiveListings
+### ExecuteSale
 
-Get all active listings on the marketplace, both direct and auction listings.
-
-An active listing means it can be bought or bid on.
+Execute the sale for an auction.
 
 ```csharp
-var data = await marketplace.DirectListings.GetActiveListings();
+var result = await marketplace.EnglishAuctions.ExecuteSale(auctionId);
 ```
 
 <Details summary="Configuration">
 
-#### filter (optional)
+#### auctionId
 
-A filter to apply to the listings returned.
+The ID of the auction.
+
+Must be a `string`.
+
+</Details>
+
+### MakeBid
+
+Make a bid on an auction.
 
 ```csharp
-var data = await marketplace.DirectListings.GetActiveListings(new MarketplaceFilter()
-{
-    seller = "{{wallet_address}}", // Only show results from this seller
-    tokenContract = "{{contract_address}}", // Only show results from this contract address
-    tokenId = "{{token_id}}", // Only show results with this token ID
-    start = 0, // Pagination: start index
-    count = 100 // Pagination: number of results to return
-});
+var result = await marketplace.EnglishAuctions.MakeBid(auctionId, bidAmount);
 ```
 
-### Return Value
+<Details summary="Configuration">
 
-Returns a list of `Listing` structs, each containing the following properties:
+#### auctionId
+
+The ID of the auction.
+
+Must be a `string`.
+
+#### bidAmount
+
+The amount of the bid.
+
+Must be a `string`.
+
+</Details>
+
+## Offers
+
+Interact with offers in the marketplace.
+
+### GetAll
+
+Retrieve all offers.
 
 ```csharp
+var offers = await marketplace.Offers.GetAll(filters);
+```
+
+<Details summary="Configuration">
+
+#### filters
+
+(Optional) Filters to apply to the offers retrieval.
+
+Must be a `MarketplaceFilters` object.
+
+</Details>
+
+### GetAllValid
+
+Retrieve all valid offers.
+
+```csharp
+var validOffers = await marketplace.Offers.GetAllValid(filters);
+```
+
+<Details summary="Configuration">
+
+#### filters
+
+(Optional) Filters to apply to the valid offers retrieval.
+
+Must be a `MarketplaceFilters` object.
+
+</Details>
+
+### GetOffer
+
+Retrieve a specific offer by ID.
+
+```csharp
+var offer = await marketplace.Offers.GetOffer(offerID);
+```
+
+<Details summary="Configuration">
+
+#### offerID
+
+The ID of the offer to retrieve.
+
+Must be a `string`.
+
+</Details>
+
+### GetTotalCount
+
+Retrieve the total count of offers.
+
+```csharp
+var count = await marketplace.Offers.GetTotalCount();
+```
+
+### AcceptOffer
+
+Accept an offer.
+
+```csharp
+var result = await marketplace.Offers.AcceptOffer(offerID);
+```
+
+<Details summary="Configuration">
+
+#### offerID
+
+The ID of the offer.
+
+Must be a `string`.
+
+</Details>
+
+### CancelOffer
+
+Cancel an offer.
+
+```csharp
+var result = await marketplace.Offers.CancelOffer(offerID);
+```
+
+<Details summary="Configuration">
+
+#### offerID
+
+The ID of the offer.
+
+Must be a `string`.
+
+</Details>
+
+### MakeOffer
+
+Make a new offer.
+
+```csharp
+var result = await marketplace.Offers.MakeOffer(input);
+```
+
+<Details summary="Configuration">
+
+#### input
+
+The input parameters for making an offer.
+
+Must be a `MakeOfferInput` object.
+
+```csharp
+[System.Serializable]
+public struct MakeOfferInput
 {
-    string id;
-    string sellerAddress;
-    string assetContractAddress;
-    string tokenId;
-    NFTMetadata asset;
-    int quantity;
-    string currencyContractAddress;
-    string buyoutPrice;
-    CurrencyValue buyoutCurrencyValuePerToken;
-    int type;
+    public string assetContractAddress; // Required - the contract address of the NFT to offer on
+    public string tokenId; // Required - the token ID to offer on
+    public string totalPrice; // Required - the price to offer in the currency specified
+    public string? currencyContractAddress; // Optional - defaults to the native wrapped currency
+    public long? endTimestamp; // Optional - Defaults to 10 years from now
+    public string? quantity; // Optional - defaults to 1
 }
 ```
 
 </Details>
 
-## GetAllListings
 
-Get all the listings on the marketplace, including inactive ones.
-
-```csharp
-var data = await marketplace.DirectListings.GetAllListings();
-```
-
-<Details summary="Configuration">
-
-#### filter (optional)
-
-A filter to apply to the listings returned.
-
-```csharp
-var data = await marketplace.DirectListings.GetAllListings(new MarketplaceFilter()
-{
-    seller = "{{wallet_address}}", // Only show results from this seller
-    tokenContract = "{{contract_address}}", // Only show results from this contract address
-    tokenId = "{{token_id}}", // Only show results with this token ID
-    start = 0, // Pagination: start index
-    count = 100 // Pagination: number of results to return
-});
-```
-
-### Return Value
-
-Returns a list of `Listing` structs, each containing the following properties:
-
-```csharp
-{
-    string id;
-    string sellerAddress;
-    string assetContractAddress;
-    string tokenId;
-    NFTMetadata asset;
-    int quantity;
-    string currencyContractAddress;
-    string buyoutPrice;
-    CurrencyValue buyoutCurrencyValuePerToken;
-    int type;
-}
-```
-
-</Details>
-
-## GetOffers
-
-Get all the offers made on a listing.
-
-```csharp
-var data = await marketplace.Offers.GetOffers("{{listing_id}}");
-```
-
-<Details summary="Configuration">
-
-#### listingId
-
-The ID of the listing to get offers for.
-
-Must be a `string`.
-
-### Return Value
-
-Returns a list of `Offer` structs, each containing the following properties:
-
-```typescript
-{
-    public string listingId;
-    public string buyerAddress;
-    public int quantityDesired;
-    public string pricePerToken;
-    public CurrencyValue currencyValue;
-    public string currencyContractAddress;
-}
-```
-
-</Details>
-
-## MakeOffer
-
-Create a new bid on an auction listing or a new offer on a direct listing.
-
-```csharp
-var data = await marketplace.Offers.MakeOffer("{{listing_id}}", "{{price}}", 1);
-```
-
-<Details summary="Configuration">
-
-#### listingId
-
-The ID of the listing to make an offer/bid on.
-
-Must be a `string`.
-
-#### pricePerToken
-
-The price per token to offer/bid.
-
-Must be a `string`.
-
-#### quantity
-
-The quantity of tokens to offer/bid on.
-
-Optional, defaults to `1`. Must be an int.
-
-</Details>
