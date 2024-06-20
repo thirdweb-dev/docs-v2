@@ -1,23 +1,14 @@
 import { createMetadata } from "@/components/Document";
 import { DocLayout } from "@/components/Layouts/DocLayout";
+import { typescriptV4Sidebar } from "../../typescript/v4/sidebar";
+import { TypeScriptVersionSelector } from "../../../components/others/VersionSelector";
 
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
 		<DocLayout
-			sideBar={{
-				name: "Storage SDK",
-				links: [
-					{
-						name: "Overview",
-						href: "/storage-sdk/v2",
-					},
-					{
-						name: "Full Reference",
-						href: "/references/storage/v2",
-					},
-				],
-			}}
+			sideBar={typescriptV4Sidebar}
 			editPageButton={true}
+			sidebarHeader={<TypeScriptVersionSelector selected="v4" />}
 		>
 			{props.children}
 		</DocLayout>

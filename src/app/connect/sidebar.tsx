@@ -1,111 +1,189 @@
-import { SideBar } from "@/components/Layouts/DocLayout";
+import type { SideBar } from "@/components/Layouts/DocLayout";
 import {
 	WalletsAuthIcon,
 	WalletsConnectIcon,
-	WalletsEmbeddedIcon,
+	WalletsInAppIcon,
 	WalletsSmartIcon,
+	PayIcon,
+	ExternalLinkIcon,
 } from "@/icons";
+import { CodeIcon } from "lucide-react";
 
-const connectSlug = "/connect/connect";
-const embeddedSlug = "/connect/embedded-wallet";
+const connectSlug = "/connect/sign-in";
+const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
 const authSlug = "/connect/auth";
+const paySlug = "/connect/pay";
 
 export const sidebar: SideBar = {
 	name: "Connect",
 	links: [
 		{
-			name: "Overview",
+			name: "Introduction",
 			href: "/connect",
+		},
+		{
+			name: "Quickstart",
+			href: "/connect/quickstart",
+		},
+		{
+			name: "Playground",
+			href: "https://playground.thirdweb.com/",
+			icon: <ExternalLinkIcon className="my-auto" />,
 		},
 		{ separator: true },
 		// Connect
 		{
-			name: "Connect",
+			name: "Sign-In",
 			icon: <WalletsConnectIcon />,
-			href: `${connectSlug}`,
 			links: [
 				{
-					name: "ConnectWallet",
-					href: `${connectSlug}/ConnectWallet`,
+					name: "Overview",
+					href: `${connectSlug}/overview`,
 				},
 				{
-					name: "ConnectEmbed",
-					href: `${connectSlug}/ConnectEmbed`,
+					name: "Get Started",
+					// expanded: true,
+					links: [
+						{
+							name: "Connect Button",
+							href: `${connectSlug}/ConnectButton`,
+						},
+						{
+							name: "Connect Embed",
+							href: `${connectSlug}/ConnectEmbed`,
+						},
+						{
+							name: "Custom UI",
+							href: `${connectSlug}/Custom-UI`,
+						},
+					],
 				},
 				{
-					name: "Build Custom Experience",
-					href: `${connectSlug}/custom`,
+					name: "Sign-In Methods",
+					links: [
+						{
+							name: "Email & Phone",
+							href: `${connectSlug}/methods/email-and-phone`,
+						},
+						{
+							name: "Social Login",
+							href: `${connectSlug}/methods/social-logins`,
+						},
+						{
+							name: "External Wallets",
+							href: `${connectSlug}/methods/external-wallets`,
+						},
+					],
+				},
+				{
+					name: "Customization",
+					links: [
+						{
+							name: "Logo",
+							href: `${connectSlug}/customization#logo`,
+						},
+						{
+							name: "Compact Modal",
+							href: `${connectSlug}/customization#compact-modal`,
+						},
+						{
+							name: "Theme",
+							href: `${connectSlug}/customization#theming`,
+						},
+						{
+							name: "Localization",
+							href: `${connectSlug}/customization#localization`,
+						},
+					],
+				},
+				{
+					name: "Migrate from RainbowKit",
+					href: `${connectSlug}/rainbow-kit-migrate`,
+				},
+				{
+					name: "Playground",
+					href: "https://thirdweb.com/dashboard/connect/playground",
 				},
 			],
 		},
 
-		//Embedded Wallets
+		//In-App Wallets
 		{ separator: true },
 		{
-			name: "Embedded Wallet",
-			icon: <WalletsEmbeddedIcon />,
-			href: `${embeddedSlug}/overview`,
+			name: "In-App Wallet",
+			icon: <WalletsInAppIcon />,
 			links: [
 				{
+					name: "Overview",
+					href: `${inAppSlug}/overview`,
+				},
+				{
 					name: "How it works",
-					href: `${embeddedSlug}/how-it-works`,
+					href: `${inAppSlug}/how-it-works`,
 				},
 				{
 					name: "Get Started",
-					href: `${embeddedSlug}/get-started`,
+					href: `${inAppSlug}/get-started`,
 				},
 				{
 					name: "How to",
 					links: [
 						{
 							name: "Connect Users",
-							href: `${embeddedSlug}/how-to/connect-users`,
+							href: `${inAppSlug}/how-to/connect-users`,
 						},
 						{
 							name: "Build your own UI",
-							href: `${embeddedSlug}/how-to/build-your-own-ui`,
+							href: `${inAppSlug}/how-to/build-your-own-ui`,
 						},
 						{
 							name: "Interact with wallets",
-							href: `${embeddedSlug}/how-to/interact-with-wallets`,
+							href: `${inAppSlug}/how-to/interact-with-wallets`,
 						},
 						{
 							name: "Interact with the blockchain",
-							href: `${embeddedSlug}/how-to/interact-blockchain`,
+							href: `${inAppSlug}/how-to/interact-blockchain`,
 						},
 						{
-							name: "Enable Gasless Transactions",
-							href: `${embeddedSlug}/how-to/enable-gasless`,
+							name: "Sponsor Transactions",
+							href: `${inAppSlug}/how-to/enable-gasless`,
+						},
+						{
+							name: "Getting User Details (Server)",
+							href: `${inAppSlug}/how-to/get-in-app-wallet-details-on-server`,
 						},
 						{
 							name: "Export private key",
-							href: `${embeddedSlug}/how-to/export-private-key`,
+							href: `${inAppSlug}/how-to/export-private-key`,
 						},
 					],
 				},
 				{
 					name: "Custom Authentication",
-					href: `${embeddedSlug}/custom-auth/overview`,
 					links: [
 						{
+							name: "Overview",
+							href: `${inAppSlug}/custom-auth/overview`,
+						},
+						{
 							name: "Configuration",
-							href: `${embeddedSlug}/custom-auth/configuration`,
+							href: `${inAppSlug}/custom-auth/configuration`,
 						},
 						{
 							name: "Integration guides",
 							links: [
 								{
 									name: "Custom auth server (OIDC Auth)",
-									href: `${embeddedSlug}/custom-auth/custom-jwt-auth-server`,
+									href: `${inAppSlug}/custom-auth/custom-jwt-auth-server`,
 								},
 								{
 									name: "Custom auth server (Generic Auth)",
-									href: `${embeddedSlug}/custom-auth/custom-auth-server`,
+									href: `${inAppSlug}/custom-auth/custom-auth-server`,
 								},
 								{
 									name: "Firebase Auth",
-									href: `${embeddedSlug}/custom-auth/firebase-auth`,
+									href: `${inAppSlug}/custom-auth/firebase-auth`,
 								},
 							],
 						},
@@ -116,32 +194,34 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "React",
-							href: `/references/react/v4/smartWallet`,
+							href: "/references/typescript/v5/inAppWallet",
 						},
 						{
 							name: "React Native",
-							href: `/react-native/v0/wallets/smartwallet`,
+							href: "/references/typescript/v5/inAppWallet",
 						},
 						{
 							name: "Unity",
-							href: `/unity/wallets/providers/embedded-wallet`,
+							href: "/unity/wallets/providers/in-app-wallet",
 						},
 					],
 				},
 				{
 					name: "FAQs",
-					href: `${embeddedSlug}/faqs`,
+					href: `${inAppSlug}/faqs`,
 				},
 			],
 		},
 		//Account abstraction
 		{ separator: true },
 		{
-			name: "Account abstraction",
+			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
-			isCollapsible: true,
-			href: `${aAslug}`,
 			links: [
+				{
+					name: "Overview",
+					href: `${aAslug}/overview`,
+				},
 				{
 					name: "How it Works",
 					href: `${aAslug}/how-it-works`,
@@ -153,6 +233,14 @@ export const sidebar: SideBar = {
 				{
 					name: "Permissions & Session Keys",
 					href: `${aAslug}/permissions`,
+				},
+				{
+					name: "Batching Transactions",
+					href: `${aAslug}/batching-transactions`,
+				},
+				{
+					name: "Account Factories",
+					href: `${aAslug}/factories`,
 				},
 				{
 					name: "Bundler & Paymaster",
@@ -178,28 +266,47 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "References",
+					name: "Gasless",
 					isCollapsible: true,
 					expanded: true,
 					links: [
 						{
-							name: "React",
-							href: `/references/react/v4/smartWallet`,
+							name: "Engine",
+							href: `${aAslug}/gasless/engine`,
 						},
 						{
-							name: "React Native",
-							href: `/react-native/v0/wallets/smartwallet`,
+							name: "Biconomy",
+							href: `${aAslug}/gasless/biconomy`,
 						},
 						{
-							name: "TypeScript",
-							href: `/references/wallets/v2/SmartWallet`,
-						},
-						{
-							name: "Unity",
-							href: `/unity/wallets/providers/smart-wallet`,
+							name: "OpenZeppelin",
+							href: `${aAslug}/gasless/openzeppelin`,
 						},
 					],
 				},
+				// {
+				// 	name: "References",
+				// 	isCollapsible: true,
+				// 	expanded: true,
+				// 	links: [
+				// 		{
+				// 			name: "React",
+				// 			href: `/references/typescript/v5/smartWallet`,
+				// 		},
+				// 		{
+				// 			name: "React Native",
+				// 			href: `/react-native/v0/wallets/smartwallet`,
+				// 		},
+				// 		{
+				// 			name: "TypeScript",
+				// 			href: `/references/wallets/v2/SmartWallet`,
+				// 		},
+				// 		{
+				// 			name: "Unity",
+				// 			href: `/unity/wallets/providers/smart-wallet`,
+				// 		},
+				// 	],
+				// },
 				{
 					name: "FAQs",
 					href: `${aAslug}/faq`,
@@ -209,97 +316,139 @@ export const sidebar: SideBar = {
 		// Auth
 		{ separator: true },
 		{
-			name: "Auth",
+			name: "Auth (SIWE)",
 			icon: <WalletsAuthIcon />,
-			isCollapsible: true,
 			links: [
 				{
-					name: "Overview",
+					name: "Get Started",
 					href: `${authSlug}`,
 				},
 				{
-					name: "How it Works",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "Overview",
-							href: `${authSlug}/how-it-works`,
-						},
-						{
-							name: "Sign-in with Wallet",
-							href: `${authSlug}/how-it-works/siwe`,
-						},
-						{
-							name: "JSON Web Tokens",
-							href: `${authSlug}/how-it-works/jwt`,
-						},
-						{
-							name: "Auth API",
-							href: `${authSlug}/how-it-works/api`,
-						},
-					],
-				},
-				{
-					name: "Get Started",
-					href: `${authSlug}/get-started`,
-				},
-				{
-					name: "Client Frameworks",
-					isCollapsible: true,
-					expanded: false,
-					links: [
-						{
-							name: "React",
-							href: `${authSlug}/client-frameworks/react`,
-						},
-						{
-							name: "React Native",
-							href: `${authSlug}/client-frameworks/react-native`,
-						},
-					],
-				},
-				{
-					name: "Server Frameworks",
+					name: "Frameworks",
 					isCollapsible: true,
 					expanded: false,
 					links: [
 						{
 							name: "Next.js",
-							href: `${authSlug}/server-frameworks/next`,
+							href: `${authSlug}/frameworks/next`,
 						},
 						{
-							name: "Express",
-							href: `${authSlug}/server-frameworks/express`,
+							name: "React + Express",
+							href: `${authSlug}/frameworks/react-express`,
 						},
 					],
 				},
 				{
-					name: "Integrations",
-					isCollapsible: true,
-					expanded: false,
+					name: "Deploying to Production",
+					href: `${authSlug}/deploying-to-production`,
+				},
+			],
+		},
+		{ separator: true },
+		// Pay
+		{
+			name: "Pay",
+			icon: <PayIcon />,
+			// isCollapsible: true,
+			links: [
+				{
+					name: "Overview",
+					href: `${paySlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${paySlug}/get-started`,
+					expanded: true,
 					links: [
 						{
-							name: "Next Auth",
-							href: `${authSlug}/integrations/next-auth`,
+							name: "ConnectButton",
+							href: `${paySlug}/get-started#option-1-connectbutton`,
 						},
 						{
-							name: "Supabase",
-							href: `${authSlug}/integrations/supabase`,
+							name: "Embed Pay",
+							href: `${paySlug}/get-started#option-2-embed-pay`,
 						},
 						{
-							name: "Firebase",
-							href: `${authSlug}/integrations/firebase`,
+							name: "Send a Transaction",
+							href: `${paySlug}/get-started#option-3-send-a-transaction-with-pay`,
 						},
 					],
 				},
 				{
-					name: "Wallet Configuration",
-					href: `${authSlug}/wallet-configuration`,
+					name: "Supported Chains",
+					href: `${paySlug}/supported-chains`,
+				},
+
+				{
+					name: "Buy With Fiat",
+					href: `${paySlug}/buy-with-fiat`,
+				},
+				{
+					name: "Buy With Crypto",
+					isCollapsible: true,
+					links: [
+						{
+							name: "Overview",
+							href: `${paySlug}/buy-with-crypto/overview`,
+						},
+						{
+							name: "Fee Sharing",
+							href: `${paySlug}/buy-with-crypto/fee-sharing`,
+						},
+					],
+				},
+
+				{
+					name: "Customization",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "ConnectButton",
+							href: `${paySlug}/customization/connectbutton`,
+						},
+						{
+							name: "PayEmbed",
+							href: `${paySlug}/customization/payembed`,
+						},
+						{
+							name: "useSendTransaction",
+							href: `${paySlug}/customization/send-transaction`,
+						},
+					],
+				},
+				{
+					name: "Build a Custom Experience",
+					href: `${paySlug}/build-a-custom-experience`,
 				},
 				{
 					name: "FAQs",
-					href: `${authSlug}/faq`,
+					href: `${paySlug}/faqs`,
+				},
+			],
+		},
+		{ separator: true },
+		{
+			name: "Blockchain API",
+			href: "/connect/blockchain-api",
+			icon: <CodeIcon />,
+			isCollapsible: true,
+			links: [
+				{
+					name: "TypeScript",
+					href: "/typescript/v5",
+				},
+				{
+					name: "React",
+					href: "/typescript/v5/react",
+				},
+				{
+					name: "React Native",
+					href: "/typescript/v5/react-native",
+				},
+				{
+					name: "Unity",
+					href: "/unity",
 				},
 			],
 		},

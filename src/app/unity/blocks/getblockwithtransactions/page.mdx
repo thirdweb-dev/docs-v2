@@ -13,5 +13,5 @@ Get block data by block number, including transaction data.
 
 ```csharp
 BigInteger blockNumber = 1234567;
-var blockWithTransactions = await Blocks.GetBlockWithTransactions(blockNumber);
+var blockWithTransactions = await ThirdwebManager.Instance.SDK.Blocks.GetBlockWithTransactions(blockNumber);
 ```

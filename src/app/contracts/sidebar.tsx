@@ -178,6 +178,11 @@ export const sidebar: SideBar = {
 					name: "Get Started",
 					href: `${buildSlug}/get-started`,
 				},
+				// modular contracts
+				{
+					name: "Modular Contracts",
+					href: `${buildSlug}/modular-contracts`,
+				},
 				// base contracts
 				{
 					name: "Base Contracts",
@@ -594,15 +599,7 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "TypeScript",
-							href: "/typescript/latest",
-						},
-						{
-							name: "React",
-							href: "/react/latest",
-						},
-						{
-							name: "React Native",
-							href: "/react-native/latest",
+							href: "/typescript/v5",
 						},
 						{
 							name: "Unity",
@@ -621,6 +618,10 @@ export const sidebar: SideBar = {
 				{
 					name: "Design Docs",
 					links: [
+						{
+							name: "Modular Contracts",
+							href: `${designDocs}/modular-contracts`,
+						},
 						{
 							name: "Drop",
 							href: `${designDocs}/drop`,

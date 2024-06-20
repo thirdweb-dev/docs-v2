@@ -16,9 +16,11 @@ Contract contract = sdk.GetContract("{{contract_address}}");
 
 <Callout variant='info' title="Using contracts without an ABI">
 
-You must pass an ABI to the `GetContract` method as its second parameter if you want to interact with the contract from the Unity editor or other native platforms.
+When no ABI is passed, we will use thirdweb services to fetch it at runtime when Prepare, Read or Write are called.
 
-In WebGL builds, you do not need to pass an ABI as long as your contract is imported through the thirdweb [dashboard](https://thirdweb.com/dashboard).
+This is a great way to get started quickly, but it is not recommended for production environments.
+
+You may also use `Contract.FetchAbi` to fetch the ABI manually.
 
 </Callout>
 

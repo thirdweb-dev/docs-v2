@@ -5,6 +5,7 @@ export { ReactIcon } from "./sdks/ReactIcon";
 export { SolidityIcon } from "./sdks/SolidityIcon";
 export { TypeScriptIcon } from "./sdks/TypeScriptIcon";
 export { UnityIcon } from "./sdks/UnityIcon";
+export { DotNetIcon } from "./sdks/DotNetIcon";
 // contracts
 export { ContractBuildIcon } from "./products/contracts/ContractBuildIcon";
 export { ContractDeployIcon } from "./products/contracts/ContractDeployIcon";
@@ -18,10 +19,14 @@ export { InfraStorageIcon } from "./products/infra/InfraStorageIcon";
 // // payments
 export { PaymentsNFTCheckoutIcon } from "./products/payments/PaymentsNFTCheckoutIcon";
 export { PaymentsSponsoredIcon } from "./products/payments/PaymentsSponsoredIcon";
+export { PayIcon } from "./products/payments/PayIcon";
 // wallets
 export { WalletsAuthIcon } from "./products/wallets/WalletsAuthIcon";
 export { WalletsConnectIcon } from "./products/wallets/WalletsConnectIcon";
-export { WalletsEmbeddedIcon } from "./products/wallets/WalletsEmbeddedIcon";
+export { WalletsInAppIcon } from "./products/wallets/WalletsInAppIcon";
 export { WalletsSmartIcon } from "./products/wallets/WalletsSmartIcon";
 // solutions
 export { GamingIcon } from "./solutions/GamingIcon";
+
+// general purposes
+export { ExternalLinkIcon } from "./ExternalLinkIcon";

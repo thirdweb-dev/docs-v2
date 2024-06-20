@@ -14,12 +14,12 @@ import { Heading, Grid } from "@/components/Document";
 // 	ShoppingBag,
 // 	User,
 // } from "lucide-react";
+import { CodeIcon } from "lucide-react";
 import {
-	ReactIcon,
 	TypeScriptIcon,
-	// PythonIcon,
-	// GoIcon,
+	ReactIcon,
 	UnityIcon,
+	DotNetIcon,
 	SolidityIcon,
 	ContractBuildIcon,
 	ContractExploreIcon,
@@ -29,10 +29,11 @@ import {
 	InfraEngineIcon,
 	WalletsAuthIcon,
 	WalletsConnectIcon,
-	WalletsEmbeddedIcon,
+	WalletsInAppIcon,
 	WalletsSmartIcon,
-	PaymentsNFTCheckoutIcon,
+	PayIcon,
 } from "@/icons";
+// import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
 	return (
@@ -42,7 +43,7 @@ export default function Page() {
 			<WalletsSection />
 			<ContractsSection />
 			<EngineSection />
-			<PaymentSection />
+
 			<SDKSection />
 		</main>
 	);
@@ -61,27 +62,7 @@ function Hero() {
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>
-					{/* <div className="flex flex-wrap gap-4">
-						<Button
-							asChild
-							variant="accent"
-							className="text-lg lg:min-w-[150px] lg:px-10"
-						>
-							<Link
-								href="https://www.youtube.com/watch?v=jYEqoIeAoBg"
-								target="_blank"
-							>
-								Learn
-							</Link>
-						</Button>
-						<Button
-							variant="outline"
-							className="text-lg lg:min-w-[150px] lg:px-10"
-							asChild
-						>
-							<Link href="/#wallets">Explore Products</Link>
-						</Button>
-					</div> */}
+					{/* <LandingPageCTAs /> */}
 				</div>
 			</div>
 
@@ -246,28 +227,40 @@ function WalletsSection() {
 
 			<Grid>
 				<ArticleCardIndex
-					href="/connect/connect"
-					title="Connect"
-					description="Fully customizable Connect Wallet component"
+					href="/connect/sign-in/overview"
+					title="Sign-In"
+					description="Flexible user sign-up flow with wallet and social sign-in methods"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
-					href="/connect/account-abstraction"
+					href="/connect/account-abstraction/overview"
 					title="Account abstraction"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
 				/>
 				<ArticleCardIndex
-					title="Embedded Wallet"
+					title="In-App Wallet"
 					description="Email & social login wallets for your customers"
-					href="/connect/embedded-wallet/overview"
-					icon={WalletsEmbeddedIcon}
+					href="/connect/in-app-wallet/overview"
+					icon={WalletsInAppIcon}
 				/>
 				<ArticleCardIndex
 					href="/connect/auth"
 					title="Auth"
 					description="Authenticate users with their wallets"
 					icon={WalletsAuthIcon}
+				/>
+				<ArticleCardIndex
+					href="/connect/pay/overview"
+					title="Pay"
+					description="Easily integrate fiat onramps and cross-chain crypto purchases"
+					icon={PayIcon}
+				/>
+				<ArticleCardIndex
+					href="/connect/blockchain-api"
+					title="Blockchain API"
+					description="Performant, and reliable blockchain API"
+					icon={CodeIcon}
 				/>
 			</Grid>
 		</section>
@@ -315,23 +308,6 @@ function ContractsSection() {
 	);
 }
 
-function PaymentSection() {
-	return (
-		<section className="my-12">
-			<SectionTitle id="payments" title="Payments" />
-
-			<Grid>
-				<ArticleCardIndex
-					href="/payments"
-					title="NFT Checkout"
-					description="Credit card checkout for NFTs"
-					icon={PaymentsNFTCheckoutIcon}
-				/>
-			</Grid>
-		</section>
-	);
-}
-
 function EngineSection() {
 	return (
 		<section className="my-12">
@@ -356,24 +332,27 @@ function SDKSection() {
 
 			<Grid>
 				<SDKCardIndex
-					href="/typescript/latest"
+					href="/typescript/v5"
 					title="TypeScript"
 					icon={TypeScriptIcon}
 				/>
-				<SDKCardIndex href="/react/latest" title="React" icon={ReactIcon} />
 				<SDKCardIndex
-					href="/react-native/latest"
+					href="/typescript/v5/react"
+					title="React"
+					icon={ReactIcon}
+				/>
+				<SDKCardIndex
+					href="/typescript/v5/react-native"
 					title="React Native"
 					icon={ReactIcon}
 				/>
-				{/* <SDKCard href="/python" title="Python" icon={PythonIcon} /> */}
-				{/* <SDKCard href="/go" title="Go" icon={GoIcon} /> */}
 				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
 				<SDKCardIndex
 					href="/contracts/build/overview"
 					title="Solidity"
 					icon={SolidityIcon}
 				/>
+				<SDKCardIndex href="/dotnet" title=".NET" icon={DotNetIcon} />
 			</Grid>
 		</section>
 	);

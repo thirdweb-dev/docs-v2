@@ -1,4 +1,11 @@
-import { Callout, ArticleIconCard, Stack } from "@doc";
+import {
+	Callout,
+	ArticleIconCard,
+	Stack,
+	OpenSourceCard,
+	InstallTabs,
+	createMetadata,
+} from "@doc";
 import {
 	ZapIcon,
 	ScrollTextIcon,
@@ -9,24 +16,57 @@ import {
 	RssIcon,
 	PlugZapIcon,
 	BoxIcon,
+	KeyRoundIcon,
 } from "lucide-react";
 import { ReactIcon } from "@/icons";
 
-# Unified SDK (Beta)
+export const metadata = createMetadata({
+	image: {
+		title: "Connect TS SDK",
+		icon: "wallets",
+	},
+	title: "Connect TS SDK | thirdweb",
+	description:
+		"Performant & lightweight TypeScript SDK to connect wallets and interact with any EVM chain.",
+});
 
-<Callout title='Beta Release' variant='warning'>
+# TypeScript SDK
 
-You are currently viewing the documentation for the `Beta` version of the new thirdweb "unified" TypeScript SDK.
+Performant & lightweight SDK to interact with any EVM chain from Node, React and React Native.
 
-Refer to [stable version documentation](/typescript-sdks/) for production usage.
-
-</Callout>
+<OpenSourceCard
+	title="Connect TypeScript SDK"
+	href="https://github.com/thirdweb-dev/js"
+/>
 
 ## Installation
 
-```bash
-npm install thirdweb@beta
-```
+<InstallTabs
+	npm="npm i thirdweb"
+	yarn="yarn add thirdweb"
+	pnpm="pnpm i thirdweb"
+	bun="bun i thirdweb"
+/>
+
+## Features
+
+- **React and React Native UI Components**: for wallets connection, transactions and more
+- **In-app wallets**: first-class support for email and social logins
+- **Account abstraction**: first-class support for ERC4337 smart accounts
+- **Type safe contract API**: fully typed with human readable ABI
+- **Code generation**: CLI to generate highly optimized contract, type-safe interfaces\
+- **RPC for any EVM chain**: highly performant RPCs with just a chain id
+- **IPFS upload/download**: simple and efficient IPFS integration
+- **Auto ABI resolution**: resolve ABIs for any deployed contract with just an address
+- **Ethers / Viem Interoperability**: adapters for ethers and viem libraries
+
+## Design principles
+
+- **Single package:** for Node, React and React Native with tree shaking for a minimal footprint.
+- **Performance optimized:** focuses on speed and efficiency with single responsibility principles.
+- **Out-of-the-box infra:** direct access to all the thirdweb infrastructure from wallets to RPCs to IPFS.
+- **Developer experience:** type-safe, simple to use, with repeatable and predictable patterns.
+- **Interoperable:** works with any infra provider and with other libraries like viem and ethers.
 
 ## Get Started
 
@@ -60,10 +100,10 @@ npm install thirdweb@beta
 />
 
 <ArticleIconCard
-	title="Wallets"
+	title="Accounts & Wallets"
 	icon={WalletIcon}
 	href="/typescript/v5/wallets"
-	description="Connect and Interact with wallets"
+	description="Connect wallets and work with accounts"
 />
 
 <ArticleIconCard
@@ -85,6 +125,13 @@ npm install thirdweb@beta
 	icon={BoxIcon}
 	href="/typescript/v5/storage"
 	description="IPFS download and upload"
+/>
+
+<ArticleIconCard
+	title="Auth"
+	icon={KeyRoundIcon}
+	href="/typescript/v5/auth"
+	description="Authenticate users"
 />
 
 <ArticleIconCard
@@ -113,26 +160,3 @@ npm install thirdweb@beta
 - Node 18.6 or higher
 - TypeScript 5.0.4 or higher (for TypeScript users)
 - React 18.0.0 or higher (for React users)
-
-## Library Comparison
-
-|                                           | thirdweb | Wagmi              | Viem               | Ethers@6 |
-| ----------------------------------------- | -------- | ------------------ | ------------------ | -------- |
-| Type safe contract API                    | ✅       | ✅                 | ✅                 | ✅       |
-| Type safe wallet API                      | ✅       | ✅                 | ✅                 | ✅       |
-| EVM utils                                 | ✅       | ❌                 | ✅                 | ✅       |
-| RPC for any EVM                           | ✅       | ⚠️ public RPC only | ⚠️ public RPC only | ❌       |
-| Automatic ABI Resolution                  | ✅       | ❌                 | ❌                 | ❌       |
-| IPFS Upload/Download                      | ✅       | ❌                 | ❌                 | ❌       |
-| Embedded wallet (email/ social login)     | ✅       | ⚠️ via 3rd party   | ❌                 | ❌       |
-| Account abstraction (ERC4337) support     | ✅       | ⚠️ via 3rd party   | ⚠️ via 3rd party   | ❌       |
-| Web3 wallet connectors                    | ✅       | ✅                 | ❌                 | ❌       |
-| Local wallet creation                     | ✅       | ❌                 | ✅                 | ✅       |
-| Auth (SIWE)                               | ✅       | ⚠️ via 3rd party   | ❌                 | ❌       |
-| Extensions functions for common standards | ✅       | ❌                 | ❌                 | ❌       |
-| React Hooks                               | ✅       | ✅                 | ❌                 | ❌       |
-| React UI components                       | ✅       | ❌                 | ❌                 | ❌       |
-| React Native Hooks                        | ✅       | ❌                 | ❌                 | ❌       |
-| React Native UI Components                | ✅       | ❌                 | ❌                 | ❌       |
-
-Last updated: 03-04-2024

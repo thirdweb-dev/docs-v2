@@ -5,6 +5,7 @@ export function InstallTabs(props: {
 	npm: string;
 	yarn: string;
 	pnpm: string;
+	bun?: string;
 	thirdwebInstallSupported?: boolean;
 }) {
 	return (
@@ -16,6 +17,7 @@ export function InstallTabs(props: {
 				<TabsTrigger value="npm">npm</TabsTrigger>
 				<TabsTrigger value="yarn">yarn</TabsTrigger>
 				<TabsTrigger value="pnpm">pnpm</TabsTrigger>
+				{props.bun && <TabsTrigger value="bun">bun</TabsTrigger>}
 			</TabsList>
 			{props.thirdwebInstallSupported && (
 				<TabsContent value="npx">
@@ -31,6 +33,11 @@ export function InstallTabs(props: {
 			<TabsContent value="pnpm">
 				<CodeBlock code={props.pnpm} lang="bash" />
 			</TabsContent>
+			{props.bun && (
+				<TabsContent value="bun">
+					<CodeBlock code={props.bun} lang="bash" />
+				</TabsContent>
+			)}
 		</Tabs>
 	);
 }

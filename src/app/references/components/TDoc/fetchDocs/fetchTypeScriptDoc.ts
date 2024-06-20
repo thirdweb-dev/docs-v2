@@ -4,11 +4,11 @@ import { withCache } from "../../../../../lib/withCache";
 
 export async function fetchTypeScriptDoc(version: string) {
 	let URL =
-		"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/sdk/typedoc/documentation.json.gz";
+		"https://raw.githubusercontent.com/thirdweb-dev/js/main/legacy_packages/sdk/typedoc/documentation.json.gz";
 
 	if (version === "v5") {
 		URL =
-			"https://raw.githubusercontent.com/thirdweb-dev/js/alpha/packages/thirdweb/typedoc/documentation.json.gz";
+			"https://raw.githubusercontent.com/thirdweb-dev/js/main/packages/thirdweb/typedoc/documentation.json.gz";
 	}
 
 	const doc = await withCache(() => fetchJSON(URL), {

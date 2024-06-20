@@ -14,3 +14,12 @@
 	text-align: center;
 	color: var(--f-300);
 }
+
+.changelog-page iframe {
+	width: 100%;
+	margin-block: 40px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 6px;
+	overflow: hidden;
+}

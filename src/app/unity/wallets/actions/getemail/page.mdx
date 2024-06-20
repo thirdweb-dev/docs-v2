@@ -2,19 +2,19 @@ import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	title: "wallet.GetEmail | thirdweb Unity SDK",
-	description: "Get the Email of the currently connected Embedded Wallet",
+	description: "Get the Email of the currently connected In-App Wallet",
 });
 
 # GetEmail
 
-Gets the connected embedded wallet email if any.
+Gets the connected in-app wallet email if any.
 
 ## Usage
 
 ```csharp
-string email = await sdk.wallet.GetEmail();
+string email = await sdk.Wallet.GetEmail();
 ```
 
 ## Return Value
 
-Returns the email `string` of the connected embedded wallet if any, otherwise returns an empty string.
+Returns the email `string` of the connected in-app wallet if any, otherwise returns an empty string.

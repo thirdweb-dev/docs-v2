@@ -12,13 +12,18 @@ export const sidebar: SideBar = {
 					href: `${accountSlug}/billing/account-info`,
 				},
 				{
-					name: "Upgrade Plan",
-					href: `${accountSlug}/billing/upgrade-plan`,
-				},
-				{
 					name: "Manage Billing",
 					href: `${accountSlug}/billing/manage-billing`,
 				},
+				{
+					name: "Credits",
+					href: `${accountSlug}/billing/credits`,
+				},
+				{
+					name: "Upgrade Plan",
+					href: `${accountSlug}/billing/upgrade-plan`,
+				}
+				
 			],
 		},
 		{

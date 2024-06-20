@@ -7,7 +7,7 @@ export const metadata = createMetadata({
 
 # WalletConnect
 
-Prompt users to connect to your app with their [WalletConnect-compatible](https://walletconnect.com/) wallet.
+Prompt users to connect to your app with their [WalletConnect-compatible](https://walletconnect.com/) wallet. Supports 400+ wallets.
 
 ## Usage
 
@@ -26,7 +26,7 @@ public async void ConnectWallet()
     );
 
     // Connect the wallet
-    string address = await sdk.wallet.Connect(connection);
+    string address = await sdk.Wallet.Connect(connection);
 }
 ```
 
@@ -34,15 +34,15 @@ public async void ConnectWallet()
 
 ### WebGL
 
-Displays the WalletConnect modal with recommended wallets.
+Displays the WalletConnect modal, customized based on your ThirdwebManager settings.
 
 ### Standalone
 
-Instantiates the customizable `WalletProvider_WalletConnect` UI prefab, displaying a QR code and deep link button. Scan the QR code with your Metamask mobile app to connect.
+Instantiates the customizable `WalletProvider_WalletConnect` UI prefab, displaying the WalletConnect modal. Typical connection is though a QR code scan.
 
 ### Mobile
 
-Instantiates the customizable `WalletProvider_WalletConnect` UI prefab, displaying a QR code and deep link button. Click the deep link button to connect to your Metamask mobile app.
+Instantiates the customizable `WalletProvider_WalletConnect` UI prefab, displaying the WalletConnect modal. Typical connection is though deep linking.
 
 ## Miscellaneous
 
@@ -51,4 +51,4 @@ The prefab is located at `Assets/Thirdweb/Core/Prefabs` and referenced in the [T
 
 ## Additional Options
 
-You may set the your WalletConnect Project ID (all platforms) and explorer recommended wallet ids (WebGL only) in the [ThirdwebManager](/unity/thirdwebmanager) prefab.
+You may set the your WalletConnect Project ID (all platforms) and explorer recommended wallet ids in the [ThirdwebManager](/unity/thirdwebmanager) prefab.

@@ -23,7 +23,7 @@ export const metadata = createMetadata({
 
 # TransactionButton
 
-TransactionButton component is used to render a button that triggers a transaction.
+TransactionButton component is used to render a button that sends a given transaction. Refer to [preparing transactions guide](/typescript/v5/transactions/prepare) to learn how to create a transaction object.
 
 It shows a "Switch Network" button if the connected wallet is on a different chain than the transaction.
 
@@ -33,9 +33,24 @@ It shows a "Switch Network" button if the connected wallet is on a different cha
 function Example() {
 	return (
 		<TransactionButton
-			transaction={transaction}
-			onSuccess={handleSuccess}
-			onError={handleError}
+			transaction={() => {
+				// Create a transaction object and return it
+				const tx = prepareContractCall({
+					contract,
+					method: "mint",
+					params: [address, amount],
+				});
+				return tx;
+			}}
+			onTransactionSent={(result) => {
+				console.log("Transaction submitted", result.transactionHash);
+			}}
+			onTransactionConfirmed={(receipt) => {
+				console.log("Transaction confirmed", receipt.transactionHash);
+			}}
+			onError={(error) => {
+				console.error("Transaction error", error);
+			}}
 		>
 			Confirm Transaction
 		</TransactionButton>

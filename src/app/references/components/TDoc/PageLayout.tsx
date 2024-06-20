@@ -100,8 +100,8 @@ export function getTDocPage(options: {
 		const versions = await getVersions();
 
 		const returnVal = await Promise.all(
-			versions.map((version) => {
-				return getDoc(version)
+			versions.map(async (version) => {
+				const paths = await getDoc(version)
 					.then((doc) => fetchAllSlugs(doc))
 					.then((slugs) => {
 						return [
@@ -114,10 +114,12 @@ export function getTDocPage(options: {
 							{ version, slug: [] },
 						];
 					});
+				return paths;
 			}),
 		);
 
-		return returnVal.flat();
+		const paths = returnVal.flat();
+		return paths;
 	}
 
 	async function generateMetadata(props: PageProps): Promise<Metadata> {
@@ -144,7 +146,11 @@ export function getTDocPage(options: {
 	}
 
 	return {
-		dynamicParams: false,
+		// force-static on dev and previews to lower the build time and vercel cost
+		dynamic: (process.env.VERCEL_ENV !== "preview" &&
+		process.env.VERCEL_ENV !== "development"
+			? "force-static"
+			: "auto") as "force-static" | "auto",
 		default: Page,
 		generateStaticParams,
 		generateMetadata,

@@ -35,35 +35,34 @@ See the ConnectButton in action on [ConnectButton Playground!](https://thirdweb.
 
 ## Usage
 
-<Steps>
-<Step title="Configure wallets in ThirdwebProvider" >
+To Configure the wallets to show in the ConnectButton Modal, configure the `wallets` prop
 
-To Configure which wallets to show in the ConnectButton Modal, configure the `wallets` prop in the [`ThirdwebProvider`](/typescript/v5/react/ThirdwebProvider) component which wraps your entire application.
+To mark a wallet as `Recommended`, pass in the `recommended: true` property in the wallet config function.
 
-To display a `Recommended` tag below a wallet provider, pass in the `recommended: true` property in the wallet configurator function.
+Refer to [Props](#props) to see all the available configuration options
 
-```jsx
-import {
-	ThirdwebProvider,
-	metamaskConfig,
-	coinbaseConfig,
-	walletConnectConfig,
-} from "thirdweb-dev/react";
+<Callout title="In-App Wallets" variant="info">
 
-function AppWithProviders() {
+    This example uses [In-App Wallets](/connect/in-app-wallet/overview), a special type of wallet that allows users to connect to your app using email, social logins, or other custom forms of authentication.
+
+</Callout>
+
+```tsx
+import { ConnectButton } from "thirdweb/react";
+import { createWallet, inAppWallet } from "thirdweb/wallets";
+
+const wallets = [
+	inAppWallet(),
+	createWallet("io.metamask"),
+	createWallet("com.coinbase.wallet"),
+	createWallet("me.rainbow"),
+];
+
+function Example() {
 	return (
-		<ThirdwebProvider
-			client={client}
-			wallets={[
-				metamaskConfig({
-					recommended: true,
-				}),
-				coinbaseConfig(),
-				walletConnectConfig(),
-			]}
-		>
-			<App />
-		</ThirdwebProvider>
+		<div>
+			<ConnectButton client={client} wallets={wallets} />
+		</div>
 	);
 }
 ```
@@ -73,45 +72,37 @@ function AppWithProviders() {
 <ArticleIconCard
 	title="Supported Wallets"
 	icon={TablePropertiesIcon}
-	href="/typescript/v5/react/wallets"
+	href="/typescript/v5/supported-wallets"
 />
 
 </Stack>
 
-If `wallets` is not configured in the `ThirdwebProvider`, the ConnectButton Modal shows the default wallets:
+## Auth
 
-<Details summary="Default Wallets" id='default-wallets'>
+The `ConnectButton` can optionally include [Auth](/connect/auth) to manage user authentication for you. When the user connects their wallet, the `ConnectButton` will immediately prompt them to sign a message to login. That signature can then be verified on your server to issue the user a JWT authenticating their session.
 
-- [Embedded Wallet](/references/typescript/v5/embeddedWalletConfig)
-- [MataMask Wallet](/references/typescript/v5/metamaskConfig)
-- [Coinbase Wallet](/references/typescript/v5/coinbaseConfig)
-- [WalletConnect](/references/typescript/v5/walletConnectConfig)
-- [Rainbow Wallet](/references/typescript/v5/rainbowConfig)
-- [Zerion Wallet](/references/typescript/v5/zerionConfig)
-
-</Details>
-
-</Step>
-
-<Step title="Configure ConnectButton">
-
-Render the `ConnectButton` component anywhere in your application. Refer to [Props](#props) to see the configuration options available
-
-```jsx
-import { ConnectButton } from "thirdweb/react";
-
-function Example() {
-	return (
-		<div>
-			<ConnectButton />
-		</div>
-	);
-}
+```ts
+<ConnectButton
+	client={client}
+	auth={{
+		isLoggedIn: async (address) => {
+			console.log("checking if logged in!", { address });
+			return await isLoggedIn();
+		},
+		doLogin: async (params) => {
+			console.log("logging in!");
+			await login(params);
+		},
+		getLoginPayload: async ({ address }) => generatePayload({ address }),
+		doLogout: async () => {
+			console.log("logging out!");
+			await logout();
+		},
+	}}
+/>
 ```
 
-</Step>
-
-</Steps>
+Each of these functions correspond to a server API endpoint or server-side function. For their implementations, see the [TypeScript Auth docs](/typescript/v5/auth/#server-functions) or check out our [examples](/typescript/v5/auth/#example-repos).
 
 ## Props
 

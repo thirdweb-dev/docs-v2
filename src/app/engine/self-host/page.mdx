@@ -18,16 +18,17 @@ dashboard](https://thirdweb.com/dashboard/engine).
 
 - [Docker](https://docs.docker.com/get-docker/)
 - A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
+- PostgresDB (version 14+)
 
-### Development
+### Running Engine locally
 
-Run Postgres locally:
+Start Postgres:
 
 ```bash
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
 ```
 
-Run Engine locally:
+Start Engine server:
 
 ```bash
 docker run \
@@ -44,7 +45,7 @@ docker run \
 
 #### Environment variables
 
-| Variable                                                       | Description                                                                                                                 |
+| Variable (<span style={{ color: "red" }}>\*</span> = Required) | Description                                                                                                                 |
 | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `ENCRYPTION_PASSWORD`<span style={{color:'red'}}>\*</span>     | Provide a string to encrypt sensitive data stored in DB. Do _not_ change this value or encrypted data will be inaccessible. |
 | `THIRDWEB_API_SECRET_KEY`<span style={{color:'red'}}>\*</span> | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                     |
@@ -53,6 +54,7 @@ docker run \
 | `ENABLE_HTTPS`                                                 | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`)    |
 | `LOG_LEVEL`                                                    | Determines the logging severity level. Adjust for finer control over logged information. (Default: `debug`)                 |
 | `PRUNE_TRANSACTIONS`                                           | When `false`, Engine prevents the pruning/deletion of processed transaction data. (Default: `true`)                         |
+| `ENABLE_KEYPAIR_AUTH`                                          | Enables [Keypair Authentication](/engine/features/keypair-authentication).                                                  |
 
 <span style={{ color: "red" }}>*</span> Required
 
@@ -78,7 +80,32 @@ To manage your Engine instance from the dashboard:
 1. Add your publicly accessible Engine URL.
    - If Engine is running locally, provide the URL `https://localhost:3005`.
 
-### Production
+### Running Engine in production
+
+See the [Production Checklist](/engine/production-checklist#cloud-hosting) for best practices using Engine in a production environment.
+
+- Pin Engine Docker to a version to control when changes are introduced.
+  - `latest` may include major version changes which can introduce breaking changes.
+- Host Engine DB on any [Postgres-compatible database](https://www.postgresql.org/support/professional_hosting/).
+  - Remember to update `POSTGRES_CONNECTION_URL`.
+  - Examples: [AWS RDS](https://aws.amazon.com/rds/postgresql/), [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres), [Heroku](https://www.heroku.com/postgres), [Supabase](https://supabase.com/docs/guides/database/overview)
+  - Minimum specs: 2 vCPU, 2 GB memory (AWS equivalent: t4g.small)
+  - Minimum version: 14
+  - Add the `?connection_limit=10` param to your `POSTGRES_CONNECTION_URL` to increase the connection limit.
+- Host Engine server on any cloud provider.
+  - Minimum specs: 1 vCPU, 2 GB memory (AWS equivalent: t2.small)
+  - Auto-scale the instance count to increase inbound throughput and queuing capacity.
+- Remove the `ENABLE_HTTPS` env var.
+
+### FAQ
+
+#### Why is my Docker image unable to reach my Postgres database?
+
+Here are common troubleshooting tips:
+
+- Ensure the Postgres DB is running in Docker. `POSTGRES_CONNECTION_URL` should be set to `localhost` (if in the same container) or `host.docker.internal` (if in a different container).
+- Ensure the Postgres DB connection URL and credentials are correct.
+- Ensure the database name exists on the Postgres DB.
 
 See [Production Checklist](/engine/production-checklist#cloud-hosting) for best practices using Engine in a production environment.
 
@@ -95,10 +122,10 @@ See [Production Checklist](/engine/production-checklist#cloud-hosting) for best 
 
 ### FAQ
 
-#### How to manage log output in Engine?
+#### How do I filter logs in Engine?
 
-Configure Engine's log verbosity via the `LOG_LEVEL` environment variable to control the severity of logs generated.
-The severity levels, ordered from highest to lowest, are as follows:
+Configure log verbosity via the `LOG_LEVEL` environment variable.
+The severity levels ordered from highest to lowest are:
 
 - `fatal` : Terminates the program due to critical errors.
 - `error` : Highlights serious issues needing immediate action.
@@ -107,7 +134,7 @@ The severity levels, ordered from highest to lowest, are as follows:
 - `debug` : Provides detailed debugging information.
 - `trace` : Offers in-depth tracing details.
 
-Engine, by default, captures logs at `debug` severity and higher. Setting `LOG_LEVEL` to `error` limits logging to only `error` and `fatal` severities.
+Engine by default captures logs at `debug` severity and higher. Setting `LOG_LEVEL` to `error` limits logging to only `error` and `fatal` severities.
 
 ```bash
 LOG_LEVEL="error"
@@ -124,12 +151,6 @@ Engine recommends a minimum DB connections limit of `8` PER HOST. Please set the
 DB Error:
 
 ```bash
-ERROR: [Worker] Failed to process batch of transactions -
-Invalid `prisma.configuration.findUnique()` invocation in
-/app/dist/src/db/configuration/getConfiguration.ts:164:43
-
-  export const getConfiguration = async (): Promise<Config> => {
-   let config = await prisma.configuration.findUnique(
 Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 3)
 ```
 

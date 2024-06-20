@@ -71,9 +71,10 @@ export default function RootLayout({
 
 				<div className="relative flex min-h-screen flex-col">
 					<StickyTopContainer>
+						{/* Note: Please change id as well when changing text or href so that new banner is shown to user even if user dismissed the older one  */}
 						<Banner
-							id="v5-alpha-sdk"
-							text="Try out our new unified client SDK."
+							id="v5-stable"
+							text="Connect SDK v5 has been released. See documentation."
 							href="https://portal.thirdweb.com/typescript/v5"
 						/>
 						<Header />

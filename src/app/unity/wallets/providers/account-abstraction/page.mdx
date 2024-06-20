@@ -30,7 +30,7 @@ public async void ConnectWallet()
     );
 
     // Connect the wallet
-    string address = await sdk.wallet.Connect(connection);
+    string address = await sdk.Wallet.Connect(connection);
 }
 ```
 
@@ -52,7 +52,7 @@ Goes through the specified `personalWallet` login flow, then generates or connec
 
 The ultimate goal of a smart account is to be able to sponsor gas fees for your users, while providing a signless and gasless experience.
 
-They also work with any wallet provider as the EOA, but it is recommended to use a signless wallet, like Embedded Wallets, for the best experience.
+They also work with any wallet provider as the EOA, but it is recommended to use a signless wallet, like In-App Wallets, for the best experience.
 
 You would then be able to login to the exact same persistent EOA and smart account address across your apps, and even across different platforms.
 
@@ -74,7 +74,7 @@ string permissionEndTimestamp = Utils.GetUnixTimestampIn10Years().ToString();
 string reqValidityStartTimestamp = "0";
 string reqValidityEndTimestamp = Utils.GetUnixTimestampIn10Years().ToString();
 
-var createSessionResult = await sdk.wallet.CreateSessionKey(
+var createSessionResult = await sdk.Wallet.CreateSessionKey(
   "0xSignerAddress",
   approvedTargets,
   nativeTokenLimitPerTransactionInWei,
@@ -85,24 +85,30 @@ var createSessionResult = await sdk.wallet.CreateSessionKey(
 );
 
 // Get a list of current signers with permission details
-List<SignerWithPermissions> signers = await sdk.wallet.GetAllActiveSigners();
+List<SignerWithPermissions> signers = await sdk.Wallet.GetAllActiveSigners();
 
 // Revoke a session key
-var revokeSessionResult = await sdk.wallet.RevokeSessionKey("0xSignerAddress");
+var revokeSessionResult = await sdk.Wallet.RevokeSessionKey("0xSignerAddress");
 
 // Add admin
-var addAdminResult = await sdk.wallet.AddAdmin("0xSignerAddress");
+var addAdminResult = await sdk.Wallet.AddAdmin("0xSignerAddress");
 
 // Remove admin
-var removeAdminResult = await sdk.wallet.RemoveAdmin("0xSignerAddress");
+var removeAdminResult = await sdk.Wallet.RemoveAdmin("0xSignerAddress");
 
 // These features pair well with the `smartWalletAccountOverride` option to connect to a specific smart wallet
 var connection = new WalletConnection(
   ...options,
   smartWalletAccountOverride: "0xSmartWalletAddress"
 );
-var address = await sdk.wallet.Connect(connection);
+var address = await sdk.Wallet.Connect(connection);
 ```
+
+## ZkSync Support
+
+ZkSync chains make use of native account abstraction, whereby the user's EOA is the smart account. We support this as well.
+
+The only difference is that no account factory or additional parameters are needed, simply set gasless to true, connect to ZkSync with a SmartWallet provider, and you're good to go.
 
 ## Additional Options
 

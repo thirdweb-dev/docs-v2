@@ -24,6 +24,8 @@ import { DocSearch } from "@/components/others/DocSearch";
 import { ContextAIBotButton } from "@/components/others/ContextAIButton";
 import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
 import { ThirdwebIcon } from "../icons/thirdweb";
+import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 const links = [
 	{
@@ -39,34 +41,68 @@ const links = [
 		href: "/engine",
 	},
 	{
-		name: "Payments",
-		href: "/payments",
+		name: "Pay",
+		href: "/connect/pay/overview",
+	},
+];
+
+const toolLinks = [
+	{
+		name: "Account",
+		href: "/account",
+	},
+	{
+		name: "API Keys",
+		href: "/account/api-keys",
+	},
+	{
+		name: "CLI",
+		href: "/cli",
 	},
 ];
 
 const sdkLinks = [
 	{
 		name: "TypeScript",
-		href: "/typescript-sdks",
+		href: "/typescript/v5",
+		icon: "/icons/navbar/nav-icon-typescript.svg",
+	},
+	{
+		name: "React",
+		href: "/typescript/v5/react",
+		icon: "/icons/navbar/nav-icon-react.svg",
+	},
+	{
+		name: "React Native",
+		href: "/typescript/v5/react-native",
+		icon: "/icons/navbar/nav-icon-react.svg",
+		// icon: "/icons/navbar/nav-icon-react-native.svg",
 	},
 	{
 		name: "Unity",
 		href: "/unity",
+		icon: "/icons/navbar/nav-icon-unity.svg",
 	},
 	{
 		name: "Solidity",
 		href: "/contracts/build/overview",
+		icon: "/icons/navbar/nav-icon-solidity.svg",
+	},
+	{
+		name: ".NET",
+		href: "/dotnet",
+		icon: "/icons/navbar/nav-icon-dotnet.svg",
 	},
 ];
 
 const supportLinks = [
 	{
-		name: "Support Articles",
-		href: "https://support.thirdweb.com/",
+		name: "Support Site",
+		href: "https://thirdweb.com/support",
 	},
 	{
-		name: "Contact Us",
-		href: "https://thirdweb.com/support",
+		name: "Contact Sales",
+		href: "https://thirdweb.com/contact-us",
 	},
 ];
 
@@ -92,10 +128,18 @@ export function Header() {
 					</span>
 				</Link>
 
-				<div className="flex gap-1 xl:hidden">
+				<div className="flex items-center gap-1 xl:hidden">
 					<ThemeSwitcher className="border-none bg-transparent" />
 
 					<DocSearch variant="icon" />
+
+					<Link
+						href="https://github.com/thirdweb-dev"
+						target="_blank"
+						className="text-f-100"
+					>
+						<FaGithub className="mx-3 size-6" />
+					</Link>
 
 					{/* Mobile burger menu */}
 					<Button
@@ -119,6 +163,7 @@ export function Header() {
 						{links.map((link) => {
 							return (
 								<li
+									className="flex items-center"
 									key={link.href}
 									onClick={() => {
 										setShowBurgerMenu(false);
@@ -130,13 +175,19 @@ export function Header() {
 						})}
 
 						<DropdownLinks
+							links={toolLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="Tools"
+						/>
+
+						<DropdownLinks
 							links={sdkLinks}
 							onLinkClick={() => setShowBurgerMenu(false)}
 							category="SDKs"
 						/>
 					</ul>
 
-					<div className="flex flex-col justify-start gap-5 xl:flex-row   xl:items-center xl:gap-3">
+					<div className="flex flex-col justify-start gap-5 xl:flex-row xl:items-center xl:gap-3">
 						<div className="hidden xl:flex">
 							<ThemeSwitcher />
 						</div>
@@ -149,7 +200,7 @@ export function Header() {
 							<DocSearch variant="search" />
 						</div>
 
-						<div className="flex flex-col gap-5 xl:flex-row xl:gap-1">
+						<div className="xl:px-2">
 							<DropdownLinks
 								links={supportLinks}
 								onLinkClick={() => setShowBurgerMenu(false)}
@@ -164,6 +215,14 @@ export function Header() {
 								setShowBurgerMenu(false);
 							}}
 						/>
+
+						<Link
+							href="https://github.com/thirdweb-dev"
+							target="_blank"
+							className="hidden text-f-300 transition-colors hover:text-f-100 xl:block"
+						>
+							<FaGithub className="mx-2 size-6" />
+						</Link>
 					</div>
 				</nav>
 			</div>
@@ -174,27 +233,27 @@ export function Header() {
 function DropdownLinks(props: {
 	onLinkClick?: () => void;
 	category: string;
-	links: Array<{ name: string; href: string }>;
+	links: Array<{ name: string; href: string; icon?: string }>;
 }) {
 	return (
 		<>
 			{/* desktop */}
-			<div className="hidden xl:block">
+			<div className="hidden items-center xl:flex">
 				<DropdownMenu>
 					<DropdownMenuTrigger asChild>
 						<Button
 							variant="ghost"
-							className="inline-flex gap-1 pl-2 pr-1 font-medium text-f-300 hover:text-f-100"
+							className="inline-flex items-center gap-1 p-0 text-sm font-medium text-f-300 hover:bg-transparent hover:text-f-100"
 						>
 							{props.category}
-							<ChevronDownIcon className="w-4 text-f-300 opacity-70" />
+							<ChevronDownIcon className="size-4 text-f-300 opacity-70" />
 						</Button>
 					</DropdownMenuTrigger>
 
 					<DropdownMenuContent
 						className="flex flex-col gap-1 bg-b-800 p-3"
 						style={{
-							width: "150px",
+							minWidth: "150px",
 						}}
 					>
 						{props.links.map((info) => {
@@ -209,6 +268,15 @@ function DropdownLinks(props: {
 											"hover:bg-b-600 hover:text-f-100",
 										)}
 									>
+										{info.icon && (
+											<Image
+												src={info.icon}
+												width={"20"}
+												height={"20"}
+												alt=""
+												className="mr-2"
+											/>
+										)}
 										{info.name}
 									</Link>
 								</DropdownMenuItem>
@@ -235,6 +303,7 @@ function DropdownLinks(props: {
 												name={info.name}
 												href={info.href}
 												onClick={props.onLinkClick}
+												icon={info.icon}
 											/>
 										);
 									})}
@@ -248,7 +317,12 @@ function DropdownLinks(props: {
 	);
 }
 
-function NavLink(props: { href: string; name: string; onClick?: () => void }) {
+function NavLink(props: {
+	href: string;
+	name: string;
+	onClick?: () => void;
+	icon?: string;
+}) {
 	const pathname = usePathname();
 	return (
 		<Link
@@ -258,9 +332,17 @@ function NavLink(props: { href: string; name: string; onClick?: () => void }) {
 			className={clsx(
 				"text-base font-medium transition-colors hover:text-f-100 xl:text-sm",
 				pathname === props.href ? "text-f-100" : "text-f-300 ",
+				props.icon ? "flex flex-row gap-2" : "",
 			)}
 		>
-			{props.name}
+			{props.icon ? (
+				<>
+					<Image src={props.icon} width={"40"} height={"40"} alt="" />
+					<span className="my-auto">{props.name}</span>
+				</>
+			) : (
+				props.name
+			)}
 		</Link>
 	);
 }

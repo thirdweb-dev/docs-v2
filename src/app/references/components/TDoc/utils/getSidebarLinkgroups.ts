@@ -5,6 +5,7 @@ import {
 	SidebarLink,
 } from "../../../../../components/others/Sidebar";
 import { subgroups } from "./subgroups";
+import { uniqueSlugger } from "./uniqueSlugger";
 
 const tagsToGroup = {
 	"@contract": "Contract",
@@ -34,6 +35,9 @@ const tagsToGroup = {
 	"@extension": "Extensions",
 	"@rpc": "RPC",
 	"@transaction": "Transactions",
+	"@buyCrypto": "Buy Crypto",
+	"@utils": "Utils",
+	"@chain": "Chain",
 } as const;
 
 type TagKey = keyof typeof tagsToGroup;
@@ -41,13 +45,15 @@ type TagKey = keyof typeof tagsToGroup;
 const sidebarGroupOrder: TagKey[] = [
 	"@wallet",
 	"@abstractWallet",
-	"@theme",
 	"@locale",
+	"@chain",
 	"@contract",
 	"@networkConnection",
+	"@walletConfig",
 	"@walletConnection",
 	"@walletUtils",
 	"@nft",
+	"@buyCrypto",
 	"@nftDrop",
 	"@claimConditions",
 	"@delayedReveal",
@@ -64,13 +70,14 @@ const sidebarGroupOrder: TagKey[] = [
 	"@extension",
 	"@transaction",
 	"@rpc",
-	"@walletConfig",
+	"@utils",
+	"@theme",
 	"@others",
 ];
 
 function findTag(
 	blockTags?: BlockTag[],
-): [TagKey, ExtensionName | undefined] | undefined {
+): [TagKey, string | undefined] | undefined {
 	if (!blockTags) {
 		return;
 	}
@@ -82,9 +89,7 @@ function findTag(
 	}
 }
 
-function getCustomTag(
-	doc: SomeDoc,
-): [TagKey, ExtensionName | undefined] | undefined {
+function getCustomTag(doc: SomeDoc): [TagKey, string | undefined] | undefined {
 	switch (doc.kind) {
 		case "class": {
 			return findTag(doc.blockTags);
@@ -116,6 +121,17 @@ function getCustomTag(
 
 export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 	const linkGroups: LinkGroup[] = [];
+	const generatedLinks = new Set<string>();
+
+	const getLink = (href: string) => {
+		const link = uniqueSlugger({
+			base: href,
+			isUnique: (s) => !generatedLinks.has(s),
+		});
+
+		generatedLinks.add(link);
+		return link;
+	};
 
 	// group links by tags
 	function createSubGroups(key: keyof typeof subgroups, docs: SomeDoc[]) {
@@ -145,13 +161,13 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 					}
 					return acc;
 				},
-				{} as Record<ExtensionName, SomeDoc[]>,
+				{} as Record<string, SomeDoc[]>,
 			);
 			const extensionLinkGroups = Object.entries(extensionGroups).map(
 				([extensionName, docs]) => {
 					const links = docs.map((d) => ({
 						name: d.name,
-						href: `${path}/${extensionName.toLowerCase()}/${d.name}`,
+						href: getLink(`${path}/${extensionName.toLowerCase()}/${d.name}`),
 					}));
 					return {
 						name: extensionName,
@@ -162,7 +178,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			if (!linkGroups.find((group) => group.name === name)) {
 				linkGroups.push({
 					name: name,
-					href: `${path}/${key}`,
+					href: getLink(`${path}/${key}`),
 					links: [{ name: "Extensions", links: extensionLinkGroups }],
 				});
 			} else {
@@ -220,7 +236,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 				name: tagsToGroup[tag],
 				links: groupDocs.map((d) => ({
 					name: d.name,
-					href: `${path}/${d.name}`,
+					href: getLink(`${path}/${d.name}`),
 				})),
 			});
 		};
@@ -232,7 +248,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 		ungroupedLinks.forEach((d) => {
 			links.push({
 				name: d.name,
-				href: `${path}/${d.name}`,
+				href: getLink(`${path}/${d.name}`),
 			});
 		});
 
@@ -247,7 +263,7 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 			linkGroups.push({
 				name: name,
 				links: links,
-				href: `${path}/${key}`,
+				href: getLink(`${path}/${key}`),
 			});
 		}
 	}
@@ -285,27 +301,16 @@ export function getSidebarLinkGroups(doc: TransformedDoc, path: string) {
 
 export function getExtensionName(
 	extensionBlockTag: BlockTag,
-): ExtensionName | undefined {
+): string | undefined {
 	try {
 		const extensionNameString = (
 			extensionBlockTag?.summary?.[0]?.children?.[0]?.value || "COMMON"
 		).toUpperCase();
 
-		if (isValidExtensionString(extensionNameString)) {
+		if (typeof extensionNameString === "string" && extensionNameString) {
 			return extensionNameString;
 		}
-		return undefined;
 	} catch {
 		return undefined;
 	}
-}
-
-const EXTENSION_NAMES = ["ERC721", "ERC20", "ERC1155", "COMMON"] as const;
-type ExtensionName = (typeof EXTENSION_NAMES)[number];
-
-function isValidExtensionString(
-	extensionName: string,
-): extensionName is ExtensionName {
-	// @ts-expect-error - this is what we're trying to check here TS...
-	return EXTENSION_NAMES.includes(extensionName.toUpperCase());
 }

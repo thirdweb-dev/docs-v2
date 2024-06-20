@@ -7,8 +7,8 @@ const walletProviders: SidebarLink = (() => {
 		name: "Wallet Providers",
 		links: [
 			{
-				name: "Embedded Wallet",
-				href: `${parentSlug}/embedded-wallet`,
+				name: "In-App Wallet",
+				href: `${parentSlug}/in-app-wallet`,
 			},
 			{
 				name: "Account Abstraction",
@@ -34,6 +34,10 @@ const walletProviders: SidebarLink = (() => {
 				name: "HyperPlay",
 				href: `${parentSlug}/hyperplay`,
 			},
+			{
+				name: "Rabby",
+				href: `${parentSlug}/rabby`,
+			}
 		],
 	};
 })();
@@ -78,6 +82,10 @@ const walletActions: SidebarLink = (() => {
 			{
 				name: "SendRawTransaction",
 				href: `${parentSlug}/sendrawtransaction`,
+			},
+			{
+				name: "ExecuteRawTransaction",
+				href: `${parentSlug}/executerawtransaction`,
 			},
 			{
 				name: "Sign",
@@ -322,6 +330,44 @@ const blocks: SidebarLink = {
 	],
 };
 
+const pay: SidebarLink = {
+	name: "Thirdweb Pay",
+	links: [
+		{
+			name: "Get Buy With Crypto Quote",
+			href: "/unity/pay/getbuywithcryptoquote",
+		},
+		{
+			name: "Buy With Crypto",
+			href: "/unity/pay/buywithcrypto",
+		},
+		{
+			name: "Get Buy With Crypto Status",
+			href: "/unity/pay/getbuywithcryptostatus",
+		},
+		{
+			name: "Get Buy With Fiat Quote",
+			href: "/unity/pay/getbuywithfiatquote",
+		},
+		{
+			name: "Buy With Fiat",
+			href: "/unity/pay/buywithfiat",
+		},
+		{
+			name: "Get Buy With Fiat Status",
+			href: "/unity/pay/getbuywithfiatstatus",
+		},
+		{
+			name: "Get Buy With Fiat Currencies",
+			href: "/unity/pay/getbuywithfiatcurrencies",
+		},
+		{
+			name: "Get Buy History",
+			href: "/unity/pay/getbuyhistory",
+		},
+	],
+};
+
 export const sidebar: SideBar = {
 	name: "Unity SDK",
 	links: [
@@ -344,6 +390,7 @@ export const sidebar: SideBar = {
 			name: "Storage",
 			href: "/unity/storage",
 		},
+		pay,
 		// {
 		// 	name: "Full Reference",
 		// 	href: "/references/unity",

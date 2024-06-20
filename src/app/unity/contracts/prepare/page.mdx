@@ -15,7 +15,7 @@ To gain more granular control over the transaction process, all Contract objects
 ## Usage
 
 ```csharp
-string connectedAddress = await ThirdwebManager.Instance.SDK.wallet.GetAddress();
+string connectedAddress = await ThirdwebManager.Instance.SDK.Wallet.GetAddress();
 Transaction transaction = await contract.Prepare(
     functionName: "claim",
     from: connectedAddress, // optional, defaults to connected address

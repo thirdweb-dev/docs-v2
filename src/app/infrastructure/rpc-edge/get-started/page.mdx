@@ -29,8 +29,6 @@ Pass in the Client ID and Secret Keys into the application’s configuration.
   <TabsTrigger value="react">React</TabsTrigger>
   <TabsTrigger value="react-native">React Native</TabsTrigger>
   <TabsTrigger value="typescript">TypeScript</TabsTrigger>
-  <TabsTrigger value="python">Python</TabsTrigger>
-  <TabsTrigger value="go">Go</TabsTrigger>
 </TabsList>
 
 <TabsContent value="react">
@@ -79,34 +77,6 @@ When using the Typescript SDK for frontend applications, use the client id:
 const readOnlySdk = new ThirdwebSDK("<chain_id>", {
 	clientId: "<your_client_id>",
 });
-```
-
-</TabsContent>
-
-<TabsContent value="python">
-  When using the Python SDK, use the secret key to instantiate the SDK:
-
-```python
-sdk = ThirdwebSDK.from_private_key(
-    <private_key>,
-    "<chain_id>",
-    SDKOptions(secret_key=<your_secret_key>)
-)
-```
-
-</TabsContent>
-
-<TabsContent value="go">
-When using the GO SDK, you can use the secret key to instantiate the SDK:
-
-```go
-func main() {
-	// Your secret key from the thirdweb api keys dashboard
-	secretKey := "<your_secret_key"
-	sdk, err := thirdweb.NewThirdwebSDK("<chain_id>", &thirdweb.SDKOptions{
-		SecretKey: <your_secret_key>,
-	})
-}
 ```
 
 </TabsContent>

@@ -26,7 +26,7 @@ public async void ConnectWallet()
     );
 
     // Connect the wallet
-    string address = await sdk.wallet.Connect(connection);
+    string address = await sdk.Wallet.Connect(connection);
 }
 ```
 
@@ -40,14 +40,14 @@ Your Wallet Connection configuration, this is an object that can be used with an
 
 Available providers:
 
-- `WalletProvider.Injected`: [Injected](/unity/wallets/providers/injected)
 - `WalletProvider.Coinbase`: [Coinbase Wallet](/unity/wallets/providers/coinbase)
 - `WalletProvider.MetaMask`: [MetaMask](/unity/wallets/providers/metamask)
 - `WalletProvider.WalletConnect`: [WalletConnect](/unity/wallets/providers/walletconnect)
-- `WalletProvider.LocalWallet`: [Local Wallet](/unity/wallets/providers/localwallet)
+- `WalletProvider.LocalWallet`: [Local Wallet](/unity/wallets/providers/local-wallet)
 - `WalletProvider.SmartWallet`: [Smart Wallet](/unity/wallets/providers/account-abstraction)
 - `WalletProvider.Hyperplay`: [Hyperplay](/unity/wallets/providers/hyperplay)
-- `WalletProvider.EmbeddedWallet`: [Embedded Wallet](/unity/wallets/providers/embeddedwallet)
+- `WalletProvider.InAppWallet`: [In-App Wallet](/unity/wallets/providers/in-app-wallet)
+- `WalletProvider.Rabby`: [Rabby](/unity/wallets/providers/rabby)
 
 #### chainId
 
@@ -57,13 +57,21 @@ Must be a `BigInteger` (or `int`).
 
 #### password
 
-Optional password for encrypted [Local Wallet](/unity/wallets/providers/localwallet) account, uses auto-generated password if left empty.
+Optional password for encrypted [Local Wallet](/unity/wallets/providers/local-wallet) account, uses auto-generated password if left empty.
 
 Must be a `string`.
 
 #### email
 
-Optional email for default [Embedded Wallet](/unity/wallets/providers/embeddedwallet) email flow.
+Optional email for default [In-App Wallet](/unity/wallets/providers/in-app-wallet) email flow.
+
+Must be a `string`.
+
+### phoneNumber
+
+# Optional phone number for default [In-App Wallet](/unity/wallets/providers/embedded-wallet) phone flow.
+
+Optional email for default [In-App Wallet](/unity/wallets/providers/embedded-wallet) email flow.
 
 Must be a `string`.
 
@@ -81,7 +89,7 @@ Must be a `string`.
 
 #### authOptions
 
-[Embedded Wallet](/unity/wallets/providers/embeddedwallet) Authentication Options.
+[In-App Wallet](/unity/wallets/providers/embedded-wallet) Authentication Options.
 
 Must be an `AuthOptions` object.
 

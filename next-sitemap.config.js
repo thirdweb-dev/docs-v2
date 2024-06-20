@@ -14,4 +14,13 @@ module.exports = {
 			},
 		],
 	},
+	exclude: [
+		// exclude v4 stuff
+		"*/v4*",
+		"*/react-native/v0*",
+		"/wallet-sdk*",
+		"/storage-sdk*",
+		// exclude styleguide
+		"/styleguide*",
+	],
 };

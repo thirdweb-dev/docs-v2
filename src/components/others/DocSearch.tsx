@@ -15,7 +15,6 @@ import { Input } from "../ui/input";
 import {
 	Search as SearchIcon,
 	FileText as FileTextIcon,
-	AlignLeft as SectionIcon,
 	Command as CommandIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -23,19 +22,12 @@ import Link from "next/link";
 import { DynamicHeight } from "./DynamicHeight";
 import { SearchResult } from "@/app/api/search/types";
 import { Spinner } from "../ui/Spinner/Spinner";
+import { usePathname } from "next/navigation";
 
 const suggestedLinks: { title: string; href: string }[] = [
 	{
-		title: "React SDK",
-		href: "/react/latest",
-	},
-	{
-		title: "React Native SDK",
-		href: "/react/latest",
-	},
-	{
 		title: "TypeScript SDK",
-		href: "/react/latest",
+		href: "/typescript/v5",
 	},
 	{
 		title: "Connect",
@@ -46,12 +38,12 @@ const suggestedLinks: { title: string; href: string }[] = [
 		href: "/contracts",
 	},
 	{
-		title: "Payments",
-		href: "/payments",
+		title: "Engine",
+		href: "/engine",
 	},
 	{
-		title: "Infrastructure",
-		href: "/infrastructure",
+		title: "Payments",
+		href: "/payments",
 	},
 ];
 
@@ -60,8 +52,9 @@ type Tag =
 	| "React Native"
 	| "Unity"
 	| "TypeScript"
-	| "Storage"
+	| "Wallet SDK"
 	| "Connect"
+	| "Reference"
 	| "Python"
 	| "Contracts"
 	| "Go"
@@ -70,12 +63,22 @@ type Tag =
 	| "Solidity"
 	| "Payments"
 	| "Glossary"
-	| "Unified SDK"
 	| "Engine";
 
 function SearchModalContent(props: { closeModal: () => void }) {
 	const [input, setInput] = useState("");
 	const debouncedInput = useDebounce(input, 500);
+	const pathname = usePathname();
+
+	const [showOldSDK, setShowOldSDK] = useState(false);
+
+	useEffect(() => {
+		if (isOldSDK(pathname)) {
+			setShowOldSDK(true);
+		} else {
+			setShowOldSDK(false);
+		}
+	}, [pathname]);
 
 	const [selectedTags, setSelectedTags] = useState<{
 		[T in Tag]?: boolean;
@@ -88,7 +91,23 @@ function SearchModalContent(props: { closeModal: () => void }) {
 		queryKey: ["search-index", debouncedInput],
 		queryFn: async () => {
 			const res = await fetch(`/api/search?q=${encodeURI(debouncedInput)}`);
-			const { results } = (await res.json()) as SearchResult;
+			const { results: _results } = (await res.json()) as SearchResult;
+
+			const results = _results.filter((x) => {
+				const isOld = isOldSDK(x.pageHref);
+
+				// filter out old SDKs if should not be shown
+				if (isOld && !showOldSDK) {
+					return false;
+				}
+
+				// filter out new SDKs if should not be shown
+				if (!isOld && showOldSDK) {
+					return false;
+				}
+
+				return true;
+			});
 
 			const tagsSet: Set<Tag> = new Set([]);
 
@@ -100,9 +119,11 @@ function SearchModalContent(props: { closeModal: () => void }) {
 			}
 
 			results.forEach((r) => {
-				const tag = getTagFromHref(r.pageHref);
-				if (tag) {
-					tagsSet.add(tag);
+				const tags = getTagsFromHref(r.pageHref);
+				if (tags) {
+					tags.forEach((tag) => {
+						tagsSet.add(tag);
+					});
 				}
 			});
 
@@ -214,14 +235,23 @@ function SearchModalContent(props: { closeModal: () => void }) {
 							className="styled-scrollbar flex max-h-[50vh] min-h-[200px] flex-col gap-2 overflow-y-auto p-4"
 							ref={scrollableElement}
 						>
-							{data?.map((result, i) => {
-								const tag = getTagFromHref(result.pageHref);
-								if (!selectedTags["All"] && tag && selectedTags[tag] !== true)
+							{data.map((result, i) => {
+								const tags = getTagsFromHref(result.pageHref);
+
+								if (
+									!selectedTags["All"] &&
+									tags &&
+									!tags.find((t) => selectedTags[t] === true)
+								)
 									return null;
 
-								if (!tag && !selectedTags["All"]) {
+								if (!tags && !selectedTags["All"]) {
 									return null;
 								}
+
+								const sections = result.sections
+									?.filter((d) => d.content.length > 50)
+									.slice(0, 2);
 
 								return (
 									<div key={i} className="flex flex-col gap-2">
@@ -229,31 +259,28 @@ function SearchModalContent(props: { closeModal: () => void }) {
 											type="page"
 											href={result.pageHref}
 											title={result.pageTitle}
-											tag={tag}
+											tags={tags}
 											onClick={handleLinkClick}
 										/>
 
-										{result.sections && (
+										{sections && sections.length > 0 && (
 											<div className="flex flex-col gap-2 border-l pl-3">
-												{result.sections
-													?.filter((d) => d.content.length > 50)
-													.slice(0, 2)
-													.map((sectionData) => {
-														return (
-															<SearchResultItem
-																type="section"
-																href={result.pageHref + sectionData.href}
-																key={sectionData.href}
-																title={sectionData.title}
-																content={
-																	sectionData.content.length < 100
-																		? sectionData.content
-																		: sectionData.content.slice(0, 100) + " ..."
-																}
-																onClick={handleLinkClick}
-															/>
-														);
-													})}
+												{sections.map((sectionData) => {
+													return (
+														<SearchResultItem
+															type="section"
+															href={result.pageHref + sectionData.href}
+															key={sectionData.href}
+															title={sectionData.title}
+															content={
+																sectionData.content.length < 100
+																	? sectionData.content
+																	: sectionData.content.slice(0, 100) + " ..."
+															}
+															onClick={handleLinkClick}
+														/>
+													);
+												})}
 											</div>
 										)}
 									</div>
@@ -392,33 +419,64 @@ export function DocSearch(props: { variant: "icon" | "search" }) {
 	);
 }
 
-function getTagFromHref(href: string): Tag | undefined {
-	if (href.includes("/react-native")) {
-		return "React Native";
-	} else if (href.includes("/react")) {
-		return "React";
+function isOldSDK(href: string) {
+	return (
+		href.includes("/react-native/v0") ||
+		href.includes("/typescript/v4") ||
+		href.includes("/react/v4") ||
+		href.includes("/wallet-sdk/v2") ||
+		href.includes("/wallets/v2") ||
+		href.includes("/storage-sdk/v2") ||
+		href.includes("/storage/v2")
+	);
+}
+
+// function isNewSDK(href: string) {
+// 	return href.includes("/typescript/v5");
+// }
+
+function getTagsFromHref(href: string): Tag[] | undefined {
+	if (href.includes("/react-native/v0")) {
+		if (href.includes("/references")) {
+			return ["Reference", "React Native"];
+		}
+		return ["React Native"];
+	} else if (href.includes("/react/v4")) {
+		if (href.includes("/references")) {
+			return ["Reference", "React"];
+		}
+		return ["React"];
+	} else if (href.includes("/typescript/v4")) {
+		if (href.includes("/references")) {
+			return ["Reference", "TypeScript"];
+		}
+		return ["TypeScript"];
+	} else if (href.includes("/wallet-sdk/v2")) {
+		if (href.includes("/references")) {
+			return ["Reference", "Wallet SDK"];
+		}
+		return ["Wallet SDK"];
 	} else if (href.includes("/unity")) {
-		return "Unity";
+		return ["Unity"];
 	} else if (href.includes("/typescript/v5")) {
-		return "Unified SDK";
-	} else if (href.includes("/typescript")) {
-		return "TypeScript";
-	} else if (href.includes("/storage")) {
-		return "Storage";
+		if (href.includes("/references")) {
+			return ["Reference", "TypeScript"];
+		}
+		return ["TypeScript"];
 	} else if (href.includes("/connect")) {
-		return "Connect";
+		return ["Connect"];
 	} else if (href.includes("/engine")) {
-		return "Engine";
+		return ["Engine"];
 	} else if (href.includes("/infrastructure")) {
-		return "Infra";
+		return ["Infra"];
 	} else if (href.includes("/solidity")) {
-		return "Solidity";
+		return ["Solidity"];
 	} else if (href.includes("/contracts")) {
-		return "Contracts";
+		return ["Contracts"];
 	} else if (href.includes("/payments")) {
-		return "Payments";
+		return ["Payments"];
 	} else if (href.includes("/glossary")) {
-		return "Glossary";
+		return ["Glossary"];
 	}
 }
 
@@ -426,7 +484,7 @@ function SearchResultItem(props: {
 	href: string;
 	title: string;
 	content?: string;
-	tag?: string;
+	tags?: Tag[];
 	type: "page" | "section";
 	onClick?: () => void;
 }) {
@@ -436,10 +494,6 @@ function SearchResultItem(props: {
 			href={props.href}
 			onClick={props.onClick}
 		>
-			{props.type === "section" && (
-				<SectionIcon className="mt-1 size-5 text-f-300" />
-			)}
-
 			<div className="flex w-full flex-col gap-1">
 				{props.title && (
 					<div className="flex flex-wrap items-center justify-between gap-2 break-all text-base text-f-100">
@@ -456,21 +510,25 @@ function SearchResultItem(props: {
 							{props.title}
 						</div>
 
-						{props.tag && (
-							<span
-								key={props.tag}
-								className={cn(
-									"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
-								)}
-							>
-								{props.tag}
-							</span>
+						{props.tags && (
+							<div className="flex gap-2">
+								{props.tags.map((tag) => {
+									return (
+										<span
+											key={tag}
+											className={cn(
+												"rounded-lg border px-1.5 py-1 text-xs bg-b-700 text-f-300 shrink-0",
+											)}
+										>
+											{tag}
+										</span>
+									);
+								})}
+							</div>
 						)}
 					</div>
 				)}
-				{props.content && (
-					<div className="break-all text-sm">{props.content}</div>
-				)}
+				{props.content && <div className="text-sm">{props.content}</div>}
 			</div>
 		</Link>
 	);

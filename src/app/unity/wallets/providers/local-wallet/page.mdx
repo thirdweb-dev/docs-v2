@@ -29,7 +29,7 @@ public async void ConnectWallet()
     );
 
     // Connect the wallet
-    string address = await sdk.wallet.Connect(connection);
+    string address = await sdk.Wallet.Connect(connection);
 }
 ```
 
@@ -37,15 +37,15 @@ public async void ConnectWallet()
 
 ### WebGL
 
-Prompts the user to connect their Metamask browser extension.
+Automatically creates or loads a local wallet on the user's device. The wallet is encrypted with a password and stored in local storage.
 
 ### Standalone
 
-Instantiates the customizable `WalletProvider_Metamask` UI prefab, displaying a QR code and deep link button. Scan the QR code with your Metamask mobile app to connect.
+Automatically creates or loads a local wallet on the user's device. The wallet is encrypted with a password and stored in local storage.
 
 ### Mobile
 
-Instantiates the customizable `WalletProvider_Metamask` UI prefab, displaying a QR code and deep link button. Click the deep link button to connect to your Metamask mobile app.
+Automatically creates or loads a local wallet on the user's device. The wallet is encrypted with a password and stored in local storage.
 
 ## Miscellaneous
 
@@ -53,7 +53,7 @@ You may export this wallet to a JSON file, which can be imported into other wall
 
 ```csharp
 // Export the wallet keystore (all platforms)
-string json = await sdk.wallet.Export();
+string json = await sdk.Wallet.Export();
 
 // Get wallet path (native platforms)
 string path = Utils.GetAccountPath();

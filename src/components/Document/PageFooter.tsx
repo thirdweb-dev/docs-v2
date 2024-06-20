@@ -30,8 +30,8 @@ function Links() {
 		<ul className="flex flex-col gap-3">
 			<FooterLinkItem
 				prefix="Need help?"
-				label="Contact Support"
-				href="https://support.thirdweb.com/"
+				label="Visit our support site"
+				href="https://thirdweb.com/support"
 				icon={BadgeHelpIcon}
 			/>
 
@@ -59,7 +59,7 @@ function FooterLinkItem(props: {
 	icon: LucideIcon;
 }) {
 	return (
-		<li className="flex items-center gap-3 text-f-300">
+		<li className="flex items-center gap-2 text-f-300">
 			<div className="flex items-center gap-2 font-medium">
 				<props.icon className="size-5" />
 				<span>{props.prefix}</span>
