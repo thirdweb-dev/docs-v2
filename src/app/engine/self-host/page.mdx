@@ -19,6 +19,7 @@ dashboard](https://thirdweb.com/dashboard/engine).
 - [Docker](https://docs.docker.com/get-docker/)
 - A thirdweb secret key from the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys)
 - PostgresDB (version 14+)
+- Redis (version 7.2.4+)
 
 ### Running Engine locally
 
@@ -26,6 +27,12 @@ Start Postgres:
 
 ```bash
 docker run -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+```
+
+Start Redis:
+
+```bash
+docker run -p 6379:6379 -d redis:7.2.4
 ```
 
 Start Engine server:
@@ -37,6 +44,7 @@ docker run \
   -e ADMIN_WALLET_ADDRESS="<admin_wallet_address>" \
   -e POSTGRES_CONNECTION_URL="postgresql://postgres:postgres@host.docker.internal:5432/postgres?sslmode=disable" \
   -e ENABLE_HTTPS=true \
+  -e REDIS_URL="redis://host.docker.internal:6379/0" \
   -p 3005:3005 \
   --pull=always \
   --cpus="0.5" \
@@ -55,6 +63,9 @@ docker run \
 | `LOG_LEVEL`                                                    | Determines the logging severity level. Adjust for finer control over logged information. (Default: `debug`)                 |
 | `PRUNE_TRANSACTIONS`                                           | When `false`, Engine prevents the pruning/deletion of processed transaction data. (Default: `true`)                         |
 | `ENABLE_KEYPAIR_AUTH`                                          | Enables [Keypair Authentication](/engine/features/keypair-authentication).                                                  |
+| `REDIS_URL`                                                    | Redis connection string: `redis://[user:password@]host:port[/db-number]`                                                    |
+
+<span style={{ color: "red" }}>*</span> Required
 
 Your server is running when this log line appears:
 
@@ -105,6 +116,21 @@ Here are common troubleshooting tips:
 - Ensure the Postgres DB connection URL and credentials are correct.
 - Ensure the database name exists on the Postgres DB.
 
+See [Production Checklist](/engine/production-checklist#cloud-hosting) for best practices using Engine in a production environment.
+
+#### Self-hosting recommendations
+
+- Do _not_ set the environment variable `ENABLE_HTTPS=true`.
+- Host Engine Docker on a cloud provider.
+  - Minimum specs: 1 vCPU, 2 GB memory (AWS equivalent: t2.small)
+  - Auto-scale the instance count to increase inbound throughput and queuing capacity.
+- Host Postgres DB on a cloud provider.
+  - Examples: [AWS RDS](https://aws.amazon.com/rds/postgresql/), [Google Cloud SQL](https://cloud.google.com/sql/docs/postgres), [Heroku](https://www.heroku.com/postgres), [Supabase](https://supabase.com/docs/guides/database/overview)
+  - Minimum specs: 2 vCPU, 2 GB memory (AWS equivalent: t4g.small)
+  - Set the `connection_limit` parameter within your `POSTGRES_CONNECTION_URL` environment variable to `10`.
+
+### FAQ
+
 #### How do I filter logs in Engine?
 
 Configure log verbosity via the `LOG_LEVEL` environment variable.
@@ -134,16 +160,6 @@ Engine recommends a minimum DB connections limit of `8` PER HOST. Please set the
 DB Error:
 
 ```bash
-ERROR: [Worker] Failed to update mined transactions - Transaction API error: Unable to start a transaction in the given time.
-ERROR: [Worker] Failed to update receipts - Transaction API error: Unable to start a transaction in the given time.
-ERROR: [Worker] Failed to process batch of transactions -
-Invalid `prisma.configuration.findUnique()` invocation in
-/app/dist/src/db/configuration/getConfiguration.ts:164:43
-
-  161 };
-  162
-  163 export const getConfiguration = async (): Promise<Config> => {
-  164   let config = await prisma.configuration.findUnique(
 Timed out fetching a new connection from the connection pool. More info: http://pris.ly/d/connection-pool (Current connection pool timeout: 10, connection limit: 3)
 ```
 
