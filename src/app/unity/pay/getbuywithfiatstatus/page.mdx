@@ -16,7 +16,7 @@ using Thirdweb.Pay;
 
 public async void GetStatus()
 {
-	var status = await ThirdwebPay.GetBuyWithFiatStatus(_intentId);
+	var status = await ThirdwebManager.Instance.SDK.Pay.GetBuyWithFiatStatus(_intentId);
 	if (status.Status == OnRampStatus.PAYMENT_FAILED.ToString() || status.Status == OnRampStatus.ON_RAMP_TRANSFER_FAILED.ToString())
 		ThirdwebDebug.LogWarning($"Failed! Reason: {status.FailureMessage}");
 

@@ -22,7 +22,7 @@ var sdk = ThirdwebManager.Instance.SDK;
 
 // Configure the connection
 var connection = new WalletConnection(
-    provider: WalletProvider.EmbeddedWallet,
+    provider: WalletProvider.InAppWallet,
     chainId: 1,
     email: "email@email.com",
 );
@@ -41,7 +41,7 @@ var sdk = ThirdwebManager.Instance.SDK;
 
 // Configure the connection
 var connection = new WalletConnection(
-    provider: WalletProvider.EmbeddedWallet,
+    provider: WalletProvider.InAppWallet,
     chainId: 1,
     phoneNumber: "+1234567890",
     authOptions: new AuthOptions(
@@ -67,7 +67,7 @@ var sdk = ThirdwebManager.Instance.SDK;
 
 // Configure the connection
 var connection = new WalletConnection(
-    provider: WalletProvider.EmbeddedWallet,
+    provider: WalletProvider.InAppWallet,
     chainId: 1,
     authOptions: new AuthOptions(
         authProvider: AuthProvider.Google,
@@ -94,7 +94,7 @@ var sdk = ThirdwebManager.Instance.SDK;
 
 // Configure the connection
 var connection = new WalletConnection(
-    provider: WalletProvider.EmbeddedWallet,
+    provider: WalletProvider.InAppWallet,
     chainId: 1,
     authOptions: new AuthOptions(
         authProvider: AuthProvider.JWT,
@@ -141,4 +141,4 @@ If using Custom Auth flow, attempts to connect directly after verifying the auth
 
 ## Miscellaneous
 
-You may modify the `WalletProvider_EmbeddedWallet` prefab to fit your app's design, it is primarily used during the Email OTP process.
+You may modify the `WalletProvider_InAppWallet` prefab to fit your app's design, it is primarily used during the Email OTP process.

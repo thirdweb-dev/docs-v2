@@ -28,7 +28,7 @@ export default async function Page(props: {
 			<Button asChild>
 				<Link
 					href="/changelog"
-					className="mb-4 translate-x-[-25%] bg-transparent !p-2 !text-f-300 hover:!text-accent-500"
+					className="mb-4 -translate-x-1/4 bg-transparent !p-2 !text-f-300 hover:!text-accent-500"
 				>
 					<ArrowLeft className="size-6" />
 				</Link>

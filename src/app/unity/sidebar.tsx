@@ -34,6 +34,10 @@ const walletProviders: SidebarLink = (() => {
 				name: "HyperPlay",
 				href: `${parentSlug}/hyperplay`,
 			},
+			{
+				name: "Rabby",
+				href: `${parentSlug}/rabby`,
+			}
 		],
 	};
 })();

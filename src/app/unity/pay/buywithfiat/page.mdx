@@ -16,7 +16,7 @@ using Thirdweb.Pay;
 
 public async void Buy()
 {
-	string intentId = await ThirdwebPay.BuyWithFiat(_quote);
+	string intentId = await ThirdwebManager.Instance.SDK.Pay.BuyWithFiat(_quote);
 	ThirdwebDebug.Log($"Intent ID: {intentId}");
 }
 ```

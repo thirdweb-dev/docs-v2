@@ -127,7 +127,7 @@ To claim an NFT, we will use the [TransactionButton](/references/typescript/v5/T
 ```tsx
 import { getContract } from "thirdweb";
 import { useActiveAccount, TransactionButton } from "thirdweb/react";
-import { mintTo } from "thirdweb/extensions/erc721";
+import { claimTo } from "thirdweb/extensions/erc721";
 
 const contract = getContract({ client, chain, address: "0x..." });
 

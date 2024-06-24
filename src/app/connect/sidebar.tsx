@@ -5,6 +5,7 @@ import {
 	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
+	ExternalLinkIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
 
@@ -25,16 +26,24 @@ export const sidebar: SideBar = {
 			name: "Quickstart",
 			href: "/connect/quickstart",
 		},
+		{
+			name: "Playground",
+			href: "https://playground.thirdweb.com/",
+			icon: <ExternalLinkIcon className="my-auto" />,
+		},
 		{ separator: true },
 		// Connect
 		{
 			name: "Sign-In",
 			icon: <WalletsConnectIcon />,
-			href: `${connectSlug}`,
 			links: [
 				{
+					name: "Overview",
+					href: `${connectSlug}/overview`,
+				},
+				{
 					name: "Get Started",
-					expanded: true,
+					// expanded: true,
 					links: [
 						{
 							name: "Connect Button",
@@ -89,6 +98,10 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
+					name: "Migrate from RainbowKit",
+					href: `${connectSlug}/rainbow-kit-migrate`,
+				},
+				{
 					name: "Playground",
 					href: "https://thirdweb.com/dashboard/connect/playground",
 				},
@@ -100,8 +113,11 @@ export const sidebar: SideBar = {
 		{
 			name: "In-App Wallet",
 			icon: <WalletsInAppIcon />,
-			href: `${inAppSlug}/overview`,
 			links: [
+				{
+					name: "Overview",
+					href: `${inAppSlug}/overview`,
+				},
 				{
 					name: "How it works",
 					href: `${inAppSlug}/how-it-works`,
@@ -145,8 +161,11 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Custom Authentication",
-					href: `${inAppSlug}/custom-auth/overview`,
 					links: [
+						{
+							name: "Overview",
+							href: `${inAppSlug}/custom-auth/overview`,
+						},
 						{
 							name: "Configuration",
 							href: `${inAppSlug}/custom-auth/configuration`,
@@ -198,9 +217,11 @@ export const sidebar: SideBar = {
 		{
 			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
-			isCollapsible: true,
-			href: `${aAslug}`,
 			links: [
+				{
+					name: "Overview",
+					href: `${aAslug}/overview`,
+				},
 				{
 					name: "How it Works",
 					href: `${aAslug}/how-it-works`,
@@ -244,6 +265,25 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
+				{
+					name: "Gasless",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Engine",
+							href: `${aAslug}/gasless/engine`,
+						},
+						{
+							name: "Biconomy",
+							href: `${aAslug}/gasless/biconomy`,
+						},
+						{
+							name: "OpenZeppelin",
+							href: `${aAslug}/gasless/openzeppelin`,
+						},
+					],
+				},
 				// {
 				// 	name: "References",
 				// 	isCollapsible: true,
@@ -278,7 +318,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Auth (SIWE)",
 			icon: <WalletsAuthIcon />,
-			isCollapsible: true,
 			links: [
 				{
 					name: "Get Started",
@@ -310,7 +349,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Pay",
 			icon: <PayIcon />,
-			isCollapsible: true,
+			// isCollapsible: true,
 			links: [
 				{
 					name: "Overview",

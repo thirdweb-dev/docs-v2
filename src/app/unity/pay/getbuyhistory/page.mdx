@@ -18,10 +18,10 @@ public async void GetBuyHistory()
 {
 	string connectedAddress = await ThirdwebManager.Instance.SDK.Wallet.GetAddress();
 
-	BuyHistoryResult history = await ThirdwebPay.GetBuyHistory(walletAddress: connectedAddress, start: 0, count: 1);
+	BuyHistoryResult history = await ThirdwebManager.Instance.SDK.Pay.GetBuyHistory(walletAddress: connectedAddress, start: 0, count: 1);
 	ThirdwebDebug.Log($"History: {JsonConvert.SerializeObject(history, Formatting.Indented)}");
 
-	BuyHistoryResult historyNext = await ThirdwebPay.GetBuyHistory(walletAddress: connectedAddress, start: 1, count: 10, cursor: history.NextCursor, pageSize: null);
+	BuyHistoryResult historyNext = await ThirdwebManager.Instance.SDK.Pay.GetBuyHistory(walletAddress: connectedAddress, start: 1, count: 10, cursor: history.NextCursor, pageSize: null);
 	ThirdwebDebug.Log($"History Next: {JsonConvert.SerializeObject(historyNext, Formatting.Indented)}");
 }
 ```

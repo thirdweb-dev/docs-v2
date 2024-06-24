@@ -1,4 +1,4 @@
-import { createMetadata, Callout, Details } from "@doc";
+import { createMetadata } from "@doc";
 
 export const metadata = createMetadata({
 	title: "ThirdwebProvider | thirdweb React SDK",
@@ -8,14 +8,6 @@ export const metadata = createMetadata({
 # ThirdwebProvider
 
 `ThirdwebProvider` is a light-weight component that sets up React Query context for thirdweb SDK hooks.
-
-<Callout title="Server-side rendering" variant="info">
-
-    ThirdwebProvider uses context and does not currently support server-side rendering.
-
-    If you're using a framework like Next.js, you'll need to opt-out of SSR with "use client" or whatever your framework of choice supports.
-
-</Callout>
 
 ```tsx
 import { ThirdwebProvider } from "thirdweb/react";
