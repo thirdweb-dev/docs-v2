@@ -175,7 +175,7 @@ export const sidebar: SideBar = {
 					href: reactNativeSlug,
 				},
 				{
-					name: "Installation",
+					name: "Getting started",
 					href: `${reactNativeSlug}/installation`,
 				},
 				{
