@@ -59,11 +59,11 @@ docker run \
 | `THIRDWEB_API_SECRET_KEY`<span style={{color:'red'}}>\*</span> | A thirdweb secret key created on the [API Keys page](https://thirdweb.com/dashboard/settings/api-keys).                     |
 | `ADMIN_WALLET_ADDRESS`<span style={{color:'red'}}>\*</span>    | The wallet address that will configure Engine from the thirdweb dashboard. You will be able to add other admins later.      |
 | `POSTGRES_CONNECTION_URL`<span style={{color:'red'}}>\*</span> | Postgres connection string: `postgresql://[user[:password]@][host][:port][/dbname][?param1=value1&...]`                     |
+| `REDIS_URL`<span style={{color:'red'}}>\*</span>               | Redis connection string: `redis://[user:password@]host:port[/db-number]`                                                    |
 | `ENABLE_HTTPS`                                                 | Self-sign a certificate to serve API requests on HTTPS. Set to `true` if running Engine locally only. (Default: `false`)    |
 | `LOG_LEVEL`                                                    | Determines the logging severity level. Adjust for finer control over logged information. (Default: `debug`)                 |
 | `PRUNE_TRANSACTIONS`                                           | When `false`, Engine prevents the pruning/deletion of processed transaction data. (Default: `true`)                         |
 | `ENABLE_KEYPAIR_AUTH`                                          | Enables [Keypair Authentication](/engine/features/keypair-authentication).                                                  |
-| `REDIS_URL`                                                    | Redis connection string: `redis://[user:password@]host:port[/db-number]`                                                    |
 
 <span style={{ color: "red" }}>*</span> Required
 
