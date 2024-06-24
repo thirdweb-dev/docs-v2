@@ -21,6 +21,7 @@ export { PaymentsNFTCheckoutIcon } from "./products/payments/PaymentsNFTCheckout
 export { PaymentsSponsoredIcon } from "./products/payments/PaymentsSponsoredIcon";
 export { PayIcon } from "./products/payments/PayIcon";
 // wallets
+export { EcosystemWalletsIcon } from "./products/wallets/EcosystemWalletsIcon";
 export { WalletsAuthIcon } from "./products/wallets/WalletsAuthIcon";
 export { WalletsConnectIcon } from "./products/wallets/WalletsConnectIcon";
 export { WalletsInAppIcon } from "./products/wallets/WalletsInAppIcon";

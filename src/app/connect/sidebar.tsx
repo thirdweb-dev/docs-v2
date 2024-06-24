@@ -6,12 +6,14 @@ import {
 	WalletsSmartIcon,
 	PayIcon,
 	ExternalLinkIcon,
+	EcosystemWalletsIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
+const ecosystemSlug = "/connect/ecosystem-wallet";
 const authSlug = "/connect/auth";
 const paySlug = "/connect/pay";
 
@@ -209,6 +211,39 @@ export const sidebar: SideBar = {
 				{
 					name: "FAQs",
 					href: `${inAppSlug}/faqs`,
+				},
+			],
+		},
+		// Ecosystem Wallet
+		{ separator: true },
+		{
+			name: "Ecosystem Wallet",
+			icon: <EcosystemWalletsIcon />,
+			links: [
+				{
+					name: "Overview",
+					href: `${ecosystemSlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${ecosystemSlug}/get-started`,
+				},
+				{
+					name: "Managing Ecosystem Permissions",
+					href: `${ecosystemSlug}/ecosystem-permissions`,
+				},
+				{
+					name: "Integrating with Partners",
+					href: `${ecosystemSlug}/integrating-partners`,
+				},
+
+				{
+					name: "Customizing Your Wallet Explorer",
+					href: `${ecosystemSlug}/wallet-explorer`,
+				},
+				{
+					name: "FAQ",
+					href: `${ecosystemSlug}/faq`,
 				},
 			],
 		},
