@@ -71,11 +71,7 @@ const clientId = process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID!; // this will be us
 const secretKey = process.env.THIRDWEB_SECRET_KEY!; // this will be used on the server-side
 
 export const client = createThirdwebClient(
-	secretKey
-		? { secretKey }
-		: {
-				clientId,
-			},
+	secretKey ? { secretKey } : { clientId },
 );
 ```
 
@@ -160,12 +156,13 @@ In your project's components directory, create a `LoginButton.tsx` file:
 // LoginButton.tsx
 "use client";
 
-import { useActiveAccount } from "thirdweb/react";
+import { useActiveAccount, useActiveWalletChain } from "thirdweb/react";
 import { generatePayload, login } from "@/actions/auth"; // we'll add this file in the next section
 import { signLoginPayload } from "thirdweb/auth";
 
 export const LoginButton = () => {
 	const account = useActiveAccount();
+	const chain = useActiveWalletChain();
 	const { connect, isConnecting, error } = useConnect();
 
 	async function handleClick() {
@@ -181,7 +178,10 @@ export const LoginButton = () => {
 			activeAccount = account;
 		}
 		// Step 1: fetch the payload from the server
-		const payload = await generatePayload({ address: account.address });
+		const payload = await generatePayload({
+			address: account.address,
+			chainId: chain.id,
+		});
 		// Step 2: Sign the payload
 		const signatureResult = await signLoginPayload({ account, payload });
 		// Step 3: Send the signature to the server for verification
@@ -239,6 +239,7 @@ if (!privateKey) {
 const thirdwebAuth = createAuth({
 	domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
 	adminAccount: privateKeyAccount({ client, privateKey }),
+	client: client,
 });
 
 export const generatePayload = thirdwebAuth.generatePayload;
