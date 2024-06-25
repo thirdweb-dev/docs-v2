@@ -280,6 +280,7 @@ const reactNativeRedirects = {
 	"/react-native/react-native.useuser": "/references/react-native/v0/useUser",
 	"/react-native/storage": "/references/react-native/v0/hooks#storage",
 	"/react-native/faq/deeplinks": "/react-native/v0/faq",
+	"/typescript/v5/react-native/installation": "/typescript/v5/react-native/getting-started",
 };
 
 const unityRedirects = {
