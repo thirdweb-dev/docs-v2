@@ -238,7 +238,7 @@ export const sidebar: SideBar = {
 				},
 
 				{
-					name: "Customizing Your Wallet Explorer",
+					name: "Ecosystem Wallet Explorer Page",
 					href: `${ecosystemSlug}/wallet-explorer`,
 				},
 				{
