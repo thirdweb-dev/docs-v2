@@ -43,7 +43,7 @@ In the React SDK, provide the wallet as the only option to restrict user logins 
 ```ts
 <ConnectButton
 	client={THIRDWEB_CLIENT}
-	wallets={[wallet]}
+	wallets={[wallet]} // Pass a non-gated or restricted wallet to the ConnectButton
 	{...props}
 />
 ```
@@ -55,7 +55,13 @@ Partners that want to utilize your Ecosystem Wallet as an option to their existi
 ```ts
 <ConnectButton
 	client={THIRDWEB_CLIENT}
-	wallets={[inAppWallet(), createWallet("io.metamask"), createWallet("ecosystem.your-id")]}
+	wallets={[
+		inAppWallet(),
+		createWallet("io.metamask"),
+		createWallet("ecosystem.your-id", {
+			partnerId: "...", // Pass an optional partner ID for restricted ecosystems
+		})
+	]}
 	{...props}
 />
 ```
