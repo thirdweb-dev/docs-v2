@@ -105,7 +105,7 @@ Wherever you'd like your connect/login button, place the `ConnectButton` compone
 import type { NextPage } from "next";
 import { ConnectButton } from "thirdweb/react";
 import { client } from "@/lib/client";
-import { generatePayload, isLoggedIn, login, logout } from "@/actions/auth"; // we'll create this file in the next section
+import { generatePayload, isLoggedIn, login, logout } from "@/actions/login"; // we'll create this file in the next section
 
 const Page = () => {
 	return (
@@ -157,7 +157,7 @@ In your project's components directory, create a `LoginButton.tsx` file:
 "use client";
 
 import { useActiveAccount, useActiveWalletChain } from "thirdweb/react";
-import { generatePayload, login } from "@/actions/auth"; // we'll add this file in the next section
+import { generatePayload, login } from "@/actions/login"; // we'll add this file in the next section
 import { signLoginPayload } from "thirdweb/auth";
 
 export const LoginButton = () => {
@@ -287,7 +287,7 @@ Now anywhere in your project, you can check a user's authentication status:
 
 ```tsx
 import { redirect } from "next/navigation";
-import { isLoggedIn } from "../actions/auth";
+import { isLoggedIn } from "../actions/login";
 
 const AuthenticatedPage = async () => {
 	// redirect back if user is not logged in
