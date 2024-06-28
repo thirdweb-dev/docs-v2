@@ -27,13 +27,7 @@
 			"@doc": ["./src/components/Document"]
 		}
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts",
-		"src/app/connect/ecosystem-wallet/managing-ecosystem-permissions/page.mdx"
-	],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"],
 	"ts-node": {
 		"compilerOptions": {
