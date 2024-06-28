@@ -13,7 +13,7 @@ import { CodeIcon } from "lucide-react";
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
-const ecosystemSlug = "/connect/ecosystem-wallet";
+const ecosystemSlug = "/connect/ecosystems";
 const authSlug = "/connect/auth";
 const paySlug = "/connect/pay";
 
@@ -217,7 +217,7 @@ export const sidebar: SideBar = {
 		// Ecosystem Wallet
 		{ separator: true },
 		{
-			name: "Ecosystem Wallet",
+			name: "Ecosystem Wallets",
 			icon: <EcosystemWalletsIcon />,
 			links: [
 				{
