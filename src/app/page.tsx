@@ -248,7 +248,7 @@ function WalletsSection() {
 				<ArticleCardIndex
 					title="Ecosystem Wallet"
 					description="Managed in-app wallet service for unified login across all of your apps and games"
-					href="/connect/ecosystem-wallet/overview"
+					href="/connect/ecosystems/overview"
 					icon={EcosystemWalletsIcon}
 				/>
 				<ArticleCardIndex
