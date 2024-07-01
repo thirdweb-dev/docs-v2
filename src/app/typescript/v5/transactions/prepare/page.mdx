@@ -35,6 +35,10 @@ const transaction = prepareTransaction({
 	to: "0x456...",
 	// The value is the amount of ether you want to send with the transaction
 	value: toWei("1"),
+	// The chain to execute the transaction on
+	chain: defineChain(1),
+	// Your thirdweb client
+	client,
 });
 ```
 
