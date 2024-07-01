@@ -79,6 +79,10 @@ const walletActions: SidebarLink = (() => {
 				name: "RemoveAdmin",
 				href: `${parentSlug}/removeadmin`,
 			},
+			{
+				name: "GetBalance",
+				href: `${parentSlug}/getbalance`,
+			}
 		],
 	};
 })();
@@ -110,6 +114,10 @@ const contracts: SidebarLink = {
 			name: "Prepare Transaction",
 			href: "/dotnet/contracts/prepare",
 		},
+		{
+			name: "Contract Extensions",
+			href: "/dotnet/contracts/extensions",
+		}
 	],
 };
 
@@ -131,6 +139,48 @@ const transactions: SidebarLink = {
 	],
 };
 
+const pay: SidebarLink = {
+	name: "Thirdweb Pay",
+	links: [
+		{
+			name: "Quickstart",
+			href: "/dotnet/pay/quickstart",
+		},
+		{
+			name: "Get Buy With Crypto Quote",
+			href: "/dotnet/pay/getbuywithcryptoquote",
+		},
+		{
+			name: "Buy With Crypto",
+			href: "/dotnet/pay/buywithcrypto",
+		},
+		{
+			name: "Get Buy With Crypto Status",
+			href: "/dotnet/pay/getbuywithcryptostatus",
+		},
+		{
+			name: "Get Buy With Fiat Quote",
+			href: "/dotnet/pay/getbuywithfiatquote",
+		},
+		{
+			name: "Buy With Fiat",
+			href: "/dotnet/pay/buywithfiat",
+		},
+		{
+			name: "Get Buy With Fiat Status",
+			href: "/dotnet/pay/getbuywithfiatstatus",
+		},
+		{
+			name: "Get Buy With Fiat Currencies",
+			href: "/dotnet/pay/getbuywithfiatcurrencies",
+		},
+		{
+			name: "Get Buy History",
+			href: "/dotnet/pay/getbuyhistory",
+		},
+	],
+};
+
 export const sidebar: SideBar = {
 	name: ".NET SDK",
 	links: [
@@ -143,8 +193,12 @@ export const sidebar: SideBar = {
 			href: "/dotnet/getting-started",
 		},
 		{
-			name: "GoDot Setup",
+			name: "Godot Setup",
 			href: "/dotnet/godot",
+		},
+		{
+			name: "Unity Setup",
+			href: "/dotnet/unity",
 		},
 		{
 			name: "Thirdweb Client",
@@ -153,9 +207,14 @@ export const sidebar: SideBar = {
 		contracts,
 		wallets,
 		transactions,
+		pay,
 		{
 			name: "Storage Download & Upload",
 			href: "/dotnet/storage",
 		},
+		{
+			name: "Full Reference",
+			href: "https://thirdweb-dev.github.io/thirdweb-dotnet/index.html",
+		}
 	],
 };

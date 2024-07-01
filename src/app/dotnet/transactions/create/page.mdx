@@ -18,14 +18,10 @@ The `ThirdwebTransaction.Create` method allows advanced users to manually create
 ## Usage
 
 ```csharp
-ThirdwebTransaction transaction = await ThirdwebTransaction.Create(client, wallet, txInput, chainId);
+ThirdwebTransaction transaction = await ThirdwebTransaction.Create(wallet, txInput, chainId);
 ```
 
 <Details summary="Parameters">
-
-### client (required)
-
-An instance of `ThirdwebClient`. This is the client through which all blockchain interactions are managed.
 
 ### wallet (required)
 

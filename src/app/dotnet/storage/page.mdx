@@ -33,7 +33,7 @@ Returns the data as the specified type. If you're downloading a string, such as 
 
 ## Upload
 
-Upload data to IPFS and pin it.
+Upload file to IPFS and pin it.
 
 ```csharp
 var result = await ThirdwebStorage.Upload(client, "{{path/to-file}}");
@@ -46,6 +46,29 @@ var result = await ThirdwebStorage.Upload(client, "{{path/to-file}}");
 The path to the file to upload.
 
 Must be a `string`.
+
+### Return Value
+
+Returns an `IPFSUploadResult` containing the IPFS hash (IpfsHash), the size of the pinned content (PinSize), the timestamp of the pinning (Timestamp), and a preview URL (PreviewUrl) constructed using the client ID and the IPFS hash.
+
+</Details>
+
+## UploadRaw
+
+Upload raw data to IPFS and pin it.
+
+```csharp
+var bytes = Encoding.UTF8.GetBytes("{{data}}");
+var result = await ThirdwebStorage.UploadRaw(client, bytes);
+```
+
+<Details summary="Configuration">
+
+### rawBytes
+
+The raw data to upload.
+
+Must be a `byte[]`.
 
 ### Return Value
 
@@ -67,5 +90,3 @@ var jsonData = await ThirdwebStorage.Download<Dictionary<string, object>>(client
 var uploadResult = await ThirdwebStorage.Upload(client, @"C:\path\to\your\file.txt");
 Console.WriteLine($"IPFS Hash: {uploadResult.IpfsHash}");
 ```
-
-This adaptation provides a concise guide on using the .NET SDK for IPFS storage operations, covering both downloading and uploading functionalities. The approach in the .NET SDK is more aligned with general .NET practices, making it suitable for a variety of applications beyond Unity.
