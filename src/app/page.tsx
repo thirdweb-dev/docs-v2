@@ -32,6 +32,7 @@ import {
 	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
+	EcosystemWalletsIcon,
 } from "@/icons";
 // import { LandingPageCTAs } from "./landing-page/CTAs";
 
@@ -243,6 +244,12 @@ function WalletsSection() {
 					description="Email & social login wallets for your customers"
 					href="/connect/in-app-wallet/overview"
 					icon={WalletsInAppIcon}
+				/>
+				<ArticleCardIndex
+					title="Ecosystem Wallet"
+					description="Managed in-app wallet service for unified login across all of your apps and games"
+					href="/connect/ecosystem-wallet/overview"
+					icon={EcosystemWalletsIcon}
 				/>
 				<ArticleCardIndex
 					href="/connect/auth"
