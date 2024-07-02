@@ -1,7 +1,7 @@
 import { Callout, DocImage, createMetadata, Steps, Step } from "@doc";
 import CreateEcosystemWallet from "../assets/ecosystem-info.png";
 import EcosystemWalletPermissions from "../assets/ecosystem-wallet-permissions.png";
-import AddAPartner from "../assets/add-a-partner.png";
+import AddAPartner from "../assets/add-partner.png";
 
 export const metadata = createMetadata({
 	image: {
@@ -32,7 +32,7 @@ Visit the [Ecosystem Wallets dashboard](https://thirdweb.com/dashboard) and ente
 When your ecosystem wallet is deployed, you'll receive an **Ecosystem ID** derived from your ecosystem name. You will use this ID to specify your wallet during integration (see Step 4 below).
 
 <DocImage src={CreateEcosystemWallet} />
-</Step>
+</Step>/
 
 <Step title='Set Ecosystem Permissions'>
 
@@ -50,7 +50,9 @@ If you’re looking to create an ecosystem wallet for select partners, you can h
 
 **Add Applications to Your Allowlist**
 
-For each application on your allowlist, you'll need to specify a name, a list of allowed domains, and an optional bundle ID (for mobile applications). The list of domains will determine where a partner will be able to display your ecosystem as a login option. Once a partner is added, a **Partner ID** will be generated.
+For each application on your allowlist, you'll need to specify a name, a list of allowed domains, wallet singing settings, and an optional bundle ID (for mobile applications). The list of domains will determine where a partner will be able to display your ecosystem as a login option. Once a partner is added, a **Partner ID** will be generated.
+
+Wallet signing settings default to signless interactions, meaning developers can sign on behalf of their end users. This is in line with typical in-app wallet functionality.
 
 <Callout title="Adding Your Own App as a Partner" variant="info">
 	You'll need to add your own domains and bundle IDs to your allowlist in order
