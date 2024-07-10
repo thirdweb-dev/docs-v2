@@ -13,11 +13,11 @@ import { sendTransaction } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
 
 const wallet = createWallet("io.metamask");
-await wallet.connect();
+const account = await wallet.connect({ client });
 
 const transactionResult = await sendTransaction({
 	transaction,
-	wallet,
+	account,
 });
 ```
 
@@ -28,15 +28,13 @@ Send a transaction and wait for it to be mined. Useful when you want to block un
 ```ts
 import { sendAndConfirmTransaction } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
-import { useActiveAccount } from "thirdweb/react";
 
-//
-const activeAccount = useActiveAccount();
-//
+const wallet = createWallet("io.metamask");
+const account = await wallet.connect({ client });
 
 const receipt = await sendAndConfirmTransaction({
 	transaction,
-	account:activeAccount,
+	account,
 });
 ```
 
@@ -49,11 +47,11 @@ import { sendTransaction, waitForReceipt } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
 
 const wallet = createWallet("io.metamask");
-await wallet.connect();
+const account = await wallet.connect({ client });
 
 const transactionResult = await sendTransaction({
 	transaction,
-	wallet,
+	account,
 });
 
 const receipt = await waitForReceipt(transactionResult);
