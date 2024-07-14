@@ -59,9 +59,9 @@ export default function MyComponent() {
 
 ### Send a Transaction
 
-Once your user has logged in, interact with the application using different functions such as fetching balances and wallet addresses:
-
 ```tsx
+import { getContract } from "thirdweb";
+import { sepolia } from "thirdweb/chains";
 import { useActiveAccount, useSendTransaction } from "thirdweb/react";
 import { transfer } from "thirdweb/extensions/erc20";
 
