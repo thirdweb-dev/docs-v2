@@ -80,10 +80,7 @@ export default function App() {
 				client={client}
 				auth={{
 					getLoginPayload: async (params) => {
-						return await thirdwebAuth.generatePayload({
-							address,
-							chainId: chainId ? parseInt(chainId) : undefined,
-						})
+						return thirdwebAuth.generatePayload(params)
 					},
 					doLogin: async (params) => {
 						const verifiedPayload = await thirdwebAuth.verifyLoginPayload(params);
