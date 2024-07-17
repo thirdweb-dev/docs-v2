@@ -41,11 +41,10 @@ export default function Page() {
 		<main className="container grow pb-20">
 			<Hero />
 			{/* <TutorialsSection /> */}
-			<WalletsSection />
-			<ContractsSection />
-			<EngineSection />
-
 			<SDKSection />
+			<WalletsSection />
+			<EngineSection />
+			<ContractsSection />
 		</main>
 	);
 }
@@ -335,7 +334,7 @@ function EngineSection() {
 function SDKSection() {
 	return (
 		<section className="my-12">
-			<SectionTitle id="sdk" title="SDKs" />
+			<SectionTitle id="sdk" title="Get Started" />
 
 			<Grid>
 				<SDKCardIndex
