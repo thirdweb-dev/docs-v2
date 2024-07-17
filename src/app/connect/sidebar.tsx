@@ -384,7 +384,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Pay",
 			icon: <PayIcon />,
-			// isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
@@ -451,6 +450,10 @@ export const sidebar: SideBar = {
 							href: `${paySlug}/customization/send-transaction`,
 						},
 					],
+				},
+				{
+					name: "Enable Test Mode",
+					href: `${paySlug}/test-mode`,
 				},
 				{
 					name: "Build a Custom Experience",
