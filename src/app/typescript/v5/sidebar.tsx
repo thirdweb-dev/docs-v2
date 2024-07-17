@@ -1,3 +1,4 @@
+import { start } from "repl";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { TypeScriptIcon, ReactIcon } from "../../../icons";
 
@@ -115,12 +116,26 @@ export const sidebar: SideBar = {
 					href: reactSlug,
 				},
 				{
+					name: "Getting Started",
+					href: `${reactSlug}/getting-started`,
+				},
+				{
 					name: "ThirdwebProvider",
 					href: `${reactSlug}/ThirdwebProvider`,
 				},
 				{
 					name: "Connecting Wallets",
 					href: `${reactSlug}/connecting-wallets`,
+					links: [
+						{
+							name: "UI Components",
+							href: `${reactSlug}/connecting-wallets/ui-components`,
+						},
+						{
+							name: "Hooks",
+							href: `${reactSlug}/connecting-wallets/hooks`,
+						},
+					],
 				},
 				{
 					name: "UI Components",
