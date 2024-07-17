@@ -1,4 +1,3 @@
-import { start } from "repl";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { TypeScriptIcon, ReactIcon } from "../../../icons";
 
@@ -173,7 +172,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Hooks",
-					href: `/references/typescript/v5/hooks`,
+					href: "/references/typescript/v5/hooks",
 				},
 			],
 		},
