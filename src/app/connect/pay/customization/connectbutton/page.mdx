@@ -11,7 +11,7 @@ export const metadata = createMetadata({
 
 # Customize ConnectButton
 
-Learn how to customize Pay within the `ConnectButton` interface. You can find a selection of popular customizations below. For the full list of props, you can [view the full reference](/references/typescript/v5/connectbuttonprops).
+Learn how to customize Pay within the `ConnectButton` interface. You can find a selection of popular customizations below. For the full list of props, you can [view the full reference](/references/typescript/v5/ConnectButtonProps).
 
 ---
 
@@ -51,21 +51,21 @@ import { base } from "thirdweb/chains";
 	detailsModal={{
 		payOptions: {
 			prefillBuy: {
-			token: {
-				address: "0x866a087038f7C12cf33EF91aC5b1AcE6Ac1DA788",
-				name: "Base ETH",
-				symbol: "ETH",
-				icon: "...", // optional
-			},
-			chain: base,
-			allowEdits: {
-				amount: true, // allow editing buy amount
-				token: false, // disable selecting buy token
-				chain: false, // disable selecting buy chain
+				token: {
+					address: "0x866a087038f7C12cf33EF91aC5b1AcE6Ac1DA788",
+					name: "Base ETH",
+					symbol: "ETH",
+					icon: "...", // optional
+				},
+				chain: base,
+				allowEdits: {
+					amount: true, // allow editing buy amount
+					token: false, // disable selecting buy token
+					chain: false, // disable selecting buy chain
+				},
 			},
 		},
 	}}
-	}
 />;
 ```
 
@@ -79,7 +79,7 @@ If you'd like to prefill a purchase with a native token, you can set the chain w
 			prefillBuy: {
 				chain: base,
 			},
-		}
+		},
 	}}
 />
 ```
@@ -98,7 +98,7 @@ In some cases, you may only want to show users fiat or crypto payment options fo
 	detailsModal={{
 		payOptions: {
 			buyWithCrypto: false,
-		}
+		},
 	}}
 />
 ```
@@ -111,7 +111,7 @@ In some cases, you may only want to show users fiat or crypto payment options fo
 	detailsModal={{
 		payOptions: {
 			buyWithFiat: false,
-		}
+		},
 	}}
 />
 ```
