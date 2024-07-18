@@ -20,14 +20,6 @@ If an IP allowlist is not configured, Engine will allow all incoming requests.
 	This does not affect calls from the Engine dashboard to your Engine instance.
 </Callout>
 
-### Using IP Allowlist with a self-hosted Engine
-
-If you have engine running on a server behing a reverse proxy, you can set the `TRUST_PROXY` environment variable to `true` to trust the `X-Forwarded-For` header. Reverse proxies like Nginx or Apache will add this header to the request with the original client IP address, and setting this variable will allow Engine to use the correct IP address for the allowlist.
-
-```bash name=".env"
-TRUST_PROXY=true
-```
-
 ## Domain Allowlist (CORS)
 
 You can restrict access to your Engine instance by configuring a domain allowlist. This can be configured in the **Configuration** section of the [Engine dashboard](https://thirdweb.com/dashboard/engine/).
