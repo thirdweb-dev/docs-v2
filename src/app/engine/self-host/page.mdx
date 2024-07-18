@@ -171,7 +171,3 @@ POSTGRES_CONNECTION_URL=postgres://postgres:postgres@localhost:5432/postgres?con
 #### What is `x-forwarded-for` and how does it affect Engine?
 
 If you have engine running on a server behind a reverse proxy, you can set the `TRUST_PROXY` environment variable to `true` to trust the `X-Forwarded-For` header. Reverse proxies like Nginx or Apache will add this header to the request with the original client IP address, and setting this variable will allow Engine to use the correct IP address for the IP Allowlist. For more details on IP Allowlisting, refer to the [Security Features](/engine/features/security) page.
-
-```bash
-
-```
