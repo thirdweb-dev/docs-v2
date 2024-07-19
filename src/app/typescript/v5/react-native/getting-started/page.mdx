@@ -9,8 +9,16 @@ We recommend starting a new thirdweb React Native project using our CLI, which s
 In your CLI, run:
 
 ```bash
-npx thirdweb create --react-native
+npx thirdweb create --legacy-peer-deps --react-native
 ```
+
+or clone the [expo-starter](https://github.com/thirdweb-dev/expo-starter) repo using git.
+
+<GithubTemplateCard
+	title="Expo + thirdweb demo repo"
+	descrption="A starter template for using the thirdweb package in a React Native app"
+	href="https://github.com/thirdweb-dev/expo-starter"
+/>
 
 ### Manual Installation
 
@@ -48,9 +56,13 @@ amazon-cognito-identity-js // for authentication
 react-native-aes-gcm-crypto // for encryption
 react-native-quick-crypto@0.7.0-rc.6 // for fast hashing
 
-// optional for coinbase wallet
+// needed for coinbase wallet
 @coinbase/wallet-mobile-sdk
 react-native-mmkv
+
+// needed for UI components
+react-native-svg 
+@react-native-clipboard/clipboard
 ```
 
 </Step>
@@ -161,12 +173,3 @@ If the Expo CLI says "Using Expo Go" when starting the app, press `s` to switch 
 
 </Callout>
 
-### Starter app
-
-If you want to get started quickly run `npx thirdweb create --react-native`, or clone the [expo-starter](https://github.com/thirdweb-dev/expo-starter) repo using git.
-
-<GithubTemplateCard
-	title="Expo + thirdweb demo repo"
-	descrption="A starter template for using the thirdweb package in a React Native app"
-	href="https://github.com/thirdweb-dev/expo-starter"
-/>

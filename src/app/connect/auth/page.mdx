@@ -80,16 +80,24 @@ export default function App() {
 				client={client}
 				auth={{
 					getLoginPayload: async (params) => {
+						// here you should call your backend, using generatePayload to return 
+						// a SIWE compliant login payload to the client
 						return thirdwebAuth.generatePayload(params)
 					},
 					doLogin: async (params) => {
-						const verifiedPayload = await thirdwebAuth.verifyPayload(params);
+             					// here you should call your backend to verify the signed payload passed in params
+						// this will verify that the signature matches the intended wallet
+						const verifiedPayload = await thirdwebAuth.verifyPayload(params); 						
 						setLoggedIn(verifiedPayload.valid)
 					},
 					isLoggedIn: async () => {
+						// here you should ask you backend if the user is logged in
+						// can use cookies, storage, or your method of choice
 						return loggedIn;
 					},
 					doLogout: async () => {
+						// here you should call your backend to logout the user if needed
+						// and delete any local auth tokens
 						setLoggedIn(false);
 					}
 				}}

@@ -64,6 +64,7 @@ docker run \
 | `LOG_LEVEL`                                                    | Determines the logging severity level. Adjust for finer control over logged information. (Default: `debug`)                 |
 | `PRUNE_TRANSACTIONS`                                           | When `false`, Engine prevents the pruning/deletion of processed transaction data. (Default: `true`)                         |
 | `ENABLE_KEYPAIR_AUTH`                                          | Enables [Keypair Authentication](/engine/features/keypair-authentication).                                                  |
+| `TRUST_PROXY`                                                  | When `true`, trust the `X-Forwarded-For` header to allow Engine to use the correct client IP address for the IP allowlist.  |
 
 <span style={{ color: "red" }}>*</span> Required
 
@@ -129,8 +130,6 @@ See [Production Checklist](/engine/production-checklist#cloud-hosting) for best 
   - Minimum specs: 2 vCPU, 2 GB memory (AWS equivalent: t4g.small)
   - Set the `connection_limit` parameter within your `POSTGRES_CONNECTION_URL` environment variable to `10`.
 
-### FAQ
-
 #### How do I filter logs in Engine?
 
 Configure log verbosity via the `LOG_LEVEL` environment variable.
@@ -168,3 +167,7 @@ Example configuration:
 ```bash
 POSTGRES_CONNECTION_URL=postgres://postgres:postgres@localhost:5432/postgres?connection_limit=10
 ```
+
+#### What is `x-forwarded-for` and how does it affect Engine?
+
+If you have engine running on a server behind a reverse proxy, you can set the `TRUST_PROXY` environment variable to `true` to trust the `X-Forwarded-For` header. Reverse proxies like Nginx or Apache will add this header to the request with the original client IP address, and setting this variable will allow Engine to use the correct IP address for the IP Allowlist. For more details on IP Allowlisting, refer to the [Security Features](/engine/features/security) page.
