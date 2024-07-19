@@ -14,7 +14,7 @@ export default async function ExtensionPage() {
 	const toExclude = [""];
 	const extensions = [
 		...new Set(
-			// @ts-ignore FIXME
+			// @ts-expect-error FIXME
 			doc.children
 				.filter((item) => item.name.startsWith("extensions/"))
 				.map((item) => item.name.split("/")[1]),
