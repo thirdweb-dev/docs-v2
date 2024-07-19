@@ -15,8 +15,8 @@ export default async function ExtensionPage() {
 	const extensions = [
 		...new Set(
 			doc.children
-				.filter((item) => item.name.startsWith("extensions/"))
-				.map((item) => item.name.split("/")[1]),
+				.filter((item: { name: string; }) => item.name.startsWith("extensions/"))
+				.map((item: { name: string; }) => item.name.split("/")[1]),
 		),
 	].filter((name) => !toExclude.includes(name as string)) as string[];
 
