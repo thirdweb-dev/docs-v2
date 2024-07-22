@@ -13,4 +13,4 @@ export const metadata = createMetadata({
 	description: "Changelog for thirdweb products",
 });
 
-export const revalidate = 3600 * 24; // revalidate every day
+export const revalidate = 5 * 60; // 5 minutes
