@@ -8,18 +8,13 @@ import {
 	DropdownMenuContent,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import {
-	Accordion,
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-} from "@/components/ui/accordion";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "../ui/button";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { StaticImport } from "next/dist/shared/lib/get-img-props";
+import type { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
+import { CustomAccordion } from "./CustomAccordion";
 
 export type LinkMeta = {
 	name: string;
@@ -106,36 +101,37 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 				onLinkClick={props.onLinkClick}
 			/>
 		);
-	} else {
-		if (link.icon) {
-			return (
-				<Link
-					href={link.href}
-					onClick={props.onLinkClick}
-					className={clsx(
-						"overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
-						isActive ? "font-medium text-accent-500" : "text-f-300",
-						"flex flex-row gap-1",
-					)}
-				>
-					{link.name}
-					{(link.icon as React.ReactElement) || <></>}
-				</Link>
-			);
-		}
+	}
+
+	if (link.icon) {
 		return (
 			<Link
 				href={link.href}
 				onClick={props.onLinkClick}
 				className={clsx(
-					"block overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+					"overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
 					isActive ? "font-medium text-accent-500" : "text-f-300",
+					"flex flex-row gap-1",
 				)}
 			>
 				{link.name}
+				{(link.icon as React.ReactElement) || null}
 			</Link>
 		);
 	}
+
+	return (
+		<Link
+			href={link.href}
+			onClick={props.onLinkClick}
+			className={clsx(
+				"block overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+				isActive ? "font-medium text-accent-500" : "text-f-300",
+			)}
+		>
+			{link.name}
+		</Link>
+	);
 }
 
 function DocSidebarNonCollapsible(props: {
@@ -196,18 +192,11 @@ function DocSidebarCategory(props: {
 	);
 	const defaultOpen = isCategoryActive || !!(hasActiveHref || expanded);
 
-	const [open, setOpen] = useState(defaultOpen ? true : false);
-
 	const triggerRef = useRef<HTMLDivElement>(null);
 
-	useEffect(() => {
-		setOpen(defaultOpen);
-	}, [defaultOpen]);
-
-	const trigger = (
-		<AccordionTrigger
+	const triggerElContent = (
+		<div
 			className={cn(
-				"py-2 text-base",
 				isCategoryActive && "!font-semibold !text-accent-500",
 				"text-f-300 hover:text-f-100",
 			)}
@@ -216,47 +205,35 @@ function DocSidebarCategory(props: {
 				{icon && <SidebarIcon icon={icon} />}
 				{name}
 			</div>
-		</AccordionTrigger>
+		</div>
+	);
+
+	const triggerEl = href ? (
+		<Link href={href} className={cn("block w-full text-left font-medium")}>
+			{triggerElContent}
+		</Link>
+	) : (
+		triggerElContent
 	);
 
 	return (
-		<Accordion
-			collapsible
-			type="single"
-			value={open ? "x" : ""}
-			onValueChange={(value) => {
-				if (value === "x") {
-					setOpen(true);
-				} else {
-					setOpen(false);
-				}
-			}}
+		<CustomAccordion
+			defaultOpen={defaultOpen}
+			containerClassName="border-none"
+			triggerContainerClassName="py-2 text-base"
+			trigger={triggerEl}
+			chevronPosition="right"
 		>
-			<AccordionItem value="x" className="border-none">
-				{href ? (
-					<Link
-						href={href}
-						className={cn("block w-full text-left font-medium")}
-					>
-						{trigger}
-					</Link>
-				) : (
-					trigger
-				)}
-
-				<AccordionContent>
-					<ul className="flex flex-col border-l-2 pl-4">
-						{links.map((link, i) => {
-							return (
-								<li key={i}>
-									<SidebarItem link={link} onLinkClick={props.onLinkClick} />
-								</li>
-							);
-						})}
-					</ul>
-				</AccordionContent>
-			</AccordionItem>
-		</Accordion>
+			<ul className="flex flex-col border-l-2 pl-4">
+				{links.map((link, i) => {
+					return (
+						<li key={i}>
+							<SidebarItem link={link} onLinkClick={props.onLinkClick} />
+						</li>
+					);
+				})}
+			</ul>
+		</CustomAccordion>
 	);
 }
 
@@ -325,12 +302,12 @@ function isSamePage(pathname: string, pathOrHref: string): boolean {
 	try {
 		if (pathOrHref === pathname) {
 			return true;
-		} else {
-			const u1 = new URL(pathname, window.location.href);
-			const u2 = new URL(pathOrHref, window.location.href);
-			if (u1.pathname === u2.pathname && u1.origin === u2.origin) {
-				return true;
-			}
+		}
+
+		const u1 = new URL(pathname, window.location.href);
+		const u2 = new URL(pathOrHref, window.location.href);
+		if (u1.pathname === u2.pathname && u1.origin === u2.origin) {
+			return true;
 		}
 	} catch {
 		// ignore

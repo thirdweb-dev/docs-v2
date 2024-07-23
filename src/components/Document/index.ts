@@ -1,3 +1,4 @@
+export { CustomAccordion } from "../others/CustomAccordion";
 export { Breadcrumb } from "./Breadcrumb";
 export { Callout } from "./Callout";
 export { CodeBlock, InlineCode } from "./Code";
