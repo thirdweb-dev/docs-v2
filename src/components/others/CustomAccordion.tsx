@@ -77,7 +77,6 @@ export function CustomAccordion(props: CustomAccordionProps) {
 						block: "nearest",
 					});
 				}, 500);
-				console.log({ containsMatchingAnchor });
 			}, 500);
 		}
 	}, []);
