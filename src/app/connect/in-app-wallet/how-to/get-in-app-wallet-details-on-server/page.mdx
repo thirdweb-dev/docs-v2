@@ -14,6 +14,14 @@ export async function fetchInAppWalletMetadataFromThirdweb(
 		| {
 				queryBy: "email";
 				email: string;
+		  }
+		| {
+				queryBy: "phone";
+				phone: string;
+		  }
+		| {
+				queryBy: "phone";
+				phone: string;
 		  },
 ) {
 	const url = new URL(
@@ -27,6 +35,10 @@ export async function fetchInAppWalletMetadataFromThirdweb(
 		url.searchParams.set("queryBy", "email");
 		url.searchParams.set("email", args.email);
 	}
+	if (args.queryBy === "phone") {
+		url.searchParams.set("queryBy", "phone");
+		url.searchParams.set("phone", args.phone);
+	}
 
 	const resp = await fetchReq(url.href, {
 		headers: {
@@ -37,7 +49,8 @@ export async function fetchInAppWalletMetadataFromThirdweb(
 	const data = (await resp.json()) as {
 		userId: string;
 		walletAddress: string;
-		email: string;
+		email?: string;
+		phone?: string;
 		createdAt: string;
 	}[];
 	return data;

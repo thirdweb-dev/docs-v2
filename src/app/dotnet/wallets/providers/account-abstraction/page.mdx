@@ -13,7 +13,7 @@ Instantiate a `SmartWallet` to enable advanced blockchain interactions, includin
 ## Usage
 
 ```csharp
-var smartWallet = await SmartWallet.Create(client, personalWallet, factoryAddress, gasless, chainId, accountAddressOverride, entryPoint, bundlerUrl, paymasterUrl);
+var smartWallet = await SmartWallet.Create(personalWallet, chainId);
 ```
 
 <Callout variant="info" title="Advanced Functionality">
@@ -32,17 +32,17 @@ An instance of `ThirdwebClient`. Facilitates communication with the blockchain.
 
 An instance of IThirdwebWallet (e.g., `PrivateKeyWallet` or `InAppWallet`). Represents the personal wallet connected to the SmartWallet.
 
-### factoryAddress (required)
-
-The address of the factory contract used to deploy new smart wallet instances.
-
-### gasless (required)
-
-A `boolean` indicating if the wallet should operate in a gasless mode for transactions.
-
 ### chainId (required)
 
 The blockchain network's chain ID as a `BigInteger`. Identifies the network the smart wallet interacts with.
+
+### factoryAddress (optional)
+
+The address of the factory contract used to deploy new smart wallet instances.
+
+### gasless (optional)
+
+A `boolean` indicating if the wallet should operate in a gasless mode for transactions.
 
 ### accountAddressOverride (optional)
 

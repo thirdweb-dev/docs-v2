@@ -5,13 +5,15 @@ import {
 	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
+	ExternalLinkIcon,
+	EcosystemWalletsIcon,
 } from "@/icons";
 import { CodeIcon } from "lucide-react";
-import { FaExternalLinkAlt } from "react-icons/fa";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
 const aAslug = "/connect/account-abstraction";
+const ecosystemSlug = "/connect/ecosystems";
 const authSlug = "/connect/auth";
 const paySlug = "/connect/pay";
 
@@ -29,15 +31,18 @@ export const sidebar: SideBar = {
 		{
 			name: "Playground",
 			href: "https://playground.thirdweb.com/",
-			icon: <FaExternalLinkAlt className="my-auto" />,
+			icon: <ExternalLinkIcon className="my-auto" />,
 		},
 		{ separator: true },
 		// Connect
 		{
 			name: "Sign-In",
 			icon: <WalletsConnectIcon />,
-			href: `${connectSlug}`,
 			links: [
+				{
+					name: "Overview",
+					href: `${connectSlug}/overview`,
+				},
 				{
 					name: "Get Started",
 					// expanded: true,
@@ -110,8 +115,11 @@ export const sidebar: SideBar = {
 		{
 			name: "In-App Wallet",
 			icon: <WalletsInAppIcon />,
-			href: `${inAppSlug}/overview`,
 			links: [
+				{
+					name: "Overview",
+					href: `${inAppSlug}/overview`,
+				},
 				{
 					name: "How it works",
 					href: `${inAppSlug}/how-it-works`,
@@ -155,8 +163,11 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Custom Authentication",
-					href: `${inAppSlug}/custom-auth/overview`,
 					links: [
+						{
+							name: "Overview",
+							href: `${inAppSlug}/custom-auth/overview`,
+						},
 						{
 							name: "Configuration",
 							href: `${inAppSlug}/custom-auth/configuration`,
@@ -203,13 +214,49 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
+		// Ecosystem Wallet
+		{ separator: true },
+		{
+			name: "Ecosystem Wallets",
+			icon: <EcosystemWalletsIcon />,
+			links: [
+				{
+					name: "Overview",
+					href: `${ecosystemSlug}/overview`,
+				},
+				{
+					name: "Get Started",
+					href: `${ecosystemSlug}/get-started`,
+				},
+				{
+					name: "Managing Ecosystem Permissions",
+					href: `${ecosystemSlug}/ecosystem-permissions`,
+				},
+				{
+					name: "Integrating with Partners",
+					href: `${ecosystemSlug}/integrating-partners`,
+				},
+
+				{
+					name: "Ecosystem Wallet Explorer Page",
+					href: `${ecosystemSlug}/wallet-explorer`,
+				},
+				{
+					name: "FAQ",
+					href: `${ecosystemSlug}/faq`,
+				},
+			],
+		},
 		//Account abstraction
 		{ separator: true },
 		{
 			name: "Account Abstraction",
 			icon: <WalletsSmartIcon />,
-			href: `${aAslug}`,
 			links: [
+				{
+					name: "Overview",
+					href: `${aAslug}/overview`,
+				},
 				{
 					name: "How it Works",
 					href: `${aAslug}/how-it-works`,
@@ -250,6 +297,25 @@ export const sidebar: SideBar = {
 						{
 							name: "Usage in Typescript",
 							href: `${aAslug}/guides/typescript`,
+						},
+					],
+				},
+				{
+					name: "Gasless",
+					isCollapsible: true,
+					expanded: true,
+					links: [
+						{
+							name: "Engine",
+							href: `${aAslug}/gasless/engine`,
+						},
+						{
+							name: "Biconomy",
+							href: `${aAslug}/gasless/biconomy`,
+						},
+						{
+							name: "OpenZeppelin",
+							href: `${aAslug}/gasless/openzeppelin`,
 						},
 					],
 				},
@@ -318,7 +384,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Pay",
 			icon: <PayIcon />,
-			// isCollapsible: true,
 			links: [
 				{
 					name: "Overview",
@@ -385,6 +450,10 @@ export const sidebar: SideBar = {
 							href: `${paySlug}/customization/send-transaction`,
 						},
 					],
+				},
+				{
+					name: "Enable Test Mode",
+					href: `${paySlug}/test-mode`,
 				},
 				{
 					name: "Build a Custom Experience",

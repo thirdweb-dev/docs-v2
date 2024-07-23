@@ -84,7 +84,9 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 		return <hr className="my-2 border-t" />;
 	}
 
-	const isActive = pathname === props.link.href;
+	const isActive = props.link.href
+		? isSamePage(pathname, props.link.href)
+		: false;
 
 	const { link } = props;
 	if ("links" in link) {
@@ -113,7 +115,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 					className={clsx(
 						"overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
 						isActive ? "font-medium text-accent-500" : "text-f-300",
-						"flex flex-row gap-3",
+						"flex flex-row gap-1",
 					)}
 				>
 					{link.name}
@@ -142,7 +144,7 @@ function DocSidebarNonCollapsible(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, icon } = props.linkGroup;
-	const isCategoryActive = href && href === pathname;
+	const isCategoryActive = href ? isSamePage(pathname, href) : false;
 
 	return (
 		<div className="my-4">
@@ -182,7 +184,7 @@ function DocSidebarCategory(props: {
 }) {
 	const pathname = usePathname();
 	const { href, name, links, expanded, icon } = props.linkGroup;
-	const isCategoryActive = href && href === pathname;
+	const isCategoryActive = href ? isSamePage(pathname, href) : false;
 
 	const hasActiveHref = containsActiveHref(
 		{
@@ -295,19 +297,17 @@ export function DocSidebarMobile(props: ReferenceSideBarProps) {
 
 function containsActiveHref(
 	sidebarlink: SidebarLink,
-	activeLink: string,
+	pathname: string,
 ): boolean {
 	if ("links" in sidebarlink) {
-		return sidebarlink.links.some((link) =>
-			containsActiveHref(link, activeLink),
-		);
+		return sidebarlink.links.some((link) => containsActiveHref(link, pathname));
 	}
 
 	if ("separator" in sidebarlink) {
 		return false;
 	}
 
-	if (sidebarlink.href === activeLink) {
+	if (isSamePage(pathname, sidebarlink.href)) {
 		return true;
 	}
 
@@ -319,4 +319,22 @@ function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
 		return <Image src={props.icon} alt="" className="size-5" />;
 	}
 	return <div className="[&>*]:size-5">{props.icon}</div>;
+}
+
+function isSamePage(pathname: string, pathOrHref: string): boolean {
+	try {
+		if (pathOrHref === pathname) {
+			return true;
+		} else {
+			const u1 = new URL(pathname, window.location.href);
+			const u2 = new URL(pathOrHref, window.location.href);
+			if (u1.pathname === u2.pathname && u1.origin === u2.origin) {
+				return true;
+			}
+		}
+	} catch {
+		// ignore
+	}
+
+	return false;
 }

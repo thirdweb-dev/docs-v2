@@ -115,12 +115,26 @@ export const sidebar: SideBar = {
 					href: reactSlug,
 				},
 				{
+					name: "Getting Started",
+					href: `${reactSlug}/getting-started`,
+				},
+				{
 					name: "ThirdwebProvider",
 					href: `${reactSlug}/ThirdwebProvider`,
 				},
 				{
 					name: "Connecting Wallets",
 					href: `${reactSlug}/connecting-wallets`,
+					links: [
+						{
+							name: "UI Components",
+							href: `${reactSlug}/connecting-wallets/ui-components`,
+						},
+						{
+							name: "Hooks",
+							href: `${reactSlug}/connecting-wallets/hooks`,
+						},
+					],
 				},
 				{
 					name: "UI Components",
@@ -158,7 +172,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Hooks",
-					href: `/references/typescript/v5/hooks`,
+					href: "/references/typescript/v5/hooks",
 				},
 			],
 		},
@@ -175,7 +189,7 @@ export const sidebar: SideBar = {
 					href: reactNativeSlug,
 				},
 				{
-					name: "Installation",
+					name: "Getting started",
 					href: `${reactNativeSlug}/installation`,
 				},
 				{

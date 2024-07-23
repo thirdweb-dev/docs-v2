@@ -17,7 +17,7 @@ using Thirdweb.Pay;
 [ContextMenu("Get Supported Currencies")]
 public async void GetSupportedCurrencies()
 {
-	List<string> currencies = await ThirdwebPay.GetBuyWithFiatCurrencies();
+	List<string> currencies = await ThirdwebManager.Instance.SDK.Pay.GetBuyWithFiatCurrencies();
 	ThirdwebDebug.Log($"Supported Currencies: {JsonConvert.SerializeObject(currencies, Formatting.Indented)}");
 }
 ```

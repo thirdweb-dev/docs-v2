@@ -16,7 +16,7 @@ using Thirdweb.Pay;
 
 public async void GetStatus()
 {
-	BuyWithCryptoStatusResult status = await ThirdwebPay.GetBuyWithCryptoStatus(_txHash);
+	BuyWithCryptoStatusResult status = await ThirdwebManager.Instance.SDK.Pay.GetBuyWithCryptoStatus(_txHash);
 	if (status.Status == SwapStatus.FAILED.ToString())
 		ThirdwebDebug.LogWarning($"Failed! Reason: {status.FailureMessage}");
 

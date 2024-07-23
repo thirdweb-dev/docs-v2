@@ -32,6 +32,7 @@ import {
 	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
+	EcosystemWalletsIcon,
 } from "@/icons";
 // import { LandingPageCTAs } from "./landing-page/CTAs";
 
@@ -40,11 +41,10 @@ export default function Page() {
 		<main className="container grow pb-20">
 			<Hero />
 			{/* <TutorialsSection /> */}
-			<WalletsSection />
-			<ContractsSection />
-			<EngineSection />
-
 			<SDKSection />
+			<WalletsSection />
+			<EngineSection />
+			<ContractsSection />
 		</main>
 	);
 }
@@ -227,13 +227,13 @@ function WalletsSection() {
 
 			<Grid>
 				<ArticleCardIndex
-					href="/connect/sign-in"
+					href="/connect/sign-in/overview"
 					title="Sign-In"
 					description="Flexible user sign-up flow with wallet and social sign-in methods"
 					icon={WalletsConnectIcon}
 				/>
 				<ArticleCardIndex
-					href="/connect/account-abstraction"
+					href="/connect/account-abstraction/overview"
 					title="Account abstraction"
 					description="Complete toolkit for Account Abstraction"
 					icon={WalletsSmartIcon}
@@ -243,6 +243,12 @@ function WalletsSection() {
 					description="Email & social login wallets for your customers"
 					href="/connect/in-app-wallet/overview"
 					icon={WalletsInAppIcon}
+				/>
+				<ArticleCardIndex
+					title="Ecosystem Wallet"
+					description="Managed in-app wallet service for unified login across all of your apps and games"
+					href="/connect/ecosystems/overview"
+					icon={EcosystemWalletsIcon}
 				/>
 				<ArticleCardIndex
 					href="/connect/auth"
@@ -328,7 +334,7 @@ function EngineSection() {
 function SDKSection() {
 	return (
 		<section className="my-12">
-			<SectionTitle id="sdk" title="SDKs" />
+			<SectionTitle id="sdk" title="Get Started" />
 
 			<Grid>
 				<SDKCardIndex

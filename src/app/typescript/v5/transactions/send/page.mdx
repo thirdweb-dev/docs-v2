@@ -13,11 +13,11 @@ import { sendTransaction } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
 
 const wallet = createWallet("io.metamask");
-await wallet.connect();
+const account = await wallet.connect({ client });
 
 const transactionResult = await sendTransaction({
 	transaction,
-	wallet,
+	account,
 });
 ```
 
@@ -30,11 +30,11 @@ import { sendAndConfirmTransaction } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
 
 const wallet = createWallet("io.metamask");
-await wallet.connect();
+const account = await wallet.connect({ client });
 
 const receipt = await sendAndConfirmTransaction({
 	transaction,
-	wallet,
+	account,
 });
 ```
 
@@ -47,11 +47,11 @@ import { sendTransaction, waitForReceipt } from "thirdweb";
 import { createWallet } from "thirdweb/wallets";
 
 const wallet = createWallet("io.metamask");
-await wallet.connect();
+const account = await wallet.connect({ client });
 
 const transactionResult = await sendTransaction({
 	transaction,
-	wallet,
+	account,
 });
 
 const receipt = await waitForReceipt(transactionResult);

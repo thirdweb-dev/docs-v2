@@ -22,7 +22,7 @@ Log in to the [thirdweb dashboard](https://thirdweb.com/dashboard). Navigate to
 import { createThirdwebClient } from "thirdweb";
 import { ThirdwebProvider, ConnectButton } from "thirdweb/react";
 
-const client = createThirdwebClient({ clientId: <your_client_id> });
+export const client = createThirdwebClient({ clientId: <your_client_id> });
 
 export default function App() {
   return (
@@ -35,22 +35,48 @@ export default function App() {
 
 ## Interact With A Wallet
 
-Once your user has logged in, interact with the application using different functions such as fetching balances and wallet addresses:
+Once your user has logged in, interact with the application using different functions such as fetching balances, wallet addresses and sending transactions.
+
+### Read wallet address and balance
 
 ```tsx
-import { useActiveAccount, useActiveBalance } from "thirdweb/react";
+import { useActiveAccount, useWalletBalance } from "thirdweb/react";
 
-// get wallet address
-const account = useActiveAccount();
-console.log("wallet address", account?.address);
+export default function MyComponent() {
+  // get wallet address
+  const account = useActiveAccount();
+  console.log("wallet address", account?.address);
+  
+  // get balance
+  const { data: balance, isLoading } = useWalletBalance({
+    client,
+    chain,
+    address: account?.address,
+  });
+  console.log("wallet balance", balance?.displayValue, balance?.symbol);
+}
+```
 
-// get balance
-const { data: balance, isLoading } = useActiveBalance({
-  client,
-  chain,
-  address: account?.address,
-});
-console.log("wallet balance", balance?.displayValue, balance?.symbol);
+### Send a Transaction
+
+```tsx
+import { getContract } from "thirdweb";
+import { sepolia } from "thirdweb/chains";
+import { useActiveAccount, useSendTransaction } from "thirdweb/react";
+import { transfer } from "thirdweb/extensions/erc20";
+
+const USDC = getContract({ client, address: USDC_ADDRESS, chain: sepolia });
+
+export default function MyComponent() {
+  const account = useActiveAccount();
+  const { mutate: sendTransaction, isPending } = useSendTransaction();
+
+  const onClick = () => {
+    // send 15 USDC to the target address
+    const transaction = transfer({ contract: USDC, amount: 15, to: "0x..." });
+    sendTransaction(transaction);
+  }
+}
 ```
 
 [View the full reference.](/typescript/v5)

@@ -280,6 +280,7 @@ const reactNativeRedirects = {
 	"/react-native/react-native.useuser": "/references/react-native/v0/useUser",
 	"/react-native/storage": "/references/react-native/v0/hooks#storage",
 	"/react-native/faq/deeplinks": "/react-native/v0/faq",
+	"/typescript/v5/react-native/installation": "/typescript/v5/react-native/getting-started",
 };
 
 const unityRedirects = {
@@ -614,6 +615,7 @@ const otherRedirects = {
 	// account abstraction rename
 	"/wallets/smart-wallet/:path*": "/connect/account-abstraction/:path*",
 	"/connect/smart-wallet/:path*": "/connect/account-abstraction/:path*",
+	"/connect/account-abstraction": "/connect/account-abstraction/overview",
 	"/unity/wallets/providers/smart-wallet": "/unity/wallets/providers/account-abstraction",
 	"/engine/features/smart-wallets": "/engine/features/account-abstraction",
 	// others

@@ -16,6 +16,16 @@ You can use the thirdweb SDK within a wagmi application by setting the wagmi con
 
 ```ts
 // Assumes you've wrapped your application in a `<ThirdwebProvider>`
+
+import { useEffect } from 'react'
+import { defineChain } from 'thirdweb'
+import { useSetActiveWallet } from 'thirdweb/react'
+import { createWalletAdapter } from 'thirdweb/wallets'
+import { useDisconnect, useSwitchChain, useWalletClient } from 'wagmi'
+import { viemAdapter } from "thirdweb/adapters/viem";
+import { client } from './client'
+
+
 const { data: walletClient } = useWalletClient(); // from wagmi 
 const { disconnectAsync } = useDisconnect(); // from wagmi
 const { switchChainAsync } = useSwitchChain(); // from wagmi
@@ -44,6 +54,7 @@ useEffect(() => {
     };
     setActive();
 }, [walletClient]);
+
 ```
 
 You can view a fully functioning wagmi + thirdweb app in this [github repository](https://github.com/thirdweb-example/wagmi-thirdweb-pay).

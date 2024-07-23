@@ -1,8 +1,28 @@
 import { Callout, Steps, Step, GithubTemplateCard } from "@doc";
 
-# Installation
+# Getting Started
 
-To install the React Native SDK, you'll need to install the `@thirdweb/react-native-adapter` package from npm on top of the `thirdweb` package.
+### Automatic Installation
+
+We recommend starting a new thirdweb React Native project using our CLI, which sets up everything automatically for you.
+
+In your CLI, run:
+
+```bash
+npx thirdweb create --legacy-peer-deps --react-native
+```
+
+or clone the [expo-starter](https://github.com/thirdweb-dev/expo-starter) repo using git.
+
+<GithubTemplateCard
+	title="Expo + thirdweb demo repo"
+	descrption="A starter template for using the thirdweb package in a React Native app"
+	href="https://github.com/thirdweb-dev/expo-starter"
+/>
+
+### Manual Installation
+
+To manually install the React Native SDK, you'll need to install the `@thirdweb/react-native-adapter` package from npm on top of the `thirdweb` package.
 
 <Steps>
 <Step title="Install the packages">
@@ -16,7 +36,7 @@ npx expo install thirdweb @thirdweb-dev/react-native-adapter
 Since react native requires installing native dependencies directly, you also have to install these required peer dependencies:
 
 ```shell
-npx expo install react-native-get-random-values @react-native-community/netinfo expo-application @react-native-async-storage/async-storage expo-web-browser react-native-aes-gcm-crypto react-native-quick-crypto@0.7.0-rc.6 amazon-cognito-identity-js @coinbase/wallet-mobile-sdk react-native-mmkv
+npx expo install react-native-get-random-values @react-native-community/netinfo expo-application @react-native-async-storage/async-storage expo-web-browser expo-linking react-native-aes-gcm-crypto react-native-quick-crypto amazon-cognito-identity-js @coinbase/wallet-mobile-sdk react-native-mmkv react-native-svg @react-native-clipboard/clipboard
 ```
 
 Here's an explanation of each peer dependency and why its needed:
@@ -36,9 +56,13 @@ amazon-cognito-identity-js // for authentication
 react-native-aes-gcm-crypto // for encryption
 react-native-quick-crypto@0.7.0-rc.6 // for fast hashing
 
-// optional for coinbase wallet
+// needed for coinbase wallet
 @coinbase/wallet-mobile-sdk
 react-native-mmkv
+
+// needed for UI components
+react-native-svg 
+@react-native-clipboard/clipboard
 ```
 
 </Step>
@@ -116,7 +140,7 @@ Now you can replace `expo-router/entry` with `./index.js` as your main entrypoin
 <Callout variant="info" title="Additional notes">
 
 1. `react-native-aes-gcm-crypto` requires `minSDK 26` for android, you can edit this in your `build.gradle` file
-2. You will get some warnings about unresolved exports, this is normal and  will get better as the libraries get updated.
+2. You will get some warnings about unresolved exports, this is normal and will get better as the libraries get updated.
 
 </Callout>
 
@@ -139,12 +163,13 @@ import { inAppWallet } from "thirdweb/wallets/in-app";
 </Step>
 </Steps>
 
-### Working demo
+<Callout variant="info" title="Expo Go">
 
-If you want to see a fully working demo of the `thirdweb` package in a React Native app, you can check out the [expo-starter](https://github.com/thirdweb-dev/expo-starter) repo.
+Due to conflicts between Expo Go's wrapper and thirdweb's, **Expo Go is not currently supported**. When running your app, be sure to run a normal development build without using Expo Go.
 
-<GithubTemplateCard
-	title="Expo + thirdweb demo repo"
-    descrption="A starter template for using the thirdweb package in a React Native app"
-	href="https://github.com/thirdweb-dev/expo-starter"
-/>
+If the Expo CLI says "Using Expo Go" when starting the app, press `s` to switch to the development build.
+
+<img src="https://i.ibb.co/JxyZzLn/Screenshot-2024-06-24-at-12-38-57-PM.png" />
+
+</Callout>
+

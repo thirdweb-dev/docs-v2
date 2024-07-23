@@ -67,7 +67,8 @@ clientId: '1234567890', // get yours at https://thirdweb.com/dashboard/settings/
 
 const thirdwebAuth = createAuth({
 domain: 'localhost:3000',
-client
+client,
+adminAccount: privateKeyToAccount({ client, privateKey }),
 });
 
 export default function App() {
@@ -79,19 +80,24 @@ export default function App() {
 				client={client}
 				auth={{
 					getLoginPayload: async (params) => {
-						return await thirdwebAuth.generatePayload({
-							address,
-							chainId: chainId ? parseInt(chainId) : undefined,
-						})
+						// here you should call your backend, using generatePayload to return 
+						// a SIWE compliant login payload to the client
+						return thirdwebAuth.generatePayload(params)
 					},
 					doLogin: async (params) => {
-						const verifiedPayload = await thirdwebAuth.verifyLoginPayload(params);
+             					// here you should call your backend to verify the signed payload passed in params
+						// this will verify that the signature matches the intended wallet
+						const verifiedPayload = await thirdwebAuth.verifyPayload(params); 						
 						setLoggedIn(verifiedPayload.valid)
 					},
 					isLoggedIn: async () => {
+						// here you should ask you backend if the user is logged in
+						// can use cookies, storage, or your method of choice
 						return loggedIn;
 					},
 					doLogout: async () => {
+						// here you should call your backend to logout the user if needed
+						// and delete any local auth tokens
 						setLoggedIn(false);
 					}
 				}}
@@ -113,11 +119,15 @@ const client = createThirdwebClient({
 
 const auth = createAuth({
 	domain: "localhost:3000",
+	adminAccount: privateKeyToAccount({ client, privateKey }),
 	client,
 });
 
 // 1. generate a login payload on the server
-const loginPayload = await auth.generatePayload({ address: "0x123..." });
+const loginPayload = await auth.generatePayload({
+	address: "0x123...",
+	chain: 1,
+});
 
 // 2. sign the login payload on the client
 const signature = await auth.signPayload({
@@ -148,6 +158,10 @@ const { valid, parsedJWT } = await auth.verifyJWT({ jwt });
 	walkthrough on [Deploying to
 	Production](/connect/auth/deploying-to-production).
 </Callout>
+
+### Auth with Smart Accounts (Account Abstraction)
+
+When using Auth with a smart account, you **must** specify a client (on `createAuth`) and a chain ID (on `generatePayload`). The smart account is deployed on a specific chain and the payload must reflect that, and the client is needed to call the wallet contract to verify the signature.
 
 </Tabs>
 
