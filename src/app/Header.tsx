@@ -7,13 +7,6 @@ import { ChevronDownIcon, Menu } from "lucide-react";
 import clsx from "clsx";
 
 import {
-	AccordionContent,
-	AccordionItem,
-	AccordionTrigger,
-	Accordion,
-} from "@/components/ui/accordion";
-
-import {
 	DropdownMenu,
 	DropdownMenuContent,
 	DropdownMenuItem,
@@ -25,6 +18,7 @@ import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
 import { ThirdwebIcon } from "../icons/thirdweb";
 import { FaGithub } from "react-icons/fa";
 import Image from "next/image";
+import { CustomAccordion } from "../components/others/CustomAccordion";
 
 const links = [
 	{
@@ -154,7 +148,7 @@ export function Header() {
 					className={clsx(
 						"grow gap-5",
 						!showBurgerMenu ? "hidden xl:flex" : "flex",
-						"fixed inset-0 top-sticky-top-height flex-col bg-b-800 p-6 animate-in fade-in-20 slide-in-from-top-3 ",
+						"fixed inset-0 top-sticky-top-height flex-col overflow-auto bg-b-800 p-6 animate-in fade-in-20 slide-in-from-top-3",
 						"xl:static xl:animate-none xl:flex-row xl:justify-between xl:bg-transparent xl:p-0",
 					)}
 				>
@@ -283,30 +277,28 @@ function DropdownLinks(props: {
 
 			{/* mobile */}
 			<div className="xl:hidden">
-				<Accordion type="multiple">
-					<AccordionItem value="x" className="border-none">
-						<AccordionTrigger className="py-0 text-base font-medium text-f-300">
-							{props.category}
-						</AccordionTrigger>
-						<AccordionContent>
-							<div className="pt-2">
-								<div className="flex flex-col gap-4 border-l-2 pl-4 pt-3">
-									{props.links.map((info) => {
-										return (
-											<NavLink
-												key={info.name}
-												name={info.name}
-												href={info.href}
-												onClick={props.onLinkClick}
-												icon={info.icon}
-											/>
-										);
-									})}
-								</div>
-							</div>
-						</AccordionContent>
-					</AccordionItem>
-				</Accordion>
+				<CustomAccordion
+					chevronPosition="right"
+					containerClassName="border-none"
+					trigger={props.category}
+					triggerContainerClassName="py-0 text-base font-medium text-f-300"
+				>
+					<div className="pt-2">
+						<div className="flex flex-col gap-4 border-l-2 pl-4 pt-3">
+							{props.links.map((info) => {
+								return (
+									<NavLink
+										key={info.name}
+										name={info.name}
+										href={info.href}
+										onClick={props.onLinkClick}
+										icon={info.icon}
+									/>
+								);
+							})}
+						</div>
+					</div>
+				</CustomAccordion>
 			</div>
 		</>
 	);
@@ -332,7 +324,13 @@ function NavLink(props: {
 		>
 			{props.icon ? (
 				<>
-					<Image src={props.icon} width={"40"} height={"40"} alt="" />
+					<Image
+						src={props.icon}
+						width={"40"}
+						height={"40"}
+						className="size-7"
+						alt=""
+					/>
 					<span className="my-auto">{props.name}</span>
 				</>
 			) : (

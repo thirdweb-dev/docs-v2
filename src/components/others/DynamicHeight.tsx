@@ -12,7 +12,7 @@ export function DynamicHeight(props: {
 	return (
 		<div
 			style={{
-				height: height ? `${height}px` : "auto",
+				height: typeof height === "number" ? `${height}px` : "auto",
 				transition:
 					props.transition ||
 					"height 210ms cubic-bezier(0.175, 0.885, 0.32, 1.1)",

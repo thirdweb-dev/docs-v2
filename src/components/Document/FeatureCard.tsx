@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export type FeatureCardItem = {
 	title: string;
 	description: string;
@@ -7,13 +9,13 @@ export type FeatureCardItem = {
 export function FeatureCard(props: FeatureCardItem) {
 	const { title, description, iconUrl } = props;
 	return (
-		<div className="flex flex-row gap-4 rounded-lg py-3 px-4">
+		<div className="flex flex-row gap-4 rounded-lg px-4 py-3">
 			<div>
-				<img src={iconUrl} alt="" width={40} />
+				<Image src={iconUrl} alt="" width={40} height={40} />
 			</div>
 			<div>
-				<div className="font-semibold text-lg">{title}</div>
-				<div className="text-sm max-w-[300px]">{description}</div>
+				<div className="text-lg font-semibold">{title}</div>
+				<div className="max-w-[300px] text-sm">{description}</div>
 			</div>
 		</div>
 	);

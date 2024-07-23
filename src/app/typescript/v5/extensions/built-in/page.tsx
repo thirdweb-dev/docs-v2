@@ -2,6 +2,7 @@ import { withCache } from "../../../../../lib/withCache";
 import { fetchJSON } from "@/lib/fetchJSON";
 import { TBody, Table, Td, Th, Tr } from "@/components/Document/Table";
 import Link from "next/link";
+import { Heading, Paragraph } from "../../../../../components/Document";
 
 export default async function ExtensionPage() {
 	const URL =
@@ -15,8 +16,8 @@ export default async function ExtensionPage() {
 	const extensions = [
 		...new Set(
 			doc.children
-				.filter((item: { name: string; }) => item.name.startsWith("extensions/"))
-				.map((item: { name: string; }) => item.name.split("/")[1]),
+				.filter((item: { name: string }) => item.name.startsWith("extensions/"))
+				.map((item: { name: string }) => item.name.split("/")[1]),
 		),
 	].filter((name) => !toExclude.includes(name as string)) as string[];
 
@@ -35,15 +36,15 @@ export default async function ExtensionPage() {
 	};
 	return (
 		<>
-			<h1 className="mb-7 text-3xl md:text-4xl lg:5xl font-bold tracking-tight text-f-100 break-words">
+			<Heading level={1} id="built-in-extensions">
 				Built-in extensions for common standards{" "}
-			</h1>
-			<div className="text-lg">
+			</Heading>
+			<Paragraph>
 				The SDK comes packed with a set of built-in extensions for common
 				standards. These extensions are designed to make it easy to interact
 				with popular contracts and protocols. They are available as part of the
 				SDK and can be used in your application without any additional setup.
-			</div>
+			</Paragraph>
 			<Table>
 				<TBody>
 					<Tr>
@@ -59,7 +60,7 @@ export default async function ExtensionPage() {
 								<Td>
 									<Link
 										href={`/references/typescript/v5/functions#${item}`}
-										className="text-accent-500 hover:text-f-100 transition-colors font-medium flex flex-nowrap items-center gap-4 whitespace-nowrap"
+										className="flex flex-nowrap items-center gap-4 whitespace-nowrap font-medium text-accent-500 transition-colors hover:text-f-100"
 									>
 										thirdweb/extensions/{item}
 									</Link>
@@ -75,14 +76,14 @@ export default async function ExtensionPage() {
 			</Table>
 			More extensions are being added regularly. Anyone can{" "}
 			<Link
-				className="text-accent-500 hover:text-f-100 transition-colors font-medium"
+				className="font-medium text-accent-500 transition-colors hover:text-f-100"
 				href="/typescript/v5/extensions/create"
 			>
 				create an extension
 			</Link>{" "}
 			and contribute it back to the repository. You can also{" "}
 			<Link
-				className="text-accent-500 hover:text-f-100 transition-colors font-medium"
+				className="font-medium text-accent-500 transition-colors hover:text-f-100"
 				href="/typescript/v5/extensions/generate"
 			>
 				generate extensions
