@@ -38,7 +38,7 @@ export function CustomAccordion(props: CustomAccordionProps) {
 				setTimeout(() => {
 					accordionContentRef.current?.scrollIntoView({
 						behavior: "smooth",
-						block: "center",
+						block: "nearest",
 					});
 				}, 500);
 			}, 500);
@@ -74,7 +74,7 @@ export function CustomAccordion(props: CustomAccordionProps) {
 				setTimeout(() => {
 					containsMatchingAnchor.scrollIntoView({
 						behavior: "smooth",
-						block: "center",
+						block: "nearest",
 					});
 				}, 500);
 				console.log({ containsMatchingAnchor });
