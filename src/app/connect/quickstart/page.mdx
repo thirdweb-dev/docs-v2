@@ -61,19 +61,19 @@ export default function MyComponent() {
 
 ```tsx
 import { getContract } from "thirdweb";
-import { sepolia } from "thirdweb/chains";
+import { ethereum } from "thirdweb/chains";
 import { useActiveAccount, useSendTransaction } from "thirdweb/react";
 import { transfer } from "thirdweb/extensions/erc20";
 
-const USDC = getContract({ client, address: USDC_ADDRESS, chain: sepolia });
+const USDC = getContract({ client, address: USDC_ADDRESS, chain: ethereum });
 
 export default function MyComponent() {
   const account = useActiveAccount();
   const { mutate: sendTransaction, isPending } = useSendTransaction();
 
   const onClick = () => {
-    // send 15 USDC to the target address
-    const transaction = transfer({ contract: USDC, amount: 15, to: "0x..." });
+    // send 1500 USDC to the target address
+    const transaction = transfer({ contract: USDC, amount: 1500 , to: "0x..." });
     sendTransaction(transaction);
   }
 }
