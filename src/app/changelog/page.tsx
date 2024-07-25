@@ -24,13 +24,11 @@ export const metadata = createMetadata({
 export default async function Page() {
 	return (
 		<main className="container" data-noindex>
-			<div className="flex justify-between">
-				<div className="w-full max-w-[900px] grow-0 ">
+			<div className="flex justify-between gap-16">
+				<div className="w-full max-w-[850px] grow-0 ">
 					<PageContent />
 				</div>
-				<div className="max-w-[350px]">
-					<ChangelogIndexTOC />
-				</div>
+				<ChangelogIndexTOC />
 			</div>
 		</main>
 	);
@@ -46,7 +44,7 @@ async function PageContent() {
 				Changelog
 			</h1>
 
-			<div className="flex flex-col gap-10 xl:border-l-2 xl:pl-8">
+			<div className="flex flex-col gap-10 xl:border-l-2 xl:pl-12">
 				{posts.map((post) => {
 					return (
 						<div key={post.id} className="relative pb-10">
@@ -67,7 +65,7 @@ async function PageContent() {
 								</div>
 							</div>
 
-							<div className="absolute -left-8 top-12 hidden size-7 -translate-x-1/2 items-center justify-center rounded-[50%] bg-f-100 md:size-10 xl:flex">
+							<div className="absolute -left-12 top-12 hidden size-7 -translate-x-1/2 items-center justify-center rounded-[50%] bg-f-100 md:size-10 xl:flex">
 								<PlusIcon className="size-6 text-b-900" />
 							</div>
 
@@ -81,7 +79,7 @@ async function PageContent() {
 								>
 									<Link
 										href={`/changelog/${post.slug}`}
-										className="text-3xl font-bold tracking-tighter !text-f-100 hover:underline md:text-4xl xl:text-6xl"
+										className="text-3xl font-bold tracking-tighter !text-f-100 hover:underline md:text-4xl xl:text-5xl"
 									>
 										{post.title}
 									</Link>
