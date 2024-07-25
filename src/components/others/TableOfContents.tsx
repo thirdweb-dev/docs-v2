@@ -24,11 +24,15 @@ type AnchorNode = {
 
 const DATA_TOC_HREF = "data-toc-href";
 
-export function TableOfContentsSideBar() {
+export function TableOfContentsSideBar(props: {
+	filterHeading?: (heading: HTMLHeadingElement) => boolean;
+	linkClassName?: string;
+}) {
 	const [nodes, setNodes] = useState<TableOfContentNode[]>([]);
 	const tocRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
 	const [hideNav, setHideNav] = useState(false);
+	const { filterHeading } = props;
 
 	useEffect(() => {
 		const anchorNodes: AnchorNode[] = [];
@@ -73,7 +77,13 @@ export function TableOfContentsSideBar() {
 			const heading =
 				anchorEl.parentElement?.querySelector("h2, h3, h4, h5, h6");
 
-			if (!heading) return;
+			if (!(heading instanceof HTMLHeadingElement)) {
+				return;
+			}
+
+			if (filterHeading && !filterHeading(heading)) {
+				return;
+			}
 
 			if (heading) {
 				// set corresponding link's href as data-toc-href for usage in observer
@@ -95,7 +105,7 @@ export function TableOfContentsSideBar() {
 		return () => {
 			observer.disconnect();
 		};
-	}, [pathname]);
+	}, [pathname, filterHeading]);
 
 	return (
 		<nav
@@ -115,13 +125,16 @@ export function TableOfContentsSideBar() {
 					transition: "opacity 0.5s ease",
 				}}
 			>
-				<TableOfContents nodes={nodes} />
+				<TableOfContents nodes={nodes} linkClassName={props.linkClassName} />
 			</div>
 		</nav>
 	);
 }
 
-export function TableOfContents(props: { nodes: TableOfContentNode[] }) {
+export function TableOfContents(props: {
+	nodes: TableOfContentNode[];
+	linkClassName?: string;
+}) {
 	return (
 		<ul className="flex flex-col gap-3">
 			{props.nodes.map((node, i) => {
@@ -138,7 +151,11 @@ export function TableOfContents(props: { nodes: TableOfContentNode[] }) {
 
 				return (
 					<li key={i}>
-						<TOCLink name={node.name} href={node.href} />
+						<TOCLink
+							name={node.name}
+							href={node.href}
+							linkClassName={props.linkClassName}
+						/>
 					</li>
 				);
 			})}
@@ -146,10 +163,17 @@ export function TableOfContents(props: { nodes: TableOfContentNode[] }) {
 	);
 }
 
-function TOCLink(props: { name: string; href: string }) {
+function TOCLink(props: {
+	name: string;
+	href: string;
+	linkClassName?: string;
+}) {
 	return (
 		<Link
-			className=" block overflow-hidden text-ellipsis font-medium text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500"
+			className={cn(
+				"block overflow-hidden text-ellipsis font-medium text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500",
+				props.linkClassName,
+			)}
 			href={props.href}
 		>
 			{props.name}

@@ -23,3 +23,20 @@
 	padding: 6px;
 	overflow: hidden;
 }
+
+.kg-video-container {
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	overflow: hidden;
+	padding: 6px;
+}
+
+.kg-callout-card {
+	padding: 20px;
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	display: flex;
+	gap: 10px;
+	margin: 20px 0;
+	background: var(--b-800);
+}
