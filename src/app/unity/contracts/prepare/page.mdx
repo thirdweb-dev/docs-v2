@@ -18,42 +18,24 @@ To gain more granular control over the transaction process, all Contract objects
 string connectedAddress = await ThirdwebManager.Instance.SDK.Wallet.GetAddress();
 Transaction transaction = await contract.Prepare(
     functionName: "claim",
-    from: connectedAddress, // optional, defaults to connected address
     args: new object[] { connectedAddress, 0, 1 }
 );
-// transaction.SetValue("0.00000000001");
-// transaction.SetGasLimit("100000");
 
-try
-{
-    var data = await transaction.Simulate();
-    Debugger.Instance.Log("[Custom Call] Simulate Successful", $"Data: {data}");
-}
-catch (System.Exception e)
-{
-    Debugger.Instance.Log("[Custom Call] Simulate Error", e.Message);
-    return;
-}
+// This step is optional if you don't care about visualizing the input, tx.Send will do it for you
+_ = await tx.Popuate();
+Debug.Log($"Transaction input after preparing: {tx}");
 
-await transaction.EstimateAndSetGasLimitAsync();
+// You may update the input if you want
+var increasedGasLimit = tx.Input.Gas.Value * 10 / 9;
+_ = tx.SetGasLimit(increasedGasLimit.ToString());
 
-var gasPrice = await transaction.GetGasPrice();
-Debug.Log($"Gas Price: {gasPrice}");
+// Send without waiting for the transaction to be mined
+var hash = await tx.Send();
+Debug.Log($"Transaction hash: {hash}");
 
-var gasCosts = await transaction.EstimateGasCosts();
-Debug.Log($"Gas Cost: {gasCosts.wei} WEI");
-
-Debugger.Instance.Log("[Custom Call] Transaction Preview", transaction.ToString());
-
-try
-{
-    string transactionResult = await transaction.Send();
-    Debugger.Instance.Log("[Custom Call] Send Successful", "Tx Hash: " + transactionResult);
-}
-catch (System.Exception e)
-{
-    Debugger.Instance.Log("[Custom Call] Send Error", e.ToString());
-}
+// or you can wait for the transaction to be mined if you don't care about the hash
+// var receipt = await tx.SendAndWaitForTransactionResult();
+// Debug.Log($"Transaction receipt: {receipt}");
 ```
 
 Please be advised that in most cases you do not need to use these functions, as the SDK will handle the transaction process for you. However, if you need more granular control over the transaction process, these functions can be used to fine-tune the transaction.
@@ -360,7 +342,7 @@ Returns the `Transaction` object.
 
 ### GetGasPrice
 
-Get the gas price.
+Get the gas price (for legacy transactions).
 
 ```csharp
 var gasPrice = await tx.GetGasPrice();
@@ -371,6 +353,29 @@ var gasPrice = await tx.GetGasPrice();
 #### Return Value
 
 Returns the gas price in wei as a `BigInteger`.
+
+</Details>
+
+### GetGasFees
+
+Get the max fee per gas and max priority fee per gas (for EIP-1559 transactions).
+
+```csharp
+var gasFees = await tx.GetGasFees();
+```
+
+<Details summary="Configuration">
+
+#### Return Value
+
+Returns the gas fees as a `GasPriceParameters` object.
+
+```csharp
+{
+    BigInteger MaxFeePerGas;
+    BigInteger MaxPriorityFeePerGas;
+}
+```
 
 </Details>
 
@@ -464,6 +469,24 @@ await tx.Sign();
 #### Return Value
 
 Returns the signed transaction or hexified UserOperation as a `string`.
+
+</Details>
+
+### Populate
+
+Populates the transaction with the necessary data to be sent. This is called automatically by the SDK when sending a transaction, but can be called manually if needed.
+
+There is no guarantee the gas and nonce values will be preserved when using Account Abstraction.
+
+```csharp
+await tx.Populate();
+```
+
+<Details summary="Configuration">
+
+#### Return Value
+
+Returns the updated `Transaction` object.
 
 </Details>
 
