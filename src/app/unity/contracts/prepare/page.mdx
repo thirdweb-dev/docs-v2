@@ -342,7 +342,7 @@ Returns the `Transaction` object.
 
 ### GetGasPrice
 
-Get the gas price.
+Get the gas price (for legacy transactions).
 
 ```csharp
 var gasPrice = await tx.GetGasPrice();
@@ -353,6 +353,29 @@ var gasPrice = await tx.GetGasPrice();
 #### Return Value
 
 Returns the gas price in wei as a `BigInteger`.
+
+</Details>
+
+### GetGasFees
+
+Get the max fee per gas and max priority fee per gas (for EIP-1559 transactions).
+
+```csharp
+var gasFees = await tx.GetGasFees();
+```
+
+<Details summary="Configuration">
+
+#### Return Value
+
+Returns the gas fees as a `GasPriceParameters` object.
+
+```csharp
+{
+    BigInteger MaxFeePerGas;
+    BigInteger MaxPriorityFeePerGas;
+}
+```
 
 </Details>
 
