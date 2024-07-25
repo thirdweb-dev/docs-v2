@@ -7,10 +7,5 @@ const onlyShowPostTitle = (h: HTMLHeadingElement) => {
 };
 
 export function ChangelogIndexTOC() {
-	return (
-		<TableOfContentsSideBar
-			filterHeading={onlyShowPostTitle}
-			linkClassName="text-lg"
-		/>
-	);
+	return <TableOfContentsSideBar filterHeading={onlyShowPostTitle} />;
 }
