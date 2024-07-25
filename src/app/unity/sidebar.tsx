@@ -124,6 +124,10 @@ const walletActions: SidebarLink = (() => {
 				href: `${parentSlug}/getemail`,
 			},
 			{
+				name: "GetNonce",
+				href: `${parentSlug}/getnonce`,
+			},
+			{
 				name: "GetSignerAddress",
 				href: `${parentSlug}/getsigneraddress`,
 			},
