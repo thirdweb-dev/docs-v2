@@ -10,3 +10,34 @@ export const metadata = createMetadata({
         icon: "solidity",
     },
 });
+
+# Simple Metadata ERC-721
+
+## Description
+
+The `SimpleMetadataERC721` contract is an extension that provides simple metadata functionality for ERC-721 tokens. It allows for easy setting and retrieval of token URIs, making it straightforward to manage metadata for individual tokens.
+
+## Callback Functions
+
+| Function      | Description                                                                |
+|---------------|----------------------------------------------------------------------------|
+| `onTokenURI`  | Callback function for retrieving the metadata URI for a given token ID.    |
+
+## Fallback Functions
+
+| Function         | Description                                                                             |
+|------------------|-----------------------------------------------------------------------------------------|
+| `setTokenURI`    | Sets the token URI for a given token. Requires minter role.                              |
+
+## Required Interfaces
+
+| Interface  | ID          |
+|------------|-------------|
+| `ERC-721`  | `0x80ac58cd`|
+
+## Supported Interfaces
+
+| Interface  | ID          |
+|------------|-------------|
+| `ERC-4906` | `0x49064906`|
+

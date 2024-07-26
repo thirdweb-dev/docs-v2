@@ -10,3 +10,36 @@ export const metadata = createMetadata({
         icon: "solidity",
     },
 });
+
+# Claimable ERC-721
+
+## Description
+
+The `ClaimableERC721` contract is an extension that provides claim-based minting functionality for ERC-721 tokens. It includes features for setting claim conditions, validating claims via Merkle proofs, and handling signature-based claim requests. This contract ensures secure and controlled minting processes with the possibility of integrating primary sales.
+
+## Callback Functions
+
+| Function             | Description                                                                |
+|----------------------|----------------------------------------------------------------------------|
+| `beforeMintERC721`   | Callback function for the `ERC721Core.mint` function. Executes actions before minting tokens, including validation of claim conditions and signature-based requests. |
+
+## Fallback Functions
+
+| Function                         | Description                                                                             |
+|----------------------------------|-----------------------------------------------------------------------------------------|
+| `getSaleConfig`                  | Returns the sale configuration for a token, including the primary sale recipient.       |
+| `setSaleConfig`                  | Sets the sale configuration for a token, including the primary sale recipient. Requires manager role. |
+| `getClaimCondition`              | Returns the claim condition for a token.                                                |
+| `setClaimCondition`              | Sets the claim condition for a token. Requires minter role.                             |
+| `eip712Domain`                   | Returns the EIP-712 domain details.                                                     |
+
+## Required Interfaces
+
+| Interface  | ID          |
+|------------|-------------|
+| `ERC-721`  | `0x80ac58cd`|
+
+## Supported Interfaces
+
+(No supported interfaces for this contract)
+
