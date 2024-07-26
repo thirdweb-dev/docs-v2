@@ -3,7 +3,7 @@ import Image from "next/image";
 export type FeatureCardItem = {
 	title: string;
 	description: string;
-	iconUrl: string;
+	iconUrl: string | React.ReactNode;
 };
 
 export function FeatureCard(props: FeatureCardItem) {
@@ -11,7 +11,10 @@ export function FeatureCard(props: FeatureCardItem) {
 	return (
 		<div className="flex flex-row gap-4 rounded-lg px-4 py-3">
 			<div>
-				<Image src={iconUrl} alt="" width={40} height={40} />
+				{typeof iconUrl === "string"
+					? <Image src={iconUrl} alt="" width={40} height={40} />
+					: iconUrl
+				}
 			</div>
 			<div>
 				<div className="text-lg font-semibold">{title}</div>
