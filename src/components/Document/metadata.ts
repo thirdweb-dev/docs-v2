@@ -19,7 +19,8 @@ type DynamicImageOptions = {
 		| "rpc"
 		| "storage"
 		| "changelog"
-		| "dotnet";
+		| "dotnet"
+		| "unreal";
 };
 
 export type MetadataImageIcon = DynamicImageOptions["icon"];
