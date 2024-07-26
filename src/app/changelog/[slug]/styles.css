@@ -20,7 +20,7 @@
 	margin-block: 40px;
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
-	padding: 6px;
+	padding: 1em;
 	overflow: hidden;
 }
 
@@ -28,7 +28,12 @@
 	border: 1px solid var(--border);
 	border-radius: var(--radius);
 	overflow: hidden;
-	padding: 6px;
+	padding: 1em;
+	margin: 20px 0;
+}
+
+.kg-video-container video {
+	border-radius: var(--radius);
 }
 
 .kg-callout-card {
@@ -39,4 +44,8 @@
 	gap: 10px;
 	margin: 20px 0;
 	background: var(--b-800);
+}
+
+.kg-video-overlay {
+	display: none;
 }
