@@ -1,6 +1,6 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
 import {
-	ContractBuildIcon,
+	ContractModularContractIcon,
 	ContractExploreIcon,
 	ContractInteractIcon,
 	ContractDeployIcon,
@@ -8,7 +8,7 @@ import {
 } from "@/icons";
 
 const prebuiltSlug = "/contracts/explore/pre-built-contracts";
-const buildSlug = "/contracts/build";
+const modularContractsSlug = "/contracts/modular-contracts";
 const deploySlug = "/contracts/deploy";
 const publishSlug = "/contracts/publish";
 const interactSlug = "/contracts/interact";
@@ -166,24 +166,24 @@ export const sidebar: SideBar = {
 		// build
 
 		{
-			name: "Build",
-			icon: <ContractBuildIcon />,
+			name: "Modular Contracts",
+			icon: <ContractModularContractIcon />,
 			isCollapsible: false,
 			links: [
 				{
 					name: "Overview",
-					href: `${buildSlug}/overview`,
+					href: `${modularContractsSlug}/overview`,
 				},
 				{
 					name: "Get Started",
-					href: `${buildSlug}/get-started`,
+					href: `${modularContractsSlug}/get-started`,
 				},
-				// modular contracts
 				{
-					name: "Modular Contracts",
-					href: `${buildSlug}/modular-contracts`,
+					name: "How it works",
+					href: `${modularContractsSlug}/how-it-works`,
 				},
 				// base contracts
+				// TODO: replace with the base and extension contracts
 				{
 					name: "Base Contracts",
 					href: `${baseContractsSlug}`,
