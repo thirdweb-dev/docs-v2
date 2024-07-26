@@ -86,6 +86,11 @@ const sdkLinks = [
 		href: "/dotnet",
 		icon: "/icons/navbar/nav-icon-dotnet.svg",
 	},
+	{
+		name: "Unreal",
+		href: "/unreal",
+		icon: "/icons/navbar/nav-icon-unreal.svg",
+	}
 ];
 
 const supportLinks = [
