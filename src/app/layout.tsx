@@ -3,6 +3,10 @@ import { Inter, Fira_Code } from "next/font/google";
 import { Header } from "./Header";
 import NextTopLoader from "nextjs-toploader";
 import { PosthogHeadSetup, PosthogPageView } from "@/lib/posthog/Posthog";
+import {
+	ContextAIBotButton,
+	ContextAIBotScript,
+} from "@/components/others/ContextAIButton";
 import Script from "next/script";
 import { createMetadata } from "@/components/Document";
 import { SetStoredTheme } from "../components/others/theme/theme";
@@ -46,6 +50,7 @@ export default function RootLayout({
 					data-domain="portal.thirdweb.com"
 					data-api="https://pl.thirdweb.com/api/event"
 				/>
+				<ContextAIBotScript />
 			</head>
 			<body
 				className={`${sansFont.variable} ${monoFont.variable} font-sans`}
@@ -60,6 +65,9 @@ export default function RootLayout({
 				/>
 				<PosthogPageView />
 				<EnableSmoothScroll />
+				<div className="fixed bottom-4 right-4 z-floatingButton xl:hidden">
+					<ContextAIBotButton />
+				</div>
 
 				<div className="relative flex min-h-screen flex-col">
 					<StickyTopContainer>

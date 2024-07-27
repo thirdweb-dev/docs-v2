@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 import { DocSearch } from "@/components/others/DocSearch";
+import { ContextAIBotButton } from "@/components/others/ContextAIButton";
 import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
 import { ThirdwebIcon } from "../icons/thirdweb";
 import { FaGithub } from "react-icons/fa";
@@ -188,6 +189,10 @@ export function Header() {
 					<div className="flex flex-col justify-start gap-5 xl:flex-row xl:items-center xl:gap-3">
 						<div className="hidden xl:flex">
 							<ThemeSwitcher />
+						</div>
+
+						<div className="hidden xl:flex">
+							<ContextAIBotButton />
 						</div>
 
 						<div className="hidden xl:block">
