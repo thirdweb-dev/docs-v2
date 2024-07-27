@@ -1,4 +1,4 @@
-export function ContractModularContractIcon(props: { className?: string }) {
+export function ContractBuildIcon(props: { className?: string }) {
 	return (
 		<svg
 			width="24"

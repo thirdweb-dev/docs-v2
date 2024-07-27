@@ -7,7 +7,7 @@ export { TypeScriptIcon } from "./sdks/TypeScriptIcon";
 export { UnityIcon } from "./sdks/UnityIcon";
 export { DotNetIcon } from "./sdks/DotNetIcon";
 // contracts
-export { ContractModularContractIcon } from "./products/contracts/ContractModularContractIcon";
+export { ContractBuildIcon } from "./products/contracts/ContractBuildIcon";
 export { ContractDeployIcon } from "./products/contracts/ContractDeployIcon";
 export { ContractExploreIcon } from "./products/contracts/ContractExploreIcon";
 export { ContractInteractIcon } from "./products/contracts/ContractInteractIcon";
