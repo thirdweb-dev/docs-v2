@@ -2,7 +2,6 @@ import { SideBar } from "@/components/Layouts/DocLayout";
 import {
 	ContractModularContractIcon,
 	ContractExploreIcon,
-	ContractInteractIcon,
 	ContractDeployIcon,
 	ContractPublishIcon,
 } from "@/icons";
@@ -11,7 +10,6 @@ const prebuiltSlug = "/contracts/explore/pre-built-contracts";
 const modularContractsSlug = "/contracts/modular-contracts";
 const deploySlug = "/contracts/deploy";
 const publishSlug = "/contracts/publish";
-const interactSlug = "/contracts/interact";
 const designDocs = "/contracts/design-docs";
 const extensionsContractsSlug = "/contracts/modular-contracts/extension-contracts";
 const coreContractsSlug = "/contracts/modular-contracts/core-contracts";
