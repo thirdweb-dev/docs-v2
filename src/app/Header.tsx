@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useState } from "react";
 import { DocSearch } from "@/components/others/DocSearch";
-import { ContextAIBotButton } from "@/components/others/ContextAIButton";
+import { AIBotButton } from "@/components/others/AIButton";
 import { ThemeSwitcher } from "../components/others/theme/ThemeSwitcher";
 import { ThirdwebIcon } from "../icons/thirdweb";
 import { FaGithub } from "react-icons/fa";
@@ -91,7 +91,7 @@ const sdkLinks = [
 		name: "Unreal",
 		href: "/unreal",
 		icon: "/icons/navbar/nav-icon-unreal.svg",
-	}
+	},
 ];
 
 const supportLinks = [
@@ -192,7 +192,7 @@ export function Header() {
 						</div>
 
 						<div className="hidden xl:flex">
-							<ContextAIBotButton />
+							<AIBotButton />
 						</div>
 
 						<div className="hidden xl:block">
