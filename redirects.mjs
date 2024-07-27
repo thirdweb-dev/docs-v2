@@ -650,6 +650,7 @@ const otherRedirects = {
 	"/unity/wallets/providers/embedded-wallet": "/unity/wallets/providers/in-app-wallet",
 	// connect
 	"/connect/connect": "/connect/sign-in",
+	"/contracts/build/:path*": "/contracts/modular-contracts/overview",
 };
 
 /**
