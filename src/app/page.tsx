@@ -21,7 +21,7 @@ import {
 	UnityIcon,
 	DotNetIcon,
 	SolidityIcon,
-	ContractModularContractIcon,
+	ContractBuildIcon,
 	ContractExploreIcon,
 	ContractInteractIcon,
 	ContractDeployIcon,
@@ -289,7 +289,7 @@ function ContractsSection() {
 					title="Build"
 					description="Write your own smart contracts"
 					href="/contracts/build/overview"
-					icon={ContractModularContractIcon}
+					icon={ContractBuildIcon}
 				/>
 				<ArticleCardIndex
 					title="Interact"
