@@ -130,7 +130,7 @@ export function CustomAccordion(props: CustomAccordionProps) {
 							!isOpen && "hidden",
 						)}
 					>
-						<div className="pb-4 pt-0" ref={accordionContentRef}>
+						<div className="pb-4 pt-1" ref={accordionContentRef}>
 							{props.children}
 						</div>
 					</div>

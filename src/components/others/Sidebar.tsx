@@ -111,7 +111,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 				className={clsx(
 					"overflow-hidden text-ellipsis py-1 text-base font-medium transition-colors duration-300 hover:text-f-100",
 					isActive ? "font-medium text-accent-500" : "text-f-300",
-					"flex flex-row gap-2",
+					"flex flex-row gap-2 align-bottom",
 				)}
 			>
 				{(link.icon as React.ReactElement) ? (
@@ -295,9 +295,13 @@ function containsActiveHref(
 
 function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
 	if (isStaticImport(props.icon)) {
-		return <Image src={props.icon} alt="" className="size-5" />;
+		return <Image src={props.icon} alt="" className="size-4" />;
 	}
-	return <div className="[&>*]:size-5">{props.icon}</div>;
+	return (
+		<div className="flex flex-col align-center justify-center [&>*]:size-4">
+			{props.icon}
+		</div>
+	);
 }
 
 function isSamePage(pathname: string, pathOrHref: string): boolean {

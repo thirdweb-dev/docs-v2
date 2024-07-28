@@ -1,6 +1,11 @@
+import { FunctionDoc } from "typedoc-better-json";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
-import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
+import {
+	getCustomTag,
+	getExtensionName,
+} from "../../references/components/TDoc/utils/getSidebarLinkgroups";
+import { Book, CodeIcon } from "lucide-react";
 
 const slug = "/typescript/v5";
 const docs = await fetchTypeScriptDoc("v5");
@@ -15,10 +20,7 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: slug,
 		},
-		{
-			name: "Why thirdweb?",
-			href: `${slug}/why-thirdweb`,
-		},
+		{ separator: true },
 		{
 			name: "Core",
 			isCollapsible: false,
@@ -26,16 +28,29 @@ export const sidebar: SideBar = {
 				{
 					name: "Client",
 					href: `${slug}/client`,
-					links: ["createThirdwebClient"].map((name) => ({
-						name,
-						href: `${slug}/${name}`,
-					})),
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/client`,
+						},
+						...["createThirdwebClient"].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
 				},
 				{
 					name: "Storage",
 					href: `${slug}/storage`,
-					links:
-						docs.functions
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/storage`,
+						},
+						...(docs.functions
 							?.filter((f) => {
 								const [tag] = getCustomTag(f) || [];
 								return tag === "@storage";
@@ -43,26 +58,37 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
-							})) || [],
+								icon: <CodeIcon />,
+							})) || []),
+					],
 				},
 				{
 					name: "Adapters",
 					href: `${slug}/adapters`,
-					links: ["viemAdapter", "ethers6Adapter", "ethers5Adapter"].map(
-						(name) => ({
-							name,
-							href: `${slug}/${name}`,
-						}),
-					),
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/adapters`,
+						},
+						...["viemAdapter", "ethers6Adapter", "ethers5Adapter"].map(
+							(name) => ({
+								name,
+								href: `${slug}/${name}`,
+								icon: <CodeIcon />,
+							}),
+						),
+					],
 				},
 			],
 		},
+		{ separator: true },
 		{
 			name: "Wallets",
 			isCollapsible: false,
 			links: [
 				{
-					name: "Accounts & Wallets",
+					name: "Overview",
 					href: `${slug}/wallets`,
 				},
 				{
@@ -80,6 +106,7 @@ export const sidebar: SideBar = {
 					].map((name) => ({
 						name,
 						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
 					})),
 				},
 				{
@@ -93,6 +120,7 @@ export const sidebar: SideBar = {
 					].map((name) => ({
 						name,
 						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
 					})),
 				},
 				{
@@ -106,6 +134,7 @@ export const sidebar: SideBar = {
 					].map((name) => ({
 						name,
 						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
 					})),
 				},
 				{
@@ -119,13 +148,19 @@ export const sidebar: SideBar = {
 					].map((name) => ({
 						name,
 						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
 					})),
 				},
 				{
 					name: "Auth (SIWE)",
 					href: `${slug}/auth`,
-					links:
-						docs.functions
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/auth`,
+						},
+						...(docs.functions
 							?.filter((f) => {
 								const [tag] = getCustomTag(f) || [];
 								return tag === "@auth";
@@ -133,10 +168,13 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
-							})) || [],
+								icon: <CodeIcon />,
+							})) || []),
+					],
 				},
 			],
 		},
+		{ separator: true },
 		{
 			name: "Pay",
 			isCollapsible: false,
@@ -152,6 +190,7 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 				{
@@ -165,19 +204,26 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 			],
 		},
+		{ separator: true },
 		{
 			name: "Blockchain API",
 			isCollapsible: false,
 			links: [
 				{
-					name: "Chain",
+					name: "Chains",
 					href: `${slug}/chain`,
-					links:
-						docs.functions
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/chain`,
+						},
+						...(docs.functions
 							?.filter((f) => {
 								const [tag] = getCustomTag(f) || [];
 								return tag === "@chain";
@@ -185,16 +231,32 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
-							})) || [],
+								icon: <CodeIcon />,
+							})) || []),
+					],
 				},
 				{
-					name: "Contract",
+					name: "Contracts",
 					href: `${slug}/contract`,
 					links: [
 						{
-							name: "getContract",
-							href: `${slug}/getContract`,
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/contract`,
 						},
+						...[
+							"getContract",
+							"getBytecode",
+							"verifyContract",
+							"resolveContractAbi",
+							"fetchPublishedContract",
+							"resolveMethod",
+							"detectMethod",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
 					],
 				},
 				{
@@ -202,70 +264,132 @@ export const sidebar: SideBar = {
 					href: `${slug}/transactions/read`,
 					links: [
 						{
-							name: "readContract",
-							href: `${slug}/readContract`,
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/transactions/read`,
 						},
-						{
-							name: "prepareEvent",
-							href: `${slug}/prepareEvent`,
-						},
-						{
-							name: "getContractEvents",
-							href: `${slug}/getContractEvents`,
-						},
+						...["readContract", "prepareEvent", "getContractEvents"].map(
+							(name) => ({
+								name,
+								href: `${slug}/${name}`,
+								icon: <CodeIcon />,
+							}),
+						),
 					],
 				},
 				{
 					name: "Preparing transactions",
 					href: `${slug}/transactions/prepare`,
 					links: [
-						"prepareContractCall",
-						"prepareTransaction",
-						"encode",
-						"signTransaction",
-						"simulateTransaction",
-						"estimateGas",
-						"estimateGasCost",
-						"toSerializableTransaction",
-						"serializeTransaction",
-					].map((name) => ({
-						name,
-						href: `${slug}/${name}`,
-					})),
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/transactions/prepare`,
+						},
+						...[
+							"prepareContractCall",
+							"prepareTransaction",
+							"encode",
+							"signTransaction",
+							"simulateTransaction",
+							"estimateGas",
+							"estimateGasCost",
+							"toSerializableTransaction",
+							"serializeTransaction",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
 				},
 				{
 					name: "Sending transactions",
 					href: `${slug}/transactions/send`,
 					links: [
-						"sendTransaction",
-						"sendAndConfirmTransaction",
-						"sendBatchTransaction",
-						"waitForReceipt",
-						"getTransactionStore",
-					].map((name) => ({
-						name,
-						href: `${slug}/${name}`,
-					})),
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/transactions/send`,
+						},
+						...[
+							"sendTransaction",
+							"sendAndConfirmTransaction",
+							"sendBatchTransaction",
+							"waitForReceipt",
+							"getTransactionStore",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
+				},
+				{
+					name: "Deploying contracts",
+					links:
+						docs.functions
+							?.filter((f) => {
+								const [tag, extensionName] = getCustomTag(f) || [];
+								return tag === "@extension" && extensionName === "DEPLOY";
+							})
+							.sort((a, b) => a.name.localeCompare(b.name))
+							.map((f) => ({
+								name: f.name,
+								href: `${slug}/deploy/${f.name}`,
+								icon: <CodeIcon />,
+							})) || [],
 				},
 				{
 					name: "Extensions",
-					href: `${slug}/extensions`,
+					href: `${slug}/extensions/use`,
 					links: [
 						{
-							name: "Built-in extensions",
-							href: `${slug}/extensions/built-in`,
-						},
-						{
-							name: "Using extensions",
+							name: "Using Extensions",
 							href: `${slug}/extensions/use`,
+							icon: <Book />,
 						},
 						{
-							name: "Generating extensions",
+							name: "Generating Extensions",
 							href: `${slug}/extensions/generate`,
+							icon: <Book />,
 						},
 						{
-							name: "Writing extensions",
+							name: "Writing Extensions",
 							href: `${slug}/extensions/create`,
+							icon: <Book />,
+						},
+						{
+							name: "Available Extensions",
+							href: `${slug}/extensions/built-in`,
+							isCollapsible: false,
+							links: Object.entries(
+								docs.functions
+									?.filter((f) => {
+										const [tag, extensionName] = getCustomTag(f) || [];
+										return tag === "@extension" && extensionName !== "DEPLOY";
+									})
+									?.reduce(
+										(acc, f) => {
+											const [_, extensionName] = getCustomTag(f) || [];
+											if (extensionName) {
+												acc[extensionName] = acc[extensionName] || [];
+												acc[extensionName].push(f);
+											}
+											return acc;
+										},
+										{} as Record<string, FunctionDoc[]>,
+									) || [],
+							).map(([extensionName, extensionFunctions]) => ({
+								name: extensionName,
+								links: extensionFunctions
+									.sort((a, b) => a.name.localeCompare(b.name))
+									.map((f) => ({
+										name: f.name,
+										href: `${slug}/${extensionName.toLowerCase()}/${f.name}`,
+										icon: <CodeIcon />,
+									})),
+							})),
 						},
 					],
 				},
@@ -280,6 +404,7 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 				{
@@ -299,6 +424,7 @@ export const sidebar: SideBar = {
 					].map((name) => ({
 						name,
 						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
 					})),
 				},
 			],
@@ -309,9 +435,6 @@ export const sidebar: SideBar = {
 		{
 			name: "Migration guide",
 			href: `${slug}/migrate`,
-		},
-		{
-			separator: true,
 		},
 		{
 			name: "Full Reference",

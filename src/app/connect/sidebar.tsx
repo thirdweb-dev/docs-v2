@@ -30,6 +30,10 @@ export const sidebar: SideBar = {
 			href: "/connect",
 		},
 		{
+			name: "Why thirdweb?",
+			href: "/connect/why-thirdweb",
+		},
+		{
 			name: "Quickstart",
 			href: "/connect/quickstart",
 		},
