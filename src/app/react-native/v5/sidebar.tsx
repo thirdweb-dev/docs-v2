@@ -59,16 +59,12 @@ export const sidebar: SideBar = {
 						{
 							name: "UI Components",
 							href: `${slug}/connecting-wallets/ui-components`,
-							links:
-								docs.components
-									?.filter((hook) => {
-										// TODO should tag individual components
-										return hook.name.toLowerCase().includes("connect");
-									})
-									?.map((hook) => ({
-										name: hook.name,
-										href: `${slug}/${hook.name}`,
-									})) || [],
+							links: ["ConnectButton", "ConnectEmbed", "AutoConnect"].map(
+								(name) => ({
+									name,
+									href: `${slug}/${name}`,
+								}),
+							),
 						},
 						{
 							name: "Connection Hooks",
@@ -105,16 +101,10 @@ export const sidebar: SideBar = {
 					links: [
 						{
 							name: "UI Components",
-							links:
-								docs.components
-									?.filter((hook) => {
-										// TODO should tag individual components
-										return !hook.name.toLowerCase().includes("connect");
-									})
-									?.map((hook) => ({
-										name: hook.name,
-										href: `${slug}/${hook.name}`,
-									})) || [],
+							links: ["TransactionButton"].map((name) => ({
+								name,
+								href: `${slug}/${name}`,
+							})),
 						},
 						{
 							name: "Reading State",
