@@ -34,6 +34,7 @@ import {
 	PayIcon,
 	EcosystemWalletsIcon,
 } from "@/icons";
+import { UnrealIcon } from "../icons/sdks/UnrealIcon";
 // import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
@@ -348,13 +349,9 @@ function SDKSection() {
 					title="React Native"
 					icon={ReactIcon}
 				/>
-				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
-				<SDKCardIndex
-					href="/contracts/build/overview"
-					title="Solidity"
-					icon={SolidityIcon}
-				/>
 				<SDKCardIndex href="/dotnet" title=".NET" icon={DotNetIcon} />
+				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
+				<SDKCardIndex href="/unreal" title="Unreal" icon={UnrealIcon} />
 			</Grid>
 		</section>
 	);

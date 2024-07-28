@@ -10,173 +10,166 @@ export const sidebar: SideBar = {
 	name: "Connect React SDK",
 	links: [
 		{
-			icon: <ReactIcon className="size-4" />,
-			name: "React",
+			separator: true,
+		},
+		{
+			name: "Overview",
+			href: slug,
+		},
+		{
+			name: "Getting Started",
+			href: `${slug}/getting-started`,
+		},
+		{
+			name: "Core",
 			isCollapsible: false,
 			links: [
 				{
-					separator: true,
+					name: "ThirdwebProvider",
+					href: `${slug}/ThirdwebProvider`,
 				},
 				{
-					name: "Overview",
-					href: slug,
+					name: "Themes",
+					links:
+						docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@theme";
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+							})) || [],
+				},
+			],
+		},
+		{
+			name: "Wallets",
+			isCollapsible: false,
+			links: [
+				{
+					name: "UI Components",
+					href: `${slug}/connecting-wallets/ui-components`,
+					links: ["ConnectButton", "ConnectEmbed", "AutoConnect"].map(
+						(name) => ({
+							name,
+							href: `${slug}/${name}`,
+						}),
+					),
 				},
 				{
-					name: "Getting Started",
-					href: `${slug}/getting-started`,
+					name: "Connection Hooks",
+					href: `${slug}/connecting-wallets/hooks`,
+					links:
+						docs.hooks
+							?.filter((hook) => {
+								const [tag] = getCustomTag(hook) || [];
+								return tag === "@walletConnection";
+							})
+							?.map((hook) => ({
+								name: hook.name,
+								href: `${slug}/${hook.name}`,
+							})) || [],
 				},
 				{
-					name: "Core",
-					isCollapsible: false,
-					links: [
-						{
-							name: "ThirdwebProvider",
-							href: `${slug}/ThirdwebProvider`,
-						},
-						{
-							name: "Themes",
-							links:
-								docs.functions
-									?.filter((f) => {
-										const [tag] = getCustomTag(f) || [];
-										return tag === "@theme";
-									})
-									?.map((f) => ({
-										name: f.name,
-										href: `${slug}/${f.name}`,
-									})) || [],
-						},
-					],
+					name: "Wallet Hooks",
+					links:
+						docs.hooks
+							?.filter((hook) => {
+								const [tag] = getCustomTag(hook) || [];
+								return tag === "@wallet";
+							})
+							?.map((hook) => ({
+								name: hook.name,
+								href: `${slug}/${hook.name}`,
+							})) || [],
+				},
+			],
+		},
+		{
+			name: "Pay",
+			isCollapsible: false,
+			links: [
+				{
+					name: "UI Components",
+					href: `${slug}/connecting-wallets/ui-components`,
+					links: ["PayEmbed"].map((name) => ({
+						name,
+						href: `${slug}/${name}`,
+					})),
 				},
 				{
-					name: "Wallets",
-					isCollapsible: false,
-					links: [
-						{
-							name: "UI Components",
-							href: `${slug}/connecting-wallets/ui-components`,
-							links: ["ConnectButton", "ConnectEmbed", "AutoConnect"].map(
-								(name) => ({
-									name,
-									href: `${slug}/${name}`,
-								}),
-							),
-						},
-						{
-							name: "Connection Hooks",
-							href: `${slug}/connecting-wallets/hooks`,
-							links:
-								docs.hooks
-									?.filter((hook) => {
-										const [tag] = getCustomTag(hook) || [];
-										return tag === "@walletConnection";
-									})
-									?.map((hook) => ({
-										name: hook.name,
-										href: `${slug}/${hook.name}`,
-									})) || [],
-						},
-						{
-							name: "Wallet Hooks",
-							links:
-								docs.hooks
-									?.filter((hook) => {
-										const [tag] = getCustomTag(hook) || [];
-										return tag === "@wallet";
-									})
-									?.map((hook) => ({
-										name: hook.name,
-										href: `${slug}/${hook.name}`,
-									})) || [],
-						},
-					],
+					name: "Buy with Fiat",
+					links:
+						docs.hooks
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@buyCrypto" && f.name.includes("Fiat");
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+							})) || [],
 				},
 				{
-					name: "Pay",
-					isCollapsible: false,
-					links: [
-						{
-							name: "UI Components",
-							href: `${slug}/connecting-wallets/ui-components`,
-							links: ["PayEmbed"].map((name) => ({
-								name,
-								href: `${slug}/${name}`,
-							})),
-						},
-						{
-							name: "Buy with Fiat",
-							links:
-								docs.hooks
-									?.filter((f) => {
-										const [tag] = getCustomTag(f) || [];
-										return tag === "@buyCrypto" && f.name.includes("Fiat");
-									})
-									?.map((f) => ({
-										name: f.name,
-										href: `${slug}/${f.name}`,
-									})) || [],
-						},
-						{
-							name: "Buy with Crypto",
-							links:
-								docs.hooks
-									?.filter((f) => {
-										const [tag] = getCustomTag(f) || [];
-										return tag === "@buyCrypto" && f.name.includes("Crypto");
-									})
-									?.map((f) => ({
-										name: f.name,
-										href: `${slug}/${f.name}`,
-									})) || [],
-						},
-					],
+					name: "Buy with Crypto",
+					links:
+						docs.hooks
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@buyCrypto" && f.name.includes("Crypto");
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+							})) || [],
+				},
+			],
+		},
+		{
+			name: "Blockchain API",
+			isCollapsible: false,
+			links: [
+				{
+					name: "UI Components",
+					links: ["ClaimButton", "TransactionButton", "MediaRenderer"].map(
+						(name) => ({
+							name,
+							href: `${slug}/${name}`,
+						}),
+					),
 				},
 				{
-					name: "Blockchain API",
-					isCollapsible: false,
-					links: [
-						{
-							name: "UI Components",
-							links: ["ClaimButton", "TransactionButton", "MediaRenderer"].map(
-								(name) => ({
-									name,
-									href: `${slug}/${name}`,
-								}),
-							),
-						},
-						{
-							name: "Reading State",
-							href: `${slug}/reading-state`,
-							links:
-								docs.hooks
-									?.filter((hook) => {
-										const [tag] = getCustomTag(hook) || [];
-										return tag === "@contract";
-									})
-									?.map((hook) => ({
-										name: hook.name,
-										href: `${slug}/${hook.name}`,
-									})) || [],
-						},
-						{
-							name: "Transactions",
-							href: `${slug}/transactions`,
-							links:
-								docs.hooks
-									?.filter((hook) => {
-										const [tag] = getCustomTag(hook) || [];
-										return tag === "@transaction";
-									})
-									?.map((hook) => ({
-										name: hook.name,
-										href: `${slug}/${hook.name}`,
-									})) || [],
-						},
-						{
-							name: "Extensions",
-							href: `${slug}/extensions`,
-						},
-					],
+					name: "Reading State",
+					href: `${slug}/reading-state`,
+					links:
+						docs.hooks
+							?.filter((hook) => {
+								const [tag] = getCustomTag(hook) || [];
+								return tag === "@contract";
+							})
+							?.map((hook) => ({
+								name: hook.name,
+								href: `${slug}/${hook.name}`,
+							})) || [],
+				},
+				{
+					name: "Transactions",
+					href: `${slug}/transactions`,
+					links:
+						docs.hooks
+							?.filter((hook) => {
+								const [tag] = getCustomTag(hook) || [];
+								return tag === "@transaction";
+							})
+							?.map((hook) => ({
+								name: hook.name,
+								href: `${slug}/${hook.name}`,
+							})) || [],
+				},
+				{
+					name: "Extensions",
+					href: `${slug}/extensions`,
 				},
 			],
 		},

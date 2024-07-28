@@ -22,10 +22,6 @@ import { CustomAccordion } from "../components/others/CustomAccordion";
 
 const links = [
 	{
-		name: "Connect",
-		href: "/connect",
-	},
-	{
 		name: "Contracts",
 		href: "/contracts",
 	},
@@ -54,7 +50,12 @@ const toolLinks = [
 	},
 ];
 
-const sdkLinks = [
+export const connectLinks = [
+	{
+		name: "Overview",
+		href: "/connect",
+		icon: "/icons/navbar/nav-icon-dashboard.svg",
+	},
 	{
 		name: "TypeScript",
 		href: "/typescript/v5",
@@ -72,26 +73,21 @@ const sdkLinks = [
 		// icon: "/icons/navbar/nav-icon-react-native.svg",
 	},
 	{
-		name: "Unity",
-		href: "/unity",
-		icon: "/icons/navbar/nav-icon-unity.svg",
-	},
-	{
-		name: "Solidity",
-		href: "/contracts/build/overview",
-		icon: "/icons/navbar/nav-icon-solidity.svg",
-	},
-	{
 		name: ".NET",
 		href: "/dotnet",
 		icon: "/icons/navbar/nav-icon-dotnet.svg",
+	},
+	{
+		name: "Unity",
+		href: "/unity",
+		icon: "/icons/navbar/nav-icon-unity.svg",
 	},
 	{
 		name: "Unreal",
 		href: "/unreal",
 		icon: "/icons/navbar/nav-icon-unreal.svg",
 	},
-];
+] as const;
 
 const supportLinks = [
 	{
@@ -158,6 +154,12 @@ export function Header() {
 					)}
 				>
 					<ul className="flex flex-col gap-5 xl:flex-row xl:items-center">
+						<DropdownLinks
+							links={connectLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="Connect"
+						/>
+
 						{links.map((link) => {
 							return (
 								<li
@@ -176,12 +178,6 @@ export function Header() {
 							links={toolLinks}
 							onLinkClick={() => setShowBurgerMenu(false)}
 							category="Tools"
-						/>
-
-						<DropdownLinks
-							links={sdkLinks}
-							onLinkClick={() => setShowBurgerMenu(false)}
-							category="SDKs"
 						/>
 					</ul>
 
@@ -227,7 +223,7 @@ export function Header() {
 function DropdownLinks(props: {
 	onLinkClick?: () => void;
 	category: string;
-	links: Array<{ name: string; href: string; icon?: string }>;
+	links: readonly { name: string; href: string; icon?: string }[];
 }) {
 	return (
 		<>

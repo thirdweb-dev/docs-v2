@@ -37,7 +37,7 @@ const walletProviders: SidebarLink = (() => {
 			{
 				name: "Rabby",
 				href: `${parentSlug}/rabby`,
-			}
+			},
 		],
 	};
 })();
@@ -142,7 +142,8 @@ const walletActions: SidebarLink = (() => {
 const wallets: SidebarLink = (() => {
 	const parentSlug = "/unity/wallets";
 	return {
-		name: "Wallet Interactions",
+		name: "Wallets",
+		isCollapsible: false,
 		links: [
 			{ name: "Prefab", href: `${parentSlug}/prefab` },
 			walletProviders,
@@ -277,10 +278,33 @@ const contract1155: SidebarLink = (() => {
 	};
 })();
 
-const contracts: SidebarLink = {
-	name: "Contract Interactions",
-	href: "/unity/contracts",
+const blocks: SidebarLink = {
+	name: "Blocks",
 	links: [
+		{
+			name: "Get Block",
+			href: "/unity/blocks/getblock",
+		},
+		{
+			name: "Get Block With Transactions",
+			href: "/unity/blocks/getblockwithtransactions",
+		},
+		{
+			name: "Get Latest Block Number",
+			href: "/unity/blocks/getlatestblocknumber",
+		},
+		{
+			name: "Get Latest Block Timestamp",
+			href: "/unity/blocks/getlatestblocktimestamp",
+		},
+	],
+};
+
+const contracts: SidebarLink = {
+	name: "Blockchain API",
+	isCollapsible: false,
+	links: [
+		{ name: "Overview", href: "/unity/contracts" },
 		{
 			name: "Get Contract",
 			href: "/unity/contracts/get",
@@ -309,61 +333,51 @@ const contracts: SidebarLink = {
 			href: "/unity/contracts/pack",
 		},
 		contractEvents,
-	],
-};
-
-const blocks: SidebarLink = {
-	name: "Blocks",
-	links: [
-		{
-			name: "Get Block",
-			href: "/unity/blocks/getblock",
-		},
-		{
-			name: "Get Block With Transactions",
-			href: "/unity/blocks/getblockwithtransactions",
-		},
-		{
-			name: "Get Latest Block Number",
-			href: "/unity/blocks/getlatestblocknumber",
-		},
-		{
-			name: "Get Latest Block Timestamp",
-			href: "/unity/blocks/getlatestblocktimestamp",
-		},
+		blocks,
 	],
 };
 
 const pay: SidebarLink = {
-	name: "Thirdweb Pay",
+	name: "Pay",
+	isCollapsible: false,
 	links: [
 		{
-			name: "Get Buy With Crypto Quote",
-			href: "/unity/pay/getbuywithcryptoquote",
+			name: "Buy With Fiat",
+			links: [
+				{
+					name: "Get Buy With Fiat Quote",
+					href: "/unity/pay/getbuywithfiatquote",
+				},
+				{
+					name: "Buy With Fiat",
+					href: "/unity/pay/buywithfiat",
+				},
+				{
+					name: "Get Buy With Fiat Status",
+					href: "/unity/pay/getbuywithfiatstatus",
+				},
+				{
+					name: "Get Buy With Fiat Currencies",
+					href: "/unity/pay/getbuywithfiatcurrencies",
+				},
+			],
 		},
 		{
 			name: "Buy With Crypto",
-			href: "/unity/pay/buywithcrypto",
-		},
-		{
-			name: "Get Buy With Crypto Status",
-			href: "/unity/pay/getbuywithcryptostatus",
-		},
-		{
-			name: "Get Buy With Fiat Quote",
-			href: "/unity/pay/getbuywithfiatquote",
-		},
-		{
-			name: "Buy With Fiat",
-			href: "/unity/pay/buywithfiat",
-		},
-		{
-			name: "Get Buy With Fiat Status",
-			href: "/unity/pay/getbuywithfiatstatus",
-		},
-		{
-			name: "Get Buy With Fiat Currencies",
-			href: "/unity/pay/getbuywithfiatcurrencies",
+			links: [
+				{
+					name: "Get Buy With Crypto Quote",
+					href: "/unity/pay/getbuywithcryptoquote",
+				},
+				{
+					name: "Buy With Crypto",
+					href: "/unity/pay/buywithcrypto",
+				},
+				{
+					name: "Get Buy With Crypto Status",
+					href: "/unity/pay/getbuywithcryptostatus",
+				},
+			],
 		},
 		{
 			name: "Get Buy History",
@@ -375,6 +389,7 @@ const pay: SidebarLink = {
 export const sidebar: SideBar = {
 	name: "Unity SDK",
 	links: [
+		{ separator: true },
 		{
 			name: "Overview",
 			href: "/unity",
@@ -384,17 +399,22 @@ export const sidebar: SideBar = {
 			href: "/unity/getting-started",
 		},
 		{
-			name: "Thirdweb Manager",
-			href: "/unity/thirdwebmanager",
+			name: "Core",
+			isCollapsible: false,
+			links: [
+				{
+					name: "Thirdweb Manager",
+					href: "/unity/thirdwebmanager",
+				},
+				{
+					name: "Storage",
+					href: "/unity/storage",
+				},
+			],
 		},
 		wallets,
-		contracts,
-		blocks,
-		{
-			name: "Storage",
-			href: "/unity/storage",
-		},
 		pay,
+		contracts,
 		// {
 		// 	name: "Full Reference",
 		// 	href: "/references/unity",

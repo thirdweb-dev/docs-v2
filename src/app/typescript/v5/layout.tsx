@@ -1,7 +1,7 @@
 import { DocLayout } from "@/components/Layouts/DocLayout";
 import { createMetadata } from "@doc";
 import { sidebar } from "./sidebar";
-import { VersionSelector } from "../../../components/others/VersionSelector";
+import { PlatformSelector } from "../../../components/others/PlatformSelector";
 
 export default async function Layout(props: { children: React.ReactNode }) {
 	return (
@@ -9,21 +9,9 @@ export default async function Layout(props: { children: React.ReactNode }) {
 			sideBar={sidebar}
 			editPageButton={true}
 			sidebarHeader={
-				<div className="flex items-center gap-1">
-					<p className="py-5 text-lg font-semibold text-f-100">Connect SDK</p>
-					<VersionSelector
-						versions={[
-							{
-								name: "v4",
-								href: "/typescript/v4/",
-							},
-							{
-								name: "v5",
-								href: "/typescript/v5/",
-							},
-						]}
-						selected={"v5"}
-					/>
+				<div className="flex-col items-center gap-1">
+					<p className="py-5 text-lg font-semibold text-f-100">Connect</p>
+					<PlatformSelector selected="TypeScript" />
 				</div>
 			}
 		>
