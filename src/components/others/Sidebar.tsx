@@ -111,11 +111,13 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 				className={clsx(
 					"overflow-hidden text-ellipsis py-1 text-base font-medium transition-colors duration-300 hover:text-f-100",
 					isActive ? "font-medium text-accent-500" : "text-f-300",
-					"flex flex-row gap-1",
+					"flex flex-row gap-2",
 				)}
 			>
+				{(link.icon as React.ReactElement) ? (
+					<SidebarIcon icon={link.icon} />
+				) : null}
 				{link.name}
-				{(link.icon as React.ReactElement) || null}
 			</Link>
 		);
 	}
