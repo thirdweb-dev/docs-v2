@@ -33,7 +33,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
 }
 
 export const metadata = createMetadata({
-	title: "thirdweb TypeScript SDK",
+	title: "thirdweb React SDK",
 	description:
 		"A type-safe library to interact with any EVM-compatible blockchain in both Node.js and the browser.",
 });
