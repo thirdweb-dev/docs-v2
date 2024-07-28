@@ -1,9 +1,12 @@
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { TypeScriptIcon, ReactIcon } from "../../../icons";
+import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
+import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
 
 const slug = "/typescript/v5";
 const reactSlug = `${slug}/react`;
 const reactNativeSlug = `${slug}/react-native`;
+const docs = await fetchTypeScriptDoc("v5");
 
 export const sidebar: SideBar = {
 	name: "Connect",
@@ -21,37 +24,62 @@ export const sidebar: SideBar = {
 		},
 		{
 			icon: <TypeScriptIcon className="size-4" />,
-			name: "Core",
+			name: "TypeScript",
 			isCollapsible: false,
 			links: [
 				{
-					name: "Client",
-					href: `${slug}/client`,
-				},
-				{
-					name: "Chain",
-					href: `${slug}/chain`,
-				},
-				{
-					name: "Contract",
-					href: `${slug}/contract`,
-				},
-				{
-					name: "Accounts & Wallets",
-					href: `${slug}/wallets`,
-				},
-				{
-					name: "Connecting wallets",
-					href: `${slug}/connecting-wallets`,
-				},
-				{
-					name: "Supported Wallets",
-					href: `${slug}/supported-wallets`,
-				},
-				{
-					name: "Transactions",
-					href: `${slug}/transactions`,
+					name: "Core",
+					isCollapsible: false,
 					links: [
+						{
+							name: "Client",
+							href: `${slug}/client`,
+						},
+						{
+							name: "Storage",
+							href: `${slug}/storage`,
+						},
+						{
+							name: "Adapters",
+							href: `${slug}/adapters`,
+						},
+					],
+				},
+				{
+					name: "Wallets",
+					isCollapsible: false,
+					links: [
+						{
+							name: "Accounts & Wallets",
+							href: `${slug}/wallets`,
+						},
+						{
+							name: "Connecting wallets",
+							href: `${slug}/connecting-wallets`,
+						},
+						{
+							name: "Supported Wallets",
+							href: `${slug}/supported-wallets`,
+						},
+						{
+							name: "Auth (SIWE)",
+							href: `${slug}/auth`,
+						},
+					],
+				},
+
+				{
+					name: "Blockchain API",
+					isCollapsible: false,
+					links: [
+						{
+							name: "Chain",
+							href: `${slug}/chain`,
+						},
+						{
+							name: "Contract",
+							href: `${slug}/contract`,
+						},
 						{
 							name: "Reading state",
 							href: `${slug}/transactions/read`,
@@ -64,41 +92,33 @@ export const sidebar: SideBar = {
 							name: "Sending transactions",
 							href: `${slug}/transactions/send`,
 						},
+						{
+							name: "Extensions",
+							href: `${slug}/extensions`,
+							links: [
+								{
+									name: "Built-in extensions",
+									href: `${slug}/extensions/built-in`,
+								},
+								{
+									name: "Using extensions",
+									href: `${slug}/extensions/use`,
+								},
+								{
+									name: "Generating extensions",
+									href: `${slug}/extensions/generate`,
+								},
+								{
+									name: "Writing extensions",
+									href: `${slug}/extensions/create`,
+								},
+							],
+						},
 					],
 				},
 				{
-					name: "Extensions",
-					href: `${slug}/extensions`,
-					links: [
-						{
-							name: "Built-in extensions",
-							href: `${slug}/extensions/built-in`,
-						},
-						{
-							name: "Using extensions",
-							href: `${slug}/extensions/use`,
-						},
-						{
-							name: "Generating extensions",
-							href: `${slug}/extensions/generate`,
-						},
-						{
-							name: "Writing extensions",
-							href: `${slug}/extensions/create`,
-						},
-					],
-				},
-				{
-					name: "Adapters",
-					href: `${slug}/adapters`,
-				},
-				{
-					name: "Storage",
-					href: `${slug}/storage`,
-				},
-				{
-					name: "Auth",
-					href: `${slug}/auth`,
+					name: "Full Reference",
+					href: "/references/typescript/v5",
 				},
 				{
 					separator: true,
@@ -119,26 +139,18 @@ export const sidebar: SideBar = {
 					href: `${reactSlug}/getting-started`,
 				},
 				{
-					name: "ThirdwebProvider",
-					href: `${reactSlug}/ThirdwebProvider`,
-				},
-				{
-					name: "Connecting Wallets",
-					href: `${reactSlug}/connecting-wallets`,
+					name: "Core",
+					isCollapsible: false,
 					links: [
 						{
-							name: "UI Components",
-							href: `${reactSlug}/connecting-wallets/ui-components`,
-						},
-						{
-							name: "Hooks",
-							href: `${reactSlug}/connecting-wallets/hooks`,
+							name: "ThirdwebProvider",
+							href: `${reactSlug}/ThirdwebProvider`,
 						},
 					],
 				},
 				{
-					name: "UI Components",
-					href: `${reactSlug}/components`,
+					name: "Wallets",
+					isCollapsible: false,
 					links: [
 						{
 							name: "ConnectButton",
@@ -153,6 +165,41 @@ export const sidebar: SideBar = {
 							href: `${reactSlug}/components/AutoConnect`,
 						},
 						{
+							name: "Components",
+							href: `${reactSlug}/components`,
+							links: docs.components?.map((hook) => ({
+								name: hook.name,
+								href: hook.name,
+							})),
+						},
+						{
+							name: "Hooks",
+							href: `${reactSlug}/connecting-wallets/hooks`,
+							links: docs.hooks
+								?.filter((hook) => {
+									const [tag] = getCustomTag(hook) || [];
+									return tag === "@walletConnection";
+								})
+								.map((hook) => ({
+									name: hook.name,
+									href: hook.name,
+								})),
+						},
+					],
+				},
+				{
+					name: "Blockchain API",
+					isCollapsible: false,
+					links: [
+						{
+							name: "Transactions Hooks",
+							href: `${reactSlug}/transactions`,
+						},
+						{
+							name: "Extensions",
+							href: `${reactSlug}/extensions`,
+						},
+						{
 							name: "TransactionButton",
 							href: `${reactSlug}/components/TransactionButton`,
 						},
@@ -163,15 +210,7 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "Transactions",
-					href: `${reactSlug}/transactions`,
-				},
-				{
-					name: "Extensions",
-					href: `${reactSlug}/extensions`,
-				},
-				{
-					name: "Hooks",
+					name: "Full Reference",
 					href: "/references/typescript/v5/hooks",
 				},
 			],
@@ -207,10 +246,6 @@ export const sidebar: SideBar = {
 		},
 		{
 			separator: true,
-		},
-		{
-			name: "Full Reference",
-			href: "/references/typescript/v5",
 		},
 	],
 };

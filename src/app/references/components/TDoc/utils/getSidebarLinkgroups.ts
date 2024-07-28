@@ -89,7 +89,9 @@ function findTag(
 	}
 }
 
-function getCustomTag(doc: SomeDoc): [TagKey, string | undefined] | undefined {
+export function getCustomTag(
+	doc: SomeDoc,
+): [TagKey, string | undefined] | undefined {
 	switch (doc.kind) {
 		case "class": {
 			return findTag(doc.blockTags);
