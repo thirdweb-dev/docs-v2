@@ -1,17 +1,29 @@
-import { getTDocPage } from "@/app/references/components/TDoc/PageLayout";
-import { fetchTypeScriptDoc } from "@/app/references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
+import notFound from "../../../not-found";
+import { fetchTypeScriptDoc } from "../../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
+import { RootTDoc } from "../../../references/components/TDoc/Root";
+import { getSlugToDocMap } from "../../../references/components/TDoc/utils/slugs";
 
-const config = getTDocPage({
-	sdkTitle: "TypeScript SDK",
-	getDoc: fetchTypeScriptDoc,
-	packageSlug: "typescript",
-	async getVersions() {
-		return ["v4", "v5"];
-	},
-	metadataIcon: "typescript",
-});
+type PageProps = { params: { slug: string[] } };
 
-export default config.default;
-export const generateStaticParams = config.generateStaticParams;
-export const generateMetadata = config.generateMetadata;
-export const dynamic = config.dynamic;
+export default async function Page(props: PageProps) {
+	const doc = await fetchTypeScriptDoc("v5");
+	const slugToDoc = getSlugToDocMap(doc);
+	const docSlug = props.params.slug?.join("/");
+
+	if (!docSlug) {
+		notFound();
+	}
+
+	// API page
+	const selectedDoc = docSlug && slugToDoc[docSlug];
+
+	if (selectedDoc) {
+		return (
+			<div>
+				<RootTDoc doc={selectedDoc} />
+			</div>
+		);
+	}
+
+	notFound();
+}
