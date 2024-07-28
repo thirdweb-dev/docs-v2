@@ -1,5 +1,4 @@
 import type { SideBar } from "../../../components/Layouts/DocLayout";
-import { ReactIcon } from "../../../icons";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
 

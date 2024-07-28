@@ -20,7 +20,6 @@ import {
 	ReactIcon,
 	UnityIcon,
 	DotNetIcon,
-	SolidityIcon,
 	ContractBuildIcon,
 	ContractExploreIcon,
 	ContractInteractIcon,

@@ -22,7 +22,7 @@ export function PlatformSelector(props: {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<div className="cursor-pointer inline-flex gap-2 text-base font-semibold text-f-100 hover:text-accent-500">
+				<div className="inline-flex cursor-pointer gap-2 text-base font-semibold text-f-100 hover:text-accent-500">
 					{/* <div className="flex gap-2 items-center"> */}
 					<Image
 						src={platform.icon}
