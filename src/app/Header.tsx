@@ -29,13 +29,21 @@ const links = [
 		name: "Engine",
 		href: "/engine",
 	},
-	{
-		name: "Pay",
-		href: "/connect/pay/overview",
-	},
 ];
 
 const toolLinks = [
+	{
+		name: "Chain List",
+		href: "https://thirdweb.com/chainlist",
+	},
+	{
+		name: "Wei Converter",
+		href: "https://thirdweb.com/tools/wei-converter",
+	},
+	{
+		name: "Hex Converter",
+		href: "https://thirdweb.com/tools/hex-converter",
+	},
 	{
 		name: "Account",
 		href: "/account",
