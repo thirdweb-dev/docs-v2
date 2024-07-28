@@ -478,11 +478,11 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "React",
-					href: "/typescript/v5/react",
+					href: "/react/v5",
 				},
 				{
 					name: "React Native",
-					href: "/typescript/v5/react-native",
+					href: "/react-native/v5",
 				},
 				{
 					name: "Unity",

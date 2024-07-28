@@ -96,7 +96,7 @@ export function CustomAccordion(props: CustomAccordionProps) {
 					setIsOpen((c) => !c);
 				}}
 				className={cn(
-					"flex flex-1 items-center gap-3 py-4 w-full cursor-pointer",
+					"flex flex-1 items-center gap-3 w-full cursor-pointer",
 					props.triggerContainerClassName,
 					props.chevronPosition === "right"
 						? "justify-between flex-row-reverse"

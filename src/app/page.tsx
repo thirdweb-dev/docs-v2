@@ -342,13 +342,9 @@ function SDKSection() {
 					title="TypeScript"
 					icon={TypeScriptIcon}
 				/>
+				<SDKCardIndex href="/react/v5" title="React" icon={ReactIcon} />
 				<SDKCardIndex
-					href="/typescript/v5/react"
-					title="React"
-					icon={ReactIcon}
-				/>
-				<SDKCardIndex
-					href="/typescript/v5/react-native"
+					href="/react-native/v5"
 					title="React Native"
 					icon={ReactIcon}
 				/>

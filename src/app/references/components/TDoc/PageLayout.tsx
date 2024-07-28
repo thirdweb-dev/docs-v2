@@ -34,7 +34,7 @@ export function getTDocPage(options: {
 	const { getDoc, sdkTitle, packageSlug, getVersions, metadataIcon } = options;
 
 	async function Page(props: PageProps) {
-		const version = props.params.version;
+		const version = props.params.version ?? "v5";
 		const doc = await getDoc(version);
 		const slugToDoc = getSlugToDocMap(doc);
 		const docSlug = props.params.slug?.join("/");

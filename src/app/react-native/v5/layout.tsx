@@ -15,11 +15,11 @@ export default async function Layout(props: { children: React.ReactNode }) {
 						versions={[
 							{
 								name: "v4",
-								href: "/typescript/v4/",
+								href: "/react-native/v4/",
 							},
 							{
 								name: "v5",
-								href: "/typescript/v5/",
+								href: "/react-native/v5/",
 							},
 						]}
 						selected={"v5"}
@@ -33,7 +33,7 @@ export default async function Layout(props: { children: React.ReactNode }) {
 }
 
 export const metadata = createMetadata({
-	title: "thirdweb TypeScript SDK",
+	title: "thirdweb React Native SDK",
 	description:
-		"A type-safe library to interact with any EVM-compatible blockchain in both Node.js and the browser.",
+		"A type-safe library to interact with any EVM-compatible blockchain in React Native applications",
 });

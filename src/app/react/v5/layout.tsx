@@ -15,11 +15,11 @@ export default async function Layout(props: { children: React.ReactNode }) {
 						versions={[
 							{
 								name: "v4",
-								href: "/typescript/v4/",
+								href: "/react/v4/",
 							},
 							{
 								name: "v5",
-								href: "/typescript/v5/",
+								href: "/react/v5/",
 							},
 						]}
 						selected={"v5"}

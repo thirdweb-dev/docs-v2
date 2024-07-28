@@ -62,12 +62,12 @@ const sdkLinks = [
 	},
 	{
 		name: "React",
-		href: "/typescript/v5/react",
+		href: "/react/v5",
 		icon: "/icons/navbar/nav-icon-react.svg",
 	},
 	{
 		name: "React Native",
-		href: "/typescript/v5/react-native",
+		href: "/react-native/v5",
 		icon: "/icons/navbar/nav-icon-react.svg",
 		// icon: "/icons/navbar/nav-icon-react-native.svg",
 	},
@@ -90,7 +90,7 @@ const sdkLinks = [
 		name: "Unreal",
 		href: "/unreal",
 		icon: "/icons/navbar/nav-icon-unreal.svg",
-	}
+	},
 ];
 
 const supportLinks = [

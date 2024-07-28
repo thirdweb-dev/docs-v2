@@ -109,7 +109,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 				href={link.href}
 				onClick={props.onLinkClick}
 				className={clsx(
-					"overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+					"overflow-hidden text-ellipsis py-1 text-base font-medium transition-colors duration-300 hover:text-f-100",
 					isActive ? "font-medium text-accent-500" : "text-f-300",
 					"flex flex-row gap-1",
 				)}
@@ -201,7 +201,7 @@ function DocSidebarCategory(props: {
 				"text-f-300 hover:text-f-100",
 			)}
 		>
-			<div className="flex gap-2 font-medium" ref={triggerRef}>
+			<div className="flex gap-2 py-1 font-medium" ref={triggerRef}>
 				{icon && <SidebarIcon icon={icon} />}
 				{name}
 			</div>
@@ -220,7 +220,7 @@ function DocSidebarCategory(props: {
 		<CustomAccordion
 			defaultOpen={defaultOpen}
 			containerClassName="border-none"
-			triggerContainerClassName="py-1 text-base"
+			triggerContainerClassName="text-base"
 			trigger={triggerEl}
 			chevronPosition="right"
 		>
