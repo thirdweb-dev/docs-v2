@@ -22,12 +22,12 @@ import { CustomAccordion } from "../components/others/CustomAccordion";
 
 const links = [
 	{
-		name: "Contracts",
-		href: "/contracts",
-	},
-	{
 		name: "Engine",
 		href: "/engine",
+	},
+	{
+		name: "Contracts",
+		href: "/contracts",
 	},
 ];
 

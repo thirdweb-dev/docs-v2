@@ -6,6 +6,7 @@ export { SolidityIcon } from "./sdks/SolidityIcon";
 export { TypeScriptIcon } from "./sdks/TypeScriptIcon";
 export { UnityIcon } from "./sdks/UnityIcon";
 export { DotNetIcon } from "./sdks/DotNetIcon";
+export { UnrealIcon } from "./sdks/UnrealIcon";
 // contracts
 export { ContractBuildIcon } from "./products/contracts/ContractBuildIcon";
 export { ContractDeployIcon } from "./products/contracts/ContractDeployIcon";

@@ -5,7 +5,6 @@ import {
 	WalletsInAppIcon,
 	WalletsSmartIcon,
 	PayIcon,
-	ExternalLinkIcon,
 	EcosystemWalletsIcon,
 	TypeScriptIcon,
 	ReactIcon,
@@ -13,7 +12,7 @@ import {
 	UnityIcon,
 } from "@/icons";
 import { UnrealIcon } from "../../icons/sdks/UnrealIcon";
-import { ExternalLink, ZapIcon } from "lucide-react";
+import { CodeIcon, ExternalLink, ZapIcon } from "lucide-react";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
@@ -51,7 +50,44 @@ export const sidebar: SideBar = {
 		},
 		{ separator: true },
 		{
-			name: "Features",
+			name: "Get Started",
+			isCollapsible: false,
+			links: [
+				{
+					name: "TypeScript",
+					href: "/typescript/v5",
+					icon: <TypeScriptIcon />,
+				},
+				{
+					name: "React",
+					href: "/react/v5",
+					icon: <ReactIcon />,
+				},
+				{
+					name: "React Native",
+					href: "/react-native/v5",
+					icon: <ReactIcon />,
+				},
+				{
+					name: "Dotnet",
+					href: "/dotnet",
+					icon: <DotNetIcon />,
+				},
+				{
+					name: "Unity",
+					href: "/unity",
+					icon: <UnityIcon />,
+				},
+				{
+					name: "Unreal",
+					href: "/unreal",
+					icon: <UnrealIcon />,
+				},
+			],
+		},
+		{ separator: true },
+		{
+			name: "Learn",
 			isCollapsible: false,
 			links: [
 				// Connect
@@ -476,42 +512,43 @@ export const sidebar: SideBar = {
 						},
 					],
 				},
-			],
-		},
-		{ separator: true },
-		{
-			name: "Get Started",
-			isCollapsible: false,
-			links: [
+				// Blockchain API
 				{
-					name: "TypeScript",
-					href: "/typescript/v5",
-					icon: <TypeScriptIcon />,
-				},
-				{
-					name: "React",
-					href: "/react/v5",
-					icon: <ReactIcon />,
-				},
-				{
-					name: "React Native",
-					href: "/react-native/v5",
-					icon: <ReactIcon />,
-				},
-				{
-					name: "Dotnet",
-					href: "/dotnet",
-					icon: <DotNetIcon />,
-				},
-				{
-					name: "Unity",
-					href: "/unity",
-					icon: <UnityIcon />,
-				},
-				{
-					name: "Unreal",
-					href: "/unreal",
-					icon: <UnrealIcon />,
+					name: "Blockchain API",
+					icon: <CodeIcon />,
+					href: "/connect/blockchain-api",
+					links: [
+						{
+							name: "TypeScript",
+							href: "/typescript/v5",
+							icon: <TypeScriptIcon />,
+						},
+						{
+							name: "React",
+							href: "/react/v5",
+							icon: <ReactIcon />,
+						},
+						{
+							name: "React Native",
+							href: "/react-native/v5",
+							icon: <ReactIcon />,
+						},
+						{
+							name: "Dotnet",
+							href: "/dotnet",
+							icon: <DotNetIcon />,
+						},
+						{
+							name: "Unity",
+							href: "/unity",
+							icon: <UnityIcon />,
+						},
+						{
+							name: "Unreal",
+							href: "/unreal",
+							icon: <UnrealIcon />,
+						},
+					],
 				},
 			],
 		},
