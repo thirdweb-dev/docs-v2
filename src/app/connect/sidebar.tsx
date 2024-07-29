@@ -124,10 +124,6 @@ export const sidebar: SideBar = {
 							],
 						},
 						{
-							name: "Migrate from RainbowKit",
-							href: `${connectSlug}/rainbow-kit-migrate`,
-						},
-						{
 							name: "Playground",
 							href: "https://thirdweb.com/dashboard/connect/playground",
 						},

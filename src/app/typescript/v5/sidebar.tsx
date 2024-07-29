@@ -1,10 +1,7 @@
-import { FunctionDoc } from "typedoc-better-json";
+import type { FunctionDoc } from "typedoc-better-json";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
-import {
-	getCustomTag,
-	getExtensionName,
-} from "../../references/components/TDoc/utils/getSidebarLinkgroups";
+import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
 import { Book, CodeIcon } from "lucide-react";
 
 const slug = "/typescript/v5";
@@ -20,6 +17,7 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: slug,
 		},
+		// TODO (docs): add getting started
 		{ separator: true },
 		{
 			name: "Core",
@@ -433,7 +431,7 @@ export const sidebar: SideBar = {
 			separator: true,
 		},
 		{
-			name: "Migration guide",
+			name: "Migrate from v4",
 			href: `${slug}/migrate`,
 		},
 		{
