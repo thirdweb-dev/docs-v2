@@ -4,11 +4,11 @@
 }
 
 .unorderedList > li {
-	@apply pl-2 list-disc;
+	@apply pb-0.5 pl-2 list-disc;
 }
 
 .orderedList > li {
-	@apply pl-2 list-decimal;
+	@apply pb-0.5 pl-2 list-decimal;
 }
 
 .unorderedList > li::marker {
