@@ -4,6 +4,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { useScrollPosition } from "../../hooks/useScrollPosition";
 
 /**
  * Automatically query all the heading anchors inside the <main> and creates a table of contents
@@ -28,6 +29,7 @@ export function TableOfContentsSideBar(props: {
 	filterHeading?: (heading: HTMLHeadingElement) => boolean;
 	linkClassName?: string;
 }) {
+	const scrollPosition = useScrollPosition();
 	const [nodes, setNodes] = useState<TableOfContentNode[]>([]);
 	const tocRef = useRef<HTMLDivElement>(null);
 	const pathname = usePathname();
@@ -106,12 +108,13 @@ export function TableOfContentsSideBar(props: {
 			observer.disconnect();
 		};
 	}, [pathname, filterHeading]);
-
+	
 	return (
 		<nav
 			className={cn(
 				"hidden hrink-0 pt-6 xl:block text-sm",
-				"sticky top-sticky-top-height h-sidebar-height flex-col overflow-y-auto styled-scrollbar",
+				"sticky top-sticky-top-height h-sidebar-height flex-col overflow-y-auto styled-scrollbar transition-opacity duration-300",
+				scrollPosition > 100 ? 'opacity-100' : 'opacity-0 pointer-events-none'
 			)}
 			style={{
 				visibility: hideNav ? "hidden" : "visible",
@@ -171,7 +174,7 @@ function TOCLink(props: {
 	return (
 		<Link
 			className={cn(
-				"block overflow-hidden text-ellipsis font-medium text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500",
+				"block overflow-hidden text-ellipsis font-medium text-f-300 transition-colors hover:text-f-100 data-[active='true']:text-accent-500 duration-300",
 				props.linkClassName,
 			)}
 			href={props.href}
