@@ -376,7 +376,7 @@ export const sidebar: SideBar = {
 											const [, extensionName] = getCustomTag(f) || [];
 											if (extensionName) {
 												acc[extensionName] = acc[extensionName] || [];
-												acc[extensionName].push(f);
+												acc[extensionName]?.push(f);
 											}
 											return acc;
 										},
