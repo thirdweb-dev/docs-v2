@@ -1,5 +1,6 @@
 import { SideBar } from "@/components/Layouts/DocLayout";
 import { SidebarLink } from "@/components/others/Sidebar";
+import { ZapIcon } from "lucide-react";
 
 const walletProviders: SidebarLink = (() => {
 	const parentSlug = "/unity/wallets/providers";
@@ -397,6 +398,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Getting Started",
 			href: "/unity/getting-started",
+			icon: <ZapIcon />,
 		},
 		{
 			name: "Core",

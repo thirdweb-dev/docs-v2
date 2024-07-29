@@ -2,7 +2,7 @@ import type { FunctionDoc } from "typedoc-better-json";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
-import { Book, CodeIcon } from "lucide-react";
+import { Book, CodeIcon, ZapIcon } from "lucide-react";
 
 const slug = "/typescript/v5";
 const docs = await fetchTypeScriptDoc("v5");
@@ -17,7 +17,11 @@ export const sidebar: SideBar = {
 			name: "Overview",
 			href: slug,
 		},
-		// TODO (docs): add getting started
+		{
+			name: "Getting Started",
+			href: `${slug}/getting-started`,
+			icon: <ZapIcon />,
+		},
 		{ separator: true },
 		{
 			name: "Core",

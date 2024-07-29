@@ -1,5 +1,6 @@
-import { SideBar } from "@/components/Layouts/DocLayout";
-import { SidebarLink } from "@/components/others/Sidebar";
+import type { SideBar } from "@/components/Layouts/DocLayout";
+import type { SidebarLink } from "@/components/others/Sidebar";
+import { ZapIcon } from "lucide-react";
 
 const walletProviders: SidebarLink = (() => {
 	const parentSlug = "/dotnet/wallets/providers";
@@ -195,6 +196,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Getting Started",
 			href: "/dotnet/getting-started",
+			icon: <ZapIcon />,
 		},
 		{
 			name: "Godot Setup",
