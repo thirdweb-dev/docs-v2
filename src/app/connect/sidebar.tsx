@@ -13,6 +13,7 @@ import {
 	UnityIcon,
 } from "@/icons";
 import { UnrealIcon } from "../../icons/sdks/UnrealIcon";
+import { ExternalLink, ZapIcon } from "lucide-react";
 
 const connectSlug = "/connect/sign-in";
 const inAppSlug = "/connect/in-app-wallet";
@@ -36,22 +37,17 @@ export const sidebar: SideBar = {
 		{
 			name: "Quickstart",
 			href: "/connect/quickstart",
+			icon: <ZapIcon />,
 		},
 		{
-			name: "Live Demos",
-			isCollapsible: false,
-			links: [
-				{
-					name: "Playground",
-					href: "https://playground.thirdweb.com/",
-					icon: <ExternalLinkIcon className="my-auto" />,
-				},
-				{
-					name: "Templates",
-					href: "https://thirdweb.com/templates",
-					icon: <ExternalLinkIcon className="my-auto" />,
-				},
-			],
+			name: "Playground",
+			href: "https://playground.thirdweb.com/",
+			icon: <ExternalLink />,
+		},
+		{
+			name: "Templates",
+			href: "https://thirdweb.com/templates",
+			icon: <ExternalLink />,
 		},
 		{ separator: true },
 		{

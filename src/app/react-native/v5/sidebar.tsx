@@ -1,3 +1,4 @@
+import { ZapIcon } from "lucide-react";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
@@ -18,10 +19,7 @@ export const sidebar: SideBar = {
 		{
 			name: "Getting Started",
 			href: `${slug}/getting-started`,
-		},
-		{
-			name: "Differences from React",
-			href: `${slug}/differences`,
+			icon: <ZapIcon />,
 		},
 		{
 			name: "Core",
@@ -168,6 +166,10 @@ export const sidebar: SideBar = {
 		},
 		{
 			separator: true,
+		},
+		{
+			name: "Differences from React",
+			href: `${slug}/differences`,
 		},
 		{
 			name: "Full Reference",

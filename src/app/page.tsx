@@ -58,7 +58,7 @@ function Hero() {
 					<h1 className="mb-5 text-4xl font-bold tracking-tight md:text-5xl">
 						thirdweb Documentation
 					</h1>
-					<p className="mb-8 max-w-md text-lg font-medium leading-7 text-f-300 md:text-xl">
+					<p className="mb-8 max-w-md text-lg font-medium leading-relaxed text-f-300 md:text-xl">
 						Everything you need to connect your apps and games to decentralized
 						networks.
 					</p>

@@ -139,12 +139,35 @@ Now you can replace `expo-router/entry` with `./index.js` as your main entrypoin
 
 <Callout variant="info" title="Additional notes">
 
-1. `react-native-aes-gcm-crypto` requires `minSDK 26` for android, you can edit this in your `build.gradle` file
+1. `react-native-aes-gcm-crypto` requires `minSDK 26` for android, you can edit this in your `app.json` file.
 2. You will get some warnings about unresolved exports, this is normal and will get better as the libraries get updated.
 
 </Callout>
 
 </Step>
+
+<Step title="Run the development build">
+
+You can run the development build using the Expo CLI, note that this needs to use the 'development build' option and not Expo Go.
+
+<Callout variant="info" title="Expo Go">
+
+Due to conflicts between Expo Go's wrapper and thirdweb's, **Expo Go is not currently supported**. When running your app, be sure to run a normal development build without using Expo Go.
+
+If the Expo CLI says "Using Expo Go" when starting the app, press `s` to switch to the development build.
+
+<img src="https://i.ibb.co/JxyZzLn/Screenshot-2024-06-24-at-12-38-57-PM.png" width={300} />
+
+</Callout>
+
+Examples:
+
+```shell
+npx expo:run ios
+```
+
+</Step>
+
 <Step title=" Use the `thirdweb` package normally">
 
 Once all the setup above is all done, you can use the most of functionality in the `thirdweb` package out of the box, without having to do any react native specific code.
@@ -163,13 +186,4 @@ import { inAppWallet } from "thirdweb/wallets/in-app";
 </Step>
 </Steps>
 
-<Callout variant="info" title="Expo Go">
-
-Due to conflicts between Expo Go's wrapper and thirdweb's, **Expo Go is not currently supported**. When running your app, be sure to run a normal development build without using Expo Go.
-
-If the Expo CLI says "Using Expo Go" when starting the app, press `s` to switch to the development build.
-
-<img src="https://i.ibb.co/JxyZzLn/Screenshot-2024-06-24-at-12-38-57-PM.png" />
-
-</Callout>
 

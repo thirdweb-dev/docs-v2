@@ -273,9 +273,7 @@ export const sidebar: SideBar = {
 				},
 			],
 		},
-		{
-			separator: true,
-		},
+		{ separator: true },
 		{
 			name: "Migrate from v4",
 			href: `${slug}/migrate`,
