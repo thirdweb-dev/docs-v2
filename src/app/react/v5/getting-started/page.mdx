@@ -107,7 +107,7 @@ function App() {
 
 The `ConnectButton` and `ConnectEmbed` components come with built-in support for 350+ of wallets, 2000+ chains, fiat on-ramping, crypto swapping, transaction tracking, and more.
 
-You can also build your own custom button using the [`useConnect`](/react/v5/useConnect) hook.
+You can also build your own custom button using the [`useConnect`](/react/v5/connecting-wallets/hooks) hook.
 
 </Step>
 
@@ -137,7 +137,7 @@ export default function App() {
 
 <Step title="Read blockchain data">
 
-You can read contract state with the [`useReadContract`](/references/typescript/v5/useReadContract) hook. This works with any contract call. Simply specify the solidity function signature to get a type safe API for your contract.
+You can read contract state with the [`useReadContract`](/react/v5/useReadContract) hook. This works with any contract call. Simply specify the solidity function signature to get a type safe API for your contract.
 
 ```tsx
 import { client }  from "./client";
@@ -187,7 +187,7 @@ export default function App() {
 
 <Step title="Execute transactions">
 
-You can execute transactions with the [`useSendTransaction`](/references/typescript/v5/useSendTransaction) hook. Prepare a transaction with the [`prepareContractCall`](/references/typescript/v5/prepareContractCall) function and pass it to the `sendTransaction` function.
+You can execute transactions with the [`useSendTransaction`](/react/v5/useSendTransaction) hook. Prepare a transaction with the [`prepareContractCall`](/references/typescript/v5/prepareContractCall) function and pass it to the `sendTransaction` function.
 
 ```tsx
 import { client }  from "./client";
@@ -215,7 +215,7 @@ export default function App() {
 }
 ```
 
-Using [Extensions](/react/v5/extensions) you can do more complex transactions like a claim, batch mint, and more. These will handle all the preprocessing needed before calling the contract.
+Using [Extensions](/react/v5/extensions/use) you can do more complex transactions like a claim, batch mint, and more. These will handle all the preprocessing needed before calling the contract.
 
 ```tsx
 import { client }  from "./client";
@@ -254,4 +254,4 @@ export default function App() {
 
 ## Learn more
 
-You know have all the basics to build your own app with thirdweb. You can also check out the [thirdweb SDK reference](/references/typescript/v5) to learn more about the different hooks and functions available.
+You know have all the basics to build your own app with thirdweb. You can also check out the [full thirdweb SDK reference](/references/typescript/v5) to learn more about the different hooks and functions available.

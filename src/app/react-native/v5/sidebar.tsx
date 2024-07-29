@@ -1,7 +1,8 @@
-import { ZapIcon } from "lucide-react";
+import { CodeIcon, ZapIcon } from "lucide-react";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
+import type { FunctionDoc } from "typedoc-better-json";
 
 const slug = "/react-native/v5";
 const docs = await fetchTypeScriptDoc("v5");
@@ -26,13 +27,22 @@ export const sidebar: SideBar = {
 			isCollapsible: false,
 			links: [
 				{
+					name: "Client",
+					href: `${slug}/createThirdwebClient`,
+				},
+				{
 					name: "ThirdwebProvider",
 					href: `${slug}/ThirdwebProvider`,
 				},
 				{
 					name: "Themes",
-					links:
-						docs.functions
+					links: [
+						{
+							name: "Theme Values",
+							href: `${slug}/Theme`,
+							icon: <CodeIcon />,
+						},
+						...(docs.functions
 							?.filter((f) => {
 								const [tag] = getCustomTag(f) || [];
 								return tag === "@theme";
@@ -40,7 +50,9 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
-							})) || [],
+								icon: <CodeIcon />,
+							})) || []),
+					],
 				},
 			],
 		},
@@ -50,11 +62,11 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "UI Components",
-					href: `${slug}/connecting-wallets/ui-components`,
 					links: ["ConnectButton", "ConnectEmbed", "AutoConnect"].map(
 						(name) => ({
 							name,
 							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
 						}),
 					),
 				},
@@ -70,6 +82,7 @@ export const sidebar: SideBar = {
 							?.map((hook) => ({
 								name: hook.name,
 								href: `${slug}/${hook.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 				{
@@ -83,6 +96,7 @@ export const sidebar: SideBar = {
 							?.map((hook) => ({
 								name: hook.name,
 								href: `${slug}/${hook.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 			],
@@ -102,6 +116,7 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 				{
@@ -115,6 +130,7 @@ export const sidebar: SideBar = {
 							?.map((f) => ({
 								name: f.name,
 								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 			],
@@ -128,6 +144,7 @@ export const sidebar: SideBar = {
 					links: ["TransactionButton"].map((name) => ({
 						name,
 						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
 					})),
 				},
 				{
@@ -142,6 +159,7 @@ export const sidebar: SideBar = {
 							?.map((hook) => ({
 								name: hook.name,
 								href: `${slug}/${hook.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 				{
@@ -156,11 +174,46 @@ export const sidebar: SideBar = {
 							?.map((hook) => ({
 								name: hook.name,
 								href: `${slug}/${hook.name}`,
+								icon: <CodeIcon />,
 							})) || [],
 				},
 				{
 					name: "Extensions",
 					href: `${slug}/extensions`,
+					links: [
+						{
+							name: "Available Extensions",
+							href: `${slug}/extensions/built-in`,
+							isCollapsible: false,
+							links: Object.entries(
+								docs.functions
+									?.filter((f) => {
+										const [tag, extensionName] = getCustomTag(f) || [];
+										return tag === "@extension" && extensionName !== "DEPLOY";
+									})
+									?.reduce(
+										(acc, f) => {
+											const [, extensionName] = getCustomTag(f) || [];
+											if (extensionName) {
+												acc[extensionName] = acc[extensionName] || [];
+												acc[extensionName].push(f);
+											}
+											return acc;
+										},
+										{} as Record<string, FunctionDoc[]>,
+									) || [],
+							).map(([extensionName, extensionFunctions]) => ({
+								name: extensionName,
+								links: extensionFunctions
+									.sort((a, b) => a.name.localeCompare(b.name))
+									.map((f) => ({
+										name: f.name,
+										href: `${slug}/${extensionName.toLowerCase()}/${f.name}`,
+										icon: <CodeIcon />,
+									})),
+							})),
+						},
+					],
 				},
 			],
 		},
