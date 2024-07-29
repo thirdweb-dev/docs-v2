@@ -34,7 +34,6 @@ import {
 	EcosystemWalletsIcon,
 } from "@/icons";
 import { UnrealIcon } from "../icons/sdks/UnrealIcon";
-import Head from "next/head";
 // import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
@@ -42,7 +41,6 @@ export default function Page() {
 		<main className="container grow pb-20">
 			<Hero />
 			{/* <TutorialsSection /> */}
-			{/* <SDKSection /> */}
 			<WalletsSection />
 			<EngineSection />
 			<ContractsSection />
@@ -346,31 +344,6 @@ function EngineSection() {
 					description="Backend server to reliably call smart contracts"
 					icon={InfraEngineIcon}
 				/>
-			</Grid>
-		</section>
-	);
-}
-
-function SDKSection() {
-	return (
-		<section className="my-12">
-			<SectionTitle id="sdk" title="Connect" />
-
-			<Grid>
-				<SDKCardIndex
-					href="/typescript/v5"
-					title="TypeScript"
-					icon={TypeScriptIcon}
-				/>
-				<SDKCardIndex href="/react/v5" title="React" icon={ReactIcon} />
-				<SDKCardIndex
-					href="/react-native/v5"
-					title="React Native"
-					icon={ReactIcon}
-				/>
-				<SDKCardIndex href="/dotnet" title=".NET" icon={DotNetIcon} />
-				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
-				<SDKCardIndex href="/unreal" title="Unreal" icon={UnrealIcon} />
 			</Grid>
 		</section>
 	);
