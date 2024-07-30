@@ -64,7 +64,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "TS reference",
-					href: "/typeScript/v5",
+					href: "/typescript/v5",
 					icon: <TypeScriptIcon />,
 				},
 			],
@@ -78,7 +78,6 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "UI Components",
-					href: `${slug}/connecting-wallets/ui-components`,
 					links: [
 						{
 							name: "Introduction",
@@ -94,7 +93,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Connection Hooks",
-					href: `${slug}/connecting-wallets/hooks`,
 					links: [
 						{
 							name: "Introduction",
@@ -126,6 +124,11 @@ export const sidebar: SideBar = {
 								href: `${slug}/${hook.name}`,
 								icon: <CodeIcon />,
 							})) || [],
+				},
+				{
+					name: "Supported Wallets",
+					href: "/typescript/v5/supported-wallets",
+					icon: <TypeScriptIcon />,
 				},
 			],
 		},
@@ -193,7 +196,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Reading State",
-					href: `${slug}/reading-state`,
 					links: [
 						{
 							name: "Introduction",
@@ -214,7 +216,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Transactions",
-					href: `${slug}/transactions`,
 					links: [
 						{
 							name: "Introduction",
@@ -235,7 +236,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Extensions",
-					href: `${slug}/extensions`,
 					links: [
 						{
 							name: "Using Extensions",
@@ -248,6 +248,11 @@ export const sidebar: SideBar = {
 							icon: <TypeScriptIcon />,
 						},
 					],
+				},
+				{
+					name: "Core API",
+					href: "/typescript/v5/chain",
+					icon: <TypeScriptIcon />,
 				},
 			],
 		},

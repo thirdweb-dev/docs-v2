@@ -56,7 +56,7 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "TS reference",
-					href: "/typeScript/v5",
+					href: "/typescript/v5",
 					icon: <TypeScriptIcon />,
 				},
 				{
@@ -108,6 +108,11 @@ export const sidebar: SideBar = {
 								href: `${slug}/${hook.name}`,
 								icon: <CodeIcon />,
 							})) || [],
+				},
+				{
+					name: "Supported Wallets",
+					href: "/typescript/v5/supported-wallets",
+					icon: <TypeScriptIcon />,
 				},
 			],
 		},
@@ -189,7 +194,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Extensions",
-					href: `${slug}/extensions`,
 					links: [
 						{
 							name: "Using Extensions",
@@ -202,6 +206,11 @@ export const sidebar: SideBar = {
 							icon: <TypeScriptIcon />,
 						},
 					],
+				},
+				{
+					name: "Core API",
+					href: "/typescript/typescript/v5/chain",
+					icon: <TypeScriptIcon />,
 				},
 			],
 		},

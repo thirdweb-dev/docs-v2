@@ -29,7 +29,6 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Client",
-					href: `${slug}/client`,
 					links: [
 						{
 							name: "Introduction",
@@ -44,29 +43,7 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
-					name: "Storage",
-					href: `${slug}/storage`,
-					links: [
-						{
-							name: "Introduction",
-							icon: <Book />,
-							href: `${slug}/storage`,
-						},
-						...(docs.functions
-							?.filter((f) => {
-								const [tag] = getCustomTag(f) || [];
-								return tag === "@storage";
-							})
-							?.map((f) => ({
-								name: f.name,
-								href: `${slug}/${f.name}`,
-								icon: <CodeIcon />,
-							})) || []),
-					],
-				},
-				{
 					name: "Adapters",
-					href: `${slug}/adapters`,
 					links: [
 						{
 							name: "Introduction",
@@ -143,6 +120,13 @@ export const sidebar: SideBar = {
 					name: "Account Abstraction",
 					links: [
 						"smartWallet",
+						"addAdmin",
+						"removeAdmin",
+						"addSessionKey",
+						"removeSessionKey",
+						"getAccountsOfSigner",
+						"getAllActiveSigners",
+						"getPermissionsForSigner",
 						"createUnsignedUserOp",
 						"signUserOp",
 						"bundleUserOp",
@@ -218,7 +202,6 @@ export const sidebar: SideBar = {
 			links: [
 				{
 					name: "Chains",
-					href: `${slug}/chain`,
 					links: [
 						{
 							name: "Introduction",
@@ -239,7 +222,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Contracts",
-					href: `${slug}/contract`,
 					links: [
 						{
 							name: "Introduction",
@@ -263,7 +245,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Reading state",
-					href: `${slug}/transactions/read`,
 					links: [
 						{
 							name: "Introduction",
@@ -281,7 +262,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Preparing transactions",
-					href: `${slug}/transactions/prepare`,
 					links: [
 						{
 							name: "Introduction",
@@ -307,7 +287,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Sending transactions",
-					href: `${slug}/transactions/send`,
 					links: [
 						{
 							name: "Introduction",
@@ -344,7 +323,6 @@ export const sidebar: SideBar = {
 				},
 				{
 					name: "Extensions",
-					href: `${slug}/extensions/use`,
 					links: [
 						{
 							name: "Using Extensions",
@@ -408,6 +386,26 @@ export const sidebar: SideBar = {
 								href: `${slug}/${f.name}`,
 								icon: <CodeIcon />,
 							})) || [],
+				},
+				{
+					name: "Storage",
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/storage`,
+						},
+						...(docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@storage";
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
+							})) || []),
+					],
 				},
 				{
 					name: "Utils",
