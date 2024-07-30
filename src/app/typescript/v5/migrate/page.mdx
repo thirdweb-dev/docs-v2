@@ -1,5 +1,22 @@
 # Migration from SDK v4
 
+## Why you should migrate to SDK v5
+
+#### 1. Better performance, happier clients
+The new SDK is built with performance in mind and proper tree-shaking. Therefore, the minimum bundle size of your application is greatly reduced.
+
+Below is the comparison of 2 similar applications, using `ConnectWallet` (v4) & `ConnectButton` (v5), which are identical in term of functionality.
+
+|                     | SDK v4 | SDK v5
+| ------------------- | ------ | -------
+| Minimum bundle size | <span style={{color: 'red'}}>766kb</span>  | <span style={{color: 'green'}}>104kb</span>
+| Dependencies        | `"@thirdweb-dev/react": "^4.9.4"`<br/>`"@thirdweb-dev/sdk": "^4.0.99"`<br/>`"ethers": "^5.7.2"`| `"thirdweb": "^5.42.0"`
+
+_(Built with Next.js 14.2.5)_
+
+#### 2. Flexibility with React hooks
+
+
 ### High-level changes
 
 - All imports from `@thirdweb-dev/*` should be replaced with `thirdweb` SDK with sub-exports.
@@ -44,7 +61,7 @@ import { ThirdwebProvider as ThirdwebProviderV5 } from "thirdweb/react"
 </V4TWProvider>
 ```
 
-From thre, you can obtain the current signer using the `useSigner` hook, and convert it when needed using the `ethers5Adapter`:
+From there, you can obtain the current signer using the `useSigner` hook, and convert it when needed using the `ethers5Adapter`:
 
 ```tsx
 import { useSigner } from "@thirdweb-dev/react";
@@ -83,7 +100,7 @@ const onClick = async () => {
 
 | Task                 | `@thirdweb-dev/react`                                 | `thirdweb`                                          |
 | ---------------------| ----------------------------------------------------- | --------------------------------------------------- |
-| Provider             | `import { ThirdwebProvider} from @thirdweb-dev/react` | [`import { ThirdwebProvider } from "thirdweb/react"`](/react/v5/ThirdwebProvider) |
+| Provider             | `import { ThirdwebProvider} from @thirdweb-dev/react` | [`import { ThirdwebProvider } from "thirdweb/react"`](/typescript/v5/react/ThirdwebProvider) |
 | Contract             | `useContract(...)`                                    | [`getContract(...) // not a hook`](/references/typescript/v5/getContract)                    |
 | Address              | `useAddress(...)`                                     | [`useActiveAccount(...) // account?.address`](/references/typescript/v5/useActiveAccount)         |
 | Read                 | `useContractRead(...)`                                | [`useReadContract(...)`](/references/typescript/v5/useReadContract)                              |
@@ -91,8 +108,8 @@ const onClick = async () => {
 | Extensions           | `useNFTs(...)`                                        | [`useReadContract(getNFTs, { ... })`](/references/typescript/v5/useReadContract)                |
 | Get Signer           | `useSigner()`                                         | [`useActiveAccount()`](/references/typescript/v5/useActiveAccount)                                |
 | Get Wallet           | `useWallet()`                                         | [`useActiveWallet()`](/references/typescript/v5/useActiveWallet)                                 |
-| Button               | `Web3Button`                                          | [`TransactionButton`](/react/v5/TransactionButton)                                 |
-| Connect              | `ConnectWallet`                                       | [`ConnectButton`](/react/v5/ConnectButton)                                     |
+| Button               | `Web3Button`                                          | [`TransactionButton`](/typescript/v5/react/components/TransactionButton)                                 |
+| Connect              | `ConnectWallet`                                       | [`ConnectButton`](/typescript/v5/react/components/ConnectButton)                                     |
 | Connection Status    | `useConnectionStatus()`                               | [`useActiveWalletConnectionStatus()`](/references/typescript/v5/useActiveWalletConnectionStatus)                 |
 | Switch Chain         | `useSwitchChain()`                                    | [`useSwitchActiveWalletChain()`](/references/typescript/v5/useSwitchActiveWalletChain)                      |
 | Get Connected Chain  | `useChain()`                                          | [`useSwitchActiveWalletChain()`](/references/typescript/v5/useSwitchActiveWalletChain)                  |
