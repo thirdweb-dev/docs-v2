@@ -2,7 +2,6 @@ import { Book, CodeIcon, ExternalLink, ZapIcon } from "lucide-react";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
-import type { FunctionDoc } from "typedoc-better-json";
 import { TypeScriptIcon } from "../../../icons";
 
 const slug = "/react/v5";
