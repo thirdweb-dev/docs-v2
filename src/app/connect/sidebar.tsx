@@ -177,38 +177,32 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "Get Started",
-							href: `${inAppSlug}/get-started`,
-						},
-						{
-							name: "How to",
 							links: [
 								{
-									name: "Connect Users",
-									href: `${inAppSlug}/how-to/connect-users`,
+									name: "TypeScript",
+									href: "/typescript/v5/inAppWallet",
+									icon: <TypeScriptIcon />,
 								},
 								{
-									name: "Build your own UI",
-									href: `${inAppSlug}/how-to/build-your-own-ui`,
+									name: "React",
+									href: "/react/v5/in-app-wallet/get-started",
+									icon: <ReactIcon />,
 								},
 								{
-									name: "Interact with wallets",
-									href: `${inAppSlug}/how-to/interact-with-wallets`,
+									name: "React Native",
+									// TODO - add react-native dedicated page
+									href: "/react/v5",
+									icon: <ReactIcon />,
 								},
 								{
-									name: "Interact with the blockchain",
-									href: `${inAppSlug}/how-to/interact-blockchain`,
+									name: "Dotnet",
+									href: "/dotnet/wallets/providers/in-app-wallet",
+									icon: <DotNetIcon />,
 								},
 								{
-									name: "Sponsor Transactions",
-									href: `${inAppSlug}/how-to/enable-gasless`,
-								},
-								{
-									name: "Getting User Details (Server)",
-									href: `${inAppSlug}/how-to/get-in-app-wallet-details-on-server`,
-								},
-								{
-									name: "Export private key",
-									href: `${inAppSlug}/how-to/export-private-key`,
+									name: "Unity",
+									href: "/unity/wallets/providers/in-app-wallet",
+									icon: <UnityIcon />,
 								},
 							],
 						},
@@ -243,21 +237,8 @@ export const sidebar: SideBar = {
 							],
 						},
 						{
-							name: "References",
-							links: [
-								{
-									name: "React",
-									href: "/references/typescript/v5/inAppWallet",
-								},
-								{
-									name: "React Native",
-									href: "/references/typescript/v5/inAppWallet",
-								},
-								{
-									name: "Unity",
-									href: "/unity/wallets/providers/in-app-wallet",
-								},
-							],
+							name: "Backend APIs",
+							href: `${inAppSlug}/how-to/get-in-app-wallet-details-on-server`,
 						},
 						{
 							name: "FAQs",

@@ -1,4 +1,11 @@
-import { Book, CodeIcon, ExternalLink, ZapIcon } from "lucide-react";
+import {
+	Book,
+	BookIcon,
+	CodeIcon,
+	ExternalLink,
+	Zap,
+	ZapIcon,
+} from "lucide-react";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
@@ -126,7 +133,43 @@ export const sidebar: SideBar = {
 							})) || [],
 				},
 				{
-					name: "Supported Wallets",
+					name: "In-App Wallets",
+					links: [
+						{
+							name: "Get Started",
+							href: `${slug}/in-app-wallet/get-started`,
+							icon: <ZapIcon />,
+						},
+						{
+							name: "Sponsor Transactions",
+							href: `${slug}/in-app-wallet/enable-gasless`,
+							icon: <BookIcon />,
+						},
+						{
+							name: "Build your own UI",
+							href: `${slug}/in-app-wallet/build-your-own-ui`,
+							icon: <BookIcon />,
+						},
+						{
+							name: "Export Private Key",
+							href: `${slug}/in-app-wallet/export-private-key`,
+							icon: <BookIcon />,
+						},
+						...[
+							"inAppWallet",
+							"preAuthenticate",
+							"getUserEmail",
+							"getUserPhoneNumber",
+							"hasStoredPasskey",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
+				},
+				{
+					name: "All Supported Wallets",
 					href: "/typescript/v5/supported-wallets",
 					icon: <TypeScriptIcon />,
 				},
