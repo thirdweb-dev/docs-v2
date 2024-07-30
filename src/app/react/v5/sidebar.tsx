@@ -3,6 +3,7 @@ import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
 import type { FunctionDoc } from "typedoc-better-json";
+import { TypeScriptIcon } from "../../../icons";
 
 const slug = "/react/v5";
 const docs = await fetchTypeScriptDoc("v5");
@@ -61,6 +62,11 @@ export const sidebar: SideBar = {
 								icon: <CodeIcon />,
 							})) || []),
 					],
+				},
+				{
+					name: "TS reference",
+					href: "/typeScript/v5",
+					icon: <TypeScriptIcon />,
 				},
 			],
 		},
@@ -239,35 +245,8 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "Available Extensions",
-							href: `${slug}/extensions/built-in`,
-							isCollapsible: false,
-							links: Object.entries(
-								docs.functions
-									?.filter((f) => {
-										const [tag, extensionName] = getCustomTag(f) || [];
-										return tag === "@extension" && extensionName !== "DEPLOY";
-									})
-									?.reduce(
-										(acc, f) => {
-											const [, extensionName] = getCustomTag(f) || [];
-											if (extensionName) {
-												acc[extensionName] = acc[extensionName] || [];
-												acc[extensionName]?.push(f);
-											}
-											return acc;
-										},
-										{} as Record<string, FunctionDoc[]>,
-									) || [],
-							).map(([extensionName, extensionFunctions]) => ({
-								name: extensionName,
-								links: extensionFunctions
-									.sort((a, b) => a.name.localeCompare(b.name))
-									.map((f) => ({
-										name: f.name,
-										href: `${slug}/${extensionName.toLowerCase()}/${f.name}`,
-										icon: <CodeIcon />,
-									})),
-							})),
+							href: "/typescript/v5/extensions/built-in",
+							icon: <TypeScriptIcon />,
 						},
 					],
 				},
