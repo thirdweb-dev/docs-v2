@@ -1,5 +1,6 @@
+import { CatIcon } from "lucide-react";
 import EmbedOverview from "./embed-overview.svg";
-import { Callout, DocImage, createMetadata, FeatureCard } from "@doc";
+import { Callout, DocImage, createMetadata, FeatureCard, ArticleIconCard } from "@doc";
 
 export const metadata = createMetadata({
 	image: {
@@ -18,6 +19,17 @@ In-app wallets are wallets that get spun up for users when they first come into 
 Users can login using their email address, social logins (twitter, apple, discord, etc), or any Open ID Compatible authentication service. Once they authenticate they are provisioned a wallet, which they can then use to perform onchain actions like minting NFTs and sending transactions.
 
 <DocImage src={EmbedOverview} />
+
+## Try the demo
+
+See In-App Wallets in action with our demo app:
+
+<ArticleIconCard
+	title="CatAttack"
+	icon={CatIcon}
+	description="Onchain game with In-App Wallets and Account Abstraction"
+	href="https://catattack.thirdweb.com"
+/>
 
 ## Features
 
