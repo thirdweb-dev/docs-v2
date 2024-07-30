@@ -109,13 +109,15 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 				href={link.href}
 				onClick={props.onLinkClick}
 				className={clsx(
-					"overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+					"overflow-hidden text-ellipsis py-1 text-base font-medium transition-colors duration-300 hover:text-f-100",
 					isActive ? "font-medium text-accent-500" : "text-f-300",
-					"flex flex-row gap-1",
+					"flex flex-row items-center gap-2",
 				)}
 			>
+				{(link.icon as React.ReactElement) ? (
+					<SidebarIcon icon={link.icon} />
+				) : null}
 				{link.name}
-				{(link.icon as React.ReactElement) || null}
 			</Link>
 		);
 	}
@@ -125,7 +127,7 @@ function SidebarItem(props: { link: SidebarLink; onLinkClick?: () => void }) {
 			href={link.href}
 			onClick={props.onLinkClick}
 			className={clsx(
-				"block overflow-hidden text-ellipsis py-2 text-base font-medium transition-colors duration-300 hover:text-f-100",
+				"block overflow-hidden text-ellipsis py-1 text-base font-medium transition-colors duration-300 hover:text-f-100",
 				isActive ? "font-medium text-accent-500" : "text-f-300",
 			)}
 		>
@@ -201,7 +203,7 @@ function DocSidebarCategory(props: {
 				"text-f-300 hover:text-f-100",
 			)}
 		>
-			<div className="flex gap-2 font-medium" ref={triggerRef}>
+			<div className="flex gap-2 py-1 font-medium" ref={triggerRef}>
 				{icon && <SidebarIcon icon={icon} />}
 				{name}
 			</div>
@@ -220,7 +222,7 @@ function DocSidebarCategory(props: {
 		<CustomAccordion
 			defaultOpen={defaultOpen}
 			containerClassName="border-none"
-			triggerContainerClassName="py-2 text-base"
+			triggerContainerClassName="text-base"
 			trigger={triggerEl}
 			chevronPosition="right"
 		>
@@ -293,9 +295,13 @@ function containsActiveHref(
 
 function SidebarIcon(props: { icon: StaticImport | React.ReactElement }) {
 	if (isStaticImport(props.icon)) {
-		return <Image src={props.icon} alt="" className="size-5" />;
+		return <Image src={props.icon} alt="" className="size-4" />;
 	}
-	return <div className="[&>*]:size-5">{props.icon}</div>;
+	return (
+		<div className="flex items-center justify-center [&>*]:size-4">
+			{props.icon}
+		</div>
+	);
 }
 
 function isSamePage(pathname: string, pathOrHref: string): boolean {

@@ -1,178 +1,431 @@
+import type { FunctionDoc } from "typedoc-better-json";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
-import { TypeScriptIcon, ReactIcon } from "../../../icons";
+import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
+import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
+import { Book, CodeIcon, ZapIcon } from "lucide-react";
 
 const slug = "/typescript/v5";
-const reactSlug = `${slug}/react`;
-const reactNativeSlug = `${slug}/react-native`;
+const docs = await fetchTypeScriptDoc("v5");
 
 export const sidebar: SideBar = {
-	name: "Connect",
+	name: "Connect Typescript SDK",
 	links: [
+		{
+			separator: true,
+		},
 		{
 			name: "Overview",
 			href: slug,
 		},
 		{
-			name: "Why thirdweb?",
-			href: `${slug}/why-thirdweb`,
+			name: "Getting Started",
+			href: `${slug}/getting-started`,
+			icon: <ZapIcon />,
 		},
+		{ separator: true },
 		{
-			separator: true,
-		},
-		{
-			icon: <TypeScriptIcon className="size-4" />,
 			name: "Core",
 			isCollapsible: false,
 			links: [
 				{
 					name: "Client",
-					href: `${slug}/client`,
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/client`,
+						},
+						...["createThirdwebClient"].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
 				},
 				{
-					name: "Chain",
-					href: `${slug}/chain`,
+					name: "Adapters",
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/adapters`,
+						},
+						...["viemAdapter", "ethers6Adapter", "ethers5Adapter"].map(
+							(name) => ({
+								name,
+								href: `${slug}/${name}`,
+								icon: <CodeIcon />,
+							}),
+						),
+					],
 				},
+			],
+		},
+		{ separator: true },
+		{
+			name: "Wallets",
+			isCollapsible: false,
+			links: [
 				{
-					name: "Contract",
-					href: `${slug}/contract`,
-				},
-				{
-					name: "Accounts & Wallets",
+					name: "Overview",
 					href: `${slug}/wallets`,
-				},
-				{
-					name: "Connecting wallets",
-					href: `${slug}/connecting-wallets`,
 				},
 				{
 					name: "Supported Wallets",
 					href: `${slug}/supported-wallets`,
 				},
 				{
-					name: "Transactions",
-					href: `${slug}/transactions`,
+					name: "External Wallets",
+					links: [
+						"createWallet",
+						"createWalletAdapter",
+						"privateKeyToAccount",
+						"generateAccount",
+						"injectedProvider",
+					].map((name) => ({
+						name,
+						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
+					})),
+				},
+				{
+					name: "In-App Wallets",
+					links: [
+						"inAppWallet",
+						"preAuthenticate",
+						"getUserEmail",
+						"getUserPhoneNumber",
+						"hasStoredPasskey",
+					].map((name) => ({
+						name,
+						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
+					})),
+				},
+				{
+					name: "Ecosystem Wallets",
+					links: [
+						"ecosystemWallet",
+						"preAuthenticate",
+						"getUserEmail",
+						"getUserPhoneNumber",
+						"hasStoredPasskey",
+					].map((name) => ({
+						name,
+						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
+					})),
+				},
+				{
+					name: "Account Abstraction",
+					links: [
+						"smartWallet",
+						"addAdmin",
+						"removeAdmin",
+						"addSessionKey",
+						"removeSessionKey",
+						"getAccountsOfSigner",
+						"getAllActiveSigners",
+						"getPermissionsForSigner",
+						"createUnsignedUserOp",
+						"signUserOp",
+						"bundleUserOp",
+						"waitForUserOpReceipt",
+					].map((name) => ({
+						name,
+						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
+					})),
+				},
+				{
+					name: "Auth (SIWE)",
+					href: `${slug}/auth`,
 					links: [
 						{
-							name: "Reading state",
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/auth`,
+						},
+						...(docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@auth";
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
+							})) || []),
+					],
+				},
+			],
+		},
+		{ separator: true },
+		{
+			name: "Pay",
+			isCollapsible: false,
+			links: [
+				{
+					name: "Buy with Fiat",
+					links:
+						docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@buyCrypto" && f.name.includes("Fiat");
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
+							})) || [],
+				},
+				{
+					name: "Buy with Crypto",
+					links:
+						docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@buyCrypto" && f.name.includes("Crypto");
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
+							})) || [],
+				},
+			],
+		},
+		{ separator: true },
+		{
+			name: "Blockchain API",
+			isCollapsible: false,
+			links: [
+				{
+					name: "Chains",
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/chain`,
+						},
+						...(docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@chain";
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
+							})) || []),
+					],
+				},
+				{
+					name: "Contracts",
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/contract`,
+						},
+						...[
+							"getContract",
+							"getBytecode",
+							"verifyContract",
+							"resolveContractAbi",
+							"fetchPublishedContract",
+							"resolveMethod",
+							"detectMethod",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
+				},
+				{
+					name: "Reading state",
+					links: [
+						{
+							name: "Introduction",
+							icon: <Book />,
 							href: `${slug}/transactions/read`,
 						},
+						...["readContract", "prepareEvent", "getContractEvents"].map(
+							(name) => ({
+								name,
+								href: `${slug}/${name}`,
+								icon: <CodeIcon />,
+							}),
+						),
+					],
+				},
+				{
+					name: "Preparing transactions",
+					links: [
 						{
-							name: "Preparing transactions",
+							name: "Introduction",
+							icon: <Book />,
 							href: `${slug}/transactions/prepare`,
 						},
+						...[
+							"prepareContractCall",
+							"prepareTransaction",
+							"encode",
+							"signTransaction",
+							"simulateTransaction",
+							"estimateGas",
+							"estimateGasCost",
+							"toSerializableTransaction",
+							"serializeTransaction",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
+				},
+				{
+					name: "Sending transactions",
+					links: [
 						{
-							name: "Sending transactions",
+							name: "Introduction",
+							icon: <Book />,
 							href: `${slug}/transactions/send`,
 						},
+						...[
+							"sendTransaction",
+							"sendAndConfirmTransaction",
+							"sendBatchTransaction",
+							"waitForReceipt",
+							"getTransactionStore",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
 					],
+				},
+				{
+					name: "Deploying contracts",
+					links:
+						docs.functions
+							?.filter((f) => {
+								const [tag, extensionName] = getCustomTag(f) || [];
+								return tag === "@extension" && extensionName === "DEPLOY";
+							})
+							.sort((a, b) => a.name.localeCompare(b.name))
+							.map((f) => ({
+								name: f.name,
+								href: `${slug}/deploy/${f.name}`,
+								icon: <CodeIcon />,
+							})) || [],
 				},
 				{
 					name: "Extensions",
-					href: `${slug}/extensions`,
 					links: [
 						{
-							name: "Built-in extensions",
-							href: `${slug}/extensions/built-in`,
-						},
-						{
-							name: "Using extensions",
+							name: "Using Extensions",
 							href: `${slug}/extensions/use`,
+							icon: <Book />,
 						},
 						{
-							name: "Generating extensions",
+							name: "Generating Extensions",
 							href: `${slug}/extensions/generate`,
+							icon: <Book />,
 						},
 						{
-							name: "Writing extensions",
+							name: "Writing Extensions",
 							href: `${slug}/extensions/create`,
+							icon: <Book />,
+						},
+						{
+							name: "Available Extensions",
+							href: `${slug}/extensions/built-in`,
+							isCollapsible: false,
+							links: Object.entries(
+								docs.functions
+									?.filter((f) => {
+										const [tag, extensionName] = getCustomTag(f) || [];
+										return tag === "@extension" && extensionName !== "DEPLOY";
+									})
+									?.reduce(
+										(acc, f) => {
+											const [, extensionName] = getCustomTag(f) || [];
+											if (extensionName) {
+												acc[extensionName] = acc[extensionName] || [];
+												acc[extensionName]?.push(f);
+											}
+											return acc;
+										},
+										{} as Record<string, FunctionDoc[]>,
+									) || [],
+							).map(([extensionName, extensionFunctions]) => ({
+								name: extensionName,
+								links: extensionFunctions
+									.sort((a, b) => a.name.localeCompare(b.name))
+									.map((f) => ({
+										name: f.name,
+										href: `${slug}/${extensionName.toLowerCase()}/${f.name}`,
+										icon: <CodeIcon />,
+									})),
+							})),
 						},
 					],
 				},
 				{
-					name: "Adapters",
-					href: `${slug}/adapters`,
+					name: "RPC",
+					links:
+						docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@rpc";
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
+							})) || [],
 				},
 				{
 					name: "Storage",
-					href: `${slug}/storage`,
-				},
-				{
-					name: "Auth",
-					href: `${slug}/auth`,
-				},
-				{
-					separator: true,
-				},
-			],
-		},
-		{
-			icon: <ReactIcon className="size-4" />,
-			name: "React",
-			isCollapsible: false,
-			links: [
-				{
-					name: "Overview",
-					href: reactSlug,
-				},
-				{
-					name: "Getting Started",
-					href: `${reactSlug}/getting-started`,
-				},
-				{
-					name: "ThirdwebProvider",
-					href: `${reactSlug}/ThirdwebProvider`,
-				},
-				{
-					name: "Connecting Wallets",
-					href: `${reactSlug}/connecting-wallets`,
 					links: [
 						{
-							name: "UI Components",
-							href: `${reactSlug}/connecting-wallets/ui-components`,
+							name: "Introduction",
+							icon: <Book />,
+							href: `${slug}/storage`,
 						},
-						{
-							name: "Hooks",
-							href: `${reactSlug}/connecting-wallets/hooks`,
-						},
+						...(docs.functions
+							?.filter((f) => {
+								const [tag] = getCustomTag(f) || [];
+								return tag === "@storage";
+							})
+							?.map((f) => ({
+								name: f.name,
+								href: `${slug}/${f.name}`,
+								icon: <CodeIcon />,
+							})) || []),
 					],
 				},
 				{
-					name: "UI Components",
-					href: `${reactSlug}/components`,
+					name: "Utils",
 					links: [
-						{
-							name: "ConnectButton",
-							href: `${reactSlug}/components/ConnectButton`,
-						},
-						{
-							name: "ConnectEmbed",
-							href: `${reactSlug}/components/ConnectEmbed`,
-						},
-						{
-							name: "AutoConnect",
-							href: `${reactSlug}/components/AutoConnect`,
-						},
-						{
-							name: "TransactionButton",
-							href: `${reactSlug}/components/TransactionButton`,
-						},
-						{
-							name: "MediaRenderer",
-							href: `${reactSlug}/components/MediaRenderer`,
-						},
-					],
-				},
-				{
-					name: "Transactions",
-					href: `${reactSlug}/transactions`,
-				},
-				{
-					name: "Extensions",
-					href: `${reactSlug}/extensions`,
-				},
-				{
-					name: "Hooks",
-					href: "/references/typescript/v5/hooks",
+						"toEther",
+						"toTokens",
+						"toWei",
+						"toUnits",
+						"shortenAddress",
+						"shortenHex",
+						"encodeAbiParameters",
+						"encodePacked",
+						"sha256",
+						"keccak256",
+						"keccakId",
+					].map((name) => ({
+						name,
+						href: `${slug}/${name}`,
+						icon: <CodeIcon />,
+					})),
 				},
 			],
 		},
@@ -180,33 +433,8 @@ export const sidebar: SideBar = {
 			separator: true,
 		},
 		{
-			icon: <ReactIcon className="size-4" />,
-			name: "React Native",
-			isCollapsible: false,
-			links: [
-				{
-					name: "Overview",
-					href: reactNativeSlug,
-				},
-				{
-					name: "Getting started",
-					href: `${reactNativeSlug}/installation`,
-				},
-				{
-					name: "Differences from React",
-					href: `${reactNativeSlug}/differences`,
-				},
-			],
-		},
-		{
-			separator: true,
-		},
-		{
-			name: "Migration guide",
+			name: "Migrate from v4",
 			href: `${slug}/migrate`,
-		},
-		{
-			separator: true,
 		},
 		{
 			name: "Full Reference",

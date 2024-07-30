@@ -22,24 +22,28 @@ import { CustomAccordion } from "../components/others/CustomAccordion";
 
 const links = [
 	{
-		name: "Connect",
-		href: "/connect",
+		name: "Engine",
+		href: "/engine",
 	},
 	{
 		name: "Contracts",
 		href: "/contracts",
 	},
-	{
-		name: "Engine",
-		href: "/engine",
-	},
-	{
-		name: "Pay",
-		href: "/connect/pay/overview",
-	},
 ];
 
 const toolLinks = [
+	{
+		name: "Chain List",
+		href: "https://thirdweb.com/chainlist",
+	},
+	{
+		name: "Wei Converter",
+		href: "https://thirdweb.com/tools/wei-converter",
+	},
+	{
+		name: "Hex Converter",
+		href: "https://thirdweb.com/tools/hex-converter",
+	},
 	{
 		name: "Account",
 		href: "/account",
@@ -54,7 +58,12 @@ const toolLinks = [
 	},
 ];
 
-const sdkLinks = [
+export const connectLinks = [
+	{
+		name: "Overview",
+		href: "/connect",
+		icon: "/icons/navbar/nav-icon-dashboard.svg",
+	},
 	{
 		name: "TypeScript",
 		href: "/typescript/v5",
@@ -62,24 +71,14 @@ const sdkLinks = [
 	},
 	{
 		name: "React",
-		href: "/typescript/v5/react",
+		href: "/react/v5",
 		icon: "/icons/navbar/nav-icon-react.svg",
 	},
 	{
 		name: "React Native",
-		href: "/typescript/v5/react-native",
+		href: "/react-native/v5",
 		icon: "/icons/navbar/nav-icon-react.svg",
 		// icon: "/icons/navbar/nav-icon-react-native.svg",
-	},
-	{
-		name: "Unity",
-		href: "/unity",
-		icon: "/icons/navbar/nav-icon-unity.svg",
-	},
-	{
-		name: "Solidity",
-		href: "/contracts/build/overview",
-		icon: "/icons/navbar/nav-icon-solidity.svg",
 	},
 	{
 		name: ".NET",
@@ -87,11 +86,16 @@ const sdkLinks = [
 		icon: "/icons/navbar/nav-icon-dotnet.svg",
 	},
 	{
+		name: "Unity",
+		href: "/unity",
+		icon: "/icons/navbar/nav-icon-unity.svg",
+	},
+	{
 		name: "Unreal",
 		href: "/unreal",
 		icon: "/icons/navbar/nav-icon-unreal.svg",
-	}
-];
+	},
+] as const;
 
 const supportLinks = [
 	{
@@ -158,6 +162,12 @@ export function Header() {
 					)}
 				>
 					<ul className="flex flex-col gap-5 xl:flex-row xl:items-center">
+						<DropdownLinks
+							links={connectLinks}
+							onLinkClick={() => setShowBurgerMenu(false)}
+							category="Connect"
+						/>
+
 						{links.map((link) => {
 							return (
 								<li
@@ -176,12 +186,6 @@ export function Header() {
 							links={toolLinks}
 							onLinkClick={() => setShowBurgerMenu(false)}
 							category="Tools"
-						/>
-
-						<DropdownLinks
-							links={sdkLinks}
-							onLinkClick={() => setShowBurgerMenu(false)}
-							category="SDKs"
 						/>
 					</ul>
 
@@ -227,7 +231,7 @@ export function Header() {
 function DropdownLinks(props: {
 	onLinkClick?: () => void;
 	category: string;
-	links: Array<{ name: string; href: string; icon?: string }>;
+	links: readonly { name: string; href: string; icon?: string }[];
 }) {
 	return (
 		<>

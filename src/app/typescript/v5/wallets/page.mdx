@@ -12,7 +12,7 @@ export const metadata = createMetadata({
 
 # Accounts & Wallets
 
-We have decided to distinguish between "accounts" and "wallets" in the thirdweb SDK. We believe this ultimately provides a more predictable and flexible API for developers.
+We distinguish between "accounts" and "wallets" in the thirdweb SDK. We believe this ultimately provides a more predictable and flexible API for developers.
 
 ## What is an Account?
 
@@ -27,6 +27,18 @@ See also: [Account (ethereum.org)](https://ethereum.org/en/glossary/#account)
 - A wallet "contains" one or more accounts.
 - A wallet can be "connected" (often prompting the user for approval) or "disconnected".
 - A wallet cannot independently sign messages, transactions, or typed data, instead, it delegates this to the account(s) it "contains".
+
+
+<Stack>
+
+<ArticleIconCard
+	title="Supported Wallets"
+	icon={ComponentIcon}
+	href="/typescript/v5/supported-wallets"
+	description="See all 350+ wallets supported by the Connect SDK"
+/>
+
+</Stack>
 
 ## Example: Connect a wallet and access an account to send a transaction.
 
@@ -55,13 +67,3 @@ const { transactionHash } = await sendTransaction({
 });
 ```
 
-<Stack>
-
-<ArticleIconCard
-	title="Supported Wallets"
-	icon={ComponentIcon}
-	href="/typescript/v5/supported-wallets"
-	description="See all 350+ wallets supported by the Connect SDK"
-/>
-
-</Stack>

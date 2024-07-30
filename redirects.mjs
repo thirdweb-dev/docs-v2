@@ -652,6 +652,13 @@ const otherRedirects = {
 	"/connect/connect": "/connect/sign-in",
 };
 
+const v5RestructuredRedirects = {
+	"/typescript/v5/react": "/react/v5",
+	"/typescript/v5/react/:path*": "/react/v5/:path*",
+	"/typescript/v5/react-native": "/react-native/v5",
+	"/typescript/v5/react-native/:path*": "/react-native/v5/:path*",
+};
+
 /**
  * @type {import('next').NextConfig['redirects']}
  */
@@ -668,6 +675,7 @@ export const redirects = async () => {
 		...createRedirects(infrastructureRedirects),
 		...createRedirects(contractRedirects),
 		...createRedirects(otherRedirects),
+		...createRedirects(v5RestructuredRedirects),
 		// references docs
 		latestReference("react", "v4"),
 		latestReference("react-native", "v0"),

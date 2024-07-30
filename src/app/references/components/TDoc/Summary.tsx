@@ -1,4 +1,4 @@
-import { FunctionSignature } from "typedoc-better-json";
+import type { FunctionSignature } from "typedoc-better-json";
 import { CodeBlock, InlineCode } from "../../../../components/Document/Code";
 import { Paragraph } from "../../../../components/Document/Paragraph";
 import { DocLink } from "../../../../components/Document/DocLink";
@@ -10,6 +10,7 @@ import { Heading } from "../../../../components/Document/Heading";
 
 export function TypedocSummary(props: {
 	summary: NonNullable<FunctionSignature["summary"]>;
+	className?: string;
 }) {
 	return (
 		<>
@@ -37,7 +38,7 @@ export function TypedocSummary(props: {
 
 					case "paragraph": {
 						return (
-							<Paragraph>
+							<Paragraph className={props.className}>
 								<TypedocSummary summary={s.children} />
 							</Paragraph>
 						);
@@ -66,7 +67,7 @@ export function TypedocSummary(props: {
 					case "listItem": {
 						return (
 							<li>
-								<TypedocSummary summary={s.children} />
+								<TypedocSummary summary={s.children} className="mb-0" />
 							</li>
 						);
 					}

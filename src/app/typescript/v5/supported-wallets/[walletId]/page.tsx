@@ -156,18 +156,12 @@ export default async function Page(props: PageProps) {
 				<TabsContent value="tab-3">
 					<Paragraph>
 						You can add this wallet in the{" "}
-						<DocLink
-							href="/typescript/v5/react/components/ConnectButton"
-							target="_blank"
-						>
+						<DocLink href="/react/v5/ConnectButton" target="_blank">
 							{" "}
 							ConnectButton{" "}
 						</DocLink>{" "}
 						or
-						<DocLink
-							href="/typescript/v5/react/components/ConnectEmbed"
-							target="_blank"
-						>
+						<DocLink href="/react/v5/ConnectEmbed" target="_blank">
 							{" "}
 							ConnectEmbed{" "}
 						</DocLink>{" "}

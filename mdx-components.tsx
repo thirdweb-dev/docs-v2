@@ -77,7 +77,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 			return <Paragraph>{props.children}</Paragraph>;
 		},
 		ul(props) {
-			return <UnorderedList> {props.children}</UnorderedList>;
+			return <UnorderedList>{props.children}</UnorderedList>;
 		},
 		ol(props) {
 			return <OrderedList>{props.children}</OrderedList>;

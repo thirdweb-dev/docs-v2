@@ -20,7 +20,6 @@ import {
 	ReactIcon,
 	UnityIcon,
 	DotNetIcon,
-	SolidityIcon,
 	ContractModularContractIcon,
 	ContractExploreIcon,
 	ContractInteractIcon,
@@ -34,6 +33,7 @@ import {
 	PayIcon,
 	EcosystemWalletsIcon,
 } from "@/icons";
+import { UnrealIcon } from "../icons/sdks/UnrealIcon";
 // import { LandingPageCTAs } from "./landing-page/CTAs";
 
 export default function Page() {
@@ -41,7 +41,6 @@ export default function Page() {
 		<main className="container grow pb-20">
 			<Hero />
 			{/* <TutorialsSection /> */}
-			<SDKSection />
 			<WalletsSection />
 			<EngineSection />
 			<ContractsSection />
@@ -58,9 +57,9 @@ function Hero() {
 					<h1 className="mb-5 text-4xl font-bold tracking-tight md:text-5xl">
 						thirdweb Documentation
 					</h1>
-					<p className="mb-8 max-w-md text-lg font-medium leading-7 text-f-300 md:text-xl">
-						Everything you need to connect your apps and games to decentralized
-						networks.
+					<p className="mb-8 max-w-md text-lg font-medium leading-relaxed text-f-300 md:text-xl">
+						Frontend, backend, and onchain tools to build complete web3 apps —
+						on every EVM chain.
 					</p>
 					{/* <LandingPageCTAs /> */}
 				</div>
@@ -224,6 +223,25 @@ function WalletsSection() {
 	return (
 		<section className="my-12">
 			<SectionTitle id="connect" title="Connect" />
+			<div className="mb-6 border-b" />
+			<SectionTitle id="connect-quickstart" title="Get Started" level={5} />
+			<Grid>
+				<SDKCardIndex
+					href="/typescript/v5"
+					title="TypeScript"
+					icon={TypeScriptIcon}
+				/>
+				<SDKCardIndex href="/react/v5" title="React" icon={ReactIcon} />
+				<SDKCardIndex
+					href="/react-native/v5"
+					title="React Native"
+					icon={ReactIcon}
+				/>
+				<SDKCardIndex href="/dotnet" title=".NET" icon={DotNetIcon} />
+				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
+				<SDKCardIndex href="/unreal" title="Unreal" icon={UnrealIcon} />
+			</Grid>
+			<SectionTitle id="connect-learn" title="Learn" level={5} />
 
 			<Grid>
 				<ArticleCardIndex
@@ -277,7 +295,7 @@ function ContractsSection() {
 	return (
 		<section className="my-12">
 			<SectionTitle id="contracts" title="Contracts" />
-
+			<div className="mb-6 border-b" />
 			<Grid>
 				<ArticleCardIndex
 					title="Deploy"
@@ -318,7 +336,7 @@ function EngineSection() {
 	return (
 		<section className="my-12">
 			<SectionTitle id="engine" title="Engine" />
-
+			<div className="mb-6 border-b" />
 			<Grid>
 				<ArticleCardIndex
 					href="/engine"
@@ -331,42 +349,13 @@ function EngineSection() {
 	);
 }
 
-function SDKSection() {
+function SectionTitle(props: {
+	title: string;
+	id: string;
+	level?: number;
+}) {
 	return (
-		<section className="my-12">
-			<SectionTitle id="sdk" title="Get Started" />
-
-			<Grid>
-				<SDKCardIndex
-					href="/typescript/v5"
-					title="TypeScript"
-					icon={TypeScriptIcon}
-				/>
-				<SDKCardIndex
-					href="/typescript/v5/react"
-					title="React"
-					icon={ReactIcon}
-				/>
-				<SDKCardIndex
-					href="/typescript/v5/react-native"
-					title="React Native"
-					icon={ReactIcon}
-				/>
-				<SDKCardIndex href="/unity" title="Unity" icon={UnityIcon} />
-				<SDKCardIndex
-					href="/contracts/build/overview"
-					title="Solidity"
-					icon={SolidityIcon}
-				/>
-				<SDKCardIndex href="/dotnet" title=".NET" icon={DotNetIcon} />
-			</Grid>
-		</section>
-	);
-}
-
-function SectionTitle(props: { title: string; id: string }) {
-	return (
-		<Heading id={props.id} level={2} anchorClassName="mb-4 mt-0">
+		<Heading id={props.id} level={props.level || 2} anchorClassName="mb-4 mt-0">
 			{props.title}
 		</Heading>
 	);
