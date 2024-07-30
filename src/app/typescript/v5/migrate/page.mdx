@@ -152,7 +152,7 @@ const onClick = async () => {
 
 | Task                 | `@thirdweb-dev/react`                                 | `thirdweb`                                          |
 | ---------------------| ----------------------------------------------------- | --------------------------------------------------- |
-| Provider             | `import { ThirdwebProvider} from @thirdweb-dev/react` | [`import { ThirdwebProvider } from "thirdweb/react"`](/typescript/v5/react/ThirdwebProvider) |
+| Provider             | `import { ThirdwebProvider} from @thirdweb-dev/react` | [`import { ThirdwebProvider } from "thirdweb/react"`](/react/v5/ThirdwebProvider) |
 | Contract             | `useContract(...)`                                    | [`getContract(...) // not a hook`](/references/typescript/v5/getContract)                    |
 | Address              | `useAddress(...)`                                     | [`useActiveAccount(...) // account?.address`](/references/typescript/v5/useActiveAccount)         |
 | Read                 | `useContractRead(...)`                                | [`useReadContract(...)`](/references/typescript/v5/useReadContract)                              |
@@ -160,8 +160,8 @@ const onClick = async () => {
 | Extensions           | `useNFTs(...)`                                        | [`useReadContract(getNFTs, { ... })`](/references/typescript/v5/useReadContract)                |
 | Get Signer           | `useSigner()`                                         | [`useActiveAccount()`](/references/typescript/v5/useActiveAccount)                                |
 | Get Wallet           | `useWallet()`                                         | [`useActiveWallet()`](/references/typescript/v5/useActiveWallet)                                 |
-| Button               | `Web3Button`                                          | [`TransactionButton`](/typescript/v5/react/components/TransactionButton)                                 |
-| Connect              | `ConnectWallet`                                       | [`ConnectButton`](/typescript/v5/react/components/ConnectButton)                                     |
+| Button               | `Web3Button`                                          | [`TransactionButton`](/react/v5/TransactionButton)                                 |
+| Connect              | `ConnectWallet`                                       | [`ConnectButton`](/react/v5/ConnectButton)                                     |
 | Connection Status    | `useConnectionStatus()`                               | [`useActiveWalletConnectionStatus()`](/references/typescript/v5/useActiveWalletConnectionStatus)                 |
 | Switch Chain         | `useSwitchChain()`                                    | [`useSwitchActiveWalletChain()`](/references/typescript/v5/useSwitchActiveWalletChain)                      |
 | Get Connected Chain  | `useChain()`                                          | [`useSwitchActiveWalletChain()`](/references/typescript/v5/useSwitchActiveWalletChain)                  |
