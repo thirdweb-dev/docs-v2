@@ -142,8 +142,8 @@ const personalAccount = await personalWallet.connect({
 });
 // Then, create and connect the Smart wallet
 const wallet = smartWallet({
+	client,
 	chain: sepolia, // the chain where your smart wallet will be or is deployed
-	clientId: "YOUR_CLIENT_ID", // or use secretKey for backend/node scripts
 	sponsorGas: true, // enable or disable sponsored transactions
 });
 const smartAccount = await wallet.connect({

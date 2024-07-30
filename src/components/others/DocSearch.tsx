@@ -20,7 +20,7 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { DynamicHeight } from "./DynamicHeight";
-import { SearchResult } from "@/app/api/search/types";
+import type { SearchResult } from "@/app/api/search/types";
 import { Spinner } from "../ui/Spinner/Spinner";
 import { usePathname } from "next/navigation";
 
@@ -463,6 +463,8 @@ function getTagsFromHref(href: string): Tag[] | undefined {
 			return ["Reference", "TypeScript"];
 		}
 		return ["TypeScript"];
+	} else if (href.includes("/react/v5")) {
+		return ["React"];
 	} else if (href.includes("/connect")) {
 		return ["Connect"];
 	} else if (href.includes("/engine")) {

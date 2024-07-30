@@ -46,7 +46,7 @@ export const sidebar: SideBar = {
 					name: "Themes",
 					links: [
 						{
-							name: "Theme Values",
+							name: "Theme Props",
 							href: `${slug}/Theme`,
 							icon: <CodeIcon />,
 						},
