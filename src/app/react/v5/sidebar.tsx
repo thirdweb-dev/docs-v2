@@ -1,11 +1,4 @@
-import {
-	Book,
-	BookIcon,
-	CodeIcon,
-	ExternalLink,
-	Zap,
-	ZapIcon,
-} from "lucide-react";
+import { Book, BookIcon, CodeIcon, ExternalLink, ZapIcon } from "lucide-react";
 import type { SideBar } from "../../../components/Layouts/DocLayout";
 import { fetchTypeScriptDoc } from "../../references/components/TDoc/fetchDocs/fetchTypeScriptDoc";
 import { getCustomTag } from "../../references/components/TDoc/utils/getSidebarLinkgroups";
