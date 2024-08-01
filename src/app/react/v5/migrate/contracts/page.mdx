@@ -1,0 +1,82 @@
+[Migrate from React v4](/react/v5/migrate)
+
+# Interacting with contracts
+
+With SDK v4, you always have to "load" a contract with `useContract`. This process adds complexity to your app and inpacts its performance.  
+In the latest version, a smart contract (type: [`ThirdwebContract`](/references/typescript/v5/ThirdwebContract)) represents a simple object containing info about the contract address, the chain it was deployed on, and the thirdweb client object.
+
+Example for declaring a smart contract on Ethereum mainnet
+```tsx
+import { getContract, createThirdwebClient } from "thirdweb";
+import { ethereum } from "thirdweb/chains";
+
+const client = createThirdwebClient({
+  clientId: process.env.NEXT_PUBLIC_TW_CLIENT_ID,
+});
+
+const contract = getContract({
+  address: "0x....",
+  chain: ethereum,
+  client,
+});
+```
+
+## Contract extensions
+
+This is a new terminology that we introduced in the new SDK. Basically, each extension represents a method of a contract, be it a "write" or a "read" method.
+
+An extension is a function that returns a [`PreparedTransaction`](/references/typescript/v5/PreparedTransaction) which in turn can be executed in a React hook for interacting with the contract. We will talk more about it in the section below.
+
+One of the amazing updates that v5 brings is the rich set of prebuilt extensions. They are the contract methods that have been precompile to ensure a typesafe & performant developer experience.
+
+Check out the list of over 100 prebuilt extensions [here](/typescript/v5/extensions/built-in), ranging from ERC20, ERC721, ERC1155 to top popular DeFi protocols like Uniswap, Farcaster & Lens.
+
+Example: Import an ERC1155 "read" extension, for checking the balance of a wallet
+```tsx
+import { balanceOf } from "thirdweb/extension/erc1155";
+
+const transaction = balanceOf({
+  contract,
+  owner: "0x...",
+  tokenId: 0n,
+});
+```
+
+## Reading states of a contract
+Given the task of calling `balanceOf` from an ERC1155 contract, we'll be comparing the code between v4 and v5
+
+#### SDK v4
+```tsx
+import { useNFTBalance, useContract } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { isLoading, data, error } = useNFTBalance(
+    contract,
+    "{{wallet_address}}",
+    "{{token_id}}",
+  );
+}
+
+```
+
+#### SDK v5
+```tsx
+import { getContract, createThirdwebClient } from "thirdweb";
+import { balanceOf } from "thirdweb/extensions/erc1155";
+import { ethereum } from "thirdweb/chains";
+import { client } from "@lib/client";
+
+const contract = getContract({
+  address: "0x....",
+  chain: ethereum,
+  client,
+});
+
+function App() {
+  const { data } = useReadContract(balanceOf, { contract, owner: "0x...", tokenId: 0n });
+}
+```
+
+As you can see from the example above, we introduced the hook [`useReadContract`](/references/typescript/v5/useReadContract) in v5. You should use it to perform any contract "read".
+It is the perfect replacement for the old chunky React hooks from v4. 

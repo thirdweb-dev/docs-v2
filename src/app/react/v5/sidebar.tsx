@@ -296,6 +296,24 @@ export const sidebar: SideBar = {
 		{
 			name: "Migrate from v4",
 			href: `${slug}/migrate`,
+			links: [
+				{
+					name: "Installation",
+					href: `${slug}/migrate/installation`,
+				},
+				{
+					name: "Interacting with contracts",
+					href: `${slug}/migrate/contracts`,
+				},
+				{
+					name: "Using v5 with ethers",
+					href: `${slug}/migrate/usage-v5-with-ethers`,
+				},
+				{
+					name: "Cheatsheet",
+					href: `${slug}/migrate/cheatsheet`,
+				},
+			],
 		},
 		{
 			name: "Migrate from RainbowKit",
