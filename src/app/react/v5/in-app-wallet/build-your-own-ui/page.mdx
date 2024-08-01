@@ -115,8 +115,8 @@ const handleLogin = async (phonNumber: string, verificationCode: string) => {
 		const wallet = inAppWallet();
 		await wallet.connect({
 			client,
-			strategy: "email",
-			email,
+			strategy: "phone",
+			phonNumber,
 			verificationCode,
 		});
 		return wallet;
