@@ -162,6 +162,36 @@ export const sidebar: SideBar = {
 					],
 				},
 				{
+					name: "Account Abstraction",
+					links: [
+						{
+							name: "Get Started",
+							href: `${slug}/account-abstraction/get-started`,
+							icon: <Book />,
+						},
+						{
+							name: "Build your own UI",
+							href: `${slug}/account-abstraction/build-your-own-ui`,
+							icon: <Book />,
+						},
+						{
+							name: "Admins & Session Keys",
+							href: `${slug}/account-abstraction/permissions`,
+							icon: <Book />,
+						},
+						{
+							name: "Batching Transactions",
+							href: `${slug}/account-abstraction/batching-transactions`,
+							icon: <Book />,
+						},
+						{
+							name: "Core API",
+							href: "/typescript/v5/smartWallet",
+							icon: <TypeScriptIcon />,
+						},
+					],
+				},
+				{
 					name: "All Supported Wallets",
 					href: "/typescript/v5/supported-wallets",
 					icon: <TypeScriptIcon />,
