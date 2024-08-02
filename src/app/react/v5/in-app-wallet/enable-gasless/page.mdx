@@ -32,10 +32,11 @@ To enable account abstraction in your app, you need to add the `smartAccount` pr
 ```jsx
 import { ConnectButton } from "thirdweb/react";
 import { inAppWallet } from "thirdweb/wallets";
+import { sepolia } from "thirdweb/chains";
 
 const wallets = [inAppWallet({
 	smartAccount: {
-		chain: "sepolia",
+		chain: sepolia,
 		sponsorGas: true,
 	},
 })];
