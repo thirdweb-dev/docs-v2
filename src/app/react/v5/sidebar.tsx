@@ -305,10 +305,10 @@ export const sidebar: SideBar = {
 					name: "Interacting with contracts",
 					href: `${slug}/migrate/contracts`,
 				},
-				// {
-				// 	name: "Using v5 with ethers",
-				// 	href: `${slug}/migrate/use-v5-with-ethers`,
-				// },
+				{
+					name: "ethers.js Adapter",
+					href: `${slug}/migrate/ethers-adapter`,
+				},
 				{
 					name: "Cheatsheet",
 					href: `${slug}/migrate/cheatsheet`,
