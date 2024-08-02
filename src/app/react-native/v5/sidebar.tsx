@@ -110,6 +110,26 @@ export const sidebar: SideBar = {
 							})) || [],
 				},
 				{
+					name: "In-App Wallets",
+					links: [
+						{
+							name: "React API",
+							href: "/react/v5/in-app-wallet/get-started",
+							icon: <ReactIcon />,
+						},
+					],
+				},
+				{
+					name: "Account Abstraction",
+					links: [
+						{
+							name: "React API",
+							href: "/react/v5/account-abstraction/get-started",
+							icon: <ReactIcon />,
+						},
+					],
+				},
+				{
 					name: "Supported Wallets",
 					href: "/typescript/v5/supported-wallets",
 					icon: <TypeScriptIcon />,

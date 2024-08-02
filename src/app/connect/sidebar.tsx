@@ -191,7 +191,7 @@ export const sidebar: SideBar = {
 								{
 									name: "React Native",
 									// TODO - add react-native dedicated page
-									href: "/react/v5",
+									href: "/react/v5/in-app-wallet/get-started",
 									icon: <ReactIcon />,
 								},
 								{
@@ -293,15 +293,34 @@ export const sidebar: SideBar = {
 						},
 						{
 							name: "Get Started",
-							href: `${aAslug}/get-started`,
-						},
-						{
-							name: "Permissions & Session Keys",
-							href: `${aAslug}/permissions`,
-						},
-						{
-							name: "Batching Transactions",
-							href: `${aAslug}/batching-transactions`,
+							links: [
+								{
+									name: "TypeScript",
+									href: "/typescript/v5/account-abstraction/get-started",
+									icon: <TypeScriptIcon />,
+								},
+								{
+									name: "React",
+									href: "/react/v5/account-abstraction/get-started",
+									icon: <ReactIcon />,
+								},
+								{
+									name: "React Native",
+									// TODO - add react-native dedicated page
+									href: "/react/v5/account-abstraction/get-started",
+									icon: <ReactIcon />,
+								},
+								{
+									name: "Dotnet",
+									href: "/dotnet/wallets/providers/account-abstraction",
+									icon: <DotNetIcon />,
+								},
+								{
+									name: "Unity",
+									href: "/unity/wallets/providers/account-abstraction",
+									icon: <UnityIcon />,
+								},
+							],
 						},
 						{
 							name: "Account Factories",
@@ -316,24 +335,8 @@ export const sidebar: SideBar = {
 							href: `${aAslug}/sponsorship-rules`,
 						},
 						{
-							name: "Guides",
-							isCollapsible: true,
-							expanded: true,
-							links: [
-								{
-									name: "Usage in React",
-									href: `${aAslug}/guides/react`,
-								},
-								{
-									name: "Usage in Typescript",
-									href: `${aAslug}/guides/typescript`,
-								},
-							],
-						},
-						{
 							name: "Gasless",
 							isCollapsible: true,
-							expanded: true,
 							links: [
 								{
 									name: "Engine",

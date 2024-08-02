@@ -119,6 +119,21 @@ export const sidebar: SideBar = {
 				{
 					name: "Account Abstraction",
 					links: [
+						{
+							name: "Getting Started",
+							href: `${slug}/account-abstraction/get-started`,
+							icon: <Book />,
+						},
+						{
+							name: "Admins & Session Keys",
+							href: `${slug}/account-abstraction/permissions`,
+							icon: <Book />,
+						},
+						{
+							name: "Batching Transactions",
+							href: `${slug}/account-abstraction/batching-transactions`,
+							icon: <Book />,
+						},
 						...[
 							"smartWallet",
 							"signUserOp",
@@ -129,7 +144,6 @@ export const sidebar: SideBar = {
 							href: `${slug}/${name}`,
 							icon: <CodeIcon />,
 						})),
-						{ separator: true },
 						...[
 							"addAdmin",
 							"removeAdmin",
