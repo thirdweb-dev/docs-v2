@@ -119,23 +119,46 @@ export const sidebar: SideBar = {
 				{
 					name: "Account Abstraction",
 					links: [
-						"smartWallet",
-						"addAdmin",
-						"removeAdmin",
-						"addSessionKey",
-						"removeSessionKey",
-						"getAccountsOfSigner",
-						"getAllActiveSigners",
-						"getPermissionsForSigner",
-						"createUnsignedUserOp",
-						"signUserOp",
-						"bundleUserOp",
-						"waitForUserOpReceipt",
-					].map((name) => ({
-						name,
-						href: `${slug}/${name}`,
-						icon: <CodeIcon />,
-					})),
+						{
+							name: "Getting Started",
+							href: `${slug}/account-abstraction/get-started`,
+							icon: <Book />,
+						},
+						{
+							name: "Admins & Session Keys",
+							href: `${slug}/account-abstraction/permissions`,
+							icon: <Book />,
+						},
+						{
+							name: "Batching Transactions",
+							href: `${slug}/account-abstraction/batching-transactions`,
+							icon: <Book />,
+						},
+						...[
+							"smartWallet",
+							"signUserOp",
+							"bundleUserOp",
+							"waitForUserOpReceipt",
+						].map((name) => ({
+							name,
+							href: `${slug}/${name}`,
+							icon: <CodeIcon />,
+						})),
+						...[
+							"addAdmin",
+							"removeAdmin",
+							"addSessionKey",
+							"removeSessionKey",
+							"getAccountsOfSigner",
+							"getAllActiveSigners",
+							"getPermissionsForSigner",
+							"createUnsignedUserOp",
+						].map((name) => ({
+							name,
+							href: `${slug}/erc4337/${name}`,
+							icon: <CodeIcon />,
+						})),
+					],
 				},
 				{
 					name: "Auth (SIWE)",
