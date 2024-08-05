@@ -1,3 +1,6 @@
+> [!NOTE]  
+> This code base has moved and is now read only. You can find the active version [here](https://github.com/thirdweb-dev/js/tree/main/apps/portal).
+
 # thirdweb docs
 
 This Repository contains the source code for thirdweb Docs Website. This website is built using [Next.js 13](https://nextjs.org/docs) ( App Router)
